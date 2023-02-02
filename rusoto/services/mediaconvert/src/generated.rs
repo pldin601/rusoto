@@ -1365,12 +1365,12 @@ pub struct DescribeEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEndpointsResponse {
     /// <p>List of endpoints</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<Vec<Endpoint>>,
     /// <p>Use this string to request the next batch of endpoints.</p>
-    #[serde(rename = "NextToken")]
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "nextToken")]
+    #[serde(skip_serializing_if = "Option::is_none", default)]
     pub next_token: Option<String>,
 }
 
@@ -1783,7 +1783,7 @@ pub struct EmbeddedSourceSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Endpoint {
     /// <p>URL of endpoint</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
