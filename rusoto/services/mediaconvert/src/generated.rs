@@ -115,7 +115,7 @@ pub struct Ac3Settings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccelerationSettings {
     /// <p>Specify the conditions when the service will run your job with accelerated transcoding.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     pub mode: String,
 }
 
@@ -363,15 +363,15 @@ pub struct AudioSelectorGroup {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AutomatedAbrSettings {
     /// <p>Optional. The maximum target bit rate used in your automated ABR stack. Use this value to set an upper limit on the bandwidth consumed by the highest-quality rendition. This is the rendition that is delivered to viewers with the fastest internet connections. If you don&#39;t specify a value, MediaConvert uses 8,000,000 (8 mb/s) by default.</p>
-    #[serde(rename = "MaxAbrBitrate")]
+    #[serde(rename = "maxAbrBitrate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_abr_bitrate: Option<i64>,
     /// <p>Optional. The maximum number of renditions that MediaConvert will create in your automated ABR stack. The number of renditions is determined automatically, based on analysis of each job, but will never exceed this limit. When you set this to Auto in the console, which is equivalent to excluding it from your JSON job specification, MediaConvert defaults to a limit of 15.</p>
-    #[serde(rename = "MaxRenditions")]
+    #[serde(rename = "maxRenditions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_renditions: Option<i64>,
     /// <p>Optional. The minimum target bitrate used in your automated ABR stack. Use this value to set a lower limit on the bitrate of video delivered to viewers with slow internet connections. If you don&#39;t specify a value, MediaConvert uses 600,000 (600 kb/s) by default.</p>
-    #[serde(rename = "MinAbrBitrate")]
+    #[serde(rename = "minAbrBitrate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_abr_bitrate: Option<i64>,
 }
@@ -380,7 +380,7 @@ pub struct AutomatedAbrSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AutomatedEncodingSettings {
     /// <p>Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.</p>
-    #[serde(rename = "AbrSettings")]
+    #[serde(rename = "abrSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub abr_settings: Option<AutomatedAbrSettings>,
 }
@@ -1067,7 +1067,7 @@ pub struct CreateJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateJobResponse {
     /// <p>Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html</p>
-    #[serde(rename = "Job")]
+    #[serde(rename = "job")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job: Option<Job>,
 }
@@ -2619,15 +2619,15 @@ pub struct HlsSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HopDestination {
     /// <p>Optional. When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don&#39;t specify, the relative priority will remain the same as in the previous queue.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>Optional unless the job is submitted on the default queue. When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn&#39;t the default queue and you don&#39;t specify the destination queue, the job will move to the default queue.</p>
-    #[serde(rename = "Queue")]
+    #[serde(rename = "queue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue: Option<String>,
     /// <p>Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.</p>
-    #[serde(rename = "WaitMinutes")]
+    #[serde(rename = "waitMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wait_minutes: Option<i64>,
 }
@@ -2636,11 +2636,11 @@ pub struct HopDestination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Id3Insertion {
     /// <p>Use ID3 tag (Id3) to provide a tag value in base64-encode format.</p>
-    #[serde(rename = "Id3")]
+    #[serde(rename = "id3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_3: Option<String>,
     /// <p>Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.</p>
-    #[serde(rename = "Timecode")]
+    #[serde(rename = "timecode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timecode: Option<String>,
 }
@@ -2909,101 +2909,101 @@ pub struct InsertableImage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Job {
     /// <p>Accelerated transcoding can significantly speed up jobs with long, visually complex content.</p>
-    #[serde(rename = "AccelerationSettings")]
+    #[serde(rename = "accelerationSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub acceleration_settings: Option<AccelerationSettings>,
     /// <p>Describes whether the current job is running with accelerated transcoding. For jobs that have Acceleration (AccelerationMode) set to DISABLED, AccelerationStatus is always NOT<em>APPLICABLE. For jobs that have Acceleration (AccelerationMode) set to ENABLED or PREFERRED, AccelerationStatus is one of the other states. AccelerationStatus is IN</em>PROGRESS initially, while the service determines whether the input files and job settings are compatible with accelerated transcoding. If they are, AcclerationStatus is ACCELERATED. If your input files and job settings aren&#39;t compatible with accelerated transcoding, the service either fails your job or runs it without accelerated transcoding, depending on how you set Acceleration (AccelerationMode). When the service runs your job without accelerated transcoding, AccelerationStatus is NOT_ACCELERATED.</p>
-    #[serde(rename = "AccelerationStatus")]
+    #[serde(rename = "accelerationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub acceleration_status: Option<String>,
     /// <p>An identifier for this resource that is unique within all of AWS.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.</p>
-    #[serde(rename = "BillingTagsSource")]
+    #[serde(rename = "billingTagsSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub billing_tags_source: Option<String>,
     /// <p>The time, in Unix epoch format in seconds, when the job got created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>A job&#39;s phase can be PROBING, TRANSCODING OR UPLOADING</p>
-    #[serde(rename = "CurrentPhase")]
+    #[serde(rename = "currentPhase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_phase: Option<String>,
     /// <p>Error code for the job</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<i64>,
     /// <p>Error message of Job</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>Optional list of hop destinations.</p>
-    #[serde(rename = "HopDestinations")]
+    #[serde(rename = "hopDestinations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hop_destinations: Option<Vec<HopDestination>>,
     /// <p>A portion of the job&#39;s ARN, unique within your AWS Elemental MediaConvert resources</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>An estimate of how far your job has progressed. This estimate is shown as a percentage of the total time from when your job leaves its queue to when your output files appear in your output Amazon S3 bucket. AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE events and in the response to GetJob and ListJobs requests. The jobPercentComplete estimate is reliable for the following input containers: Quicktime, Transport Stream, MP4, and MXF. For some jobs, the service can&#39;t provide information about job progress. In those cases, jobPercentComplete returns a null value.</p>
-    #[serde(rename = "JobPercentComplete")]
+    #[serde(rename = "jobPercentComplete")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_percent_complete: Option<i64>,
     /// <p>The job template that the job is created from, if it is created from a job template.</p>
-    #[serde(rename = "JobTemplate")]
+    #[serde(rename = "jobTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_template: Option<String>,
     /// <p>Provides messages from the service about jobs that you have already successfully submitted.</p>
-    #[serde(rename = "Messages")]
+    #[serde(rename = "messages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub messages: Option<JobMessages>,
     /// <p>List of output group details</p>
-    #[serde(rename = "OutputGroupDetails")]
+    #[serde(rename = "outputGroupDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_group_details: Option<Vec<OutputGroupDetail>>,
     /// <p>Relative priority on the job.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>When you create a job, you can specify a queue to send it to. If you don&#39;t specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html</p>
-    #[serde(rename = "Queue")]
+    #[serde(rename = "queue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue: Option<String>,
     /// <p>The job&#39;s queue hopping history.</p>
-    #[serde(rename = "QueueTransitions")]
+    #[serde(rename = "queueTransitions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_transitions: Option<Vec<QueueTransition>>,
     /// <p>The number of times that the service automatically attempted to process your job after encountering an error.</p>
-    #[serde(rename = "RetryCount")]
+    #[serde(rename = "retryCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retry_count: Option<i64>,
     /// <p>The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>JobSettings contains all the transcode settings for a job.</p>
-    #[serde(rename = "Settings")]
+    #[serde(rename = "settings")]
     pub settings: JobSettings,
     /// <p>Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.</p>
-    #[serde(rename = "SimulateReservedQueue")]
+    #[serde(rename = "simulateReservedQueue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub simulate_reserved_queue: Option<String>,
     /// <p>A job&#39;s status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.</p>
-    #[serde(rename = "StatusUpdateInterval")]
+    #[serde(rename = "statusUpdateInterval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_update_interval: Option<String>,
     /// <p>Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.</p>
-    #[serde(rename = "Timing")]
+    #[serde(rename = "timing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing: Option<Timing>,
     /// <p>User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.</p>
-    #[serde(rename = "UserMetadata")]
+    #[serde(rename = "userMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_metadata: Option<::std::collections::HashMap<String, String>>,
 }
@@ -3013,11 +3013,11 @@ pub struct Job {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobMessages {
     /// <p>List of messages that are informational only and don&#39;t indicate a problem with your job.</p>
-    #[serde(rename = "Info")]
+    #[serde(rename = "info")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub info: Option<Vec<String>>,
     /// <p>List of messages that warn about conditions that might cause your job not to run or to fail.</p>
-    #[serde(rename = "Warning")]
+    #[serde(rename = "warning")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warning: Option<Vec<String>>,
 }
@@ -3026,47 +3026,47 @@ pub struct JobMessages {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JobSettings {
     /// <p>When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.</p>
-    #[serde(rename = "AdAvailOffset")]
+    #[serde(rename = "adAvailOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_avail_offset: Option<i64>,
     /// <p>Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.</p>
-    #[serde(rename = "AvailBlanking")]
+    #[serde(rename = "availBlanking")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avail_blanking: Option<AvailBlanking>,
     /// <p>Settings for Event Signaling And Messaging (ESAM). If you don&#39;t do ad insertion, you can ignore these settings.</p>
-    #[serde(rename = "Esam")]
+    #[serde(rename = "esam")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub esam: Option<EsamSettings>,
     /// <p>Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.</p>
-    #[serde(rename = "Inputs")]
+    #[serde(rename = "inputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inputs: Option<Vec<Input>>,
     /// <p>Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.</p>
-    #[serde(rename = "KantarWatermark")]
+    #[serde(rename = "kantarWatermark")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kantar_watermark: Option<KantarWatermarkSettings>,
     /// <p>Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.</p>
-    #[serde(rename = "MotionImageInserter")]
+    #[serde(rename = "motionImageInserter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub motion_image_inserter: Option<MotionImageInserter>,
     /// <p>Settings for your Nielsen configuration. If you don&#39;t do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don&#39;t include any children of nielsenConfiguration, you still enable the setting.</p>
-    #[serde(rename = "NielsenConfiguration")]
+    #[serde(rename = "nielsenConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nielsen_configuration: Option<NielsenConfiguration>,
     /// <p>Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]</p>
-    #[serde(rename = "NielsenNonLinearWatermark")]
+    #[serde(rename = "nielsenNonLinearWatermark")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nielsen_non_linear_watermark: Option<NielsenNonLinearWatermarkSettings>,
     /// <p>(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)&gt;(OutputGroupSettings). Type, settings object pairs are as follows. * FILE<em>GROUP</em>SETTINGS, FileGroupSettings * HLS<em>GROUP</em>SETTINGS, HlsGroupSettings * DASH<em>ISO</em>GROUP<em>SETTINGS, DashIsoGroupSettings * MS</em>SMOOTH<em>GROUP</em>SETTINGS, MsSmoothGroupSettings * CMAF<em>GROUP</em>SETTINGS, CmafGroupSettings</p>
-    #[serde(rename = "OutputGroups")]
+    #[serde(rename = "outputGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_groups: Option<Vec<OutputGroup>>,
     /// <p>These settings control how the service handles timecodes throughout the job. These settings don&#39;t affect input clipping.</p>
-    #[serde(rename = "TimecodeConfig")]
+    #[serde(rename = "timecodeConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timecode_config: Option<TimecodeConfig>,
     /// <p>Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.</p>
-    #[serde(rename = "TimedMetadataInsertion")]
+    #[serde(rename = "timedMetadataInsertion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timed_metadata_insertion: Option<TimedMetadataInsertion>,
 }
@@ -4254,11 +4254,11 @@ pub struct OutputChannelMapping {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OutputDetail {
     /// <p>Duration in milliseconds</p>
-    #[serde(rename = "DurationInMs")]
+    #[serde(rename = "durationInMs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_in_ms: Option<i64>,
     /// <p>Contains details about the output&#39;s video stream</p>
-    #[serde(rename = "VideoDetails")]
+    #[serde(rename = "videoDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_details: Option<VideoDetail>,
 }
@@ -4267,23 +4267,23 @@ pub struct OutputDetail {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OutputGroup {
     /// <p>Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.</p>
-    #[serde(rename = "AutomatedEncodingSettings")]
+    #[serde(rename = "automatedEncodingSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automated_encoding_settings: Option<AutomatedEncodingSettings>,
     /// <p>Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.</p>
-    #[serde(rename = "CustomName")]
+    #[serde(rename = "customName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_name: Option<String>,
     /// <p>Name of the output group</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Output Group settings, including type</p>
-    #[serde(rename = "OutputGroupSettings")]
+    #[serde(rename = "outputGroupSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_group_settings: Option<OutputGroupSettings>,
     /// <p>This object holds groups of encoding settings, one group of settings per output.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<Output>>,
 }
@@ -4293,7 +4293,7 @@ pub struct OutputGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OutputGroupDetail {
     /// <p>Details about the output</p>
-    #[serde(rename = "OutputDetails")]
+    #[serde(rename = "outputDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_details: Option<Vec<OutputDetail>>,
 }
@@ -4513,15 +4513,15 @@ pub struct Queue {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueueTransition {
     /// <p>The queue that the job was on after the transition.</p>
-    #[serde(rename = "DestinationQueue")]
+    #[serde(rename = "destinationQueue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_queue: Option<String>,
     /// <p>The queue that the job was on before the transition.</p>
-    #[serde(rename = "SourceQueue")]
+    #[serde(rename = "sourceQueue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_queue: Option<String>,
     /// <p>The time, in Unix epoch format, that the job moved from the source queue to the destination queue.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
 }
@@ -4793,19 +4793,19 @@ pub struct TimecodeBurnin {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TimecodeConfig {
     /// <p>If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED)  the  first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the  first frame is the timecode value on the first input frame of the input.</p>
-    #[serde(rename = "Anchor")]
+    #[serde(rename = "anchor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub anchor: Option<String>,
     /// <p>Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<String>,
     /// <p>Only use when you set Source (TimecodeSource) to Specified start (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).</p>
-    #[serde(rename = "Start")]
+    #[serde(rename = "start")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start: Option<String>,
     /// <p>Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format &quot;yyyy-mm-dd&quot;.  To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.</p>
-    #[serde(rename = "TimestampOffset")]
+    #[serde(rename = "timestampOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp_offset: Option<String>,
 }
@@ -4814,7 +4814,7 @@ pub struct TimecodeConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TimedMetadataInsertion {
     /// <p>Id3Insertions contains the array of Id3Insertion instances.</p>
-    #[serde(rename = "Id3Insertions")]
+    #[serde(rename = "id3Insertions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_3_insertions: Option<Vec<Id3Insertion>>,
 }
@@ -4824,15 +4824,15 @@ pub struct TimedMetadataInsertion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Timing {
     /// <p>The time, in Unix epoch format, that the transcoding job finished</p>
-    #[serde(rename = "FinishTime")]
+    #[serde(rename = "finishTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finish_time: Option<f64>,
     /// <p>The time, in Unix epoch format, that transcoding for the job began.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The time, in Unix epoch format, that you submitted the job.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
 }
@@ -5142,11 +5142,11 @@ pub struct VideoDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VideoDetail {
     /// <p>Height in pixels for the output</p>
-    #[serde(rename = "HeightInPx")]
+    #[serde(rename = "heightInPx")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub height_in_px: Option<i64>,
     /// <p>Width in pixels for the output</p>
-    #[serde(rename = "WidthInPx")]
+    #[serde(rename = "widthInPx")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub width_in_px: Option<i64>,
 }
