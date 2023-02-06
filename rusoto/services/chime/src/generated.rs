@@ -30,32 +30,32 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Account {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The Amazon Chime account type. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>
-    #[serde(rename = "AccountType")]
+    #[serde(rename = "accountType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_type: Option<String>,
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The Amazon Chime account creation timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The default license for the Amazon Chime account.</p>
-    #[serde(rename = "DefaultLicense")]
+    #[serde(rename = "defaultLicense")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_license: Option<String>,
     /// <p>The Amazon Chime account name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The sign-in delegate groups associated with the account.</p>
-    #[serde(rename = "SigninDelegateGroups")]
+    #[serde(rename = "signinDelegateGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signin_delegate_groups: Option<Vec<SigninDelegateGroup>>,
     /// <p>Supported licenses for the Amazon Chime account.</p>
-    #[serde(rename = "SupportedLicenses")]
+    #[serde(rename = "supportedLicenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_licenses: Option<Vec<String>>,
 }
@@ -64,11 +64,11 @@ pub struct Account {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountSettings {
     /// <p>Setting that stops or starts remote control of shared screens during meetings.</p>
-    #[serde(rename = "DisableRemoteControl")]
+    #[serde(rename = "disableRemoteControl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_remote_control: Option<bool>,
     /// <p>Setting that allows meeting participants to choose the <b>Call me at a phone number</b> option. For more information, see <a href="https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html">Join a Meeting without the Amazon Chime App</a>.</p>
-    #[serde(rename = "EnableDialOut")]
+    #[serde(rename = "enableDialOut")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_dial_out: Option<bool>,
 }
@@ -77,11 +77,11 @@ pub struct AccountSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AlexaForBusinessMetadata {
     /// <p>The ARN of the room resource.</p>
-    #[serde(rename = "AlexaForBusinessRoomArn")]
+    #[serde(rename = "alexaForBusinessRoomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alexa_for_business_room_arn: Option<String>,
     /// <p>Starts or stops Alexa for Business.</p>
-    #[serde(rename = "IsAlexaForBusinessEnabled")]
+    #[serde(rename = "isAlexaForBusinessEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_alexa_for_business_enabled: Option<bool>,
 }
@@ -91,23 +91,23 @@ pub struct AlexaForBusinessMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstance {
     /// <p>The ARN of the messaging instance.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
     /// <p>The time at which an <code>AppInstance</code> was created. In epoch milliseconds.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The time an <code>AppInstance</code> was last updated. In epoch milliseconds.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The metadata of an <code>AppInstance</code>.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name of an <code>AppInstance</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -117,15 +117,15 @@ pub struct AppInstance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstanceAdmin {
     /// <p>The <code>AppInstanceAdmin</code> data.</p>
-    #[serde(rename = "Admin")]
+    #[serde(rename = "admin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin: Option<Identity>,
     /// <p>The ARN of the <code>AppInstance</code> for which the user is an administrator.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
     /// <p>The time at which an administrator was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
 }
@@ -135,7 +135,7 @@ pub struct AppInstanceAdmin {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstanceAdminSummary {
     /// <p>The details of the <code>AppInstanceAdmin</code>.</p>
-    #[serde(rename = "Admin")]
+    #[serde(rename = "admin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin: Option<Identity>,
 }
@@ -144,7 +144,7 @@ pub struct AppInstanceAdminSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AppInstanceRetentionSettings {
     /// <p>The length of time in days to retain the messages in a channel.</p>
-    #[serde(rename = "ChannelRetentionSettings")]
+    #[serde(rename = "channelRetentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_retention_settings: Option<ChannelRetentionSettings>,
 }
@@ -153,10 +153,10 @@ pub struct AppInstanceRetentionSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AppInstanceStreamingConfiguration {
     /// <p>The type of data to be streamed.</p>
-    #[serde(rename = "AppInstanceDataType")]
+    #[serde(rename = "appInstanceDataType")]
     pub app_instance_data_type: String,
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -165,15 +165,15 @@ pub struct AppInstanceStreamingConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstanceSummary {
     /// <p>The <code>AppInstance</code> ARN.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
     /// <p>The metadata of the <code>AppInstance</code>.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name of the <code>AppInstance</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -183,23 +183,23 @@ pub struct AppInstanceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstanceUser {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_arn: Option<String>,
     /// <p>The time at which the <code>AppInstanceUser</code> was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The time at which the <code>AppInstanceUser</code> was last updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The metadata of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -209,11 +209,11 @@ pub struct AppInstanceUser {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstanceUserMembershipSummary {
     /// <p>The time at which a message was last read.</p>
-    #[serde(rename = "ReadMarkerTimestamp")]
+    #[serde(rename = "readMarkerTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_marker_timestamp: Option<f64>,
     /// <p>The type of <code>ChannelMembership</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -223,15 +223,15 @@ pub struct AppInstanceUserMembershipSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppInstanceUserSummary {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_arn: Option<String>,
     /// <p>The metadata of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name of an <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -240,13 +240,13 @@ pub struct AppInstanceUserSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociatePhoneNumberWithUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The phone number, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumber")]
+    #[serde(rename = "e164PhoneNumber")]
     pub e164_phone_number: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -258,14 +258,14 @@ pub struct AssociatePhoneNumberWithUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
     /// <p>List of phone numbers, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumbers")]
+    #[serde(rename = "e164PhoneNumbers")]
     pub e164_phone_numbers: Vec<String>,
     /// <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector Group and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
-    #[serde(rename = "ForceAssociate")]
+    #[serde(rename = "forceAssociate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_associate: Option<bool>,
     /// <p>The Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "VoiceConnectorGroupId")]
+    #[serde(rename = "voiceConnectorGroupId")]
     pub voice_connector_group_id: String,
 }
 
@@ -273,7 +273,7 @@ pub struct AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
     /// <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
-    #[serde(rename = "PhoneNumberErrors")]
+    #[serde(rename = "phoneNumberErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_errors: Option<Vec<PhoneNumberError>>,
 }
@@ -282,14 +282,14 @@ pub struct AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociatePhoneNumbersWithVoiceConnectorRequest {
     /// <p>List of phone numbers, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumbers")]
+    #[serde(rename = "e164PhoneNumbers")]
     pub e164_phone_numbers: Vec<String>,
     /// <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
-    #[serde(rename = "ForceAssociate")]
+    #[serde(rename = "forceAssociate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_associate: Option<bool>,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -297,7 +297,7 @@ pub struct AssociatePhoneNumbersWithVoiceConnectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociatePhoneNumbersWithVoiceConnectorResponse {
     /// <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
-    #[serde(rename = "PhoneNumberErrors")]
+    #[serde(rename = "phoneNumberErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_errors: Option<Vec<PhoneNumberError>>,
 }
@@ -306,10 +306,10 @@ pub struct AssociatePhoneNumbersWithVoiceConnectorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateSigninDelegateGroupsWithAccountRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The sign-in delegate groups.</p>
-    #[serde(rename = "SigninDelegateGroups")]
+    #[serde(rename = "signinDelegateGroups")]
     pub signin_delegate_groups: Vec<SigninDelegateGroup>,
 }
 
@@ -322,15 +322,15 @@ pub struct AssociateSigninDelegateGroupsWithAccountResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Attendee {
     /// <p>The Amazon Chime SDK attendee ID.</p>
-    #[serde(rename = "AttendeeId")]
+    #[serde(rename = "attendeeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendee_id: Option<String>,
     /// <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-    #[serde(rename = "ExternalUserId")]
+    #[serde(rename = "externalUserId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_user_id: Option<String>,
     /// <p>The join token used by the Amazon Chime SDK attendee.</p>
-    #[serde(rename = "JoinToken")]
+    #[serde(rename = "joinToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub join_token: Option<String>,
 }
@@ -340,18 +340,18 @@ pub struct Attendee {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchChannelMemberships {
     /// <p>The ARN of the channel to which you're adding users.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
-    #[serde(rename = "InvitedBy")]
+    #[serde(rename = "invitedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_by: Option<Identity>,
     /// <p>The users successfully added to the request.</p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub members: Option<Vec<Identity>>,
     /// <p>The membership types set for the channel users.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -360,10 +360,10 @@ pub struct BatchChannelMemberships {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchCreateAttendeeRequest {
     /// <p>The request containing the attendees to create.</p>
-    #[serde(rename = "Attendees")]
+    #[serde(rename = "attendees")]
     pub attendees: Vec<CreateAttendeeRequestItem>,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -371,11 +371,11 @@ pub struct BatchCreateAttendeeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchCreateAttendeeResponse {
     /// <p>The attendee information, including attendees IDs and join tokens.</p>
-    #[serde(rename = "Attendees")]
+    #[serde(rename = "attendees")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendees: Option<Vec<Attendee>>,
     /// <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ChimeCreateAttendeeError>>,
 }
@@ -385,15 +385,15 @@ pub struct BatchCreateAttendeeResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChimeBatchCreateChannelMembershipError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ARN of the member that the service couldn't add.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_arn: Option<String>,
 }
@@ -402,17 +402,17 @@ pub struct ChimeBatchCreateChannelMembershipError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchCreateChannelMembershipRequest {
     /// <p>The ARN of the channel to which you're adding users.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARNs of the members you want to add to the channel.</p>
-    #[serde(rename = "MemberArns")]
+    #[serde(rename = "memberArns")]
     pub member_arns: Vec<String>,
     /// <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported by moderators.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -421,11 +421,11 @@ pub struct BatchCreateChannelMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchCreateChannelMembershipResponse {
     /// <p>The list of channel memberships in the response.</p>
-    #[serde(rename = "BatchChannelMemberships")]
+    #[serde(rename = "batchChannelMemberships")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_channel_memberships: Option<BatchChannelMemberships>,
     /// <p>If the action fails for one or more of the memberships in the request, a list of the memberships is returned, along with error codes and error messages.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ChimeBatchCreateChannelMembershipError>>,
 }
@@ -434,13 +434,13 @@ pub struct BatchCreateChannelMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchCreateRoomMembershipRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The list of membership items.</p>
-    #[serde(rename = "MembershipItemList")]
+    #[serde(rename = "membershipItemList")]
     pub membership_item_list: Vec<MembershipItem>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -448,7 +448,7 @@ pub struct BatchCreateRoomMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchCreateRoomMembershipResponse {
     /// <p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<MemberError>>,
 }
@@ -457,7 +457,7 @@ pub struct BatchCreateRoomMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDeletePhoneNumberRequest {
     /// <p>List of phone number IDs.</p>
-    #[serde(rename = "PhoneNumberIds")]
+    #[serde(rename = "phoneNumberIds")]
     pub phone_number_ids: Vec<String>,
 }
 
@@ -465,7 +465,7 @@ pub struct BatchDeletePhoneNumberRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDeletePhoneNumberResponse {
     /// <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
-    #[serde(rename = "PhoneNumberErrors")]
+    #[serde(rename = "phoneNumberErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_errors: Option<Vec<PhoneNumberError>>,
 }
@@ -474,10 +474,10 @@ pub struct BatchDeletePhoneNumberResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchSuspendUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The request containing the user IDs to suspend.</p>
-    #[serde(rename = "UserIdList")]
+    #[serde(rename = "userIdList")]
     pub user_id_list: Vec<String>,
 }
 
@@ -485,7 +485,7 @@ pub struct BatchSuspendUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchSuspendUserResponse {
     /// <p>If the <a>BatchSuspendUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.</p>
-    #[serde(rename = "UserErrors")]
+    #[serde(rename = "userErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_errors: Option<Vec<UserError>>,
 }
@@ -494,10 +494,10 @@ pub struct BatchSuspendUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUnsuspendUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The request containing the user IDs to unsuspend.</p>
-    #[serde(rename = "UserIdList")]
+    #[serde(rename = "userIdList")]
     pub user_id_list: Vec<String>,
 }
 
@@ -505,7 +505,7 @@ pub struct BatchUnsuspendUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchUnsuspendUserResponse {
     /// <p>If the <a>BatchUnsuspendUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.</p>
-    #[serde(rename = "UserErrors")]
+    #[serde(rename = "userErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_errors: Option<Vec<UserError>>,
 }
@@ -514,7 +514,7 @@ pub struct BatchUnsuspendUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUpdatePhoneNumberRequest {
     /// <p>The request containing the phone number IDs and product types or calling names to update.</p>
-    #[serde(rename = "UpdatePhoneNumberRequestItems")]
+    #[serde(rename = "updatePhoneNumberRequestItems")]
     pub update_phone_number_request_items: Vec<UpdatePhoneNumberRequestItem>,
 }
 
@@ -522,7 +522,7 @@ pub struct BatchUpdatePhoneNumberRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchUpdatePhoneNumberResponse {
     /// <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
-    #[serde(rename = "PhoneNumberErrors")]
+    #[serde(rename = "phoneNumberErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_errors: Option<Vec<PhoneNumberError>>,
 }
@@ -531,10 +531,10 @@ pub struct BatchUpdatePhoneNumberResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUpdateUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The request containing the user IDs and details to update.</p>
-    #[serde(rename = "UpdateUserRequestItems")]
+    #[serde(rename = "updateUserRequestItems")]
     pub update_user_request_items: Vec<UpdateUserRequestItem>,
 }
 
@@ -542,7 +542,7 @@ pub struct BatchUpdateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchUpdateUserResponse {
     /// <p>If the <a>BatchUpdateUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.</p>
-    #[serde(rename = "UserErrors")]
+    #[serde(rename = "userErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_errors: Option<Vec<UserError>>,
 }
@@ -552,39 +552,39 @@ pub struct BatchUpdateUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Bot {
     /// <p>The bot email address.</p>
-    #[serde(rename = "BotEmail")]
+    #[serde(rename = "botEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot_email: Option<String>,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot_id: Option<String>,
     /// <p>The bot type.</p>
-    #[serde(rename = "BotType")]
+    #[serde(rename = "botType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot_type: Option<String>,
     /// <p>The bot creation timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>When true, the bot is stopped from running in your account.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The bot display name.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The security token used to authenticate Amazon Chime with the outgoing event endpoint.</p>
-    #[serde(rename = "SecurityToken")]
+    #[serde(rename = "securityToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_token: Option<String>,
     /// <p>The updated bot timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
     /// <p>The unique ID for the bot user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -593,7 +593,7 @@ pub struct Bot {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BusinessCallingSettings {
     /// <p>The Amazon S3 bucket designated for call detail record storage.</p>
-    #[serde(rename = "CdrBucket")]
+    #[serde(rename = "cdrBucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cdr_bucket: Option<String>,
 }
@@ -603,39 +603,39 @@ pub struct BusinessCallingSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Channel {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The <code>AppInstanceUser</code> who created the channel.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<Identity>,
     /// <p>The time at which the <code>AppInstanceUser</code> created the channel.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The time at which a member sent the last message in the channel.</p>
-    #[serde(rename = "LastMessageTimestamp")]
+    #[serde(rename = "lastMessageTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_message_timestamp: Option<f64>,
     /// <p>The time at which a channel was last updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The channel's metadata.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The mode of the channel.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The channel's privacy setting.</p>
-    #[serde(rename = "Privacy")]
+    #[serde(rename = "privacy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub privacy: Option<String>,
 }
@@ -645,19 +645,19 @@ pub struct Channel {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelBan {
     /// <p>The ARN of the channel from which a member is being banned.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The <code>AppInstanceUser</code> who created the ban.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<Identity>,
     /// <p>The time at which the ban was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The member being banned from the channel.</p>
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Identity>,
 }
@@ -667,7 +667,7 @@ pub struct ChannelBan {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelBanSummary {
     /// <p>The member being banned from a channel.</p>
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Identity>,
 }
@@ -677,27 +677,27 @@ pub struct ChannelBanSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelMembership {
     /// <p>The ARN of the member's channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The time at which the channel membership was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The identifier of the member who invited another member.</p>
-    #[serde(rename = "InvitedBy")]
+    #[serde(rename = "invitedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_by: Option<Identity>,
     /// <p>The time at which a channel membership was last updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The data of the channel member.</p>
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Identity>,
     /// <p>The membership type set for the channel member.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -707,10 +707,10 @@ pub struct ChannelMembership {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelMembershipForAppInstanceUserSummary {
     /// <p>Returns the channel membership data for an <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceUserMembershipSummary")]
+    #[serde(rename = "appInstanceUserMembershipSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_membership_summary: Option<AppInstanceUserMembershipSummary>,
-    #[serde(rename = "ChannelSummary")]
+    #[serde(rename = "channelSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_summary: Option<ChannelSummary>,
 }
@@ -720,7 +720,7 @@ pub struct ChannelMembershipForAppInstanceUserSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelMembershipSummary {
     /// <p>A member's summary data.</p>
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Identity>,
 }
@@ -730,47 +730,47 @@ pub struct ChannelMembershipSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelMessage {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The message content.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The time at which the message was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The time at which a message was edited.</p>
-    #[serde(rename = "LastEditedTimestamp")]
+    #[serde(rename = "lastEditedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_edited_timestamp: Option<f64>,
     /// <p>The time at which a message was updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The ID of a message.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
     /// <p>The message metadata.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The persistence setting for a channel message.</p>
-    #[serde(rename = "Persistence")]
+    #[serde(rename = "persistence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persistence: Option<String>,
     /// <p>Hides the content of a message.</p>
-    #[serde(rename = "Redacted")]
+    #[serde(rename = "redacted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redacted: Option<bool>,
     /// <p>The message sender.</p>
-    #[serde(rename = "Sender")]
+    #[serde(rename = "sender")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sender: Option<Identity>,
     /// <p>The message type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -780,39 +780,39 @@ pub struct ChannelMessage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelMessageSummary {
     /// <p>The content of the message.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The time at which the message summary was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The time at which a message was last edited.</p>
-    #[serde(rename = "LastEditedTimestamp")]
+    #[serde(rename = "lastEditedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_edited_timestamp: Option<f64>,
     /// <p>The time at which a message was last updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The ID of the message.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
     /// <p>The metadata of the message.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>Indicates whether a message was redacted.</p>
-    #[serde(rename = "Redacted")]
+    #[serde(rename = "redacted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redacted: Option<bool>,
     /// <p>The message sender.</p>
-    #[serde(rename = "Sender")]
+    #[serde(rename = "sender")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sender: Option<Identity>,
     /// <p>The type of message.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -821,7 +821,7 @@ pub struct ChannelMessageSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelModeratedByAppInstanceUserSummary {
-    #[serde(rename = "ChannelSummary")]
+    #[serde(rename = "channelSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_summary: Option<ChannelSummary>,
 }
@@ -831,19 +831,19 @@ pub struct ChannelModeratedByAppInstanceUserSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelModerator {
     /// <p>The ARN of the moderator's channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The <code>AppInstanceUser</code> who created the moderator.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<Identity>,
     /// <p>The time at which the moderator was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The moderator's data.</p>
-    #[serde(rename = "Moderator")]
+    #[serde(rename = "moderator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderator: Option<Identity>,
 }
@@ -853,7 +853,7 @@ pub struct ChannelModerator {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelModeratorSummary {
     /// <p>The data for a moderator.</p>
-    #[serde(rename = "Moderator")]
+    #[serde(rename = "moderator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderator: Option<Identity>,
 }
@@ -862,7 +862,7 @@ pub struct ChannelModeratorSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ChannelRetentionSettings {
     /// <p>The time in days to retain the messages in a channel.</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
 }
@@ -872,27 +872,27 @@ pub struct ChannelRetentionSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelSummary {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The time at which the last message in a channel was sent.</p>
-    #[serde(rename = "LastMessageTimestamp")]
+    #[serde(rename = "lastMessageTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_message_timestamp: Option<f64>,
     /// <p>The metadata of the channel.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The mode of the channel.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The privacy setting of the channel.</p>
-    #[serde(rename = "Privacy")]
+    #[serde(rename = "privacy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub privacy: Option<String>,
 }
@@ -901,7 +901,7 @@ pub struct ChannelSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConversationRetentionSettings {
     /// <p>The number of days for which to retain conversation messages.</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
 }
@@ -910,7 +910,7 @@ pub struct ConversationRetentionSettings {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAccountRequest {
     /// <p>The name of the Amazon Chime account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -918,7 +918,7 @@ pub struct CreateAccountRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAccountResponse {
     /// <p>The Amazon Chime account details.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account: Option<Account>,
 }
@@ -927,10 +927,10 @@ pub struct CreateAccountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAppInstanceAdminRequest {
     /// <p>The ARN of the administrator of the current <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceAdminArn")]
+    #[serde(rename = "appInstanceAdminArn")]
     pub app_instance_admin_arn: String,
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -938,11 +938,11 @@ pub struct CreateAppInstanceAdminRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAppInstanceAdminResponse {
     /// <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceAdmin")]
+    #[serde(rename = "appInstanceAdmin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_admin: Option<Identity>,
     /// <p>The ARN of the of the admin for the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
 }
@@ -951,17 +951,17 @@ pub struct CreateAppInstanceAdminResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAppInstanceRequest {
     /// <p>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name of the <code>AppInstance</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -970,7 +970,7 @@ pub struct CreateAppInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAppInstanceResponse {
     /// <p>The Amazon Resource Number (ARN) of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
 }
@@ -979,23 +979,23 @@ pub struct CreateAppInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAppInstanceUserRequest {
     /// <p>The ARN of the <code>AppInstance</code> request.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The user ID of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceUserId")]
+    #[serde(rename = "appInstanceUserId")]
     pub app_instance_user_id: String,
     /// <p>The token assigned to the user requesting an <code>AppInstance</code>.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The request's metadata. Limited to a 1KB string in UTF-8.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The user's name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1004,7 +1004,7 @@ pub struct CreateAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAppInstanceUserResponse {
     /// <p>The user's ARN.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_arn: Option<String>,
 }
@@ -1014,15 +1014,15 @@ pub struct CreateAppInstanceUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChimeCreateAttendeeError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-    #[serde(rename = "ExternalUserId")]
+    #[serde(rename = "externalUserId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_user_id: Option<String>,
 }
@@ -1031,13 +1031,13 @@ pub struct ChimeCreateAttendeeError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAttendeeRequest {
     /// <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-    #[serde(rename = "ExternalUserId")]
+    #[serde(rename = "externalUserId")]
     pub external_user_id: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1047,10 +1047,10 @@ pub struct CreateAttendeeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAttendeeRequestItem {
     /// <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-    #[serde(rename = "ExternalUserId")]
+    #[serde(rename = "externalUserId")]
     pub external_user_id: String,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1059,7 +1059,7 @@ pub struct CreateAttendeeRequestItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAttendeeResponse {
     /// <p>The attendee information, including attendee ID and join token.</p>
-    #[serde(rename = "Attendee")]
+    #[serde(rename = "attendee")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendee: Option<Attendee>,
 }
@@ -1068,13 +1068,13 @@ pub struct CreateAttendeeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateBotRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot display name.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     pub display_name: String,
     /// <p>The domain of the Amazon Chime Enterprise account.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
 }
@@ -1083,7 +1083,7 @@ pub struct CreateBotRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateBotResponse {
     /// <p>The bot details.</p>
-    #[serde(rename = "Bot")]
+    #[serde(rename = "bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot: Option<Bot>,
 }
@@ -1092,14 +1092,14 @@ pub struct CreateBotResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateChannelBanRequest {
     /// <p>The ARN of the ban request.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARN of the member being banned.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     pub member_arn: String,
 }
 
@@ -1107,11 +1107,11 @@ pub struct CreateChannelBanRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateChannelBanResponse {
     /// <p>The ARN of the response to the ban request.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban response.</p>
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Identity>,
 }
@@ -1120,17 +1120,17 @@ pub struct CreateChannelBanResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateChannelMembershipRequest {
     /// <p>The ARN of the channel to which you're adding users.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARN of the member you want to add to the channel.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     pub member_arn: String,
     /// <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported by moderators.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1138,11 +1138,11 @@ pub struct CreateChannelMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateChannelMembershipResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The ARN and metadata of the member being added.</p>
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Identity>,
 }
@@ -1151,13 +1151,13 @@ pub struct CreateChannelMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateChannelModeratorRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The ARN of the moderator.</p>
-    #[serde(rename = "ChannelModeratorArn")]
+    #[serde(rename = "channelModeratorArn")]
     pub channel_moderator_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -1166,11 +1166,11 @@ pub struct CreateChannelModeratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateChannelModeratorResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The ARNs of the channel and the moderator.</p>
-    #[serde(rename = "ChannelModerator")]
+    #[serde(rename = "channelModerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_moderator: Option<Identity>,
 }
@@ -1179,32 +1179,32 @@ pub struct CreateChannelModeratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateChannelRequest {
     /// <p>The ARN of the channel request.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The client token for the request. An <code>Idempotency</code> token.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The metadata of the creation request. Limited to 1KB and UTF-8.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators, moderators, and channel members can add themselves and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private channels aren't discoverable by users outside the channel. Public channels are discoverable by anyone in the <code>AppInstance</code>.</p>
-    #[serde(rename = "Privacy")]
+    #[serde(rename = "privacy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub privacy: Option<String>,
     /// <p>The tags for the creation request.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1213,7 +1213,7 @@ pub struct CreateChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateChannelResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
 }
@@ -1222,16 +1222,16 @@ pub struct CreateChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMeetingDialOutRequest {
     /// <p>Phone number used as the caller ID when the remote party receives a call.</p>
-    #[serde(rename = "FromPhoneNumber")]
+    #[serde(rename = "fromPhoneNumber")]
     pub from_phone_number: String,
     /// <p>Token used by the Amazon Chime SDK attendee. Call the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html">CreateAttendee</a> action to get a join token.</p>
-    #[serde(rename = "JoinToken")]
+    #[serde(rename = "joinToken")]
     pub join_token: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>Phone number called when inviting someone to a meeting.</p>
-    #[serde(rename = "ToPhoneNumber")]
+    #[serde(rename = "toPhoneNumber")]
     pub to_phone_number: String,
 }
 
@@ -1239,7 +1239,7 @@ pub struct CreateMeetingDialOutRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMeetingDialOutResponse {
     /// <p>Unique ID that tracks API calls.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transaction_id: Option<String>,
 }
@@ -1248,26 +1248,26 @@ pub struct CreateMeetingDialOutResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMeetingRequest {
     /// <p>The unique identifier for the client request. Use a different token for different meetings.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The external meeting ID.</p>
-    #[serde(rename = "ExternalMeetingId")]
+    #[serde(rename = "externalMeetingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_meeting_id: Option<String>,
     /// <p> The Region in which to create the meeting. Default: <code>us-east-1</code>. </p> <p> Available values: <code>af-south-1</code> , <code>ap-northeast-1</code> , <code>ap-northeast-2</code> , <code>ap-south-1</code> , <code>ap-southeast-1</code> , <code>ap-southeast-2</code> , <code>ca-central-1</code> , <code>eu-central-1</code> , <code>eu-north-1</code> , <code>eu-south-1</code> , <code>eu-west-1</code> , <code>eu-west-2</code> , <code>eu-west-3</code> , <code>sa-east-1</code> , <code>us-east-1</code> , <code>us-east-2</code> , <code>us-west-1</code> , <code>us-west-2</code> . </p>
-    #[serde(rename = "MediaRegion")]
+    #[serde(rename = "mediaRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_region: Option<String>,
     /// <p>Reserved.</p>
-    #[serde(rename = "MeetingHostId")]
+    #[serde(rename = "meetingHostId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_host_id: Option<String>,
     /// <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
-    #[serde(rename = "NotificationsConfiguration")]
+    #[serde(rename = "notificationsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notifications_configuration: Option<MeetingNotificationConfiguration>,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1276,7 +1276,7 @@ pub struct CreateMeetingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMeetingResponse {
     /// <p> The meeting information, including the meeting ID and <code>MediaPlacement</code> . </p>
-    #[serde(rename = "Meeting")]
+    #[serde(rename = "meeting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting: Option<Meeting>,
 }
@@ -1285,29 +1285,29 @@ pub struct CreateMeetingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMeetingWithAttendeesRequest {
     /// <p>The request containing the attendees to create.</p>
-    #[serde(rename = "Attendees")]
+    #[serde(rename = "attendees")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendees: Option<Vec<CreateAttendeeRequestItem>>,
     /// <p>The unique identifier for the client request. Use a different token for different meetings.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The external meeting ID.</p>
-    #[serde(rename = "ExternalMeetingId")]
+    #[serde(rename = "externalMeetingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_meeting_id: Option<String>,
     /// <p> The Region in which to create the meeting. Default: <code>us-east-1</code> . </p> <p> Available values: <code>af-south-1</code> , <code>ap-northeast-1</code> , <code>ap-northeast-2</code> , <code>ap-south-1</code> , <code>ap-southeast-1</code> , <code>ap-southeast-2</code> , <code>ca-central-1</code> , <code>eu-central-1</code> , <code>eu-north-1</code> , <code>eu-south-1</code> , <code>eu-west-1</code> , <code>eu-west-2</code> , <code>eu-west-3</code> , <code>sa-east-1</code> , <code>us-east-1</code> , <code>us-east-2</code> , <code>us-west-1</code> , <code>us-west-2</code> . </p>
-    #[serde(rename = "MediaRegion")]
+    #[serde(rename = "mediaRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_region: Option<String>,
     /// <p>Reserved.</p>
-    #[serde(rename = "MeetingHostId")]
+    #[serde(rename = "meetingHostId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_host_id: Option<String>,
-    #[serde(rename = "NotificationsConfiguration")]
+    #[serde(rename = "notificationsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notifications_configuration: Option<MeetingNotificationConfiguration>,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1316,14 +1316,14 @@ pub struct CreateMeetingWithAttendeesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMeetingWithAttendeesResponse {
     /// <p>The attendee information, including attendees IDs and join tokens.</p>
-    #[serde(rename = "Attendees")]
+    #[serde(rename = "attendees")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendees: Option<Vec<Attendee>>,
     /// <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ChimeCreateAttendeeError>>,
-    #[serde(rename = "Meeting")]
+    #[serde(rename = "meeting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting: Option<Meeting>,
 }
@@ -1332,10 +1332,10 @@ pub struct CreateMeetingWithAttendeesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePhoneNumberOrderRequest {
     /// <p>List of phone numbers, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumbers")]
+    #[serde(rename = "e164PhoneNumbers")]
     pub e164_phone_numbers: Vec<String>,
     /// <p>The phone number product type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     pub product_type: String,
 }
 
@@ -1343,7 +1343,7 @@ pub struct CreatePhoneNumberOrderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePhoneNumberOrderResponse {
     /// <p>The phone number order details.</p>
-    #[serde(rename = "PhoneNumberOrder")]
+    #[serde(rename = "phoneNumberOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_order: Option<PhoneNumberOrder>,
 }
@@ -1352,33 +1352,33 @@ pub struct CreatePhoneNumberOrderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProxySessionRequest {
     /// <p>The proxy session capabilities.</p>
-    #[serde(rename = "Capabilities")]
+    #[serde(rename = "capabilities")]
     pub capabilities: Vec<String>,
     /// <p>The number of minutes allowed for the proxy session.</p>
-    #[serde(rename = "ExpiryMinutes")]
+    #[serde(rename = "expiryMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiry_minutes: Option<i64>,
     /// <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
-    #[serde(rename = "GeoMatchLevel")]
+    #[serde(rename = "geoMatchLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geo_match_level: Option<String>,
     /// <p>The country and area code for the proxy phone number.</p>
-    #[serde(rename = "GeoMatchParams")]
+    #[serde(rename = "geoMatchParams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geo_match_params: Option<GeoMatchParams>,
     /// <p>The name of the proxy session.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
-    #[serde(rename = "NumberSelectionBehavior")]
+    #[serde(rename = "numberSelectionBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_selection_behavior: Option<String>,
     /// <p>The participant phone numbers.</p>
-    #[serde(rename = "ParticipantPhoneNumbers")]
+    #[serde(rename = "participantPhoneNumbers")]
     pub participant_phone_numbers: Vec<String>,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1386,7 +1386,7 @@ pub struct CreateProxySessionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProxySessionResponse {
     /// <p>The proxy session details.</p>
-    #[serde(rename = "ProxySession")]
+    #[serde(rename = "proxySession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy_session: Option<ProxySession>,
 }
@@ -1395,17 +1395,17 @@ pub struct CreateProxySessionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRoomMembershipRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The Amazon Chime member ID (user ID or bot ID).</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The role of the member.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -1413,7 +1413,7 @@ pub struct CreateRoomMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRoomMembershipResponse {
     /// <p>The room membership details.</p>
-    #[serde(rename = "RoomMembership")]
+    #[serde(rename = "roomMembership")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_membership: Option<RoomMembership>,
 }
@@ -1422,14 +1422,14 @@ pub struct CreateRoomMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRoomRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The idempotency token for the request.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The room name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1437,7 +1437,7 @@ pub struct CreateRoomRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRoomResponse {
     /// <p>The room details.</p>
-    #[serde(rename = "Room")]
+    #[serde(rename = "room")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room: Option<Room>,
 }
@@ -1446,13 +1446,13 @@ pub struct CreateRoomResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSipMediaApplicationCallRequest {
     /// <p>The phone number that a user calls from. This is a phone number in your Amazon Chime phone number inventory.</p>
-    #[serde(rename = "FromPhoneNumber")]
+    #[serde(rename = "fromPhoneNumber")]
     pub from_phone_number: String,
     /// <p>The ID of the SIP media application.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
     /// <p>The phone number that the service should call.</p>
-    #[serde(rename = "ToPhoneNumber")]
+    #[serde(rename = "toPhoneNumber")]
     pub to_phone_number: String,
 }
 
@@ -1460,7 +1460,7 @@ pub struct CreateSipMediaApplicationCallRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSipMediaApplicationCallResponse {
     /// <p>The actual call.</p>
-    #[serde(rename = "SipMediaApplicationCall")]
+    #[serde(rename = "sipMediaApplicationCall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_call: Option<SipMediaApplicationCall>,
 }
@@ -1469,13 +1469,13 @@ pub struct CreateSipMediaApplicationCallResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSipMediaApplicationRequest {
     /// <p>The AWS Region assigned to the SIP media application.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     pub aws_region: String,
     /// <p>List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported.</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     pub endpoints: Vec<SipMediaApplicationEndpoint>,
     /// <p>The SIP media application name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1483,7 +1483,7 @@ pub struct CreateSipMediaApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSipMediaApplicationResponse {
     /// <p>The SIP media application details.</p>
-    #[serde(rename = "SipMediaApplication")]
+    #[serde(rename = "sipMediaApplication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application: Option<SipMediaApplication>,
 }
@@ -1492,20 +1492,20 @@ pub struct CreateSipMediaApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSipRuleRequest {
     /// <p>Enables or disables a rule. You must disable rules before you can delete them.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The name of the SIP rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used.</p>
-    #[serde(rename = "TargetApplications")]
+    #[serde(rename = "targetApplications")]
     pub target_applications: Vec<SipRuleTargetApplication>,
     /// <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</p>
-    #[serde(rename = "TriggerType")]
+    #[serde(rename = "triggerType")]
     pub trigger_type: String,
     /// <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, the value can be the outbound host name of an Amazon Chime Voice Connector. If <code>TriggerType</code> is <code>ToPhoneNumber</code>, the value can be a customer-owned phone number in the E164 format. The <code>SipMediaApplication</code> specified in the <code>SipRule</code> is triggered if the request URI in an incoming SIP request matches the <code>RequestUriHostname</code>, or if the <code>To</code> header in the incoming SIP request matches the <code>ToPhoneNumber</code> value.</p>
-    #[serde(rename = "TriggerValue")]
+    #[serde(rename = "triggerValue")]
     pub trigger_value: String,
 }
 
@@ -1513,7 +1513,7 @@ pub struct CreateSipRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSipRuleResponse {
     /// <p>Returns the SIP rule information, including the rule ID, triggers, and target applications.</p>
-    #[serde(rename = "SipRule")]
+    #[serde(rename = "sipRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_rule: Option<SipRule>,
 }
@@ -1522,18 +1522,18 @@ pub struct CreateSipRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user's email address.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The user type.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -1541,7 +1541,7 @@ pub struct CreateUserRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserResponse {
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -1550,10 +1550,10 @@ pub struct CreateUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateVoiceConnectorGroupRequest {
     /// <p>The name of the Amazon Chime Voice Connector group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Chime Voice Connectors to route inbound calls to.</p>
-    #[serde(rename = "VoiceConnectorItems")]
+    #[serde(rename = "voiceConnectorItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_items: Option<Vec<VoiceConnectorItem>>,
 }
@@ -1562,7 +1562,7 @@ pub struct CreateVoiceConnectorGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateVoiceConnectorGroupResponse {
     /// <p>The Amazon Chime Voice Connector group details.</p>
-    #[serde(rename = "VoiceConnectorGroup")]
+    #[serde(rename = "voiceConnectorGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_group: Option<VoiceConnectorGroup>,
 }
@@ -1571,14 +1571,14 @@ pub struct CreateVoiceConnectorGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateVoiceConnectorRequest {
     /// <p> The AWS Region in which the Amazon Chime Voice Connector is created. Default value: <code>us-east-1</code> . </p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The name of the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "RequireEncryption")]
+    #[serde(rename = "requireEncryption")]
     pub require_encryption: bool,
 }
 
@@ -1586,7 +1586,7 @@ pub struct CreateVoiceConnectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateVoiceConnectorResponse {
     /// <p>The Amazon Chime Voice Connector details.</p>
-    #[serde(rename = "VoiceConnector")]
+    #[serde(rename = "voiceConnector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector: Option<VoiceConnector>,
 }
@@ -1596,11 +1596,11 @@ pub struct CreateVoiceConnectorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Credential {
     /// <p>The RFC2617 compliant password associated with the SIP credentials, in US-ASCII format.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The RFC2617 compliant user name associated with the SIP credentials, in US-ASCII format.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -1609,13 +1609,13 @@ pub struct Credential {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DNISEmergencyCallingConfiguration {
     /// <p>The country from which emergency calls are allowed, in ISO 3166-1 alpha-2 format.</p>
-    #[serde(rename = "CallingCountry")]
+    #[serde(rename = "callingCountry")]
     pub calling_country: String,
     /// <p>The DNIS phone number to route emergency calls to, in E.164 format.</p>
-    #[serde(rename = "EmergencyPhoneNumber")]
+    #[serde(rename = "emergencyPhoneNumber")]
     pub emergency_phone_number: String,
     /// <p>The DNIS phone number to route test emergency calls to, in E.164 format.</p>
-    #[serde(rename = "TestPhoneNumber")]
+    #[serde(rename = "testPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_phone_number: Option<String>,
 }
@@ -1624,7 +1624,7 @@ pub struct DNISEmergencyCallingConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAccountRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
 }
 
@@ -1636,10 +1636,10 @@ pub struct DeleteAccountResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAppInstanceAdminRequest {
     /// <p>The ARN of the <code>AppInstance</code>'s administrator.</p>
-    #[serde(rename = "AppInstanceAdminArn")]
+    #[serde(rename = "appInstanceAdminArn")]
     pub app_instance_admin_arn: String,
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -1647,7 +1647,7 @@ pub struct DeleteAppInstanceAdminRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAppInstanceRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -1655,7 +1655,7 @@ pub struct DeleteAppInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAppInstanceStreamingConfigurationsRequest {
     /// <p>The ARN of the streaming configurations being deleted.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -1663,7 +1663,7 @@ pub struct DeleteAppInstanceStreamingConfigurationsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAppInstanceUserRequest {
     /// <p>The ARN of the user request being deleted.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     pub app_instance_user_arn: String,
 }
 
@@ -1671,10 +1671,10 @@ pub struct DeleteAppInstanceUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAttendeeRequest {
     /// <p>The Amazon Chime SDK attendee ID.</p>
-    #[serde(rename = "AttendeeId")]
+    #[serde(rename = "attendeeId")]
     pub attendee_id: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -1682,14 +1682,14 @@ pub struct DeleteAttendeeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelBanRequest {
     /// <p>The ARN of the channel from which the <code>AppInstanceUser</code> was banned.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARN of the <code>AppInstanceUser</code> that you want to reinstate.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     pub member_arn: String,
 }
 
@@ -1697,14 +1697,14 @@ pub struct DeleteChannelBanRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelMembershipRequest {
     /// <p>The ARN of the channel from which you want to remove the user.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARN of the member that you're removing from the channel.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     pub member_arn: String,
 }
 
@@ -1712,14 +1712,14 @@ pub struct DeleteChannelMembershipRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelMessageRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ID of the message being deleted.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     pub message_id: String,
 }
 
@@ -1727,13 +1727,13 @@ pub struct DeleteChannelMessageRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelModeratorRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The ARN of the moderator being deleted.</p>
-    #[serde(rename = "ChannelModeratorArn")]
+    #[serde(rename = "channelModeratorArn")]
     pub channel_moderator_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -1742,10 +1742,10 @@ pub struct DeleteChannelModeratorRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelRequest {
     /// <p>The ARN of the channel being deleted.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -1754,10 +1754,10 @@ pub struct DeleteChannelRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEventsConfigurationRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     pub bot_id: String,
 }
 
@@ -1765,7 +1765,7 @@ pub struct DeleteEventsConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteMeetingRequest {
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -1773,7 +1773,7 @@ pub struct DeleteMeetingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePhoneNumberRequest {
     /// <p>The phone number ID.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     pub phone_number_id: String,
 }
 
@@ -1781,10 +1781,10 @@ pub struct DeletePhoneNumberRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProxySessionRequest {
     /// <p>The proxy session ID.</p>
-    #[serde(rename = "ProxySessionId")]
+    #[serde(rename = "proxySessionId")]
     pub proxy_session_id: String,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1792,13 +1792,13 @@ pub struct DeleteProxySessionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRoomMembershipRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The member ID (user ID or bot ID).</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -1806,10 +1806,10 @@ pub struct DeleteRoomMembershipRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRoomRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The chat room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -1817,7 +1817,7 @@ pub struct DeleteRoomRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSipMediaApplicationRequest {
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
 }
 
@@ -1825,7 +1825,7 @@ pub struct DeleteSipMediaApplicationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSipRuleRequest {
     /// <p>The SIP rule ID.</p>
-    #[serde(rename = "SipRuleId")]
+    #[serde(rename = "sipRuleId")]
     pub sip_rule_id: String,
 }
 
@@ -1833,7 +1833,7 @@ pub struct DeleteSipRuleRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1841,7 +1841,7 @@ pub struct DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorGroupRequest {
     /// <p>The Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "VoiceConnectorGroupId")]
+    #[serde(rename = "voiceConnectorGroupId")]
     pub voice_connector_group_id: String,
 }
 
@@ -1849,7 +1849,7 @@ pub struct DeleteVoiceConnectorGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorOriginationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1857,7 +1857,7 @@ pub struct DeleteVoiceConnectorOriginationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorProxyRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1865,7 +1865,7 @@ pub struct DeleteVoiceConnectorProxyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1873,7 +1873,7 @@ pub struct DeleteVoiceConnectorRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorStreamingConfigurationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1881,10 +1881,10 @@ pub struct DeleteVoiceConnectorStreamingConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorTerminationCredentialsRequest {
     /// <p>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</p>
-    #[serde(rename = "Usernames")]
+    #[serde(rename = "usernames")]
     pub usernames: Vec<String>,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1892,7 +1892,7 @@ pub struct DeleteVoiceConnectorTerminationCredentialsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVoiceConnectorTerminationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -1900,10 +1900,10 @@ pub struct DeleteVoiceConnectorTerminationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAppInstanceAdminRequest {
     /// <p>The ARN of the <code>AppInstanceAdmin</code>.</p>
-    #[serde(rename = "AppInstanceAdminArn")]
+    #[serde(rename = "appInstanceAdminArn")]
     pub app_instance_admin_arn: String,
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -1911,7 +1911,7 @@ pub struct DescribeAppInstanceAdminRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAppInstanceAdminResponse {
     /// <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the <code>AppInstance</code>, and the created and last-updated timestamps. All timestamps use epoch milliseconds.</p>
-    #[serde(rename = "AppInstanceAdmin")]
+    #[serde(rename = "appInstanceAdmin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_admin: Option<AppInstanceAdmin>,
 }
@@ -1920,7 +1920,7 @@ pub struct DescribeAppInstanceAdminResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAppInstanceRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -1928,7 +1928,7 @@ pub struct DescribeAppInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAppInstanceResponse {
     /// <p>The ARN, metadata, created and last-updated timestamps, and the name of the <code>AppInstance</code>. All timestamps use epoch milliseconds.</p>
-    #[serde(rename = "AppInstance")]
+    #[serde(rename = "appInstance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance: Option<AppInstance>,
 }
@@ -1937,7 +1937,7 @@ pub struct DescribeAppInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAppInstanceUserRequest {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     pub app_instance_user_arn: String,
 }
 
@@ -1945,7 +1945,7 @@ pub struct DescribeAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAppInstanceUserResponse {
     /// <p>The name of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUser")]
+    #[serde(rename = "appInstanceUser")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user: Option<AppInstanceUser>,
 }
@@ -1954,14 +1954,14 @@ pub struct DescribeAppInstanceUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelBanRequest {
     /// <p>The ARN of the channel from which the user is banned.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARN of the member being banned.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     pub member_arn: String,
 }
 
@@ -1969,7 +1969,7 @@ pub struct DescribeChannelBanRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelBanResponse {
     /// <p>The details of the ban.</p>
-    #[serde(rename = "ChannelBan")]
+    #[serde(rename = "channelBan")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_ban: Option<ChannelBan>,
 }
@@ -1978,13 +1978,13 @@ pub struct DescribeChannelBanResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelMembershipForAppInstanceUserRequest {
     /// <p>The ARN of the user in a channel.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     pub app_instance_user_arn: String,
     /// <p>The ARN of the channel to which the user belongs.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -1993,7 +1993,7 @@ pub struct DescribeChannelMembershipForAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelMembershipForAppInstanceUserResponse {
     /// <p>The channel to which a user belongs.</p>
-    #[serde(rename = "ChannelMembership")]
+    #[serde(rename = "channelMembership")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_membership: Option<ChannelMembershipForAppInstanceUserSummary>,
 }
@@ -2002,14 +2002,14 @@ pub struct DescribeChannelMembershipForAppInstanceUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelMembershipRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ARN of the member.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     pub member_arn: String,
 }
 
@@ -2017,7 +2017,7 @@ pub struct DescribeChannelMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelMembershipResponse {
     /// <p>The details of the membership.</p>
-    #[serde(rename = "ChannelMembership")]
+    #[serde(rename = "channelMembership")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_membership: Option<ChannelMembership>,
 }
@@ -2026,13 +2026,13 @@ pub struct DescribeChannelMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelModeratedByAppInstanceUserRequest {
     /// <p>The ARN of the <code>AppInstanceUser</code> in the moderated channel.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     pub app_instance_user_arn: String,
     /// <p>The ARN of the moderated channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -2041,7 +2041,7 @@ pub struct DescribeChannelModeratedByAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelModeratedByAppInstanceUserResponse {
     /// <p>The moderated channel.</p>
-    #[serde(rename = "Channel")]
+    #[serde(rename = "channel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel: Option<ChannelModeratedByAppInstanceUserSummary>,
 }
@@ -2050,13 +2050,13 @@ pub struct DescribeChannelModeratedByAppInstanceUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelModeratorRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The ARN of the channel moderator.</p>
-    #[serde(rename = "ChannelModeratorArn")]
+    #[serde(rename = "channelModeratorArn")]
     pub channel_moderator_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -2065,7 +2065,7 @@ pub struct DescribeChannelModeratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelModeratorResponse {
     /// <p>The details of the channel moderator.</p>
-    #[serde(rename = "ChannelModerator")]
+    #[serde(rename = "channelModerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_moderator: Option<ChannelModerator>,
 }
@@ -2074,10 +2074,10 @@ pub struct DescribeChannelModeratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -2086,7 +2086,7 @@ pub struct DescribeChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelResponse {
     /// <p>The channel details.</p>
-    #[serde(rename = "Channel")]
+    #[serde(rename = "channel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel: Option<Channel>,
 }
@@ -2095,10 +2095,10 @@ pub struct DescribeChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociatePhoneNumberFromUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -2110,10 +2110,10 @@ pub struct DisassociatePhoneNumberFromUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
     /// <p>List of phone numbers, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumbers")]
+    #[serde(rename = "e164PhoneNumbers")]
     pub e164_phone_numbers: Vec<String>,
     /// <p>The Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "VoiceConnectorGroupId")]
+    #[serde(rename = "voiceConnectorGroupId")]
     pub voice_connector_group_id: String,
 }
 
@@ -2121,7 +2121,7 @@ pub struct DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
     /// <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
-    #[serde(rename = "PhoneNumberErrors")]
+    #[serde(rename = "phoneNumberErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_errors: Option<Vec<PhoneNumberError>>,
 }
@@ -2130,10 +2130,10 @@ pub struct DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociatePhoneNumbersFromVoiceConnectorRequest {
     /// <p>List of phone numbers, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumbers")]
+    #[serde(rename = "e164PhoneNumbers")]
     pub e164_phone_numbers: Vec<String>,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2141,7 +2141,7 @@ pub struct DisassociatePhoneNumbersFromVoiceConnectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociatePhoneNumbersFromVoiceConnectorResponse {
     /// <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
-    #[serde(rename = "PhoneNumberErrors")]
+    #[serde(rename = "phoneNumberErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_errors: Option<Vec<PhoneNumberError>>,
 }
@@ -2150,10 +2150,10 @@ pub struct DisassociatePhoneNumbersFromVoiceConnectorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateSigninDelegateGroupsFromAccountRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The sign-in delegate group names.</p>
-    #[serde(rename = "GroupNames")]
+    #[serde(rename = "groupNames")]
     pub group_names: Vec<String>,
 }
 
@@ -2165,7 +2165,7 @@ pub struct DisassociateSigninDelegateGroupsFromAccountResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EmergencyCallingConfiguration {
     /// <p>The Dialed Number Identification Service (DNIS) emergency calling configuration details.</p>
-    #[serde(rename = "DNIS")]
+    #[serde(rename = "dNIS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dnis: Option<Vec<DNISEmergencyCallingConfiguration>>,
 }
@@ -2175,15 +2175,15 @@ pub struct EmergencyCallingConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventsConfiguration {
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot_id: Option<String>,
     /// <p>Lambda function ARN that allows a bot to receive outgoing events.</p>
-    #[serde(rename = "LambdaFunctionArn")]
+    #[serde(rename = "lambdaFunctionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_function_arn: Option<String>,
     /// <p>HTTPS endpoint that allows a bot to receive outgoing events.</p>
-    #[serde(rename = "OutboundEventsHTTPSEndpoint")]
+    #[serde(rename = "outboundEventsHTTPSEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_events_https_endpoint: Option<String>,
 }
@@ -2192,10 +2192,10 @@ pub struct EventsConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GeoMatchParams {
     /// <p>The area code.</p>
-    #[serde(rename = "AreaCode")]
+    #[serde(rename = "areaCode")]
     pub area_code: String,
     /// <p>The country.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     pub country: String,
 }
 
@@ -2203,7 +2203,7 @@ pub struct GeoMatchParams {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAccountRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
 }
 
@@ -2211,7 +2211,7 @@ pub struct GetAccountRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccountResponse {
     /// <p>The Amazon Chime account details.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account: Option<Account>,
 }
@@ -2220,7 +2220,7 @@ pub struct GetAccountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAccountSettingsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
 }
 
@@ -2228,7 +2228,7 @@ pub struct GetAccountSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccountSettingsResponse {
     /// <p>The Amazon Chime account settings.</p>
-    #[serde(rename = "AccountSettings")]
+    #[serde(rename = "accountSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_settings: Option<AccountSettings>,
 }
@@ -2237,7 +2237,7 @@ pub struct GetAccountSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAppInstanceRetentionSettingsRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -2245,11 +2245,11 @@ pub struct GetAppInstanceRetentionSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAppInstanceRetentionSettingsResponse {
     /// <p>The retention settings for the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceRetentionSettings")]
+    #[serde(rename = "appInstanceRetentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_retention_settings: Option<AppInstanceRetentionSettings>,
     /// <p>The timestamp representing the time at which the specified items are retained, in Epoch Seconds.</p>
-    #[serde(rename = "InitiateDeletionTimestamp")]
+    #[serde(rename = "initiateDeletionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initiate_deletion_timestamp: Option<f64>,
 }
@@ -2258,7 +2258,7 @@ pub struct GetAppInstanceRetentionSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAppInstanceStreamingConfigurationsRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
 }
 
@@ -2266,7 +2266,7 @@ pub struct GetAppInstanceStreamingConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAppInstanceStreamingConfigurationsResponse {
     /// <p>The streaming settings.</p>
-    #[serde(rename = "AppInstanceStreamingConfigurations")]
+    #[serde(rename = "appInstanceStreamingConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_streaming_configurations: Option<Vec<AppInstanceStreamingConfiguration>>,
 }
@@ -2275,10 +2275,10 @@ pub struct GetAppInstanceStreamingConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAttendeeRequest {
     /// <p>The Amazon Chime SDK attendee ID.</p>
-    #[serde(rename = "AttendeeId")]
+    #[serde(rename = "attendeeId")]
     pub attendee_id: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -2286,7 +2286,7 @@ pub struct GetAttendeeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAttendeeResponse {
     /// <p>The Amazon Chime SDK attendee information.</p>
-    #[serde(rename = "Attendee")]
+    #[serde(rename = "attendee")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendee: Option<Attendee>,
 }
@@ -2295,10 +2295,10 @@ pub struct GetAttendeeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetBotRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     pub bot_id: String,
 }
 
@@ -2306,7 +2306,7 @@ pub struct GetBotRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetBotResponse {
     /// <p>The chat bot details.</p>
-    #[serde(rename = "Bot")]
+    #[serde(rename = "bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot: Option<Bot>,
 }
@@ -2315,14 +2315,14 @@ pub struct GetBotResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetChannelMessageRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ID of the message.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     pub message_id: String,
 }
 
@@ -2330,7 +2330,7 @@ pub struct GetChannelMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetChannelMessageResponse {
     /// <p>The details of and content in the message.</p>
-    #[serde(rename = "ChannelMessage")]
+    #[serde(rename = "channelMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_message: Option<ChannelMessage>,
 }
@@ -2339,10 +2339,10 @@ pub struct GetChannelMessageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEventsConfigurationRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     pub bot_id: String,
 }
 
@@ -2350,7 +2350,7 @@ pub struct GetEventsConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEventsConfigurationResponse {
     /// <p>The events configuration details.</p>
-    #[serde(rename = "EventsConfiguration")]
+    #[serde(rename = "eventsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events_configuration: Option<EventsConfiguration>,
 }
@@ -2359,11 +2359,11 @@ pub struct GetEventsConfigurationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGlobalSettingsResponse {
     /// <p>The Amazon Chime Business Calling settings.</p>
-    #[serde(rename = "BusinessCalling")]
+    #[serde(rename = "businessCalling")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub business_calling: Option<BusinessCallingSettings>,
     /// <p>The Amazon Chime Voice Connector settings.</p>
-    #[serde(rename = "VoiceConnector")]
+    #[serde(rename = "voiceConnector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector: Option<VoiceConnectorSettings>,
 }
@@ -2372,7 +2372,7 @@ pub struct GetGlobalSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMeetingRequest {
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -2380,7 +2380,7 @@ pub struct GetMeetingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMeetingResponse {
     /// <p>The Amazon Chime SDK meeting information.</p>
-    #[serde(rename = "Meeting")]
+    #[serde(rename = "meeting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting: Option<Meeting>,
 }
@@ -2393,7 +2393,7 @@ pub struct GetMessagingSessionEndpointRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMessagingSessionEndpointResponse {
     /// <p>The endpoint returned in the response.</p>
-    #[serde(rename = "Endpoint")]
+    #[serde(rename = "endpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint: Option<MessagingSessionEndpoint>,
 }
@@ -2402,7 +2402,7 @@ pub struct GetMessagingSessionEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPhoneNumberOrderRequest {
     /// <p>The ID for the phone number order.</p>
-    #[serde(rename = "PhoneNumberOrderId")]
+    #[serde(rename = "phoneNumberOrderId")]
     pub phone_number_order_id: String,
 }
 
@@ -2410,7 +2410,7 @@ pub struct GetPhoneNumberOrderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPhoneNumberOrderResponse {
     /// <p>The phone number order details.</p>
-    #[serde(rename = "PhoneNumberOrder")]
+    #[serde(rename = "phoneNumberOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_order: Option<PhoneNumberOrder>,
 }
@@ -2419,7 +2419,7 @@ pub struct GetPhoneNumberOrderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPhoneNumberRequest {
     /// <p>The phone number ID.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     pub phone_number_id: String,
 }
 
@@ -2427,7 +2427,7 @@ pub struct GetPhoneNumberRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPhoneNumberResponse {
     /// <p>The phone number details.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<PhoneNumber>,
 }
@@ -2436,11 +2436,11 @@ pub struct GetPhoneNumberResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPhoneNumberSettingsResponse {
     /// <p>The default outbound calling name for the account.</p>
-    #[serde(rename = "CallingName")]
+    #[serde(rename = "callingName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_name: Option<String>,
     /// <p>The updated outbound calling name timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CallingNameUpdatedTimestamp")]
+    #[serde(rename = "callingNameUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_name_updated_timestamp: Option<f64>,
 }
@@ -2449,10 +2449,10 @@ pub struct GetPhoneNumberSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProxySessionRequest {
     /// <p>The proxy session ID.</p>
-    #[serde(rename = "ProxySessionId")]
+    #[serde(rename = "proxySessionId")]
     pub proxy_session_id: String,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2460,7 +2460,7 @@ pub struct GetProxySessionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProxySessionResponse {
     /// <p>The proxy session details.</p>
-    #[serde(rename = "ProxySession")]
+    #[serde(rename = "proxySession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy_session: Option<ProxySession>,
 }
@@ -2469,7 +2469,7 @@ pub struct GetProxySessionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRetentionSettingsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
 }
 
@@ -2477,11 +2477,11 @@ pub struct GetRetentionSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRetentionSettingsResponse {
     /// <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
-    #[serde(rename = "InitiateDeletionTimestamp")]
+    #[serde(rename = "initiateDeletionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initiate_deletion_timestamp: Option<f64>,
     /// <p>The retention settings.</p>
-    #[serde(rename = "RetentionSettings")]
+    #[serde(rename = "retentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_settings: Option<RetentionSettings>,
 }
@@ -2490,10 +2490,10 @@ pub struct GetRetentionSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRoomRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -2501,7 +2501,7 @@ pub struct GetRoomRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRoomResponse {
     /// <p>The room details.</p>
-    #[serde(rename = "Room")]
+    #[serde(rename = "room")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room: Option<Room>,
 }
@@ -2510,7 +2510,7 @@ pub struct GetRoomResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSipMediaApplicationLoggingConfigurationRequest {
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
 }
 
@@ -2518,7 +2518,7 @@ pub struct GetSipMediaApplicationLoggingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSipMediaApplicationLoggingConfigurationResponse {
     /// <p>The actual logging configuration.</p>
-    #[serde(rename = "SipMediaApplicationLoggingConfiguration")]
+    #[serde(rename = "sipMediaApplicationLoggingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_logging_configuration:
         Option<SipMediaApplicationLoggingConfiguration>,
@@ -2528,7 +2528,7 @@ pub struct GetSipMediaApplicationLoggingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSipMediaApplicationRequest {
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
 }
 
@@ -2536,7 +2536,7 @@ pub struct GetSipMediaApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSipMediaApplicationResponse {
     /// <p>The SIP media application details.</p>
-    #[serde(rename = "SipMediaApplication")]
+    #[serde(rename = "sipMediaApplication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application: Option<SipMediaApplication>,
 }
@@ -2545,7 +2545,7 @@ pub struct GetSipMediaApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSipRuleRequest {
     /// <p>The SIP rule ID.</p>
-    #[serde(rename = "SipRuleId")]
+    #[serde(rename = "sipRuleId")]
     pub sip_rule_id: String,
 }
 
@@ -2553,7 +2553,7 @@ pub struct GetSipRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSipRuleResponse {
     /// <p>The SIP rule details.</p>
-    #[serde(rename = "SipRule")]
+    #[serde(rename = "sipRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_rule: Option<SipRule>,
 }
@@ -2562,10 +2562,10 @@ pub struct GetSipRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -2573,7 +2573,7 @@ pub struct GetUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserResponse {
     /// <p>The user details.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -2582,10 +2582,10 @@ pub struct GetUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserSettingsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -2593,7 +2593,7 @@ pub struct GetUserSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserSettingsResponse {
     /// <p>The user settings.</p>
-    #[serde(rename = "UserSettings")]
+    #[serde(rename = "userSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_settings: Option<UserSettings>,
 }
@@ -2602,7 +2602,7 @@ pub struct GetUserSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorEmergencyCallingConfigurationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2610,7 +2610,7 @@ pub struct GetVoiceConnectorEmergencyCallingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorEmergencyCallingConfigurationResponse {
     /// <p>The emergency calling configuration details.</p>
-    #[serde(rename = "EmergencyCallingConfiguration")]
+    #[serde(rename = "emergencyCallingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub emergency_calling_configuration: Option<EmergencyCallingConfiguration>,
 }
@@ -2619,7 +2619,7 @@ pub struct GetVoiceConnectorEmergencyCallingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorGroupRequest {
     /// <p>The Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "VoiceConnectorGroupId")]
+    #[serde(rename = "voiceConnectorGroupId")]
     pub voice_connector_group_id: String,
 }
 
@@ -2627,7 +2627,7 @@ pub struct GetVoiceConnectorGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorGroupResponse {
     /// <p>The Amazon Chime Voice Connector group details.</p>
-    #[serde(rename = "VoiceConnectorGroup")]
+    #[serde(rename = "voiceConnectorGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_group: Option<VoiceConnectorGroup>,
 }
@@ -2636,7 +2636,7 @@ pub struct GetVoiceConnectorGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorLoggingConfigurationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2644,7 +2644,7 @@ pub struct GetVoiceConnectorLoggingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorLoggingConfigurationResponse {
     /// <p>The logging configuration details.</p>
-    #[serde(rename = "LoggingConfiguration")]
+    #[serde(rename = "loggingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_configuration: Option<LoggingConfiguration>,
 }
@@ -2653,7 +2653,7 @@ pub struct GetVoiceConnectorLoggingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorOriginationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2661,7 +2661,7 @@ pub struct GetVoiceConnectorOriginationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorOriginationResponse {
     /// <p>The origination setting details.</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<Origination>,
 }
@@ -2670,7 +2670,7 @@ pub struct GetVoiceConnectorOriginationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorProxyRequest {
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2678,7 +2678,7 @@ pub struct GetVoiceConnectorProxyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorProxyResponse {
     /// <p>The proxy configuration details.</p>
-    #[serde(rename = "Proxy")]
+    #[serde(rename = "proxy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy: Option<Proxy>,
 }
@@ -2687,7 +2687,7 @@ pub struct GetVoiceConnectorProxyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2695,7 +2695,7 @@ pub struct GetVoiceConnectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorResponse {
     /// <p>The Amazon Chime Voice Connector details.</p>
-    #[serde(rename = "VoiceConnector")]
+    #[serde(rename = "voiceConnector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector: Option<VoiceConnector>,
 }
@@ -2704,7 +2704,7 @@ pub struct GetVoiceConnectorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorStreamingConfigurationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2712,7 +2712,7 @@ pub struct GetVoiceConnectorStreamingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorStreamingConfigurationResponse {
     /// <p>The streaming configuration details.</p>
-    #[serde(rename = "StreamingConfiguration")]
+    #[serde(rename = "streamingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub streaming_configuration: Option<StreamingConfiguration>,
 }
@@ -2721,7 +2721,7 @@ pub struct GetVoiceConnectorStreamingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorTerminationHealthRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2729,7 +2729,7 @@ pub struct GetVoiceConnectorTerminationHealthRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorTerminationHealthResponse {
     /// <p>The termination health details.</p>
-    #[serde(rename = "TerminationHealth")]
+    #[serde(rename = "terminationHealth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub termination_health: Option<TerminationHealth>,
 }
@@ -2738,7 +2738,7 @@ pub struct GetVoiceConnectorTerminationHealthResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVoiceConnectorTerminationRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -2746,7 +2746,7 @@ pub struct GetVoiceConnectorTerminationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVoiceConnectorTerminationResponse {
     /// <p>The termination setting details.</p>
-    #[serde(rename = "Termination")]
+    #[serde(rename = "termination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub termination: Option<Termination>,
 }
@@ -2756,11 +2756,11 @@ pub struct GetVoiceConnectorTerminationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Identity {
     /// <p>The ARN in an Identity.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name in an Identity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2770,19 +2770,19 @@ pub struct Identity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Invite {
     /// <p>The email address to which the invite is sent.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>The status of the invite email.</p>
-    #[serde(rename = "EmailStatus")]
+    #[serde(rename = "emailStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_status: Option<String>,
     /// <p>The invite ID.</p>
-    #[serde(rename = "InviteId")]
+    #[serde(rename = "inviteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invite_id: Option<String>,
     /// <p>The status of the invite.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2791,13 +2791,13 @@ pub struct Invite {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InviteUsersRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user email addresses to which to send the email invitation.</p>
-    #[serde(rename = "UserEmailList")]
+    #[serde(rename = "userEmailList")]
     pub user_email_list: Vec<String>,
     /// <p>The user type.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
 }
@@ -2806,7 +2806,7 @@ pub struct InviteUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InviteUsersResponse {
     /// <p>The email invitation details.</p>
-    #[serde(rename = "Invites")]
+    #[serde(rename = "invites")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invites: Option<Vec<Invite>>,
 }
@@ -2815,19 +2815,19 @@ pub struct InviteUsersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAccountsRequest {
     /// <p>The maximum number of results to return in a single call. Defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Amazon Chime account name prefix with which to filter results.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>User email address with which to filter results.</p>
-    #[serde(rename = "UserEmail")]
+    #[serde(rename = "userEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_email: Option<String>,
 }
@@ -2836,11 +2836,11 @@ pub struct ListAccountsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAccountsResponse {
     /// <p>List of Amazon Chime accounts and account details.</p>
-    #[serde(rename = "Accounts")]
+    #[serde(rename = "accounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accounts: Option<Vec<Account>>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2849,14 +2849,14 @@ pub struct ListAccountsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAppInstanceAdminsRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The maximum number of administrators that you want to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token returned from previous API requests until the number of administrators is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2865,15 +2865,15 @@ pub struct ListAppInstanceAdminsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAppInstanceAdminsResponse {
     /// <p>The information for each administrator.</p>
-    #[serde(rename = "AppInstanceAdmins")]
+    #[serde(rename = "appInstanceAdmins")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_admins: Option<Vec<AppInstanceAdminSummary>>,
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
     /// <p>The token returned from previous API requests until the number of administrators is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2882,14 +2882,14 @@ pub struct ListAppInstanceAdminsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAppInstanceUsersRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The maximum number of requests that you want returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API calls until all requested users are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2898,15 +2898,15 @@ pub struct ListAppInstanceUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAppInstanceUsersResponse {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
     /// <p>The information for each requested <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUsers")]
+    #[serde(rename = "appInstanceUsers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_users: Option<Vec<AppInstanceUserSummary>>,
     /// <p>The token passed by previous API calls until all requested users are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2915,11 +2915,11 @@ pub struct ListAppInstanceUsersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAppInstancesRequest {
     /// <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API requests until you reach the maximum number of <code>AppInstance</code>s.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2928,11 +2928,11 @@ pub struct ListAppInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAppInstancesResponse {
     /// <p>The information for each <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstances")]
+    #[serde(rename = "appInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instances: Option<Vec<AppInstanceSummary>>,
     /// <p>The token passed by previous API requests until the maximum number of <code>AppInstance</code>s is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2941,10 +2941,10 @@ pub struct ListAppInstancesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAttendeeTagsRequest {
     /// <p>The Amazon Chime SDK attendee ID.</p>
-    #[serde(rename = "AttendeeId")]
+    #[serde(rename = "attendeeId")]
     pub attendee_id: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -2952,7 +2952,7 @@ pub struct ListAttendeeTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAttendeeTagsResponse {
     /// <p>A list of tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2961,14 +2961,14 @@ pub struct ListAttendeeTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAttendeesRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2977,11 +2977,11 @@ pub struct ListAttendeesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAttendeesResponse {
     /// <p>The Amazon Chime SDK attendee information.</p>
-    #[serde(rename = "Attendees")]
+    #[serde(rename = "attendees")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attendees: Option<Vec<Attendee>>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2990,14 +2990,14 @@ pub struct ListAttendeesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListBotsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The maximum number of results to return in a single call. The default is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3006,11 +3006,11 @@ pub struct ListBotsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListBotsResponse {
     /// <p>List of bots and bot details.</p>
-    #[serde(rename = "Bots")]
+    #[serde(rename = "bots")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bots: Option<Vec<Bot>>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3019,18 +3019,18 @@ pub struct ListBotsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelBansRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of bans that you want returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API calls until all requested bans are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3039,15 +3039,15 @@ pub struct ListChannelBansRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelBansResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The information for each requested ban.</p>
-    #[serde(rename = "ChannelBans")]
+    #[serde(rename = "channelBans")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_bans: Option<Vec<ChannelBanSummary>>,
     /// <p>The token passed by previous API calls until all requested bans are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3056,19 +3056,19 @@ pub struct ListChannelBansResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelMembershipsForAppInstanceUserRequest {
     /// <p>The ARN of the <code>AppInstanceUser</code>s</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_arn: Option<String>,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of users that you want returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token returned from previous API requests until the number of channel memberships is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3077,11 +3077,11 @@ pub struct ListChannelMembershipsForAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelMembershipsForAppInstanceUserResponse {
     /// <p>The token passed by previous API calls until all requested users are returned.</p>
-    #[serde(rename = "ChannelMemberships")]
+    #[serde(rename = "channelMemberships")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_memberships: Option<Vec<ChannelMembershipForAppInstanceUserSummary>>,
     /// <p>The token passed by previous API calls until all requested users are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3090,22 +3090,22 @@ pub struct ListChannelMembershipsForAppInstanceUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelMembershipsRequest {
     /// <p>The maximum number of channel memberships that you want returned.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of channel memberships that you want returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API calls until all requested channel memberships are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -3114,15 +3114,15 @@ pub struct ListChannelMembershipsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelMembershipsResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The information for the requested channel memberships.</p>
-    #[serde(rename = "ChannelMemberships")]
+    #[serde(rename = "channelMemberships")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_memberships: Option<Vec<ChannelMembershipSummary>>,
     /// <p>The token passed by previous API calls until all requested channel memberships are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3131,30 +3131,30 @@ pub struct ListChannelMembershipsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelMessagesRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of messages that you want returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API calls until all requested messages are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The final or ending time stamp for your requested messages.</p>
-    #[serde(rename = "NotAfter")]
+    #[serde(rename = "notAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_after: Option<f64>,
     /// <p>The initial or starting time stamp for your requested messages.</p>
-    #[serde(rename = "NotBefore")]
+    #[serde(rename = "notBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_before: Option<f64>,
     /// <p>The order in which you want messages sorted. Default is Descending, based on time created.</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -3163,15 +3163,15 @@ pub struct ListChannelMessagesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelMessagesResponse {
     /// <p>The ARN of the channel containing the requested messages.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The information about, and content of, each requested message.</p>
-    #[serde(rename = "ChannelMessages")]
+    #[serde(rename = "channelMessages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_messages: Option<Vec<ChannelMessageSummary>>,
     /// <p>The token passed by previous API calls until all requested messages are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3180,18 +3180,18 @@ pub struct ListChannelMessagesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelModeratorsRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of moderators that you want returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API calls until all requested moderators are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3200,15 +3200,15 @@ pub struct ListChannelModeratorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelModeratorsResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The information about and names of each moderator.</p>
-    #[serde(rename = "ChannelModerators")]
+    #[serde(rename = "channelModerators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_moderators: Option<Vec<ChannelModeratorSummary>>,
     /// <p>The token passed by previous API calls until all requested moderators are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3217,19 +3217,19 @@ pub struct ListChannelModeratorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelsModeratedByAppInstanceUserRequest {
     /// <p>The ARN of the user in the moderated channel.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_arn: Option<String>,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of channels in the request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3238,11 +3238,11 @@ pub struct ListChannelsModeratedByAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelsModeratedByAppInstanceUserResponse {
     /// <p>The moderated channels in the request.</p>
-    #[serde(rename = "Channels")]
+    #[serde(rename = "channels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channels: Option<Vec<ChannelModeratedByAppInstanceUserSummary>>,
     /// <p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3251,22 +3251,22 @@ pub struct ListChannelsModeratedByAppInstanceUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelsRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The maximum number of channels that you want to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token passed by previous API calls until all requested channels are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private channels. </p>
-    #[serde(rename = "Privacy")]
+    #[serde(rename = "privacy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub privacy: Option<String>,
 }
@@ -3275,11 +3275,11 @@ pub struct ListChannelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelsResponse {
     /// <p>The information about each channel.</p>
-    #[serde(rename = "Channels")]
+    #[serde(rename = "channels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channels: Option<Vec<ChannelSummary>>,
     /// <p>The token returned from previous API requests until the number of channels is reached.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3288,7 +3288,7 @@ pub struct ListChannelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMeetingTagsRequest {
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
 }
 
@@ -3296,7 +3296,7 @@ pub struct ListMeetingTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMeetingTagsResponse {
     /// <p>A list of tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3305,11 +3305,11 @@ pub struct ListMeetingTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMeetingsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3318,11 +3318,11 @@ pub struct ListMeetingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMeetingsResponse {
     /// <p>The Amazon Chime SDK meeting information.</p>
-    #[serde(rename = "Meetings")]
+    #[serde(rename = "meetings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meetings: Option<Vec<Meeting>>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3331,11 +3331,11 @@ pub struct ListMeetingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPhoneNumberOrdersRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3344,11 +3344,11 @@ pub struct ListPhoneNumberOrdersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPhoneNumberOrdersResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The phone number order details.</p>
-    #[serde(rename = "PhoneNumberOrders")]
+    #[serde(rename = "phoneNumberOrders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_orders: Option<Vec<PhoneNumberOrder>>,
 }
@@ -3357,27 +3357,27 @@ pub struct ListPhoneNumberOrdersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPhoneNumbersRequest {
     /// <p>The filter to use to limit the number of results.</p>
-    #[serde(rename = "FilterName")]
+    #[serde(rename = "filterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_name: Option<String>,
     /// <p>The value to use for the filter.</p>
-    #[serde(rename = "FilterValue")]
+    #[serde(rename = "filterValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_value: Option<String>,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The phone number product type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
     /// <p>The phone number status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3386,11 +3386,11 @@ pub struct ListPhoneNumbersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPhoneNumbersResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The phone number details.</p>
-    #[serde(rename = "PhoneNumbers")]
+    #[serde(rename = "phoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_numbers: Option<Vec<PhoneNumber>>,
 }
@@ -3399,19 +3399,19 @@ pub struct ListPhoneNumbersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProxySessionsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The proxy session status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -3419,11 +3419,11 @@ pub struct ListProxySessionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProxySessionsResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The proxy session details.</p>
-    #[serde(rename = "ProxySessions")]
+    #[serde(rename = "proxySessions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy_sessions: Option<Vec<ProxySession>>,
 }
@@ -3432,18 +3432,18 @@ pub struct ListProxySessionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRoomMembershipsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -3451,11 +3451,11 @@ pub struct ListRoomMembershipsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRoomMembershipsResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The room membership details.</p>
-    #[serde(rename = "RoomMemberships")]
+    #[serde(rename = "roomMemberships")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_memberships: Option<Vec<RoomMembership>>,
 }
@@ -3464,18 +3464,18 @@ pub struct ListRoomMembershipsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRoomsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The member ID (user ID or bot ID).</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_id: Option<String>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3484,11 +3484,11 @@ pub struct ListRoomsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRoomsResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The room details.</p>
-    #[serde(rename = "Rooms")]
+    #[serde(rename = "rooms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rooms: Option<Vec<Room>>,
 }
@@ -3497,11 +3497,11 @@ pub struct ListRoomsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSipMediaApplicationsRequest {
     /// <p>The maximum number of results to return in a single call. Defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3510,11 +3510,11 @@ pub struct ListSipMediaApplicationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSipMediaApplicationsResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of SIP media applications and application details.</p>
-    #[serde(rename = "SipMediaApplications")]
+    #[serde(rename = "sipMediaApplications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_applications: Option<Vec<SipMediaApplication>>,
 }
@@ -3523,15 +3523,15 @@ pub struct ListSipMediaApplicationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSipRulesRequest {
     /// <p>The maximum number of results to return in a single call. Defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_id: Option<String>,
 }
@@ -3540,11 +3540,11 @@ pub struct ListSipRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSipRulesResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of SIP rules and rule details.</p>
-    #[serde(rename = "SipRules")]
+    #[serde(rename = "sipRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_rules: Option<Vec<SipRule>>,
 }
@@ -3553,7 +3553,7 @@ pub struct ListSipRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSupportedPhoneNumberCountriesRequest {
     /// <p>The phone number product type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     pub product_type: String,
 }
 
@@ -3561,7 +3561,7 @@ pub struct ListSupportedPhoneNumberCountriesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSupportedPhoneNumberCountriesResponse {
     /// <p>The supported phone number countries.</p>
-    #[serde(rename = "PhoneNumberCountries")]
+    #[serde(rename = "phoneNumberCountries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_countries: Option<Vec<PhoneNumberCountry>>,
 }
@@ -3570,7 +3570,7 @@ pub struct ListSupportedPhoneNumberCountriesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -3578,7 +3578,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A list of tag-key value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3587,22 +3587,22 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The maximum number of results to return in a single call. Defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Optional. The user email address used to filter results. Maximum 1.</p>
-    #[serde(rename = "UserEmail")]
+    #[serde(rename = "userEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_email: Option<String>,
     /// <p>The user type.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
 }
@@ -3611,11 +3611,11 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of users and user details.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<User>>,
 }
@@ -3624,11 +3624,11 @@ pub struct ListUsersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListVoiceConnectorGroupsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3637,11 +3637,11 @@ pub struct ListVoiceConnectorGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListVoiceConnectorGroupsResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The details of the Amazon Chime Voice Connector groups.</p>
-    #[serde(rename = "VoiceConnectorGroups")]
+    #[serde(rename = "voiceConnectorGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_groups: Option<Vec<VoiceConnectorGroup>>,
 }
@@ -3650,7 +3650,7 @@ pub struct ListVoiceConnectorGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListVoiceConnectorTerminationCredentialsRequest {
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -3658,7 +3658,7 @@ pub struct ListVoiceConnectorTerminationCredentialsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListVoiceConnectorTerminationCredentialsResponse {
     /// <p>A list of user names.</p>
-    #[serde(rename = "Usernames")]
+    #[serde(rename = "usernames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usernames: Option<Vec<String>>,
 }
@@ -3667,11 +3667,11 @@ pub struct ListVoiceConnectorTerminationCredentialsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListVoiceConnectorsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3680,11 +3680,11 @@ pub struct ListVoiceConnectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListVoiceConnectorsResponse {
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The details of the Amazon Chime Voice Connectors.</p>
-    #[serde(rename = "VoiceConnectors")]
+    #[serde(rename = "voiceConnectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connectors: Option<Vec<VoiceConnector>>,
 }
@@ -3693,7 +3693,7 @@ pub struct ListVoiceConnectorsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LoggingConfiguration {
     /// <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
-    #[serde(rename = "EnableSIPLogs")]
+    #[serde(rename = "enableSIPLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_sip_logs: Option<bool>,
 }
@@ -3702,10 +3702,10 @@ pub struct LoggingConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LogoutUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3718,35 +3718,35 @@ pub struct LogoutUserResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MediaPlacement {
     /// <p>The audio fallback URL.</p>
-    #[serde(rename = "AudioFallbackUrl")]
+    #[serde(rename = "audioFallbackUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audio_fallback_url: Option<String>,
     /// <p>The audio host URL.</p>
-    #[serde(rename = "AudioHostUrl")]
+    #[serde(rename = "audioHostUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audio_host_url: Option<String>,
     /// <p>The event ingestion URL.</p>
-    #[serde(rename = "EventIngestionUrl")]
+    #[serde(rename = "eventIngestionUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_ingestion_url: Option<String>,
     /// <p>The screen data URL.</p>
-    #[serde(rename = "ScreenDataUrl")]
+    #[serde(rename = "screenDataUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub screen_data_url: Option<String>,
     /// <p>The screen sharing URL.</p>
-    #[serde(rename = "ScreenSharingUrl")]
+    #[serde(rename = "screenSharingUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub screen_sharing_url: Option<String>,
     /// <p>The screen viewing URL.</p>
-    #[serde(rename = "ScreenViewingUrl")]
+    #[serde(rename = "screenViewingUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub screen_viewing_url: Option<String>,
     /// <p>The signaling URL.</p>
-    #[serde(rename = "SignalingUrl")]
+    #[serde(rename = "signalingUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signaling_url: Option<String>,
     /// <p>The turn control URL.</p>
-    #[serde(rename = "TurnControlUrl")]
+    #[serde(rename = "turnControlUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub turn_control_url: Option<String>,
 }
@@ -3756,19 +3756,19 @@ pub struct MediaPlacement {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Meeting {
     /// <p>The external meeting ID.</p>
-    #[serde(rename = "ExternalMeetingId")]
+    #[serde(rename = "externalMeetingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_meeting_id: Option<String>,
     /// <p>The media placement for the meeting.</p>
-    #[serde(rename = "MediaPlacement")]
+    #[serde(rename = "mediaPlacement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_placement: Option<MediaPlacement>,
     /// <p>The Region in which you create the meeting. Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>, <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>
-    #[serde(rename = "MediaRegion")]
+    #[serde(rename = "mediaRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_region: Option<String>,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_id: Option<String>,
 }
@@ -3778,11 +3778,11 @@ pub struct Meeting {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MeetingNotificationConfiguration {
     /// <p>The SNS topic ARN.</p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
     /// <p>The SQS queue ARN.</p>
-    #[serde(rename = "SqsQueueArn")]
+    #[serde(rename = "sqsQueueArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sqs_queue_arn: Option<String>,
 }
@@ -3792,23 +3792,23 @@ pub struct MeetingNotificationConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Member {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The member email address.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The member name.</p>
-    #[serde(rename = "FullName")]
+    #[serde(rename = "fullName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub full_name: Option<String>,
     /// <p>The member ID (user ID or bot ID).</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_id: Option<String>,
     /// <p>The member type.</p>
-    #[serde(rename = "MemberType")]
+    #[serde(rename = "memberType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_type: Option<String>,
 }
@@ -3818,15 +3818,15 @@ pub struct Member {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MemberError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The member ID.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_id: Option<String>,
 }
@@ -3836,11 +3836,11 @@ pub struct MemberError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MembershipItem {
     /// <p>The member ID.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_id: Option<String>,
     /// <p>The member role.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
 }
@@ -3850,7 +3850,7 @@ pub struct MembershipItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MessagingSessionEndpoint {
     /// <p>The endpoint to which you establish a websocket connection.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -3860,11 +3860,11 @@ pub struct MessagingSessionEndpoint {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrderedPhoneNumber {
     /// <p>The phone number, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumber")]
+    #[serde(rename = "e164PhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub e164_phone_number: Option<String>,
     /// <p>The phone number status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3873,11 +3873,11 @@ pub struct OrderedPhoneNumber {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Origination {
     /// <p>When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The call distribution properties defined for your SIP hosts. Valid range: Minimum value of 1. Maximum value of 20.</p>
-    #[serde(rename = "Routes")]
+    #[serde(rename = "routes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routes: Option<Vec<OriginationRoute>>,
 }
@@ -3886,23 +3886,23 @@ pub struct Origination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OriginationRoute {
     /// <p>The FQDN or IP address to contact for origination traffic.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host: Option<String>,
     /// <p>The designated origination route port. Defaults to 5060.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.</p>
-    #[serde(rename = "Weight")]
+    #[serde(rename = "weight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weight: Option<i64>,
 }
@@ -3912,11 +3912,11 @@ pub struct OriginationRoute {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Participant {
     /// <p>The participant's phone number.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The participant's proxy phone number.</p>
-    #[serde(rename = "ProxyPhoneNumber")]
+    #[serde(rename = "proxyPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy_phone_number: Option<String>,
 }
@@ -3926,55 +3926,55 @@ pub struct Participant {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumber {
     /// <p>The phone number associations.</p>
-    #[serde(rename = "Associations")]
+    #[serde(rename = "associations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub associations: Option<Vec<PhoneNumberAssociation>>,
     /// <p>The outbound calling name associated with the phone number.</p>
-    #[serde(rename = "CallingName")]
+    #[serde(rename = "callingName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_name: Option<String>,
     /// <p>The outbound calling name status.</p>
-    #[serde(rename = "CallingNameStatus")]
+    #[serde(rename = "callingNameStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_name_status: Option<String>,
     /// <p>The phone number capabilities.</p>
-    #[serde(rename = "Capabilities")]
+    #[serde(rename = "capabilities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capabilities: Option<PhoneNumberCapabilities>,
     /// <p>The phone number country. Format: ISO 3166-1 alpha-2.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
     /// <p>The phone number creation timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The deleted phone number timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "DeletionTimestamp")]
+    #[serde(rename = "deletionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_timestamp: Option<f64>,
     /// <p>The phone number, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumber")]
+    #[serde(rename = "e164PhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub e164_phone_number: Option<String>,
     /// <p>The phone number ID.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_id: Option<String>,
     /// <p>The phone number product type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
     /// <p>The phone number status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The phone number type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The updated phone number timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
 }
@@ -3984,15 +3984,15 @@ pub struct PhoneNumber {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumberAssociation {
     /// <p>The timestamp of the phone number association, in ISO 8601 format.</p>
-    #[serde(rename = "AssociatedTimestamp")]
+    #[serde(rename = "associatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub associated_timestamp: Option<f64>,
     /// <p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Contains the ID for the entity specified in Name.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -4002,27 +4002,27 @@ pub struct PhoneNumberAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumberCapabilities {
     /// <p>Allows or denies inbound calling for the specified phone number.</p>
-    #[serde(rename = "InboundCall")]
+    #[serde(rename = "inboundCall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbound_call: Option<bool>,
     /// <p>Allows or denies inbound MMS messaging for the specified phone number.</p>
-    #[serde(rename = "InboundMMS")]
+    #[serde(rename = "inboundMMS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbound_mms: Option<bool>,
     /// <p>Allows or denies inbound SMS messaging for the specified phone number.</p>
-    #[serde(rename = "InboundSMS")]
+    #[serde(rename = "inboundSMS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbound_sms: Option<bool>,
     /// <p>Allows or denies outbound calling for the specified phone number.</p>
-    #[serde(rename = "OutboundCall")]
+    #[serde(rename = "outboundCall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_call: Option<bool>,
     /// <p>Allows or denies outbound MMS messaging for the specified phone number.</p>
-    #[serde(rename = "OutboundMMS")]
+    #[serde(rename = "outboundMMS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_mms: Option<bool>,
     /// <p>Allows or denies outbound SMS messaging for the specified phone number.</p>
-    #[serde(rename = "OutboundSMS")]
+    #[serde(rename = "outboundSMS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_sms: Option<bool>,
 }
@@ -4032,11 +4032,11 @@ pub struct PhoneNumberCapabilities {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumberCountry {
     /// <p>The phone number country code. Format: ISO 3166-1 alpha-2.</p>
-    #[serde(rename = "CountryCode")]
+    #[serde(rename = "countryCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country_code: Option<String>,
     /// <p>The supported phone number types. </p>
-    #[serde(rename = "SupportedPhoneNumberTypes")]
+    #[serde(rename = "supportedPhoneNumberTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_phone_number_types: Option<Vec<String>>,
 }
@@ -4046,15 +4046,15 @@ pub struct PhoneNumberCountry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumberError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The phone number ID for which the action failed.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_id: Option<String>,
 }
@@ -4064,27 +4064,27 @@ pub struct PhoneNumberError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumberOrder {
     /// <p>The phone number order creation time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ordered phone number details, such as the phone number in E.164 format and the phone number status.</p>
-    #[serde(rename = "OrderedPhoneNumbers")]
+    #[serde(rename = "orderedPhoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ordered_phone_numbers: Option<Vec<OrderedPhoneNumber>>,
     /// <p>The phone number order ID.</p>
-    #[serde(rename = "PhoneNumberOrderId")]
+    #[serde(rename = "phoneNumberOrderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_order_id: Option<String>,
     /// <p>The phone number order product type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
     /// <p>The status of the phone number order.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The updated phone number order time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
 }
@@ -4094,19 +4094,19 @@ pub struct PhoneNumberOrder {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Proxy {
     /// <p>The default number of minutes allowed for proxy sessions.</p>
-    #[serde(rename = "DefaultSessionExpiryMinutes")]
+    #[serde(rename = "defaultSessionExpiryMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_session_expiry_minutes: Option<i64>,
     /// <p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The phone number to route calls to after a proxy session expires.</p>
-    #[serde(rename = "FallBackPhoneNumber")]
+    #[serde(rename = "fallBackPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fall_back_phone_number: Option<String>,
     /// <p>The countries for proxy phone numbers to be selected from.</p>
-    #[serde(rename = "PhoneNumberCountries")]
+    #[serde(rename = "phoneNumberCountries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_countries: Option<Vec<String>>,
 }
@@ -4116,55 +4116,55 @@ pub struct Proxy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProxySession {
     /// <p>The proxy session capabilities.</p>
-    #[serde(rename = "Capabilities")]
+    #[serde(rename = "capabilities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capabilities: Option<Vec<String>>,
     /// <p>The created time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ended time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "EndedTimestamp")]
+    #[serde(rename = "endedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ended_timestamp: Option<f64>,
     /// <p>The number of minutes allowed for the proxy session.</p>
-    #[serde(rename = "ExpiryMinutes")]
+    #[serde(rename = "expiryMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiry_minutes: Option<i64>,
     /// <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
-    #[serde(rename = "GeoMatchLevel")]
+    #[serde(rename = "geoMatchLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geo_match_level: Option<String>,
     /// <p>The country and area code for the proxy phone number.</p>
-    #[serde(rename = "GeoMatchParams")]
+    #[serde(rename = "geoMatchParams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geo_match_params: Option<GeoMatchParams>,
     /// <p>The name of the proxy session.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
-    #[serde(rename = "NumberSelectionBehavior")]
+    #[serde(rename = "numberSelectionBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_selection_behavior: Option<String>,
     /// <p>The proxy session participants.</p>
-    #[serde(rename = "Participants")]
+    #[serde(rename = "participants")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub participants: Option<Vec<Participant>>,
     /// <p>The proxy session ID.</p>
-    #[serde(rename = "ProxySessionId")]
+    #[serde(rename = "proxySessionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy_session_id: Option<String>,
     /// <p>The status of the proxy session.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The updated time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_id: Option<String>,
 }
@@ -4173,10 +4173,10 @@ pub struct ProxySession {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAppInstanceRetentionSettingsRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The time in days to retain data. Data type: number.</p>
-    #[serde(rename = "AppInstanceRetentionSettings")]
+    #[serde(rename = "appInstanceRetentionSettings")]
     pub app_instance_retention_settings: AppInstanceRetentionSettings,
 }
 
@@ -4184,11 +4184,11 @@ pub struct PutAppInstanceRetentionSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutAppInstanceRetentionSettingsResponse {
     /// <p>The time in days to retain data. Data type: number.</p>
-    #[serde(rename = "AppInstanceRetentionSettings")]
+    #[serde(rename = "appInstanceRetentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_retention_settings: Option<AppInstanceRetentionSettings>,
     /// <p>The time at which the API deletes data.</p>
-    #[serde(rename = "InitiateDeletionTimestamp")]
+    #[serde(rename = "initiateDeletionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initiate_deletion_timestamp: Option<f64>,
 }
@@ -4197,10 +4197,10 @@ pub struct PutAppInstanceRetentionSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAppInstanceStreamingConfigurationsRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The streaming configurations set for an <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceStreamingConfigurations")]
+    #[serde(rename = "appInstanceStreamingConfigurations")]
     pub app_instance_streaming_configurations: Vec<AppInstanceStreamingConfiguration>,
 }
 
@@ -4208,7 +4208,7 @@ pub struct PutAppInstanceStreamingConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutAppInstanceStreamingConfigurationsResponse {
     /// <p>The streaming configurations of an <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceStreamingConfigurations")]
+    #[serde(rename = "appInstanceStreamingConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_streaming_configurations: Option<Vec<AppInstanceStreamingConfiguration>>,
 }
@@ -4217,17 +4217,17 @@ pub struct PutAppInstanceStreamingConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEventsConfigurationRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     pub bot_id: String,
     /// <p>Lambda function ARN that allows the bot to receive outgoing events.</p>
-    #[serde(rename = "LambdaFunctionArn")]
+    #[serde(rename = "lambdaFunctionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_function_arn: Option<String>,
     /// <p>HTTPS endpoint that allows the bot to receive outgoing events.</p>
-    #[serde(rename = "OutboundEventsHTTPSEndpoint")]
+    #[serde(rename = "outboundEventsHTTPSEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_events_https_endpoint: Option<String>,
 }
@@ -4235,7 +4235,7 @@ pub struct PutEventsConfigurationRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEventsConfigurationResponse {
-    #[serde(rename = "EventsConfiguration")]
+    #[serde(rename = "eventsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events_configuration: Option<EventsConfiguration>,
 }
@@ -4244,10 +4244,10 @@ pub struct PutEventsConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRetentionSettingsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The retention settings.</p>
-    #[serde(rename = "RetentionSettings")]
+    #[serde(rename = "retentionSettings")]
     pub retention_settings: RetentionSettings,
 }
 
@@ -4255,11 +4255,11 @@ pub struct PutRetentionSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRetentionSettingsResponse {
     /// <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
-    #[serde(rename = "InitiateDeletionTimestamp")]
+    #[serde(rename = "initiateDeletionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initiate_deletion_timestamp: Option<f64>,
     /// <p>The retention settings.</p>
-    #[serde(rename = "RetentionSettings")]
+    #[serde(rename = "retentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_settings: Option<RetentionSettings>,
 }
@@ -4268,10 +4268,10 @@ pub struct PutRetentionSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSipMediaApplicationLoggingConfigurationRequest {
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
     /// <p>The actual logging configuration.</p>
-    #[serde(rename = "SipMediaApplicationLoggingConfiguration")]
+    #[serde(rename = "sipMediaApplicationLoggingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_logging_configuration:
         Option<SipMediaApplicationLoggingConfiguration>,
@@ -4280,7 +4280,7 @@ pub struct PutSipMediaApplicationLoggingConfigurationRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutSipMediaApplicationLoggingConfigurationResponse {
-    #[serde(rename = "SipMediaApplicationLoggingConfiguration")]
+    #[serde(rename = "sipMediaApplicationLoggingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_logging_configuration:
         Option<SipMediaApplicationLoggingConfiguration>,
@@ -4290,10 +4290,10 @@ pub struct PutSipMediaApplicationLoggingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorEmergencyCallingConfigurationRequest {
     /// <p>The emergency calling configuration details.</p>
-    #[serde(rename = "EmergencyCallingConfiguration")]
+    #[serde(rename = "emergencyCallingConfiguration")]
     pub emergency_calling_configuration: EmergencyCallingConfiguration,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4301,7 +4301,7 @@ pub struct PutVoiceConnectorEmergencyCallingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutVoiceConnectorEmergencyCallingConfigurationResponse {
     /// <p>The emergency calling configuration details.</p>
-    #[serde(rename = "EmergencyCallingConfiguration")]
+    #[serde(rename = "emergencyCallingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub emergency_calling_configuration: Option<EmergencyCallingConfiguration>,
 }
@@ -4310,10 +4310,10 @@ pub struct PutVoiceConnectorEmergencyCallingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorLoggingConfigurationRequest {
     /// <p>The logging configuration details to add.</p>
-    #[serde(rename = "LoggingConfiguration")]
+    #[serde(rename = "loggingConfiguration")]
     pub logging_configuration: LoggingConfiguration,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4321,7 +4321,7 @@ pub struct PutVoiceConnectorLoggingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutVoiceConnectorLoggingConfigurationResponse {
     /// <p>The updated logging configuration details.</p>
-    #[serde(rename = "LoggingConfiguration")]
+    #[serde(rename = "loggingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_configuration: Option<LoggingConfiguration>,
 }
@@ -4330,10 +4330,10 @@ pub struct PutVoiceConnectorLoggingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorOriginationRequest {
     /// <p>The origination setting details to add.</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     pub origination: Origination,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4341,7 +4341,7 @@ pub struct PutVoiceConnectorOriginationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutVoiceConnectorOriginationResponse {
     /// <p>The updated origination setting details.</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<Origination>,
 }
@@ -4350,21 +4350,21 @@ pub struct PutVoiceConnectorOriginationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorProxyRequest {
     /// <p>The default number of minutes allowed for proxy sessions.</p>
-    #[serde(rename = "DefaultSessionExpiryMinutes")]
+    #[serde(rename = "defaultSessionExpiryMinutes")]
     pub default_session_expiry_minutes: i64,
     /// <p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The phone number to route calls to after a proxy session expires.</p>
-    #[serde(rename = "FallBackPhoneNumber")]
+    #[serde(rename = "fallBackPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fall_back_phone_number: Option<String>,
     /// <p>The countries for proxy phone numbers to be selected from.</p>
-    #[serde(rename = "PhoneNumberPoolCountries")]
+    #[serde(rename = "phoneNumberPoolCountries")]
     pub phone_number_pool_countries: Vec<String>,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4372,7 +4372,7 @@ pub struct PutVoiceConnectorProxyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutVoiceConnectorProxyResponse {
     /// <p>The proxy configuration details.</p>
-    #[serde(rename = "Proxy")]
+    #[serde(rename = "proxy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy: Option<Proxy>,
 }
@@ -4381,10 +4381,10 @@ pub struct PutVoiceConnectorProxyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorStreamingConfigurationRequest {
     /// <p>The streaming configuration details to add.</p>
-    #[serde(rename = "StreamingConfiguration")]
+    #[serde(rename = "streamingConfiguration")]
     pub streaming_configuration: StreamingConfiguration,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4392,7 +4392,7 @@ pub struct PutVoiceConnectorStreamingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutVoiceConnectorStreamingConfigurationResponse {
     /// <p>The updated streaming configuration details.</p>
-    #[serde(rename = "StreamingConfiguration")]
+    #[serde(rename = "streamingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub streaming_configuration: Option<StreamingConfiguration>,
 }
@@ -4401,11 +4401,11 @@ pub struct PutVoiceConnectorStreamingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorTerminationCredentialsRequest {
     /// <p>The termination SIP credentials.</p>
-    #[serde(rename = "Credentials")]
+    #[serde(rename = "credentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials: Option<Vec<Credential>>,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4413,10 +4413,10 @@ pub struct PutVoiceConnectorTerminationCredentialsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutVoiceConnectorTerminationRequest {
     /// <p>The termination setting details to add.</p>
-    #[serde(rename = "Termination")]
+    #[serde(rename = "termination")]
     pub termination: Termination,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -4424,7 +4424,7 @@ pub struct PutVoiceConnectorTerminationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutVoiceConnectorTerminationResponse {
     /// <p>The updated termination setting details.</p>
-    #[serde(rename = "Termination")]
+    #[serde(rename = "termination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub termination: Option<Termination>,
 }
@@ -4433,14 +4433,14 @@ pub struct PutVoiceConnectorTerminationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RedactChannelMessageRequest {
     /// <p>The ARN of the channel containing the messages that you want to redact.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The ID of the message being redacted.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     pub message_id: String,
 }
 
@@ -4448,11 +4448,11 @@ pub struct RedactChannelMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RedactChannelMessageResponse {
     /// <p>The ARN of the channel containing the messages that you want to redact.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The ID of the message being redacted.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -4461,13 +4461,13 @@ pub struct RedactChannelMessageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RedactConversationMessageRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The conversation ID.</p>
-    #[serde(rename = "ConversationId")]
+    #[serde(rename = "conversationId")]
     pub conversation_id: String,
     /// <p>The message ID.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     pub message_id: String,
 }
 
@@ -4479,13 +4479,13 @@ pub struct RedactConversationMessageResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RedactRoomMessageRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The message ID.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     pub message_id: String,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -4497,17 +4497,17 @@ pub struct RedactRoomMessageResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegenerateSecurityTokenRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     pub bot_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegenerateSecurityTokenResponse {
-    #[serde(rename = "Bot")]
+    #[serde(rename = "bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot: Option<Bot>,
 }
@@ -4516,10 +4516,10 @@ pub struct RegenerateSecurityTokenResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResetPersonalPINRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -4527,7 +4527,7 @@ pub struct ResetPersonalPINRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResetPersonalPINResponse {
     /// <p>The user details and new personal meeting PIN.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -4536,7 +4536,7 @@ pub struct ResetPersonalPINResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RestorePhoneNumberRequest {
     /// <p>The phone number.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     pub phone_number_id: String,
 }
 
@@ -4544,7 +4544,7 @@ pub struct RestorePhoneNumberRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RestorePhoneNumberResponse {
     /// <p>The phone number details.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<PhoneNumber>,
 }
@@ -4553,11 +4553,11 @@ pub struct RestorePhoneNumberResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RetentionSettings {
     /// <p>The chat conversation retention settings.</p>
-    #[serde(rename = "ConversationRetentionSettings")]
+    #[serde(rename = "conversationRetentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conversation_retention_settings: Option<ConversationRetentionSettings>,
     /// <p>The chat room retention settings.</p>
-    #[serde(rename = "RoomRetentionSettings")]
+    #[serde(rename = "roomRetentionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_retention_settings: Option<RoomRetentionSettings>,
 }
@@ -4567,27 +4567,27 @@ pub struct RetentionSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Room {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The identifier of the room creator.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The room creation timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The room name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_id: Option<String>,
     /// <p>The room update timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
 }
@@ -4597,22 +4597,22 @@ pub struct Room {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RoomMembership {
     /// <p>The identifier of the user that invited the room member.</p>
-    #[serde(rename = "InvitedBy")]
+    #[serde(rename = "invitedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_by: Option<String>,
-    #[serde(rename = "Member")]
+    #[serde(rename = "member")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member: Option<Member>,
     /// <p>The membership role.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_id: Option<String>,
     /// <p>The room membership update timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
 }
@@ -4621,7 +4621,7 @@ pub struct RoomMembership {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RoomRetentionSettings {
     /// <p>The number of days for which to retain chat-room messages.</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
 }
@@ -4630,35 +4630,35 @@ pub struct RoomRetentionSettings {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchAvailablePhoneNumbersRequest {
     /// <p>The area code used to filter results. Only applies to the US.</p>
-    #[serde(rename = "AreaCode")]
+    #[serde(rename = "areaCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub area_code: Option<String>,
     /// <p>The city used to filter results. Only applies to the US.</p>
-    #[serde(rename = "City")]
+    #[serde(rename = "city")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub city: Option<String>,
     /// <p>The country used to filter results. Defaults to the US Format: ISO 3166-1 alpha-2.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token used to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The phone number type used to filter results. Required for non-US numbers.</p>
-    #[serde(rename = "PhoneNumberType")]
+    #[serde(rename = "phoneNumberType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_type: Option<String>,
     /// <p>The state used to filter results. Required only if you provide <code>City</code>. Only applies to the US.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The toll-free prefix that you use to filter results. Only applies to the US.</p>
-    #[serde(rename = "TollFreePrefix")]
+    #[serde(rename = "tollFreePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub toll_free_prefix: Option<String>,
 }
@@ -4667,11 +4667,11 @@ pub struct SearchAvailablePhoneNumbersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchAvailablePhoneNumbersResponse {
     /// <p>List of phone numbers, in E.164 format.</p>
-    #[serde(rename = "E164PhoneNumbers")]
+    #[serde(rename = "e164PhoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub e164_phone_numbers: Option<Vec<String>>,
     /// <p>The token used to retrieve the next page of search results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4680,27 +4680,27 @@ pub struct SearchAvailablePhoneNumbersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendChannelMessageRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The <code>Idempotency</code> token for each client request.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The content of the message.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>The optional metadata for each message.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>Boolean that controls whether the message is persisted on the back end. Required.</p>
-    #[serde(rename = "Persistence")]
+    #[serde(rename = "persistence")]
     pub persistence: String,
     /// <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -4708,11 +4708,11 @@ pub struct SendChannelMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendChannelMessageResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The ID string assigned to each message.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -4721,7 +4721,7 @@ pub struct SendChannelMessageResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SigninDelegateGroup {
     /// <p>The group name.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -4731,27 +4731,27 @@ pub struct SigninDelegateGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SipMediaApplication {
     /// <p>The AWS Region in which the SIP media application is created.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The SIP media application creation timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>List of endpoints for SIP media application. Currently, only one endpoint per SIP media application is permitted.</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<Vec<SipMediaApplicationEndpoint>>,
     /// <p>The name of the SIP media application.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_id: Option<String>,
     /// <p>The SIP media application updated timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
 }
@@ -4761,7 +4761,7 @@ pub struct SipMediaApplication {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SipMediaApplicationCall {
     /// <p>The transaction ID of a call.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transaction_id: Option<String>,
 }
@@ -4770,7 +4770,7 @@ pub struct SipMediaApplicationCall {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SipMediaApplicationEndpoint {
     /// <p>Valid Amazon Resource Name (ARN) of the Lambda function. The function must be created in the same AWS Region as the SIP media application.</p>
-    #[serde(rename = "LambdaArn")]
+    #[serde(rename = "lambdaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_arn: Option<String>,
 }
@@ -4779,7 +4779,7 @@ pub struct SipMediaApplicationEndpoint {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SipMediaApplicationLoggingConfiguration {
     /// <p>Enables application message logs for the SIP media application.</p>
-    #[serde(rename = "EnableSipMediaApplicationMessageLogs")]
+    #[serde(rename = "enableSipMediaApplicationMessageLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_sip_media_application_message_logs: Option<bool>,
 }
@@ -4789,35 +4789,35 @@ pub struct SipMediaApplicationLoggingConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SipRule {
     /// <p>The time at which the SIP rule was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>Indicates whether the SIP rule is enabled or disabled. You must disable a rule before you can delete it.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The name of the SIP rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The SIP rule ID.</p>
-    #[serde(rename = "SipRuleId")]
+    #[serde(rename = "sipRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_rule_id: Option<String>,
     /// <p>Target SIP media application and other details, such as priority and AWS Region, to be specified in the SIP rule. Only one SIP rule per AWS Region can be provided.</p>
-    #[serde(rename = "TargetApplications")]
+    #[serde(rename = "targetApplications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_applications: Option<Vec<SipRuleTargetApplication>>,
     /// <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</p>
-    #[serde(rename = "TriggerType")]
+    #[serde(rename = "triggerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger_type: Option<String>,
     /// <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, then the value can be the outbound host name of the Amazon Chime Voice Connector. If <code>TriggerType</code> is <code>ToPhoneNumber</code>, then the value can be a customer-owned phone number in E164 format. <code>SipRule</code> is triggered when a SIP rule requests host name or <code>ToPhoneNumber</code> matches in the incoming SIP request.</p>
-    #[serde(rename = "TriggerValue")]
+    #[serde(rename = "triggerValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger_value: Option<String>,
     /// <p>The time at which the SIP rule was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
 }
@@ -4826,15 +4826,15 @@ pub struct SipRule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SipRuleTargetApplication {
     /// <p>The AWS Region of the target application.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>Priority of the SIP media application in the target list.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_id: Option<String>,
 }
@@ -4843,14 +4843,14 @@ pub struct SipRuleTargetApplication {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamingConfiguration {
     /// <p>The retention period, in hours, for the Amazon Kinesis data.</p>
-    #[serde(rename = "DataRetentionInHours")]
+    #[serde(rename = "dataRetentionInHours")]
     pub data_retention_in_hours: i64,
     /// <p>When true, media streaming to Amazon Kinesis is turned off.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The streaming notification targets.</p>
-    #[serde(rename = "StreamingNotificationTargets")]
+    #[serde(rename = "streamingNotificationTargets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub streaming_notification_targets: Option<Vec<StreamingNotificationTarget>>,
 }
@@ -4859,7 +4859,7 @@ pub struct StreamingConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamingNotificationTarget {
     /// <p>The streaming notification target.</p>
-    #[serde(rename = "NotificationTarget")]
+    #[serde(rename = "notificationTarget")]
     pub notification_target: String,
 }
 
@@ -4867,10 +4867,10 @@ pub struct StreamingNotificationTarget {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -4878,13 +4878,13 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagAttendeeRequest {
     /// <p>The Amazon Chime SDK attendee ID.</p>
-    #[serde(rename = "AttendeeId")]
+    #[serde(rename = "attendeeId")]
     pub attendee_id: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -4892,10 +4892,10 @@ pub struct TagAttendeeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagMeetingRequest {
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -4903,10 +4903,10 @@ pub struct TagMeetingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -4914,13 +4914,13 @@ pub struct TagResourceRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TelephonySettings {
     /// <p>Allows or denies inbound calling.</p>
-    #[serde(rename = "InboundCalling")]
+    #[serde(rename = "inboundCalling")]
     pub inbound_calling: bool,
     /// <p>Allows or denies outbound calling.</p>
-    #[serde(rename = "OutboundCalling")]
+    #[serde(rename = "outboundCalling")]
     pub outbound_calling: bool,
     /// <p>Allows or denies SMS messaging.</p>
-    #[serde(rename = "SMS")]
+    #[serde(rename = "sMS")]
     pub sms: bool,
 }
 
@@ -4928,23 +4928,23 @@ pub struct TelephonySettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Termination {
     /// <p>The countries to which calls are allowed, in ISO 3166-1 alpha-2 format. Required.</p>
-    #[serde(rename = "CallingRegions")]
+    #[serde(rename = "callingRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_regions: Option<Vec<String>>,
     /// <p>The IP addresses allowed to make calls, in CIDR format. Required.</p>
-    #[serde(rename = "CidrAllowedList")]
+    #[serde(rename = "cidrAllowedList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cidr_allowed_list: Option<Vec<String>>,
     /// <p>The limit on calls per second. Max value based on account service quota. Default value of 1.</p>
-    #[serde(rename = "CpsLimit")]
+    #[serde(rename = "cpsLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cps_limit: Option<i64>,
     /// <p>The default caller ID phone number.</p>
-    #[serde(rename = "DefaultPhoneNumber")]
+    #[serde(rename = "defaultPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_phone_number: Option<String>,
     /// <p>When termination settings are disabled, outbound calls can not be made.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
 }
@@ -4954,11 +4954,11 @@ pub struct Termination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TerminationHealth {
     /// <p>The source IP address.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<String>,
     /// <p>The timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
 }
@@ -4967,13 +4967,13 @@ pub struct TerminationHealth {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagAttendeeRequest {
     /// <p>The Amazon Chime SDK attendee ID.</p>
-    #[serde(rename = "AttendeeId")]
+    #[serde(rename = "attendeeId")]
     pub attendee_id: String,
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -4981,10 +4981,10 @@ pub struct UntagAttendeeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagMeetingRequest {
     /// <p>The Amazon Chime SDK meeting ID.</p>
-    #[serde(rename = "MeetingId")]
+    #[serde(rename = "meetingId")]
     pub meeting_id: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -4992,10 +4992,10 @@ pub struct UntagMeetingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -5003,14 +5003,14 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAccountRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The default license applied when you add users to an Amazon Chime account.</p>
-    #[serde(rename = "DefaultLicense")]
+    #[serde(rename = "defaultLicense")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_license: Option<String>,
     /// <p>The new name for the specified Amazon Chime account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -5019,7 +5019,7 @@ pub struct UpdateAccountRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAccountResponse {
     /// <p>The updated Amazon Chime account details.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account: Option<Account>,
 }
@@ -5028,10 +5028,10 @@ pub struct UpdateAccountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAccountSettingsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The Amazon Chime account settings to update.</p>
-    #[serde(rename = "AccountSettings")]
+    #[serde(rename = "accountSettings")]
     pub account_settings: AccountSettings,
 }
 
@@ -5043,14 +5043,14 @@ pub struct UpdateAccountSettingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAppInstanceRequest {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     pub app_instance_arn: String,
     /// <p>The metadata that you want to change.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name that you want to change.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -5058,7 +5058,7 @@ pub struct UpdateAppInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAppInstanceResponse {
     /// <p>The ARN of the <code>AppInstance</code>.</p>
-    #[serde(rename = "AppInstanceArn")]
+    #[serde(rename = "appInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_arn: Option<String>,
 }
@@ -5067,14 +5067,14 @@ pub struct UpdateAppInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAppInstanceUserRequest {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     pub app_instance_user_arn: String,
     /// <p>The metadata of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The name of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -5082,7 +5082,7 @@ pub struct UpdateAppInstanceUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAppInstanceUserResponse {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
-    #[serde(rename = "AppInstanceUserArn")]
+    #[serde(rename = "appInstanceUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_instance_user_arn: Option<String>,
 }
@@ -5091,13 +5091,13 @@ pub struct UpdateAppInstanceUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateBotRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The bot ID.</p>
-    #[serde(rename = "BotId")]
+    #[serde(rename = "botId")]
     pub bot_id: String,
     /// <p>When true, stops the specified bot from running in your account.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
 }
@@ -5106,7 +5106,7 @@ pub struct UpdateBotRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateBotResponse {
     /// <p>The updated bot details.</p>
-    #[serde(rename = "Bot")]
+    #[serde(rename = "bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot: Option<Bot>,
 }
@@ -5115,21 +5115,21 @@ pub struct UpdateBotResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateChannelMessageRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The content of the message being updated.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The ID string of the message being updated.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     pub message_id: String,
     /// <p>The metadata of the message being updated.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
 }
@@ -5138,11 +5138,11 @@ pub struct UpdateChannelMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateChannelMessageResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The ID string of the message being updated.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -5151,10 +5151,10 @@ pub struct UpdateChannelMessageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateChannelReadMarkerRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
 }
@@ -5163,7 +5163,7 @@ pub struct UpdateChannelReadMarkerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateChannelReadMarkerResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
 }
@@ -5172,21 +5172,21 @@ pub struct UpdateChannelReadMarkerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateChannelRequest {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     pub channel_arn: String,
     /// <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-    #[serde(rename = "ChimeBearer")]
+    #[serde(rename = "chimeBearer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chime_bearer: Option<String>,
     /// <p>The metadata for the update request.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
     /// <p>The mode of the update request.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     pub mode: String,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -5194,7 +5194,7 @@ pub struct UpdateChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateChannelResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "ChannelArn")]
+    #[serde(rename = "channelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
 }
@@ -5203,10 +5203,10 @@ pub struct UpdateChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGlobalSettingsRequest {
     /// <p>The Amazon Chime Business Calling settings.</p>
-    #[serde(rename = "BusinessCalling")]
+    #[serde(rename = "businessCalling")]
     pub business_calling: BusinessCallingSettings,
     /// <p>The Amazon Chime Voice Connector settings.</p>
-    #[serde(rename = "VoiceConnector")]
+    #[serde(rename = "voiceConnector")]
     pub voice_connector: VoiceConnectorSettings,
 }
 
@@ -5214,14 +5214,14 @@ pub struct UpdateGlobalSettingsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePhoneNumberRequest {
     /// <p>The outbound calling name associated with the phone number.</p>
-    #[serde(rename = "CallingName")]
+    #[serde(rename = "callingName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_name: Option<String>,
     /// <p>The phone number ID.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     pub phone_number_id: String,
     /// <p>The product type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
 }
@@ -5231,14 +5231,14 @@ pub struct UpdatePhoneNumberRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePhoneNumberRequestItem {
     /// <p>The outbound calling name to update.</p>
-    #[serde(rename = "CallingName")]
+    #[serde(rename = "callingName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub calling_name: Option<String>,
     /// <p>The phone number ID to update.</p>
-    #[serde(rename = "PhoneNumberId")]
+    #[serde(rename = "phoneNumberId")]
     pub phone_number_id: String,
     /// <p>The product type to update.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
 }
@@ -5247,7 +5247,7 @@ pub struct UpdatePhoneNumberRequestItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdatePhoneNumberResponse {
     /// <p>The updated phone number details.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<PhoneNumber>,
 }
@@ -5256,7 +5256,7 @@ pub struct UpdatePhoneNumberResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePhoneNumberSettingsRequest {
     /// <p>The default outbound calling name for the account.</p>
-    #[serde(rename = "CallingName")]
+    #[serde(rename = "callingName")]
     pub calling_name: String,
 }
 
@@ -5264,17 +5264,17 @@ pub struct UpdatePhoneNumberSettingsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProxySessionRequest {
     /// <p>The proxy session capabilities.</p>
-    #[serde(rename = "Capabilities")]
+    #[serde(rename = "capabilities")]
     pub capabilities: Vec<String>,
     /// <p>The number of minutes allowed for the proxy session.</p>
-    #[serde(rename = "ExpiryMinutes")]
+    #[serde(rename = "expiryMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiry_minutes: Option<i64>,
     /// <p>The proxy session ID.</p>
-    #[serde(rename = "ProxySessionId")]
+    #[serde(rename = "proxySessionId")]
     pub proxy_session_id: String,
     /// <p>The Amazon Chime voice connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -5282,7 +5282,7 @@ pub struct UpdateProxySessionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateProxySessionResponse {
     /// <p>The proxy session details.</p>
-    #[serde(rename = "ProxySession")]
+    #[serde(rename = "proxySession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proxy_session: Option<ProxySession>,
 }
@@ -5291,17 +5291,17 @@ pub struct UpdateProxySessionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoomMembershipRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The member ID.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The role of the member.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -5309,7 +5309,7 @@ pub struct UpdateRoomMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRoomMembershipResponse {
     /// <p>The room membership details.</p>
-    #[serde(rename = "RoomMembership")]
+    #[serde(rename = "roomMembership")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_membership: Option<RoomMembership>,
 }
@@ -5318,14 +5318,14 @@ pub struct UpdateRoomMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoomRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The room name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The room ID.</p>
-    #[serde(rename = "RoomId")]
+    #[serde(rename = "roomId")]
     pub room_id: String,
 }
 
@@ -5333,7 +5333,7 @@ pub struct UpdateRoomRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRoomResponse {
     /// <p>The room details.</p>
-    #[serde(rename = "Room")]
+    #[serde(rename = "room")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room: Option<Room>,
 }
@@ -5342,20 +5342,20 @@ pub struct UpdateRoomResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSipMediaApplicationCallRequest {
     /// <p>Arguments made available to the Lambda function as part of the <code>CALL_UPDATE_REQUESTED</code> event. Can contain 0-20 key-value pairs.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     pub arguments: ::std::collections::HashMap<String, String>,
     /// <p>The ID of the SIP media application handling the call.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
     /// <p>The ID of the call transaction.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     pub transaction_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSipMediaApplicationCallResponse {
-    #[serde(rename = "SipMediaApplicationCall")]
+    #[serde(rename = "sipMediaApplicationCall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application_call: Option<SipMediaApplicationCall>,
 }
@@ -5364,15 +5364,15 @@ pub struct UpdateSipMediaApplicationCallResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSipMediaApplicationRequest {
     /// <p>The new set of endpoints for the specified SIP media application.</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<Vec<SipMediaApplicationEndpoint>>,
     /// <p>The new name for the specified SIP media application.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The SIP media application ID.</p>
-    #[serde(rename = "SipMediaApplicationId")]
+    #[serde(rename = "sipMediaApplicationId")]
     pub sip_media_application_id: String,
 }
 
@@ -5380,7 +5380,7 @@ pub struct UpdateSipMediaApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSipMediaApplicationResponse {
     /// <p>The updated SIP media application details.</p>
-    #[serde(rename = "SipMediaApplication")]
+    #[serde(rename = "sipMediaApplication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_media_application: Option<SipMediaApplication>,
 }
@@ -5389,17 +5389,17 @@ pub struct UpdateSipMediaApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSipRuleRequest {
     /// <p>The new value specified to indicate whether the rule is disabled.</p>
-    #[serde(rename = "Disabled")]
+    #[serde(rename = "disabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
     /// <p>The new name for the specified SIP rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The SIP rule ID.</p>
-    #[serde(rename = "SipRuleId")]
+    #[serde(rename = "sipRuleId")]
     pub sip_rule_id: String,
     /// <p>The new value of the list of target applications.</p>
-    #[serde(rename = "TargetApplications")]
+    #[serde(rename = "targetApplications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_applications: Option<Vec<SipRuleTargetApplication>>,
 }
@@ -5408,7 +5408,7 @@ pub struct UpdateSipRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSipRuleResponse {
     /// <p>Updated SIP rule details.</p>
-    #[serde(rename = "SipRule")]
+    #[serde(rename = "sipRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_rule: Option<SipRule>,
 }
@@ -5417,21 +5417,21 @@ pub struct UpdateSipRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The Alexa for Business metadata.</p>
-    #[serde(rename = "AlexaForBusinessMetadata")]
+    #[serde(rename = "alexaForBusinessMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alexa_for_business_metadata: Option<AlexaForBusinessMetadata>,
     /// <p>The user license type to update. This must be a supported license type for the Amazon Chime account that the user belongs to.</p>
-    #[serde(rename = "LicenseType")]
+    #[serde(rename = "licenseType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_type: Option<String>,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
     /// <p>The user type.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
 }
@@ -5441,18 +5441,18 @@ pub struct UpdateUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRequestItem {
     /// <p>The Alexa for Business metadata.</p>
-    #[serde(rename = "AlexaForBusinessMetadata")]
+    #[serde(rename = "alexaForBusinessMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alexa_for_business_metadata: Option<AlexaForBusinessMetadata>,
     /// <p>The user license type.</p>
-    #[serde(rename = "LicenseType")]
+    #[serde(rename = "licenseType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_type: Option<String>,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
     /// <p>The user type.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
 }
@@ -5461,7 +5461,7 @@ pub struct UpdateUserRequestItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserResponse {
     /// <p>The updated user details.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -5470,13 +5470,13 @@ pub struct UpdateUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserSettingsRequest {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
     /// <p>The user settings to update.</p>
-    #[serde(rename = "UserSettings")]
+    #[serde(rename = "userSettings")]
     pub user_settings: UserSettings,
 }
 
@@ -5484,13 +5484,13 @@ pub struct UpdateUserSettingsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateVoiceConnectorGroupRequest {
     /// <p>The name of the Amazon Chime Voice Connector group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "VoiceConnectorGroupId")]
+    #[serde(rename = "voiceConnectorGroupId")]
     pub voice_connector_group_id: String,
     /// <p>The <code>VoiceConnectorItems</code> to associate with the group.</p>
-    #[serde(rename = "VoiceConnectorItems")]
+    #[serde(rename = "voiceConnectorItems")]
     pub voice_connector_items: Vec<VoiceConnectorItem>,
 }
 
@@ -5498,7 +5498,7 @@ pub struct UpdateVoiceConnectorGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateVoiceConnectorGroupResponse {
     /// <p>The updated Amazon Chime Voice Connector group details.</p>
-    #[serde(rename = "VoiceConnectorGroup")]
+    #[serde(rename = "voiceConnectorGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_group: Option<VoiceConnectorGroup>,
 }
@@ -5507,13 +5507,13 @@ pub struct UpdateVoiceConnectorGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateVoiceConnectorRequest {
     /// <p>The name of the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "RequireEncryption")]
+    #[serde(rename = "requireEncryption")]
     pub require_encryption: bool,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -5521,7 +5521,7 @@ pub struct UpdateVoiceConnectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateVoiceConnectorResponse {
     /// <p>The updated Amazon Chime Voice Connector details.</p>
-    #[serde(rename = "VoiceConnector")]
+    #[serde(rename = "voiceConnector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector: Option<VoiceConnector>,
 }
@@ -5531,54 +5531,54 @@ pub struct UpdateVoiceConnectorResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct User {
     /// <p>The Amazon Chime account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The Alexa for Business metadata.</p>
-    #[serde(rename = "AlexaForBusinessMetadata")]
+    #[serde(rename = "alexaForBusinessMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alexa_for_business_metadata: Option<AlexaForBusinessMetadata>,
     /// <p>The display name of the user.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>Date and time when the user is invited to the Amazon Chime account, in ISO 8601 format.</p>
-    #[serde(rename = "InvitedOn")]
+    #[serde(rename = "invitedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_on: Option<f64>,
     /// <p>The license type for the user.</p>
-    #[serde(rename = "LicenseType")]
+    #[serde(rename = "licenseType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_type: Option<String>,
     /// <p>The user's personal meeting PIN.</p>
-    #[serde(rename = "PersonalPIN")]
+    #[serde(rename = "personalPIN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub personal_pin: Option<String>,
     /// <p>The primary email address of the user.</p>
-    #[serde(rename = "PrimaryEmail")]
+    #[serde(rename = "primaryEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_email: Option<String>,
     /// <p>The primary phone number associated with the user.</p>
-    #[serde(rename = "PrimaryProvisionedNumber")]
+    #[serde(rename = "primaryProvisionedNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_provisioned_number: Option<String>,
     /// <p>Date and time when the user is registered, in ISO 8601 format.</p>
-    #[serde(rename = "RegisteredOn")]
+    #[serde(rename = "registeredOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registered_on: Option<f64>,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
     /// <p>The user invite status.</p>
-    #[serde(rename = "UserInvitationStatus")]
+    #[serde(rename = "userInvitationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_invitation_status: Option<String>,
     /// <p>The user registration status.</p>
-    #[serde(rename = "UserRegistrationStatus")]
+    #[serde(rename = "userRegistrationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_registration_status: Option<String>,
     /// <p>The user type.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
 }
@@ -5588,15 +5588,15 @@ pub struct User {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The user ID for which the action failed.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -5605,7 +5605,7 @@ pub struct UserError {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserSettings {
     /// <p>The telephony settings associated with the user.</p>
-    #[serde(rename = "Telephony")]
+    #[serde(rename = "telephony")]
     pub telephony: TelephonySettings,
 }
 
@@ -5614,31 +5614,31 @@ pub struct UserSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VoiceConnector {
     /// <p> The AWS Region in which the Amazon Chime Voice Connector is created. Default: <code>us-east-1</code>. </p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The name of the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The outbound host name for the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "OutboundHostName")]
+    #[serde(rename = "outboundHostName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_host_name: Option<String>,
     /// <p>Designates whether encryption is required for the Amazon Chime Voice Connector.</p>
-    #[serde(rename = "RequireEncryption")]
+    #[serde(rename = "requireEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_encryption: Option<bool>,
     /// <p>The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_id: Option<String>,
 }
@@ -5648,23 +5648,23 @@ pub struct VoiceConnector {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VoiceConnectorGroup {
     /// <p>The Amazon Chime Voice Connector group creation time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The name of the Amazon Chime Voice Connector group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The updated Amazon Chime Voice Connector group time stamp, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedTimestamp")]
+    #[serde(rename = "updatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<f64>,
     /// <p>The Amazon Chime Voice Connector group ID.</p>
-    #[serde(rename = "VoiceConnectorGroupId")]
+    #[serde(rename = "voiceConnectorGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_group_id: Option<String>,
     /// <p>The Amazon Chime Voice Connectors to which to route inbound calls.</p>
-    #[serde(rename = "VoiceConnectorItems")]
+    #[serde(rename = "voiceConnectorItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_connector_items: Option<Vec<VoiceConnectorItem>>,
 }
@@ -5673,10 +5673,10 @@ pub struct VoiceConnectorGroup {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VoiceConnectorItem {
     /// <p>The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
     /// <p>The Amazon Chime Voice Connector ID.</p>
-    #[serde(rename = "VoiceConnectorId")]
+    #[serde(rename = "voiceConnectorId")]
     pub voice_connector_id: String,
 }
 
@@ -5684,7 +5684,7 @@ pub struct VoiceConnectorItem {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VoiceConnectorSettings {
     /// <p>The Amazon S3 bucket designated for call detail record storage.</p>
-    #[serde(rename = "CdrBucket")]
+    #[serde(rename = "cdrBucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cdr_bucket: Option<String>,
 }

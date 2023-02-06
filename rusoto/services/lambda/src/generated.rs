@@ -30,23 +30,23 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccountLimit {
     /// <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
-    #[serde(rename = "CodeSizeUnzipped")]
+    #[serde(rename = "codeSizeUnzipped")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_size_unzipped: Option<i64>,
     /// <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.</p>
-    #[serde(rename = "CodeSizeZipped")]
+    #[serde(rename = "codeSizeZipped")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_size_zipped: Option<i64>,
     /// <p>The maximum number of simultaneous function executions.</p>
-    #[serde(rename = "ConcurrentExecutions")]
+    #[serde(rename = "concurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub concurrent_executions: Option<i64>,
     /// <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
-    #[serde(rename = "TotalCodeSize")]
+    #[serde(rename = "totalCodeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_code_size: Option<i64>,
     /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
-    #[serde(rename = "UnreservedConcurrentExecutions")]
+    #[serde(rename = "unreservedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unreserved_concurrent_executions: Option<i64>,
 }
@@ -56,11 +56,11 @@ pub struct AccountLimit {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccountUsage {
     /// <p>The number of Lambda functions.</p>
-    #[serde(rename = "FunctionCount")]
+    #[serde(rename = "functionCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_count: Option<i64>,
     /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
-    #[serde(rename = "TotalCodeSize")]
+    #[serde(rename = "totalCodeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_code_size: Option<i64>,
 }
@@ -69,27 +69,27 @@ pub struct AccountUsage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddLayerVersionPermissionRequest {
     /// <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: String,
     /// <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>An identifier that distinguishes the policy from others on the same layer version.</p>
-    #[serde(rename = "StatementId")]
+    #[serde(rename = "statementId")]
     pub statement_id: String,
     /// <p>The version number.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -97,11 +97,11 @@ pub struct AddLayerVersionPermissionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddLayerVersionPermissionResponse {
     /// <p>A unique identifier for the current revision of the policy.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The permission statement.</p>
-    #[serde(rename = "Statement")]
+    #[serde(rename = "statement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement: Option<String>,
 }
@@ -110,36 +110,36 @@ pub struct AddLayerVersionPermissionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddPermissionRequest {
     /// <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or <code>lambda:GetFunction</code>.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
-    #[serde(rename = "EventSourceToken")]
+    #[serde(rename = "eventSourceToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_token: Option<String>,
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: String,
     /// <p>Specify a version or alias to add permissions to a published version of the function.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
     /// <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
-    #[serde(rename = "SourceAccount")]
+    #[serde(rename = "sourceAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_account: Option<String>,
     /// <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>A statement identifier that differentiates the statement from others in the same policy.</p>
-    #[serde(rename = "StatementId")]
+    #[serde(rename = "statementId")]
     pub statement_id: String,
 }
 
@@ -147,7 +147,7 @@ pub struct AddPermissionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddPermissionResponse {
     /// <p>The permission statement that's added to the function policy.</p>
-    #[serde(rename = "Statement")]
+    #[serde(rename = "statement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement: Option<String>,
 }
@@ -157,27 +157,27 @@ pub struct AddPermissionResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AliasConfiguration {
     /// <p>The Amazon Resource Name (ARN) of the alias.</p>
-    #[serde(rename = "AliasArn")]
+    #[serde(rename = "aliasArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_arn: Option<String>,
     /// <p>A description of the alias.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The function version that the alias invokes.</p>
-    #[serde(rename = "FunctionVersion")]
+    #[serde(rename = "functionVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_version: Option<String>,
     /// <p>The name of the alias.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A unique identifier that changes when you update the alias.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    #[serde(rename = "RoutingConfig")]
+    #[serde(rename = "routingConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_config: Option<AliasRoutingConfiguration>,
 }
@@ -186,7 +186,7 @@ pub struct AliasConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AliasRoutingConfiguration {
     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-    #[serde(rename = "AdditionalVersionWeights")]
+    #[serde(rename = "additionalVersionWeights")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_version_weights: Option<::std::collections::HashMap<String, f64>>,
 }
@@ -195,7 +195,7 @@ pub struct AliasRoutingConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AllowedPublishers {
     /// <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. </p>
-    #[serde(rename = "SigningProfileVersionArns")]
+    #[serde(rename = "signingProfileVersionArns")]
     pub signing_profile_version_arns: Vec<String>,
 }
 
@@ -204,23 +204,23 @@ pub struct AllowedPublishers {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CodeSigningConfig {
     /// <p>List of allowed publishers.</p>
-    #[serde(rename = "AllowedPublishers")]
+    #[serde(rename = "allowedPublishers")]
     pub allowed_publishers: AllowedPublishers,
     /// <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
     /// <p>Unique identifer for the Code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigId")]
+    #[serde(rename = "codeSigningConfigId")]
     pub code_signing_config_id: String,
     /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
-    #[serde(rename = "CodeSigningPolicies")]
+    #[serde(rename = "codeSigningPolicies")]
     pub code_signing_policies: CodeSigningPolicies,
     /// <p>Code signing configuration description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     pub last_modified: String,
 }
 
@@ -228,7 +228,7 @@ pub struct CodeSigningConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CodeSigningPolicies {
     /// <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p> <p>Default value: <code>Warn</code> </p>
-    #[serde(rename = "UntrustedArtifactOnDeployment")]
+    #[serde(rename = "untrustedArtifactOnDeployment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub untrusted_artifact_on_deployment: Option<String>,
 }
@@ -237,7 +237,7 @@ pub struct CodeSigningPolicies {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Concurrency {
     /// <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
-    #[serde(rename = "ReservedConcurrentExecutions")]
+    #[serde(rename = "reservedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_concurrent_executions: Option<i64>,
 }
@@ -246,20 +246,20 @@ pub struct Concurrency {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAliasRequest {
     /// <p>A description of the alias.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The function version that the alias invokes.</p>
-    #[serde(rename = "FunctionVersion")]
+    #[serde(rename = "functionVersion")]
     pub function_version: String,
     /// <p>The name of the alias.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    #[serde(rename = "RoutingConfig")]
+    #[serde(rename = "routingConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_config: Option<AliasRoutingConfiguration>,
 }
@@ -268,14 +268,14 @@ pub struct CreateAliasRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCodeSigningConfigRequest {
     /// <p>Signing profiles for this code signing configuration.</p>
-    #[serde(rename = "AllowedPublishers")]
+    #[serde(rename = "allowedPublishers")]
     pub allowed_publishers: AllowedPublishers,
     /// <p>The code signing policies define the actions to take if the validation checks fail. </p>
-    #[serde(rename = "CodeSigningPolicies")]
+    #[serde(rename = "codeSigningPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_signing_policies: Option<CodeSigningPolicies>,
     /// <p>Descriptive name for this code signing configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -284,7 +284,7 @@ pub struct CreateCodeSigningConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCodeSigningConfigResponse {
     /// <p>The code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfig")]
+    #[serde(rename = "codeSigningConfig")]
     pub code_signing_config: CodeSigningConfig,
 }
 
@@ -292,74 +292,74 @@ pub struct CreateCodeSigningConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEventSourceMappingRequest {
     /// <p><p>The maximum number of items to retrieve in a single batch.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> </ul></p>
-    #[serde(rename = "BatchSize")]
+    #[serde(rename = "batchSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_size: Option<i64>,
     /// <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
-    #[serde(rename = "BisectBatchOnFunctionError")]
+    #[serde(rename = "bisectBatchOnFunctionError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bisect_batch_on_function_error: Option<bool>,
     /// <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-    #[serde(rename = "DestinationConfig")]
+    #[serde(rename = "destinationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_config: Option<DestinationConfig>,
     /// <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p><p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p> </li> </ul></p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
-    #[serde(rename = "FunctionResponseTypes")]
+    #[serde(rename = "functionResponseTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_response_types: Option<Vec<String>>,
     /// <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
-    #[serde(rename = "MaximumBatchingWindowInSeconds")]
+    #[serde(rename = "maximumBatchingWindowInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_batching_window_in_seconds: Option<i64>,
     /// <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
-    #[serde(rename = "MaximumRecordAgeInSeconds")]
+    #[serde(rename = "maximumRecordAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_record_age_in_seconds: Option<i64>,
     /// <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
     /// <p>(Streams) The number of batches to process from each shard concurrently.</p>
-    #[serde(rename = "ParallelizationFactor")]
+    #[serde(rename = "parallelizationFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallelization_factor: Option<i64>,
     /// <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
-    #[serde(rename = "Queues")]
+    #[serde(rename = "queues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queues: Option<Vec<String>>,
     /// <p>The Self-Managed Apache Kafka cluster to send records.</p>
-    #[serde(rename = "SelfManagedEventSource")]
+    #[serde(rename = "selfManagedEventSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub self_managed_event_source: Option<SelfManagedEventSource>,
     /// <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
-    #[serde(rename = "SourceAccessConfigurations")]
+    #[serde(rename = "sourceAccessConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_access_configurations: Option<Vec<SourceAccessConfiguration>>,
     /// <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
-    #[serde(rename = "StartingPosition")]
+    #[serde(rename = "startingPosition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_position: Option<String>,
     /// <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>
-    #[serde(rename = "StartingPositionTimestamp")]
+    #[serde(rename = "startingPositionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_position_timestamp: Option<f64>,
     /// <p>The name of the Kafka topic.</p>
-    #[serde(rename = "Topics")]
+    #[serde(rename = "topics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics: Option<Vec<String>>,
     /// <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
-    #[serde(rename = "TumblingWindowInSeconds")]
+    #[serde(rename = "tumblingWindowInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tumbling_window_in_seconds: Option<i64>,
 }
@@ -368,80 +368,80 @@ pub struct CreateEventSourceMappingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFunctionRequest {
     /// <p>The code for the function.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     pub code: FunctionCode,
     /// <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_signing_config_arn: Option<String>,
     /// <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
-    #[serde(rename = "DeadLetterConfig")]
+    #[serde(rename = "deadLetterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dead_letter_config: Option<DeadLetterConfig>,
     /// <p>A description of the function.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Environment variables that are accessible from function code during execution.</p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment: Option<Environment>,
     /// <p>Connection settings for an Amazon EFS file system.</p>
-    #[serde(rename = "FileSystemConfigs")]
+    #[serde(rename = "fileSystemConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_configs: Option<Vec<FileSystemConfig>>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
-    #[serde(rename = "Handler")]
+    #[serde(rename = "handler")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub handler: Option<String>,
     /// <p> <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Dockerfile.</p>
-    #[serde(rename = "ImageConfig")]
+    #[serde(rename = "imageConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_config: Option<ImageConfig>,
     /// <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</p>
-    #[serde(rename = "KMSKeyArn")]
+    #[serde(rename = "kMSKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-    #[serde(rename = "Layers")]
+    #[serde(rename = "layers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layers: Option<Vec<String>>,
     /// <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
-    #[serde(rename = "MemorySize")]
+    #[serde(rename = "memorySize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub memory_size: Option<i64>,
     /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
-    #[serde(rename = "PackageType")]
+    #[serde(rename = "packageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_type: Option<String>,
     /// <p>Set to true to publish the first version of the function during creation.</p>
-    #[serde(rename = "Publish")]
+    #[serde(rename = "publish")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub publish: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
-    #[serde(rename = "Runtime")]
+    #[serde(rename = "runtime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub runtime: Option<String>,
     /// <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the function.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS X-Ray.</p>
-    #[serde(rename = "TracingConfig")]
+    #[serde(rename = "tracingConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracing_config: Option<TracingConfig>,
     /// <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -450,7 +450,7 @@ pub struct CreateFunctionRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeadLetterConfig {
     /// <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
-    #[serde(rename = "TargetArn")]
+    #[serde(rename = "targetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_arn: Option<String>,
 }
@@ -459,10 +459,10 @@ pub struct DeadLetterConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAliasRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The name of the alias.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -470,7 +470,7 @@ pub struct DeleteAliasRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCodeSigningConfigRequest {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
 }
 
@@ -482,7 +482,7 @@ pub struct DeleteCodeSigningConfigResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEventSourceMappingRequest {
     /// <p>The identifier of the event source mapping.</p>
-    #[serde(rename = "UUID")]
+    #[serde(rename = "uUID")]
     pub uuid: String,
 }
 
@@ -490,7 +490,7 @@ pub struct DeleteEventSourceMappingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFunctionCodeSigningConfigRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -498,7 +498,7 @@ pub struct DeleteFunctionCodeSigningConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFunctionConcurrencyRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -506,10 +506,10 @@ pub struct DeleteFunctionConcurrencyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFunctionEventInvokeConfigRequest {
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>A version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -518,10 +518,10 @@ pub struct DeleteFunctionEventInvokeConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFunctionRequest {
     /// <p>The name of the Lambda function or version.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -530,10 +530,10 @@ pub struct DeleteFunctionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLayerVersionRequest {
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p>The version number.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -541,10 +541,10 @@ pub struct DeleteLayerVersionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProvisionedConcurrencyConfigRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     pub qualifier: String,
 }
 
@@ -552,11 +552,11 @@ pub struct DeleteProvisionedConcurrencyConfigRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DestinationConfig {
     /// <p>The destination configuration for failed invocations.</p>
-    #[serde(rename = "OnFailure")]
+    #[serde(rename = "onFailure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_failure: Option<OnFailure>,
     /// <p>The destination configuration for successful invocations.</p>
-    #[serde(rename = "OnSuccess")]
+    #[serde(rename = "onSuccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_success: Option<OnSuccess>,
 }
@@ -566,7 +566,7 @@ pub struct DestinationConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Environment {
     /// <p>Environment variable key-value pairs.</p>
-    #[serde(rename = "Variables")]
+    #[serde(rename = "variables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub variables: Option<::std::collections::HashMap<String, String>>,
 }
@@ -576,11 +576,11 @@ pub struct Environment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EnvironmentError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -590,11 +590,11 @@ pub struct EnvironmentError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EnvironmentResponse {
     /// <p>Error messages for environment variables that couldn't be applied.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<EnvironmentError>,
     /// <p>Environment variable key-value pairs.</p>
-    #[serde(rename = "Variables")]
+    #[serde(rename = "variables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub variables: Option<::std::collections::HashMap<String, String>>,
 }
@@ -604,91 +604,91 @@ pub struct EnvironmentResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventSourceMappingConfiguration {
     /// <p>The maximum number of items to retrieve in a single batch.</p>
-    #[serde(rename = "BatchSize")]
+    #[serde(rename = "batchSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_size: Option<i64>,
     /// <p>(Streams) If the function returns an error, split the batch in two and retry. The default value is false.</p>
-    #[serde(rename = "BisectBatchOnFunctionError")]
+    #[serde(rename = "bisectBatchOnFunctionError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bisect_batch_on_function_error: Option<bool>,
     /// <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-    #[serde(rename = "DestinationConfig")]
+    #[serde(rename = "destinationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_config: Option<DestinationConfig>,
     /// <p>The Amazon Resource Name (ARN) of the event source.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The ARN of the Lambda function.</p>
-    #[serde(rename = "FunctionArn")]
+    #[serde(rename = "functionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_arn: Option<String>,
     /// <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
-    #[serde(rename = "FunctionResponseTypes")]
+    #[serde(rename = "functionResponseTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_response_types: Option<Vec<String>>,
     /// <p>The date that the event source mapping was last updated, or its state changed.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
-    #[serde(rename = "LastProcessingResult")]
+    #[serde(rename = "lastProcessingResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_processing_result: Option<String>,
     /// <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
-    #[serde(rename = "MaximumBatchingWindowInSeconds")]
+    #[serde(rename = "maximumBatchingWindowInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_batching_window_in_seconds: Option<i64>,
     /// <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
-    #[serde(rename = "MaximumRecordAgeInSeconds")]
+    #[serde(rename = "maximumRecordAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_record_age_in_seconds: Option<i64>,
     /// <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
     /// <p>(Streams) The number of batches to process from each shard concurrently. The default value is 1.</p>
-    #[serde(rename = "ParallelizationFactor")]
+    #[serde(rename = "parallelizationFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallelization_factor: Option<i64>,
     /// <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
-    #[serde(rename = "Queues")]
+    #[serde(rename = "queues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queues: Option<Vec<String>>,
     /// <p>The Self-Managed Apache Kafka cluster for your event source.</p>
-    #[serde(rename = "SelfManagedEventSource")]
+    #[serde(rename = "selfManagedEventSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub self_managed_event_source: Option<SelfManagedEventSource>,
     /// <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
-    #[serde(rename = "SourceAccessConfigurations")]
+    #[serde(rename = "sourceAccessConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_access_configurations: Option<Vec<SourceAccessConfiguration>>,
     /// <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
-    #[serde(rename = "StartingPosition")]
+    #[serde(rename = "startingPosition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_position: Option<String>,
     /// <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>
-    #[serde(rename = "StartingPositionTimestamp")]
+    #[serde(rename = "startingPositionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_position_timestamp: Option<f64>,
     /// <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>, <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>, <code>Updating</code>, or <code>Deleting</code>.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.</p>
-    #[serde(rename = "StateTransitionReason")]
+    #[serde(rename = "stateTransitionReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_transition_reason: Option<String>,
     /// <p>The name of the Kafka topic.</p>
-    #[serde(rename = "Topics")]
+    #[serde(rename = "topics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics: Option<Vec<String>>,
     /// <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
-    #[serde(rename = "TumblingWindowInSeconds")]
+    #[serde(rename = "tumblingWindowInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tumbling_window_in_seconds: Option<i64>,
     /// <p>The identifier of the event source mapping.</p>
-    #[serde(rename = "UUID")]
+    #[serde(rename = "uUID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uuid: Option<String>,
 }
@@ -697,10 +697,10 @@ pub struct EventSourceMappingConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FileSystemConfig {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
-    #[serde(rename = "LocalMountPath")]
+    #[serde(rename = "localMountPath")]
     pub local_mount_path: String,
 }
 
@@ -709,23 +709,23 @@ pub struct FileSystemConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FunctionCode {
     /// <p>URI of a container image in the Amazon ECR registry.</p>
-    #[serde(rename = "ImageUri")]
+    #[serde(rename = "imageUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_uri: Option<String>,
     /// <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket: Option<String>,
     /// <p>The Amazon S3 key of the deployment package.</p>
-    #[serde(rename = "S3Key")]
+    #[serde(rename = "s3Key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key: Option<String>,
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    #[serde(rename = "S3ObjectVersion")]
+    #[serde(rename = "s3ObjectVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object_version: Option<String>,
     /// <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.</p>
-    #[serde(rename = "ZipFile")]
+    #[serde(rename = "zipFile")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -740,19 +740,19 @@ pub struct FunctionCode {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FunctionCodeLocation {
     /// <p>URI of a container image in the Amazon ECR registry.</p>
-    #[serde(rename = "ImageUri")]
+    #[serde(rename = "imageUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_uri: Option<String>,
     /// <p>A presigned URL that you can use to download the deployment package.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// <p>The service that's hosting the file.</p>
-    #[serde(rename = "RepositoryType")]
+    #[serde(rename = "repositoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_type: Option<String>,
     /// <p>The resolved URI for the image.</p>
-    #[serde(rename = "ResolvedImageUri")]
+    #[serde(rename = "resolvedImageUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolved_image_uri: Option<String>,
 }
@@ -762,127 +762,127 @@ pub struct FunctionCodeLocation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FunctionConfiguration {
     /// <p>The SHA256 hash of the function's deployment package.</p>
-    #[serde(rename = "CodeSha256")]
+    #[serde(rename = "codeSha256")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_sha_256: Option<String>,
     /// <p>The size of the function's deployment package, in bytes.</p>
-    #[serde(rename = "CodeSize")]
+    #[serde(rename = "codeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_size: Option<i64>,
     /// <p>The function's dead letter queue.</p>
-    #[serde(rename = "DeadLetterConfig")]
+    #[serde(rename = "deadLetterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dead_letter_config: Option<DeadLetterConfig>,
     /// <p>The function's description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The function's environment variables.</p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment: Option<EnvironmentResponse>,
     /// <p>Connection settings for an Amazon EFS file system.</p>
-    #[serde(rename = "FileSystemConfigs")]
+    #[serde(rename = "fileSystemConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_configs: Option<Vec<FileSystemConfig>>,
     /// <p>The function's Amazon Resource Name (ARN).</p>
-    #[serde(rename = "FunctionArn")]
+    #[serde(rename = "functionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_arn: Option<String>,
     /// <p>The name of the function.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_name: Option<String>,
     /// <p>The function that Lambda calls to begin executing your function.</p>
-    #[serde(rename = "Handler")]
+    #[serde(rename = "handler")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub handler: Option<String>,
     /// <p>The function's image configuration values.</p>
-    #[serde(rename = "ImageConfigResponse")]
+    #[serde(rename = "imageConfigResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_config_response: Option<ImageConfigResponse>,
     /// <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
-    #[serde(rename = "KMSKeyArn")]
+    #[serde(rename = "kMSKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<String>,
     /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
-    #[serde(rename = "LastUpdateStatus")]
+    #[serde(rename = "lastUpdateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_status: Option<String>,
     /// <p>The reason for the last update that was performed on the function.</p>
-    #[serde(rename = "LastUpdateStatusReason")]
+    #[serde(rename = "lastUpdateStatusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_status_reason: Option<String>,
     /// <p>The reason code for the last update that was performed on the function.</p>
-    #[serde(rename = "LastUpdateStatusReasonCode")]
+    #[serde(rename = "lastUpdateStatusReasonCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_status_reason_code: Option<String>,
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>.</p>
-    #[serde(rename = "Layers")]
+    #[serde(rename = "layers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layers: Option<Vec<Layer>>,
     /// <p>For Lambda@Edge functions, the ARN of the master function.</p>
-    #[serde(rename = "MasterArn")]
+    #[serde(rename = "masterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_arn: Option<String>,
     /// <p>The amount of memory available to the function at runtime. </p>
-    #[serde(rename = "MemorySize")]
+    #[serde(rename = "memorySize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub memory_size: Option<i64>,
     /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
-    #[serde(rename = "PackageType")]
+    #[serde(rename = "packageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_type: Option<String>,
     /// <p>The latest updated revision of the function or alias.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The function's execution role.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The runtime environment for the Lambda function.</p>
-    #[serde(rename = "Runtime")]
+    #[serde(rename = "runtime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub runtime: Option<String>,
     /// <p>The ARN of the signing job.</p>
-    #[serde(rename = "SigningJobArn")]
+    #[serde(rename = "signingJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_job_arn: Option<String>,
     /// <p>The ARN of the signing profile version.</p>
-    #[serde(rename = "SigningProfileVersionArn")]
+    #[serde(rename = "signingProfileVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_profile_version_arn: Option<String>,
     /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason for the function's current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
     /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
-    #[serde(rename = "StateReasonCode")]
+    #[serde(rename = "stateReasonCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason_code: Option<String>,
     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>The function's AWS X-Ray tracing configuration.</p>
-    #[serde(rename = "TracingConfig")]
+    #[serde(rename = "tracingConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracing_config: Option<TracingConfigResponse>,
     /// <p>The version of the Lambda function.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The function's networking configuration.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfigResponse>,
 }
@@ -891,23 +891,23 @@ pub struct FunctionConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FunctionEventInvokeConfig {
     /// <p><p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of an SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of an SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul></p>
-    #[serde(rename = "DestinationConfig")]
+    #[serde(rename = "destinationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_config: Option<DestinationConfig>,
     /// <p>The Amazon Resource Name (ARN) of the function.</p>
-    #[serde(rename = "FunctionArn")]
+    #[serde(rename = "functionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_arn: Option<String>,
     /// <p>The date and time that the configuration was last updated.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-    #[serde(rename = "MaximumEventAgeInSeconds")]
+    #[serde(rename = "maximumEventAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_event_age_in_seconds: Option<i64>,
     /// <p>The maximum number of times to retry when the function returns an error.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
 }
@@ -920,11 +920,11 @@ pub struct GetAccountSettingsRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccountSettingsResponse {
     /// <p>Limits that are related to concurrency and code storage.</p>
-    #[serde(rename = "AccountLimit")]
+    #[serde(rename = "accountLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_limit: Option<AccountLimit>,
     /// <p>The number of functions and amount of storage in use.</p>
-    #[serde(rename = "AccountUsage")]
+    #[serde(rename = "accountUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_usage: Option<AccountUsage>,
 }
@@ -933,10 +933,10 @@ pub struct GetAccountSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAliasRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The name of the alias.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -944,7 +944,7 @@ pub struct GetAliasRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCodeSigningConfigRequest {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
 }
 
@@ -952,7 +952,7 @@ pub struct GetCodeSigningConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCodeSigningConfigResponse {
     /// <p>The code signing configuration</p>
-    #[serde(rename = "CodeSigningConfig")]
+    #[serde(rename = "codeSigningConfig")]
     pub code_signing_config: CodeSigningConfig,
 }
 
@@ -960,7 +960,7 @@ pub struct GetCodeSigningConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEventSourceMappingRequest {
     /// <p>The identifier of the event source mapping.</p>
-    #[serde(rename = "UUID")]
+    #[serde(rename = "uUID")]
     pub uuid: String,
 }
 
@@ -968,7 +968,7 @@ pub struct GetEventSourceMappingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFunctionCodeSigningConfigRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -976,10 +976,10 @@ pub struct GetFunctionCodeSigningConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFunctionCodeSigningConfigResponse {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -987,7 +987,7 @@ pub struct GetFunctionCodeSigningConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFunctionConcurrencyRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -995,7 +995,7 @@ pub struct GetFunctionConcurrencyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFunctionConcurrencyResponse {
     /// <p>The number of simultaneous executions that are reserved for the function.</p>
-    #[serde(rename = "ReservedConcurrentExecutions")]
+    #[serde(rename = "reservedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_concurrent_executions: Option<i64>,
 }
@@ -1004,10 +1004,10 @@ pub struct GetFunctionConcurrencyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFunctionConfigurationRequest {
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify a version or alias to get details about a published version of the function.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -1016,10 +1016,10 @@ pub struct GetFunctionConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFunctionEventInvokeConfigRequest {
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>A version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -1028,10 +1028,10 @@ pub struct GetFunctionEventInvokeConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFunctionRequest {
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify a version or alias to get details about a published version of the function.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -1040,19 +1040,19 @@ pub struct GetFunctionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFunctionResponse {
     /// <p>The deployment package of the function or version.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<FunctionCodeLocation>,
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
-    #[serde(rename = "Concurrency")]
+    #[serde(rename = "concurrency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub concurrency: Option<Concurrency>,
     /// <p>The configuration of the function or version.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<FunctionConfiguration>,
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1061,7 +1061,7 @@ pub struct GetFunctionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLayerVersionByArnRequest {
     /// <p>The ARN of the layer version.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -1069,10 +1069,10 @@ pub struct GetLayerVersionByArnRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLayerVersionPolicyRequest {
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p>The version number.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -1080,11 +1080,11 @@ pub struct GetLayerVersionPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLayerVersionPolicyResponse {
     /// <p>The policy document.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>A unique identifier for the current revision of the policy.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -1093,10 +1093,10 @@ pub struct GetLayerVersionPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLayerVersionRequest {
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p>The version number.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -1104,35 +1104,35 @@ pub struct GetLayerVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLayerVersionResponse {
     /// <p>The layer's compatible runtimes.</p>
-    #[serde(rename = "CompatibleRuntimes")]
+    #[serde(rename = "compatibleRuntimes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_runtimes: Option<Vec<String>>,
     /// <p>Details about the layer version.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<LayerVersionContentOutput>,
     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<String>,
     /// <p>The description of the version.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the layer.</p>
-    #[serde(rename = "LayerArn")]
+    #[serde(rename = "layerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_arn: Option<String>,
     /// <p>The ARN of the layer version.</p>
-    #[serde(rename = "LayerVersionArn")]
+    #[serde(rename = "layerVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_version_arn: Option<String>,
     /// <p>The layer's software license.</p>
-    #[serde(rename = "LicenseInfo")]
+    #[serde(rename = "licenseInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_info: Option<String>,
     /// <p>The version number.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -1141,10 +1141,10 @@ pub struct GetLayerVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPolicyRequest {
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify a version or alias to get the policy for that resource.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -1153,11 +1153,11 @@ pub struct GetPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPolicyResponse {
     /// <p>The resource-based policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>A unique identifier for the current revision of the policy.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -1166,10 +1166,10 @@ pub struct GetPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProvisionedConcurrencyConfigRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     pub qualifier: String,
 }
 
@@ -1177,27 +1177,27 @@ pub struct GetProvisionedConcurrencyConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProvisionedConcurrencyConfigResponse {
     /// <p>The amount of provisioned concurrency allocated.</p>
-    #[serde(rename = "AllocatedProvisionedConcurrentExecutions")]
+    #[serde(rename = "allocatedProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allocated_provisioned_concurrent_executions: Option<i64>,
     /// <p>The amount of provisioned concurrency available.</p>
-    #[serde(rename = "AvailableProvisionedConcurrentExecutions")]
+    #[serde(rename = "availableProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub available_provisioned_concurrent_executions: Option<i64>,
     /// <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<String>,
     /// <p>The amount of provisioned concurrency requested.</p>
-    #[serde(rename = "RequestedProvisionedConcurrentExecutions")]
+    #[serde(rename = "requestedProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_provisioned_concurrent_executions: Option<i64>,
     /// <p>The status of the allocation process.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<String>,
 }
@@ -1206,15 +1206,15 @@ pub struct GetProvisionedConcurrencyConfigResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ImageConfig {
     /// <p>Specifies parameters that you want to pass in with ENTRYPOINT. </p>
-    #[serde(rename = "Command")]
+    #[serde(rename = "command")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub command: Option<Vec<String>>,
     /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
-    #[serde(rename = "EntryPoint")]
+    #[serde(rename = "entryPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entry_point: Option<Vec<String>>,
     /// <p>Specifies the working directory.</p>
-    #[serde(rename = "WorkingDirectory")]
+    #[serde(rename = "workingDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub working_directory: Option<String>,
 }
@@ -1224,11 +1224,11 @@ pub struct ImageConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImageConfigError {
     /// <p>Error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>Error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1238,11 +1238,11 @@ pub struct ImageConfigError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImageConfigResponse {
     /// <p>Error response to GetFunctionConfiguration.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<ImageConfigError>,
     /// <p>Configuration values that override the container image Dockerfile.</p>
-    #[serde(rename = "ImageConfig")]
+    #[serde(rename = "imageConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_config: Option<ImageConfig>,
 }
@@ -1251,22 +1251,22 @@ pub struct ImageConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InvocationRequest {
     /// <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
-    #[serde(rename = "ClientContext")]
+    #[serde(rename = "clientContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_context: Option<String>,
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p><p>Choose from the following options.</p> <ul> <li> <p> <code>RequestResponse</code> (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p> </li> <li> <p> <code>Event</code> - Invoke the function asynchronously. Send events that fail multiple times to the function&#39;s dead-letter queue (if it&#39;s configured). The API response only includes a status code.</p> </li> <li> <p> <code>DryRun</code> - Validate parameter values and verify that the user or role has permission to invoke the function.</p> </li> </ul></p>
-    #[serde(rename = "InvocationType")]
+    #[serde(rename = "invocationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_type: Option<String>,
     /// <p>Set to <code>Tail</code> to include the execution log in the response.</p>
-    #[serde(rename = "LogType")]
+    #[serde(rename = "logType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_type: Option<String>,
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    #[serde(rename = "Payload")]
+    #[serde(rename = "payload")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -1275,7 +1275,7 @@ pub struct InvocationRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload: Option<bytes::Bytes>,
     /// <p>Specify a version or alias to invoke a published version of the function.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -1298,10 +1298,10 @@ pub struct InvocationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InvokeAsyncRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    #[serde(rename = "InvokeArgs")]
+    #[serde(rename = "invokeArgs")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -1315,7 +1315,7 @@ pub struct InvokeAsyncRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InvokeAsyncResponse {
     /// <p>The status code.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1325,19 +1325,19 @@ pub struct InvokeAsyncResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Layer {
     /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The size of the layer archive in bytes.</p>
-    #[serde(rename = "CodeSize")]
+    #[serde(rename = "codeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_size: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-    #[serde(rename = "SigningJobArn")]
+    #[serde(rename = "signingJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_job_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-    #[serde(rename = "SigningProfileVersionArn")]
+    #[serde(rename = "signingProfileVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_profile_version_arn: Option<String>,
 }
@@ -1347,19 +1347,19 @@ pub struct Layer {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LayerVersionContentInput {
     /// <p>The Amazon S3 bucket of the layer archive.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket: Option<String>,
     /// <p>The Amazon S3 key of the layer archive.</p>
-    #[serde(rename = "S3Key")]
+    #[serde(rename = "s3Key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key: Option<String>,
     /// <p>For versioned objects, the version of the layer archive object to use.</p>
-    #[serde(rename = "S3ObjectVersion")]
+    #[serde(rename = "s3ObjectVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object_version: Option<String>,
     /// <p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for you.</p>
-    #[serde(rename = "ZipFile")]
+    #[serde(rename = "zipFile")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -1374,23 +1374,23 @@ pub struct LayerVersionContentInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LayerVersionContentOutput {
     /// <p>The SHA-256 hash of the layer archive.</p>
-    #[serde(rename = "CodeSha256")]
+    #[serde(rename = "codeSha256")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_sha_256: Option<String>,
     /// <p>The size of the layer archive in bytes.</p>
-    #[serde(rename = "CodeSize")]
+    #[serde(rename = "codeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_size: Option<i64>,
     /// <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-    #[serde(rename = "SigningJobArn")]
+    #[serde(rename = "signingJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_job_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-    #[serde(rename = "SigningProfileVersionArn")]
+    #[serde(rename = "signingProfileVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_profile_version_arn: Option<String>,
 }
@@ -1400,27 +1400,27 @@ pub struct LayerVersionContentOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LayerVersionsListItem {
     /// <p>The layer's compatible runtimes.</p>
-    #[serde(rename = "CompatibleRuntimes")]
+    #[serde(rename = "compatibleRuntimes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_runtimes: Option<Vec<String>>,
     /// <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<String>,
     /// <p>The description of the version.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the layer version.</p>
-    #[serde(rename = "LayerVersionArn")]
+    #[serde(rename = "layerVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_version_arn: Option<String>,
     /// <p>The layer's open-source license.</p>
-    #[serde(rename = "LicenseInfo")]
+    #[serde(rename = "licenseInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_info: Option<String>,
     /// <p>The version number.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -1430,15 +1430,15 @@ pub struct LayerVersionsListItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LayersListItem {
     /// <p>The newest version of the layer.</p>
-    #[serde(rename = "LatestMatchingVersion")]
+    #[serde(rename = "latestMatchingVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_matching_version: Option<LayerVersionsListItem>,
     /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
-    #[serde(rename = "LayerArn")]
+    #[serde(rename = "layerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_arn: Option<String>,
     /// <p>The name of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_name: Option<String>,
 }
@@ -1447,18 +1447,18 @@ pub struct LayersListItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAliasesRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify a function version to only list aliases that invoke that version.</p>
-    #[serde(rename = "FunctionVersion")]
+    #[serde(rename = "functionVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_version: Option<String>,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>Limit the number of aliases returned.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1467,11 +1467,11 @@ pub struct ListAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAliasesResponse {
     /// <p>A list of aliases.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<AliasConfiguration>>,
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1480,11 +1480,11 @@ pub struct ListAliasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCodeSigningConfigsRequest {
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>Maximum number of items to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1493,11 +1493,11 @@ pub struct ListCodeSigningConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCodeSigningConfigsResponse {
     /// <p>The code signing configurations</p>
-    #[serde(rename = "CodeSigningConfigs")]
+    #[serde(rename = "codeSigningConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_signing_configs: Option<Vec<CodeSigningConfig>>,
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1506,19 +1506,19 @@ pub struct ListCodeSigningConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEventSourceMappingsRequest {
     /// <p><p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p> </li> </ul></p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_name: Option<String>,
     /// <p>A pagination token returned by a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The maximum number of event source mappings to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1527,11 +1527,11 @@ pub struct ListEventSourceMappingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEventSourceMappingsResponse {
     /// <p>A list of event source mappings.</p>
-    #[serde(rename = "EventSourceMappings")]
+    #[serde(rename = "eventSourceMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_mappings: Option<Vec<EventSourceMappingConfiguration>>,
     /// <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1540,14 +1540,14 @@ pub struct ListEventSourceMappingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFunctionEventInvokeConfigsRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The maximum number of configurations to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1556,11 +1556,11 @@ pub struct ListFunctionEventInvokeConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFunctionEventInvokeConfigsResponse {
     /// <p>A list of configurations.</p>
-    #[serde(rename = "FunctionEventInvokeConfigs")]
+    #[serde(rename = "functionEventInvokeConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_event_invoke_configs: Option<Vec<FunctionEventInvokeConfig>>,
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1569,14 +1569,14 @@ pub struct ListFunctionEventInvokeConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFunctionsByCodeSigningConfigRequest {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>Maximum number of items to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1585,11 +1585,11 @@ pub struct ListFunctionsByCodeSigningConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFunctionsByCodeSigningConfigResponse {
     /// <p>The function ARNs. </p>
-    #[serde(rename = "FunctionArns")]
+    #[serde(rename = "functionArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_arns: Option<Vec<String>>,
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1598,19 +1598,19 @@ pub struct ListFunctionsByCodeSigningConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFunctionsRequest {
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    #[serde(rename = "FunctionVersion")]
+    #[serde(rename = "functionVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_version: Option<String>,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
-    #[serde(rename = "MasterRegion")]
+    #[serde(rename = "masterRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_region: Option<String>,
     /// <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1620,11 +1620,11 @@ pub struct ListFunctionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFunctionsResponse {
     /// <p>A list of Lambda functions.</p>
-    #[serde(rename = "Functions")]
+    #[serde(rename = "functions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub functions: Option<Vec<FunctionConfiguration>>,
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1633,18 +1633,18 @@ pub struct ListFunctionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLayerVersionsRequest {
     /// <p>A runtime identifier. For example, <code>go1.x</code>.</p>
-    #[serde(rename = "CompatibleRuntime")]
+    #[serde(rename = "compatibleRuntime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_runtime: Option<String>,
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p>A pagination token returned by a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The maximum number of versions to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1653,11 +1653,11 @@ pub struct ListLayerVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLayerVersionsResponse {
     /// <p>A list of versions.</p>
-    #[serde(rename = "LayerVersions")]
+    #[serde(rename = "layerVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_versions: Option<Vec<LayerVersionsListItem>>,
     /// <p>A pagination token returned when the response doesn't contain all versions.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1666,15 +1666,15 @@ pub struct ListLayerVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLayersRequest {
     /// <p>A runtime identifier. For example, <code>go1.x</code>.</p>
-    #[serde(rename = "CompatibleRuntime")]
+    #[serde(rename = "compatibleRuntime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_runtime: Option<String>,
     /// <p>A pagination token returned by a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The maximum number of layers to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1683,11 +1683,11 @@ pub struct ListLayersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLayersResponse {
     /// <p>A list of function layers.</p>
-    #[serde(rename = "Layers")]
+    #[serde(rename = "layers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layers: Option<Vec<LayersListItem>>,
     /// <p>A pagination token returned when the response doesn't contain all layers.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
 }
@@ -1696,14 +1696,14 @@ pub struct ListLayersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProvisionedConcurrencyConfigsRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>Specify a number to limit the number of configurations returned.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1712,11 +1712,11 @@ pub struct ListProvisionedConcurrencyConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProvisionedConcurrencyConfigsResponse {
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
     /// <p>A list of provisioned concurrency configurations.</p>
-    #[serde(rename = "ProvisionedConcurrencyConfigs")]
+    #[serde(rename = "provisionedConcurrencyConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_concurrency_configs: Option<Vec<ProvisionedConcurrencyConfigListItem>>,
 }
@@ -1725,7 +1725,7 @@ pub struct ListProvisionedConcurrencyConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>The function's Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: String,
 }
 
@@ -1733,7 +1733,7 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>The function's tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1742,14 +1742,14 @@ pub struct ListTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListVersionsByFunctionRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The maximum number of versions to return.</p>
-    #[serde(rename = "MaxItems")]
+    #[serde(rename = "maxItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_items: Option<i64>,
 }
@@ -1758,11 +1758,11 @@ pub struct ListVersionsByFunctionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListVersionsByFunctionResponse {
     /// <p>The pagination token that's included if more results are available.</p>
-    #[serde(rename = "NextMarker")]
+    #[serde(rename = "nextMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_marker: Option<String>,
     /// <p>A list of Lambda function versions.</p>
-    #[serde(rename = "Versions")]
+    #[serde(rename = "versions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub versions: Option<Vec<FunctionConfiguration>>,
 }
@@ -1771,7 +1771,7 @@ pub struct ListVersionsByFunctionResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OnFailure {
     /// <p>The Amazon Resource Name (ARN) of the destination resource.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<String>,
 }
@@ -1780,7 +1780,7 @@ pub struct OnFailure {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OnSuccess {
     /// <p>The Amazon Resource Name (ARN) of the destination resource.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<String>,
 }
@@ -1790,31 +1790,31 @@ pub struct OnSuccess {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionedConcurrencyConfigListItem {
     /// <p>The amount of provisioned concurrency allocated.</p>
-    #[serde(rename = "AllocatedProvisionedConcurrentExecutions")]
+    #[serde(rename = "allocatedProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allocated_provisioned_concurrent_executions: Option<i64>,
     /// <p>The amount of provisioned concurrency available.</p>
-    #[serde(rename = "AvailableProvisionedConcurrentExecutions")]
+    #[serde(rename = "availableProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub available_provisioned_concurrent_executions: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the alias or version.</p>
-    #[serde(rename = "FunctionArn")]
+    #[serde(rename = "functionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_arn: Option<String>,
     /// <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<String>,
     /// <p>The amount of provisioned concurrency requested.</p>
-    #[serde(rename = "RequestedProvisionedConcurrentExecutions")]
+    #[serde(rename = "requestedProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_provisioned_concurrent_executions: Option<i64>,
     /// <p>The status of the allocation process.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<String>,
 }
@@ -1823,21 +1823,21 @@ pub struct ProvisionedConcurrencyConfigListItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PublishLayerVersionRequest {
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
-    #[serde(rename = "CompatibleRuntimes")]
+    #[serde(rename = "compatibleRuntimes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_runtimes: Option<Vec<String>>,
     /// <p>The function layer archive.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: LayerVersionContentInput,
     /// <p>The description of the version.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p><p>The layer&#39;s software license. It can be any of the following:</p> <ul> <li> <p>An <a href="https://spdx.org/licenses/">SPDX license identifier</a>. For example, <code>MIT</code>.</p> </li> <li> <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p> </li> <li> <p>The full text of the license.</p> </li> </ul></p>
-    #[serde(rename = "LicenseInfo")]
+    #[serde(rename = "licenseInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_info: Option<String>,
 }
@@ -1846,35 +1846,35 @@ pub struct PublishLayerVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PublishLayerVersionResponse {
     /// <p>The layer's compatible runtimes.</p>
-    #[serde(rename = "CompatibleRuntimes")]
+    #[serde(rename = "compatibleRuntimes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_runtimes: Option<Vec<String>>,
     /// <p>Details about the layer version.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<LayerVersionContentOutput>,
     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<String>,
     /// <p>The description of the version.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the layer.</p>
-    #[serde(rename = "LayerArn")]
+    #[serde(rename = "layerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_arn: Option<String>,
     /// <p>The ARN of the layer version.</p>
-    #[serde(rename = "LayerVersionArn")]
+    #[serde(rename = "layerVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_version_arn: Option<String>,
     /// <p>The layer's software license.</p>
-    #[serde(rename = "LicenseInfo")]
+    #[serde(rename = "licenseInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_info: Option<String>,
     /// <p>The version number.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -1883,18 +1883,18 @@ pub struct PublishLayerVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PublishVersionRequest {
     /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
-    #[serde(rename = "CodeSha256")]
+    #[serde(rename = "codeSha256")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_sha_256: Option<String>,
     /// <p>A description for the version to override the description in the function configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -1903,10 +1903,10 @@ pub struct PublishVersionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutFunctionCodeSigningConfigRequest {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -1914,10 +1914,10 @@ pub struct PutFunctionCodeSigningConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutFunctionCodeSigningConfigResponse {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -1925,10 +1925,10 @@ pub struct PutFunctionCodeSigningConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutFunctionConcurrencyRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The number of simultaneous executions to reserve for the function.</p>
-    #[serde(rename = "ReservedConcurrentExecutions")]
+    #[serde(rename = "reservedConcurrentExecutions")]
     pub reserved_concurrent_executions: i64,
 }
 
@@ -1936,22 +1936,22 @@ pub struct PutFunctionConcurrencyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutFunctionEventInvokeConfigRequest {
     /// <p><p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of an SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of an SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul></p>
-    #[serde(rename = "DestinationConfig")]
+    #[serde(rename = "destinationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_config: Option<DestinationConfig>,
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-    #[serde(rename = "MaximumEventAgeInSeconds")]
+    #[serde(rename = "maximumEventAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_event_age_in_seconds: Option<i64>,
     /// <p>The maximum number of times to retry when the function returns an error.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
     /// <p>A version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -1960,13 +1960,13 @@ pub struct PutFunctionEventInvokeConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutProvisionedConcurrencyConfigRequest {
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
-    #[serde(rename = "ProvisionedConcurrentExecutions")]
+    #[serde(rename = "provisionedConcurrentExecutions")]
     pub provisioned_concurrent_executions: i64,
     /// <p>The version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     pub qualifier: String,
 }
 
@@ -1974,27 +1974,27 @@ pub struct PutProvisionedConcurrencyConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutProvisionedConcurrencyConfigResponse {
     /// <p>The amount of provisioned concurrency allocated.</p>
-    #[serde(rename = "AllocatedProvisionedConcurrentExecutions")]
+    #[serde(rename = "allocatedProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allocated_provisioned_concurrent_executions: Option<i64>,
     /// <p>The amount of provisioned concurrency available.</p>
-    #[serde(rename = "AvailableProvisionedConcurrentExecutions")]
+    #[serde(rename = "availableProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub available_provisioned_concurrent_executions: Option<i64>,
     /// <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<String>,
     /// <p>The amount of provisioned concurrency requested.</p>
-    #[serde(rename = "RequestedProvisionedConcurrentExecutions")]
+    #[serde(rename = "requestedProvisionedConcurrentExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_provisioned_concurrent_executions: Option<i64>,
     /// <p>The status of the allocation process.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<String>,
 }
@@ -2003,17 +2003,17 @@ pub struct PutProvisionedConcurrencyConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveLayerVersionPermissionRequest {
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    #[serde(rename = "LayerName")]
+    #[serde(rename = "layerName")]
     pub layer_name: String,
     /// <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The identifier that was specified when the statement was added.</p>
-    #[serde(rename = "StatementId")]
+    #[serde(rename = "statementId")]
     pub statement_id: String,
     /// <p>The version number.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -2021,18 +2021,18 @@ pub struct RemoveLayerVersionPermissionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemovePermissionRequest {
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
     /// <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>Statement ID of the permission to remove.</p>
-    #[serde(rename = "StatementId")]
+    #[serde(rename = "statementId")]
     pub statement_id: String,
 }
 
@@ -2040,7 +2040,7 @@ pub struct RemovePermissionRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SelfManagedEventSource {
     /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<::std::collections::HashMap<String, Vec<String>>>,
 }
@@ -2049,11 +2049,11 @@ pub struct SelfManagedEventSource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SourceAccessConfiguration {
     /// <p><p>The type of authentication protocol or the VPC components for your event source. For example: <code>&quot;Type&quot;:&quot;SASL<em>SCRAM</em>512<em>AUTH&quot;</code>.</p> <ul> <li> <p> <code>BASIC</em>AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p> </li> <li> <p> <code>VPC<em>SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Self-Managed Apache Kafka cluster.</p> </li> <li> <p> <code>VPC</em>SECURITY<em>GROUP</code> - The VPC security group used to manage access to your Self-Managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL</em>SCRAM<em>256</em>AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your Self-Managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL<em>SCRAM</em>512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
-    #[serde(rename = "URI")]
+    #[serde(rename = "uRI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uri: Option<String>,
 }
@@ -2062,10 +2062,10 @@ pub struct SourceAccessConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The function's Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: String,
     /// <p>A list of tags to apply to the function.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -2074,7 +2074,7 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TracingConfig {
     /// <p>The tracing mode.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
 }
@@ -2084,7 +2084,7 @@ pub struct TracingConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TracingConfigResponse {
     /// <p>The tracing mode.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
 }
@@ -2093,10 +2093,10 @@ pub struct TracingConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The function's Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: String,
     /// <p>A list of tag keys to remove from the function.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2104,25 +2104,25 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAliasRequest {
     /// <p>A description of the alias.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The function version that the alias invokes.</p>
-    #[serde(rename = "FunctionVersion")]
+    #[serde(rename = "functionVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_version: Option<String>,
     /// <p>The name of the alias.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    #[serde(rename = "RoutingConfig")]
+    #[serde(rename = "routingConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_config: Option<AliasRoutingConfiguration>,
 }
@@ -2131,18 +2131,18 @@ pub struct UpdateAliasRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCodeSigningConfigRequest {
     /// <p>Signing profiles for this code signing configuration.</p>
-    #[serde(rename = "AllowedPublishers")]
+    #[serde(rename = "allowedPublishers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_publishers: Option<AllowedPublishers>,
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    #[serde(rename = "CodeSigningConfigArn")]
+    #[serde(rename = "codeSigningConfigArn")]
     pub code_signing_config_arn: String,
     /// <p>The code signing policy.</p>
-    #[serde(rename = "CodeSigningPolicies")]
+    #[serde(rename = "codeSigningPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_signing_policies: Option<CodeSigningPolicies>,
     /// <p>Descriptive name for this code signing configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -2151,7 +2151,7 @@ pub struct UpdateCodeSigningConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateCodeSigningConfigResponse {
     /// <p>The code signing configuration</p>
-    #[serde(rename = "CodeSigningConfig")]
+    #[serde(rename = "codeSigningConfig")]
     pub code_signing_config: CodeSigningConfig,
 }
 
@@ -2159,55 +2159,55 @@ pub struct UpdateCodeSigningConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEventSourceMappingRequest {
     /// <p><p>The maximum number of items to retrieve in a single batch.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> </ul></p>
-    #[serde(rename = "BatchSize")]
+    #[serde(rename = "batchSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_size: Option<i64>,
     /// <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
-    #[serde(rename = "BisectBatchOnFunctionError")]
+    #[serde(rename = "bisectBatchOnFunctionError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bisect_batch_on_function_error: Option<bool>,
     /// <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-    #[serde(rename = "DestinationConfig")]
+    #[serde(rename = "destinationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_config: Option<DestinationConfig>,
     /// <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_name: Option<String>,
     /// <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
-    #[serde(rename = "FunctionResponseTypes")]
+    #[serde(rename = "functionResponseTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_response_types: Option<Vec<String>>,
     /// <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
-    #[serde(rename = "MaximumBatchingWindowInSeconds")]
+    #[serde(rename = "maximumBatchingWindowInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_batching_window_in_seconds: Option<i64>,
     /// <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
-    #[serde(rename = "MaximumRecordAgeInSeconds")]
+    #[serde(rename = "maximumRecordAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_record_age_in_seconds: Option<i64>,
     /// <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
     /// <p>(Streams) The number of batches to process from each shard concurrently.</p>
-    #[serde(rename = "ParallelizationFactor")]
+    #[serde(rename = "parallelizationFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallelization_factor: Option<i64>,
     /// <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
-    #[serde(rename = "SourceAccessConfigurations")]
+    #[serde(rename = "sourceAccessConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_access_configurations: Option<Vec<SourceAccessConfiguration>>,
     /// <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
-    #[serde(rename = "TumblingWindowInSeconds")]
+    #[serde(rename = "tumblingWindowInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tumbling_window_in_seconds: Option<i64>,
     /// <p>The identifier of the event source mapping.</p>
-    #[serde(rename = "UUID")]
+    #[serde(rename = "uUID")]
     pub uuid: String,
 }
 
@@ -2215,38 +2215,38 @@ pub struct UpdateEventSourceMappingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFunctionCodeRequest {
     /// <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>URI of a container image in the Amazon ECR registry.</p>
-    #[serde(rename = "ImageUri")]
+    #[serde(rename = "imageUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_uri: Option<String>,
     /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
-    #[serde(rename = "Publish")]
+    #[serde(rename = "publish")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub publish: Option<bool>,
     /// <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket: Option<String>,
     /// <p>The Amazon S3 key of the deployment package.</p>
-    #[serde(rename = "S3Key")]
+    #[serde(rename = "s3Key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key: Option<String>,
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    #[serde(rename = "S3ObjectVersion")]
+    #[serde(rename = "s3ObjectVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object_version: Option<String>,
     /// <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.</p>
-    #[serde(rename = "ZipFile")]
+    #[serde(rename = "zipFile")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -2260,66 +2260,66 @@ pub struct UpdateFunctionCodeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFunctionConfigurationRequest {
     /// <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
-    #[serde(rename = "DeadLetterConfig")]
+    #[serde(rename = "deadLetterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dead_letter_config: Option<DeadLetterConfig>,
     /// <p>A description of the function.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Environment variables that are accessible from function code during execution.</p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment: Option<Environment>,
     /// <p>Connection settings for an Amazon EFS file system.</p>
-    #[serde(rename = "FileSystemConfigs")]
+    #[serde(rename = "fileSystemConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_configs: Option<Vec<FileSystemConfig>>,
     /// <p>The name of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
-    #[serde(rename = "Handler")]
+    #[serde(rename = "handler")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub handler: Option<String>,
     /// <p> <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Dockerfile.</p>
-    #[serde(rename = "ImageConfig")]
+    #[serde(rename = "imageConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_config: Option<ImageConfig>,
     /// <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</p>
-    #[serde(rename = "KMSKeyArn")]
+    #[serde(rename = "kMSKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-    #[serde(rename = "Layers")]
+    #[serde(rename = "layers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layers: Option<Vec<String>>,
     /// <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
-    #[serde(rename = "MemorySize")]
+    #[serde(rename = "memorySize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub memory_size: Option<i64>,
     /// <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
-    #[serde(rename = "Runtime")]
+    #[serde(rename = "runtime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub runtime: Option<String>,
     /// <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS X-Ray.</p>
-    #[serde(rename = "TracingConfig")]
+    #[serde(rename = "tracingConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracing_config: Option<TracingConfig>,
     /// <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2328,22 +2328,22 @@ pub struct UpdateFunctionConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFunctionEventInvokeConfigRequest {
     /// <p><p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of an SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of an SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul></p>
-    #[serde(rename = "DestinationConfig")]
+    #[serde(rename = "destinationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_config: Option<DestinationConfig>,
     /// <p>The name of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
     /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-    #[serde(rename = "MaximumEventAgeInSeconds")]
+    #[serde(rename = "maximumEventAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_event_age_in_seconds: Option<i64>,
     /// <p>The maximum number of times to retry when the function returns an error.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
     /// <p>A version number or alias name.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub qualifier: Option<String>,
 }
@@ -2353,11 +2353,11 @@ pub struct UpdateFunctionEventInvokeConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VpcConfig {
     /// <p>A list of VPC security groups IDs.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>A list of VPC subnet IDs.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
 }
@@ -2367,15 +2367,15 @@ pub struct VpcConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VpcConfigResponse {
     /// <p>A list of VPC security groups IDs.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>A list of VPC subnet IDs.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>The ID of the VPC.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }

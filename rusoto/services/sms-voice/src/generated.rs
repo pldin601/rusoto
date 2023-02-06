@@ -30,7 +30,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CallInstructionsMessageType {
     /// <p>The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
 }
@@ -39,11 +39,11 @@ pub struct CallInstructionsMessageType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchLogsDestination {
     /// <p>The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p>The name of the Amazon CloudWatch Log Group that you want to record events in.</p>
-    #[serde(rename = "LogGroupArn")]
+    #[serde(rename = "logGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_arn: Option<String>,
 }
@@ -53,13 +53,13 @@ pub struct CloudWatchLogsDestination {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConfigurationSetEventDestinationRequest {
     /// <p>ConfigurationSetName</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
-    #[serde(rename = "EventDestination")]
+    #[serde(rename = "eventDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_destination: Option<EventDestinationDefinition>,
     /// <p>A name that identifies the event destination.</p>
-    #[serde(rename = "EventDestinationName")]
+    #[serde(rename = "eventDestinationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_destination_name: Option<String>,
 }
@@ -74,7 +74,7 @@ pub struct CreateConfigurationSetEventDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConfigurationSetRequest {
     /// <p>The name that you want to give the configuration set.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
 }
@@ -88,10 +88,10 @@ pub struct CreateConfigurationSetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationSetEventDestinationRequest {
     /// <p>ConfigurationSetName</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>EventDestinationName</p>
-    #[serde(rename = "EventDestinationName")]
+    #[serde(rename = "eventDestinationName")]
     pub event_destination_name: String,
 }
 
@@ -104,7 +104,7 @@ pub struct DeleteConfigurationSetEventDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationSetRequest {
     /// <p>ConfigurationSetName</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
 }
 
@@ -117,24 +117,24 @@ pub struct DeleteConfigurationSetResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventDestination {
-    #[serde(rename = "CloudWatchLogsDestination")]
+    #[serde(rename = "cloudWatchLogsDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_destination: Option<CloudWatchLogsDestination>,
     /// <p>Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
-    #[serde(rename = "KinesisFirehoseDestination")]
+    #[serde(rename = "kinesisFirehoseDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_destination: Option<KinesisFirehoseDestination>,
-    #[serde(rename = "MatchingEventTypes")]
+    #[serde(rename = "matchingEventTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub matching_event_types: Option<Vec<String>>,
     /// <p>A name that identifies the event destination configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    #[serde(rename = "SnsDestination")]
+    #[serde(rename = "snsDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_destination: Option<SnsDestination>,
 }
@@ -143,20 +143,20 @@ pub struct EventDestination {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EventDestinationDefinition {
-    #[serde(rename = "CloudWatchLogsDestination")]
+    #[serde(rename = "cloudWatchLogsDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_destination: Option<CloudWatchLogsDestination>,
     /// <p>Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
-    #[serde(rename = "KinesisFirehoseDestination")]
+    #[serde(rename = "kinesisFirehoseDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_destination: Option<KinesisFirehoseDestination>,
-    #[serde(rename = "MatchingEventTypes")]
+    #[serde(rename = "matchingEventTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub matching_event_types: Option<Vec<String>>,
-    #[serde(rename = "SnsDestination")]
+    #[serde(rename = "snsDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_destination: Option<SnsDestination>,
 }
@@ -165,7 +165,7 @@ pub struct EventDestinationDefinition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConfigurationSetEventDestinationsRequest {
     /// <p>ConfigurationSetName</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
 }
 
@@ -173,7 +173,7 @@ pub struct GetConfigurationSetEventDestinationsRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConfigurationSetEventDestinationsResponse {
-    #[serde(rename = "EventDestinations")]
+    #[serde(rename = "eventDestinations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_destinations: Option<Vec<EventDestination>>,
 }
@@ -182,11 +182,11 @@ pub struct GetConfigurationSetEventDestinationsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisFirehoseDestination {
     /// <p>The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.</p>
-    #[serde(rename = "DeliveryStreamArn")]
+    #[serde(rename = "deliveryStreamArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_stream_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
 }
@@ -195,11 +195,11 @@ pub struct KinesisFirehoseDestination {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConfigurationSetsRequest {
     /// <p>A token returned from a previous call to the API that indicates the position in the list of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Used to specify the number of items that should be returned in the response.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<String>,
 }
@@ -209,11 +209,11 @@ pub struct ListConfigurationSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConfigurationSetsResponse {
     /// <p>An object that contains a list of configuration sets for your account in the current region.</p>
-    #[serde(rename = "ConfigurationSets")]
+    #[serde(rename = "configurationSets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_sets: Option<Vec<String>>,
     /// <p>A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -223,15 +223,15 @@ pub struct ListConfigurationSetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PlainTextMessageType {
     /// <p>The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>The plain (not SSML-formatted) text to deliver to the recipient.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     /// <p>The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.</p>
-    #[serde(rename = "VoiceId")]
+    #[serde(rename = "voiceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_id: Option<String>,
 }
@@ -241,15 +241,15 @@ pub struct PlainTextMessageType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SSMLMessageType {
     /// <p>The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>The SSML-formatted text to deliver to the recipient.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     /// <p>The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.</p>
-    #[serde(rename = "VoiceId")]
+    #[serde(rename = "voiceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_id: Option<String>,
 }
@@ -259,22 +259,22 @@ pub struct SSMLMessageType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendVoiceMessageRequest {
     /// <p>The phone number that appears on recipients&#39; devices when they receive the message.</p>
-    #[serde(rename = "CallerId")]
+    #[serde(rename = "callerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub caller_id: Option<String>,
     /// <p>The name of the configuration set that you want to use to send the message.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<VoiceMessageContent>,
     /// <p>The phone number that you want to send the voice message to.</p>
-    #[serde(rename = "DestinationPhoneNumber")]
+    #[serde(rename = "destinationPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_phone_number: Option<String>,
     /// <p>The phone number that Amazon Pinpoint should use to send the voice message. This isn&#39;t necessarily the phone number that appears on recipients&#39; devices when they receive the message, because you can specify a CallerId parameter in the request.</p>
-    #[serde(rename = "OriginationPhoneNumber")]
+    #[serde(rename = "originationPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination_phone_number: Option<String>,
 }
@@ -284,7 +284,7 @@ pub struct SendVoiceMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendVoiceMessageResponse {
     /// <p>A unique identifier for the voice message.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -293,7 +293,7 @@ pub struct SendVoiceMessageResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SnsDestination {
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.</p>
-    #[serde(rename = "TopicArn")]
+    #[serde(rename = "topicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_arn: Option<String>,
 }
@@ -303,13 +303,13 @@ pub struct SnsDestination {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConfigurationSetEventDestinationRequest {
     /// <p>ConfigurationSetName</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
-    #[serde(rename = "EventDestination")]
+    #[serde(rename = "eventDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_destination: Option<EventDestinationDefinition>,
     /// <p>EventDestinationName</p>
-    #[serde(rename = "EventDestinationName")]
+    #[serde(rename = "eventDestinationName")]
     pub event_destination_name: String,
 }
 
@@ -322,13 +322,13 @@ pub struct UpdateConfigurationSetEventDestinationResponse {}
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VoiceMessageContent {
-    #[serde(rename = "CallInstructionsMessage")]
+    #[serde(rename = "callInstructionsMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub call_instructions_message: Option<CallInstructionsMessageType>,
-    #[serde(rename = "PlainTextMessage")]
+    #[serde(rename = "plainTextMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plain_text_message: Option<PlainTextMessageType>,
-    #[serde(rename = "SSMLMessage")]
+    #[serde(rename = "sSMLMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssml_message: Option<SSMLMessageType>,
 }

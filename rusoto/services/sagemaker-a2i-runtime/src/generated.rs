@@ -29,7 +29,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteHumanLoopRequest {
     /// <p>The name of the human loop that you want to delete.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
 }
 
@@ -41,7 +41,7 @@ pub struct DeleteHumanLoopResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeHumanLoopRequest {
     /// <p>The name of the human loop that you want information about.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
 }
 
@@ -49,31 +49,31 @@ pub struct DescribeHumanLoopRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeHumanLoopResponse {
     /// <p>The creation time when Amazon Augmented AI created the human loop.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     pub creation_time: f64,
     /// <p>A failure code that identifies the type of failure.</p> <p>Possible values: <code>ValidationError</code>, <code>Expired</code>, <code>InternalError</code> </p>
-    #[serde(rename = "FailureCode")]
+    #[serde(rename = "failureCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_code: Option<String>,
     /// <p>The reason why a human loop failed. The failure reason is returned when the status of the human loop is <code>Failed</code>.</p>
-    #[serde(rename = "FailureReason")]
+    #[serde(rename = "failureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_reason: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-    #[serde(rename = "FlowDefinitionArn")]
+    #[serde(rename = "flowDefinitionArn")]
     pub flow_definition_arn: String,
     /// <p>The Amazon Resource Name (ARN) of the human loop.</p>
-    #[serde(rename = "HumanLoopArn")]
+    #[serde(rename = "humanLoopArn")]
     pub human_loop_arn: String,
     /// <p>The name of the human loop. The name must be lowercase, unique within the Region in your account, and can have up to 63 characters. Valid characters: a-z, 0-9, and - (hyphen).</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
     /// <p>An object that contains information about the output of the human loop.</p>
-    #[serde(rename = "HumanLoopOutput")]
+    #[serde(rename = "humanLoopOutput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_output: Option<HumanLoopOutput>,
     /// <p>The status of the human loop. </p>
-    #[serde(rename = "HumanLoopStatus")]
+    #[serde(rename = "humanLoopStatus")]
     pub human_loop_status: String,
 }
 
@@ -82,7 +82,7 @@ pub struct DescribeHumanLoopResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HumanLoopDataAttributes {
     /// <p>Declares that your content is free of personally identifiable information or adult content.</p> <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>
-    #[serde(rename = "ContentClassifiers")]
+    #[serde(rename = "contentClassifiers")]
     pub content_classifiers: Vec<String>,
 }
 
@@ -91,7 +91,7 @@ pub struct HumanLoopDataAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HumanLoopInput {
     /// <p>Serialized input from the human loop. The input must be a string representation of a file in JSON format.</p>
-    #[serde(rename = "InputContent")]
+    #[serde(rename = "inputContent")]
     pub input_content: String,
 }
 
@@ -100,7 +100,7 @@ pub struct HumanLoopInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HumanLoopOutput {
     /// <p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output.</p>
-    #[serde(rename = "OutputS3Uri")]
+    #[serde(rename = "outputS3Uri")]
     pub output_s3_uri: String,
 }
 
@@ -109,23 +109,23 @@ pub struct HumanLoopOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HumanLoopSummary {
     /// <p>When Amazon Augmented AI created the human loop.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The reason why the human loop failed. A failure reason is returned when the status of the human loop is <code>Failed</code>.</p>
-    #[serde(rename = "FailureReason")]
+    #[serde(rename = "failureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_reason: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the flow definition used to configure the human loop.</p>
-    #[serde(rename = "FlowDefinitionArn")]
+    #[serde(rename = "flowDefinitionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_definition_arn: Option<String>,
     /// <p>The name of the human loop.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_name: Option<String>,
     /// <p>The status of the human loop. </p>
-    #[serde(rename = "HumanLoopStatus")]
+    #[serde(rename = "humanLoopStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_status: Option<String>,
 }
@@ -134,26 +134,26 @@ pub struct HumanLoopSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListHumanLoopsRequest {
     /// <p>(Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
-    #[serde(rename = "CreationTimeAfter")]
+    #[serde(rename = "creationTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time_after: Option<f64>,
     /// <p>(Optional) The timestamp of the date before which you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
-    #[serde(rename = "CreationTimeBefore")]
+    #[serde(rename = "creationTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time_before: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of a flow definition.</p>
-    #[serde(rename = "FlowDefinitionArn")]
+    #[serde(rename = "flowDefinitionArn")]
     pub flow_definition_arn: String,
     /// <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in the output. You can use this token to display the next page of results. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to display the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and <code>Descending</code>.</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -162,10 +162,10 @@ pub struct ListHumanLoopsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListHumanLoopsResponse {
     /// <p>An array of objects that contain information about the human loops.</p>
-    #[serde(rename = "HumanLoopSummaries")]
+    #[serde(rename = "humanLoopSummaries")]
     pub human_loop_summaries: Vec<HumanLoopSummary>,
     /// <p>A token to display the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -174,17 +174,17 @@ pub struct ListHumanLoopsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartHumanLoopRequest {
     /// <p>Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data is free of personally identifiable information and/or free of adult content.</p>
-    #[serde(rename = "DataAttributes")]
+    #[serde(rename = "dataAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_attributes: Option<HumanLoopDataAttributes>,
     /// <p>The Amazon Resource Name (ARN) of the flow definition associated with this human loop.</p>
-    #[serde(rename = "FlowDefinitionArn")]
+    #[serde(rename = "flowDefinitionArn")]
     pub flow_definition_arn: String,
     /// <p>An object that contains information about the human loop.</p>
-    #[serde(rename = "HumanLoopInput")]
+    #[serde(rename = "humanLoopInput")]
     pub human_loop_input: HumanLoopInput,
     /// <p>The name of the human loop.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
 }
 
@@ -192,7 +192,7 @@ pub struct StartHumanLoopRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartHumanLoopResponse {
     /// <p>The Amazon Resource Name (ARN) of the human loop.</p>
-    #[serde(rename = "HumanLoopArn")]
+    #[serde(rename = "humanLoopArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_arn: Option<String>,
 }
@@ -201,7 +201,7 @@ pub struct StartHumanLoopResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopHumanLoopRequest {
     /// <p>The name of the human loop that you want to stop.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
 }
 

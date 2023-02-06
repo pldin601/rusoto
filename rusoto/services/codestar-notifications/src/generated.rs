@@ -28,31 +28,31 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateNotificationRuleRequest {
     /// <p><p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request with the same parameters is received and a token is included, the request returns information about the initial request that used that token.</p> <note> <p>The AWS SDKs prepopulate client request tokens. If you are using an AWS SDK, an idempotency token is created for you.</p> </note></p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
-    #[serde(rename = "DetailType")]
+    #[serde(rename = "detailType")]
     pub detail_type: String,
     /// <p>A list of event types associated with this notification rule. For a list of allowed events, see <a>EventTypeSummary</a>.</p>
-    #[serde(rename = "EventTypeIds")]
+    #[serde(rename = "eventTypeIds")]
     pub event_type_ids: Vec<String>,
     /// <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline, repositories in AWS CodeCommit, and build projects in AWS CodeBuild.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: String,
     /// <p>The status of the notification rule. The default value is ENABLED. If the status is set to DISABLED, notifications aren't sent for the notification rule.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>A list of tags to apply to this notification rule. Key names cannot start with "aws". </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of Amazon Resource Names (ARNs) of SNS topics to associate with the notification rule.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     pub targets: Vec<Target>,
 }
 
@@ -60,7 +60,7 @@ pub struct CreateNotificationRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateNotificationRuleResult {
     /// <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -69,7 +69,7 @@ pub struct CreateNotificationRuleResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteNotificationRuleRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule you want to delete.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -77,7 +77,7 @@ pub struct DeleteNotificationRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteNotificationRuleResult {
     /// <p>The Amazon Resource Name (ARN) of the deleted notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -86,11 +86,11 @@ pub struct DeleteNotificationRuleResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTargetRequest {
     /// <p>A Boolean value that can be used to delete all associations with this SNS topic. The default value is FALSE. If set to TRUE, all associations between that target and every notification rule in your AWS account are deleted.</p>
-    #[serde(rename = "ForceUnsubscribeAll")]
+    #[serde(rename = "forceUnsubscribeAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_unsubscribe_all: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the SNS topic to delete.</p>
-    #[serde(rename = "TargetAddress")]
+    #[serde(rename = "targetAddress")]
     pub target_address: String,
 }
 
@@ -102,7 +102,7 @@ pub struct DeleteTargetResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeNotificationRuleRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -110,46 +110,46 @@ pub struct DescribeNotificationRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeNotificationRuleResult {
     /// <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The name or email alias of the person who created the notification rule.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The date and time the notification rule was created, in timestamp format.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The level of detail included in the notifications for this resource. BASIC will include only the contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
-    #[serde(rename = "DetailType")]
+    #[serde(rename = "detailType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detail_type: Option<String>,
     /// <p>A list of the event types associated with the notification rule.</p>
-    #[serde(rename = "EventTypes")]
+    #[serde(rename = "eventTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_types: Option<Vec<EventTypeSummary>>,
     /// <p>The date and time the notification rule was most recently updated, in timestamp format.</p>
-    #[serde(rename = "LastModifiedTimestamp")]
+    #[serde(rename = "lastModifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_timestamp: Option<f64>,
     /// <p>The name of the notification rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the resource associated with the notification rule.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource: Option<String>,
     /// <p>The status of the notification rule. Valid statuses are on (sending notifications) or off (not sending notifications).</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The tags associated with the notification rule.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of the SNS topics associated with the notification rule.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<Vec<TargetSummary>>,
 }
@@ -159,19 +159,19 @@ pub struct DescribeNotificationRuleResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventTypeSummary {
     /// <p>The system-generated ID of the event.</p>
-    #[serde(rename = "EventTypeId")]
+    #[serde(rename = "eventTypeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type_id: Option<String>,
     /// <p>The name of the event.</p>
-    #[serde(rename = "EventTypeName")]
+    #[serde(rename = "eventTypeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type_name: Option<String>,
     /// <p>The resource type of the event.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The name of the service for which the event applies.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
 }
@@ -181,10 +181,10 @@ pub struct EventTypeSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEventTypesFilter {
     /// <p>The system-generated name of the filter type you want to filter by.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The name of the resource type (for example, pipeline) or service name (for example, CodePipeline) that you want to filter by.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -192,15 +192,15 @@ pub struct ListEventTypesFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEventTypesRequest {
     /// <p>The filters to use to return information by service or resource type.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<ListEventTypesFilter>>,
     /// <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of results that can be returned is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -209,11 +209,11 @@ pub struct ListEventTypesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEventTypesResult {
     /// <p>Information about each event, including service name, resource type, event ID, and event name.</p>
-    #[serde(rename = "EventTypes")]
+    #[serde(rename = "eventTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_types: Option<Vec<EventTypeSummary>>,
     /// <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -223,10 +223,10 @@ pub struct ListEventTypesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListNotificationRulesFilter {
     /// <p>The name of the attribute you want to use to filter the returned notification rules.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The value of the attribute you want to use to filter the returned notification rules. For example, if you specify filtering by <i>RESOURCE</i> in Name, you might specify the ARN of a pipeline in AWS CodePipeline for the value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -234,15 +234,15 @@ pub struct ListNotificationRulesFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListNotificationRulesRequest {
     /// <p><p>The filters to use to return information by service or resource type. For valid values, see <a>ListNotificationRulesFilter</a>.</p> <note> <p>A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<ListNotificationRulesFilter>>,
     /// <p>A non-negative integer used to limit the number of returned results. The maximum number of results that can be returned is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -251,11 +251,11 @@ pub struct ListNotificationRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListNotificationRulesResult {
     /// <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of notification rules for the AWS account, by Amazon Resource Name (ARN) and ID. </p>
-    #[serde(rename = "NotificationRules")]
+    #[serde(rename = "notificationRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_rules: Option<Vec<NotificationRuleSummary>>,
 }
@@ -264,7 +264,7 @@ pub struct ListNotificationRulesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -272,7 +272,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResult {
     /// <p>The tags associated with the notification rule.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -282,10 +282,10 @@ pub struct ListTagsForResourceResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTargetsFilter {
     /// <p>The name of the attribute you want to use to filter the returned targets.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The value of the attribute you want to use to filter the returned targets. For example, if you specify <i>SNS</i> for the Target type, you could specify an Amazon Resource Name (ARN) for a topic as the value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -293,15 +293,15 @@ pub struct ListTargetsFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTargetsRequest {
     /// <p><p>The filters to use to return information by service or resource type. Valid filters include target type, target address, and target status.</p> <note> <p>A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<ListTargetsFilter>>,
     /// <p>A non-negative integer used to limit the number of returned results. The maximum number of results that can be returned is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -310,11 +310,11 @@ pub struct ListTargetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTargetsResult {
     /// <p>An enumeration token that can be used in a request to return the next batch of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of notification rule targets. </p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<Vec<TargetSummary>>,
 }
@@ -324,11 +324,11 @@ pub struct ListTargetsResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NotificationRuleSummary {
     /// <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The unique ID of the notification rule.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -337,13 +337,13 @@ pub struct NotificationRuleSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SubscribeRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule for which you want to create the association.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     pub target: Target,
 }
 
@@ -351,7 +351,7 @@ pub struct SubscribeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SubscribeResult {
     /// <p>The Amazon Resource Name (ARN) of the notification rule for which you have created assocations.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -360,10 +360,10 @@ pub struct SubscribeResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The list of tags to associate with the resource. Tag key names cannot start with "aws".</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -371,7 +371,7 @@ pub struct TagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagResourceResult {
     /// <p>The list of tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -381,11 +381,11 @@ pub struct TagResourceResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Target {
     /// <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
-    #[serde(rename = "TargetAddress")]
+    #[serde(rename = "targetAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_address: Option<String>,
     /// <p>The target type. Can be an Amazon SNS topic.</p>
-    #[serde(rename = "TargetType")]
+    #[serde(rename = "targetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_type: Option<String>,
 }
@@ -395,15 +395,15 @@ pub struct Target {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TargetSummary {
     /// <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
-    #[serde(rename = "TargetAddress")]
+    #[serde(rename = "targetAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_address: Option<String>,
     /// <p>The status of the target.</p>
-    #[serde(rename = "TargetStatus")]
+    #[serde(rename = "targetStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_status: Option<String>,
     /// <p>The type of the target (for example, SNS).</p>
-    #[serde(rename = "TargetType")]
+    #[serde(rename = "targetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_type: Option<String>,
 }
@@ -412,10 +412,10 @@ pub struct TargetSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UnsubscribeRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The ARN of the SNS topic to unsubscribe from the notification rule.</p>
-    #[serde(rename = "TargetAddress")]
+    #[serde(rename = "targetAddress")]
     pub target_address: String,
 }
 
@@ -423,7 +423,7 @@ pub struct UnsubscribeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnsubscribeResult {
     /// <p>The Amazon Resource Name (ARN) of the the notification rule from which you have removed a subscription.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -431,10 +431,10 @@ pub struct UnsubscribeResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule from which to remove the tags.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The key names of the tags to remove.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -446,26 +446,26 @@ pub struct UntagResourceResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateNotificationRuleRequest {
     /// <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
-    #[serde(rename = "DetailType")]
+    #[serde(rename = "detailType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detail_type: Option<String>,
     /// <p>A list of event types associated with this notification rule.</p>
-    #[serde(rename = "EventTypeIds")]
+    #[serde(rename = "eventTypeIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type_ids: Option<Vec<String>>,
     /// <p>The name of the notification rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the notification rule. Valid statuses include enabled (sending notifications) or disabled (not sending notifications).</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The address and type of the targets to receive notifications from this notification rule.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<Vec<Target>>,
 }

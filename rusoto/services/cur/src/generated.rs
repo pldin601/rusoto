@@ -55,7 +55,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteReportDefinitionRequest {
     /// <p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>
-    #[serde(rename = "ReportName")]
+    #[serde(rename = "reportName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_name: Option<String>,
 }
@@ -64,7 +64,7 @@ pub struct DeleteReportDefinitionRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteReportDefinitionResponse {
-    #[serde(rename = "ResponseMessage")]
+    #[serde(rename = "responseMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_message: Option<String>,
 }
@@ -73,10 +73,10 @@ pub struct DeleteReportDefinitionResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeReportDefinitionsRequest {
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -85,11 +85,11 @@ pub struct DescribeReportDefinitionsRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReportDefinitionsResponse {
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of AWS Cost and Usage reports owned by the account.</p>
-    #[serde(rename = "ReportDefinitions")]
+    #[serde(rename = "reportDefinitions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_definitions: Option<Vec<ReportDefinition>>,
 }
@@ -97,9 +97,9 @@ pub struct DescribeReportDefinitionsResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyReportDefinitionRequest {
-    #[serde(rename = "ReportDefinition")]
+    #[serde(rename = "reportDefinition")]
     pub report_definition: ReportDefinition,
-    #[serde(rename = "ReportName")]
+    #[serde(rename = "reportName")]
     pub report_name: String,
 }
 
@@ -112,7 +112,7 @@ pub struct ModifyReportDefinitionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutReportDefinitionRequest {
     /// <p>Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information. </p>
-    #[serde(rename = "ReportDefinition")]
+    #[serde(rename = "reportDefinition")]
     pub report_definition: ReportDefinition,
 }
 
@@ -125,37 +125,37 @@ pub struct PutReportDefinitionResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ReportDefinition {
     /// <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
-    #[serde(rename = "AdditionalArtifacts")]
+    #[serde(rename = "additionalArtifacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_artifacts: Option<Vec<String>>,
     /// <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
-    #[serde(rename = "AdditionalSchemaElements")]
+    #[serde(rename = "additionalSchemaElements")]
     pub additional_schema_elements: Vec<String>,
     /// <p> The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs. </p>
-    #[serde(rename = "BillingViewArn")]
+    #[serde(rename = "billingViewArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub billing_view_arn: Option<String>,
-    #[serde(rename = "Compression")]
+    #[serde(rename = "compression")]
     pub compression: String,
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.</p>
-    #[serde(rename = "RefreshClosedReports")]
+    #[serde(rename = "refreshClosedReports")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_closed_reports: Option<bool>,
-    #[serde(rename = "ReportName")]
+    #[serde(rename = "reportName")]
     pub report_name: String,
     /// <p>Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.</p>
-    #[serde(rename = "ReportVersioning")]
+    #[serde(rename = "reportVersioning")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_versioning: Option<String>,
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     pub s3_bucket: String,
-    #[serde(rename = "S3Prefix")]
+    #[serde(rename = "s3Prefix")]
     pub s3_prefix: String,
-    #[serde(rename = "S3Region")]
+    #[serde(rename = "s3Region")]
     pub s3_region: String,
-    #[serde(rename = "TimeUnit")]
+    #[serde(rename = "timeUnit")]
     pub time_unit: String,
 }
 

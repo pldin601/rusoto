@@ -54,27 +54,27 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Action {
     /// <p>The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the crawler to be used with this action.</p>
-    #[serde(rename = "CrawlerName")]
+    #[serde(rename = "crawlerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_name: Option<String>,
     /// <p>The name of a job to be run.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Specifies configuration properties of a job run notification.</p>
-    #[serde(rename = "NotificationProperty")]
+    #[serde(rename = "notificationProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_property: Option<NotificationProperty>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this action.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
 }
@@ -84,11 +84,11 @@ pub struct Action {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BackfillError {
     /// <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>A list of a limited number of partitions in the response.</p>
-    #[serde(rename = "Partitions")]
+    #[serde(rename = "partitions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partitions: Option<Vec<PartitionValueList>>,
 }
@@ -97,17 +97,17 @@ pub struct BackfillError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchCreatePartitionRequest {
     /// <p>The ID of the catalog in which the partition is to be created. Currently, this should be the Amazon Web Services account ID.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the metadata database in which the partition is to be created.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of <code>PartitionInput</code> structures that define the partitions to be created.</p>
-    #[serde(rename = "PartitionInputList")]
+    #[serde(rename = "partitionInputList")]
     pub partition_input_list: Vec<PartitionInput>,
     /// <p>The name of the metadata table in which the partition is to be created.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -115,7 +115,7 @@ pub struct BatchCreatePartitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchCreatePartitionResponse {
     /// <p>The errors encountered when trying to create the requested partitions.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<PartitionError>>,
 }
@@ -124,11 +124,11 @@ pub struct BatchCreatePartitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDeleteConnectionRequest {
     /// <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of names of the connections to delete.</p>
-    #[serde(rename = "ConnectionNameList")]
+    #[serde(rename = "connectionNameList")]
     pub connection_name_list: Vec<String>,
 }
 
@@ -136,11 +136,11 @@ pub struct BatchDeleteConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDeleteConnectionResponse {
     /// <p>A map of the names of connections that were not successfully deleted to error details.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<::std::collections::HashMap<String, ErrorDetail>>,
     /// <p>A list of names of the connection definitions that were successfully deleted.</p>
-    #[serde(rename = "Succeeded")]
+    #[serde(rename = "succeeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub succeeded: Option<Vec<String>>,
 }
@@ -149,17 +149,17 @@ pub struct BatchDeleteConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDeletePartitionRequest {
     /// <p>The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which the table in question resides.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of <code>PartitionInput</code> structures that define the partitions to be deleted.</p>
-    #[serde(rename = "PartitionsToDelete")]
+    #[serde(rename = "partitionsToDelete")]
     pub partitions_to_delete: Vec<PartitionValueList>,
     /// <p>The name of the table that contains the partitions to be deleted.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -167,7 +167,7 @@ pub struct BatchDeletePartitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDeletePartitionResponse {
     /// <p>The errors encountered when trying to delete the requested partitions.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<PartitionError>>,
 }
@@ -176,14 +176,14 @@ pub struct BatchDeletePartitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDeleteTableRequest {
     /// <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of the table to delete.</p>
-    #[serde(rename = "TablesToDelete")]
+    #[serde(rename = "tablesToDelete")]
     pub tables_to_delete: Vec<String>,
 }
 
@@ -191,7 +191,7 @@ pub struct BatchDeleteTableRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDeleteTableResponse {
     /// <p>A list of errors encountered in attempting to delete the specified tables.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<TableError>>,
 }
@@ -200,17 +200,17 @@ pub struct BatchDeleteTableResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDeleteTableVersionRequest {
     /// <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
     /// <p>A list of the IDs of versions to be deleted. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
-    #[serde(rename = "VersionIds")]
+    #[serde(rename = "versionIds")]
     pub version_ids: Vec<String>,
 }
 
@@ -218,7 +218,7 @@ pub struct BatchDeleteTableVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDeleteTableVersionResponse {
     /// <p>A list of errors encountered while trying to delete the specified table versions.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<TableVersionError>>,
 }
@@ -227,7 +227,7 @@ pub struct BatchDeleteTableVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetCrawlersRequest {
     /// <p>A list of crawler names, which might be the names returned from the <code>ListCrawlers</code> operation.</p>
-    #[serde(rename = "CrawlerNames")]
+    #[serde(rename = "crawlerNames")]
     pub crawler_names: Vec<String>,
 }
 
@@ -235,11 +235,11 @@ pub struct BatchGetCrawlersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetCrawlersResponse {
     /// <p>A list of crawler definitions.</p>
-    #[serde(rename = "Crawlers")]
+    #[serde(rename = "crawlers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawlers: Option<Vec<Crawler>>,
     /// <p>A list of names of crawlers that were not found.</p>
-    #[serde(rename = "CrawlersNotFound")]
+    #[serde(rename = "crawlersNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawlers_not_found: Option<Vec<String>>,
 }
@@ -248,7 +248,7 @@ pub struct BatchGetCrawlersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetDevEndpointsRequest {
     /// <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the <code>ListDevEndpoint</code> operation.</p>
-    #[serde(rename = "DevEndpointNames")]
+    #[serde(rename = "devEndpointNames")]
     pub dev_endpoint_names: Vec<String>,
 }
 
@@ -256,11 +256,11 @@ pub struct BatchGetDevEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetDevEndpointsResponse {
     /// <p>A list of <code>DevEndpoint</code> definitions.</p>
-    #[serde(rename = "DevEndpoints")]
+    #[serde(rename = "devEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dev_endpoints: Option<Vec<DevEndpoint>>,
     /// <p>A list of <code>DevEndpoints</code> not found.</p>
-    #[serde(rename = "DevEndpointsNotFound")]
+    #[serde(rename = "devEndpointsNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dev_endpoints_not_found: Option<Vec<String>>,
 }
@@ -269,7 +269,7 @@ pub struct BatchGetDevEndpointsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetJobsRequest {
     /// <p>A list of job names, which might be the names returned from the <code>ListJobs</code> operation.</p>
-    #[serde(rename = "JobNames")]
+    #[serde(rename = "jobNames")]
     pub job_names: Vec<String>,
 }
 
@@ -277,11 +277,11 @@ pub struct BatchGetJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetJobsResponse {
     /// <p>A list of job definitions.</p>
-    #[serde(rename = "Jobs")]
+    #[serde(rename = "jobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jobs: Option<Vec<Job>>,
     /// <p>A list of names of jobs not found.</p>
-    #[serde(rename = "JobsNotFound")]
+    #[serde(rename = "jobsNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jobs_not_found: Option<Vec<String>>,
 }
@@ -290,17 +290,17 @@ pub struct BatchGetJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetPartitionRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of partition values identifying the partitions to retrieve.</p>
-    #[serde(rename = "PartitionsToGet")]
+    #[serde(rename = "partitionsToGet")]
     pub partitions_to_get: Vec<PartitionValueList>,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -308,11 +308,11 @@ pub struct BatchGetPartitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetPartitionResponse {
     /// <p>A list of the requested partitions.</p>
-    #[serde(rename = "Partitions")]
+    #[serde(rename = "partitions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partitions: Option<Vec<Partition>>,
     /// <p>A list of the partition values in the request for which partitions were not returned.</p>
-    #[serde(rename = "UnprocessedKeys")]
+    #[serde(rename = "unprocessedKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_keys: Option<Vec<PartitionValueList>>,
 }
@@ -321,7 +321,7 @@ pub struct BatchGetPartitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetTriggersRequest {
     /// <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
-    #[serde(rename = "TriggerNames")]
+    #[serde(rename = "triggerNames")]
     pub trigger_names: Vec<String>,
 }
 
@@ -329,11 +329,11 @@ pub struct BatchGetTriggersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetTriggersResponse {
     /// <p>A list of trigger definitions.</p>
-    #[serde(rename = "Triggers")]
+    #[serde(rename = "triggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub triggers: Option<Vec<Trigger>>,
     /// <p>A list of names of triggers not found.</p>
-    #[serde(rename = "TriggersNotFound")]
+    #[serde(rename = "triggersNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub triggers_not_found: Option<Vec<String>>,
 }
@@ -342,11 +342,11 @@ pub struct BatchGetTriggersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetWorkflowsRequest {
     /// <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
-    #[serde(rename = "IncludeGraph")]
+    #[serde(rename = "includeGraph")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_graph: Option<bool>,
     /// <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     pub names: Vec<String>,
 }
 
@@ -354,11 +354,11 @@ pub struct BatchGetWorkflowsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetWorkflowsResponse {
     /// <p>A list of names of workflows not found.</p>
-    #[serde(rename = "MissingWorkflows")]
+    #[serde(rename = "missingWorkflows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub missing_workflows: Option<Vec<String>>,
     /// <p>A list of workflow resource metadata.</p>
-    #[serde(rename = "Workflows")]
+    #[serde(rename = "workflows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflows: Option<Vec<Workflow>>,
 }
@@ -368,15 +368,15 @@ pub struct BatchGetWorkflowsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchStopJobRunError {
     /// <p>Specifies details about the error that was encountered.</p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<ErrorDetail>,
     /// <p>The name of the job definition that is used in the job run in question.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The <code>JobRunId</code> of the job run in question.</p>
-    #[serde(rename = "JobRunId")]
+    #[serde(rename = "jobRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run_id: Option<String>,
 }
@@ -385,10 +385,10 @@ pub struct BatchStopJobRunError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchStopJobRunRequest {
     /// <p>The name of the job definition for which to stop job runs.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>A list of the <code>JobRunIds</code> that should be stopped for that job definition.</p>
-    #[serde(rename = "JobRunIds")]
+    #[serde(rename = "jobRunIds")]
     pub job_run_ids: Vec<String>,
 }
 
@@ -396,11 +396,11 @@ pub struct BatchStopJobRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchStopJobRunResponse {
     /// <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>, including the <code>JobRunId</code> for which each error was encountered and details about the error.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<BatchStopJobRunError>>,
     /// <p>A list of the JobRuns that were successfully submitted for stopping.</p>
-    #[serde(rename = "SuccessfulSubmissions")]
+    #[serde(rename = "successfulSubmissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub successful_submissions: Option<Vec<BatchStopJobRunSuccessfulSubmission>>,
 }
@@ -410,11 +410,11 @@ pub struct BatchStopJobRunResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchStopJobRunSuccessfulSubmission {
     /// <p>The name of the job definition used in the job run that was stopped.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The <code>JobRunId</code> of the job run that was stopped.</p>
-    #[serde(rename = "JobRunId")]
+    #[serde(rename = "jobRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run_id: Option<String>,
 }
@@ -424,11 +424,11 @@ pub struct BatchStopJobRunSuccessfulSubmission {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchUpdatePartitionFailureEntry {
     /// <p>The details about the batch update partition error.</p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<ErrorDetail>,
     /// <p>A list of values defining the partitions.</p>
-    #[serde(rename = "PartitionValueList")]
+    #[serde(rename = "partitionValueList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_value_list: Option<Vec<String>>,
 }
@@ -437,17 +437,17 @@ pub struct BatchUpdatePartitionFailureEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUpdatePartitionRequest {
     /// <p>The ID of the catalog in which the partition is to be updated. Currently, this should be the Amazon Web Services account ID.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the metadata database in which the partition is to be updated.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     pub entries: Vec<BatchUpdatePartitionRequestEntry>,
     /// <p>The name of the metadata table in which the partition is to be updated.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -456,10 +456,10 @@ pub struct BatchUpdatePartitionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUpdatePartitionRequestEntry {
     /// <p>The structure used to update a partition.</p>
-    #[serde(rename = "PartitionInput")]
+    #[serde(rename = "partitionInput")]
     pub partition_input: PartitionInput,
     /// <p>A list of values defining the partitions.</p>
-    #[serde(rename = "PartitionValueList")]
+    #[serde(rename = "partitionValueList")]
     pub partition_value_list: Vec<String>,
 }
 
@@ -467,7 +467,7 @@ pub struct BatchUpdatePartitionRequestEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchUpdatePartitionResponse {
     /// <p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<BatchUpdatePartitionFailureEntry>>,
 }
@@ -476,13 +476,13 @@ pub struct BatchUpdatePartitionResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BinaryColumnStatisticsData {
     /// <p>The average bit sequence length in the column.</p>
-    #[serde(rename = "AverageLength")]
+    #[serde(rename = "averageLength")]
     pub average_length: f64,
     /// <p>The size of the longest bit sequence in the column.</p>
-    #[serde(rename = "MaximumLength")]
+    #[serde(rename = "maximumLength")]
     pub maximum_length: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
 }
 
@@ -490,13 +490,13 @@ pub struct BinaryColumnStatisticsData {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BooleanColumnStatisticsData {
     /// <p>The number of false values in the column.</p>
-    #[serde(rename = "NumberOfFalses")]
+    #[serde(rename = "numberOfFalses")]
     pub number_of_falses: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
     /// <p>The number of true values in the column.</p>
-    #[serde(rename = "NumberOfTrues")]
+    #[serde(rename = "numberOfTrues")]
     pub number_of_trues: i64,
 }
 
@@ -504,10 +504,10 @@ pub struct BooleanColumnStatisticsData {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelMLTaskRunRequest {
     /// <p>A unique identifier for the task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     pub task_run_id: String,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -515,15 +515,15 @@ pub struct CancelMLTaskRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CancelMLTaskRunResponse {
     /// <p>The status for this run.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The unique identifier for the task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
 }
@@ -533,10 +533,10 @@ pub struct CancelMLTaskRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CatalogEntry {
     /// <p>The database in which the table metadata resides.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table in question.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -545,15 +545,15 @@ pub struct CatalogEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CatalogImportStatus {
     /// <p> <code>True</code> if the migration has completed, or <code>False</code> otherwise.</p>
-    #[serde(rename = "ImportCompleted")]
+    #[serde(rename = "importCompleted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_completed: Option<bool>,
     /// <p>The time that the migration was started.</p>
-    #[serde(rename = "ImportTime")]
+    #[serde(rename = "importTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_time: Option<f64>,
     /// <p>The name of the person who initiated the migration.</p>
-    #[serde(rename = "ImportedBy")]
+    #[serde(rename = "importedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub imported_by: Option<String>,
 }
@@ -562,10 +562,10 @@ pub struct CatalogImportStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CatalogTarget {
     /// <p>The name of the database to be synchronized.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of the tables to be synchronized.</p>
-    #[serde(rename = "Tables")]
+    #[serde(rename = "tables")]
     pub tables: Vec<String>,
 }
 
@@ -573,10 +573,10 @@ pub struct CatalogTarget {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CheckSchemaVersionValidityInput {
     /// <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     pub data_format: String,
     /// <p>The definition of the schema that has to be validated.</p>
-    #[serde(rename = "SchemaDefinition")]
+    #[serde(rename = "schemaDefinition")]
     pub schema_definition: String,
 }
 
@@ -584,11 +584,11 @@ pub struct CheckSchemaVersionValidityInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CheckSchemaVersionValidityResponse {
     /// <p>A validation failure error message.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<String>,
     /// <p>Return true, if the schema is valid and false otherwise.</p>
-    #[serde(rename = "Valid")]
+    #[serde(rename = "valid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub valid: Option<bool>,
 }
@@ -598,19 +598,19 @@ pub struct CheckSchemaVersionValidityResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Classifier {
     /// <p>A classifier for comma-separated values (CSV).</p>
-    #[serde(rename = "CsvClassifier")]
+    #[serde(rename = "csvClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csv_classifier: Option<CsvClassifier>,
     /// <p>A classifier that uses <code>grok</code>.</p>
-    #[serde(rename = "GrokClassifier")]
+    #[serde(rename = "grokClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grok_classifier: Option<GrokClassifier>,
     /// <p>A classifier for JSON content.</p>
-    #[serde(rename = "JsonClassifier")]
+    #[serde(rename = "jsonClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub json_classifier: Option<JsonClassifier>,
     /// <p>A classifier for XML content.</p>
-    #[serde(rename = "XMLClassifier")]
+    #[serde(rename = "xMLClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub xml_classifier: Option<XMLClassifier>,
 }
@@ -619,11 +619,11 @@ pub struct Classifier {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchEncryption {
     /// <p>The encryption mode to use for CloudWatch data.</p>
-    #[serde(rename = "CloudWatchEncryptionMode")]
+    #[serde(rename = "cloudWatchEncryptionMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_encryption_mode: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
 }
@@ -632,13 +632,13 @@ pub struct CloudWatchEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CodeGenEdge {
     /// <p>The ID of the node at which the edge starts.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     pub source: String,
     /// <p>The ID of the node at which the edge ends.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     pub target: String,
     /// <p>The target of the edge.</p>
-    #[serde(rename = "TargetParameter")]
+    #[serde(rename = "targetParameter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_parameter: Option<String>,
 }
@@ -647,17 +647,17 @@ pub struct CodeGenEdge {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CodeGenNode {
     /// <p>Properties of the node, in the form of name-value pairs.</p>
-    #[serde(rename = "Args")]
+    #[serde(rename = "args")]
     pub args: Vec<CodeGenNodeArg>,
     /// <p>A node identifier that is unique within the node's graph.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The line number of the node.</p>
-    #[serde(rename = "LineNumber")]
+    #[serde(rename = "lineNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub line_number: Option<i64>,
     /// <p>The type of node that this is.</p>
-    #[serde(rename = "NodeType")]
+    #[serde(rename = "nodeType")]
     pub node_type: String,
 }
 
@@ -665,14 +665,14 @@ pub struct CodeGenNode {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CodeGenNodeArg {
     /// <p>The name of the argument or property.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>True if the value is used as a parameter.</p>
-    #[serde(rename = "Param")]
+    #[serde(rename = "param")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub param: Option<bool>,
     /// <p>The value of the argument or property.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -680,18 +680,18 @@ pub struct CodeGenNodeArg {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Column {
     /// <p>A free-form text comment.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The name of the <code>Column</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>These key-value pairs define properties associated with the column.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The data type of the <code>Column</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -701,11 +701,11 @@ pub struct Column {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnError {
     /// <p>The name of the column that failed.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_name: Option<String>,
     /// <p>An error message with the reason for the failure of an operation.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<ErrorDetail>,
 }
@@ -715,11 +715,11 @@ pub struct ColumnError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnImportance {
     /// <p>The name of a column.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_name: Option<String>,
     /// <p>The column importance score for the column, as a decimal.</p>
-    #[serde(rename = "Importance")]
+    #[serde(rename = "importance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub importance: Option<f64>,
 }
@@ -728,16 +728,16 @@ pub struct ColumnImportance {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnStatistics {
     /// <p>The timestamp of when column statistics were generated.</p>
-    #[serde(rename = "AnalyzedTime")]
+    #[serde(rename = "analyzedTime")]
     pub analyzed_time: f64,
     /// <p>Name of column which statistics belong to.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p>The data type of the column.</p>
-    #[serde(rename = "ColumnType")]
+    #[serde(rename = "columnType")]
     pub column_type: String,
     /// <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
-    #[serde(rename = "StatisticsData")]
+    #[serde(rename = "statisticsData")]
     pub statistics_data: ColumnStatisticsData,
 }
 
@@ -745,35 +745,35 @@ pub struct ColumnStatistics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnStatisticsData {
     /// <p>Binary column statistics data.</p>
-    #[serde(rename = "BinaryColumnStatisticsData")]
+    #[serde(rename = "binaryColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub binary_column_statistics_data: Option<BinaryColumnStatisticsData>,
     /// <p>Boolean column statistics data.</p>
-    #[serde(rename = "BooleanColumnStatisticsData")]
+    #[serde(rename = "booleanColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub boolean_column_statistics_data: Option<BooleanColumnStatisticsData>,
     /// <p>Date column statistics data.</p>
-    #[serde(rename = "DateColumnStatisticsData")]
+    #[serde(rename = "dateColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_column_statistics_data: Option<DateColumnStatisticsData>,
     /// <p>Decimal column statistics data.</p>
-    #[serde(rename = "DecimalColumnStatisticsData")]
+    #[serde(rename = "decimalColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decimal_column_statistics_data: Option<DecimalColumnStatisticsData>,
     /// <p>Double column statistics data.</p>
-    #[serde(rename = "DoubleColumnStatisticsData")]
+    #[serde(rename = "doubleColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub double_column_statistics_data: Option<DoubleColumnStatisticsData>,
     /// <p>Long column statistics data.</p>
-    #[serde(rename = "LongColumnStatisticsData")]
+    #[serde(rename = "longColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_column_statistics_data: Option<LongColumnStatisticsData>,
     /// <p>String column statistics data.</p>
-    #[serde(rename = "StringColumnStatisticsData")]
+    #[serde(rename = "stringColumnStatisticsData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_column_statistics_data: Option<StringColumnStatisticsData>,
     /// <p>The type of column statistics data.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -782,11 +782,11 @@ pub struct ColumnStatisticsData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnStatisticsError {
     /// <p>The <code>ColumnStatistics</code> of the column.</p>
-    #[serde(rename = "ColumnStatistics")]
+    #[serde(rename = "columnStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_statistics: Option<ColumnStatistics>,
     /// <p>An error message with the reason for the failure of an operation.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<ErrorDetail>,
 }
@@ -795,23 +795,23 @@ pub struct ColumnStatisticsError {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Condition {
     /// <p>The state of the crawler to which this condition applies.</p>
-    #[serde(rename = "CrawlState")]
+    #[serde(rename = "crawlState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawl_state: Option<String>,
     /// <p>The name of the crawler to which this condition applies.</p>
-    #[serde(rename = "CrawlerName")]
+    #[serde(rename = "crawlerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_name: Option<String>,
     /// <p>The name of the job whose <code>JobRuns</code> this condition applies to, and on which this trigger waits.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>A logical operator.</p>
-    #[serde(rename = "LogicalOperator")]
+    #[serde(rename = "logicalOperator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logical_operator: Option<String>,
     /// <p>The condition state. Currently, the only job states that a trigger can listen for are <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>FAILED</code>, and <code>TIMEOUT</code>. The only crawler states that a trigger can listen for are <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>CANCELLED</code>.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -821,19 +821,19 @@ pub struct Condition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfusionMatrix {
     /// <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
-    #[serde(rename = "NumFalseNegatives")]
+    #[serde(rename = "numFalseNegatives")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub num_false_negatives: Option<i64>,
     /// <p>The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.</p>
-    #[serde(rename = "NumFalsePositives")]
+    #[serde(rename = "numFalsePositives")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub num_false_positives: Option<i64>,
     /// <p>The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.</p>
-    #[serde(rename = "NumTrueNegatives")]
+    #[serde(rename = "numTrueNegatives")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub num_true_negatives: Option<i64>,
     /// <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
-    #[serde(rename = "NumTruePositives")]
+    #[serde(rename = "numTruePositives")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub num_true_positives: Option<i64>,
 }
@@ -843,39 +843,39 @@ pub struct ConfusionMatrix {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Connection {
     /// <p><p>These key-value pairs define parameters for the connection:</p> <ul> <li> <p> <code>HOST</code> - The host URI: either the fully qualified domain name (FQDN) or the IPv4 address of the database host.</p> </li> <li> <p> <code>PORT</code> - The port number, between 1024 and 65535, of the port on which the database host is listening for database connections.</p> </li> <li> <p> <code>USER<em>NAME</code> - The name under which to log in to the database. The value string for <code>USER</em>NAME</code> is &quot;<code>USERNAME</code>&quot;.</p> </li> <li> <p> <code>PASSWORD</code> - A password, if one is used, for the user name.</p> </li> <li> <p> <code>ENCRYPTED<em>PASSWORD</code> - When you enable connection password protection by setting <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the encrypted password.</p> </li> <li> <p> <code>JDBC</em>DRIVER<em>JAR</em>URI</code> - The Amazon Simple Storage Service (Amazon S3) path of the JAR file that contains the JDBC driver to use.</p> </li> <li> <p> <code>JDBC<em>DRIVER</em>CLASS<em>NAME</code> - The class name of the JDBC driver to use.</p> </li> <li> <p> <code>JDBC</em>ENGINE</code> - The name of the JDBC engine to use.</p> </li> <li> <p> <code>JDBC<em>ENGINE</em>VERSION</code> - The version of the JDBC engine to use.</p> </li> <li> <p> <code>CONFIG<em>FILES</code> - (Reserved for future use.)</p> </li> <li> <p> <code>INSTANCE</em>ID</code> - The instance ID to use.</p> </li> <li> <p> <code>JDBC<em>CONNECTION</em>URL</code> - The URL for connecting to a JDBC data source.</p> </li> <li> <p> <code>JDBC<em>ENFORCE</em>SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer (SSL) with hostname matching is enforced for the JDBC connection on the client. The default is false.</p> </li> <li> <p> <code>CUSTOM<em>JDBC</em>CERT</code> - An Amazon S3 location specifying the customer&#39;s root certificate. Glue uses this root certificate to validate the customer’s certificate when connecting to the customer database. Glue only handles X.509 certificates. The certificate provided must be DER-encoded and supplied in Base64 encoding PEM format.</p> </li> <li> <p> <code>SKIP<em>CUSTOM</em>JDBC<em>CERT</em>VALIDATION</code> - By default, this is <code>false</code>. Glue validates the Signature algorithm and Subject Public Key Algorithm for the customer certificate. The only permitted algorithms for the Signature algorithm are SHA256withRSA, SHA384withRSA or SHA512withRSA. For the Subject Public Key Algorithm, the key length must be at least 2048. You can set the value of this property to <code>true</code> to skip Glue’s validation of the customer certificate.</p> </li> <li> <p> <code>CUSTOM<em>JDBC</em>CERT<em>STRING</code> - A custom JDBC certificate string which is used for domain match or distinguished name match to prevent a man-in-the-middle attack. In Oracle database, this is used as the <code>SSL</em>SERVER<em>CERT</em>DN</code>; in Microsoft SQL Server, this is used as the <code>hostNameInCertificate</code>.</p> </li> <li> <p> <code>CONNECTION<em>URL</code> - The URL for connecting to a general (non-JDBC) data source.</p> </li> <li> <p> <code>KAFKA</em>BOOTSTRAP<em>SERVERS</code> - A comma-separated list of host and port pairs that are the addresses of the Apache Kafka brokers in a Kafka cluster to which a Kafka client will connect to and bootstrap itself.</p> </li> <li> <p> <code>KAFKA</em>SSL<em>ENABLED</code> - Whether to enable or disable SSL on an Apache Kafka connection. Default value is &quot;true&quot;.</p> </li> <li> <p> <code>KAFKA</em>CUSTOM<em>CERT</code> - The Amazon S3 URL for the private CA cert file (.pem format). The default is an empty string.</p> </li> <li> <p> <code>KAFKA</em>SKIP<em>CUSTOM</em>CERT<em>VALIDATION</code> - Whether to skip the validation of the CA cert file or not. Glue validates for three algorithms: SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is &quot;false&quot;.</p> </li> <li> <p> <code>SECRET</em>ID</code> - The secret ID used for the secret manager of credentials.</p> </li> <li> <p> <code>CONNECTOR<em>URL</code> - The connector URL for a MARKETPLACE or CUSTOM connection.</p> </li> <li> <p> <code>CONNECTOR</em>TYPE</code> - The connector type for a MARKETPLACE or CUSTOM connection.</p> </li> <li> <p> <code>CONNECTOR<em>CLASS</em>NAME</code> - The connector class name for a MARKETPLACE or CUSTOM connection.</p> </li> <li> <p> <code>KAFKA<em>CLIENT</em>KEYSTORE</code> - The Amazon S3 location of the client keystore file for Kafka client side authentication (Optional).</p> </li> <li> <p> <code>KAFKA<em>CLIENT</em>KEYSTORE<em>PASSWORD</code> - The password to access the provided keystore (Optional).</p> </li> <li> <p> <code>KAFKA</em>CLIENT<em>KEY</em>PASSWORD</code> - A keystore can consist of multiple keys, so this is the password to access the client key to be used with the Kafka server side key (Optional).</p> </li> <li> <p> <code>ENCRYPTED<em>KAFKA</em>CLIENT<em>KEYSTORE</em>PASSWORD</code> - The encrypted version of the Kafka client keystore password (if the user has the Glue encrypt passwords setting selected).</p> </li> <li> <p> <code>ENCRYPTED<em>KAFKA</em>CLIENT<em>KEY</em>PASSWORD</code> - The encrypted version of the Kafka client key password (if the user has the Glue encrypt passwords setting selected).</p> </li> </ul></p>
-    #[serde(rename = "ConnectionProperties")]
+    #[serde(rename = "connectionProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_properties: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the connection. Currently, SFTP is not supported.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>The time that this connection definition was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The description of the connection.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The user, group, or role that last updated this connection definition.</p>
-    #[serde(rename = "LastUpdatedBy")]
+    #[serde(rename = "lastUpdatedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_by: Option<String>,
     /// <p>The last time that this connection definition was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A list of criteria that can be used in selecting this connection.</p>
-    #[serde(rename = "MatchCriteria")]
+    #[serde(rename = "matchCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub match_criteria: Option<Vec<String>>,
     /// <p>The name of the connection definition.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>
-    #[serde(rename = "PhysicalConnectionRequirements")]
+    #[serde(rename = "physicalConnectionRequirements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub physical_connection_requirements: Option<PhysicalConnectionRequirements>,
 }
@@ -885,24 +885,24 @@ pub struct Connection {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConnectionInput {
     /// <p>These key-value pairs define parameters for the connection.</p>
-    #[serde(rename = "ConnectionProperties")]
+    #[serde(rename = "connectionProperties")]
     pub connection_properties: ::std::collections::HashMap<String, String>,
     /// <p>The type of the connection. Currently, these types are supported:</p> <ul> <li> <p> <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p> </li> <li> <p> <code>KAFKA</code> - Designates a connection to an Apache Kafka streaming platform.</p> </li> <li> <p> <code>MONGODB</code> - Designates a connection to a MongoDB document database.</p> </li> <li> <p> <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p> </li> <li> <p> <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from Marketplace to read from and write to data stores that are not natively supported by Glue.</p> </li> <li> <p> <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by Glue.</p> </li> </ul> <p>SFTP is not supported.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     pub connection_type: String,
     /// <p>The description of the connection.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A list of criteria that can be used in selecting this connection.</p>
-    #[serde(rename = "MatchCriteria")]
+    #[serde(rename = "matchCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub match_criteria: Option<Vec<String>>,
     /// <p>The name of the connection.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.</p>
-    #[serde(rename = "PhysicalConnectionRequirements")]
+    #[serde(rename = "physicalConnectionRequirements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub physical_connection_requirements: Option<PhysicalConnectionRequirements>,
 }
@@ -911,11 +911,11 @@ pub struct ConnectionInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionPasswordEncryption {
     /// <p>An KMS key that is used to encrypt the connection password. </p> <p>If connection password protection is enabled, the caller of <code>CreateConnection</code> and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p> <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
-    #[serde(rename = "AwsKmsKeyId")]
+    #[serde(rename = "awsKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_kms_key_id: Option<String>,
     /// <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
-    #[serde(rename = "ReturnConnectionPasswordEncrypted")]
+    #[serde(rename = "returnConnectionPasswordEncrypted")]
     pub return_connection_password_encrypted: bool,
 }
 
@@ -923,7 +923,7 @@ pub struct ConnectionPasswordEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionsList {
     /// <p>A list of connections used by the job.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<Vec<String>>,
 }
@@ -933,27 +933,27 @@ pub struct ConnectionsList {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Crawl {
     /// <p>The date and time on which the crawl completed.</p>
-    #[serde(rename = "CompletedOn")]
+    #[serde(rename = "completedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_on: Option<f64>,
     /// <p>The error message associated with the crawl.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The log group associated with the crawl.</p>
-    #[serde(rename = "LogGroup")]
+    #[serde(rename = "logGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group: Option<String>,
     /// <p>The log stream associated with the crawl.</p>
-    #[serde(rename = "LogStream")]
+    #[serde(rename = "logStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_stream: Option<String>,
     /// <p>The date and time on which the crawl started.</p>
-    #[serde(rename = "StartedOn")]
+    #[serde(rename = "startedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_on: Option<f64>,
     /// <p>The state of the crawler.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -963,79 +963,79 @@ pub struct Crawl {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Crawler {
     /// <p>A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.</p>
-    #[serde(rename = "Classifiers")]
+    #[serde(rename = "classifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classifiers: Option<Vec<String>>,
     /// <p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude">Include and Exclude Patterns</a>.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<String>,
     /// <p>If the crawler is running, contains the total time elapsed since the last crawl began.</p>
-    #[serde(rename = "CrawlElapsedTime")]
+    #[serde(rename = "crawlElapsedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawl_elapsed_time: Option<i64>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>
-    #[serde(rename = "CrawlerSecurityConfiguration")]
+    #[serde(rename = "crawlerSecurityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_security_configuration: Option<String>,
     /// <p>The time that the crawler was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The name of the database in which the crawler's output is stored.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>A description of the crawler.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The status of the last crawl, and potentially error information if an error occurred.</p>
-    #[serde(rename = "LastCrawl")]
+    #[serde(rename = "lastCrawl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_crawl: Option<LastCrawlInfo>,
     /// <p>The time that the crawler was last updated.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>A configuration that specifies whether data lineage is enabled for the crawler.</p>
-    #[serde(rename = "LineageConfiguration")]
+    #[serde(rename = "lineageConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lineage_configuration: Option<LineageConfiguration>,
     /// <p>The name of the crawler.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
-    #[serde(rename = "RecrawlPolicy")]
+    #[serde(rename = "recrawlPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recrawl_policy: Option<RecrawlPolicy>,
     /// <p>The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>For scheduled crawlers, the schedule when the crawler runs.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<Schedule>,
     /// <p>The policy that specifies update and delete behaviors for the crawler.</p>
-    #[serde(rename = "SchemaChangePolicy")]
+    #[serde(rename = "schemaChangePolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_change_policy: Option<SchemaChangePolicy>,
     /// <p>Indicates whether the crawler is running, or whether a run is pending.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The prefix added to the names of tables that are created.</p>
-    #[serde(rename = "TablePrefix")]
+    #[serde(rename = "tablePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_prefix: Option<String>,
     /// <p>A collection of targets to crawl.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<CrawlerTargets>,
     /// <p>The version of the crawler.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -1045,35 +1045,35 @@ pub struct Crawler {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CrawlerMetrics {
     /// <p>The name of the crawler.</p>
-    #[serde(rename = "CrawlerName")]
+    #[serde(rename = "crawlerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_name: Option<String>,
     /// <p>The duration of the crawler's most recent run, in seconds.</p>
-    #[serde(rename = "LastRuntimeSeconds")]
+    #[serde(rename = "lastRuntimeSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_runtime_seconds: Option<f64>,
     /// <p>The median duration of this crawler's runs, in seconds.</p>
-    #[serde(rename = "MedianRuntimeSeconds")]
+    #[serde(rename = "medianRuntimeSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub median_runtime_seconds: Option<f64>,
     /// <p>True if the crawler is still estimating how long it will take to complete this run.</p>
-    #[serde(rename = "StillEstimating")]
+    #[serde(rename = "stillEstimating")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub still_estimating: Option<bool>,
     /// <p>The number of tables created by this crawler.</p>
-    #[serde(rename = "TablesCreated")]
+    #[serde(rename = "tablesCreated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tables_created: Option<i64>,
     /// <p>The number of tables deleted by this crawler.</p>
-    #[serde(rename = "TablesDeleted")]
+    #[serde(rename = "tablesDeleted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tables_deleted: Option<i64>,
     /// <p>The number of tables updated by this crawler.</p>
-    #[serde(rename = "TablesUpdated")]
+    #[serde(rename = "tablesUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tables_updated: Option<i64>,
     /// <p>The estimated time left to complete a running crawl.</p>
-    #[serde(rename = "TimeLeftSeconds")]
+    #[serde(rename = "timeLeftSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_left_seconds: Option<f64>,
 }
@@ -1083,7 +1083,7 @@ pub struct CrawlerMetrics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CrawlerNodeDetails {
     /// <p>A list of crawls represented by the crawl node.</p>
-    #[serde(rename = "Crawls")]
+    #[serde(rename = "crawls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawls: Option<Vec<Crawl>>,
 }
@@ -1092,23 +1092,23 @@ pub struct CrawlerNodeDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CrawlerTargets {
     /// <p>Specifies Glue Data Catalog targets.</p>
-    #[serde(rename = "CatalogTargets")]
+    #[serde(rename = "catalogTargets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_targets: Option<Vec<CatalogTarget>>,
     /// <p>Specifies Amazon DynamoDB targets.</p>
-    #[serde(rename = "DynamoDBTargets")]
+    #[serde(rename = "dynamoDBTargets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dynamo_db_targets: Option<Vec<DynamoDBTarget>>,
     /// <p>Specifies JDBC targets.</p>
-    #[serde(rename = "JdbcTargets")]
+    #[serde(rename = "jdbcTargets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jdbc_targets: Option<Vec<JdbcTarget>>,
     /// <p>Specifies Amazon DocumentDB or MongoDB targets.</p>
-    #[serde(rename = "MongoDBTargets")]
+    #[serde(rename = "mongoDBTargets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mongo_db_targets: Option<Vec<MongoDBTarget>>,
     /// <p>Specifies Amazon Simple Storage Service (Amazon S3) targets.</p>
-    #[serde(rename = "S3Targets")]
+    #[serde(rename = "s3Targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_targets: Option<Vec<S3Target>>,
 }
@@ -1117,19 +1117,19 @@ pub struct CrawlerTargets {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateClassifierRequest {
     /// <p>A <code>CsvClassifier</code> object specifying the classifier to create.</p>
-    #[serde(rename = "CsvClassifier")]
+    #[serde(rename = "csvClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csv_classifier: Option<CreateCsvClassifierRequest>,
     /// <p>A <code>GrokClassifier</code> object specifying the classifier to create.</p>
-    #[serde(rename = "GrokClassifier")]
+    #[serde(rename = "grokClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grok_classifier: Option<CreateGrokClassifierRequest>,
     /// <p>A <code>JsonClassifier</code> object specifying the classifier to create.</p>
-    #[serde(rename = "JsonClassifier")]
+    #[serde(rename = "jsonClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub json_classifier: Option<CreateJsonClassifierRequest>,
     /// <p>An <code>XMLClassifier</code> object specifying the classifier to create.</p>
-    #[serde(rename = "XMLClassifier")]
+    #[serde(rename = "xMLClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub xml_classifier: Option<CreateXMLClassifierRequest>,
 }
@@ -1142,11 +1142,11 @@ pub struct CreateClassifierResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionRequest {
     /// <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A <code>ConnectionInput</code> object defining the connection to create.</p>
-    #[serde(rename = "ConnectionInput")]
+    #[serde(rename = "connectionInput")]
     pub connection_input: ConnectionInput,
 }
 
@@ -1158,57 +1158,57 @@ pub struct CreateConnectionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCrawlerRequest {
     /// <p>A list of custom classifiers that the user has registered. By default, all built-in classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.</p>
-    #[serde(rename = "Classifiers")]
+    #[serde(rename = "classifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classifiers: Option<Vec<String>>,
     /// <p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>
-    #[serde(rename = "CrawlerSecurityConfiguration")]
+    #[serde(rename = "crawlerSecurityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_security_configuration: Option<String>,
     /// <p>The Glue database where results are written, such as: <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>A description of the new crawler.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies data lineage configuration settings for the crawler.</p>
-    #[serde(rename = "LineageConfiguration")]
+    #[serde(rename = "lineageConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lineage_configuration: Option<LineageConfiguration>,
     /// <p>Name of the new crawler.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
-    #[serde(rename = "RecrawlPolicy")]
+    #[serde(rename = "recrawlPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recrawl_policy: Option<RecrawlPolicy>,
     /// <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to access customer resources.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
     /// <p>The policy for the crawler's update and deletion behavior.</p>
-    #[serde(rename = "SchemaChangePolicy")]
+    #[serde(rename = "schemaChangePolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_change_policy: Option<SchemaChangePolicy>,
     /// <p>The table prefix used for catalog tables that are created.</p>
-    #[serde(rename = "TablePrefix")]
+    #[serde(rename = "tablePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_prefix: Option<String>,
     /// <p>The tags to use with this crawler request. You may use tags to limit access to the crawler. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of collection of targets to crawl.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     pub targets: CrawlerTargets,
 }
 
@@ -1221,30 +1221,30 @@ pub struct CreateCrawlerResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCsvClassifierRequest {
     /// <p>Enables the processing of files that contain only one column.</p>
-    #[serde(rename = "AllowSingleColumn")]
+    #[serde(rename = "allowSingleColumn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_single_column: Option<bool>,
     /// <p>Indicates whether the CSV file contains a header.</p>
-    #[serde(rename = "ContainsHeader")]
+    #[serde(rename = "containsHeader")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contains_header: Option<String>,
     /// <p>A custom symbol to denote what separates each column entry in the row.</p>
-    #[serde(rename = "Delimiter")]
+    #[serde(rename = "delimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delimiter: Option<String>,
     /// <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-    #[serde(rename = "DisableValueTrimming")]
+    #[serde(rename = "disableValueTrimming")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_value_trimming: Option<bool>,
     /// <p>A list of strings representing column names.</p>
-    #[serde(rename = "Header")]
+    #[serde(rename = "header")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header: Option<Vec<String>>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
-    #[serde(rename = "QuoteSymbol")]
+    #[serde(rename = "quoteSymbol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_symbol: Option<String>,
 }
@@ -1253,11 +1253,11 @@ pub struct CreateCsvClassifierRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDatabaseRequest {
     /// <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The metadata for the database.</p>
-    #[serde(rename = "DatabaseInput")]
+    #[serde(rename = "databaseInput")]
     pub database_input: DatabaseInput,
 }
 
@@ -1269,61 +1269,61 @@ pub struct CreateDatabaseResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDevEndpointRequest {
     /// <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     pub endpoint_name: String,
     /// <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p>
-    #[serde(rename = "ExtraJarsS3Path")]
+    #[serde(rename = "extraJarsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_jars_s3_path: Option<String>,
     /// <p><p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data analysis library, are not yet supported.</p> </note></p>
-    #[serde(rename = "ExtraPythonLibsS3Path")]
+    #[serde(rename = "extraPythonLibsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_python_libs_s3_path: Option<String>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p> <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>The number of Glue Data Processing Units (DPUs) to allocate to this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "NumberOfNodes")]
+    #[serde(rename = "numberOfNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_nodes: Option<i64>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.</p>
-    #[serde(rename = "PublicKey")]
+    #[serde(rename = "publicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_key: Option<String>,
     /// <p><p>A list of public keys to be used by the development endpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note></p>
-    #[serde(rename = "PublicKeys")]
+    #[serde(rename = "publicKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_keys: Option<Vec<String>>,
     /// <p>The IAM role for the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>Security group IDs for the security groups to be used by the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a development endpoint is created with the <code>G.2X</code> <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -1332,79 +1332,79 @@ pub struct CreateDevEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDevEndpointResponse {
     /// <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p> <p>Valid arguments are:</p> <ul> <li> <p> <code>"--enable-glue-datacatalog": ""</code> </p> </li> </ul> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The point in time at which this <code>DevEndpoint</code> was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The name assigned to the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_name: Option<String>,
     /// <p>Path to one or more Java <code>.jar</code> files in an S3 bucket that will be loaded in your <code>DevEndpoint</code>.</p>
-    #[serde(rename = "ExtraJarsS3Path")]
+    #[serde(rename = "extraJarsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_jars_s3_path: Option<String>,
     /// <p>The paths to one or more Python libraries in an S3 bucket that will be loaded in your <code>DevEndpoint</code>.</p>
-    #[serde(rename = "ExtraPythonLibsS3Path")]
+    #[serde(rename = "extraPythonLibsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_python_libs_s3_path: Option<String>,
     /// <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "FailureReason")]
+    #[serde(rename = "failureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_reason: Option<String>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>The number of Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>
-    #[serde(rename = "NumberOfNodes")]
+    #[serde(rename = "numberOfNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_nodes: Option<i64>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the role assigned to the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure being used with this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The security groups assigned to the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>The current status of the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The subnet ID assigned to the new <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
     /// <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
     /// <p>The address of the YARN endpoint used by this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "YarnEndpointAddress")]
+    #[serde(rename = "yarnEndpointAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub yarn_endpoint_address: Option<String>,
     /// <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
-    #[serde(rename = "ZeppelinRemoteSparkInterpreterPort")]
+    #[serde(rename = "zeppelinRemoteSparkInterpreterPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zeppelin_remote_spark_interpreter_port: Option<i64>,
 }
@@ -1414,17 +1414,17 @@ pub struct CreateDevEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGrokClassifierRequest {
     /// <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
-    #[serde(rename = "Classification")]
+    #[serde(rename = "classification")]
     pub classification: String,
     /// <p>Optional custom grok patterns used by this classifier.</p>
-    #[serde(rename = "CustomPatterns")]
+    #[serde(rename = "customPatterns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_patterns: Option<String>,
     /// <p>The grok pattern used by this classifier.</p>
-    #[serde(rename = "GrokPattern")]
+    #[serde(rename = "grokPattern")]
     pub grok_pattern: String,
     /// <p>The name of the new classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1432,72 +1432,72 @@ pub struct CreateGrokClassifierRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateJobRequest {
     /// <p>The <code>JobCommand</code> that runs this job.</p>
-    #[serde(rename = "Command")]
+    #[serde(rename = "command")]
     pub command: JobCommand,
     /// <p>The connections used for this job.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<ConnectionsList>,
     /// <p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-    #[serde(rename = "DefaultArguments")]
+    #[serde(rename = "defaultArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>Description of the job being defined.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed for this job.</p>
-    #[serde(rename = "ExecutionProperty")]
+    #[serde(rename = "executionProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_property: Option<ExecutionProperty>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p> <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>This field is reserved for future use.</p>
-    #[serde(rename = "LogUri")]
+    #[serde(rename = "logUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_uri: Option<String>,
     /// <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul> <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry this job if it fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>The name you assign to this job definition. It must be unique in your account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
-    #[serde(rename = "NonOverridableArguments")]
+    #[serde(rename = "nonOverridableArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_overridable_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies configuration properties of a job notification.</p>
-    #[serde(rename = "NotificationProperty")]
+    #[serde(rename = "notificationProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_property: Option<NotificationProperty>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p><p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -1506,7 +1506,7 @@ pub struct CreateJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateJobResponse {
     /// <p>The unique name that was provided for this job definition.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1516,10 +1516,10 @@ pub struct CreateJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateJsonClassifierRequest {
     /// <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-    #[serde(rename = "JsonPath")]
+    #[serde(rename = "jsonPath")]
     pub json_path: String,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1527,51 +1527,51 @@ pub struct CreateJsonClassifierRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMLTransformRequest {
     /// <p>A description of the machine learning transform that is being defined. The default is an empty string.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>A list of Glue table definitions used by the transform.</p>
-    #[serde(rename = "InputRecordTables")]
+    #[serde(rename = "inputRecordTables")]
     pub input_record_tables: Vec<GlueTable>,
     /// <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>. </p> <p> <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p> <ul> <li> <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p> </li> <li> <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p> </li> <li> <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p> </li> <li> <p> <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p> </li> </ul> <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p> <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>The unique name that you give the transform when you create it.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p> <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     pub parameters: TransformParameters,
     /// <p><p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p> <ul> <li> <p>This role needs Glue service role permissions to allow access to resources in Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access Glue</a>.</p> </li> <li> <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p> </li> </ul></p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-    #[serde(rename = "TransformEncryption")]
+    #[serde(rename = "transformEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_encryption: Option<TransformEncryption>,
     /// <p><p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul> <p> <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p> <ul> <li> <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p> </li> <li> <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p> </li> <li> <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p> </li> <li> <p> <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -1580,7 +1580,7 @@ pub struct CreateMLTransformRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMLTransformResponse {
     /// <p>A unique identifier that is generated for the transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
 }
@@ -1589,17 +1589,17 @@ pub struct CreateMLTransformResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePartitionIndexRequest {
     /// <p>The catalog ID where the table resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>Specifies the name of a database in which you want to create a partition index.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>Specifies a <code>PartitionIndex</code> structure to create a partition index in an existing table.</p>
-    #[serde(rename = "PartitionIndex")]
+    #[serde(rename = "partitionIndex")]
     pub partition_index: PartitionIndex,
     /// <p>Specifies the name of a table in which you want to create a partition index.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -1611,17 +1611,17 @@ pub struct CreatePartitionIndexResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePartitionRequest {
     /// <p>The Amazon Web Services account ID of the catalog in which the partition is to be created.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the metadata database in which the partition is to be created.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A <code>PartitionInput</code> structure defining the partition to be created.</p>
-    #[serde(rename = "PartitionInput")]
+    #[serde(rename = "partitionInput")]
     pub partition_input: PartitionInput,
     /// <p>The name of the metadata table in which the partition is to be created.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -1633,14 +1633,14 @@ pub struct CreatePartitionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRegistryInput {
     /// <p>A description of the registry. If description is not provided, there will not be any default value for this.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1649,19 +1649,19 @@ pub struct CreateRegistryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRegistryResponse {
     /// <p>A description of the registry.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the newly created registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The tags for the registry.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1670,29 +1670,29 @@ pub struct CreateRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSchemaInput {
     /// <p><p>The compatibility mode of the schema. The possible values are:</p> <ul> <li> <p> <i>NONE</i>: No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.</p> </li> <li> <p> <i>DISABLED</i>: This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.</p> </li> <li> <p> <i>BACKWARD</i>: This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can&#39;t be read by readers using the previous version.</p> </li> <li> <p> <i>BACKWARD<em>ALL</i>: This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions. </p> </li> <li> <p> <i>FORWARD</i>: This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.</p> </li> <li> <p> <i>FORWARD</em>ALL</i>: This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.</p> </li> <li> <p> <i>FULL</i>: This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.</p> </li> <li> <p> <i>FULL_ALL</i>: This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.</p> </li> </ul></p>
-    #[serde(rename = "Compatibility")]
+    #[serde(rename = "compatibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatibility: Option<String>,
     /// <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     pub data_format: String,
     /// <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:&lt;customer id&gt;:registry/default-registry:random-5-letter-id</code>.</p>
-    #[serde(rename = "RegistryId")]
+    #[serde(rename = "registryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_id: Option<RegistryId>,
     /// <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
-    #[serde(rename = "SchemaDefinition")]
+    #[serde(rename = "schemaDefinition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_definition: Option<String>,
     /// <p>Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1701,59 +1701,59 @@ pub struct CreateSchemaInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSchemaResponse {
     /// <p>The schema compatibility mode.</p>
-    #[serde(rename = "Compatibility")]
+    #[serde(rename = "compatibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatibility: Option<String>,
     /// <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_format: Option<String>,
     /// <p>A description of the schema if specified when created.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The latest version of the schema associated with the returned schema definition.</p>
-    #[serde(rename = "LatestSchemaVersion")]
+    #[serde(rename = "latestSchemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_schema_version: Option<i64>,
     /// <p>The next version of the schema associated with the returned schema definition.</p>
-    #[serde(rename = "NextSchemaVersion")]
+    #[serde(rename = "nextSchemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_schema_version: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
-    #[serde(rename = "SchemaCheckpoint")]
+    #[serde(rename = "schemaCheckpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_checkpoint: Option<i64>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The status of the schema. </p>
-    #[serde(rename = "SchemaStatus")]
+    #[serde(rename = "schemaStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_status: Option<String>,
     /// <p>The unique identifier of the first schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The status of the first schema version created.</p>
-    #[serde(rename = "SchemaVersionStatus")]
+    #[serde(rename = "schemaVersionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_status: Option<String>,
     /// <p>The tags for the schema.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1762,15 +1762,15 @@ pub struct CreateSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateScriptRequest {
     /// <p>A list of the edges in the DAG.</p>
-    #[serde(rename = "DagEdges")]
+    #[serde(rename = "dagEdges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dag_edges: Option<Vec<CodeGenEdge>>,
     /// <p>A list of the nodes in the DAG.</p>
-    #[serde(rename = "DagNodes")]
+    #[serde(rename = "dagNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dag_nodes: Option<Vec<CodeGenNode>>,
     /// <p>The programming language of the resulting code from the DAG.</p>
-    #[serde(rename = "Language")]
+    #[serde(rename = "language")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language: Option<String>,
 }
@@ -1779,11 +1779,11 @@ pub struct CreateScriptRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateScriptResponse {
     /// <p>The Python script generated from the DAG.</p>
-    #[serde(rename = "PythonScript")]
+    #[serde(rename = "pythonScript")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub python_script: Option<String>,
     /// <p>The Scala code generated from the DAG.</p>
-    #[serde(rename = "ScalaCode")]
+    #[serde(rename = "scalaCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scala_code: Option<String>,
 }
@@ -1792,10 +1792,10 @@ pub struct CreateScriptResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSecurityConfigurationRequest {
     /// <p>The encryption configuration for the new security configuration.</p>
-    #[serde(rename = "EncryptionConfiguration")]
+    #[serde(rename = "encryptionConfiguration")]
     pub encryption_configuration: EncryptionConfiguration,
     /// <p>The name for the new security configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1803,11 +1803,11 @@ pub struct CreateSecurityConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSecurityConfigurationResponse {
     /// <p>The time at which the new security configuration was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The name assigned to the new security configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1816,18 +1816,18 @@ pub struct CreateSecurityConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTableRequest {
     /// <p>The ID of the Data Catalog in which to create the <code>Table</code>. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of partition indexes, <code>PartitionIndex</code> structures, to create in the table.</p>
-    #[serde(rename = "PartitionIndexes")]
+    #[serde(rename = "partitionIndexes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_indexes: Option<Vec<PartitionIndex>>,
     /// <p>The <code>TableInput</code> object that defines the metadata table to create in the catalog.</p>
-    #[serde(rename = "TableInput")]
+    #[serde(rename = "tableInput")]
     pub table_input: TableInput,
 }
 
@@ -1839,36 +1839,36 @@ pub struct CreateTableResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTriggerRequest {
     /// <p>The actions initiated by this trigger when it fires.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     pub actions: Vec<Action>,
     /// <p>A description of the new trigger.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the trigger.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A predicate to specify when the new trigger should fire.</p> <p>This field is required when the trigger type is <code>CONDITIONAL</code>.</p>
-    #[serde(rename = "Predicate")]
+    #[serde(rename = "predicate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predicate: Option<Predicate>,
     /// <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p> <p>This field is required when the trigger type is SCHEDULED.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
     /// <p>Set to <code>true</code> to start <code>SCHEDULED</code> and <code>CONDITIONAL</code> triggers when created. True is not supported for <code>ON_DEMAND</code> triggers.</p>
-    #[serde(rename = "StartOnCreation")]
+    #[serde(rename = "startOnCreation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_on_creation: Option<bool>,
     /// <p>The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the new trigger.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>The name of the workflow associated with the trigger.</p>
-    #[serde(rename = "WorkflowName")]
+    #[serde(rename = "workflowName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflow_name: Option<String>,
 }
@@ -1877,7 +1877,7 @@ pub struct CreateTriggerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTriggerResponse {
     /// <p>The name of the trigger.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1886,14 +1886,14 @@ pub struct CreateTriggerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserDefinedFunctionRequest {
     /// <p>The ID of the Data Catalog in which to create the function. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which to create the function.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A <code>FunctionInput</code> object that defines the function to create in the Data Catalog.</p>
-    #[serde(rename = "FunctionInput")]
+    #[serde(rename = "functionInput")]
     pub function_input: UserDefinedFunctionInput,
 }
 
@@ -1905,22 +1905,22 @@ pub struct CreateUserDefinedFunctionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateWorkflowRequest {
     /// <p>A collection of properties to be used as part of each execution of the workflow.</p>
-    #[serde(rename = "DefaultRunProperties")]
+    #[serde(rename = "defaultRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_run_properties: Option<::std::collections::HashMap<String, String>>,
     /// <p>A description of the workflow.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-    #[serde(rename = "MaxConcurrentRuns")]
+    #[serde(rename = "maxConcurrentRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_concurrent_runs: Option<i64>,
     /// <p>The name to be assigned to the workflow. It should be unique within your account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to be used with this workflow.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1929,7 +1929,7 @@ pub struct CreateWorkflowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateWorkflowResponse {
     /// <p>The name of the workflow which was provided as part of the request.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1939,13 +1939,13 @@ pub struct CreateWorkflowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateXMLClassifierRequest {
     /// <p>An identifier of the data format that the classifier matches.</p>
-    #[serde(rename = "Classification")]
+    #[serde(rename = "classification")]
     pub classification: String,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a="A" item_b="B"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a="A" item_b="B" /&gt;</code> is not).</p>
-    #[serde(rename = "RowTag")]
+    #[serde(rename = "rowTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_tag: Option<String>,
 }
@@ -1955,42 +1955,42 @@ pub struct CreateXMLClassifierRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CsvClassifier {
     /// <p>Enables the processing of files that contain only one column.</p>
-    #[serde(rename = "AllowSingleColumn")]
+    #[serde(rename = "allowSingleColumn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_single_column: Option<bool>,
     /// <p>Indicates whether the CSV file contains a header.</p>
-    #[serde(rename = "ContainsHeader")]
+    #[serde(rename = "containsHeader")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contains_header: Option<String>,
     /// <p>The time that this classifier was registered.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A custom symbol to denote what separates each column entry in the row.</p>
-    #[serde(rename = "Delimiter")]
+    #[serde(rename = "delimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delimiter: Option<String>,
     /// <p>Specifies not to trim values before identifying the type of column values. The default value is <code>true</code>.</p>
-    #[serde(rename = "DisableValueTrimming")]
+    #[serde(rename = "disableValueTrimming")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_value_trimming: Option<bool>,
     /// <p>A list of strings representing column names.</p>
-    #[serde(rename = "Header")]
+    #[serde(rename = "header")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header: Option<Vec<String>>,
     /// <p>The time that this classifier was last updated.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.</p>
-    #[serde(rename = "QuoteSymbol")]
+    #[serde(rename = "quoteSymbol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_symbol: Option<String>,
     /// <p>The version of this classifier.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -1999,11 +1999,11 @@ pub struct CsvClassifier {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataCatalogEncryptionSettings {
     /// <p>When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog encryption or only password encryption.</p>
-    #[serde(rename = "ConnectionPasswordEncryption")]
+    #[serde(rename = "connectionPasswordEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_password_encryption: Option<ConnectionPasswordEncryption>,
     /// <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
-    #[serde(rename = "EncryptionAtRest")]
+    #[serde(rename = "encryptionAtRest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_at_rest: Option<EncryptionAtRest>,
 }
@@ -2012,7 +2012,7 @@ pub struct DataCatalogEncryptionSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataLakePrincipal {
     /// <p>An identifier for the Lake Formation principal.</p>
-    #[serde(rename = "DataLakePrincipalIdentifier")]
+    #[serde(rename = "dataLakePrincipalIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_lake_principal_identifier: Option<String>,
 }
@@ -2022,34 +2022,34 @@ pub struct DataLakePrincipal {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Database {
     /// <p>The ID of the Data Catalog in which the database resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>Creates a set of default permissions on the table for principals. </p>
-    #[serde(rename = "CreateTableDefaultPermissions")]
+    #[serde(rename = "createTableDefaultPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_table_default_permissions: Option<Vec<PrincipalPermissions>>,
     /// <p>The time at which the metadata database was created in the catalog.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>A description of the database.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The location of the database (for example, an HDFS path).</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>These key-value pairs define parameters and properties of the database.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-    #[serde(rename = "TargetDatabase")]
+    #[serde(rename = "targetDatabase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_database: Option<DatabaseIdentifier>,
 }
@@ -2058,11 +2058,11 @@ pub struct Database {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DatabaseIdentifier {
     /// <p>The ID of the Data Catalog in which the database resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
 }
@@ -2072,26 +2072,26 @@ pub struct DatabaseIdentifier {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DatabaseInput {
     /// <p>Creates a set of default permissions on the table for principals. </p>
-    #[serde(rename = "CreateTableDefaultPermissions")]
+    #[serde(rename = "createTableDefaultPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_table_default_permissions: Option<Vec<PrincipalPermissions>>,
     /// <p>A description of the database.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The location of the database (for example, an HDFS path). </p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>These key-value pairs define parameters and properties of the database.</p> <p>These key-value pairs define parameters and properties of the database.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-    #[serde(rename = "TargetDatabase")]
+    #[serde(rename = "targetDatabase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_database: Option<DatabaseIdentifier>,
 }
@@ -2100,18 +2100,18 @@ pub struct DatabaseInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DateColumnStatisticsData {
     /// <p>The highest value in the column.</p>
-    #[serde(rename = "MaximumValue")]
+    #[serde(rename = "maximumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_value: Option<f64>,
     /// <p>The lowest value in the column.</p>
-    #[serde(rename = "MinimumValue")]
+    #[serde(rename = "minimumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum_value: Option<f64>,
     /// <p>The number of distinct values in a column.</p>
-    #[serde(rename = "NumberOfDistinctValues")]
+    #[serde(rename = "numberOfDistinctValues")]
     pub number_of_distinct_values: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
 }
 
@@ -2119,18 +2119,18 @@ pub struct DateColumnStatisticsData {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DecimalColumnStatisticsData {
     /// <p>The highest value in the column.</p>
-    #[serde(rename = "MaximumValue")]
+    #[serde(rename = "maximumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_value: Option<DecimalNumber>,
     /// <p>The lowest value in the column.</p>
-    #[serde(rename = "MinimumValue")]
+    #[serde(rename = "minimumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum_value: Option<DecimalNumber>,
     /// <p>The number of distinct values in a column.</p>
-    #[serde(rename = "NumberOfDistinctValues")]
+    #[serde(rename = "numberOfDistinctValues")]
     pub number_of_distinct_values: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
 }
 
@@ -2138,10 +2138,10 @@ pub struct DecimalColumnStatisticsData {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DecimalNumber {
     /// <p>The scale that determines where the decimal point falls in the unscaled value.</p>
-    #[serde(rename = "Scale")]
+    #[serde(rename = "scale")]
     pub scale: i64,
     /// <p>The unscaled numeric value.</p>
-    #[serde(rename = "UnscaledValue")]
+    #[serde(rename = "unscaledValue")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -2154,7 +2154,7 @@ pub struct DecimalNumber {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteClassifierRequest {
     /// <p>Name of the classifier to remove.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2166,20 +2166,20 @@ pub struct DeleteClassifierResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteColumnStatisticsForPartitionRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>Name of the column.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of partition values identifying the partition.</p>
-    #[serde(rename = "PartitionValues")]
+    #[serde(rename = "partitionValues")]
     pub partition_values: Vec<String>,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -2191,17 +2191,17 @@ pub struct DeleteColumnStatisticsForPartitionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteColumnStatisticsForTableRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the column.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -2213,11 +2213,11 @@ pub struct DeleteColumnStatisticsForTableResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConnectionRequest {
     /// <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the connection to delete.</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     pub connection_name: String,
 }
 
@@ -2229,7 +2229,7 @@ pub struct DeleteConnectionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCrawlerRequest {
     /// <p>The name of the crawler to remove.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2241,11 +2241,11 @@ pub struct DeleteCrawlerResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDatabaseRequest {
     /// <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the database to delete. For Hive compatibility, this must be all lowercase.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2257,7 +2257,7 @@ pub struct DeleteDatabaseResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDevEndpointRequest {
     /// <p>The name of the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     pub endpoint_name: String,
 }
 
@@ -2269,7 +2269,7 @@ pub struct DeleteDevEndpointResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteJobRequest {
     /// <p>The name of the job definition to delete.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
 }
 
@@ -2277,7 +2277,7 @@ pub struct DeleteJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteJobResponse {
     /// <p>The name of the job definition that was deleted.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
 }
@@ -2286,7 +2286,7 @@ pub struct DeleteJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteMLTransformRequest {
     /// <p>The unique identifier of the transform to delete.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -2294,7 +2294,7 @@ pub struct DeleteMLTransformRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteMLTransformResponse {
     /// <p>The unique identifier of the transform that was deleted.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
 }
@@ -2303,17 +2303,17 @@ pub struct DeleteMLTransformResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePartitionIndexRequest {
     /// <p>The catalog ID where the table resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>Specifies the name of a database from which you want to delete a partition index.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the partition index to be deleted.</p>
-    #[serde(rename = "IndexName")]
+    #[serde(rename = "indexName")]
     pub index_name: String,
     /// <p>Specifies the name of a table from which you want to delete a partition index.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -2325,17 +2325,17 @@ pub struct DeletePartitionIndexResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePartitionRequest {
     /// <p>The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which the table in question resides.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The values that define the partition.</p>
-    #[serde(rename = "PartitionValues")]
+    #[serde(rename = "partitionValues")]
     pub partition_values: Vec<String>,
     /// <p>The name of the table that contains the partition to be deleted.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -2347,7 +2347,7 @@ pub struct DeletePartitionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRegistryInput {
     /// <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "RegistryId")]
+    #[serde(rename = "registryId")]
     pub registry_id: RegistryId,
 }
 
@@ -2355,15 +2355,15 @@ pub struct DeleteRegistryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteRegistryResponse {
     /// <p>The Amazon Resource Name (ARN) of the registry being deleted.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry being deleted.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The status of the registry. A successful operation will return the <code>Deleting</code> status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2372,11 +2372,11 @@ pub struct DeleteRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourcePolicyRequest {
     /// <p>The hash value returned when this policy was set.</p>
-    #[serde(rename = "PolicyHashCondition")]
+    #[serde(rename = "policyHashCondition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_hash_condition: Option<String>,
     /// <p>The ARN of the Glue resource for the resource policy to be deleted.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -2389,7 +2389,7 @@ pub struct DeleteResourcePolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSchemaInput {
     /// <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
 }
 
@@ -2397,15 +2397,15 @@ pub struct DeleteSchemaInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSchemaResponse {
     /// <p>The Amazon Resource Name (ARN) of the schema being deleted.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema being deleted.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The status of the schema.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2414,10 +2414,10 @@ pub struct DeleteSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSchemaVersionsInput {
     /// <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
     /// <p><p>A version range may be supplied which may be of the format:</p> <ul> <li> <p>a single version number, 5</p> </li> <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> </ul></p>
-    #[serde(rename = "Versions")]
+    #[serde(rename = "versions")]
     pub versions: String,
 }
 
@@ -2425,7 +2425,7 @@ pub struct DeleteSchemaVersionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSchemaVersionsResponse {
     /// <p>A list of <code>SchemaVersionErrorItem</code> objects, each containing an error and schema version.</p>
-    #[serde(rename = "SchemaVersionErrors")]
+    #[serde(rename = "schemaVersionErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_errors: Option<Vec<SchemaVersionErrorItem>>,
 }
@@ -2434,7 +2434,7 @@ pub struct DeleteSchemaVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSecurityConfigurationRequest {
     /// <p>The name of the security configuration to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2446,14 +2446,14 @@ pub struct DeleteSecurityConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTableRequest {
     /// <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table to be deleted. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2465,17 +2465,17 @@ pub struct DeleteTableResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTableVersionRequest {
     /// <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
     /// <p>The ID of the table version to be deleted. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
 }
 
@@ -2487,7 +2487,7 @@ pub struct DeleteTableVersionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTriggerRequest {
     /// <p>The name of the trigger to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2495,7 +2495,7 @@ pub struct DeleteTriggerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteTriggerResponse {
     /// <p>The name of the trigger that was deleted.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2504,14 +2504,14 @@ pub struct DeleteTriggerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserDefinedFunctionRequest {
     /// <p>The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the function is located.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the function definition to be deleted.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -2523,7 +2523,7 @@ pub struct DeleteUserDefinedFunctionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteWorkflowRequest {
     /// <p>Name of the workflow to be deleted.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2531,7 +2531,7 @@ pub struct DeleteWorkflowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteWorkflowResponse {
     /// <p>Name of the workflow specified in input.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2541,103 +2541,103 @@ pub struct DeleteWorkflowResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DevEndpoint {
     /// <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p> <p>Valid arguments are:</p> <ul> <li> <p> <code>"--enable-glue-datacatalog": ""</code> </p> </li> </ul> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The point in time at which this DevEndpoint was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The name of the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_name: Option<String>,
     /// <p><p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p> <note> <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p> </note></p>
-    #[serde(rename = "ExtraJarsS3Path")]
+    #[serde(rename = "extraJarsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_jars_s3_path: Option<String>,
     /// <p><p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data analysis library, are not currently supported.</p> </note></p>
-    #[serde(rename = "ExtraPythonLibsS3Path")]
+    #[serde(rename = "extraPythonLibsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_python_libs_s3_path: Option<String>,
     /// <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "FailureReason")]
+    #[serde(rename = "failureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_reason: Option<String>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p> <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>The point in time at which this <code>DevEndpoint</code> was last modified.</p>
-    #[serde(rename = "LastModifiedTimestamp")]
+    #[serde(rename = "lastModifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_timestamp: Option<f64>,
     /// <p>The status of the last update.</p>
-    #[serde(rename = "LastUpdateStatus")]
+    #[serde(rename = "lastUpdateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_status: Option<String>,
     /// <p>The number of Glue Data Processing Units (DPUs) allocated to this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "NumberOfNodes")]
+    #[serde(rename = "numberOfNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_nodes: Option<i64>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>A private IP address to access the <code>DevEndpoint</code> within a VPC if the <code>DevEndpoint</code> is created within one. The <code>PrivateAddress</code> field is present only when you create the <code>DevEndpoint</code> within your VPC.</p>
-    #[serde(rename = "PrivateAddress")]
+    #[serde(rename = "privateAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_address: Option<String>,
     /// <p>The public IP address used by this <code>DevEndpoint</code>. The <code>PublicAddress</code> field is present only when you create a non-virtual private cloud (VPC) <code>DevEndpoint</code>.</p>
-    #[serde(rename = "PublicAddress")]
+    #[serde(rename = "publicAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_address: Option<String>,
     /// <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.</p>
-    #[serde(rename = "PublicKey")]
+    #[serde(rename = "publicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_key: Option<String>,
     /// <p><p>A list of public keys to be used by the <code>DevEndpoints</code> for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API operation with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note></p>
-    #[serde(rename = "PublicKeys")]
+    #[serde(rename = "publicKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_keys: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role used in this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>A list of security group identifiers used in this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>The current status of this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The subnet ID for this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
     /// <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a development endpoint is created with the <code>G.2X</code> <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
     /// <p>The YARN endpoint address used by this <code>DevEndpoint</code>.</p>
-    #[serde(rename = "YarnEndpointAddress")]
+    #[serde(rename = "yarnEndpointAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub yarn_endpoint_address: Option<String>,
     /// <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
-    #[serde(rename = "ZeppelinRemoteSparkInterpreterPort")]
+    #[serde(rename = "zeppelinRemoteSparkInterpreterPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zeppelin_remote_spark_interpreter_port: Option<i64>,
 }
@@ -2647,11 +2647,11 @@ pub struct DevEndpoint {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DevEndpointCustomLibraries {
     /// <p><p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p> <note> <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p> </note></p>
-    #[serde(rename = "ExtraJarsS3Path")]
+    #[serde(rename = "extraJarsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_jars_s3_path: Option<String>,
     /// <p><p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data analysis library, are not currently supported.</p> </note></p>
-    #[serde(rename = "ExtraPythonLibsS3Path")]
+    #[serde(rename = "extraPythonLibsS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extra_python_libs_s3_path: Option<String>,
 }
@@ -2660,18 +2660,18 @@ pub struct DevEndpointCustomLibraries {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DoubleColumnStatisticsData {
     /// <p>The highest value in the column.</p>
-    #[serde(rename = "MaximumValue")]
+    #[serde(rename = "maximumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_value: Option<f64>,
     /// <p>The lowest value in the column.</p>
-    #[serde(rename = "MinimumValue")]
+    #[serde(rename = "minimumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum_value: Option<f64>,
     /// <p>The number of distinct values in a column.</p>
-    #[serde(rename = "NumberOfDistinctValues")]
+    #[serde(rename = "numberOfDistinctValues")]
     pub number_of_distinct_values: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
 }
 
@@ -2679,7 +2679,7 @@ pub struct DoubleColumnStatisticsData {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DynamoDBTarget {
     /// <p>The name of the DynamoDB table to crawl.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
     /// <p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p> <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
@@ -2697,11 +2697,11 @@ pub struct DynamoDBTarget {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Edge {
     /// <p>The unique of the node within the workflow where the edge ends.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_id: Option<String>,
     /// <p>The unique of the node within the workflow where the edge starts.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
 }
@@ -2710,10 +2710,10 @@ pub struct Edge {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionAtRest {
     /// <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
-    #[serde(rename = "CatalogEncryptionMode")]
+    #[serde(rename = "catalogEncryptionMode")]
     pub catalog_encryption_mode: String,
     /// <p>The ID of the KMS key to use for encryption at rest.</p>
-    #[serde(rename = "SseAwsKmsKeyId")]
+    #[serde(rename = "sseAwsKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sse_aws_kms_key_id: Option<String>,
 }
@@ -2722,15 +2722,15 @@ pub struct EncryptionAtRest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionConfiguration {
     /// <p>The encryption configuration for Amazon CloudWatch.</p>
-    #[serde(rename = "CloudWatchEncryption")]
+    #[serde(rename = "cloudWatchEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_encryption: Option<CloudWatchEncryption>,
     /// <p>The encryption configuration for job bookmarks.</p>
-    #[serde(rename = "JobBookmarksEncryption")]
+    #[serde(rename = "jobBookmarksEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_bookmarks_encryption: Option<JobBookmarksEncryption>,
     /// <p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>
-    #[serde(rename = "S3Encryption")]
+    #[serde(rename = "s3Encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_encryption: Option<Vec<S3Encryption>>,
 }
@@ -2740,11 +2740,11 @@ pub struct EncryptionConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorDetail {
     /// <p>The code associated with this error.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>A message describing the error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -2754,11 +2754,11 @@ pub struct ErrorDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorDetails {
     /// <p>The error code for an error.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message for an error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -2768,11 +2768,11 @@ pub struct ErrorDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationMetrics {
     /// <p>The evaluation metrics for the find matches algorithm.</p>
-    #[serde(rename = "FindMatchesMetrics")]
+    #[serde(rename = "findMatchesMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub find_matches_metrics: Option<FindMatchesMetrics>,
     /// <p>The type of machine learning transform.</p>
-    #[serde(rename = "TransformType")]
+    #[serde(rename = "transformType")]
     pub transform_type: String,
 }
 
@@ -2780,7 +2780,7 @@ pub struct EvaluationMetrics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ExecutionProperty {
     /// <p>The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.</p>
-    #[serde(rename = "MaxConcurrentRuns")]
+    #[serde(rename = "maxConcurrentRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_concurrent_runs: Option<i64>,
 }
@@ -2790,7 +2790,7 @@ pub struct ExecutionProperty {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExportLabelsTaskRunProperties {
     /// <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.</p>
-    #[serde(rename = "OutputS3Path")]
+    #[serde(rename = "outputS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_s3_path: Option<String>,
 }
@@ -2800,27 +2800,27 @@ pub struct ExportLabelsTaskRunProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FindMatchesMetrics {
     /// <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall quality of the transform, that is independent of the choice made for precision vs. recall. Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p> <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-    #[serde(rename = "AreaUnderPRCurve")]
+    #[serde(rename = "areaUnderPRCurve")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub area_under_pr_curve: Option<f64>,
     /// <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
-    #[serde(rename = "ColumnImportances")]
+    #[serde(rename = "columnImportances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_importances: Option<Vec<ColumnImportance>>,
     /// <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p> <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
-    #[serde(rename = "ConfusionMatrix")]
+    #[serde(rename = "confusionMatrix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confusion_matrix: Option<ConfusionMatrix>,
     /// <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p> <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
-    #[serde(rename = "F1")]
+    #[serde(rename = "f1")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub f1: Option<f64>,
     /// <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p> <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-    #[serde(rename = "Precision")]
+    #[serde(rename = "precision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precision: Option<f64>,
     /// <p>The recall metric indicates that for an actual match, how often your transform predicts the match. Specifically, it measures how well the transform finds true positives from the total records in the source data.</p> <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-    #[serde(rename = "Recall")]
+    #[serde(rename = "recall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recall: Option<f64>,
 }
@@ -2829,19 +2829,19 @@ pub struct FindMatchesMetrics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FindMatchesParameters {
     /// <p>The value that is selected when tuning your transform for a balance between accuracy and cost. A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0 means a bias purely for accuracy, which typically results in a higher cost, sometimes substantially higher. A value of 0.0 means a bias purely for cost, which results in a less accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p> <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p> <p>Cost measures how many compute resources, and thus money, are consumed to run the transform.</p>
-    #[serde(rename = "AccuracyCostTradeoff")]
+    #[serde(rename = "accuracyCostTradeoff")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accuracy_cost_tradeoff: Option<f64>,
     /// <p>The value to switch on or off to force the output to match the provided labels from users. If the value is <code>True</code>, the <code>find matches</code> transform forces the output to match the provided labels. The results override the normal conflation results. If the value is <code>False</code>, the <code>find matches</code> transform does not ensure all the labels provided are respected, and the results rely on the trained model.</p> <p>Note that setting this value to true may increase the conflation execution time.</p>
-    #[serde(rename = "EnforceProvidedLabels")]
+    #[serde(rename = "enforceProvidedLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enforce_provided_labels: Option<bool>,
     /// <p>The value selected when tuning your transform for a balance between precision and recall. A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0 means very low recall, and choosing values close to 0.0 results in very low precision.</p> <p>The precision metric indicates how often your model is correct when it predicts a match. </p> <p>The recall metric indicates that for an actual match, how often your model predicts the match.</p>
-    #[serde(rename = "PrecisionRecallTradeoff")]
+    #[serde(rename = "precisionRecallTradeoff")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precision_recall_tradeoff: Option<f64>,
     /// <p>The name of a column that uniquely identifies rows in the source table. Used to help identify matching records.</p>
-    #[serde(rename = "PrimaryKeyColumnName")]
+    #[serde(rename = "primaryKeyColumnName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_key_column_name: Option<String>,
 }
@@ -2851,15 +2851,15 @@ pub struct FindMatchesParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FindMatchesTaskRunProperties {
     /// <p>The job ID for the Find Matches task run.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name assigned to the job for the Find Matches task run.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The job run ID for the Find Matches task run.</p>
-    #[serde(rename = "JobRunId")]
+    #[serde(rename = "jobRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run_id: Option<String>,
 }
@@ -2868,7 +2868,7 @@ pub struct FindMatchesTaskRunProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCatalogImportStatusRequest {
     /// <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
 }
@@ -2877,7 +2877,7 @@ pub struct GetCatalogImportStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCatalogImportStatusResponse {
     /// <p>The status of the specified catalog migration.</p>
-    #[serde(rename = "ImportStatus")]
+    #[serde(rename = "importStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_status: Option<CatalogImportStatus>,
 }
@@ -2886,7 +2886,7 @@ pub struct GetCatalogImportStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetClassifierRequest {
     /// <p>Name of the classifier to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2894,7 +2894,7 @@ pub struct GetClassifierRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetClassifierResponse {
     /// <p>The requested classifier.</p>
-    #[serde(rename = "Classifier")]
+    #[serde(rename = "classifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classifier: Option<Classifier>,
 }
@@ -2903,11 +2903,11 @@ pub struct GetClassifierResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetClassifiersRequest {
     /// <p>The size of the list to return (optional).</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional continuation token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2916,11 +2916,11 @@ pub struct GetClassifiersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetClassifiersResponse {
     /// <p>The requested list of classifier objects.</p>
-    #[serde(rename = "Classifiers")]
+    #[serde(rename = "classifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classifiers: Option<Vec<Classifier>>,
     /// <p>A continuation token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2929,20 +2929,20 @@ pub struct GetClassifiersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetColumnStatisticsForPartitionRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of the column names.</p>
-    #[serde(rename = "ColumnNames")]
+    #[serde(rename = "columnNames")]
     pub column_names: Vec<String>,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of partition values identifying the partition.</p>
-    #[serde(rename = "PartitionValues")]
+    #[serde(rename = "partitionValues")]
     pub partition_values: Vec<String>,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -2950,11 +2950,11 @@ pub struct GetColumnStatisticsForPartitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetColumnStatisticsForPartitionResponse {
     /// <p>List of ColumnStatistics that failed to be retrieved.</p>
-    #[serde(rename = "ColumnStatisticsList")]
+    #[serde(rename = "columnStatisticsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_statistics_list: Option<Vec<ColumnStatistics>>,
     /// <p>Error occurred during retrieving column statistics data.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ColumnError>>,
 }
@@ -2963,17 +2963,17 @@ pub struct GetColumnStatisticsForPartitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetColumnStatisticsForTableRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of the column names.</p>
-    #[serde(rename = "ColumnNames")]
+    #[serde(rename = "columnNames")]
     pub column_names: Vec<String>,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -2981,11 +2981,11 @@ pub struct GetColumnStatisticsForTableRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetColumnStatisticsForTableResponse {
     /// <p>List of ColumnStatistics that failed to be retrieved.</p>
-    #[serde(rename = "ColumnStatisticsList")]
+    #[serde(rename = "columnStatisticsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_statistics_list: Option<Vec<ColumnStatistics>>,
     /// <p>List of ColumnStatistics that failed to be retrieved.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ColumnError>>,
 }
@@ -2994,15 +2994,15 @@ pub struct GetColumnStatisticsForTableResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConnectionRequest {
     /// <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.</p>
-    #[serde(rename = "HidePassword")]
+    #[serde(rename = "hidePassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hide_password: Option<bool>,
     /// <p>The name of the connection definition to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -3010,7 +3010,7 @@ pub struct GetConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConnectionResponse {
     /// <p>The requested connection definition.</p>
-    #[serde(rename = "Connection")]
+    #[serde(rename = "connection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection: Option<Connection>,
 }
@@ -3020,11 +3020,11 @@ pub struct GetConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConnectionsFilter {
     /// <p>The type of connections to return. Currently, SFTP is not supported.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.</p>
-    #[serde(rename = "MatchCriteria")]
+    #[serde(rename = "matchCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub match_criteria: Option<Vec<String>>,
 }
@@ -3033,23 +3033,23 @@ pub struct GetConnectionsFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConnectionsRequest {
     /// <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A filter that controls which connections are returned.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<GetConnectionsFilter>,
     /// <p>Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.</p>
-    #[serde(rename = "HidePassword")]
+    #[serde(rename = "hidePassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hide_password: Option<bool>,
     /// <p>The maximum number of connections to return in one response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3058,11 +3058,11 @@ pub struct GetConnectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConnectionsResponse {
     /// <p>A list of requested connection definitions.</p>
-    #[serde(rename = "ConnectionList")]
+    #[serde(rename = "connectionList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_list: Option<Vec<Connection>>,
     /// <p>A continuation token, if the list of connections returned does not include the last of the filtered connections.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3071,15 +3071,15 @@ pub struct GetConnectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCrawlerMetricsRequest {
     /// <p>A list of the names of crawlers about which to retrieve metrics.</p>
-    #[serde(rename = "CrawlerNameList")]
+    #[serde(rename = "crawlerNameList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_name_list: Option<Vec<String>>,
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3088,11 +3088,11 @@ pub struct GetCrawlerMetricsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCrawlerMetricsResponse {
     /// <p>A list of metrics for the specified crawler.</p>
-    #[serde(rename = "CrawlerMetricsList")]
+    #[serde(rename = "crawlerMetricsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_metrics_list: Option<Vec<CrawlerMetrics>>,
     /// <p>A continuation token, if the returned list does not contain the last metric available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3101,7 +3101,7 @@ pub struct GetCrawlerMetricsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCrawlerRequest {
     /// <p>The name of the crawler to retrieve metadata for.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -3109,7 +3109,7 @@ pub struct GetCrawlerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCrawlerResponse {
     /// <p>The metadata for the specified crawler.</p>
-    #[serde(rename = "Crawler")]
+    #[serde(rename = "crawler")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler: Option<Crawler>,
 }
@@ -3118,11 +3118,11 @@ pub struct GetCrawlerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCrawlersRequest {
     /// <p>The number of crawlers to return on each call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3131,11 +3131,11 @@ pub struct GetCrawlersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCrawlersResponse {
     /// <p>A list of crawler metadata.</p>
-    #[serde(rename = "Crawlers")]
+    #[serde(rename = "crawlers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawlers: Option<Vec<Crawler>>,
     /// <p>A continuation token, if the returned list has not reached the end of those defined in this customer account.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3144,7 +3144,7 @@ pub struct GetCrawlersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDataCatalogEncryptionSettingsRequest {
     /// <p>The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
 }
@@ -3153,7 +3153,7 @@ pub struct GetDataCatalogEncryptionSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataCatalogEncryptionSettingsResponse {
     /// <p>The requested security configuration.</p>
-    #[serde(rename = "DataCatalogEncryptionSettings")]
+    #[serde(rename = "dataCatalogEncryptionSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_catalog_encryption_settings: Option<DataCatalogEncryptionSettings>,
 }
@@ -3162,11 +3162,11 @@ pub struct GetDataCatalogEncryptionSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDatabaseRequest {
     /// <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the database to retrieve. For Hive compatibility, this should be all lowercase.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -3174,7 +3174,7 @@ pub struct GetDatabaseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDatabaseResponse {
     /// <p>The definition of the specified database in the Data Catalog.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database: Option<Database>,
 }
@@ -3183,19 +3183,19 @@ pub struct GetDatabaseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDatabasesRequest {
     /// <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The maximum number of databases to return in one response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p> <ul> <li> <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p> </li> <li> <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p> </li> </ul></p>
-    #[serde(rename = "ResourceShareType")]
+    #[serde(rename = "resourceShareType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_share_type: Option<String>,
 }
@@ -3204,10 +3204,10 @@ pub struct GetDatabasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDatabasesResponse {
     /// <p>A list of <code>Database</code> objects from the specified catalog.</p>
-    #[serde(rename = "DatabaseList")]
+    #[serde(rename = "databaseList")]
     pub database_list: Vec<Database>,
     /// <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3216,7 +3216,7 @@ pub struct GetDatabasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDataflowGraphRequest {
     /// <p>The Python script to transform.</p>
-    #[serde(rename = "PythonScript")]
+    #[serde(rename = "pythonScript")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub python_script: Option<String>,
 }
@@ -3225,11 +3225,11 @@ pub struct GetDataflowGraphRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataflowGraphResponse {
     /// <p>A list of the edges in the resulting DAG.</p>
-    #[serde(rename = "DagEdges")]
+    #[serde(rename = "dagEdges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dag_edges: Option<Vec<CodeGenEdge>>,
     /// <p>A list of the nodes in the resulting DAG.</p>
-    #[serde(rename = "DagNodes")]
+    #[serde(rename = "dagNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dag_nodes: Option<Vec<CodeGenNode>>,
 }
@@ -3238,7 +3238,7 @@ pub struct GetDataflowGraphResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDevEndpointRequest {
     /// <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     pub endpoint_name: String,
 }
 
@@ -3246,7 +3246,7 @@ pub struct GetDevEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDevEndpointResponse {
     /// <p>A <code>DevEndpoint</code> definition.</p>
-    #[serde(rename = "DevEndpoint")]
+    #[serde(rename = "devEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dev_endpoint: Option<DevEndpoint>,
 }
@@ -3255,11 +3255,11 @@ pub struct GetDevEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDevEndpointsRequest {
     /// <p>The maximum size of information to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3268,11 +3268,11 @@ pub struct GetDevEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDevEndpointsResponse {
     /// <p>A list of <code>DevEndpoint</code> definitions.</p>
-    #[serde(rename = "DevEndpoints")]
+    #[serde(rename = "devEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dev_endpoints: Option<Vec<DevEndpoint>>,
     /// <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3281,10 +3281,10 @@ pub struct GetDevEndpointsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobBookmarkRequest {
     /// <p>The name of the job in question.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>The unique run identifier associated with this job run.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_id: Option<String>,
 }
@@ -3293,7 +3293,7 @@ pub struct GetJobBookmarkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobBookmarkResponse {
     /// <p>A structure that defines a point that a job can resume processing.</p>
-    #[serde(rename = "JobBookmarkEntry")]
+    #[serde(rename = "jobBookmarkEntry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_bookmark_entry: Option<JobBookmarkEntry>,
 }
@@ -3302,7 +3302,7 @@ pub struct GetJobBookmarkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobRequest {
     /// <p>The name of the job definition to retrieve.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
 }
 
@@ -3310,7 +3310,7 @@ pub struct GetJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobResponse {
     /// <p>The requested job definition.</p>
-    #[serde(rename = "Job")]
+    #[serde(rename = "job")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job: Option<Job>,
 }
@@ -3319,14 +3319,14 @@ pub struct GetJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobRunRequest {
     /// <p>Name of the job definition being run.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>True if a list of predecessor runs should be returned.</p>
-    #[serde(rename = "PredecessorsIncluded")]
+    #[serde(rename = "predecessorsIncluded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predecessors_included: Option<bool>,
     /// <p>The ID of the job run.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     pub run_id: String,
 }
 
@@ -3334,7 +3334,7 @@ pub struct GetJobRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobRunResponse {
     /// <p>The requested job-run metadata.</p>
-    #[serde(rename = "JobRun")]
+    #[serde(rename = "jobRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run: Option<JobRun>,
 }
@@ -3343,14 +3343,14 @@ pub struct GetJobRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobRunsRequest {
     /// <p>The name of the job definition for which to retrieve all job runs.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>The maximum size of the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3359,11 +3359,11 @@ pub struct GetJobRunsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobRunsResponse {
     /// <p>A list of job-run metadata objects.</p>
-    #[serde(rename = "JobRuns")]
+    #[serde(rename = "jobRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_runs: Option<Vec<JobRun>>,
     /// <p>A continuation token, if not all requested job runs have been returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3372,11 +3372,11 @@ pub struct GetJobRunsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobsRequest {
     /// <p>The maximum size of the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3385,11 +3385,11 @@ pub struct GetJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobsResponse {
     /// <p>A list of job definitions.</p>
-    #[serde(rename = "Jobs")]
+    #[serde(rename = "jobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jobs: Option<Vec<Job>>,
     /// <p>A continuation token, if not all job definitions have yet been returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3398,10 +3398,10 @@ pub struct GetJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMLTaskRunRequest {
     /// <p>The unique identifier of the task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     pub task_run_id: String,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -3409,43 +3409,43 @@ pub struct GetMLTaskRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMLTaskRunResponse {
     /// <p>The date and time when this task run was completed.</p>
-    #[serde(rename = "CompletedOn")]
+    #[serde(rename = "completedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_on: Option<f64>,
     /// <p>The error strings that are associated with the task run.</p>
-    #[serde(rename = "ErrorString")]
+    #[serde(rename = "errorString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_string: Option<String>,
     /// <p>The amount of time (in seconds) that the task run consumed resources.</p>
-    #[serde(rename = "ExecutionTime")]
+    #[serde(rename = "executionTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_time: Option<i64>,
     /// <p>The date and time when this task run was last modified.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>The names of the log groups that are associated with the task run.</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
     /// <p>The list of properties that are associated with the task run.</p>
-    #[serde(rename = "Properties")]
+    #[serde(rename = "properties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub properties: Option<TaskRunProperties>,
     /// <p>The date and time when this task run started.</p>
-    #[serde(rename = "StartedOn")]
+    #[serde(rename = "startedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_on: Option<f64>,
     /// <p>The status for this task run.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The unique run identifier associated with this run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
     /// <p>The unique identifier of the task run.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
 }
@@ -3454,23 +3454,23 @@ pub struct GetMLTaskRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMLTaskRunsRequest {
     /// <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<TaskRunFilterCriteria>,
     /// <p>The maximum number of results to return. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token for pagination of the results. The default is empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
-    #[serde(rename = "Sort")]
+    #[serde(rename = "sort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort: Option<TaskRunSortCriteria>,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -3478,11 +3478,11 @@ pub struct GetMLTaskRunsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMLTaskRunsResponse {
     /// <p>A pagination token, if more results are available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of task runs that are associated with the transform.</p>
-    #[serde(rename = "TaskRuns")]
+    #[serde(rename = "taskRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_runs: Option<Vec<TaskRun>>,
 }
@@ -3491,7 +3491,7 @@ pub struct GetMLTaskRunsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMLTransformRequest {
     /// <p>The unique identifier of the transform, generated at the time that the transform was created.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -3499,79 +3499,79 @@ pub struct GetMLTransformRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMLTransformResponse {
     /// <p>The date and time when the transform was created.</p>
-    #[serde(rename = "CreatedOn")]
+    #[serde(rename = "createdOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_on: Option<f64>,
     /// <p>A description of the transform.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The latest evaluation metrics.</p>
-    #[serde(rename = "EvaluationMetrics")]
+    #[serde(rename = "evaluationMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_metrics: Option<EvaluationMetrics>,
     /// <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>A list of Glue table definitions used by the transform.</p>
-    #[serde(rename = "InputRecordTables")]
+    #[serde(rename = "inputRecordTables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_record_tables: Option<Vec<GlueTable>>,
     /// <p>The number of labels available for this transform.</p>
-    #[serde(rename = "LabelCount")]
+    #[serde(rename = "labelCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label_count: Option<i64>,
     /// <p>The date and time when the transform was last modified.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>. </p> <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>The unique name given to the transform when it was created.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The configuration parameters that are specific to the algorithm used.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<TransformParameters>,
     /// <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The <code>Map&lt;Column, Type&gt;</code> object that represents the schema that this transform accepts. Has an upper bound of 100 columns.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<Vec<SchemaColumn>>,
     /// <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-    #[serde(rename = "TransformEncryption")]
+    #[serde(rename = "transformEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_encryption: Option<TransformEncryption>,
     /// <p>The unique identifier of the transform, generated at the time that the transform was created.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
     /// <p><p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -3580,19 +3580,19 @@ pub struct GetMLTransformResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMLTransformsRequest {
     /// <p>The filter transformation criteria.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<TransformFilterCriteria>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A paginated token to offset the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sorting criteria.</p>
-    #[serde(rename = "Sort")]
+    #[serde(rename = "sort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort: Option<TransformSortCriteria>,
 }
@@ -3601,11 +3601,11 @@ pub struct GetMLTransformsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMLTransformsResponse {
     /// <p>A pagination token, if more results are available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of machine learning transforms.</p>
-    #[serde(rename = "Transforms")]
+    #[serde(rename = "transforms")]
     pub transforms: Vec<MLTransform>,
 }
 
@@ -3613,15 +3613,15 @@ pub struct GetMLTransformsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMappingRequest {
     /// <p>Parameters for the mapping.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>A list of target tables.</p>
-    #[serde(rename = "Sinks")]
+    #[serde(rename = "sinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sinks: Option<Vec<CatalogEntry>>,
     /// <p>Specifies the source table.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     pub source: CatalogEntry,
 }
 
@@ -3629,7 +3629,7 @@ pub struct GetMappingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMappingResponse {
     /// <p>A list of mappings to the specified targets.</p>
-    #[serde(rename = "Mapping")]
+    #[serde(rename = "mapping")]
     pub mapping: Vec<MappingEntry>,
 }
 
@@ -3637,18 +3637,18 @@ pub struct GetMappingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPartitionIndexesRequest {
     /// <p>The catalog ID where the table resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>Specifies the name of a database from which you want to retrieve partition indexes.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A continuation token, included if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -3656,11 +3656,11 @@ pub struct GetPartitionIndexesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPartitionIndexesResponse {
     /// <p>A continuation token, present if the current list segment is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of index descriptors.</p>
-    #[serde(rename = "PartitionIndexDescriptorList")]
+    #[serde(rename = "partitionIndexDescriptorList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_index_descriptor_list: Option<Vec<PartitionIndexDescriptor>>,
 }
@@ -3669,17 +3669,17 @@ pub struct GetPartitionIndexesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPartitionRequest {
     /// <p>The ID of the Data Catalog where the partition in question resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the partition resides.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The values that define the partition.</p>
-    #[serde(rename = "PartitionValues")]
+    #[serde(rename = "partitionValues")]
     pub partition_values: Vec<String>,
     /// <p>The name of the partition's table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -3687,7 +3687,7 @@ pub struct GetPartitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPartitionResponse {
     /// <p>The requested information, in the form of a <code>Partition</code> object.</p>
-    #[serde(rename = "Partition")]
+    #[serde(rename = "partition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition: Option<Partition>,
 }
@@ -3696,33 +3696,33 @@ pub struct GetPartitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPartitionsRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
-    #[serde(rename = "ExcludeColumnSchema")]
+    #[serde(rename = "excludeColumnSchema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_column_schema: Option<bool>,
     /// <p>An expression that filters the partitions to be returned.</p> <p>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause. The SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a> parses the expression. </p> <p> <i>Operators</i>: The following are the operators that you can use in the <code>Expression</code> API call:</p> <dl> <dt>=</dt> <dd> <p>Checks whether the values of the two operands are equal; if yes, then the condition becomes true.</p> <p>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </p> <p>(a = b) is not true.</p> </dd> <dt>&lt; &gt;</dt> <dd> <p>Checks whether the values of two operands are equal; if the values are not equal, then the condition becomes true.</p> <p>Example: (a &lt; &gt; b) is true.</p> </dd> <dt>&gt;</dt> <dd> <p>Checks whether the value of the left operand is greater than the value of the right operand; if yes, then the condition becomes true.</p> <p>Example: (a &gt; b) is not true.</p> </dd> <dt>&lt;</dt> <dd> <p>Checks whether the value of the left operand is less than the value of the right operand; if yes, then the condition becomes true.</p> <p>Example: (a &lt; b) is true.</p> </dd> <dt>&gt;=</dt> <dd> <p>Checks whether the value of the left operand is greater than or equal to the value of the right operand; if yes, then the condition becomes true.</p> <p>Example: (a &gt;= b) is not true.</p> </dd> <dt>&lt;=</dt> <dd> <p>Checks whether the value of the left operand is less than or equal to the value of the right operand; if yes, then the condition becomes true.</p> <p>Example: (a &lt;= b) is true.</p> </dd> <dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt> <dd> <p>Logical operators.</p> </dd> </dl> <p> <i>Supported Partition Key Types</i>: The following are the supported partition keys.</p> <ul> <li> <p> <code>string</code> </p> </li> <li> <p> <code>date</code> </p> </li> <li> <p> <code>timestamp</code> </p> </li> <li> <p> <code>int</code> </p> </li> <li> <p> <code>bigint</code> </p> </li> <li> <p> <code>long</code> </p> </li> <li> <p> <code>tinyint</code> </p> </li> <li> <p> <code>smallint</code> </p> </li> <li> <p> <code>decimal</code> </p> </li> </ul> <p>If an type is encountered that is not valid, an exception is thrown. </p> <p>The following list shows the valid operators on each type. When you define a crawler, the <code>partitionKey</code> type is created as a <code>STRING</code>, to be compatible with the catalog partitions. </p> <p> <i>Sample API Call</i>: </p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expression: Option<String>,
     /// <p>The maximum number of partitions to return in a single response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve these partitions.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The segment of the table's partitions to scan in this request.</p>
-    #[serde(rename = "Segment")]
+    #[serde(rename = "segment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment: Option<Segment>,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -3730,11 +3730,11 @@ pub struct GetPartitionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPartitionsResponse {
     /// <p>A continuation token, if the returned list of partitions does not include the last one.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of requested partitions.</p>
-    #[serde(rename = "Partitions")]
+    #[serde(rename = "partitions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partitions: Option<Vec<Partition>>,
 }
@@ -3743,26 +3743,26 @@ pub struct GetPartitionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPlanRequest {
     /// <p><p>A map to hold additional optional key-value parameters.</p> <p>Currently, these key-value pairs are supported:</p> <ul> <li> <p> <code>inferSchema</code>  —  Specifies whether to set <code>inferSchema</code> to true or false for the default script generated by an Glue job. For example, to set <code>inferSchema</code> to true, pass the following key value pair:</p> <p> <code>--additional-plan-options-map &#39;{&quot;inferSchema&quot;:&quot;true&quot;}&#39;</code> </p> </li> </ul></p>
-    #[serde(rename = "AdditionalPlanOptionsMap")]
+    #[serde(rename = "additionalPlanOptionsMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_plan_options_map: Option<::std::collections::HashMap<String, String>>,
     /// <p>The programming language of the code to perform the mapping.</p>
-    #[serde(rename = "Language")]
+    #[serde(rename = "language")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language: Option<String>,
     /// <p>The parameters for the mapping.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The list of mappings from a source table to target tables.</p>
-    #[serde(rename = "Mapping")]
+    #[serde(rename = "mapping")]
     pub mapping: Vec<MappingEntry>,
     /// <p>The target tables.</p>
-    #[serde(rename = "Sinks")]
+    #[serde(rename = "sinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sinks: Option<Vec<CatalogEntry>>,
     /// <p>The source table.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     pub source: CatalogEntry,
 }
 
@@ -3770,11 +3770,11 @@ pub struct GetPlanRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPlanResponse {
     /// <p>A Python script to perform the mapping.</p>
-    #[serde(rename = "PythonScript")]
+    #[serde(rename = "pythonScript")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub python_script: Option<String>,
     /// <p>The Scala code to perform the mapping.</p>
-    #[serde(rename = "ScalaCode")]
+    #[serde(rename = "scalaCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scala_code: Option<String>,
 }
@@ -3783,7 +3783,7 @@ pub struct GetPlanResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRegistryInput {
     /// <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "RegistryId")]
+    #[serde(rename = "registryId")]
     pub registry_id: RegistryId,
 }
 
@@ -3791,27 +3791,27 @@ pub struct GetRegistryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRegistryResponse {
     /// <p>The date and time the registry was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>A description of the registry.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The status of the registry.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The date and time the registry was updated.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<String>,
 }
@@ -3820,11 +3820,11 @@ pub struct GetRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourcePoliciesRequest {
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3833,11 +3833,11 @@ pub struct GetResourcePoliciesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourcePoliciesResponse {
     /// <p>A list of the individual resource policies and the account-level resource policy.</p>
-    #[serde(rename = "GetResourcePoliciesResponseList")]
+    #[serde(rename = "getResourcePoliciesResponseList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_resource_policies_response_list: Option<Vec<GluePolicy>>,
     /// <p>A continuation token, if the returned list does not contain the last resource policy available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3846,7 +3846,7 @@ pub struct GetResourcePoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourcePolicyRequest {
     /// <p>The ARN of the Glue resource for which to retrieve the resource policy. If not supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code> to view all existing resource policies. For more information see <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying Glue Resource ARNs</a>. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -3855,19 +3855,19 @@ pub struct GetResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourcePolicyResponse {
     /// <p>The date and time at which the policy was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>Contains the hash value associated with this policy.</p>
-    #[serde(rename = "PolicyHash")]
+    #[serde(rename = "policyHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_hash: Option<String>,
     /// <p>Contains the requested policy document, in JSON format.</p>
-    #[serde(rename = "PolicyInJson")]
+    #[serde(rename = "policyInJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_in_json: Option<String>,
     /// <p>The date and time at which the policy was last updated.</p>
-    #[serde(rename = "UpdateTime")]
+    #[serde(rename = "updateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_time: Option<f64>,
 }
@@ -3876,10 +3876,10 @@ pub struct GetResourcePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSchemaByDefinitionInput {
     /// <p>The definition of the schema for which schema details are required.</p>
-    #[serde(rename = "SchemaDefinition")]
+    #[serde(rename = "schemaDefinition")]
     pub schema_definition: String,
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
 }
 
@@ -3887,23 +3887,23 @@ pub struct GetSchemaByDefinitionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSchemaByDefinitionResponse {
     /// <p>The date and time the schema was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>The data format of the schema definition. Currently only <code>AVRO</code> and <code>JSON</code> are supported.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_format: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The schema ID of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The status of the schema version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3912,7 +3912,7 @@ pub struct GetSchemaByDefinitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSchemaInput {
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
 }
 
@@ -3920,55 +3920,55 @@ pub struct GetSchemaInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSchemaResponse {
     /// <p>The compatibility mode of the schema.</p>
-    #[serde(rename = "Compatibility")]
+    #[serde(rename = "compatibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatibility: Option<String>,
     /// <p>The date and time the schema was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_format: Option<String>,
     /// <p>A description of schema if specified when created</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The latest version of the schema associated with the returned schema definition.</p>
-    #[serde(rename = "LatestSchemaVersion")]
+    #[serde(rename = "latestSchemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_schema_version: Option<i64>,
     /// <p>The next version of the schema associated with the returned schema definition.</p>
-    #[serde(rename = "NextSchemaVersion")]
+    #[serde(rename = "nextSchemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_schema_version: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
-    #[serde(rename = "SchemaCheckpoint")]
+    #[serde(rename = "schemaCheckpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_checkpoint: Option<i64>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The status of the schema.</p>
-    #[serde(rename = "SchemaStatus")]
+    #[serde(rename = "schemaStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_status: Option<String>,
     /// <p>The date and time the schema was updated.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<String>,
 }
@@ -3977,15 +3977,15 @@ pub struct GetSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSchemaVersionInput {
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_id: Option<SchemaId>,
     /// <p>The <code>SchemaVersionId</code> of the schema version. This field is required for fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be provided.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersionNumber")]
+    #[serde(rename = "schemaVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_number: Option<SchemaVersionNumber>,
 }
@@ -3994,31 +3994,31 @@ pub struct GetSchemaVersionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSchemaVersionResponse {
     /// <p>The date and time the schema version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_format: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The schema definition for the schema ID.</p>
-    #[serde(rename = "SchemaDefinition")]
+    #[serde(rename = "schemaDefinition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_definition: Option<String>,
     /// <p>The <code>SchemaVersionId</code> of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The status of the schema version. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -4027,16 +4027,16 @@ pub struct GetSchemaVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSchemaVersionsDiffInput {
     /// <p>The first of the two schema versions to be compared.</p>
-    #[serde(rename = "FirstSchemaVersionNumber")]
+    #[serde(rename = "firstSchemaVersionNumber")]
     pub first_schema_version_number: SchemaVersionNumber,
     /// <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
-    #[serde(rename = "SchemaDiffType")]
+    #[serde(rename = "schemaDiffType")]
     pub schema_diff_type: String,
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
     /// <p>The second of the two schema versions to be compared.</p>
-    #[serde(rename = "SecondSchemaVersionNumber")]
+    #[serde(rename = "secondSchemaVersionNumber")]
     pub second_schema_version_number: SchemaVersionNumber,
 }
 
@@ -4044,7 +4044,7 @@ pub struct GetSchemaVersionsDiffInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSchemaVersionsDiffResponse {
     /// <p>The difference between schemas as a string in JsonPatch format.</p>
-    #[serde(rename = "Diff")]
+    #[serde(rename = "diff")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub diff: Option<String>,
 }
@@ -4053,7 +4053,7 @@ pub struct GetSchemaVersionsDiffResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSecurityConfigurationRequest {
     /// <p>The name of the security configuration to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -4061,7 +4061,7 @@ pub struct GetSecurityConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSecurityConfigurationResponse {
     /// <p>The requested security configuration.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<SecurityConfiguration>,
 }
@@ -4070,11 +4070,11 @@ pub struct GetSecurityConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSecurityConfigurationsRequest {
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4083,11 +4083,11 @@ pub struct GetSecurityConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSecurityConfigurationsResponse {
     /// <p>A continuation token, if there are more security configurations to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of security configurations.</p>
-    #[serde(rename = "SecurityConfigurations")]
+    #[serde(rename = "securityConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configurations: Option<Vec<SecurityConfiguration>>,
 }
@@ -4096,14 +4096,14 @@ pub struct GetSecurityConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTableRequest {
     /// <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -4111,7 +4111,7 @@ pub struct GetTableRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTableResponse {
     /// <p>The <code>Table</code> object that defines the specified table.</p>
-    #[serde(rename = "Table")]
+    #[serde(rename = "table")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table: Option<Table>,
 }
@@ -4120,17 +4120,17 @@ pub struct GetTableResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTableVersionRequest {
     /// <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
     /// <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -4139,7 +4139,7 @@ pub struct GetTableVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTableVersionResponse {
     /// <p>The requested table version.</p>
-    #[serde(rename = "TableVersion")]
+    #[serde(rename = "tableVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_version: Option<TableVersion>,
 }
@@ -4148,22 +4148,22 @@ pub struct GetTableVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTableVersionsRequest {
     /// <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The maximum number of table versions to return in one response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -4171,11 +4171,11 @@ pub struct GetTableVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTableVersionsResponse {
     /// <p>A continuation token, if the list of available versions does not include the last one.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of strings identifying available versions of the specified table.</p>
-    #[serde(rename = "TableVersions")]
+    #[serde(rename = "tableVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_versions: Option<Vec<TableVersion>>,
 }
@@ -4184,22 +4184,22 @@ pub struct GetTableVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTablesRequest {
     /// <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A regular expression pattern. If present, only those tables whose names match the pattern are returned.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expression: Option<String>,
     /// <p>The maximum number of tables to return in a single response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, included if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4208,11 +4208,11 @@ pub struct GetTablesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTablesResponse {
     /// <p>A continuation token, present if the current list segment is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of the requested <code>Table</code> objects.</p>
-    #[serde(rename = "TableList")]
+    #[serde(rename = "tableList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_list: Option<Vec<Table>>,
 }
@@ -4221,7 +4221,7 @@ pub struct GetTablesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTagsRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -4229,7 +4229,7 @@ pub struct GetTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTagsResponse {
     /// <p>The requested tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -4238,7 +4238,7 @@ pub struct GetTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTriggerRequest {
     /// <p>The name of the trigger to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -4246,7 +4246,7 @@ pub struct GetTriggerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTriggerResponse {
     /// <p>The requested trigger definition.</p>
-    #[serde(rename = "Trigger")]
+    #[serde(rename = "trigger")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger: Option<Trigger>,
 }
@@ -4255,15 +4255,15 @@ pub struct GetTriggerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTriggersRequest {
     /// <p>The name of the job to retrieve triggers for. The trigger that can start this job is returned, and if there is no such trigger, all triggers are returned.</p>
-    #[serde(rename = "DependentJobName")]
+    #[serde(rename = "dependentJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dependent_job_name: Option<String>,
     /// <p>The maximum size of the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4272,11 +4272,11 @@ pub struct GetTriggersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTriggersResponse {
     /// <p>A continuation token, if not all the requested triggers have yet been returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of triggers for the specified job.</p>
-    #[serde(rename = "Triggers")]
+    #[serde(rename = "triggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub triggers: Option<Vec<Trigger>>,
 }
@@ -4285,14 +4285,14 @@ pub struct GetTriggersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserDefinedFunctionRequest {
     /// <p>The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the function is located.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the function.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -4300,7 +4300,7 @@ pub struct GetUserDefinedFunctionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserDefinedFunctionResponse {
     /// <p>The requested function definition.</p>
-    #[serde(rename = "UserDefinedFunction")]
+    #[serde(rename = "userDefinedFunction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_defined_function: Option<UserDefinedFunction>,
 }
@@ -4309,23 +4309,23 @@ pub struct GetUserDefinedFunctionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserDefinedFunctionsRequest {
     /// <p>The ID of the Data Catalog where the functions to be retrieved are located. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the functions are located. If none is provided, functions from all the databases across the catalog will be returned.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>The maximum number of functions to return in one response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An optional function-name pattern string that filters the function definitions returned.</p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     pub pattern: String,
 }
 
@@ -4333,11 +4333,11 @@ pub struct GetUserDefinedFunctionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserDefinedFunctionsResponse {
     /// <p>A continuation token, if the list of functions returned does not include the last requested function.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of requested function definitions.</p>
-    #[serde(rename = "UserDefinedFunctions")]
+    #[serde(rename = "userDefinedFunctions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_defined_functions: Option<Vec<UserDefinedFunction>>,
 }
@@ -4346,11 +4346,11 @@ pub struct GetUserDefinedFunctionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetWorkflowRequest {
     /// <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
-    #[serde(rename = "IncludeGraph")]
+    #[serde(rename = "includeGraph")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_graph: Option<bool>,
     /// <p>The name of the workflow to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -4358,7 +4358,7 @@ pub struct GetWorkflowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetWorkflowResponse {
     /// <p>The resource metadata for the workflow.</p>
-    #[serde(rename = "Workflow")]
+    #[serde(rename = "workflow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflow: Option<Workflow>,
 }
@@ -4367,10 +4367,10 @@ pub struct GetWorkflowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetWorkflowRunPropertiesRequest {
     /// <p>Name of the workflow which was run.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ID of the workflow run whose run properties should be returned.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     pub run_id: String,
 }
 
@@ -4378,7 +4378,7 @@ pub struct GetWorkflowRunPropertiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetWorkflowRunPropertiesResponse {
     /// <p>The workflow run properties which were set during the specified run.</p>
-    #[serde(rename = "RunProperties")]
+    #[serde(rename = "runProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_properties: Option<::std::collections::HashMap<String, String>>,
 }
@@ -4387,14 +4387,14 @@ pub struct GetWorkflowRunPropertiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetWorkflowRunRequest {
     /// <p>Specifies whether to include the workflow graph in response or not.</p>
-    #[serde(rename = "IncludeGraph")]
+    #[serde(rename = "includeGraph")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_graph: Option<bool>,
     /// <p>Name of the workflow being run.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ID of the workflow run.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     pub run_id: String,
 }
 
@@ -4402,7 +4402,7 @@ pub struct GetWorkflowRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetWorkflowRunResponse {
     /// <p>The requested workflow run metadata.</p>
-    #[serde(rename = "Run")]
+    #[serde(rename = "run")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run: Option<WorkflowRun>,
 }
@@ -4411,18 +4411,18 @@ pub struct GetWorkflowRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetWorkflowRunsRequest {
     /// <p>Specifies whether to include the workflow graph in response or not.</p>
-    #[serde(rename = "IncludeGraph")]
+    #[serde(rename = "includeGraph")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_graph: Option<bool>,
     /// <p>The maximum number of workflow runs to be included in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Name of the workflow whose metadata of runs should be returned.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The maximum size of the response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4431,11 +4431,11 @@ pub struct GetWorkflowRunsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetWorkflowRunsResponse {
     /// <p>A continuation token, if not all requested workflow runs have been returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of workflow run metadata objects.</p>
-    #[serde(rename = "Runs")]
+    #[serde(rename = "runs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub runs: Option<Vec<WorkflowRun>>,
 }
@@ -4445,19 +4445,19 @@ pub struct GetWorkflowRunsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GluePolicy {
     /// <p>The date and time at which the policy was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>Contains the hash value associated with this policy.</p>
-    #[serde(rename = "PolicyHash")]
+    #[serde(rename = "policyHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_hash: Option<String>,
     /// <p>Contains the requested policy document, in JSON format.</p>
-    #[serde(rename = "PolicyInJson")]
+    #[serde(rename = "policyInJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_in_json: Option<String>,
     /// <p>The date and time at which the policy was last updated.</p>
-    #[serde(rename = "UpdateTime")]
+    #[serde(rename = "updateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_time: Option<f64>,
 }
@@ -4466,18 +4466,18 @@ pub struct GluePolicy {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GlueTable {
     /// <p>A unique identifier for the Glue Data Catalog.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the connection to the Glue Data Catalog.</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_name: Option<String>,
     /// <p>A database name in the Glue Data Catalog.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A table name in the Glue Data Catalog.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -4486,28 +4486,28 @@ pub struct GlueTable {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GrokClassifier {
     /// <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.</p>
-    #[serde(rename = "Classification")]
+    #[serde(rename = "classification")]
     pub classification: String,
     /// <p>The time that this classifier was registered.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
-    #[serde(rename = "CustomPatterns")]
+    #[serde(rename = "customPatterns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_patterns: Option<String>,
     /// <p>The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
-    #[serde(rename = "GrokPattern")]
+    #[serde(rename = "grokPattern")]
     pub grok_pattern: String,
     /// <p>The time that this classifier was last updated.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The version of this classifier.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -4516,7 +4516,7 @@ pub struct GrokClassifier {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportCatalogToGlueRequest {
     /// <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
 }
@@ -4530,11 +4530,11 @@ pub struct ImportCatalogToGlueResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportLabelsTaskRunProperties {
     /// <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.</p>
-    #[serde(rename = "InputS3Path")]
+    #[serde(rename = "inputS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_s3_path: Option<String>,
     /// <p>Indicates whether to overwrite your existing labels.</p>
-    #[serde(rename = "Replace")]
+    #[serde(rename = "replace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replace: Option<bool>,
 }
@@ -4543,15 +4543,15 @@ pub struct ImportLabelsTaskRunProperties {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JdbcTarget {
     /// <p>The name of the connection to use to connect to the JDBC target.</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_name: Option<String>,
     /// <p>A list of glob patterns used to exclude from the crawl. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
-    #[serde(rename = "Exclusions")]
+    #[serde(rename = "exclusions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusions: Option<Vec<String>>,
     /// <p>The path of the JDBC target.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
 }
@@ -4561,79 +4561,79 @@ pub struct JdbcTarget {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Job {
     /// <p>The <code>JobCommand</code> that runs this job.</p>
-    #[serde(rename = "Command")]
+    #[serde(rename = "command")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub command: Option<JobCommand>,
     /// <p>The connections used for this job.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<ConnectionsList>,
     /// <p>The time and date that this job definition was created.</p>
-    #[serde(rename = "CreatedOn")]
+    #[serde(rename = "createdOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_on: Option<f64>,
     /// <p>The default arguments for this job, specified as name-value pairs.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-    #[serde(rename = "DefaultArguments")]
+    #[serde(rename = "defaultArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>A description of the job.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed for this job.</p>
-    #[serde(rename = "ExecutionProperty")]
+    #[serde(rename = "executionProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_property: Option<ExecutionProperty>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p> <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>The last point in time when this job definition was modified.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>This field is reserved for future use.</p>
-    #[serde(rename = "LogUri")]
+    #[serde(rename = "logUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_uri: Option<String>,
     /// <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul> <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry this job after a JobRun fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>The name you assign to this job definition.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
-    #[serde(rename = "NonOverridableArguments")]
+    #[serde(rename = "nonOverridableArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_overridable_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies configuration properties of a job notification.</p>
-    #[serde(rename = "NotificationProperty")]
+    #[serde(rename = "notificationProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_property: Option<NotificationProperty>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p><p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -4643,31 +4643,31 @@ pub struct Job {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobBookmarkEntry {
     /// <p>The attempt ID number.</p>
-    #[serde(rename = "Attempt")]
+    #[serde(rename = "attempt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attempt: Option<i64>,
     /// <p>The bookmark itself.</p>
-    #[serde(rename = "JobBookmark")]
+    #[serde(rename = "jobBookmark")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_bookmark: Option<String>,
     /// <p>The name of the job in question.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The unique run identifier associated with the previous job run.</p>
-    #[serde(rename = "PreviousRunId")]
+    #[serde(rename = "previousRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub previous_run_id: Option<String>,
     /// <p>The run ID number.</p>
-    #[serde(rename = "Run")]
+    #[serde(rename = "run")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run: Option<i64>,
     /// <p>The run ID number.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_id: Option<String>,
     /// <p>The version of the job.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -4676,11 +4676,11 @@ pub struct JobBookmarkEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JobBookmarksEncryption {
     /// <p>The encryption mode to use for job bookmarks data.</p>
-    #[serde(rename = "JobBookmarksEncryptionMode")]
+    #[serde(rename = "jobBookmarksEncryptionMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_bookmarks_encryption_mode: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
 }
@@ -4689,15 +4689,15 @@ pub struct JobBookmarksEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JobCommand {
     /// <p>The name of the job command. For an Apache Spark ETL job, this must be <code>glueetl</code>. For a Python shell job, it must be <code>pythonshell</code>. For an Apache Spark streaming ETL job, this must be <code>gluestreaming</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Python version being used to run a Python shell job. Allowed values are 2 or 3.</p>
-    #[serde(rename = "PythonVersion")]
+    #[serde(rename = "pythonVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub python_version: Option<String>,
     /// <p>Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that runs a job.</p>
-    #[serde(rename = "ScriptLocation")]
+    #[serde(rename = "scriptLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub script_location: Option<String>,
 }
@@ -4707,7 +4707,7 @@ pub struct JobCommand {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobNodeDetails {
     /// <p>The information for the job runs represented by the job node.</p>
-    #[serde(rename = "JobRuns")]
+    #[serde(rename = "jobRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_runs: Option<Vec<JobRun>>,
 }
@@ -4717,87 +4717,87 @@ pub struct JobNodeDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobRun {
     /// <p>The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that Glue itself consumes.</p> <p>For information about how to specify and consume your own job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The number of the attempt to run this job.</p>
-    #[serde(rename = "Attempt")]
+    #[serde(rename = "attempt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attempt: Option<i64>,
     /// <p>The date and time that this job run completed.</p>
-    #[serde(rename = "CompletedOn")]
+    #[serde(rename = "completedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_on: Option<f64>,
     /// <p>An error message associated with this job run.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The amount of time (in seconds) that the job run consumed resources.</p>
-    #[serde(rename = "ExecutionTime")]
+    #[serde(rename = "executionTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_time: Option<i64>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p> <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>The ID of this job run.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the job definition being used in this run.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current state of the job run. For more information about the statuses of jobs that have terminated abnormally, see <a href="https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html">Glue Job Run Statuses</a>.</p>
-    #[serde(rename = "JobRunState")]
+    #[serde(rename = "jobRunState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run_state: Option<String>,
     /// <p>The last time that this job run was modified.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>The name of the log group for secure logging that can be server-side encrypted in Amazon CloudWatch using KMS. This name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a role name and <code>SecurityConfiguration</code> name (in other words, <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration is used to encrypt the log group.</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
     /// <p><p>The number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=&quot;pythonshell&quot;), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=&quot;glueetl&quot;), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul></p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>Specifies configuration properties of a job run notification.</p>
-    #[serde(rename = "NotificationProperty")]
+    #[serde(rename = "notificationProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_property: Option<NotificationProperty>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>A list of predecessors to this job run.</p>
-    #[serde(rename = "PredecessorRuns")]
+    #[serde(rename = "predecessorRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predecessor_runs: Option<Vec<Predecessor>>,
     /// <p>The ID of the previous run of this job. For example, the <code>JobRunId</code> specified in the <code>StartJobRun</code> action.</p>
-    #[serde(rename = "PreviousRunId")]
+    #[serde(rename = "previousRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub previous_run_id: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job run.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The date and time at which this job run was started.</p>
-    #[serde(rename = "StartedOn")]
+    #[serde(rename = "startedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_on: Option<f64>,
     /// <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>The name of the trigger that started this job run.</p>
-    #[serde(rename = "TriggerName")]
+    #[serde(rename = "triggerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger_name: Option<String>,
     /// <p><p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -4807,67 +4807,67 @@ pub struct JobRun {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct JobUpdate {
     /// <p>The <code>JobCommand</code> that runs this job (required).</p>
-    #[serde(rename = "Command")]
+    #[serde(rename = "command")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub command: Option<JobCommand>,
     /// <p>The connections used for this job.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<ConnectionsList>,
     /// <p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-    #[serde(rename = "DefaultArguments")]
+    #[serde(rename = "defaultArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>Description of the job being defined.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed for this job.</p>
-    #[serde(rename = "ExecutionProperty")]
+    #[serde(rename = "executionProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_property: Option<ExecutionProperty>,
     /// <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>This field is reserved for future use.</p>
-    #[serde(rename = "LogUri")]
+    #[serde(rename = "logUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_uri: Option<String>,
     /// <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul> <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry this job if it fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
-    #[serde(rename = "NonOverridableArguments")]
+    #[serde(rename = "nonOverridableArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_overridable_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies the configuration properties of a job notification.</p>
-    #[serde(rename = "NotificationProperty")]
+    #[serde(rename = "notificationProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_property: Option<NotificationProperty>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job (required).</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p><p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -4877,21 +4877,21 @@ pub struct JobUpdate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JsonClassifier {
     /// <p>The time that this classifier was registered.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-    #[serde(rename = "JsonPath")]
+    #[serde(rename = "jsonPath")]
     pub json_path: String,
     /// <p>The time that this classifier was last updated.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The version of this classifier.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }
@@ -4901,10 +4901,10 @@ pub struct JsonClassifier {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KeySchemaElement {
     /// <p>The name of a partition key.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The type of a partition key.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -4913,7 +4913,7 @@ pub struct KeySchemaElement {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LabelingSetGenerationTaskRunProperties {
     /// <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling set.</p>
-    #[serde(rename = "OutputS3Path")]
+    #[serde(rename = "outputS3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_s3_path: Option<String>,
 }
@@ -4923,27 +4923,27 @@ pub struct LabelingSetGenerationTaskRunProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LastCrawlInfo {
     /// <p>If an error occurred, the error information about the last crawl.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The log group for the last crawl.</p>
-    #[serde(rename = "LogGroup")]
+    #[serde(rename = "logGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group: Option<String>,
     /// <p>The log stream for the last crawl.</p>
-    #[serde(rename = "LogStream")]
+    #[serde(rename = "logStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_stream: Option<String>,
     /// <p>The prefix for a message about this crawl.</p>
-    #[serde(rename = "MessagePrefix")]
+    #[serde(rename = "messagePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_prefix: Option<String>,
     /// <p>The time at which the crawl started.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>Status of the last crawl.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -4952,7 +4952,7 @@ pub struct LastCrawlInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LineageConfiguration {
     /// <p><p>Specifies whether data lineage is enabled for the crawler. Valid values are:</p> <ul> <li> <p>ENABLE: enables data lineage for the crawler</p> </li> <li> <p>DISABLE: disables data lineage for the crawler</p> </li> </ul></p>
-    #[serde(rename = "CrawlerLineageSettings")]
+    #[serde(rename = "crawlerLineageSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_lineage_settings: Option<String>,
 }
@@ -4961,15 +4961,15 @@ pub struct LineageConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCrawlersRequest {
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies to return only these tagged resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -4978,11 +4978,11 @@ pub struct ListCrawlersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCrawlersResponse {
     /// <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
-    #[serde(rename = "CrawlerNames")]
+    #[serde(rename = "crawlerNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_names: Option<Vec<String>>,
     /// <p>A continuation token, if the returned list does not contain the last metric available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4991,15 +4991,15 @@ pub struct ListCrawlersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDevEndpointsRequest {
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies to return only these tagged resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -5008,11 +5008,11 @@ pub struct ListDevEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDevEndpointsResponse {
     /// <p>The names of all the <code>DevEndpoint</code>s in the account, or the <code>DevEndpoint</code>s with the specified tags.</p>
-    #[serde(rename = "DevEndpointNames")]
+    #[serde(rename = "devEndpointNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dev_endpoint_names: Option<Vec<String>>,
     /// <p>A continuation token, if the returned list does not contain the last metric available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -5021,15 +5021,15 @@ pub struct ListDevEndpointsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListJobsRequest {
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies to return only these tagged resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -5038,11 +5038,11 @@ pub struct ListJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListJobsResponse {
     /// <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
-    #[serde(rename = "JobNames")]
+    #[serde(rename = "jobNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_names: Option<Vec<String>>,
     /// <p>A continuation token, if the returned list does not contain the last metric available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -5051,23 +5051,23 @@ pub struct ListJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMLTransformsRequest {
     /// <p>A <code>TransformFilterCriteria</code> used to filter the machine learning transforms.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<TransformFilterCriteria>,
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A <code>TransformSortCriteria</code> used to sort the machine learning transforms.</p>
-    #[serde(rename = "Sort")]
+    #[serde(rename = "sort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort: Option<TransformSortCriteria>,
     /// <p>Specifies to return only these tagged resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -5076,11 +5076,11 @@ pub struct ListMLTransformsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMLTransformsResponse {
     /// <p>A continuation token, if the returned list does not contain the last metric available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.</p>
-    #[serde(rename = "TransformIds")]
+    #[serde(rename = "transformIds")]
     pub transform_ids: Vec<String>,
 }
 
@@ -5088,11 +5088,11 @@ pub struct ListMLTransformsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRegistriesInput {
     /// <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -5101,11 +5101,11 @@ pub struct ListRegistriesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRegistriesResponse {
     /// <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>RegistryDetailedListItem</code> objects containing minimal details of each registry.</p>
-    #[serde(rename = "Registries")]
+    #[serde(rename = "registries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registries: Option<Vec<RegistryListItem>>,
 }
@@ -5114,15 +5114,15 @@ pub struct ListRegistriesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSchemaVersionsInput {
     /// <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
 }
 
@@ -5130,11 +5130,11 @@ pub struct ListSchemaVersionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSchemaVersionsResponse {
     /// <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
-    #[serde(rename = "Schemas")]
+    #[serde(rename = "schemas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schemas: Option<Vec<SchemaVersionListItem>>,
 }
@@ -5143,15 +5143,15 @@ pub struct ListSchemaVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSchemasInput {
     /// <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "RegistryId")]
+    #[serde(rename = "registryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_id: Option<RegistryId>,
 }
@@ -5160,11 +5160,11 @@ pub struct ListSchemasInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSchemasResponse {
     /// <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>SchemaListItem</code> objects containing details of each schema.</p>
-    #[serde(rename = "Schemas")]
+    #[serde(rename = "schemas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schemas: Option<Vec<SchemaListItem>>,
 }
@@ -5173,19 +5173,19 @@ pub struct ListSchemasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTriggersRequest {
     /// <p> The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.</p>
-    #[serde(rename = "DependentJobName")]
+    #[serde(rename = "dependentJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dependent_job_name: Option<String>,
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies to return only these tagged resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -5194,11 +5194,11 @@ pub struct ListTriggersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTriggersResponse {
     /// <p>A continuation token, if the returned list does not contain the last metric available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
-    #[serde(rename = "TriggerNames")]
+    #[serde(rename = "triggerNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger_names: Option<Vec<String>>,
 }
@@ -5207,11 +5207,11 @@ pub struct ListTriggersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListWorkflowsRequest {
     /// <p>The maximum size of a list to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is a continuation request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -5220,11 +5220,11 @@ pub struct ListWorkflowsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListWorkflowsResponse {
     /// <p>A continuation token, if not all workflow names have been returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of names of workflows in the account.</p>
-    #[serde(rename = "Workflows")]
+    #[serde(rename = "workflows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflows: Option<Vec<String>>,
 }
@@ -5234,15 +5234,15 @@ pub struct ListWorkflowsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Location {
     /// <p>An Amazon DynamoDB table location.</p>
-    #[serde(rename = "DynamoDB")]
+    #[serde(rename = "dynamoDB")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dynamo_db: Option<Vec<CodeGenNodeArg>>,
     /// <p>A JDBC location.</p>
-    #[serde(rename = "Jdbc")]
+    #[serde(rename = "jdbc")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jdbc: Option<Vec<CodeGenNodeArg>>,
     /// <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
-    #[serde(rename = "S3")]
+    #[serde(rename = "s3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3: Option<Vec<CodeGenNodeArg>>,
 }
@@ -5251,18 +5251,18 @@ pub struct Location {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LongColumnStatisticsData {
     /// <p>The highest value in the column.</p>
-    #[serde(rename = "MaximumValue")]
+    #[serde(rename = "maximumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_value: Option<i64>,
     /// <p>The lowest value in the column.</p>
-    #[serde(rename = "MinimumValue")]
+    #[serde(rename = "minimumValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum_value: Option<i64>,
     /// <p>The number of distinct values in a column.</p>
-    #[serde(rename = "NumberOfDistinctValues")]
+    #[serde(rename = "numberOfDistinctValues")]
     pub number_of_distinct_values: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
 }
 
@@ -5271,79 +5271,79 @@ pub struct LongColumnStatisticsData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MLTransform {
     /// <p>A timestamp. The time and date that this machine learning transform was created.</p>
-    #[serde(rename = "CreatedOn")]
+    #[serde(rename = "createdOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_on: Option<f64>,
     /// <p>A user-defined, long-form description text for the machine learning transform. Descriptions are not guaranteed to be unique and can be changed at any time.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
-    #[serde(rename = "EvaluationMetrics")]
+    #[serde(rename = "evaluationMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_metrics: Option<EvaluationMetrics>,
     /// <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>A list of Glue table definitions used by the transform.</p>
-    #[serde(rename = "InputRecordTables")]
+    #[serde(rename = "inputRecordTables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_record_tables: Option<Vec<GlueTable>>,
     /// <p>A count identifier for the labeling files generated by Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
-    #[serde(rename = "LabelCount")]
+    #[serde(rename = "labelCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label_count: Option<i64>,
     /// <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="http://aws.amazon.com/glue/pricing/">Glue pricing page</a>. </p> <p> <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p> <ul> <li> <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p> </li> <li> <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p> </li> <li> <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p> </li> <li> <p> <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p> </li> </ul> <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine learning transform fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>A user-defined name for the machine learning transform. Names are not guaranteed unique and can be changed at any time.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p> <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the behavior of the machine learning transform by specifying what data it learns from and your preference on various tradeoffs (such as precious vs. recall, or accuracy vs. cost).</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<TransformParameters>,
     /// <p><p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p> <ul> <li> <p>This role needs Glue service role permissions to allow access to resources in Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access Glue</a>.</p> </li> <li> <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p> </li> </ul></p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>A map of key-value pairs representing the columns and data types that this transform can run against. Has an upper bound of 100 columns.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<Vec<SchemaColumn>>,
     /// <p>The current status of the machine learning transform.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The timeout in minutes of the machine learning transform.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-    #[serde(rename = "TransformEncryption")]
+    #[serde(rename = "transformEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_encryption: Option<TransformEncryption>,
     /// <p>The unique transform ID that is generated for the machine learning transform. The ID is guaranteed to be unique and does not change.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
     /// <p><p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul> <p> <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p> <ul> <li> <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p> </li> <li> <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p> </li> <li> <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p> </li> <li> <p> <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -5352,11 +5352,11 @@ pub struct MLTransform {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MLUserDataEncryption {
     /// <p>The ID for the customer-provided KMS key.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p><p>The encryption mode applied to user data. Valid values are:</p> <ul> <li> <p>DISABLED: encryption is disabled</p> </li> <li> <p>SSEKMS: use of server-side encryption with Key Management Service (SSE-KMS) for user data stored in Amazon S3.</p> </li> </ul></p>
-    #[serde(rename = "MlUserDataEncryptionMode")]
+    #[serde(rename = "mlUserDataEncryptionMode")]
     pub ml_user_data_encryption_mode: String,
 }
 
@@ -5364,27 +5364,27 @@ pub struct MLUserDataEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MappingEntry {
     /// <p>The source path.</p>
-    #[serde(rename = "SourcePath")]
+    #[serde(rename = "sourcePath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_path: Option<String>,
     /// <p>The name of the source table.</p>
-    #[serde(rename = "SourceTable")]
+    #[serde(rename = "sourceTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_table: Option<String>,
     /// <p>The source type.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_type: Option<String>,
     /// <p>The target path.</p>
-    #[serde(rename = "TargetPath")]
+    #[serde(rename = "targetPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_path: Option<String>,
     /// <p>The target table.</p>
-    #[serde(rename = "TargetTable")]
+    #[serde(rename = "targetTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_table: Option<String>,
     /// <p>The target type.</p>
-    #[serde(rename = "TargetType")]
+    #[serde(rename = "targetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_type: Option<String>,
 }
@@ -5394,15 +5394,15 @@ pub struct MappingEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MetadataInfo {
     /// <p>The time at which the entry was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>The metadata key’s corresponding value.</p>
-    #[serde(rename = "MetadataValue")]
+    #[serde(rename = "metadataValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_value: Option<String>,
     /// <p>Other metadata belonging to the same metadata key.</p>
-    #[serde(rename = "OtherMetadataValueList")]
+    #[serde(rename = "otherMetadataValueList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub other_metadata_value_list: Option<Vec<OtherMetadataValueListItem>>,
 }
@@ -5412,11 +5412,11 @@ pub struct MetadataInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MetadataKeyValuePair {
     /// <p>A metadata key.</p>
-    #[serde(rename = "MetadataKey")]
+    #[serde(rename = "metadataKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_key: Option<String>,
     /// <p>A metadata key’s corresponding value.</p>
-    #[serde(rename = "MetadataValue")]
+    #[serde(rename = "metadataValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_value: Option<String>,
 }
@@ -5425,15 +5425,15 @@ pub struct MetadataKeyValuePair {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MongoDBTarget {
     /// <p>The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_name: Option<String>,
     /// <p>The path of the Amazon DocumentDB or MongoDB target (database/collection).</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
     /// <p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p> <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
-    #[serde(rename = "ScanAll")]
+    #[serde(rename = "scanAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scan_all: Option<bool>,
 }
@@ -5443,27 +5443,27 @@ pub struct MongoDBTarget {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Node {
     /// <p>Details of the crawler when the node represents a crawler.</p>
-    #[serde(rename = "CrawlerDetails")]
+    #[serde(rename = "crawlerDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_details: Option<CrawlerNodeDetails>,
     /// <p>Details of the Job when the node represents a Job.</p>
-    #[serde(rename = "JobDetails")]
+    #[serde(rename = "jobDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_details: Option<JobNodeDetails>,
     /// <p>The name of the Glue component represented by the node.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Details of the Trigger when the node represents a Trigger.</p>
-    #[serde(rename = "TriggerDetails")]
+    #[serde(rename = "triggerDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger_details: Option<TriggerNodeDetails>,
     /// <p>The type of Glue component represented by the node.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The unique Id assigned to the node within the workflow.</p>
-    #[serde(rename = "UniqueId")]
+    #[serde(rename = "uniqueId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unique_id: Option<String>,
 }
@@ -5472,7 +5472,7 @@ pub struct Node {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NotificationProperty {
     /// <p>After a job run starts, the number of minutes to wait before sending a job run delay notification.</p>
-    #[serde(rename = "NotifyDelayAfter")]
+    #[serde(rename = "notifyDelayAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notify_delay_after: Option<i64>,
 }
@@ -5481,10 +5481,10 @@ pub struct NotificationProperty {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Order {
     /// <p>The name of the column.</p>
-    #[serde(rename = "Column")]
+    #[serde(rename = "column")]
     pub column: String,
     /// <p>Indicates that the column is sorted in ascending order (<code>== 1</code>), or in descending order (<code>==0</code>).</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     pub sort_order: i64,
 }
 
@@ -5493,11 +5493,11 @@ pub struct Order {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OtherMetadataValueListItem {
     /// <p>The time at which the entry was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
-    #[serde(rename = "MetadataValue")]
+    #[serde(rename = "metadataValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_value: Option<String>,
 }
@@ -5507,39 +5507,39 @@ pub struct OtherMetadataValueListItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Partition {
     /// <p>The ID of the Data Catalog in which the partition resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The time at which the partition was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The name of the catalog database in which to create the partition.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>The last time at which the partition was accessed.</p>
-    #[serde(rename = "LastAccessTime")]
+    #[serde(rename = "lastAccessTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_access_time: Option<f64>,
     /// <p>The last time at which column statistics were computed for this partition.</p>
-    #[serde(rename = "LastAnalyzedTime")]
+    #[serde(rename = "lastAnalyzedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_analyzed_time: Option<f64>,
     /// <p>These key-value pairs define partition parameters.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Provides information about the physical location where the partition is stored.</p>
-    #[serde(rename = "StorageDescriptor")]
+    #[serde(rename = "storageDescriptor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_descriptor: Option<StorageDescriptor>,
     /// <p>The name of the database table in which to create the partition.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_name: Option<String>,
     /// <p>The values of the partition.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -5549,11 +5549,11 @@ pub struct Partition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartitionError {
     /// <p>The details about the partition error.</p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<ErrorDetail>,
     /// <p>The values that define the partition.</p>
-    #[serde(rename = "PartitionValues")]
+    #[serde(rename = "partitionValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_values: Option<Vec<String>>,
 }
@@ -5563,10 +5563,10 @@ pub struct PartitionError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PartitionIndex {
     /// <p>The name of the partition index.</p>
-    #[serde(rename = "IndexName")]
+    #[serde(rename = "indexName")]
     pub index_name: String,
     /// <p>The keys for the partition index.</p>
-    #[serde(rename = "Keys")]
+    #[serde(rename = "keys")]
     pub keys: Vec<String>,
 }
 
@@ -5575,17 +5575,17 @@ pub struct PartitionIndex {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartitionIndexDescriptor {
     /// <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
-    #[serde(rename = "BackfillErrors")]
+    #[serde(rename = "backfillErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backfill_errors: Option<Vec<BackfillError>>,
     /// <p>The name of the partition index.</p>
-    #[serde(rename = "IndexName")]
+    #[serde(rename = "indexName")]
     pub index_name: String,
     /// <p><p>The status of the partition index. </p> <p>The possible statuses are:</p> <ul> <li> <p>CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.</p> </li> <li> <p>ACTIVE: The index creation succeeds.</p> </li> <li> <p>FAILED: The index creation fails. </p> </li> <li> <p>DELETING: The index is deleted from the list of indexes.</p> </li> </ul></p>
-    #[serde(rename = "IndexStatus")]
+    #[serde(rename = "indexStatus")]
     pub index_status: String,
     /// <p>A list of one or more keys, as <code>KeySchemaElement</code> structures, for the partition index.</p>
-    #[serde(rename = "Keys")]
+    #[serde(rename = "keys")]
     pub keys: Vec<KeySchemaElement>,
 }
 
@@ -5594,23 +5594,23 @@ pub struct PartitionIndexDescriptor {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PartitionInput {
     /// <p>The last time at which the partition was accessed.</p>
-    #[serde(rename = "LastAccessTime")]
+    #[serde(rename = "lastAccessTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_access_time: Option<f64>,
     /// <p>The last time at which column statistics were computed for this partition.</p>
-    #[serde(rename = "LastAnalyzedTime")]
+    #[serde(rename = "lastAnalyzedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_analyzed_time: Option<f64>,
     /// <p>These key-value pairs define partition parameters.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Provides information about the physical location where the partition is stored.</p>
-    #[serde(rename = "StorageDescriptor")]
+    #[serde(rename = "storageDescriptor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_descriptor: Option<StorageDescriptor>,
     /// <p>The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.</p> <p>The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise Glue will add the values to the wrong keys.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -5619,7 +5619,7 @@ pub struct PartitionInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PartitionValueList {
     /// <p>The list of values.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -5627,15 +5627,15 @@ pub struct PartitionValueList {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PhysicalConnectionRequirements {
     /// <p>The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The security group ID list used by the connection.</p>
-    #[serde(rename = "SecurityGroupIdList")]
+    #[serde(rename = "securityGroupIdList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_id_list: Option<Vec<String>>,
     /// <p>The subnet ID used by the connection.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
 }
@@ -5645,11 +5645,11 @@ pub struct PhysicalConnectionRequirements {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Predecessor {
     /// <p>The name of the job definition used by the predecessor job run.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The job-run ID of the predecessor job run.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_id: Option<String>,
 }
@@ -5658,11 +5658,11 @@ pub struct Predecessor {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Predicate {
     /// <p>A list of the conditions that determine when the trigger will fire.</p>
-    #[serde(rename = "Conditions")]
+    #[serde(rename = "conditions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conditions: Option<Vec<Condition>>,
     /// <p>An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.</p>
-    #[serde(rename = "Logical")]
+    #[serde(rename = "logical")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logical: Option<String>,
 }
@@ -5671,11 +5671,11 @@ pub struct Predicate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PrincipalPermissions {
     /// <p>The permissions that are granted to the principal.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<String>>,
     /// <p>The principal who is granted permissions.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<DataLakePrincipal>,
 }
@@ -5685,15 +5685,15 @@ pub struct PrincipalPermissions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PropertyPredicate {
     /// <p>The comparator used to compare this property to others.</p>
-    #[serde(rename = "Comparator")]
+    #[serde(rename = "comparator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparator: Option<String>,
     /// <p>The key of the property.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value of the property.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -5702,11 +5702,11 @@ pub struct PropertyPredicate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutDataCatalogEncryptionSettingsRequest {
     /// <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The security configuration to set.</p>
-    #[serde(rename = "DataCatalogEncryptionSettings")]
+    #[serde(rename = "dataCatalogEncryptionSettings")]
     pub data_catalog_encryption_settings: DataCatalogEncryptionSettings,
 }
 
@@ -5718,22 +5718,22 @@ pub struct PutDataCatalogEncryptionSettingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResourcePolicyRequest {
     /// <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account access to Data Catalog resources:</p> <ul> <li> <p>By directly updating the resource policy with <code>PutResourePolicy</code> </p> </li> <li> <p>By using the <b>Grant permissions</b> command on the Management Console.</p> </li> </ul> <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
-    #[serde(rename = "EnableHybrid")]
+    #[serde(rename = "enableHybrid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_hybrid: Option<String>,
     /// <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a null value is used, the call does not depend on the existence of a policy.</p>
-    #[serde(rename = "PolicyExistsCondition")]
+    #[serde(rename = "policyExistsCondition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_exists_condition: Option<String>,
     /// <p>The hash value returned when the previous policy was set using <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.</p>
-    #[serde(rename = "PolicyHashCondition")]
+    #[serde(rename = "policyHashCondition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_hash_condition: Option<String>,
     /// <p>Contains the policy document to set, in JSON format.</p>
-    #[serde(rename = "PolicyInJson")]
+    #[serde(rename = "policyInJson")]
     pub policy_in_json: String,
     /// <p>Do not use. For internal use only.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -5742,7 +5742,7 @@ pub struct PutResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutResourcePolicyResponse {
     /// <p>A hash of the policy that has just been set. This must be included in a subsequent call that overwrites or updates this policy.</p>
-    #[serde(rename = "PolicyHash")]
+    #[serde(rename = "policyHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_hash: Option<String>,
 }
@@ -5751,18 +5751,18 @@ pub struct PutResourcePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSchemaVersionMetadataInput {
     /// <p>The metadata key's corresponding value.</p>
-    #[serde(rename = "MetadataKeyValue")]
+    #[serde(rename = "metadataKeyValue")]
     pub metadata_key_value: MetadataKeyValuePair,
     /// <p>The unique ID for the schema.</p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_id: Option<SchemaId>,
     /// <p>The unique version ID of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersionNumber")]
+    #[serde(rename = "schemaVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_number: Option<SchemaVersionNumber>,
 }
@@ -5771,35 +5771,35 @@ pub struct PutSchemaVersionMetadataInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutSchemaVersionMetadataResponse {
     /// <p>The latest version of the schema.</p>
-    #[serde(rename = "LatestVersion")]
+    #[serde(rename = "latestVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version: Option<bool>,
     /// <p>The metadata key.</p>
-    #[serde(rename = "MetadataKey")]
+    #[serde(rename = "metadataKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_key: Option<String>,
     /// <p>The value of the metadata key.</p>
-    #[serde(rename = "MetadataValue")]
+    #[serde(rename = "metadataValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_value: Option<String>,
     /// <p>The name for the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name for the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The unique version ID of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -5808,13 +5808,13 @@ pub struct PutSchemaVersionMetadataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutWorkflowRunPropertiesRequest {
     /// <p>Name of the workflow which was run.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ID of the workflow run for which the run properties should be updated.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     pub run_id: String,
     /// <p>The properties to put for the specified run.</p>
-    #[serde(rename = "RunProperties")]
+    #[serde(rename = "runProperties")]
     pub run_properties: ::std::collections::HashMap<String, String>,
 }
 
@@ -5826,27 +5826,27 @@ pub struct PutWorkflowRunPropertiesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct QuerySchemaVersionMetadataInput {
     /// <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
-    #[serde(rename = "MetadataList")]
+    #[serde(rename = "metadataList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_list: Option<Vec<MetadataKeyValuePair>>,
     /// <p>A continuation token, if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_id: Option<SchemaId>,
     /// <p>The unique version ID of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersionNumber")]
+    #[serde(rename = "schemaVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_number: Option<SchemaVersionNumber>,
 }
@@ -5855,15 +5855,15 @@ pub struct QuerySchemaVersionMetadataInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QuerySchemaVersionMetadataResponse {
     /// <p>A map of a metadata key and associated values.</p>
-    #[serde(rename = "MetadataInfoMap")]
+    #[serde(rename = "metadataInfoMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_info_map: Option<::std::collections::HashMap<String, MetadataInfo>>,
     /// <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The unique version ID of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
 }
@@ -5872,7 +5872,7 @@ pub struct QuerySchemaVersionMetadataResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RecrawlPolicy {
     /// <p>Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.</p> <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p> <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>
-    #[serde(rename = "RecrawlBehavior")]
+    #[serde(rename = "recrawlBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recrawl_behavior: Option<String>,
 }
@@ -5881,10 +5881,10 @@ pub struct RecrawlPolicy {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterSchemaVersionInput {
     /// <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
-    #[serde(rename = "SchemaDefinition")]
+    #[serde(rename = "schemaDefinition")]
     pub schema_definition: String,
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
 }
 
@@ -5892,15 +5892,15 @@ pub struct RegisterSchemaVersionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterSchemaVersionResponse {
     /// <p>The unique ID that represents the version of this schema.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The status of the schema version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The version of this schema (for sync flow only, in case this is the first version).</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -5910,11 +5910,11 @@ pub struct RegisterSchemaVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegistryId {
     /// <p>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided. </p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
 }
@@ -5924,27 +5924,27 @@ pub struct RegistryId {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegistryListItem {
     /// <p>The data the registry was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>A description of the registry.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The status of the registry.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The date the registry was updated.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<String>,
 }
@@ -5953,18 +5953,18 @@ pub struct RegistryListItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveSchemaVersionMetadataInput {
     /// <p>The value of the metadata key.</p>
-    #[serde(rename = "MetadataKeyValue")]
+    #[serde(rename = "metadataKeyValue")]
     pub metadata_key_value: MetadataKeyValuePair,
     /// <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_id: Option<SchemaId>,
     /// <p>The unique version ID of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersionNumber")]
+    #[serde(rename = "schemaVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_number: Option<SchemaVersionNumber>,
 }
@@ -5973,35 +5973,35 @@ pub struct RemoveSchemaVersionMetadataInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveSchemaVersionMetadataResponse {
     /// <p>The latest version of the schema.</p>
-    #[serde(rename = "LatestVersion")]
+    #[serde(rename = "latestVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version: Option<bool>,
     /// <p>The metadata key.</p>
-    #[serde(rename = "MetadataKey")]
+    #[serde(rename = "metadataKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_key: Option<String>,
     /// <p>The value of the metadata key.</p>
-    #[serde(rename = "MetadataValue")]
+    #[serde(rename = "metadataValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_value: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The version ID for the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -6010,10 +6010,10 @@ pub struct RemoveSchemaVersionMetadataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResetJobBookmarkRequest {
     /// <p>The name of the job in question.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>The unique run identifier associated with this job run.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_id: Option<String>,
 }
@@ -6022,7 +6022,7 @@ pub struct ResetJobBookmarkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResetJobBookmarkResponse {
     /// <p>The reset bookmark entry.</p>
-    #[serde(rename = "JobBookmarkEntry")]
+    #[serde(rename = "jobBookmarkEntry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_bookmark_entry: Option<JobBookmarkEntry>,
 }
@@ -6031,11 +6031,11 @@ pub struct ResetJobBookmarkResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourceUri {
     /// <p>The type of the resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The URI for accessing the resource.</p>
-    #[serde(rename = "Uri")]
+    #[serde(rename = "uri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uri: Option<String>,
 }
@@ -6044,13 +6044,13 @@ pub struct ResourceUri {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResumeWorkflowRunRequest {
     /// <p>The name of the workflow to resume.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
-    #[serde(rename = "NodeIds")]
+    #[serde(rename = "nodeIds")]
     pub node_ids: Vec<String>,
     /// <p>The ID of the workflow run to resume.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     pub run_id: String,
 }
 
@@ -6058,11 +6058,11 @@ pub struct ResumeWorkflowRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResumeWorkflowRunResponse {
     /// <p>A list of the node IDs for the nodes that were actually restarted.</p>
-    #[serde(rename = "NodeIds")]
+    #[serde(rename = "nodeIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_ids: Option<Vec<String>>,
     /// <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_id: Option<String>,
 }
@@ -6071,11 +6071,11 @@ pub struct ResumeWorkflowRunResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Encryption {
     /// <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The encryption mode to use for Amazon S3 data.</p>
-    #[serde(rename = "S3EncryptionMode")]
+    #[serde(rename = "s3EncryptionMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_encryption_mode: Option<String>,
 }
@@ -6084,19 +6084,19 @@ pub struct S3Encryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Target {
     /// <p>The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_name: Option<String>,
     /// <p>A list of glob patterns used to exclude from the crawl. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
-    #[serde(rename = "Exclusions")]
+    #[serde(rename = "exclusions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusions: Option<Vec<String>>,
     /// <p>The path to the Amazon S3 target.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
     /// <p>Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.</p>
-    #[serde(rename = "SampleSize")]
+    #[serde(rename = "sampleSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sample_size: Option<i64>,
 }
@@ -6106,11 +6106,11 @@ pub struct S3Target {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Schedule {
     /// <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
-    #[serde(rename = "ScheduleExpression")]
+    #[serde(rename = "scheduleExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_expression: Option<String>,
     /// <p>The state of the schedule.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -6119,11 +6119,11 @@ pub struct Schedule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaChangePolicy {
     /// <p>The deletion behavior when the crawler finds a deleted object.</p>
-    #[serde(rename = "DeleteBehavior")]
+    #[serde(rename = "deleteBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_behavior: Option<String>,
     /// <p>The update behavior when the crawler finds a changed schema.</p>
-    #[serde(rename = "UpdateBehavior")]
+    #[serde(rename = "updateBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_behavior: Option<String>,
 }
@@ -6132,11 +6132,11 @@ pub struct SchemaChangePolicy {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaColumn {
     /// <p>The type of data in the column.</p>
-    #[serde(rename = "DataType")]
+    #[serde(rename = "dataType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_type: Option<String>,
     /// <p>The name of the column.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -6145,15 +6145,15 @@ pub struct SchemaColumn {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaId {
     /// <p>The name of the schema registry that contains the schema.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
 }
@@ -6163,31 +6163,31 @@ pub struct SchemaId {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SchemaListItem {
     /// <p>The date and time that a schema was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>A description for the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>the name of the registry where the schema resides.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The status of the schema.</p>
-    #[serde(rename = "SchemaStatus")]
+    #[serde(rename = "schemaStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_status: Option<String>,
     /// <p>The date and time that a schema was updated.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<String>,
 }
@@ -6196,15 +6196,15 @@ pub struct SchemaListItem {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaReference {
     /// <p>A structure that contains schema identity fields. Either this or the <code>SchemaVersionId</code> has to be provided.</p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_id: Option<SchemaId>,
     /// <p>The unique ID assigned to a version of the schema. Either this or the <code>SchemaId</code> has to be provided.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersionNumber")]
+    #[serde(rename = "schemaVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_number: Option<i64>,
 }
@@ -6214,11 +6214,11 @@ pub struct SchemaReference {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SchemaVersionErrorItem {
     /// <p>The details of the error for the schema version.</p>
-    #[serde(rename = "ErrorDetails")]
+    #[serde(rename = "errorDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_details: Option<ErrorDetails>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -6228,23 +6228,23 @@ pub struct SchemaVersionErrorItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SchemaVersionListItem {
     /// <p>The date and time the schema version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The unique identifier of the schema version.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_id: Option<String>,
     /// <p>The status of the schema version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -6254,11 +6254,11 @@ pub struct SchemaVersionListItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SchemaVersionNumber {
     /// <p>The latest version available for the schema.</p>
-    #[serde(rename = "LatestVersion")]
+    #[serde(rename = "latestVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version: Option<bool>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -6267,31 +6267,31 @@ pub struct SchemaVersionNumber {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchTablesRequest {
     /// <p>A unique identifier, consisting of <code> <i>account_id</i> </code>.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p> <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<PropertyPredicate>>,
     /// <p>The maximum number of tables to return in a single response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, included if this is a continuation call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p> <ul> <li> <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p> </li> <li> <p>If set to <code>ALL</code>, will search the tables shared with your account, as well as the tables in yor local account. </p> </li> </ul></p>
-    #[serde(rename = "ResourceShareType")]
+    #[serde(rename = "resourceShareType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_share_type: Option<String>,
     /// <p>A string used for a text search.</p> <p>Specifying a value in quotes filters based on an exact match to the value.</p>
-    #[serde(rename = "SearchText")]
+    #[serde(rename = "searchText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub search_text: Option<String>,
     /// <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<SortCriterion>>,
 }
@@ -6300,11 +6300,11 @@ pub struct SearchTablesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchTablesResponse {
     /// <p>A continuation token, present if the current list segment is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
-    #[serde(rename = "TableList")]
+    #[serde(rename = "tableList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_list: Option<Vec<Table>>,
 }
@@ -6314,15 +6314,15 @@ pub struct SearchTablesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityConfiguration {
     /// <p>The time at which this security configuration was created.</p>
-    #[serde(rename = "CreatedTimeStamp")]
+    #[serde(rename = "createdTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time_stamp: Option<f64>,
     /// <p>The encryption configuration associated with this security configuration.</p>
-    #[serde(rename = "EncryptionConfiguration")]
+    #[serde(rename = "encryptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_configuration: Option<EncryptionConfiguration>,
     /// <p>The name of the security configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -6332,10 +6332,10 @@ pub struct SecurityConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Segment {
     /// <p>The zero-based index number of the segment. For example, if the total number of segments is 4, <code>SegmentNumber</code> values range from 0 through 3.</p>
-    #[serde(rename = "SegmentNumber")]
+    #[serde(rename = "segmentNumber")]
     pub segment_number: i64,
     /// <p>The total number of segments.</p>
-    #[serde(rename = "TotalSegments")]
+    #[serde(rename = "totalSegments")]
     pub total_segments: i64,
 }
 
@@ -6343,15 +6343,15 @@ pub struct Segment {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SerDeInfo {
     /// <p>Name of the SerDe.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>These key-value pairs define initialization parameters for the SerDe.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Usually the class that implements the SerDe. An example is <code>org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe</code>.</p>
-    #[serde(rename = "SerializationLibrary")]
+    #[serde(rename = "serializationLibrary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serialization_library: Option<String>,
 }
@@ -6360,15 +6360,15 @@ pub struct SerDeInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SkewedInfo {
     /// <p>A list of names of columns that contain skewed values.</p>
-    #[serde(rename = "SkewedColumnNames")]
+    #[serde(rename = "skewedColumnNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skewed_column_names: Option<Vec<String>>,
     /// <p>A mapping of skewed values to the columns that contain them.</p>
-    #[serde(rename = "SkewedColumnValueLocationMaps")]
+    #[serde(rename = "skewedColumnValueLocationMaps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skewed_column_value_location_maps: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of values that appear so frequently as to be considered skewed.</p>
-    #[serde(rename = "SkewedColumnValues")]
+    #[serde(rename = "skewedColumnValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skewed_column_values: Option<Vec<String>>,
 }
@@ -6378,11 +6378,11 @@ pub struct SkewedInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SortCriterion {
     /// <p>The name of the field on which to sort.</p>
-    #[serde(rename = "FieldName")]
+    #[serde(rename = "fieldName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_name: Option<String>,
     /// <p>An ascending or descending sort.</p>
-    #[serde(rename = "Sort")]
+    #[serde(rename = "sort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort: Option<String>,
 }
@@ -6391,7 +6391,7 @@ pub struct SortCriterion {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartCrawlerRequest {
     /// <p>Name of the crawler to start.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -6403,7 +6403,7 @@ pub struct StartCrawlerResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartCrawlerScheduleRequest {
     /// <p>Name of the crawler to schedule.</p>
-    #[serde(rename = "CrawlerName")]
+    #[serde(rename = "crawlerName")]
     pub crawler_name: String,
 }
 
@@ -6415,10 +6415,10 @@ pub struct StartCrawlerScheduleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartExportLabelsTaskRunRequest {
     /// <p>The Amazon S3 path where you export the labels.</p>
-    #[serde(rename = "OutputS3Path")]
+    #[serde(rename = "outputS3Path")]
     pub output_s3_path: String,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -6426,7 +6426,7 @@ pub struct StartExportLabelsTaskRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartExportLabelsTaskRunResponse {
     /// <p>The unique identifier for the task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
 }
@@ -6435,14 +6435,14 @@ pub struct StartExportLabelsTaskRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartImportLabelsTaskRunRequest {
     /// <p>The Amazon Simple Storage Service (Amazon S3) path from where you import the labels.</p>
-    #[serde(rename = "InputS3Path")]
+    #[serde(rename = "inputS3Path")]
     pub input_s3_path: String,
     /// <p>Indicates whether to overwrite your existing labels.</p>
-    #[serde(rename = "ReplaceAllLabels")]
+    #[serde(rename = "replaceAllLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replace_all_labels: Option<bool>,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -6450,7 +6450,7 @@ pub struct StartImportLabelsTaskRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartImportLabelsTaskRunResponse {
     /// <p>The unique identifier for the task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
 }
@@ -6459,38 +6459,38 @@ pub struct StartImportLabelsTaskRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartJobRunRequest {
     /// <p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-    #[serde(rename = "Arguments")]
+    #[serde(rename = "arguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the job definition to use.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>The ID of a previous <code>JobRun</code> to retry.</p>
-    #[serde(rename = "JobRunId")]
+    #[serde(rename = "jobRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run_id: Option<String>,
     /// <p><p>The number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job, or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=&quot;pythonshell&quot;), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=&quot;glueetl&quot;), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul></p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>Specifies configuration properties of a job run notification.</p>
-    #[serde(rename = "NotificationProperty")]
+    #[serde(rename = "notificationProperty")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_property: Option<NotificationProperty>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job run.</p>
-    #[serde(rename = "SecurityConfiguration")]
+    #[serde(rename = "securityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_configuration: Option<String>,
     /// <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p><p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -6499,7 +6499,7 @@ pub struct StartJobRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartJobRunResponse {
     /// <p>The ID assigned to this job run.</p>
-    #[serde(rename = "JobRunId")]
+    #[serde(rename = "jobRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_run_id: Option<String>,
 }
@@ -6508,7 +6508,7 @@ pub struct StartJobRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartMLEvaluationTaskRunRequest {
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -6516,7 +6516,7 @@ pub struct StartMLEvaluationTaskRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartMLEvaluationTaskRunResponse {
     /// <p>The unique identifier associated with this run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
 }
@@ -6525,10 +6525,10 @@ pub struct StartMLEvaluationTaskRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartMLLabelingSetGenerationTaskRunRequest {
     /// <p>The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.</p>
-    #[serde(rename = "OutputS3Path")]
+    #[serde(rename = "outputS3Path")]
     pub output_s3_path: String,
     /// <p>The unique identifier of the machine learning transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
 }
 
@@ -6536,7 +6536,7 @@ pub struct StartMLLabelingSetGenerationTaskRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartMLLabelingSetGenerationTaskRunResponse {
     /// <p>The unique run identifier that is associated with this task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
 }
@@ -6545,7 +6545,7 @@ pub struct StartMLLabelingSetGenerationTaskRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTriggerRequest {
     /// <p>The name of the trigger to start.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -6553,7 +6553,7 @@ pub struct StartTriggerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTriggerResponse {
     /// <p>The name of the trigger that was started.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -6562,7 +6562,7 @@ pub struct StartTriggerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartWorkflowRunRequest {
     /// <p>The name of the workflow to start.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -6570,7 +6570,7 @@ pub struct StartWorkflowRunRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartWorkflowRunResponse {
     /// <p>An Id for the new run.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_id: Option<String>,
 }
@@ -6579,7 +6579,7 @@ pub struct StartWorkflowRunResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopCrawlerRequest {
     /// <p>Name of the crawler to stop.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -6591,7 +6591,7 @@ pub struct StopCrawlerResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopCrawlerScheduleRequest {
     /// <p>Name of the crawler whose schedule state to set.</p>
-    #[serde(rename = "CrawlerName")]
+    #[serde(rename = "crawlerName")]
     pub crawler_name: String,
 }
 
@@ -6603,7 +6603,7 @@ pub struct StopCrawlerScheduleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopTriggerRequest {
     /// <p>The name of the trigger to stop.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -6611,7 +6611,7 @@ pub struct StopTriggerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopTriggerResponse {
     /// <p>The name of the trigger that was stopped.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -6620,10 +6620,10 @@ pub struct StopTriggerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopWorkflowRunRequest {
     /// <p>The name of the workflow to stop.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ID of the workflow run to stop.</p>
-    #[serde(rename = "RunId")]
+    #[serde(rename = "runId")]
     pub run_id: String,
 }
 
@@ -6635,55 +6635,55 @@ pub struct StopWorkflowRunResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StorageDescriptor {
     /// <p>A list of reducer grouping columns, clustering columns, and bucketing columns in the table.</p>
-    #[serde(rename = "BucketColumns")]
+    #[serde(rename = "bucketColumns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_columns: Option<Vec<String>>,
     /// <p>A list of the <code>Columns</code> in the table.</p>
-    #[serde(rename = "Columns")]
+    #[serde(rename = "columns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub columns: Option<Vec<Column>>,
     /// <p> <code>True</code> if the data in the table is compressed, or <code>False</code> if not.</p>
-    #[serde(rename = "Compressed")]
+    #[serde(rename = "compressed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compressed: Option<bool>,
     /// <p>The input format: <code>SequenceFileInputFormat</code> (binary), or <code>TextInputFormat</code>, or a custom format.</p>
-    #[serde(rename = "InputFormat")]
+    #[serde(rename = "inputFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_format: Option<String>,
     /// <p>The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// <p>Must be specified if the table contains any dimension columns.</p>
-    #[serde(rename = "NumberOfBuckets")]
+    #[serde(rename = "numberOfBuckets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_buckets: Option<i64>,
     /// <p>The output format: <code>SequenceFileOutputFormat</code> (binary), or <code>IgnoreKeyTextOutputFormat</code>, or a custom format.</p>
-    #[serde(rename = "OutputFormat")]
+    #[serde(rename = "outputFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_format: Option<String>,
     /// <p>The user-supplied properties in key-value form.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>An object that references a schema stored in the Glue Schema Registry.</p> <p>When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.</p>
-    #[serde(rename = "SchemaReference")]
+    #[serde(rename = "schemaReference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_reference: Option<SchemaReference>,
     /// <p>The serialization/deserialization (SerDe) information.</p>
-    #[serde(rename = "SerdeInfo")]
+    #[serde(rename = "serdeInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serde_info: Option<SerDeInfo>,
     /// <p>The information about values that appear frequently in a column (skewed values).</p>
-    #[serde(rename = "SkewedInfo")]
+    #[serde(rename = "skewedInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skewed_info: Option<SkewedInfo>,
     /// <p>A list specifying the sort order of each bucket in the table.</p>
-    #[serde(rename = "SortColumns")]
+    #[serde(rename = "sortColumns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_columns: Option<Vec<Order>>,
     /// <p> <code>True</code> if the table data is stored in subdirectories, or <code>False</code> if not.</p>
-    #[serde(rename = "StoredAsSubDirectories")]
+    #[serde(rename = "storedAsSubDirectories")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stored_as_sub_directories: Option<bool>,
 }
@@ -6692,16 +6692,16 @@ pub struct StorageDescriptor {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StringColumnStatisticsData {
     /// <p>The average string length in the column.</p>
-    #[serde(rename = "AverageLength")]
+    #[serde(rename = "averageLength")]
     pub average_length: f64,
     /// <p>The size of the longest string in the column.</p>
-    #[serde(rename = "MaximumLength")]
+    #[serde(rename = "maximumLength")]
     pub maximum_length: i64,
     /// <p>The number of distinct values in a column.</p>
-    #[serde(rename = "NumberOfDistinctValues")]
+    #[serde(rename = "numberOfDistinctValues")]
     pub number_of_distinct_values: i64,
     /// <p>The number of null values in the column.</p>
-    #[serde(rename = "NumberOfNulls")]
+    #[serde(rename = "numberOfNulls")]
     pub number_of_nulls: i64,
 }
 
@@ -6710,78 +6710,78 @@ pub struct StringColumnStatisticsData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Table {
     /// <p>The ID of the Data Catalog in which the table resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The time when the table definition was created in the Data Catalog.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>The person or entity who created the table.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The name of the database where the table metadata resides. For Hive compatibility, this must be all lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>A description of the table.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Indicates whether the table has been registered with Lake Formation.</p>
-    #[serde(rename = "IsRegisteredWithLakeFormation")]
+    #[serde(rename = "isRegisteredWithLakeFormation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_registered_with_lake_formation: Option<bool>,
     /// <p>The last time that the table was accessed. This is usually taken from HDFS, and might not be reliable.</p>
-    #[serde(rename = "LastAccessTime")]
+    #[serde(rename = "lastAccessTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_access_time: Option<f64>,
     /// <p>The last time that column statistics were computed for this table.</p>
-    #[serde(rename = "LastAnalyzedTime")]
+    #[serde(rename = "lastAnalyzedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_analyzed_time: Option<f64>,
     /// <p>The table name. For Hive compatibility, this must be entirely lowercase.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The owner of the table.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>These key-value pairs define properties associated with the table.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.</p> <p>When you create a table used by Amazon Athena, and you do not specify any <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to an empty list. For example:</p> <p> <code>"PartitionKeys": []</code> </p>
-    #[serde(rename = "PartitionKeys")]
+    #[serde(rename = "partitionKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_keys: Option<Vec<Column>>,
     /// <p>The retention time for this table.</p>
-    #[serde(rename = "Retention")]
+    #[serde(rename = "retention")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention: Option<i64>,
     /// <p>A storage descriptor containing information about the physical storage of this table.</p>
-    #[serde(rename = "StorageDescriptor")]
+    #[serde(rename = "storageDescriptor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_descriptor: Option<StorageDescriptor>,
     /// <p>The type of this table (<code>EXTERNAL_TABLE</code>, <code>VIRTUAL_VIEW</code>, etc.).</p>
-    #[serde(rename = "TableType")]
+    #[serde(rename = "tableType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_type: Option<String>,
     /// <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
-    #[serde(rename = "TargetTable")]
+    #[serde(rename = "targetTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_table: Option<TableIdentifier>,
     /// <p>The last time that the table was updated.</p>
-    #[serde(rename = "UpdateTime")]
+    #[serde(rename = "updateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_time: Option<f64>,
     /// <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
-    #[serde(rename = "ViewExpandedText")]
+    #[serde(rename = "viewExpandedText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub view_expanded_text: Option<String>,
     /// <p>If the table is a view, the original text of the view; otherwise <code>null</code>.</p>
-    #[serde(rename = "ViewOriginalText")]
+    #[serde(rename = "viewOriginalText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub view_original_text: Option<String>,
 }
@@ -6791,11 +6791,11 @@ pub struct Table {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TableError {
     /// <p>The details about the error.</p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<ErrorDetail>,
     /// <p>The name of the table. For Hive compatibility, this must be entirely lowercase.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_name: Option<String>,
 }
@@ -6804,15 +6804,15 @@ pub struct TableError {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TableIdentifier {
     /// <p>The ID of the Data Catalog in which the table resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database that contains the target table.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>The name of the target table.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -6822,54 +6822,54 @@ pub struct TableIdentifier {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TableInput {
     /// <p>A description of the table.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The last time that the table was accessed.</p>
-    #[serde(rename = "LastAccessTime")]
+    #[serde(rename = "lastAccessTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_access_time: Option<f64>,
     /// <p>The last time that column statistics were computed for this table.</p>
-    #[serde(rename = "LastAnalyzedTime")]
+    #[serde(rename = "lastAnalyzedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_analyzed_time: Option<f64>,
     /// <p>The table name. For Hive compatibility, this is folded to lowercase when it is stored.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The table owner.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>These key-value pairs define properties associated with the table.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.</p> <p>When you create a table used by Amazon Athena, and you do not specify any <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to an empty list. For example:</p> <p> <code>"PartitionKeys": []</code> </p>
-    #[serde(rename = "PartitionKeys")]
+    #[serde(rename = "partitionKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_keys: Option<Vec<Column>>,
     /// <p>The retention time for this table.</p>
-    #[serde(rename = "Retention")]
+    #[serde(rename = "retention")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention: Option<i64>,
     /// <p>A storage descriptor containing information about the physical storage of this table.</p>
-    #[serde(rename = "StorageDescriptor")]
+    #[serde(rename = "storageDescriptor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_descriptor: Option<StorageDescriptor>,
     /// <p>The type of this table (<code>EXTERNAL_TABLE</code>, <code>VIRTUAL_VIEW</code>, etc.).</p>
-    #[serde(rename = "TableType")]
+    #[serde(rename = "tableType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_type: Option<String>,
     /// <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
-    #[serde(rename = "TargetTable")]
+    #[serde(rename = "targetTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_table: Option<TableIdentifier>,
     /// <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
-    #[serde(rename = "ViewExpandedText")]
+    #[serde(rename = "viewExpandedText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub view_expanded_text: Option<String>,
     /// <p>If the table is a view, the original text of the view; otherwise <code>null</code>.</p>
-    #[serde(rename = "ViewOriginalText")]
+    #[serde(rename = "viewOriginalText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub view_original_text: Option<String>,
 }
@@ -6879,11 +6879,11 @@ pub struct TableInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TableVersion {
     /// <p>The table in question.</p>
-    #[serde(rename = "Table")]
+    #[serde(rename = "table")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table: Option<Table>,
     /// <p>The ID value that identifies this table version. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -6893,15 +6893,15 @@ pub struct TableVersion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TableVersionError {
     /// <p>The details about the error.</p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<ErrorDetail>,
     /// <p>The name of the table in question.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_name: Option<String>,
     /// <p>The ID value of the version in question. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -6910,10 +6910,10 @@ pub struct TableVersionError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the Glue resource to which to add the tags. For more information about Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">Glue ARN string pattern</a>.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Tags to add to this resource.</p>
-    #[serde(rename = "TagsToAdd")]
+    #[serde(rename = "tagsToAdd")]
     pub tags_to_add: ::std::collections::HashMap<String, String>,
 }
 
@@ -6926,43 +6926,43 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaskRun {
     /// <p>The last point in time that the requested task run was completed.</p>
-    #[serde(rename = "CompletedOn")]
+    #[serde(rename = "completedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_on: Option<f64>,
     /// <p>The list of error strings associated with this task run.</p>
-    #[serde(rename = "ErrorString")]
+    #[serde(rename = "errorString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_string: Option<String>,
     /// <p>The amount of time (in seconds) that the task run consumed resources.</p>
-    #[serde(rename = "ExecutionTime")]
+    #[serde(rename = "executionTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_time: Option<i64>,
     /// <p>The last point in time that the requested task run was updated.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>The names of the log group for secure logging, associated with this task run.</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
     /// <p>Specifies configuration properties associated with this task run.</p>
-    #[serde(rename = "Properties")]
+    #[serde(rename = "properties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub properties: Option<TaskRunProperties>,
     /// <p>The date and time that this task run started.</p>
-    #[serde(rename = "StartedOn")]
+    #[serde(rename = "startedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_on: Option<f64>,
     /// <p>The current status of the requested task run.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The unique identifier for this task run.</p>
-    #[serde(rename = "TaskRunId")]
+    #[serde(rename = "taskRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_id: Option<String>,
     /// <p>The unique identifier for the transform.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
 }
@@ -6972,19 +6972,19 @@ pub struct TaskRun {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TaskRunFilterCriteria {
     /// <p>Filter on task runs started after this date.</p>
-    #[serde(rename = "StartedAfter")]
+    #[serde(rename = "startedAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_after: Option<f64>,
     /// <p>Filter on task runs started before this date.</p>
-    #[serde(rename = "StartedBefore")]
+    #[serde(rename = "startedBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_before: Option<f64>,
     /// <p>The current status of the task run.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The type of task run.</p>
-    #[serde(rename = "TaskRunType")]
+    #[serde(rename = "taskRunType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_type: Option<String>,
 }
@@ -6994,23 +6994,23 @@ pub struct TaskRunFilterCriteria {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaskRunProperties {
     /// <p>The configuration properties for an exporting labels task run.</p>
-    #[serde(rename = "ExportLabelsTaskRunProperties")]
+    #[serde(rename = "exportLabelsTaskRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_labels_task_run_properties: Option<ExportLabelsTaskRunProperties>,
     /// <p>The configuration properties for a find matches task run.</p>
-    #[serde(rename = "FindMatchesTaskRunProperties")]
+    #[serde(rename = "findMatchesTaskRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub find_matches_task_run_properties: Option<FindMatchesTaskRunProperties>,
     /// <p>The configuration properties for an importing labels task run.</p>
-    #[serde(rename = "ImportLabelsTaskRunProperties")]
+    #[serde(rename = "importLabelsTaskRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_labels_task_run_properties: Option<ImportLabelsTaskRunProperties>,
     /// <p>The configuration properties for a labeling set generation task run.</p>
-    #[serde(rename = "LabelingSetGenerationTaskRunProperties")]
+    #[serde(rename = "labelingSetGenerationTaskRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labeling_set_generation_task_run_properties: Option<LabelingSetGenerationTaskRunProperties>,
     /// <p>The type of task run.</p>
-    #[serde(rename = "TaskType")]
+    #[serde(rename = "taskType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_type: Option<String>,
 }
@@ -7020,10 +7020,10 @@ pub struct TaskRunProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TaskRunSortCriteria {
     /// <p>The column to be used to sort the list of task runs for the machine learning transform.</p>
-    #[serde(rename = "Column")]
+    #[serde(rename = "column")]
     pub column: String,
     /// <p>The sort direction to be used to sort the list of task runs for the machine learning transform.</p>
-    #[serde(rename = "SortDirection")]
+    #[serde(rename = "sortDirection")]
     pub sort_direction: String,
 }
 
@@ -7031,11 +7031,11 @@ pub struct TaskRunSortCriteria {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TransformEncryption {
     /// <p>An <code>MLUserDataEncryption</code> object containing the encryption mode and customer-provided KMS key ID.</p>
-    #[serde(rename = "MlUserDataEncryption")]
+    #[serde(rename = "mlUserDataEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ml_user_data_encryption: Option<MLUserDataEncryption>,
     /// <p>The name of the security configuration.</p>
-    #[serde(rename = "TaskRunSecurityConfigurationName")]
+    #[serde(rename = "taskRunSecurityConfigurationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_run_security_configuration_name: Option<String>,
 }
@@ -7045,39 +7045,39 @@ pub struct TransformEncryption {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TransformFilterCriteria {
     /// <p>The time and date after which the transforms were created.</p>
-    #[serde(rename = "CreatedAfter")]
+    #[serde(rename = "createdAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_after: Option<f64>,
     /// <p>The time and date before which the transforms were created.</p>
-    #[serde(rename = "CreatedBefore")]
+    #[serde(rename = "createdBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_before: Option<f64>,
     /// <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>Filter on transforms last modified after this date.</p>
-    #[serde(rename = "LastModifiedAfter")]
+    #[serde(rename = "lastModifiedAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_after: Option<f64>,
     /// <p>Filter on transforms last modified before this date.</p>
-    #[serde(rename = "LastModifiedBefore")]
+    #[serde(rename = "lastModifiedBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_before: Option<f64>,
     /// <p>A unique transform name that is used to filter the machine learning transforms.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Filters on datasets with a specific schema. The <code>Map&lt;Column, Type&gt;</code> object is an array of key-value pairs representing the schema this transform accepts, where <code>Column</code> is the name of a column, and <code>Type</code> is the type of the data such as an integer or string. Has an upper bound of 100 columns.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<Vec<SchemaColumn>>,
     /// <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The type of machine learning transform that is used to filter the machine learning transforms.</p>
-    #[serde(rename = "TransformType")]
+    #[serde(rename = "transformType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_type: Option<String>,
 }
@@ -7086,11 +7086,11 @@ pub struct TransformFilterCriteria {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TransformParameters {
     /// <p>The parameters for the find matches algorithm.</p>
-    #[serde(rename = "FindMatchesParameters")]
+    #[serde(rename = "findMatchesParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub find_matches_parameters: Option<FindMatchesParameters>,
     /// <p>The type of machine learning transform.</p> <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
-    #[serde(rename = "TransformType")]
+    #[serde(rename = "transformType")]
     pub transform_type: String,
 }
 
@@ -7099,10 +7099,10 @@ pub struct TransformParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TransformSortCriteria {
     /// <p>The column to be used in the sorting criteria that are associated with the machine learning transform.</p>
-    #[serde(rename = "Column")]
+    #[serde(rename = "column")]
     pub column: String,
     /// <p>The sort direction to be used in the sorting criteria that are associated with the machine learning transform.</p>
-    #[serde(rename = "SortDirection")]
+    #[serde(rename = "sortDirection")]
     pub sort_direction: String,
 }
 
@@ -7111,39 +7111,39 @@ pub struct TransformSortCriteria {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Trigger {
     /// <p>The actions initiated by this trigger.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub actions: Option<Vec<Action>>,
     /// <p>A description of this trigger.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Reserved for future use.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the trigger.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The predicate of this trigger, which defines when it will fire.</p>
-    #[serde(rename = "Predicate")]
+    #[serde(rename = "predicate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predicate: Option<Predicate>,
     /// <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
     /// <p>The current state of the trigger.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The type of trigger that this is.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The name of the workflow associated with the trigger.</p>
-    #[serde(rename = "WorkflowName")]
+    #[serde(rename = "workflowName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflow_name: Option<String>,
 }
@@ -7153,7 +7153,7 @@ pub struct Trigger {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TriggerNodeDetails {
     /// <p>The information of the trigger represented by the trigger node.</p>
-    #[serde(rename = "Trigger")]
+    #[serde(rename = "trigger")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger: Option<Trigger>,
 }
@@ -7163,23 +7163,23 @@ pub struct TriggerNodeDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TriggerUpdate {
     /// <p>The actions initiated by this trigger.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub actions: Option<Vec<Action>>,
     /// <p>A description of this trigger.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Reserved for future use.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The predicate of this trigger, which defines when it will fire.</p>
-    #[serde(rename = "Predicate")]
+    #[serde(rename = "predicate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predicate: Option<Predicate>,
     /// <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
 }
@@ -7188,10 +7188,10 @@ pub struct TriggerUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Tags to remove from this resource.</p>
-    #[serde(rename = "TagsToRemove")]
+    #[serde(rename = "tagsToRemove")]
     pub tags_to_remove: Vec<String>,
 }
 
@@ -7203,19 +7203,19 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateClassifierRequest {
     /// <p>A <code>CsvClassifier</code> object with updated fields.</p>
-    #[serde(rename = "CsvClassifier")]
+    #[serde(rename = "csvClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csv_classifier: Option<UpdateCsvClassifierRequest>,
     /// <p>A <code>GrokClassifier</code> object with updated fields.</p>
-    #[serde(rename = "GrokClassifier")]
+    #[serde(rename = "grokClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grok_classifier: Option<UpdateGrokClassifierRequest>,
     /// <p>A <code>JsonClassifier</code> object with updated fields.</p>
-    #[serde(rename = "JsonClassifier")]
+    #[serde(rename = "jsonClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub json_classifier: Option<UpdateJsonClassifierRequest>,
     /// <p>An <code>XMLClassifier</code> object with updated fields.</p>
-    #[serde(rename = "XMLClassifier")]
+    #[serde(rename = "xMLClassifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub xml_classifier: Option<UpdateXMLClassifierRequest>,
 }
@@ -7228,20 +7228,20 @@ pub struct UpdateClassifierResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateColumnStatisticsForPartitionRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of the column statistics.</p>
-    #[serde(rename = "ColumnStatisticsList")]
+    #[serde(rename = "columnStatisticsList")]
     pub column_statistics_list: Vec<ColumnStatistics>,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A list of partition values identifying the partition.</p>
-    #[serde(rename = "PartitionValues")]
+    #[serde(rename = "partitionValues")]
     pub partition_values: Vec<String>,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -7249,7 +7249,7 @@ pub struct UpdateColumnStatisticsForPartitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateColumnStatisticsForPartitionResponse {
     /// <p>Error occurred during updating column statistics data.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ColumnStatisticsError>>,
 }
@@ -7258,17 +7258,17 @@ pub struct UpdateColumnStatisticsForPartitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateColumnStatisticsForTableRequest {
     /// <p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of the column statistics.</p>
-    #[serde(rename = "ColumnStatisticsList")]
+    #[serde(rename = "columnStatisticsList")]
     pub column_statistics_list: Vec<ColumnStatistics>,
     /// <p>The name of the catalog database where the partitions reside.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the partitions' table.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -7276,7 +7276,7 @@ pub struct UpdateColumnStatisticsForTableRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateColumnStatisticsForTableResponse {
     /// <p>List of ColumnStatisticsErrors.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ColumnStatisticsError>>,
 }
@@ -7285,14 +7285,14 @@ pub struct UpdateColumnStatisticsForTableResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionRequest {
     /// <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A <code>ConnectionInput</code> object that redefines the connection in question.</p>
-    #[serde(rename = "ConnectionInput")]
+    #[serde(rename = "connectionInput")]
     pub connection_input: ConnectionInput,
     /// <p>The name of the connection definition to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -7304,54 +7304,54 @@ pub struct UpdateConnectionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCrawlerRequest {
     /// <p>A list of custom classifiers that the user has registered. By default, all built-in classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.</p>
-    #[serde(rename = "Classifiers")]
+    #[serde(rename = "classifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classifiers: Option<Vec<String>>,
     /// <p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<String>,
     /// <p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>
-    #[serde(rename = "CrawlerSecurityConfiguration")]
+    #[serde(rename = "crawlerSecurityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crawler_security_configuration: Option<String>,
     /// <p>The Glue database where results are stored, such as: <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>A description of the new crawler.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies data lineage configuration settings for the crawler.</p>
-    #[serde(rename = "LineageConfiguration")]
+    #[serde(rename = "lineageConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lineage_configuration: Option<LineageConfiguration>,
     /// <p>Name of the new crawler.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
-    #[serde(rename = "RecrawlPolicy")]
+    #[serde(rename = "recrawlPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recrawl_policy: Option<RecrawlPolicy>,
     /// <p>The IAM role or Amazon Resource Name (ARN) of an IAM role that is used by the new crawler to access customer resources.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
     /// <p>The policy for the crawler's update and deletion behavior.</p>
-    #[serde(rename = "SchemaChangePolicy")]
+    #[serde(rename = "schemaChangePolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_change_policy: Option<SchemaChangePolicy>,
     /// <p>The table prefix used for catalog tables that are created.</p>
-    #[serde(rename = "TablePrefix")]
+    #[serde(rename = "tablePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_prefix: Option<String>,
     /// <p>A list of targets to crawl.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<CrawlerTargets>,
 }
@@ -7364,10 +7364,10 @@ pub struct UpdateCrawlerResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCrawlerScheduleRequest {
     /// <p>The name of the crawler whose schedule to update.</p>
-    #[serde(rename = "CrawlerName")]
+    #[serde(rename = "crawlerName")]
     pub crawler_name: String,
     /// <p>The updated <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
 }
@@ -7381,30 +7381,30 @@ pub struct UpdateCrawlerScheduleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCsvClassifierRequest {
     /// <p>Enables the processing of files that contain only one column.</p>
-    #[serde(rename = "AllowSingleColumn")]
+    #[serde(rename = "allowSingleColumn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_single_column: Option<bool>,
     /// <p>Indicates whether the CSV file contains a header.</p>
-    #[serde(rename = "ContainsHeader")]
+    #[serde(rename = "containsHeader")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contains_header: Option<String>,
     /// <p>A custom symbol to denote what separates each column entry in the row.</p>
-    #[serde(rename = "Delimiter")]
+    #[serde(rename = "delimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delimiter: Option<String>,
     /// <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-    #[serde(rename = "DisableValueTrimming")]
+    #[serde(rename = "disableValueTrimming")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_value_trimming: Option<bool>,
     /// <p>A list of strings representing column names.</p>
-    #[serde(rename = "Header")]
+    #[serde(rename = "header")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header: Option<Vec<String>>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.</p>
-    #[serde(rename = "QuoteSymbol")]
+    #[serde(rename = "quoteSymbol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_symbol: Option<String>,
 }
@@ -7413,14 +7413,14 @@ pub struct UpdateCsvClassifierRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDatabaseRequest {
     /// <p>The ID of the Data Catalog in which the metadata database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A <code>DatabaseInput</code> object specifying the new definition of the metadata database in the catalog.</p>
-    #[serde(rename = "DatabaseInput")]
+    #[serde(rename = "databaseInput")]
     pub database_input: DatabaseInput,
     /// <p>The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -7432,34 +7432,34 @@ pub struct UpdateDatabaseResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDevEndpointRequest {
     /// <p>The map of arguments to add the map of arguments used to configure the <code>DevEndpoint</code>.</p> <p>Valid arguments are:</p> <ul> <li> <p> <code>"--enable-glue-datacatalog": ""</code> </p> </li> </ul> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-    #[serde(rename = "AddArguments")]
+    #[serde(rename = "addArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_arguments: Option<::std::collections::HashMap<String, String>>,
     /// <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
-    #[serde(rename = "AddPublicKeys")]
+    #[serde(rename = "addPublicKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_public_keys: Option<Vec<String>>,
     /// <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "CustomLibraries")]
+    #[serde(rename = "customLibraries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_libraries: Option<DevEndpointCustomLibraries>,
     /// <p>The list of argument keys to be deleted from the map of arguments used to configure the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "DeleteArguments")]
+    #[serde(rename = "deleteArguments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_arguments: Option<Vec<String>>,
     /// <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
-    #[serde(rename = "DeletePublicKeys")]
+    #[serde(rename = "deletePublicKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_public_keys: Option<Vec<String>>,
     /// <p>The name of the <code>DevEndpoint</code> to be updated.</p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     pub endpoint_name: String,
     /// <p>The public key for the <code>DevEndpoint</code> to use.</p>
-    #[serde(rename = "PublicKey")]
+    #[serde(rename = "publicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_key: Option<String>,
     /// <p> <code>True</code> if the list of custom libraries to be loaded in the development endpoint needs to be updated, or <code>False</code> if otherwise.</p>
-    #[serde(rename = "UpdateEtlLibraries")]
+    #[serde(rename = "updateEtlLibraries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_etl_libraries: Option<bool>,
 }
@@ -7473,19 +7473,19 @@ pub struct UpdateDevEndpointResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGrokClassifierRequest {
     /// <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
-    #[serde(rename = "Classification")]
+    #[serde(rename = "classification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classification: Option<String>,
     /// <p>Optional custom grok patterns used by this classifier.</p>
-    #[serde(rename = "CustomPatterns")]
+    #[serde(rename = "customPatterns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_patterns: Option<String>,
     /// <p>The grok pattern used by this classifier.</p>
-    #[serde(rename = "GrokPattern")]
+    #[serde(rename = "grokPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grok_pattern: Option<String>,
     /// <p>The name of the <code>GrokClassifier</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -7493,10 +7493,10 @@ pub struct UpdateGrokClassifierRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateJobRequest {
     /// <p>The name of the job definition to update.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>Specifies the values with which to update the job definition.</p>
-    #[serde(rename = "JobUpdate")]
+    #[serde(rename = "jobUpdate")]
     pub job_update: JobUpdate,
 }
 
@@ -7504,7 +7504,7 @@ pub struct UpdateJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateJobResponse {
     /// <p>Returns the name of the updated job definition.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
 }
@@ -7514,11 +7514,11 @@ pub struct UpdateJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateJsonClassifierRequest {
     /// <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-    #[serde(rename = "JsonPath")]
+    #[serde(rename = "jsonPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub json_path: Option<String>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -7526,46 +7526,46 @@ pub struct UpdateJsonClassifierRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateMLTransformRequest {
     /// <p>A description of the transform. The default is an empty string.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-    #[serde(rename = "GlueVersion")]
+    #[serde(rename = "glueVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub glue_version: Option<String>,
     /// <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>. </p> <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-    #[serde(rename = "MaxCapacity")]
+    #[serde(rename = "maxCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_capacity: Option<f64>,
     /// <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-    #[serde(rename = "MaxRetries")]
+    #[serde(rename = "maxRetries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_retries: Option<i64>,
     /// <p>The unique name that you gave the transform when you created it.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-    #[serde(rename = "NumberOfWorkers")]
+    #[serde(rename = "numberOfWorkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_workers: Option<i64>,
     /// <p>The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<TransformParameters>,
     /// <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>A unique identifier that was generated when the transform was created.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     pub transform_id: String,
     /// <p><p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul></p>
-    #[serde(rename = "WorkerType")]
+    #[serde(rename = "workerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub worker_type: Option<String>,
 }
@@ -7574,7 +7574,7 @@ pub struct UpdateMLTransformRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateMLTransformResponse {
     /// <p>The unique identifier for the transform that was updated.</p>
-    #[serde(rename = "TransformId")]
+    #[serde(rename = "transformId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transform_id: Option<String>,
 }
@@ -7583,20 +7583,20 @@ pub struct UpdateMLTransformResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePartitionRequest {
     /// <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which the table in question resides.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The new partition object to update the partition to.</p> <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
-    #[serde(rename = "PartitionInput")]
+    #[serde(rename = "partitionInput")]
     pub partition_input: PartitionInput,
     /// <p>List of partition key values that define the partition to update.</p>
-    #[serde(rename = "PartitionValueList")]
+    #[serde(rename = "partitionValueList")]
     pub partition_value_list: Vec<String>,
     /// <p>The name of the table in which the partition to be updated is located.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -7608,10 +7608,10 @@ pub struct UpdatePartitionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRegistryInput {
     /// <p>A description of the registry. If description is not provided, this field will not be updated.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-    #[serde(rename = "RegistryId")]
+    #[serde(rename = "registryId")]
     pub registry_id: RegistryId,
 }
 
@@ -7619,11 +7619,11 @@ pub struct UpdateRegistryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRegistryResponse {
     /// <p>The Amazon Resource name (ARN) of the updated registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the updated registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
 }
@@ -7632,18 +7632,18 @@ pub struct UpdateRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSchemaInput {
     /// <p>The new compatibility setting for the schema.</p>
-    #[serde(rename = "Compatibility")]
+    #[serde(rename = "compatibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatibility: Option<String>,
     /// <p>The new description for the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p><p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> </ul></p>
-    #[serde(rename = "SchemaId")]
+    #[serde(rename = "schemaId")]
     pub schema_id: SchemaId,
     /// <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
-    #[serde(rename = "SchemaVersionNumber")]
+    #[serde(rename = "schemaVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version_number: Option<SchemaVersionNumber>,
 }
@@ -7652,15 +7652,15 @@ pub struct UpdateSchemaInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSchemaResponse {
     /// <p>The name of the registry that contains the schema.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
 }
@@ -7669,18 +7669,18 @@ pub struct UpdateSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTableRequest {
     /// <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>By default, <code>UpdateTable</code> always creates an archived version of the table before updating it. However, if <code>skipArchive</code> is set to true, <code>UpdateTable</code> does not create the archived version.</p>
-    #[serde(rename = "SkipArchive")]
+    #[serde(rename = "skipArchive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skip_archive: Option<bool>,
     /// <p>An updated <code>TableInput</code> object to define the metadata table in the catalog.</p>
-    #[serde(rename = "TableInput")]
+    #[serde(rename = "tableInput")]
     pub table_input: TableInput,
 }
 
@@ -7692,10 +7692,10 @@ pub struct UpdateTableResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTriggerRequest {
     /// <p>The name of the trigger to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The new values with which to update the trigger.</p>
-    #[serde(rename = "TriggerUpdate")]
+    #[serde(rename = "triggerUpdate")]
     pub trigger_update: TriggerUpdate,
 }
 
@@ -7703,7 +7703,7 @@ pub struct UpdateTriggerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateTriggerResponse {
     /// <p>The resulting trigger definition.</p>
-    #[serde(rename = "Trigger")]
+    #[serde(rename = "trigger")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trigger: Option<Trigger>,
 }
@@ -7712,17 +7712,17 @@ pub struct UpdateTriggerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserDefinedFunctionRequest {
     /// <p>The ID of the Data Catalog where the function to be updated is located. If none is provided, the Amazon Web Services account ID is used by default.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the catalog database where the function to be updated is located.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A <code>FunctionInput</code> object that redefines the function in the Data Catalog.</p>
-    #[serde(rename = "FunctionInput")]
+    #[serde(rename = "functionInput")]
     pub function_input: UserDefinedFunctionInput,
     /// <p>The name of the function.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     pub function_name: String,
 }
 
@@ -7734,19 +7734,19 @@ pub struct UpdateUserDefinedFunctionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateWorkflowRequest {
     /// <p>A collection of properties to be used as part of each execution of the workflow.</p>
-    #[serde(rename = "DefaultRunProperties")]
+    #[serde(rename = "defaultRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_run_properties: Option<::std::collections::HashMap<String, String>>,
     /// <p>The description of the workflow.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-    #[serde(rename = "MaxConcurrentRuns")]
+    #[serde(rename = "maxConcurrentRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_concurrent_runs: Option<i64>,
     /// <p>Name of the workflow to be updated.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -7754,7 +7754,7 @@ pub struct UpdateWorkflowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateWorkflowResponse {
     /// <p>The name of the workflow which was specified in input.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -7764,14 +7764,14 @@ pub struct UpdateWorkflowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateXMLClassifierRequest {
     /// <p>An identifier of the data format that the classifier matches.</p>
-    #[serde(rename = "Classification")]
+    #[serde(rename = "classification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classification: Option<String>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The XML tag designating the element that contains each record in an XML document being parsed. This cannot identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a="A" item_b="B"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a="A" item_b="B" /&gt;</code> is not).</p>
-    #[serde(rename = "RowTag")]
+    #[serde(rename = "rowTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_tag: Option<String>,
 }
@@ -7781,35 +7781,35 @@ pub struct UpdateXMLClassifierRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserDefinedFunction {
     /// <p>The ID of the Data Catalog in which the function resides.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The Java class that contains the function code.</p>
-    #[serde(rename = "ClassName")]
+    #[serde(rename = "className")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub class_name: Option<String>,
     /// <p>The time at which the function was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>The name of the catalog database that contains the function.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>The name of the function.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_name: Option<String>,
     /// <p>The owner of the function.</p>
-    #[serde(rename = "OwnerName")]
+    #[serde(rename = "ownerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_name: Option<String>,
     /// <p>The owner type.</p>
-    #[serde(rename = "OwnerType")]
+    #[serde(rename = "ownerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_type: Option<String>,
     /// <p>The resource URIs for the function.</p>
-    #[serde(rename = "ResourceUris")]
+    #[serde(rename = "resourceUris")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_uris: Option<Vec<ResourceUri>>,
 }
@@ -7819,23 +7819,23 @@ pub struct UserDefinedFunction {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UserDefinedFunctionInput {
     /// <p>The Java class that contains the function code.</p>
-    #[serde(rename = "ClassName")]
+    #[serde(rename = "className")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub class_name: Option<String>,
     /// <p>The name of the function.</p>
-    #[serde(rename = "FunctionName")]
+    #[serde(rename = "functionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub function_name: Option<String>,
     /// <p>The owner of the function.</p>
-    #[serde(rename = "OwnerName")]
+    #[serde(rename = "ownerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_name: Option<String>,
     /// <p>The owner type.</p>
-    #[serde(rename = "OwnerType")]
+    #[serde(rename = "ownerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_type: Option<String>,
     /// <p>The resource URIs for the function.</p>
-    #[serde(rename = "ResourceUris")]
+    #[serde(rename = "resourceUris")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_uris: Option<Vec<ResourceUri>>,
 }
@@ -7845,35 +7845,35 @@ pub struct UserDefinedFunctionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Workflow {
     /// <p>The date and time when the workflow was created.</p>
-    #[serde(rename = "CreatedOn")]
+    #[serde(rename = "createdOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_on: Option<f64>,
     /// <p>A collection of properties to be used as part of each execution of the workflow.</p>
-    #[serde(rename = "DefaultRunProperties")]
+    #[serde(rename = "defaultRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_run_properties: Option<::std::collections::HashMap<String, String>>,
     /// <p>A description of the workflow.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The graph representing all the Glue components that belong to the workflow as nodes and directed connections between them as edges.</p>
-    #[serde(rename = "Graph")]
+    #[serde(rename = "graph")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub graph: Option<WorkflowGraph>,
     /// <p>The date and time when the workflow was last modified.</p>
-    #[serde(rename = "LastModifiedOn")]
+    #[serde(rename = "lastModifiedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_on: Option<f64>,
     /// <p>The information about the last execution of the workflow.</p>
-    #[serde(rename = "LastRun")]
+    #[serde(rename = "lastRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_run: Option<WorkflowRun>,
     /// <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-    #[serde(rename = "MaxConcurrentRuns")]
+    #[serde(rename = "maxConcurrentRuns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_concurrent_runs: Option<i64>,
     /// <p>The name of the workflow representing the flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -7883,11 +7883,11 @@ pub struct Workflow {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkflowGraph {
     /// <p>A list of all the directed connections between the nodes belonging to the workflow.</p>
-    #[serde(rename = "Edges")]
+    #[serde(rename = "edges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub edges: Option<Vec<Edge>>,
     /// <p>A list of the the Glue components belong to the workflow represented as nodes.</p>
-    #[serde(rename = "Nodes")]
+    #[serde(rename = "nodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nodes: Option<Vec<Node>>,
 }
@@ -7897,43 +7897,43 @@ pub struct WorkflowGraph {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkflowRun {
     /// <p>The date and time when the workflow run completed.</p>
-    #[serde(rename = "CompletedOn")]
+    #[serde(rename = "completedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_on: Option<f64>,
     /// <p>This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: <code>foo</code>."</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The graph representing all the Glue components that belong to the workflow as nodes and directed connections between them as edges.</p>
-    #[serde(rename = "Graph")]
+    #[serde(rename = "graph")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub graph: Option<WorkflowGraph>,
     /// <p>Name of the workflow that was run.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the previous workflow run.</p>
-    #[serde(rename = "PreviousRunId")]
+    #[serde(rename = "previousRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub previous_run_id: Option<String>,
     /// <p>The date and time when the workflow run was started.</p>
-    #[serde(rename = "StartedOn")]
+    #[serde(rename = "startedOn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_on: Option<f64>,
     /// <p>The statistics of the run.</p>
-    #[serde(rename = "Statistics")]
+    #[serde(rename = "statistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statistics: Option<WorkflowRunStatistics>,
     /// <p>The status of the workflow run.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The ID of this workflow run.</p>
-    #[serde(rename = "WorkflowRunId")]
+    #[serde(rename = "workflowRunId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflow_run_id: Option<String>,
     /// <p>The workflow run properties which were set during the run.</p>
-    #[serde(rename = "WorkflowRunProperties")]
+    #[serde(rename = "workflowRunProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workflow_run_properties: Option<::std::collections::HashMap<String, String>>,
 }
@@ -7943,27 +7943,27 @@ pub struct WorkflowRun {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkflowRunStatistics {
     /// <p>Total number of Actions that have failed.</p>
-    #[serde(rename = "FailedActions")]
+    #[serde(rename = "failedActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_actions: Option<i64>,
     /// <p>Total number Actions in running state.</p>
-    #[serde(rename = "RunningActions")]
+    #[serde(rename = "runningActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub running_actions: Option<i64>,
     /// <p>Total number of Actions that have stopped.</p>
-    #[serde(rename = "StoppedActions")]
+    #[serde(rename = "stoppedActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stopped_actions: Option<i64>,
     /// <p>Total number of Actions that have succeeded.</p>
-    #[serde(rename = "SucceededActions")]
+    #[serde(rename = "succeededActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub succeeded_actions: Option<i64>,
     /// <p>Total number of Actions that timed out.</p>
-    #[serde(rename = "TimeoutActions")]
+    #[serde(rename = "timeoutActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_actions: Option<i64>,
     /// <p>Total number of Actions in the workflow run.</p>
-    #[serde(rename = "TotalActions")]
+    #[serde(rename = "totalActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_actions: Option<i64>,
 }
@@ -7973,25 +7973,25 @@ pub struct WorkflowRunStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct XMLClassifier {
     /// <p>An identifier of the data format that the classifier matches.</p>
-    #[serde(rename = "Classification")]
+    #[serde(rename = "classification")]
     pub classification: String,
     /// <p>The time that this classifier was registered.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The time that this classifier was last updated.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>The name of the classifier.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a="A" item_b="B"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a="A" item_b="B" /&gt;</code> is not).</p>
-    #[serde(rename = "RowTag")]
+    #[serde(rename = "rowTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_tag: Option<String>,
     /// <p>The version of this classifier.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<i64>,
 }

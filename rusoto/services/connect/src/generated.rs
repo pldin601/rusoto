@@ -29,10 +29,10 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateApprovedOriginRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The domain to add to your allow list.</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     pub origin: String,
 }
 
@@ -40,13 +40,13 @@ pub struct AssociateApprovedOriginRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateBotRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
-    #[serde(rename = "LexBot")]
+    #[serde(rename = "lexBot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_bot: Option<LexBot>,
     /// <p>The Amazon Lex V2 bot to associate with the instance.</p>
-    #[serde(rename = "LexV2Bot")]
+    #[serde(rename = "lexV2Bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_v2_bot: Option<LexV2Bot>,
 }
@@ -55,13 +55,13 @@ pub struct AssociateBotRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateInstanceStorageConfigRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>A valid resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
     /// <p>A valid storage type.</p>
-    #[serde(rename = "StorageConfig")]
+    #[serde(rename = "storageConfig")]
     pub storage_config: InstanceStorageConfig,
 }
 
@@ -69,7 +69,7 @@ pub struct AssociateInstanceStorageConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateInstanceStorageConfigResponse {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_id: Option<String>,
 }
@@ -78,10 +78,10 @@ pub struct AssociateInstanceStorageConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateLambdaFunctionRequest {
     /// <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is 140.</p>
-    #[serde(rename = "FunctionArn")]
+    #[serde(rename = "functionArn")]
     pub function_arn: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -89,10 +89,10 @@ pub struct AssociateLambdaFunctionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateLexBotRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The Amazon Lex bot to associate with the instance.</p>
-    #[serde(rename = "LexBot")]
+    #[serde(rename = "lexBot")]
     pub lex_bot: LexBot,
 }
 
@@ -100,13 +100,13 @@ pub struct AssociateLexBotRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateQueueQuickConnectsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
     /// <p>The quick connects to associate with this queue.</p>
-    #[serde(rename = "QuickConnectIds")]
+    #[serde(rename = "quickConnectIds")]
     pub quick_connect_ids: Vec<String>,
 }
 
@@ -114,13 +114,13 @@ pub struct AssociateQueueQuickConnectsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateRoutingProfileQueuesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The queues to associate with this routing profile.</p>
-    #[serde(rename = "QueueConfigs")]
+    #[serde(rename = "queueConfigs")]
     pub queue_configs: Vec<RoutingProfileQueueConfig>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -128,10 +128,10 @@ pub struct AssociateRoutingProfileQueuesRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateSecurityKeyRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>A valid security key in PEM format.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
 }
 
@@ -139,7 +139,7 @@ pub struct AssociateSecurityKeyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateSecurityKeyResponse {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_id: Option<String>,
 }
@@ -149,11 +149,11 @@ pub struct AssociateSecurityKeyResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Attribute {
     /// <p>The type of attribute.</p>
-    #[serde(rename = "AttributeType")]
+    #[serde(rename = "attributeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_type: Option<String>,
     /// <p>The value of the attribute.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -163,10 +163,10 @@ pub struct Attribute {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ChatMessage {
     /// <p>The content of the chat message.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>The type of the content. Supported types are text and plain.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     pub content_type: String,
 }
 
@@ -175,31 +175,31 @@ pub struct ChatMessage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ContactFlow {
     /// <p>The Amazon Resource Name (ARN) of the contact flow.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The content of the contact flow.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The description of the contact flow.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the contact flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -209,19 +209,19 @@ pub struct ContactFlow {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ContactFlowSummary {
     /// <p>The Amazon Resource Name (ARN) of the contact flow.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The type of contact flow.</p>
-    #[serde(rename = "ContactFlowType")]
+    #[serde(rename = "contactFlowType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_flow_type: Option<String>,
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the contact flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -230,24 +230,24 @@ pub struct ContactFlowSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateContactFlowRequest {
     /// <p>The content of the contact flow. </p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>The description of the contact flow. </p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the contact flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -255,11 +255,11 @@ pub struct CreateContactFlowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateContactFlowResponse {
     /// <p>The Amazon Resource Name (ARN) of the contact flow.</p>
-    #[serde(rename = "ContactFlowArn")]
+    #[serde(rename = "contactFlowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_flow_arn: Option<String>,
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_flow_id: Option<String>,
 }
@@ -268,25 +268,25 @@ pub struct CreateContactFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateInstanceRequest {
     /// <p>The idempotency token.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The identifier for the directory.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>The type of identity management for your Amazon Connect users.</p>
-    #[serde(rename = "IdentityManagementType")]
+    #[serde(rename = "identityManagementType")]
     pub identity_management_type: String,
     /// <p>Your contact center handles incoming contacts.</p>
-    #[serde(rename = "InboundCallsEnabled")]
+    #[serde(rename = "inboundCallsEnabled")]
     pub inbound_calls_enabled: bool,
     /// <p>The name for your instance.</p>
-    #[serde(rename = "InstanceAlias")]
+    #[serde(rename = "instanceAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_alias: Option<String>,
     /// <p>Your contact center allows outbound calls.</p>
-    #[serde(rename = "OutboundCallsEnabled")]
+    #[serde(rename = "outboundCallsEnabled")]
     pub outbound_calls_enabled: bool,
 }
 
@@ -294,11 +294,11 @@ pub struct CreateInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateInstanceResponse {
     /// <p>The Amazon Resource Name (ARN) of the instance.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier for the instance.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -307,25 +307,25 @@ pub struct CreateInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIntegrationAssociationRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The Amazon Resource Name (ARN) of the integration.</p>
-    #[serde(rename = "IntegrationArn")]
+    #[serde(rename = "integrationArn")]
     pub integration_arn: String,
     /// <p>The type of information to be ingested.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     pub integration_type: String,
     /// <p>The name of the external application.</p>
-    #[serde(rename = "SourceApplicationName")]
+    #[serde(rename = "sourceApplicationName")]
     pub source_application_name: String,
     /// <p>The URL for the external application.</p>
-    #[serde(rename = "SourceApplicationUrl")]
+    #[serde(rename = "sourceApplicationUrl")]
     pub source_application_url: String,
     /// <p>The type of the data source.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     pub source_type: String,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -334,11 +334,11 @@ pub struct CreateIntegrationAssociationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIntegrationAssociationResponse {
     /// <p>The Amazon Resource Name (ARN) for the association.</p>
-    #[serde(rename = "IntegrationAssociationArn")]
+    #[serde(rename = "integrationAssociationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_association_arn: Option<String>,
     /// <p>The identifier for the association.</p>
-    #[serde(rename = "IntegrationAssociationId")]
+    #[serde(rename = "integrationAssociationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_association_id: Option<String>,
 }
@@ -347,32 +347,32 @@ pub struct CreateIntegrationAssociationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateQueueRequest {
     /// <p>The description of the queue.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier for the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationId")]
+    #[serde(rename = "hoursOfOperationId")]
     pub hours_of_operation_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
-    #[serde(rename = "MaxContacts")]
+    #[serde(rename = "maxContacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_contacts: Option<i64>,
     /// <p>The name of the queue.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The outbound caller ID name, number, and outbound whisper flow.</p>
-    #[serde(rename = "OutboundCallerConfig")]
+    #[serde(rename = "outboundCallerConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_caller_config: Option<OutboundCallerConfig>,
     /// <p>The quick connects available to agents who are working the queue.</p>
-    #[serde(rename = "QuickConnectIds")]
+    #[serde(rename = "quickConnectIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_ids: Option<Vec<String>>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -381,11 +381,11 @@ pub struct CreateQueueRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateQueueResponse {
     /// <p>The Amazon Resource Name (ARN) of the queue.</p>
-    #[serde(rename = "QueueArn")]
+    #[serde(rename = "queueArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_arn: Option<String>,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_id: Option<String>,
 }
@@ -394,20 +394,20 @@ pub struct CreateQueueResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateQuickConnectRequest {
     /// <p>The description of the quick connect.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the quick connect.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Configuration settings for the quick connect.</p>
-    #[serde(rename = "QuickConnectConfig")]
+    #[serde(rename = "quickConnectConfig")]
     pub quick_connect_config: QuickConnectConfig,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -416,11 +416,11 @@ pub struct CreateQuickConnectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateQuickConnectResponse {
     /// <p>The Amazon Resource Name (ARN) for the quick connect. </p>
-    #[serde(rename = "QuickConnectARN")]
+    #[serde(rename = "quickConnectARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_arn: Option<String>,
     /// <p>The identifier for the quick connect. </p>
-    #[serde(rename = "QuickConnectId")]
+    #[serde(rename = "quickConnectId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_id: Option<String>,
 }
@@ -429,26 +429,26 @@ pub struct CreateQuickConnectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRoutingProfileRequest {
     /// <p>The default outbound queue for the routing profile.</p>
-    #[serde(rename = "DefaultOutboundQueueId")]
+    #[serde(rename = "defaultOutboundQueueId")]
     pub default_outbound_queue_id: String,
     /// <p>Description of the routing profile. Must not be more than 250 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The channels that agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
-    #[serde(rename = "MediaConcurrencies")]
+    #[serde(rename = "mediaConcurrencies")]
     pub media_concurrencies: Vec<MediaConcurrency>,
     /// <p>The name of the routing profile. Must not be more than 127 characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls.</p>
-    #[serde(rename = "QueueConfigs")]
+    #[serde(rename = "queueConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_configs: Option<Vec<RoutingProfileQueueConfig>>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -457,11 +457,11 @@ pub struct CreateRoutingProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRoutingProfileResponse {
     /// <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-    #[serde(rename = "RoutingProfileArn")]
+    #[serde(rename = "routingProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_arn: Option<String>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_id: Option<String>,
 }
@@ -470,17 +470,17 @@ pub struct CreateRoutingProfileResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUseCaseRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the AppIntegration association.</p>
-    #[serde(rename = "IntegrationAssociationId")]
+    #[serde(rename = "integrationAssociationId")]
     pub integration_association_id: String,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>
-    #[serde(rename = "UseCaseType")]
+    #[serde(rename = "useCaseType")]
     pub use_case_type: String,
 }
 
@@ -488,11 +488,11 @@ pub struct CreateUseCaseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUseCaseResponse {
     /// <p>The Amazon Resource Name (ARN) for the use case.</p>
-    #[serde(rename = "UseCaseArn")]
+    #[serde(rename = "useCaseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_arn: Option<String>,
     /// <p>The identifier of the use case.</p>
-    #[serde(rename = "UseCaseId")]
+    #[serde(rename = "useCaseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_id: Option<String>,
 }
@@ -501,13 +501,13 @@ pub struct CreateUseCaseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserHierarchyGroupRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the user hierarchy group. Must not be more than 100 characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.</p>
-    #[serde(rename = "ParentGroupId")]
+    #[serde(rename = "parentGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_group_id: Option<String>,
 }
@@ -516,11 +516,11 @@ pub struct CreateUserHierarchyGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserHierarchyGroupResponse {
     /// <p>The Amazon Resource Name (ARN) of the hierarchy group. </p>
-    #[serde(rename = "HierarchyGroupArn")]
+    #[serde(rename = "hierarchyGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_group_arn: Option<String>,
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_group_id: Option<String>,
 }
@@ -529,39 +529,39 @@ pub struct CreateUserHierarchyGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory.</p> <p>This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.</p>
-    #[serde(rename = "DirectoryUserId")]
+    #[serde(rename = "directoryUserId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_user_id: Option<String>,
     /// <p>The identifier of the hierarchy group for the user.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_group_id: Option<String>,
     /// <p>The information about the identity of the user.</p>
-    #[serde(rename = "IdentityInfo")]
+    #[serde(rename = "identityInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_info: Option<UserIdentityInfo>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The phone settings for the user.</p>
-    #[serde(rename = "PhoneConfig")]
+    #[serde(rename = "phoneConfig")]
     pub phone_config: UserPhoneConfig,
     /// <p>The identifier of the routing profile for the user.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
     /// <p>The identifier of the security profile for the user.</p>
-    #[serde(rename = "SecurityProfileIds")]
+    #[serde(rename = "securityProfileIds")]
     pub security_profile_ids: Vec<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -569,11 +569,11 @@ pub struct CreateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserResponse {
     /// <p>The Amazon Resource Name (ARN) of the user account.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -583,19 +583,19 @@ pub struct CreateUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Credentials {
     /// <p>An access token generated for a federated user to access Amazon Connect.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>A token generated with an expiration time for the session a user is logged in to Amazon Connect.</p>
-    #[serde(rename = "AccessTokenExpiration")]
+    #[serde(rename = "accessTokenExpiration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token_expiration: Option<f64>,
     /// <p>Renews a token generated for a user to access the Amazon Connect instance.</p>
-    #[serde(rename = "RefreshToken")]
+    #[serde(rename = "refreshToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token: Option<String>,
     /// <p>Renews the expiration timer for a generated token.</p>
-    #[serde(rename = "RefreshTokenExpiration")]
+    #[serde(rename = "refreshTokenExpiration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token_expiration: Option<f64>,
 }
@@ -604,11 +604,11 @@ pub struct Credentials {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CurrentMetric {
     /// <p>The name of the metric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unit for the metric.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -618,11 +618,11 @@ pub struct CurrentMetric {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CurrentMetricData {
     /// <p>Information about the metric.</p>
-    #[serde(rename = "Metric")]
+    #[serde(rename = "metric")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric: Option<CurrentMetric>,
     /// <p>The value of the metric.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
 }
@@ -632,11 +632,11 @@ pub struct CurrentMetricData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CurrentMetricResult {
     /// <p>The set of metrics.</p>
-    #[serde(rename = "Collections")]
+    #[serde(rename = "collections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collections: Option<Vec<CurrentMetricData>>,
     /// <p>The dimensions for the metrics.</p>
-    #[serde(rename = "Dimensions")]
+    #[serde(rename = "dimensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dimensions: Option<Dimensions>,
 }
@@ -645,7 +645,7 @@ pub struct CurrentMetricResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteInstanceRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -653,10 +653,10 @@ pub struct DeleteInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIntegrationAssociationRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the AppIntegration association.</p>
-    #[serde(rename = "IntegrationAssociationId")]
+    #[serde(rename = "integrationAssociationId")]
     pub integration_association_id: String,
 }
 
@@ -664,10 +664,10 @@ pub struct DeleteIntegrationAssociationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteQuickConnectRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the quick connect.</p>
-    #[serde(rename = "QuickConnectId")]
+    #[serde(rename = "quickConnectId")]
     pub quick_connect_id: String,
 }
 
@@ -675,13 +675,13 @@ pub struct DeleteQuickConnectRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUseCaseRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the AppIntegration association.</p>
-    #[serde(rename = "IntegrationAssociationId")]
+    #[serde(rename = "integrationAssociationId")]
     pub integration_association_id: String,
     /// <p>The identifier for the use case.</p>
-    #[serde(rename = "UseCaseId")]
+    #[serde(rename = "useCaseId")]
     pub use_case_id: String,
 }
 
@@ -689,10 +689,10 @@ pub struct DeleteUseCaseRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserHierarchyGroupRequest {
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     pub hierarchy_group_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -700,10 +700,10 @@ pub struct DeleteUserHierarchyGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -711,10 +711,10 @@ pub struct DeleteUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeContactFlowRequest {
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The identifier of the Amazon Connect instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -722,7 +722,7 @@ pub struct DescribeContactFlowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeContactFlowResponse {
     /// <p>Information about the contact flow.</p>
-    #[serde(rename = "ContactFlow")]
+    #[serde(rename = "contactFlow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_flow: Option<ContactFlow>,
 }
@@ -731,10 +731,10 @@ pub struct DescribeContactFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeHoursOfOperationRequest {
     /// <p>The identifier for the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationId")]
+    #[serde(rename = "hoursOfOperationId")]
     pub hours_of_operation_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -742,7 +742,7 @@ pub struct DescribeHoursOfOperationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeHoursOfOperationResponse {
     /// <p>The hours of operation.</p>
-    #[serde(rename = "HoursOfOperation")]
+    #[serde(rename = "hoursOfOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hours_of_operation: Option<HoursOfOperation>,
 }
@@ -751,10 +751,10 @@ pub struct DescribeHoursOfOperationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeInstanceAttributeRequest {
     /// <p>The type of attribute.</p>
-    #[serde(rename = "AttributeType")]
+    #[serde(rename = "attributeType")]
     pub attribute_type: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -762,7 +762,7 @@ pub struct DescribeInstanceAttributeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeInstanceAttributeResponse {
     /// <p>The type of attribute.</p>
-    #[serde(rename = "Attribute")]
+    #[serde(rename = "attribute")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute: Option<Attribute>,
 }
@@ -771,7 +771,7 @@ pub struct DescribeInstanceAttributeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeInstanceRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -779,7 +779,7 @@ pub struct DescribeInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeInstanceResponse {
     /// <p>The name of the instance.</p>
-    #[serde(rename = "Instance")]
+    #[serde(rename = "instance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance: Option<Instance>,
 }
@@ -788,13 +788,13 @@ pub struct DescribeInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeInstanceStorageConfigRequest {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     pub association_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>A valid resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -802,7 +802,7 @@ pub struct DescribeInstanceStorageConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeInstanceStorageConfigResponse {
     /// <p>A valid storage type.</p>
-    #[serde(rename = "StorageConfig")]
+    #[serde(rename = "storageConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_config: Option<InstanceStorageConfig>,
 }
@@ -811,10 +811,10 @@ pub struct DescribeInstanceStorageConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeQueueRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -822,7 +822,7 @@ pub struct DescribeQueueRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeQueueResponse {
     /// <p>The name of the queue.</p>
-    #[serde(rename = "Queue")]
+    #[serde(rename = "queue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue: Option<Queue>,
 }
@@ -831,10 +831,10 @@ pub struct DescribeQueueResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeQuickConnectRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the quick connect.</p>
-    #[serde(rename = "QuickConnectId")]
+    #[serde(rename = "quickConnectId")]
     pub quick_connect_id: String,
 }
 
@@ -842,7 +842,7 @@ pub struct DescribeQuickConnectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeQuickConnectResponse {
     /// <p>Information about the quick connect.</p>
-    #[serde(rename = "QuickConnect")]
+    #[serde(rename = "quickConnect")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect: Option<QuickConnect>,
 }
@@ -851,10 +851,10 @@ pub struct DescribeQuickConnectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRoutingProfileRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -862,7 +862,7 @@ pub struct DescribeRoutingProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRoutingProfileResponse {
     /// <p>The routing profile.</p>
-    #[serde(rename = "RoutingProfile")]
+    #[serde(rename = "routingProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile: Option<RoutingProfile>,
 }
@@ -871,10 +871,10 @@ pub struct DescribeRoutingProfileResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserHierarchyGroupRequest {
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     pub hierarchy_group_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -882,7 +882,7 @@ pub struct DescribeUserHierarchyGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserHierarchyGroupResponse {
     /// <p>Information about the hierarchy group.</p>
-    #[serde(rename = "HierarchyGroup")]
+    #[serde(rename = "hierarchyGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_group: Option<HierarchyGroup>,
 }
@@ -891,7 +891,7 @@ pub struct DescribeUserHierarchyGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserHierarchyStructureRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -899,7 +899,7 @@ pub struct DescribeUserHierarchyStructureRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserHierarchyStructureResponse {
     /// <p>Information about the hierarchy structure.</p>
-    #[serde(rename = "HierarchyStructure")]
+    #[serde(rename = "hierarchyStructure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_structure: Option<HierarchyStructure>,
 }
@@ -908,10 +908,10 @@ pub struct DescribeUserHierarchyStructureResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -919,7 +919,7 @@ pub struct DescribeUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserResponse {
     /// <p>Information about the user account and configuration settings.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -929,11 +929,11 @@ pub struct DescribeUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Dimensions {
     /// <p>The channel used for grouping and filters.</p>
-    #[serde(rename = "Channel")]
+    #[serde(rename = "channel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel: Option<String>,
     /// <p>Information about the queue for which metrics are returned.</p>
-    #[serde(rename = "Queue")]
+    #[serde(rename = "queue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue: Option<QueueReference>,
 }
@@ -942,10 +942,10 @@ pub struct Dimensions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateApprovedOriginRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The domain URL of the integrated application.</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     pub origin: String,
 }
 
@@ -953,13 +953,13 @@ pub struct DisassociateApprovedOriginRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateBotRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
-    #[serde(rename = "LexBot")]
+    #[serde(rename = "lexBot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_bot: Option<LexBot>,
     /// <p>The Amazon Lex V2 bot to disassociate from the instance.</p>
-    #[serde(rename = "LexV2Bot")]
+    #[serde(rename = "lexV2Bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_v2_bot: Option<LexV2Bot>,
 }
@@ -968,13 +968,13 @@ pub struct DisassociateBotRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateInstanceStorageConfigRequest {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     pub association_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>A valid resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -982,10 +982,10 @@ pub struct DisassociateInstanceStorageConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateLambdaFunctionRequest {
     /// <p>The Amazon Resource Name (ARN) of the Lambda function being disassociated.</p>
-    #[serde(rename = "FunctionArn")]
+    #[serde(rename = "functionArn")]
     pub function_arn: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance..</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -993,13 +993,13 @@ pub struct DisassociateLambdaFunctionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateLexBotRequest {
     /// <p>The name of the Amazon Lex bot. Maximum character limit of 50.</p>
-    #[serde(rename = "BotName")]
+    #[serde(rename = "botName")]
     pub bot_name: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The Region in which the Amazon Lex bot has been created.</p>
-    #[serde(rename = "LexRegion")]
+    #[serde(rename = "lexRegion")]
     pub lex_region: String,
 }
 
@@ -1007,13 +1007,13 @@ pub struct DisassociateLexBotRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateQueueQuickConnectsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
     /// <p>The quick connects to disassociate from the queue.</p>
-    #[serde(rename = "QuickConnectIds")]
+    #[serde(rename = "quickConnectIds")]
     pub quick_connect_ids: Vec<String>,
 }
 
@@ -1021,13 +1021,13 @@ pub struct DisassociateQueueQuickConnectsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateRoutingProfileQueuesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The queues to disassociate from this routing profile.</p>
-    #[serde(rename = "QueueReferences")]
+    #[serde(rename = "queueReferences")]
     pub queue_references: Vec<RoutingProfileQueueReference>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -1035,10 +1035,10 @@ pub struct DisassociateRoutingProfileQueuesRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateSecurityKeyRequest {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     pub association_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -1046,10 +1046,10 @@ pub struct DisassociateSecurityKeyRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionConfig {
     /// <p>The type of encryption.</p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     pub encryption_type: String,
     /// <p>The identifier of the encryption key.</p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     pub key_id: String,
 }
 
@@ -1058,11 +1058,11 @@ pub struct EncryptionConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filters {
     /// <p>The channel to use to filter the metrics.</p>
-    #[serde(rename = "Channels")]
+    #[serde(rename = "channels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channels: Option<Vec<String>>,
     /// <p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>
-    #[serde(rename = "Queues")]
+    #[serde(rename = "queues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queues: Option<Vec<String>>,
 }
@@ -1071,10 +1071,10 @@ pub struct Filters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetContactAttributesRequest {
     /// <p>The identifier of the initial contact.</p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     pub initial_contact_id: String,
     /// <p>The identifier of the Amazon Connect instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -1082,7 +1082,7 @@ pub struct GetContactAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetContactAttributesResponse {
     /// <p>Information about the attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1091,24 +1091,24 @@ pub struct GetContactAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCurrentMetricDataRequest {
     /// <p><p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <dl> <dt>AGENTS<em>AFTER</em>CONTACT<em>WORK</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time">ACW</a> </p> </dd> <dt>AGENTS</em>AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#available-real-time">Available</a> </p> </dd> <dt>AGENTS<em>ERROR</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#error-real-time">Error</a> </p> </dd> <dt>AGENTS</em>NON<em>PRODUCTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#non-productive-time-real-time">NPT (Non-Productive Time)</a> </p> </dd> <dt>AGENTS</em>ON<em>CALL</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time">On contact</a> </p> </dd> <dt>AGENTS</em>ON<em>CONTACT</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time">On contact</a> </p> </dd> <dt>AGENTS</em>ONLINE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time">Online</a> </p> </dd> <dt>AGENTS<em>STAFFED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time">Staffed</a> </p> </dd> <dt>CONTACTS</em>IN<em>QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time">In queue</a> </p> </dd> <dt>CONTACTS</em>SCHEDULED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time">Scheduled</a> </p> </dd> <dt>OLDEST<em>CONTACT</em>AGE</dt> <dd> <p>Unit: SECONDS</p> <p>When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:</p> <p> <code>{ &quot;Metric&quot;: { &quot;Name&quot;: &quot;OLDEST<em>CONTACT</em>AGE&quot;, &quot;Unit&quot;: &quot;SECONDS&quot; }, &quot;Value&quot;: 24113.0 </code>}</p> <p>The actual OLDEST<em>CONTACT</em>AGE is 24 seconds.</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a> </p> </dd> <dt>SLOTS<em>ACTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time">Active</a> </p> </dd> <dt>SLOTS</em>AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time">Availability</a> </p> </dd> </dl></p>
-    #[serde(rename = "CurrentMetrics")]
+    #[serde(rename = "currentMetrics")]
     pub current_metrics: Vec<CurrentMetric>,
     /// <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     pub filters: Filters,
     /// <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
-    #[serde(rename = "Groupings")]
+    #[serde(rename = "groupings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groupings: Option<Vec<String>>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1117,15 +1117,15 @@ pub struct GetCurrentMetricDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCurrentMetricDataResponse {
     /// <p>The time at which the metrics were retrieved and cached for pagination.</p>
-    #[serde(rename = "DataSnapshotTime")]
+    #[serde(rename = "dataSnapshotTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_snapshot_time: Option<f64>,
     /// <p>Information about the real-time metrics.</p>
-    #[serde(rename = "MetricResults")]
+    #[serde(rename = "metricResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_results: Option<Vec<CurrentMetricResult>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p> <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1134,7 +1134,7 @@ pub struct GetCurrentMetricDataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFederationTokenRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -1142,7 +1142,7 @@ pub struct GetFederationTokenRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFederationTokenResponse {
     /// <p>The credentials to use for federation.</p>
-    #[serde(rename = "Credentials")]
+    #[serde(rename = "credentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials: Option<Credentials>,
 }
@@ -1151,31 +1151,31 @@ pub struct GetFederationTokenResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMetricDataRequest {
     /// <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be specified using an interval of 5 minutes, such as 11:00, 11:05, 11:10, and must be later than the start time timestamp.</p> <p>The time range between the start and end time must be less than 24 hours.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: f64,
     /// <p><p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p> <note> <p>To filter by <code>Queues</code>, enter the queue ID/ARN, not the name of the queue.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     pub filters: Filters,
     /// <p>The grouping applied to the metrics returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values returned apply to the metrics for each queue rather than aggregated for all queues.</p> <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
-    #[serde(rename = "Groupings")]
+    #[serde(rename = "groupings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groupings: Option<Vec<String>>,
     /// <p><p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <note> <p>This API does not support a contacts incoming metric (there&#39;s no CONTACTS<em>INCOMING metric missing from the documented list). </p> </note> <dl> <dt>ABANDON</em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>AFTER<em>CONTACT</em>WORK<em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>API</em>CONTACTS<em>HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CALLBACK</em>CONTACTS<em>HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS</em>ABANDONED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>AGENT</em>HUNG<em>UP</em>FIRST</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>CONSULTED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS</em>HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>HANDLED</em>INCOMING</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>HANDLED</em>OUTBOUND</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>HOLD</em>ABANDONS</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>MISSED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS</em>QUEUED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>TRANSFERRED</em>IN</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>TRANSFERRED</em>IN<em>FROM</em>QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>TRANSFERRED</em>OUT</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS<em>TRANSFERRED</em>OUT<em>FROM</em>QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>HANDLE<em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>HOLD</em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION<em>AND</em>HOLD<em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION</em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>OCCUPANCY</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> </dd> <dt>QUEUE<em>ANSWER</em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>QUEUED<em>TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: MAX</p> </dd> <dt>SERVICE</em>LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for &quot;Less than&quot;). </p> </dd> </dl></p>
-    #[serde(rename = "HistoricalMetrics")]
+    #[serde(rename = "historicalMetrics")]
     pub historical_metrics: Vec<HistoricalMetric>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be specified using a multiple of 5 minutes, such as 10:05, 10:10, 10:15.</p> <p>The start time cannot be earlier than 24 hours before the time of the request. Historical metrics are available only for 24 hours.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: f64,
 }
 
@@ -1183,11 +1183,11 @@ pub struct GetMetricDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMetricDataResponse {
     /// <p>Information about the historical metrics.</p> <p>If no grouping is specified, a summary of metric data is returned.</p>
-    #[serde(rename = "MetricResults")]
+    #[serde(rename = "metricResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_results: Option<Vec<HistoricalMetricResult>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p> <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1197,23 +1197,23 @@ pub struct GetMetricDataResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HierarchyGroup {
     /// <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Information about the levels in the hierarchy group.</p>
-    #[serde(rename = "HierarchyPath")]
+    #[serde(rename = "hierarchyPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_path: Option<HierarchyPath>,
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The identifier of the level in the hierarchy group.</p>
-    #[serde(rename = "LevelId")]
+    #[serde(rename = "levelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_id: Option<String>,
     /// <p>The name of the hierarchy group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1223,15 +1223,15 @@ pub struct HierarchyGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HierarchyGroupSummary {
     /// <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the hierarchy group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1241,15 +1241,15 @@ pub struct HierarchyGroupSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HierarchyLevel {
     /// <p>The Amazon Resource Name (ARN) of the hierarchy level.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the hierarchy level.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the hierarchy level.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1259,7 +1259,7 @@ pub struct HierarchyLevel {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HierarchyLevelUpdate {
     /// <p>The name of the user hierarchy level. Must not be more than 50 characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1268,23 +1268,23 @@ pub struct HierarchyLevelUpdate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HierarchyPath {
     /// <p>Information about level five.</p>
-    #[serde(rename = "LevelFive")]
+    #[serde(rename = "levelFive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_five: Option<HierarchyGroupSummary>,
     /// <p>Information about level four.</p>
-    #[serde(rename = "LevelFour")]
+    #[serde(rename = "levelFour")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_four: Option<HierarchyGroupSummary>,
     /// <p>Information about level one.</p>
-    #[serde(rename = "LevelOne")]
+    #[serde(rename = "levelOne")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_one: Option<HierarchyGroupSummary>,
     /// <p>Information about level three.</p>
-    #[serde(rename = "LevelThree")]
+    #[serde(rename = "levelThree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_three: Option<HierarchyGroupSummary>,
     /// <p>Information about level two.</p>
-    #[serde(rename = "LevelTwo")]
+    #[serde(rename = "levelTwo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_two: Option<HierarchyGroupSummary>,
 }
@@ -1294,23 +1294,23 @@ pub struct HierarchyPath {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HierarchyStructure {
     /// <p>Information about level five.</p>
-    #[serde(rename = "LevelFive")]
+    #[serde(rename = "levelFive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_five: Option<HierarchyLevel>,
     /// <p>Information about level four.</p>
-    #[serde(rename = "LevelFour")]
+    #[serde(rename = "levelFour")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_four: Option<HierarchyLevel>,
     /// <p>Information about level one.</p>
-    #[serde(rename = "LevelOne")]
+    #[serde(rename = "levelOne")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_one: Option<HierarchyLevel>,
     /// <p>Information about level three.</p>
-    #[serde(rename = "LevelThree")]
+    #[serde(rename = "levelThree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_three: Option<HierarchyLevel>,
     /// <p>Information about level two.</p>
-    #[serde(rename = "LevelTwo")]
+    #[serde(rename = "levelTwo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_two: Option<HierarchyLevel>,
 }
@@ -1320,23 +1320,23 @@ pub struct HierarchyStructure {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HierarchyStructureUpdate {
     /// <p>The update for level five.</p>
-    #[serde(rename = "LevelFive")]
+    #[serde(rename = "levelFive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_five: Option<HierarchyLevelUpdate>,
     /// <p>The update for level four.</p>
-    #[serde(rename = "LevelFour")]
+    #[serde(rename = "levelFour")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_four: Option<HierarchyLevelUpdate>,
     /// <p>The update for level one.</p>
-    #[serde(rename = "LevelOne")]
+    #[serde(rename = "levelOne")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_one: Option<HierarchyLevelUpdate>,
     /// <p>The update for level three.</p>
-    #[serde(rename = "LevelThree")]
+    #[serde(rename = "levelThree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_three: Option<HierarchyLevelUpdate>,
     /// <p>The update for level two.</p>
-    #[serde(rename = "LevelTwo")]
+    #[serde(rename = "levelTwo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level_two: Option<HierarchyLevelUpdate>,
 }
@@ -1345,19 +1345,19 @@ pub struct HierarchyStructureUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HistoricalMetric {
     /// <p>The name of the metric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The statistic for the metric.</p>
-    #[serde(rename = "Statistic")]
+    #[serde(rename = "statistic")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statistic: Option<String>,
     /// <p>The threshold for the metric, used with service level metrics.</p>
-    #[serde(rename = "Threshold")]
+    #[serde(rename = "threshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threshold: Option<Threshold>,
     /// <p>The unit for the metric.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -1367,11 +1367,11 @@ pub struct HistoricalMetric {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HistoricalMetricData {
     /// <p>Information about the metric.</p>
-    #[serde(rename = "Metric")]
+    #[serde(rename = "metric")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric: Option<HistoricalMetric>,
     /// <p>The value of the metric.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
 }
@@ -1381,11 +1381,11 @@ pub struct HistoricalMetricData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HistoricalMetricResult {
     /// <p>The set of metrics.</p>
-    #[serde(rename = "Collections")]
+    #[serde(rename = "collections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collections: Option<Vec<HistoricalMetricData>>,
     /// <p>The dimension for the metrics.</p>
-    #[serde(rename = "Dimensions")]
+    #[serde(rename = "dimensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dimensions: Option<Dimensions>,
 }
@@ -1395,31 +1395,31 @@ pub struct HistoricalMetricResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HoursOfOperation {
     /// <p>Configuration information for the hours of operation.</p>
-    #[serde(rename = "Config")]
+    #[serde(rename = "config")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config: Option<Vec<HoursOfOperationConfig>>,
     /// <p>The description for the hours of operation.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationArn")]
+    #[serde(rename = "hoursOfOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hours_of_operation_arn: Option<String>,
     /// <p>The identifier for the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationId")]
+    #[serde(rename = "hoursOfOperationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hours_of_operation_id: Option<String>,
     /// <p>The name for the hours of operation.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The time zone for the hours of operation.</p>
-    #[serde(rename = "TimeZone")]
+    #[serde(rename = "timeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone: Option<String>,
 }
@@ -1429,15 +1429,15 @@ pub struct HoursOfOperation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HoursOfOperationConfig {
     /// <p>The day that the hours of operation applies to.</p>
-    #[serde(rename = "Day")]
+    #[serde(rename = "day")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub day: Option<String>,
     /// <p>The end time that your contact center is closes.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<HoursOfOperationTimeSlice>,
     /// <p>The start time that your contact center is open.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<HoursOfOperationTimeSlice>,
 }
@@ -1447,15 +1447,15 @@ pub struct HoursOfOperationConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HoursOfOperationSummary {
     /// <p>The Amazon Resource Name (ARN) of the hours of operation.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the hours of operation.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the hours of operation.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1465,11 +1465,11 @@ pub struct HoursOfOperationSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HoursOfOperationTimeSlice {
     /// <p>The hours.</p>
-    #[serde(rename = "Hours")]
+    #[serde(rename = "hours")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hours: Option<i64>,
     /// <p>The minutes.</p>
-    #[serde(rename = "Minutes")]
+    #[serde(rename = "minutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minutes: Option<i64>,
 }
@@ -1479,43 +1479,43 @@ pub struct HoursOfOperationTimeSlice {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Instance {
     /// <p>The Amazon Resource Name (ARN) of the instance.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>When the instance was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The identity management type.</p>
-    #[serde(rename = "IdentityManagementType")]
+    #[serde(rename = "identityManagementType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_management_type: Option<String>,
     /// <p>Whether inbound calls are enabled.</p>
-    #[serde(rename = "InboundCallsEnabled")]
+    #[serde(rename = "inboundCallsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbound_calls_enabled: Option<bool>,
     /// <p>The alias of instance.</p>
-    #[serde(rename = "InstanceAlias")]
+    #[serde(rename = "instanceAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_alias: Option<String>,
     /// <p>The state of the instance.</p>
-    #[serde(rename = "InstanceStatus")]
+    #[serde(rename = "instanceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_status: Option<String>,
     /// <p>Whether outbound calls are enabled.</p>
-    #[serde(rename = "OutboundCallsEnabled")]
+    #[serde(rename = "outboundCallsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_calls_enabled: Option<bool>,
     /// <p>The service role of the instance.</p>
-    #[serde(rename = "ServiceRole")]
+    #[serde(rename = "serviceRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_role: Option<String>,
     /// <p>Relevant details why the instance was not successfully created. </p>
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<InstanceStatusReason>,
 }
@@ -1525,7 +1525,7 @@ pub struct Instance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceStatusReason {
     /// <p>The message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1534,27 +1534,27 @@ pub struct InstanceStatusReason {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InstanceStorageConfig {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_id: Option<String>,
     /// <p>The configuration of the Kinesis Firehose delivery stream.</p>
-    #[serde(rename = "KinesisFirehoseConfig")]
+    #[serde(rename = "kinesisFirehoseConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_config: Option<KinesisFirehoseConfig>,
     /// <p>The configuration of the Kinesis data stream.</p>
-    #[serde(rename = "KinesisStreamConfig")]
+    #[serde(rename = "kinesisStreamConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_stream_config: Option<KinesisStreamConfig>,
     /// <p>The configuration of the Kinesis video stream.</p>
-    #[serde(rename = "KinesisVideoStreamConfig")]
+    #[serde(rename = "kinesisVideoStreamConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_video_stream_config: Option<KinesisVideoStreamConfig>,
     /// <p>The S3 bucket configuration.</p>
-    #[serde(rename = "S3Config")]
+    #[serde(rename = "s3Config")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_config: Option<S3Config>,
     /// <p>A valid storage type.</p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     pub storage_type: String,
 }
 
@@ -1563,39 +1563,39 @@ pub struct InstanceStorageConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceSummary {
     /// <p>The Amazon Resource Name (ARN) of the instance.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>When the instance was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The identifier of the instance.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The identity management type of the instance.</p>
-    #[serde(rename = "IdentityManagementType")]
+    #[serde(rename = "identityManagementType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_management_type: Option<String>,
     /// <p>Whether inbound calls are enabled.</p>
-    #[serde(rename = "InboundCallsEnabled")]
+    #[serde(rename = "inboundCallsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbound_calls_enabled: Option<bool>,
     /// <p>The alias of the instance.</p>
-    #[serde(rename = "InstanceAlias")]
+    #[serde(rename = "instanceAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_alias: Option<String>,
     /// <p>The state of the instance.</p>
-    #[serde(rename = "InstanceStatus")]
+    #[serde(rename = "instanceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_status: Option<String>,
     /// <p>Whether outbound calls are enabled.</p>
-    #[serde(rename = "OutboundCallsEnabled")]
+    #[serde(rename = "outboundCallsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_calls_enabled: Option<bool>,
     /// <p>The service role of the instance.</p>
-    #[serde(rename = "ServiceRole")]
+    #[serde(rename = "serviceRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_role: Option<String>,
 }
@@ -1605,35 +1605,35 @@ pub struct InstanceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IntegrationAssociationSummary {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
-    #[serde(rename = "IntegrationArn")]
+    #[serde(rename = "integrationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
-    #[serde(rename = "IntegrationAssociationArn")]
+    #[serde(rename = "integrationAssociationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_association_arn: Option<String>,
     /// <p>The identifier for the AppIntegration association.</p>
-    #[serde(rename = "IntegrationAssociationId")]
+    #[serde(rename = "integrationAssociationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_association_id: Option<String>,
     /// <p>The integration type.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_type: Option<String>,
     /// <p>The user-provided, friendly name for the external application.</p>
-    #[serde(rename = "SourceApplicationName")]
+    #[serde(rename = "sourceApplicationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_application_name: Option<String>,
     /// <p>The URL for the external application.</p>
-    #[serde(rename = "SourceApplicationUrl")]
+    #[serde(rename = "sourceApplicationUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_application_url: Option<String>,
     /// <p>The name of the source.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_type: Option<String>,
 }
@@ -1642,7 +1642,7 @@ pub struct IntegrationAssociationSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisFirehoseConfig {
     /// <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
-    #[serde(rename = "FirehoseArn")]
+    #[serde(rename = "firehoseArn")]
     pub firehose_arn: String,
 }
 
@@ -1650,7 +1650,7 @@ pub struct KinesisFirehoseConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisStreamConfig {
     /// <p>The Amazon Resource Name (ARN) of the data stream.</p>
-    #[serde(rename = "StreamArn")]
+    #[serde(rename = "streamArn")]
     pub stream_arn: String,
 }
 
@@ -1658,13 +1658,13 @@ pub struct KinesisStreamConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisVideoStreamConfig {
     /// <p>The encryption configuration.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     pub encryption_config: EncryptionConfig,
     /// <p>The prefix of the video stream.</p>
-    #[serde(rename = "Prefix")]
+    #[serde(rename = "prefix")]
     pub prefix: String,
     /// <p>The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p>
-    #[serde(rename = "RetentionPeriodHours")]
+    #[serde(rename = "retentionPeriodHours")]
     pub retention_period_hours: i64,
 }
 
@@ -1672,11 +1672,11 @@ pub struct KinesisVideoStreamConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LexBot {
     /// <p>The Region that the Amazon Lex bot was created in.</p>
-    #[serde(rename = "LexRegion")]
+    #[serde(rename = "lexRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_region: Option<String>,
     /// <p>The name of the Amazon Lex bot.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1685,11 +1685,11 @@ pub struct LexBot {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LexBotConfig {
-    #[serde(rename = "LexBot")]
+    #[serde(rename = "lexBot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_bot: Option<LexBot>,
     /// <p>Configuration information of an Amazon Lex V2 bot.</p>
-    #[serde(rename = "LexV2Bot")]
+    #[serde(rename = "lexV2Bot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_v2_bot: Option<LexV2Bot>,
 }
@@ -1698,7 +1698,7 @@ pub struct LexBotConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LexV2Bot {
     /// <p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>
-    #[serde(rename = "AliasArn")]
+    #[serde(rename = "aliasArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_arn: Option<String>,
 }
@@ -1707,14 +1707,14 @@ pub struct LexV2Bot {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListApprovedOriginsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1723,11 +1723,11 @@ pub struct ListApprovedOriginsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListApprovedOriginsResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The approved origins.</p>
-    #[serde(rename = "Origins")]
+    #[serde(rename = "origins")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origins: Option<Vec<String>>,
 }
@@ -1736,17 +1736,17 @@ pub struct ListApprovedOriginsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListBotsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The version of Amazon Lex or Amazon Lex V2.</p>
-    #[serde(rename = "LexVersion")]
+    #[serde(rename = "lexVersion")]
     pub lex_version: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1755,11 +1755,11 @@ pub struct ListBotsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListBotsResponse {
     /// <p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified instance.</p>
-    #[serde(rename = "LexBots")]
+    #[serde(rename = "lexBots")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_bots: Option<Vec<LexBotConfig>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1768,18 +1768,18 @@ pub struct ListBotsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListContactFlowsRequest {
     /// <p>The type of contact flow.</p>
-    #[serde(rename = "ContactFlowTypes")]
+    #[serde(rename = "contactFlowTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_flow_types: Option<Vec<String>>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1788,11 +1788,11 @@ pub struct ListContactFlowsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListContactFlowsResponse {
     /// <p>Information about the contact flows.</p>
-    #[serde(rename = "ContactFlowSummaryList")]
+    #[serde(rename = "contactFlowSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_flow_summary_list: Option<Vec<ContactFlowSummary>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1801,14 +1801,14 @@ pub struct ListContactFlowsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListHoursOfOperationsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1817,11 +1817,11 @@ pub struct ListHoursOfOperationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListHoursOfOperationsResponse {
     /// <p>Information about the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationSummaryList")]
+    #[serde(rename = "hoursOfOperationSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hours_of_operation_summary_list: Option<Vec<HoursOfOperationSummary>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1830,14 +1830,14 @@ pub struct ListHoursOfOperationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListInstanceAttributesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1846,11 +1846,11 @@ pub struct ListInstanceAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListInstanceAttributesResponse {
     /// <p>The attribute types.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<Attribute>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1859,18 +1859,18 @@ pub struct ListInstanceAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListInstanceStorageConfigsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A valid resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -1878,11 +1878,11 @@ pub struct ListInstanceStorageConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListInstanceStorageConfigsResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A valid storage type.</p>
-    #[serde(rename = "StorageConfigs")]
+    #[serde(rename = "storageConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_configs: Option<Vec<InstanceStorageConfig>>,
 }
@@ -1891,11 +1891,11 @@ pub struct ListInstanceStorageConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListInstancesRequest {
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1904,11 +1904,11 @@ pub struct ListInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListInstancesResponse {
     /// <p>Information about the instances.</p>
-    #[serde(rename = "InstanceSummaryList")]
+    #[serde(rename = "instanceSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_summary_list: Option<Vec<InstanceSummary>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1917,14 +1917,14 @@ pub struct ListInstancesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIntegrationAssociationsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1933,11 +1933,11 @@ pub struct ListIntegrationAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIntegrationAssociationsResponse {
     /// <p>The AppIntegration associations.</p>
-    #[serde(rename = "IntegrationAssociationSummaryList")]
+    #[serde(rename = "integrationAssociationSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_association_summary_list: Option<Vec<IntegrationAssociationSummary>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1946,14 +1946,14 @@ pub struct ListIntegrationAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLambdaFunctionsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1962,11 +1962,11 @@ pub struct ListLambdaFunctionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLambdaFunctionsResponse {
     /// <p>The Lambdafunction ARNs associated with the specified instance.</p>
-    #[serde(rename = "LambdaFunctions")]
+    #[serde(rename = "lambdaFunctions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_functions: Option<Vec<String>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1975,14 +1975,14 @@ pub struct ListLambdaFunctionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLexBotsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1991,11 +1991,11 @@ pub struct ListLexBotsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLexBotsResponse {
     /// <p>The names and Regions of the Amazon Lex bots associated with the specified instance.</p>
-    #[serde(rename = "LexBots")]
+    #[serde(rename = "lexBots")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lex_bots: Option<Vec<LexBot>>,
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2004,22 +2004,22 @@ pub struct ListLexBotsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPhoneNumbersRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ISO country code.</p>
-    #[serde(rename = "PhoneNumberCountryCodes")]
+    #[serde(rename = "phoneNumberCountryCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_country_codes: Option<Vec<String>>,
     /// <p>The type of phone number.</p>
-    #[serde(rename = "PhoneNumberTypes")]
+    #[serde(rename = "phoneNumberTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_types: Option<Vec<String>>,
 }
@@ -2028,11 +2028,11 @@ pub struct ListPhoneNumbersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPhoneNumbersResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the phone numbers.</p>
-    #[serde(rename = "PhoneNumberSummaryList")]
+    #[serde(rename = "phoneNumberSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_summary_list: Option<Vec<PhoneNumberSummary>>,
 }
@@ -2041,14 +2041,14 @@ pub struct ListPhoneNumbersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPromptsRequest {
     /// <p>The identifier of the Amazon Connect instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2057,11 +2057,11 @@ pub struct ListPromptsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPromptsResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the prompts.</p>
-    #[serde(rename = "PromptSummaryList")]
+    #[serde(rename = "promptSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prompt_summary_list: Option<Vec<PromptSummary>>,
 }
@@ -2070,18 +2070,18 @@ pub struct ListPromptsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListQueueQuickConnectsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -2089,11 +2089,11 @@ pub struct ListQueueQuickConnectsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListQueueQuickConnectsResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quick connects.</p>
-    #[serde(rename = "QuickConnectSummaryList")]
+    #[serde(rename = "quickConnectSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_summary_list: Option<Vec<QuickConnectSummary>>,
 }
@@ -2102,18 +2102,18 @@ pub struct ListQueueQuickConnectsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListQueuesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The type of queue.</p>
-    #[serde(rename = "QueueTypes")]
+    #[serde(rename = "queueTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_types: Option<Vec<String>>,
 }
@@ -2122,11 +2122,11 @@ pub struct ListQueuesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListQueuesResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the queues.</p>
-    #[serde(rename = "QueueSummaryList")]
+    #[serde(rename = "queueSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_summary_list: Option<Vec<QueueSummary>>,
 }
@@ -2135,18 +2135,18 @@ pub struct ListQueuesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListQuickConnectsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
-    #[serde(rename = "QuickConnectTypes")]
+    #[serde(rename = "quickConnectTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_types: Option<Vec<String>>,
 }
@@ -2155,11 +2155,11 @@ pub struct ListQuickConnectsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListQuickConnectsResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quick connects.</p>
-    #[serde(rename = "QuickConnectSummaryList")]
+    #[serde(rename = "quickConnectSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_summary_list: Option<Vec<QuickConnectSummary>>,
 }
@@ -2168,18 +2168,18 @@ pub struct ListQuickConnectsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRoutingProfileQueuesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -2187,11 +2187,11 @@ pub struct ListRoutingProfileQueuesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRoutingProfileQueuesResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the routing profiles.</p>
-    #[serde(rename = "RoutingProfileQueueConfigSummaryList")]
+    #[serde(rename = "routingProfileQueueConfigSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_queue_config_summary_list: Option<Vec<RoutingProfileQueueConfigSummary>>,
 }
@@ -2200,14 +2200,14 @@ pub struct ListRoutingProfileQueuesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRoutingProfilesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2216,11 +2216,11 @@ pub struct ListRoutingProfilesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRoutingProfilesResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the routing profiles.</p>
-    #[serde(rename = "RoutingProfileSummaryList")]
+    #[serde(rename = "routingProfileSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_summary_list: Option<Vec<RoutingProfileSummary>>,
 }
@@ -2229,14 +2229,14 @@ pub struct ListRoutingProfilesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSecurityKeysRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2245,11 +2245,11 @@ pub struct ListSecurityKeysRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSecurityKeysResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The security keys.</p>
-    #[serde(rename = "SecurityKeys")]
+    #[serde(rename = "securityKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_keys: Option<Vec<SecurityKey>>,
 }
@@ -2258,14 +2258,14 @@ pub struct ListSecurityKeysResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSecurityProfilesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2274,11 +2274,11 @@ pub struct ListSecurityProfilesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSecurityProfilesResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the security profiles.</p>
-    #[serde(rename = "SecurityProfileSummaryList")]
+    #[serde(rename = "securityProfileSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_profile_summary_list: Option<Vec<SecurityProfileSummary>>,
 }
@@ -2305,17 +2305,17 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUseCasesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the integration association.</p>
-    #[serde(rename = "IntegrationAssociationId")]
+    #[serde(rename = "integrationAssociationId")]
     pub integration_association_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2324,11 +2324,11 @@ pub struct ListUseCasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUseCasesResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The use cases.</p>
-    #[serde(rename = "UseCaseSummaryList")]
+    #[serde(rename = "useCaseSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_summary_list: Option<Vec<UseCase>>,
 }
@@ -2337,14 +2337,14 @@ pub struct ListUseCasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUserHierarchyGroupsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2353,11 +2353,11 @@ pub struct ListUserHierarchyGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUserHierarchyGroupsResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the hierarchy groups.</p>
-    #[serde(rename = "UserHierarchyGroupSummaryList")]
+    #[serde(rename = "userHierarchyGroupSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_hierarchy_group_summary_list: Option<Vec<HierarchyGroupSummary>>,
 }
@@ -2366,14 +2366,14 @@ pub struct ListUserHierarchyGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of results to return per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2382,11 +2382,11 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p>If there are additional results, this is the token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the users.</p>
-    #[serde(rename = "UserSummaryList")]
+    #[serde(rename = "userSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_summary_list: Option<Vec<UserSummary>>,
 }
@@ -2395,10 +2395,10 @@ pub struct ListUsersResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MediaConcurrency {
     /// <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
-    #[serde(rename = "Channel")]
+    #[serde(rename = "channel")]
     pub channel: String,
     /// <p>The number of contacts an agent can have on a channel simultaneously.</p> <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p> <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 10.</p> <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
-    #[serde(rename = "Concurrency")]
+    #[serde(rename = "concurrency")]
     pub concurrency: i64,
 }
 
@@ -2406,15 +2406,15 @@ pub struct MediaConcurrency {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OutboundCallerConfig {
     /// <p>The caller ID name.</p>
-    #[serde(rename = "OutboundCallerIdName")]
+    #[serde(rename = "outboundCallerIdName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_caller_id_name: Option<String>,
     /// <p>The caller ID number.</p>
-    #[serde(rename = "OutboundCallerIdNumberId")]
+    #[serde(rename = "outboundCallerIdNumberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_caller_id_number_id: Option<String>,
     /// <p>The outbound whisper flow to be used during an outbound call.</p>
-    #[serde(rename = "OutboundFlowId")]
+    #[serde(rename = "outboundFlowId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_flow_id: Option<String>,
 }
@@ -2424,7 +2424,7 @@ pub struct OutboundCallerConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ParticipantDetails {
     /// <p>Display name of the participant.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     pub display_name: String,
 }
 
@@ -2432,7 +2432,7 @@ pub struct ParticipantDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PhoneNumberQuickConnectConfig {
     /// <p>The phone number in E.164 format.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     pub phone_number: String,
 }
 
@@ -2441,23 +2441,23 @@ pub struct PhoneNumberQuickConnectConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PhoneNumberSummary {
     /// <p>The Amazon Resource Name (ARN) of the phone number.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the phone number.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The phone number.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The ISO country code.</p>
-    #[serde(rename = "PhoneNumberCountryCode")]
+    #[serde(rename = "phoneNumberCountryCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_country_code: Option<String>,
     /// <p>The type of phone number.</p>
-    #[serde(rename = "PhoneNumberType")]
+    #[serde(rename = "phoneNumberType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number_type: Option<String>,
 }
@@ -2474,15 +2474,15 @@ pub struct ProblemDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PromptSummary {
     /// <p>The Amazon Resource Name (ARN) of the prompt.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the prompt.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the prompt.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2492,39 +2492,39 @@ pub struct PromptSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Queue {
     /// <p>The description of the queue.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier for the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationId")]
+    #[serde(rename = "hoursOfOperationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hours_of_operation_id: Option<String>,
     /// <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
-    #[serde(rename = "MaxContacts")]
+    #[serde(rename = "maxContacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_contacts: Option<i64>,
     /// <p>The name of the queue.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The outbound caller ID name, number, and outbound whisper flow.</p>
-    #[serde(rename = "OutboundCallerConfig")]
+    #[serde(rename = "outboundCallerConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_caller_config: Option<OutboundCallerConfig>,
     /// <p>The Amazon Resource Name (ARN) for the queue.</p>
-    #[serde(rename = "QueueArn")]
+    #[serde(rename = "queueArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_arn: Option<String>,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_id: Option<String>,
     /// <p>The status of the queue.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2533,10 +2533,10 @@ pub struct Queue {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct QueueQuickConnectConfig {
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -2545,11 +2545,11 @@ pub struct QueueQuickConnectConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueueReference {
     /// <p>The Amazon Resource Name (ARN) of the queue.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the queue.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -2559,19 +2559,19 @@ pub struct QueueReference {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueueSummary {
     /// <p>The Amazon Resource Name (ARN) of the queue.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the queue.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the queue.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The type of queue.</p>
-    #[serde(rename = "QueueType")]
+    #[serde(rename = "queueType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_type: Option<String>,
 }
@@ -2581,27 +2581,27 @@ pub struct QueueSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QuickConnect {
     /// <p>The description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the quick connect.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the quick connect.</p>
-    #[serde(rename = "QuickConnectARN")]
+    #[serde(rename = "quickConnectARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_arn: Option<String>,
     /// <p>Contains information about the quick connect.</p>
-    #[serde(rename = "QuickConnectConfig")]
+    #[serde(rename = "quickConnectConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_config: Option<QuickConnectConfig>,
     /// <p>The identifier for the quick connect.</p>
-    #[serde(rename = "QuickConnectId")]
+    #[serde(rename = "quickConnectId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_id: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2610,18 +2610,18 @@ pub struct QuickConnect {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct QuickConnectConfig {
     /// <p>The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.</p>
-    #[serde(rename = "PhoneConfig")]
+    #[serde(rename = "phoneConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_config: Option<PhoneNumberQuickConnectConfig>,
     /// <p>The queue configuration. This is required only if QuickConnectType is QUEUE.</p>
-    #[serde(rename = "QueueConfig")]
+    #[serde(rename = "queueConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_config: Option<QueueQuickConnectConfig>,
     /// <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>
-    #[serde(rename = "QuickConnectType")]
+    #[serde(rename = "quickConnectType")]
     pub quick_connect_type: String,
     /// <p>The user configuration. This is required only if QuickConnectType is USER.</p>
-    #[serde(rename = "UserConfig")]
+    #[serde(rename = "userConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_config: Option<UserQuickConnectConfig>,
 }
@@ -2631,19 +2631,19 @@ pub struct QuickConnectConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QuickConnectSummary {
     /// <p>The Amazon Resource Name (ARN) of the quick connect.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier for the quick connect.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the quick connect.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
-    #[serde(rename = "QuickConnectType")]
+    #[serde(rename = "quickConnectType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quick_connect_type: Option<String>,
 }
@@ -2653,10 +2653,10 @@ pub struct QuickConnectSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Reference {
     /// <p>A valid URL.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>A formatted URL that displays to an agent in the Contact Control Panel (CCP)</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -2664,13 +2664,13 @@ pub struct Reference {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResumeContactRecordingRequest {
     /// <p>The identifier of the contact.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     pub contact_id: String,
     /// <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     pub initial_contact_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -2683,35 +2683,35 @@ pub struct ResumeContactRecordingResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RoutingProfile {
     /// <p>The identifier of the default outbound queue for this routing profile.</p>
-    #[serde(rename = "DefaultOutboundQueueId")]
+    #[serde(rename = "defaultOutboundQueueId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_outbound_queue_id: Option<String>,
     /// <p>The description of the routing profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
-    #[serde(rename = "MediaConcurrencies")]
+    #[serde(rename = "mediaConcurrencies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_concurrencies: Option<Vec<MediaConcurrency>>,
     /// <p>The name of the routing profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-    #[serde(rename = "RoutingProfileArn")]
+    #[serde(rename = "routingProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_arn: Option<String>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_id: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2721,13 +2721,13 @@ pub struct RoutingProfile {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RoutingProfileQueueConfig {
     /// <p>The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-    #[serde(rename = "Delay")]
+    #[serde(rename = "delay")]
     pub delay: i64,
     /// <p>The order in which contacts are to be handled for the queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a>.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
     /// <p>Contains information about a queue resource.</p>
-    #[serde(rename = "QueueReference")]
+    #[serde(rename = "queueReference")]
     pub queue_reference: RoutingProfileQueueReference,
 }
 
@@ -2736,22 +2736,22 @@ pub struct RoutingProfileQueueConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RoutingProfileQueueConfigSummary {
     /// <p>The channels this queue supports.</p>
-    #[serde(rename = "Channel")]
+    #[serde(rename = "channel")]
     pub channel: String,
     /// <p>The delay, in seconds, that a contact should be in the queue before they are routed to an available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-    #[serde(rename = "Delay")]
+    #[serde(rename = "delay")]
     pub delay: i64,
     /// <p>The order in which contacts are to be handled for the queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a>.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
     /// <p>The Amazon Resource Name (ARN) of the queue.</p>
-    #[serde(rename = "QueueArn")]
+    #[serde(rename = "queueArn")]
     pub queue_arn: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
     /// <p>The name of the queue.</p>
-    #[serde(rename = "QueueName")]
+    #[serde(rename = "queueName")]
     pub queue_name: String,
 }
 
@@ -2760,10 +2760,10 @@ pub struct RoutingProfileQueueConfigSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RoutingProfileQueueReference {
     /// <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
-    #[serde(rename = "Channel")]
+    #[serde(rename = "channel")]
     pub channel: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -2772,15 +2772,15 @@ pub struct RoutingProfileQueueReference {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RoutingProfileSummary {
     /// <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the routing profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2789,13 +2789,13 @@ pub struct RoutingProfileSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Config {
     /// <p>The S3 bucket name.</p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     pub bucket_name: String,
     /// <p>The S3 bucket prefix.</p>
-    #[serde(rename = "BucketPrefix")]
+    #[serde(rename = "bucketPrefix")]
     pub bucket_prefix: String,
     /// <p>The Amazon S3 encryption configuration.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
 }
@@ -2805,15 +2805,15 @@ pub struct S3Config {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityKey {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_id: Option<String>,
     /// <p>When the security key was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The key of the security key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
 }
@@ -2823,15 +2823,15 @@ pub struct SecurityKey {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityProfileSummary {
     /// <p>The Amazon Resource Name (ARN) of the security profile.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the security profile.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the security profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2840,25 +2840,25 @@ pub struct SecurityProfileSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartChatContactRequest {
     /// <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in contact flows just like any other contact attributes. </p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The initial message to be sent to the newly created chat.</p>
-    #[serde(rename = "InitialMessage")]
+    #[serde(rename = "initialMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initial_message: Option<ChatMessage>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>Information identifying the participant.</p>
-    #[serde(rename = "ParticipantDetails")]
+    #[serde(rename = "participantDetails")]
     pub participant_details: ParticipantDetails,
 }
 
@@ -2866,15 +2866,15 @@ pub struct StartChatContactRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartChatContactResponse {
     /// <p>The identifier of this contact within the Amazon Connect instance. </p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<String>,
     /// <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.</p>
-    #[serde(rename = "ParticipantId")]
+    #[serde(rename = "participantId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub participant_id: Option<String>,
     /// <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>
-    #[serde(rename = "ParticipantToken")]
+    #[serde(rename = "participantToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub participant_token: Option<String>,
 }
@@ -2883,16 +2883,16 @@ pub struct StartChatContactResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartContactRecordingRequest {
     /// <p>The identifier of the contact.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     pub contact_id: String,
     /// <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     pub initial_contact_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The person being recorded.</p>
-    #[serde(rename = "VoiceRecordingConfiguration")]
+    #[serde(rename = "voiceRecordingConfiguration")]
     pub voice_recording_configuration: VoiceRecordingConfiguration,
 }
 
@@ -2904,28 +2904,28 @@ pub struct StartContactRecordingResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartOutboundVoiceContactRequest {
     /// <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. </p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The phone number of the customer, in E.164 format.</p>
-    #[serde(rename = "DestinationPhoneNumber")]
+    #[serde(rename = "destinationPhoneNumber")]
     pub destination_phone_number: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_id: Option<String>,
     /// <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.</p>
-    #[serde(rename = "SourcePhoneNumber")]
+    #[serde(rename = "sourcePhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_phone_number: Option<String>,
 }
@@ -2934,7 +2934,7 @@ pub struct StartOutboundVoiceContactRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartOutboundVoiceContactResponse {
     /// <p>The identifier of this contact within the Amazon Connect instance.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<String>,
 }
@@ -2943,32 +2943,32 @@ pub struct StartOutboundVoiceContactResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTaskContactRequest {
     /// <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The identifier of the previous chat, voice, or task contact. </p>
-    #[serde(rename = "PreviousContactId")]
+    #[serde(rename = "previousContactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub previous_contact_id: Option<String>,
     /// <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
-    #[serde(rename = "References")]
+    #[serde(rename = "references")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub references: Option<::std::collections::HashMap<String, Reference>>,
 }
@@ -2977,7 +2977,7 @@ pub struct StartTaskContactRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTaskContactResponse {
     /// <p>The identifier of this contact within the Amazon Connect instance.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<String>,
 }
@@ -2986,13 +2986,13 @@ pub struct StartTaskContactResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopContactRecordingRequest {
     /// <p>The identifier of the contact.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     pub contact_id: String,
     /// <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     pub initial_contact_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -3004,10 +3004,10 @@ pub struct StopContactRecordingResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopContactRequest {
     /// <p>The ID of the contact.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     pub contact_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -3019,13 +3019,13 @@ pub struct StopContactResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SuspendContactRecordingRequest {
     /// <p>The identifier of the contact.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     pub contact_id: String,
     /// <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     pub initial_contact_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -3048,11 +3048,11 @@ pub struct TagResourceRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Threshold {
     /// <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
-    #[serde(rename = "Comparison")]
+    #[serde(rename = "comparison")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparison: Option<String>,
     /// <p>The threshold value to compare.</p>
-    #[serde(rename = "ThresholdValue")]
+    #[serde(rename = "thresholdValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threshold_value: Option<f64>,
 }
@@ -3072,13 +3072,13 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateContactAttributesRequest {
     /// <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.</p> <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     pub attributes: ::std::collections::HashMap<String, String>,
     /// <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     pub initial_contact_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -3090,13 +3090,13 @@ pub struct UpdateContactAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateContactFlowContentRequest {
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The JSON string that represents contact flow’s content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>The identifier of the Amazon Connect instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -3104,17 +3104,17 @@ pub struct UpdateContactFlowContentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateContactFlowNameRequest {
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The description of the contact flow.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the contact flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3123,13 +3123,13 @@ pub struct UpdateContactFlowNameRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateInstanceAttributeRequest {
     /// <p>The type of attribute.</p>
-    #[serde(rename = "AttributeType")]
+    #[serde(rename = "attributeType")]
     pub attribute_type: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The value for the attribute. Maximum character limit is 100. </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3137,15 +3137,15 @@ pub struct UpdateInstanceAttributeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateInstanceStorageConfigRequest {
     /// <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     pub association_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>A valid resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
-    #[serde(rename = "StorageConfig")]
+    #[serde(rename = "storageConfig")]
     pub storage_config: InstanceStorageConfig,
 }
 
@@ -3153,13 +3153,13 @@ pub struct UpdateInstanceStorageConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQueueHoursOfOperationRequest {
     /// <p>The identifier for the hours of operation.</p>
-    #[serde(rename = "HoursOfOperationId")]
+    #[serde(rename = "hoursOfOperationId")]
     pub hours_of_operation_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -3167,14 +3167,14 @@ pub struct UpdateQueueHoursOfOperationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQueueMaxContactsRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
-    #[serde(rename = "MaxContacts")]
+    #[serde(rename = "maxContacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_contacts: Option<i64>,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -3182,18 +3182,18 @@ pub struct UpdateQueueMaxContactsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQueueNameRequest {
     /// <p>The description of the queue.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the queue.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -3201,13 +3201,13 @@ pub struct UpdateQueueNameRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQueueOutboundCallerConfigRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The outbound caller ID name, number, and outbound whisper flow.</p>
-    #[serde(rename = "OutboundCallerConfig")]
+    #[serde(rename = "outboundCallerConfig")]
     pub outbound_caller_config: OutboundCallerConfig,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
 }
 
@@ -3215,13 +3215,13 @@ pub struct UpdateQueueOutboundCallerConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQueueStatusRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier for the queue.</p>
-    #[serde(rename = "QueueId")]
+    #[serde(rename = "queueId")]
     pub queue_id: String,
     /// <p>The status of the queue.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -3229,13 +3229,13 @@ pub struct UpdateQueueStatusRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQuickConnectConfigRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>Information about the configuration settings for the quick connect.</p>
-    #[serde(rename = "QuickConnectConfig")]
+    #[serde(rename = "quickConnectConfig")]
     pub quick_connect_config: QuickConnectConfig,
     /// <p>The identifier for the quick connect.</p>
-    #[serde(rename = "QuickConnectId")]
+    #[serde(rename = "quickConnectId")]
     pub quick_connect_id: String,
 }
 
@@ -3243,18 +3243,18 @@ pub struct UpdateQuickConnectConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateQuickConnectNameRequest {
     /// <p>The description of the quick connect.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the quick connect.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The identifier for the quick connect.</p>
-    #[serde(rename = "QuickConnectId")]
+    #[serde(rename = "quickConnectId")]
     pub quick_connect_id: String,
 }
 
@@ -3262,13 +3262,13 @@ pub struct UpdateQuickConnectNameRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoutingProfileConcurrencyRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
-    #[serde(rename = "MediaConcurrencies")]
+    #[serde(rename = "mediaConcurrencies")]
     pub media_concurrencies: Vec<MediaConcurrency>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -3276,13 +3276,13 @@ pub struct UpdateRoutingProfileConcurrencyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoutingProfileDefaultOutboundQueueRequest {
     /// <p>The identifier for the default outbound queue.</p>
-    #[serde(rename = "DefaultOutboundQueueId")]
+    #[serde(rename = "defaultOutboundQueueId")]
     pub default_outbound_queue_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -3290,18 +3290,18 @@ pub struct UpdateRoutingProfileDefaultOutboundQueueRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoutingProfileNameRequest {
     /// <p>The description of the routing profile. Must not be more than 250 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the routing profile. Must not be more than 127 characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -3309,13 +3309,13 @@ pub struct UpdateRoutingProfileNameRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoutingProfileQueuesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The queues to be updated for this routing profile. Queues must first be associated to the routing profile. You can do this using AssociateRoutingProfileQueues.</p>
-    #[serde(rename = "QueueConfigs")]
+    #[serde(rename = "queueConfigs")]
     pub queue_configs: Vec<RoutingProfileQueueConfig>,
     /// <p>The identifier of the routing profile.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
 }
 
@@ -3323,13 +3323,13 @@ pub struct UpdateRoutingProfileQueuesRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserHierarchyGroupNameRequest {
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     pub hierarchy_group_id: String,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -3337,14 +3337,14 @@ pub struct UpdateUserHierarchyGroupNameRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserHierarchyRequest {
     /// <p>The identifier of the hierarchy group.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_group_id: Option<String>,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3352,10 +3352,10 @@ pub struct UpdateUserHierarchyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserHierarchyStructureRequest {
     /// <p>The hierarchy levels to update.</p>
-    #[serde(rename = "HierarchyStructure")]
+    #[serde(rename = "hierarchyStructure")]
     pub hierarchy_structure: HierarchyStructureUpdate,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -3363,13 +3363,13 @@ pub struct UpdateUserHierarchyStructureRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserIdentityInfoRequest {
     /// <p>The identity information for the user.</p>
-    #[serde(rename = "IdentityInfo")]
+    #[serde(rename = "identityInfo")]
     pub identity_info: UserIdentityInfo,
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3377,13 +3377,13 @@ pub struct UpdateUserIdentityInfoRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserPhoneConfigRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>Information about phone configuration settings for the user.</p>
-    #[serde(rename = "PhoneConfig")]
+    #[serde(rename = "phoneConfig")]
     pub phone_config: UserPhoneConfig,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3391,13 +3391,13 @@ pub struct UpdateUserPhoneConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRoutingProfileRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifier of the routing profile for the user.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     pub routing_profile_id: String,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3405,13 +3405,13 @@ pub struct UpdateUserRoutingProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserSecurityProfilesRequest {
     /// <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The identifiers of the security profiles for the user.</p>
-    #[serde(rename = "SecurityProfileIds")]
+    #[serde(rename = "securityProfileIds")]
     pub security_profile_ids: Vec<String>,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3420,15 +3420,15 @@ pub struct UpdateUserSecurityProfilesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UseCase {
     /// <p>The Amazon Resource Name (ARN) for the use case.</p>
-    #[serde(rename = "UseCaseArn")]
+    #[serde(rename = "useCaseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_arn: Option<String>,
     /// <p>The identifier for the use case.</p>
-    #[serde(rename = "UseCaseId")]
+    #[serde(rename = "useCaseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_id: Option<String>,
     /// <p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>
-    #[serde(rename = "UseCaseType")]
+    #[serde(rename = "useCaseType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_type: Option<String>,
 }
@@ -3438,43 +3438,43 @@ pub struct UseCase {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct User {
     /// <p>The Amazon Resource Name (ARN) of the user account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the user account in the directory used for identity management.</p>
-    #[serde(rename = "DirectoryUserId")]
+    #[serde(rename = "directoryUserId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_user_id: Option<String>,
     /// <p>The identifier of the hierarchy group for the user.</p>
-    #[serde(rename = "HierarchyGroupId")]
+    #[serde(rename = "hierarchyGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hierarchy_group_id: Option<String>,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>Information about the user identity.</p>
-    #[serde(rename = "IdentityInfo")]
+    #[serde(rename = "identityInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_info: Option<UserIdentityInfo>,
     /// <p>Information about the phone configuration for the user.</p>
-    #[serde(rename = "PhoneConfig")]
+    #[serde(rename = "phoneConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_config: Option<UserPhoneConfig>,
     /// <p>The identifier of the routing profile for the user.</p>
-    #[serde(rename = "RoutingProfileId")]
+    #[serde(rename = "routingProfileId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_profile_id: Option<String>,
     /// <p>The identifiers of the security profiles for the user.</p>
-    #[serde(rename = "SecurityProfileIds")]
+    #[serde(rename = "securityProfileIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_profile_ids: Option<Vec<String>>,
     /// <p>The tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The user name assigned to the user account.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -3483,15 +3483,15 @@ pub struct User {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserIdentityInfo {
     /// <p>The email address. If you are using SAML for identity management and include this parameter, an error is returned.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The first name. This is required if you are using Amazon Connect or SAML for identity management.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name. This is required if you are using Amazon Connect or SAML for identity management.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
 }
@@ -3500,19 +3500,19 @@ pub struct UserIdentityInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserPhoneConfig {
     /// <p>The After Call Work (ACW) timeout setting, in seconds.</p>
-    #[serde(rename = "AfterContactWorkTimeLimit")]
+    #[serde(rename = "afterContactWorkTimeLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub after_contact_work_time_limit: Option<i64>,
     /// <p>The Auto accept setting.</p>
-    #[serde(rename = "AutoAccept")]
+    #[serde(rename = "autoAccept")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_accept: Option<bool>,
     /// <p>The phone number for the user's desk phone.</p>
-    #[serde(rename = "DeskPhoneNumber")]
+    #[serde(rename = "deskPhoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desk_phone_number: Option<String>,
     /// <p>The phone type.</p>
-    #[serde(rename = "PhoneType")]
+    #[serde(rename = "phoneType")]
     pub phone_type: String,
 }
 
@@ -3520,10 +3520,10 @@ pub struct UserPhoneConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserQuickConnectConfig {
     /// <p>The identifier of the contact flow.</p>
-    #[serde(rename = "ContactFlowId")]
+    #[serde(rename = "contactFlowId")]
     pub contact_flow_id: String,
     /// <p>The identifier of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -3532,15 +3532,15 @@ pub struct UserQuickConnectConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserSummary {
     /// <p>The Amazon Resource Name (ARN) of the user account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The identifier of the user account.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The Amazon Connect user name of the user account.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -3550,7 +3550,7 @@ pub struct UserSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VoiceRecordingConfiguration {
     /// <p>Identifies which track is being recorded.</p>
-    #[serde(rename = "VoiceRecordingTrack")]
+    #[serde(rename = "voiceRecordingTrack")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_recording_track: Option<String>,
 }

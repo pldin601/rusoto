@@ -54,7 +54,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateDRTLogBucketRequest {
     /// <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
-    #[serde(rename = "LogBucket")]
+    #[serde(rename = "logBucket")]
     pub log_bucket: String,
 }
 
@@ -66,7 +66,7 @@ pub struct AssociateDRTLogBucketResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateDRTRoleRequest {
     /// <p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to this role. For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
 }
 
@@ -78,10 +78,10 @@ pub struct AssociateDRTRoleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateHealthCheckRequest {
     /// <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
-    #[serde(rename = "HealthCheckArn")]
+    #[serde(rename = "healthCheckArn")]
     pub health_check_arn: String,
     /// <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
-    #[serde(rename = "ProtectionId")]
+    #[serde(rename = "protectionId")]
     pub protection_id: String,
 }
 
@@ -93,7 +93,7 @@ pub struct AssociateHealthCheckResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateProactiveEngagementDetailsRequest {
     /// <p><p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support. </p> <p>To enable proactive engagement, the contact list must include at least one phone number.</p> <note> <p>The contacts that you provide here replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it here. </p> </note></p>
-    #[serde(rename = "EmergencyContactList")]
+    #[serde(rename = "emergencyContactList")]
     pub emergency_contact_list: Vec<EmergencyContact>,
 }
 
@@ -106,35 +106,35 @@ pub struct AssociateProactiveEngagementDetailsResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackDetail {
     /// <p>List of counters that describe the attack for the specified time period.</p>
-    #[serde(rename = "AttackCounters")]
+    #[serde(rename = "attackCounters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_counters: Option<Vec<SummarizedCounter>>,
     /// <p>The unique identifier (ID) of the attack.</p>
-    #[serde(rename = "AttackId")]
+    #[serde(rename = "attackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_id: Option<String>,
     /// <p>The array of <a>AttackProperty</a> objects.</p>
-    #[serde(rename = "AttackProperties")]
+    #[serde(rename = "attackProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_properties: Option<Vec<AttackProperty>>,
     /// <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>List of mitigation actions taken for the attack.</p>
-    #[serde(rename = "Mitigations")]
+    #[serde(rename = "mitigations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mitigations: Option<Vec<Mitigation>>,
     /// <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>If applicable, additional detail about the resource being attacked, for example, IP address or URL.</p>
-    #[serde(rename = "SubResources")]
+    #[serde(rename = "subResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sub_resources: Option<Vec<SubResourceSummary>>,
 }
@@ -144,23 +144,23 @@ pub struct AttackDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackProperty {
     /// <p>The type of distributed denial of service (DDoS) event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code> indicates layer 7 events.</p>
-    #[serde(rename = "AttackLayer")]
+    #[serde(rename = "attackLayer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_layer: Option<String>,
     /// <p>Defines the DDoS attack property information that is provided. The <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code> values are valid only for WordPress reflective pingback DDoS attacks.</p>
-    #[serde(rename = "AttackPropertyIdentifier")]
+    #[serde(rename = "attackPropertyIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_property_identifier: Option<String>,
     /// <p>The array of contributor objects that includes the top five contributors to an attack. </p>
-    #[serde(rename = "TopContributors")]
+    #[serde(rename = "topContributors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top_contributors: Option<Vec<Contributor>>,
     /// <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
-    #[serde(rename = "Total")]
+    #[serde(rename = "total")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total: Option<i64>,
     /// <p>The unit of the <code>Value</code> of the contributions.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -170,10 +170,10 @@ pub struct AttackProperty {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackStatisticsDataItem {
     /// <p>The number of attacks detected during the time period. This is always present, but might be zero. </p>
-    #[serde(rename = "AttackCount")]
+    #[serde(rename = "attackCount")]
     pub attack_count: i64,
     /// <p>Information about the volume of attacks during the time period. If the accompanying <code>AttackCount</code> is zero, this setting might be empty.</p>
-    #[serde(rename = "AttackVolume")]
+    #[serde(rename = "attackVolume")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_volume: Option<AttackVolume>,
 }
@@ -183,23 +183,23 @@ pub struct AttackStatisticsDataItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackSummary {
     /// <p>The unique identifier (ID) of the attack.</p>
-    #[serde(rename = "AttackId")]
+    #[serde(rename = "attackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_id: Option<String>,
     /// <p>The list of attacks for a specified time period.</p>
-    #[serde(rename = "AttackVectors")]
+    #[serde(rename = "attackVectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_vectors: Option<Vec<AttackVectorDescription>>,
     /// <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -209,7 +209,7 @@ pub struct AttackSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackVectorDescription {
     /// <p><p>The attack type. Valid values:</p> <ul> <li> <p>UDP<em>TRAFFIC</p> </li> <li> <p>UDP</em>FRAGMENT</p> </li> <li> <p>GENERIC<em>UDP</em>REFLECTION</p> </li> <li> <p>DNS<em>REFLECTION</p> </li> <li> <p>NTP</em>REFLECTION</p> </li> <li> <p>CHARGEN<em>REFLECTION</p> </li> <li> <p>SSDP</em>REFLECTION</p> </li> <li> <p>PORT<em>MAPPER</p> </li> <li> <p>RIP</em>REFLECTION</p> </li> <li> <p>SNMP<em>REFLECTION</p> </li> <li> <p>MSSQL</em>REFLECTION</p> </li> <li> <p>NET<em>BIOS</em>REFLECTION</p> </li> <li> <p>SYN<em>FLOOD</p> </li> <li> <p>ACK</em>FLOOD</p> </li> <li> <p>REQUEST<em>FLOOD</p> </li> <li> <p>HTTP</em>REFLECTION</p> </li> <li> <p>UDS<em>REFLECTION</p> </li> <li> <p>MEMCACHED</em>REFLECTION</p> </li> </ul></p>
-    #[serde(rename = "VectorType")]
+    #[serde(rename = "vectorType")]
     pub vector_type: String,
 }
 
@@ -218,15 +218,15 @@ pub struct AttackVectorDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackVolume {
     /// <p>A statistics object that uses bits per second as the unit. This is included for network level attacks. </p>
-    #[serde(rename = "BitsPerSecond")]
+    #[serde(rename = "bitsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bits_per_second: Option<AttackVolumeStatistics>,
     /// <p>A statistics object that uses packets per second as the unit. This is included for network level attacks. </p>
-    #[serde(rename = "PacketsPerSecond")]
+    #[serde(rename = "packetsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packets_per_second: Option<AttackVolumeStatistics>,
     /// <p>A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.</p>
-    #[serde(rename = "RequestsPerSecond")]
+    #[serde(rename = "requestsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requests_per_second: Option<AttackVolumeStatistics>,
 }
@@ -236,7 +236,7 @@ pub struct AttackVolume {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttackVolumeStatistics {
     /// <p>The maximum attack volume observed for the given unit.</p>
-    #[serde(rename = "Max")]
+    #[serde(rename = "max")]
     pub max: f64,
 }
 
@@ -245,11 +245,11 @@ pub struct AttackVolumeStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Contributor {
     /// <p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<i64>,
 }
@@ -258,24 +258,24 @@ pub struct Contributor {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProtectionGroupRequest {
     /// <p><p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p> <ul> <li> <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p> </li> <li> <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p> </li> <li> <p>Max - Use the highest traffic from each resource. This is useful for resources that don&#39;t share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p> </li> </ul></p>
-    #[serde(rename = "Aggregation")]
+    #[serde(rename = "aggregation")]
     pub aggregation: String,
     /// <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub members: Option<Vec<String>>,
     /// <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     pub pattern: String,
     /// <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-    #[serde(rename = "ProtectionGroupId")]
+    #[serde(rename = "protectionGroupId")]
     pub protection_group_id: String,
     /// <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>One or more tag key-value pairs for the protection group.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -288,13 +288,13 @@ pub struct CreateProtectionGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProtectionRequest {
     /// <p>Friendly name for the <code>Protection</code> you are creating.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>The ARN (Amazon Resource Name) of the resource to be protected.</p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i> </code> </p> </li> <li> <p>For an AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i> </code> </p> </li> <li> <p>For an AWS Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i> </code> </p> </li> <li> <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i> </code> </p> </li> <li> <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i> </code> </p> </li> </ul></p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>One or more tag key-value pairs for the <a>Protection</a> object that is created.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -303,7 +303,7 @@ pub struct CreateProtectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProtectionResponse {
     /// <p>The unique identifier (ID) for the <a>Protection</a> object that is created.</p>
-    #[serde(rename = "ProtectionId")]
+    #[serde(rename = "protectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protection_id: Option<String>,
 }
@@ -320,7 +320,7 @@ pub struct CreateSubscriptionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProtectionGroupRequest {
     /// <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-    #[serde(rename = "ProtectionGroupId")]
+    #[serde(rename = "protectionGroupId")]
     pub protection_group_id: String,
 }
 
@@ -332,7 +332,7 @@ pub struct DeleteProtectionGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProtectionRequest {
     /// <p>The unique identifier (ID) for the <a>Protection</a> object to be deleted.</p>
-    #[serde(rename = "ProtectionId")]
+    #[serde(rename = "protectionId")]
     pub protection_id: String,
 }
 
@@ -352,7 +352,7 @@ pub struct DeleteSubscriptionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAttackRequest {
     /// <p>The unique identifier (ID) for the attack that to be described.</p>
-    #[serde(rename = "AttackId")]
+    #[serde(rename = "attackId")]
     pub attack_id: String,
 }
 
@@ -360,7 +360,7 @@ pub struct DescribeAttackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAttackResponse {
     /// <p>The attack that is described.</p>
-    #[serde(rename = "Attack")]
+    #[serde(rename = "attack")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack: Option<AttackDetail>,
 }
@@ -373,9 +373,9 @@ pub struct DescribeAttackStatisticsRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAttackStatisticsResponse {
     /// <p>The data that describes the attacks detected during the time period.</p>
-    #[serde(rename = "DataItems")]
+    #[serde(rename = "dataItems")]
     pub data_items: Vec<AttackStatisticsDataItem>,
-    #[serde(rename = "TimeRange")]
+    #[serde(rename = "timeRange")]
     pub time_range: TimeRange,
 }
 
@@ -387,11 +387,11 @@ pub struct DescribeDRTAccessRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDRTAccessResponse {
     /// <p>The list of Amazon S3 buckets accessed by the DRT.</p>
-    #[serde(rename = "LogBucketList")]
+    #[serde(rename = "logBucketList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_bucket_list: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -404,7 +404,7 @@ pub struct DescribeEmergencyContactSettingsRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEmergencyContactSettingsResponse {
     /// <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
-    #[serde(rename = "EmergencyContactList")]
+    #[serde(rename = "emergencyContactList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub emergency_contact_list: Option<Vec<EmergencyContact>>,
 }
@@ -413,7 +413,7 @@ pub struct DescribeEmergencyContactSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProtectionGroupRequest {
     /// <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-    #[serde(rename = "ProtectionGroupId")]
+    #[serde(rename = "protectionGroupId")]
     pub protection_group_id: String,
 }
 
@@ -421,7 +421,7 @@ pub struct DescribeProtectionGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProtectionGroupResponse {
     /// <p>A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
-    #[serde(rename = "ProtectionGroup")]
+    #[serde(rename = "protectionGroup")]
     pub protection_group: ProtectionGroup,
 }
 
@@ -429,11 +429,11 @@ pub struct DescribeProtectionGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProtectionRequest {
     /// <p>The unique identifier (ID) for the <a>Protection</a> object that is described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
-    #[serde(rename = "ProtectionId")]
+    #[serde(rename = "protectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protection_id: Option<String>,
     /// <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -442,7 +442,7 @@ pub struct DescribeProtectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProtectionResponse {
     /// <p>The <a>Protection</a> object that is described.</p>
-    #[serde(rename = "Protection")]
+    #[serde(rename = "protection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protection: Option<Protection>,
 }
@@ -455,7 +455,7 @@ pub struct DescribeSubscriptionRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSubscriptionResponse {
     /// <p>The AWS Shield Advanced subscription details for an account.</p>
-    #[serde(rename = "Subscription")]
+    #[serde(rename = "subscription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription: Option<Subscription>,
 }
@@ -472,7 +472,7 @@ pub struct DisableProactiveEngagementResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateDRTLogBucketRequest {
     /// <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
-    #[serde(rename = "LogBucket")]
+    #[serde(rename = "logBucket")]
     pub log_bucket: String,
 }
 
@@ -492,10 +492,10 @@ pub struct DisassociateDRTRoleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateHealthCheckRequest {
     /// <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
-    #[serde(rename = "HealthCheckArn")]
+    #[serde(rename = "healthCheckArn")]
     pub health_check_arn: String,
     /// <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
-    #[serde(rename = "ProtectionId")]
+    #[serde(rename = "protectionId")]
     pub protection_id: String,
 }
 
@@ -507,14 +507,14 @@ pub struct DisassociateHealthCheckResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EmergencyContact {
     /// <p>Additional notes regarding the contact. </p>
-    #[serde(rename = "ContactNotes")]
+    #[serde(rename = "contactNotes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_notes: Option<String>,
     /// <p>The email address for the contact.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The phone number for the contact.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
 }
@@ -535,7 +535,7 @@ pub struct GetSubscriptionStateRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSubscriptionStateResponse {
     /// <p>The status of the subscription.</p>
-    #[serde(rename = "SubscriptionState")]
+    #[serde(rename = "subscriptionState")]
     pub subscription_state: String,
 }
 
@@ -544,11 +544,11 @@ pub struct GetSubscriptionStateResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Limit {
     /// <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
-    #[serde(rename = "Max")]
+    #[serde(rename = "max")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max: Option<i64>,
     /// <p>The type of protection.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -557,23 +557,23 @@ pub struct Limit {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAttacksRequest {
     /// <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a> is allowed. </p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<TimeRange>,
     /// <p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left blank, all applicable resources for this account will be included.</p>
-    #[serde(rename = "ResourceArns")]
+    #[serde(rename = "resourceArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arns: Option<Vec<String>>,
     /// <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a> is allowed. </p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<TimeRange>,
 }
@@ -582,11 +582,11 @@ pub struct ListAttacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAttacksResponse {
     /// <p>The attack information for the specified time range.</p>
-    #[serde(rename = "AttackSummaries")]
+    #[serde(rename = "attackSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_summaries: Option<Vec<AttackSummary>>,
     /// <p>The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of items.</p> <p>Shield Advanced might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more attack summary objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -595,11 +595,11 @@ pub struct ListAttacksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProtectionGroupsRequest {
     /// <p>The maximum number of <a>ProtectionGroup</a> objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -608,11 +608,11 @@ pub struct ListProtectionGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProtectionGroupsResponse {
     /// <p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p/></p>
-    #[serde(rename = "ProtectionGroups")]
+    #[serde(rename = "protectionGroups")]
     pub protection_groups: Vec<ProtectionGroup>,
 }
 
@@ -620,11 +620,11 @@ pub struct ListProtectionGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProtectionsRequest {
     /// <p>The maximum number of <a>Protection</a> objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -633,11 +633,11 @@ pub struct ListProtectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProtectionsResponse {
     /// <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p> <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The array of enabled <a>Protection</a> objects.</p>
-    #[serde(rename = "Protections")]
+    #[serde(rename = "protections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protections: Option<Vec<Protection>>,
 }
@@ -646,15 +646,15 @@ pub struct ListProtectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourcesInProtectionGroupRequest {
     /// <p>The maximum number of resource ARN objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The next token value from a previous call to <code>ListResourcesInProtectionGroup</code>. Pass null if this is the first call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-    #[serde(rename = "ProtectionGroupId")]
+    #[serde(rename = "protectionGroupId")]
     pub protection_group_id: String,
 }
 
@@ -662,11 +662,11 @@ pub struct ListResourcesInProtectionGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourcesInProtectionGroupResponse {
     /// <p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>
-    #[serde(rename = "ResourceArns")]
+    #[serde(rename = "resourceArns")]
     pub resource_arns: Vec<String>,
 }
 
@@ -674,7 +674,7 @@ pub struct ListResourcesInProtectionGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -682,7 +682,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A list of tag key and value pairs associated with the specified resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -692,7 +692,7 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Mitigation {
     /// <p>The name of the mitigation taken for this attack.</p>
-    #[serde(rename = "MitigationName")]
+    #[serde(rename = "mitigationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mitigation_name: Option<String>,
 }
@@ -702,23 +702,23 @@ pub struct Mitigation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Protection {
     /// <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
-    #[serde(rename = "HealthCheckIds")]
+    #[serde(rename = "healthCheckIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_ids: Option<Vec<String>>,
     /// <p>The unique identifier (ID) of the protection.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the protection. For example, <code>My CloudFront distributions</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ARN (Amazon Resource Name) of the protection.</p>
-    #[serde(rename = "ProtectionArn")]
+    #[serde(rename = "protectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protection_arn: Option<String>,
     /// <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -728,23 +728,23 @@ pub struct Protection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectionGroup {
     /// <p><p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p> <ul> <li> <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p> </li> <li> <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p> </li> <li> <p>Max - Use the highest traffic from each resource. This is useful for resources that don&#39;t share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p> </li> </ul></p>
-    #[serde(rename = "Aggregation")]
+    #[serde(rename = "aggregation")]
     pub aggregation: String,
     /// <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     pub members: Vec<String>,
     /// <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     pub pattern: String,
     /// <p>The ARN (Amazon Resource Name) of the protection group.</p>
-    #[serde(rename = "ProtectionGroupArn")]
+    #[serde(rename = "protectionGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protection_group_arn: Option<String>,
     /// <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-    #[serde(rename = "ProtectionGroupId")]
+    #[serde(rename = "protectionGroupId")]
     pub protection_group_id: String,
     /// <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -754,7 +754,7 @@ pub struct ProtectionGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectionGroupArbitraryPatternLimits {
     /// <p>The maximum number of resources you can specify for a single arbitrary pattern in a protection group.</p>
-    #[serde(rename = "MaxMembers")]
+    #[serde(rename = "maxMembers")]
     pub max_members: i64,
 }
 
@@ -763,10 +763,10 @@ pub struct ProtectionGroupArbitraryPatternLimits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectionGroupLimits {
     /// <p>The maximum number of protection groups that you can have at one time. </p>
-    #[serde(rename = "MaxProtectionGroups")]
+    #[serde(rename = "maxProtectionGroups")]
     pub max_protection_groups: i64,
     /// <p>Limits settings by pattern type in the protection groups for your subscription. </p>
-    #[serde(rename = "PatternTypeLimits")]
+    #[serde(rename = "patternTypeLimits")]
     pub pattern_type_limits: ProtectionGroupPatternTypeLimits,
 }
 
@@ -775,7 +775,7 @@ pub struct ProtectionGroupLimits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectionGroupPatternTypeLimits {
     /// <p>Limits settings on protection groups with arbitrary pattern type. </p>
-    #[serde(rename = "ArbitraryPatternLimits")]
+    #[serde(rename = "arbitraryPatternLimits")]
     pub arbitrary_pattern_limits: ProtectionGroupArbitraryPatternLimits,
 }
 
@@ -784,7 +784,7 @@ pub struct ProtectionGroupPatternTypeLimits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectionLimits {
     /// <p>The maximum number of resource types that you can specify in a protection.</p>
-    #[serde(rename = "ProtectedResourceTypeLimits")]
+    #[serde(rename = "protectedResourceTypeLimits")]
     pub protected_resource_type_limits: Vec<Limit>,
 }
 
@@ -793,19 +793,19 @@ pub struct ProtectionLimits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SubResourceSummary {
     /// <p>The list of attack types and associated counters.</p>
-    #[serde(rename = "AttackVectors")]
+    #[serde(rename = "attackVectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attack_vectors: Option<Vec<SummarizedAttackVector>>,
     /// <p>The counters that describe the details of the attack.</p>
-    #[serde(rename = "Counters")]
+    #[serde(rename = "counters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub counters: Option<Vec<SummarizedCounter>>,
     /// <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The <code>SubResource</code> type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -815,34 +815,34 @@ pub struct SubResourceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Subscription {
     /// <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p> <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
-    #[serde(rename = "AutoRenew")]
+    #[serde(rename = "autoRenew")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_renew: Option<String>,
     /// <p>The date and time your subscription will end.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Specifies how many protections of a given type you can create.</p>
-    #[serde(rename = "Limits")]
+    #[serde(rename = "limits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limits: Option<Vec<Limit>>,
     /// <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p> <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p> <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
-    #[serde(rename = "ProactiveEngagementStatus")]
+    #[serde(rename = "proactiveEngagementStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proactive_engagement_status: Option<String>,
     /// <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The ARN (Amazon Resource Name) of the subscription.</p>
-    #[serde(rename = "SubscriptionArn")]
+    #[serde(rename = "subscriptionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription_arn: Option<String>,
     /// <p>Limits settings for your subscription. </p>
-    #[serde(rename = "SubscriptionLimits")]
+    #[serde(rename = "subscriptionLimits")]
     pub subscription_limits: SubscriptionLimits,
     /// <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
-    #[serde(rename = "TimeCommitmentInSeconds")]
+    #[serde(rename = "timeCommitmentInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_commitment_in_seconds: Option<i64>,
 }
@@ -852,10 +852,10 @@ pub struct Subscription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SubscriptionLimits {
     /// <p>Limits settings on protection groups for your subscription. </p>
-    #[serde(rename = "ProtectionGroupLimits")]
+    #[serde(rename = "protectionGroupLimits")]
     pub protection_group_limits: ProtectionGroupLimits,
     /// <p>Limits settings on protections for your subscription. </p>
-    #[serde(rename = "ProtectionLimits")]
+    #[serde(rename = "protectionLimits")]
     pub protection_limits: ProtectionLimits,
 }
 
@@ -864,11 +864,11 @@ pub struct SubscriptionLimits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SummarizedAttackVector {
     /// <p>The list of counters that describe the details of the attack.</p>
-    #[serde(rename = "VectorCounters")]
+    #[serde(rename = "vectorCounters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vector_counters: Option<Vec<SummarizedCounter>>,
     /// <p>The attack type, for example, SNMP reflection or SYN flood.</p>
-    #[serde(rename = "VectorType")]
+    #[serde(rename = "vectorType")]
     pub vector_type: String,
 }
 
@@ -877,27 +877,27 @@ pub struct SummarizedAttackVector {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SummarizedCounter {
     /// <p>The average value of the counter for a specified time period.</p>
-    #[serde(rename = "Average")]
+    #[serde(rename = "average")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub average: Option<f64>,
     /// <p>The maximum value of the counter for a specified time period.</p>
-    #[serde(rename = "Max")]
+    #[serde(rename = "max")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max: Option<f64>,
     /// <p>The number of counters for a specified time period.</p>
-    #[serde(rename = "N")]
+    #[serde(rename = "n")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub n: Option<i64>,
     /// <p>The counter name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The total of counter values for a specified time period.</p>
-    #[serde(rename = "Sum")]
+    #[serde(rename = "sum")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sum: Option<f64>,
     /// <p>The unit of the counters.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -906,11 +906,11 @@ pub struct SummarizedCounter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -919,10 +919,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tags that you want to modify or add to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -934,11 +934,11 @@ pub struct TagResourceResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TimeRange {
     /// <p>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "FromInclusive")]
+    #[serde(rename = "fromInclusive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_inclusive: Option<f64>,
     /// <p>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-    #[serde(rename = "ToExclusive")]
+    #[serde(rename = "toExclusive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub to_exclusive: Option<f64>,
 }
@@ -947,10 +947,10 @@ pub struct TimeRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tag key for each tag that you want to remove from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -962,7 +962,7 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEmergencyContactSettingsRequest {
     /// <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p> <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>
-    #[serde(rename = "EmergencyContactList")]
+    #[serde(rename = "emergencyContactList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub emergency_contact_list: Option<Vec<EmergencyContact>>,
 }
@@ -975,20 +975,20 @@ pub struct UpdateEmergencyContactSettingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProtectionGroupRequest {
     /// <p><p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p> <ul> <li> <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p> </li> <li> <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p> </li> <li> <p>Max - Use the highest traffic from each resource. This is useful for resources that don&#39;t share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p> </li> </ul></p>
-    #[serde(rename = "Aggregation")]
+    #[serde(rename = "aggregation")]
     pub aggregation: String,
     /// <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub members: Option<Vec<String>>,
     /// <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     pub pattern: String,
     /// <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-    #[serde(rename = "ProtectionGroupId")]
+    #[serde(rename = "protectionGroupId")]
     pub protection_group_id: String,
     /// <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1001,7 +1001,7 @@ pub struct UpdateProtectionGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSubscriptionRequest {
     /// <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
-    #[serde(rename = "AutoRenew")]
+    #[serde(rename = "autoRenew")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_renew: Option<String>,
 }

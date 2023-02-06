@@ -30,27 +30,27 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccountDetails {
     /// <p>Additional email addresses where updates are sent about your account review process.</p>
-    #[serde(rename = "AdditionalContactEmailAddresses")]
+    #[serde(rename = "additionalContactEmailAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_contact_email_addresses: Option<Vec<String>>,
     /// <p>The language you would prefer for the case. The contact language can be one of <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
-    #[serde(rename = "ContactLanguage")]
+    #[serde(rename = "contactLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_language: Option<String>,
     /// <p><p>The type of email your account is sending. The mail type can be one of the following:</p> <ul> <li> <p> <code>MARKETING</code> – Most of your sending traffic is to keep your customers informed of your latest offering.</p> </li> <li> <p> <code>TRANSACTIONAL</code> – Most of your sending traffic is to communicate during a transaction with a customer.</p> </li> </ul></p>
-    #[serde(rename = "MailType")]
+    #[serde(rename = "mailType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mail_type: Option<String>,
     /// <p>Information about the review of the latest details you submitted.</p>
-    #[serde(rename = "ReviewDetails")]
+    #[serde(rename = "reviewDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub review_details: Option<ReviewDetails>,
     /// <p>A description of the types of email that you plan to send.</p>
-    #[serde(rename = "UseCaseDescription")]
+    #[serde(rename = "useCaseDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_case_description: Option<String>,
     /// <p>The URL of your website. This information helps us better understand the type of content that you plan to send.</p>
-    #[serde(rename = "WebsiteURL")]
+    #[serde(rename = "websiteURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub website_url: Option<String>,
 }
@@ -60,15 +60,15 @@ pub struct AccountDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BlacklistEntry {
     /// <p>Additional information about the blacklisting event, as provided by the blacklist maintainer.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
-    #[serde(rename = "ListingTime")]
+    #[serde(rename = "listingTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listing_time: Option<f64>,
     /// <p>The name of the blacklist that the IP address appears on.</p>
-    #[serde(rename = "RblName")]
+    #[serde(rename = "rblName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rbl_name: Option<String>,
 }
@@ -78,11 +78,11 @@ pub struct BlacklistEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Body {
     /// <p>An object that represents the version of the message that is displayed in email clients that support HTML. HTML messages can include formatted text, hyperlinks, images, and more. </p>
-    #[serde(rename = "Html")]
+    #[serde(rename = "html")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub html: Option<Content>,
     /// <p>An object that represents the version of the message that is displayed in email clients that don't support HTML, or clients where the recipient has disabled HTML rendering.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<Content>,
 }
@@ -92,7 +92,7 @@ pub struct Body {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BulkEmailContent {
     /// <p>The template to use for the bulk email message.</p>
-    #[serde(rename = "Template")]
+    #[serde(rename = "template")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template: Option<Template>,
 }
@@ -101,14 +101,14 @@ pub struct BulkEmailContent {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BulkEmailEntry {
     /// <p><p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the local part of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the domain part of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p> </note></p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     pub destination: Destination,
     /// <p>The <code>ReplacementEmailContent</code> associated with a <code>BulkEmailEntry</code>.</p>
-    #[serde(rename = "ReplacementEmailContent")]
+    #[serde(rename = "replacementEmailContent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement_email_content: Option<ReplacementEmailContent>,
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    #[serde(rename = "ReplacementTags")]
+    #[serde(rename = "replacementTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement_tags: Option<Vec<MessageTag>>,
 }
@@ -118,15 +118,15 @@ pub struct BulkEmailEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BulkEmailEntryResult {
     /// <p>A description of an error that prevented a message being sent using the <code>SendBulkTemplatedEmail</code> operation.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<String>,
     /// <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code> operation.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
     /// <p><p>The status of a message sent using the <code>SendBulkTemplatedEmail</code> operation.</p> <p>Possible values for this parameter include:</p> <ul> <li> <p>SUCCESS: Amazon SES accepted the message, and will attempt to deliver it to the recipients.</p> </li> <li> <p>MESSAGE<em>REJECTED: The message was rejected because it contained a virus.</p> </li> <li> <p>MAIL</em>FROM<em>DOMAIN</em>NOT<em>VERIFIED: The sender&#39;s email address or domain was not verified.</p> </li> <li> <p>CONFIGURATION</em>SET<em>DOES</em>NOT<em>EXIST: The configuration set you specified does not exist.</p> </li> <li> <p>TEMPLATE</em>DOES<em>NOT</em>EXIST: The template you specified does not exist.</p> </li> <li> <p>ACCOUNT<em>SUSPENDED: Your account has been shut down because of issues related to your email sending practices.</p> </li> <li> <p>ACCOUNT</em>THROTTLED: The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.</p> </li> <li> <p>ACCOUNT<em>DAILY</em>QUOTA<em>EXCEEDED: You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.</p> </li> <li> <p>INVALID</em>SENDING<em>POOL</em>NAME: The configuration set you specified refers to an IP pool that does not exist.</p> </li> <li> <p>ACCOUNT<em>SENDING</em>PAUSED: Email sending for the Amazon SES account was disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateAccountSendingEnabled.html">UpdateAccountSendingEnabled</a> operation.</p> </li> <li> <p>CONFIGURATION<em>SET</em>SENDING<em>PAUSED: Email sending for this configuration set was disabled using the &lt;a href=&quot;https://docs.aws.amazon.com/ses/latest/APIReference/API</em>UpdateConfigurationSetSendingEnabled.html&quot;&gt;UpdateConfigurationSetSendingEnabled</a> operation.</p> </li> <li> <p>INVALID<em>PARAMETER</em>VALUE: One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.</p> </li> <li> <p>TRANSIENT_FAILURE: Amazon SES was unable to process your request because of a temporary issue.</p> </li> <li> <p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -135,7 +135,7 @@ pub struct BulkEmailEntryResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchDestination {
     /// <p>An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch.</p>
-    #[serde(rename = "DimensionConfigurations")]
+    #[serde(rename = "dimensionConfigurations")]
     pub dimension_configurations: Vec<CloudWatchDimensionConfiguration>,
 }
 
@@ -143,13 +143,13 @@ pub struct CloudWatchDestination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchDimensionConfiguration {
     /// <p><p>The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email. This value has to meet the following criteria:</p> <ul> <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> <li> <p>It can contain no more than 256 characters.</p> </li> </ul></p>
-    #[serde(rename = "DefaultDimensionValue")]
+    #[serde(rename = "defaultDimensionValue")]
     pub default_dimension_value: String,
     /// <p><p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to meet the following criteria:</p> <ul> <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> <li> <p>It can contain no more than 256 characters.</p> </li> </ul></p>
-    #[serde(rename = "DimensionName")]
+    #[serde(rename = "dimensionName")]
     pub dimension_name: String,
     /// <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. If you want to use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the <code>SendEmail</code> or <code>SendRawEmail</code> API, choose <code>messageTag</code>. If you want to use your own email headers, choose <code>emailHeader</code>. If you want to use link tags, choose <code>linkTags</code>.</p>
-    #[serde(rename = "DimensionValueSource")]
+    #[serde(rename = "dimensionValueSource")]
     pub dimension_value_source: String,
 }
 
@@ -158,23 +158,23 @@ pub struct CloudWatchDimensionConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Contact {
     /// <p>The contact's email address.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>A timestamp noting the last time the contact's information was updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The default topic preferences applied to the contact.</p>
-    #[serde(rename = "TopicDefaultPreferences")]
+    #[serde(rename = "topicDefaultPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_default_preferences: Option<Vec<TopicPreference>>,
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    #[serde(rename = "TopicPreferences")]
+    #[serde(rename = "topicPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_preferences: Option<Vec<TopicPreference>>,
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
-    #[serde(rename = "UnsubscribeAll")]
+    #[serde(rename = "unsubscribeAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unsubscribe_all: Option<bool>,
 }
@@ -184,11 +184,11 @@ pub struct Contact {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ContactList {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_list_name: Option<String>,
     /// <p>A timestamp noting the last time the contact list was updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
 }
@@ -197,10 +197,10 @@ pub struct ContactList {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ContactListDestination {
     /// <p><p>&gt;The type of action that you want to perform on the addresses. Acceptable values:</p> <ul> <li> <p>PUT: add the addresses to the contact list. If the record already exists, it will override it with the new value.</p> </li> <li> <p>DELETE: remove the addresses from the contact list.</p> </li> </ul></p>
-    #[serde(rename = "ContactListImportAction")]
+    #[serde(rename = "contactListImportAction")]
     pub contact_list_import_action: String,
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
 }
 
@@ -209,11 +209,11 @@ pub struct ContactListDestination {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Content {
     /// <p>The character set for the content. Because of the constraints of the SMTP protocol, Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of the ASCII range, you have to specify a character set. For example, you could specify <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
-    #[serde(rename = "Charset")]
+    #[serde(rename = "charset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub charset: Option<String>,
     /// <p>The content of the message itself.</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     pub data: String,
 }
 
@@ -222,13 +222,13 @@ pub struct Content {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConfigurationSetEventDestinationRequest {
     /// <p>The name of the configuration set that you want to add an event destination to.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>An object that defines the event destination.</p>
-    #[serde(rename = "EventDestination")]
+    #[serde(rename = "eventDestination")]
     pub event_destination: EventDestinationDefinition,
     /// <p>A name that identifies the event destination within the configuration set.</p>
-    #[serde(rename = "EventDestinationName")]
+    #[serde(rename = "eventDestinationName")]
     pub event_destination_name: String,
 }
 
@@ -242,29 +242,29 @@ pub struct CreateConfigurationSetEventDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConfigurationSetRequest {
     /// <p>The name of the configuration set.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
-    #[serde(rename = "DeliveryOptions")]
+    #[serde(rename = "deliveryOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_options: Option<DeliveryOptions>,
     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
-    #[serde(rename = "ReputationOptions")]
+    #[serde(rename = "reputationOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reputation_options: Option<ReputationOptions>,
     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
-    #[serde(rename = "SendingOptions")]
+    #[serde(rename = "sendingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_options: Option<SendingOptions>,
-    #[serde(rename = "SuppressionOptions")]
+    #[serde(rename = "suppressionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppression_options: Option<SuppressionOptions>,
     /// <p>An array of objects that define the tags (keys and values) that you want to associate with the configuration set.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
-    #[serde(rename = "TrackingOptions")]
+    #[serde(rename = "trackingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracking_options: Option<TrackingOptions>,
 }
@@ -278,18 +278,18 @@ pub struct CreateConfigurationSetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateContactListRequest {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>A description of what the contact list is about.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The tags associated with a contact list.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
-    #[serde(rename = "Topics")]
+    #[serde(rename = "topics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics: Option<Vec<Topic>>,
 }
@@ -302,21 +302,21 @@ pub struct CreateContactListResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateContactRequest {
     /// <p>The attribute data attached to a contact.</p>
-    #[serde(rename = "AttributesData")]
+    #[serde(rename = "attributesData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes_data: Option<String>,
     /// <p>The name of the contact list to which the contact should be added.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>The contact's email address.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The contact's preferences for being opted-in to or opted-out of topics.</p>
-    #[serde(rename = "TopicPreferences")]
+    #[serde(rename = "topicPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_preferences: Option<Vec<TopicPreference>>,
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
-    #[serde(rename = "UnsubscribeAll")]
+    #[serde(rename = "unsubscribeAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unsubscribe_all: Option<bool>,
 }
@@ -330,22 +330,22 @@ pub struct CreateContactResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCustomVerificationEmailTemplateRequest {
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
-    #[serde(rename = "FailureRedirectionURL")]
+    #[serde(rename = "failureRedirectionURL")]
     pub failure_redirection_url: String,
     /// <p>The email address that the custom verification email is sent from.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     pub from_email_address: String,
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
-    #[serde(rename = "SuccessRedirectionURL")]
+    #[serde(rename = "successRedirectionURL")]
     pub success_redirection_url: String,
     /// <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
-    #[serde(rename = "TemplateContent")]
+    #[serde(rename = "templateContent")]
     pub template_content: String,
     /// <p>The name of the custom verification email template.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
     /// <p>The subject line of the custom verification email.</p>
-    #[serde(rename = "TemplateSubject")]
+    #[serde(rename = "templateSubject")]
     pub template_subject: String,
 }
 
@@ -359,10 +359,10 @@ pub struct CreateCustomVerificationEmailTemplateResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDedicatedIpPoolRequest {
     /// <p>The name of the dedicated IP pool.</p>
-    #[serde(rename = "PoolName")]
+    #[serde(rename = "poolName")]
     pub pool_name: String,
     /// <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -377,17 +377,17 @@ pub struct CreateDedicatedIpPoolResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDeliverabilityTestReportRequest {
     /// <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: EmailContent,
     /// <p>The email address that the predictive inbox placement test email was sent from.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     pub from_email_address: String,
     /// <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the results.</p>
-    #[serde(rename = "ReportName")]
+    #[serde(rename = "reportName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_name: Option<String>,
     /// <p>An array of objects that define the tags (keys and values) that you want to associate with the predictive inbox placement test.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -397,10 +397,10 @@ pub struct CreateDeliverabilityTestReportRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDeliverabilityTestReportResponse {
     /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
-    #[serde(rename = "DeliverabilityTestStatus")]
+    #[serde(rename = "deliverabilityTestStatus")]
     pub deliverability_test_status: String,
     /// <p>A unique string that identifies the predictive inbox placement test.</p>
-    #[serde(rename = "ReportId")]
+    #[serde(rename = "reportId")]
     pub report_id: String,
 }
 
@@ -409,13 +409,13 @@ pub struct CreateDeliverabilityTestReportResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEmailIdentityPolicyRequest {
     /// <p>The email identity for which you want to create a policy.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     pub policy: String,
     /// <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
-    #[serde(rename = "PolicyName")]
+    #[serde(rename = "policyName")]
     pub policy_name: String,
 }
 
@@ -429,18 +429,18 @@ pub struct CreateEmailIdentityPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEmailIdentityRequest {
     /// <p>The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence. </p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method, <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p> <p>You can only specify this object if the email identity is a domain, as opposed to an address.</p>
-    #[serde(rename = "DkimSigningAttributes")]
+    #[serde(rename = "dkimSigningAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dkim_signing_attributes: Option<DkimSigningAttributes>,
     /// <p>The email address or domain that you want to verify.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p>An array of objects that define the tags (keys and values) that you want to associate with the email identity.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -450,15 +450,15 @@ pub struct CreateEmailIdentityRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateEmailIdentityResponse {
     /// <p>An object that contains information about the DKIM attributes for the identity.</p>
-    #[serde(rename = "DkimAttributes")]
+    #[serde(rename = "dkimAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dkim_attributes: Option<DkimAttributes>,
     /// <p>The email identity type.</p>
-    #[serde(rename = "IdentityType")]
+    #[serde(rename = "identityType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_type: Option<String>,
     /// <p>Specifies whether or not the identity is verified. You can only send email from verified email addresses or domains. For more information about verifying identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
-    #[serde(rename = "VerifiedForSendingStatus")]
+    #[serde(rename = "verifiedForSendingStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verified_for_sending_status: Option<bool>,
 }
@@ -468,10 +468,10 @@ pub struct CreateEmailIdentityResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEmailTemplateRequest {
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    #[serde(rename = "TemplateContent")]
+    #[serde(rename = "templateContent")]
     pub template_content: EmailTemplateContent,
     /// <p>The name of the template you want to create.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -485,10 +485,10 @@ pub struct CreateEmailTemplateResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateImportJobRequest {
     /// <p>The data source for the import job.</p>
-    #[serde(rename = "ImportDataSource")]
+    #[serde(rename = "importDataSource")]
     pub import_data_source: ImportDataSource,
     /// <p>The destination for the import job.</p>
-    #[serde(rename = "ImportDestination")]
+    #[serde(rename = "importDestination")]
     pub import_destination: ImportDestination,
 }
 
@@ -497,7 +497,7 @@ pub struct CreateImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateImportJobResponse {
     /// <p>A string that represents the import job ID.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -507,23 +507,23 @@ pub struct CreateImportJobResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomVerificationEmailTemplateMetadata {
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
-    #[serde(rename = "FailureRedirectionURL")]
+    #[serde(rename = "failureRedirectionURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_redirection_url: Option<String>,
     /// <p>The email address that the custom verification email is sent from.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address: Option<String>,
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
-    #[serde(rename = "SuccessRedirectionURL")]
+    #[serde(rename = "successRedirectionURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub success_redirection_url: Option<String>,
     /// <p>The name of the custom verification email template.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_name: Option<String>,
     /// <p>The subject line of the custom verification email.</p>
-    #[serde(rename = "TemplateSubject")]
+    #[serde(rename = "templateSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_subject: Option<String>,
 }
@@ -533,15 +533,15 @@ pub struct CustomVerificationEmailTemplateMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DailyVolume {
     /// <p>An object that contains inbox placement metrics for a specified day in the analysis period, broken out by the recipient's email provider.</p>
-    #[serde(rename = "DomainIspPlacements")]
+    #[serde(rename = "domainIspPlacements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_isp_placements: Option<Vec<DomainIspPlacement>>,
     /// <p>The date that the DailyVolume metrics apply to, in Unix time.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<f64>,
     /// <p>An object that contains inbox placement metrics for a specific day in the analysis period.</p>
-    #[serde(rename = "VolumeStatistics")]
+    #[serde(rename = "volumeStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_statistics: Option<VolumeStatistics>,
 }
@@ -551,17 +551,17 @@ pub struct DailyVolume {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DedicatedIp {
     /// <p>An IPv4 address.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     pub ip: String,
     /// <p>The name of the dedicated IP pool that the IP address is associated with.</p>
-    #[serde(rename = "PoolName")]
+    #[serde(rename = "poolName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pool_name: Option<String>,
     /// <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1, the address has completed the warm-up process and is ready for use.</p>
-    #[serde(rename = "WarmupPercentage")]
+    #[serde(rename = "warmupPercentage")]
     pub warmup_percentage: i64,
     /// <p><p>The warm-up status of a dedicated IP address. The status can have one of the following values:</p> <ul> <li> <p> <code>IN_PROGRESS</code> – The IP address isn&#39;t ready to use because the dedicated IP warm-up process is ongoing.</p> </li> <li> <p> <code>DONE</code> – The dedicated IP warm-up process is complete, and the IP address is ready to use.</p> </li> </ul></p>
-    #[serde(rename = "WarmupStatus")]
+    #[serde(rename = "warmupStatus")]
     pub warmup_status: String,
 }
 
@@ -570,10 +570,10 @@ pub struct DedicatedIp {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationSetEventDestinationRequest {
     /// <p>The name of the configuration set that contains the event destination that you want to delete.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>The name of the event destination that you want to delete.</p>
-    #[serde(rename = "EventDestinationName")]
+    #[serde(rename = "eventDestinationName")]
     pub event_destination_name: String,
 }
 
@@ -587,7 +587,7 @@ pub struct DeleteConfigurationSetEventDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationSetRequest {
     /// <p>The name of the configuration set that you want to delete.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
 }
 
@@ -600,7 +600,7 @@ pub struct DeleteConfigurationSetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteContactListRequest {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
 }
 
@@ -612,10 +612,10 @@ pub struct DeleteContactListResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteContactRequest {
     /// <p>The name of the contact list from which the contact should be removed.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>The contact's email address.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
 }
 
@@ -628,7 +628,7 @@ pub struct DeleteContactResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCustomVerificationEmailTemplateRequest {
     /// <p>The name of the custom verification email template that you want to delete.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -642,7 +642,7 @@ pub struct DeleteCustomVerificationEmailTemplateResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDedicatedIpPoolRequest {
     /// <p>The name of the dedicated IP pool that you want to delete.</p>
-    #[serde(rename = "PoolName")]
+    #[serde(rename = "poolName")]
     pub pool_name: String,
 }
 
@@ -656,10 +656,10 @@ pub struct DeleteDedicatedIpPoolResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEmailIdentityPolicyRequest {
     /// <p>The email identity for which you want to delete a policy.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
-    #[serde(rename = "PolicyName")]
+    #[serde(rename = "policyName")]
     pub policy_name: String,
 }
 
@@ -673,7 +673,7 @@ pub struct DeleteEmailIdentityPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEmailIdentityRequest {
     /// <p>The identity (that is, the email address or domain) that you want to delete.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
 }
 
@@ -687,7 +687,7 @@ pub struct DeleteEmailIdentityResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEmailTemplateRequest {
     /// <p>The name of the template to be deleted.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -701,7 +701,7 @@ pub struct DeleteEmailTemplateResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSuppressedDestinationRequest {
     /// <p>The suppressed email destination to remove from the account suppression list.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
 }
 
@@ -715,27 +715,27 @@ pub struct DeleteSuppressedDestinationResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeliverabilityTestReport {
     /// <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
-    #[serde(rename = "CreateDate")]
+    #[serde(rename = "createDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_date: Option<f64>,
     /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
-    #[serde(rename = "DeliverabilityTestStatus")]
+    #[serde(rename = "deliverabilityTestStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deliverability_test_status: Option<String>,
     /// <p>The sender address that you specified for the predictive inbox placement test.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address: Option<String>,
     /// <p>A unique string that identifies the predictive inbox placement test.</p>
-    #[serde(rename = "ReportId")]
+    #[serde(rename = "reportId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_id: Option<String>,
     /// <p>A name that helps you identify a predictive inbox placement test report.</p>
-    #[serde(rename = "ReportName")]
+    #[serde(rename = "reportName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_name: Option<String>,
     /// <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject: Option<String>,
 }
@@ -744,11 +744,11 @@ pub struct DeliverabilityTestReport {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeliveryOptions {
     /// <p>The name of the dedicated IP pool that you want to associate with the configuration set.</p>
-    #[serde(rename = "SendingPoolName")]
+    #[serde(rename = "sendingPoolName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_pool_name: Option<String>,
     /// <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>
-    #[serde(rename = "TlsPolicy")]
+    #[serde(rename = "tlsPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_policy: Option<String>,
 }
@@ -758,15 +758,15 @@ pub struct DeliveryOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Destination {
     /// <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients for the email.</p>
-    #[serde(rename = "BccAddresses")]
+    #[serde(rename = "bccAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bcc_addresses: Option<Vec<String>>,
     /// <p>An array that contains the email addresses of the "CC" (carbon copy) recipients for the email.</p>
-    #[serde(rename = "CcAddresses")]
+    #[serde(rename = "ccAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cc_addresses: Option<Vec<String>>,
     /// <p>An array that contains the email addresses of the "To" recipients for the email.</p>
-    #[serde(rename = "ToAddresses")]
+    #[serde(rename = "toAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub to_addresses: Option<Vec<String>>,
 }
@@ -776,19 +776,19 @@ pub struct Destination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DkimAttributes {
     /// <p><p>A string that indicates how DKIM was configured for the identity. There are two possible values:</p> <ul> <li> <p> <code>AWS_SES</code> – Indicates that DKIM was configured for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p> </li> <li> <p> <code>EXTERNAL</code> – Indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).</p> </li> </ul></p>
-    #[serde(rename = "SigningAttributesOrigin")]
+    #[serde(rename = "signingAttributesOrigin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_attributes_origin: Option<String>,
     /// <p>If the value is <code>true</code>, then the messages that you send from the identity are signed using DKIM. If the value is <code>false</code>, then the messages that you send from the identity aren't DKIM-signed.</p>
-    #[serde(rename = "SigningEnabled")]
+    #[serde(rename = "signingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_enabled: Option<bool>,
     /// <p><p>Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. The status can be one of the following:</p> <ul> <li> <p> <code>PENDING</code> – The verification process was initiated, but Amazon SES hasn&#39;t yet detected the DKIM records in the DNS configuration for the domain.</p> </li> <li> <p> <code>SUCCESS</code> – The verification process completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The verification process failed. This typically occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the domain.</p> </li> <li> <p> <code>TEMPORARY<em>FAILURE</code> – A temporary issue is preventing Amazon SES from determining the DKIM authentication status of the domain.</p> </li> <li> <p> <code>NOT</em>STARTED</code> – The DKIM verification process hasn&#39;t been initiated for the domain.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete.</p> <p>If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.</p> <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-    #[serde(rename = "Tokens")]
+    #[serde(rename = "tokens")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tokens: Option<Vec<String>>,
 }
@@ -798,10 +798,10 @@ pub struct DkimAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DkimSigningAttributes {
     /// <p>A private key that's used to generate a DKIM signature.</p> <p>The private key must use 1024-bit RSA encryption, and must be encoded using base64 encoding.</p>
-    #[serde(rename = "DomainSigningPrivateKey")]
+    #[serde(rename = "domainSigningPrivateKey")]
     pub domain_signing_private_key: String,
     /// <p>A string that's used to identify a public key in the DNS configuration for a domain.</p>
-    #[serde(rename = "DomainSigningSelector")]
+    #[serde(rename = "domainSigningSelector")]
     pub domain_signing_selector: String,
 }
 
@@ -810,59 +810,59 @@ pub struct DkimSigningAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainDeliverabilityCampaign {
     /// <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates and assigns this identifier to a campaign.</p>
-    #[serde(rename = "CampaignId")]
+    #[serde(rename = "campaignId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub campaign_id: Option<String>,
     /// <p>The percentage of email messages that were deleted by recipients, without being opened first. Due to technical limitations, this value only includes recipients who opened the message by using an email client that supports images.</p>
-    #[serde(rename = "DeleteRate")]
+    #[serde(rename = "deleteRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_rate: Option<f64>,
     /// <p>The major email providers who handled the email message.</p>
-    #[serde(rename = "Esps")]
+    #[serde(rename = "esps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub esps: Option<Vec<String>>,
     /// <p>The first time, in Unix time format, when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
-    #[serde(rename = "FirstSeenDateTime")]
+    #[serde(rename = "firstSeenDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_seen_date_time: Option<f64>,
     /// <p>The verified email address that the email message was sent from.</p>
-    #[serde(rename = "FromAddress")]
+    #[serde(rename = "fromAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_address: Option<String>,
     /// <p>The URL of an image that contains a snapshot of the email message that was sent.</p>
-    #[serde(rename = "ImageUrl")]
+    #[serde(rename = "imageUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_url: Option<String>,
     /// <p>The number of email messages that were delivered to recipients’ inboxes.</p>
-    #[serde(rename = "InboxCount")]
+    #[serde(rename = "inboxCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbox_count: Option<i64>,
     /// <p>The last time, in Unix time format, when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
-    #[serde(rename = "LastSeenDateTime")]
+    #[serde(rename = "lastSeenDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_seen_date_time: Option<f64>,
     /// <p>The projected number of recipients that the email message was sent to.</p>
-    #[serde(rename = "ProjectedVolume")]
+    #[serde(rename = "projectedVolume")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub projected_volume: Option<i64>,
     /// <p>The percentage of email messages that were opened and then deleted by recipients. Due to technical limitations, this value only includes recipients who opened the message by using an email client that supports images.</p>
-    #[serde(rename = "ReadDeleteRate")]
+    #[serde(rename = "readDeleteRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_delete_rate: Option<f64>,
     /// <p>The percentage of email messages that were opened by recipients. Due to technical limitations, this value only includes recipients who opened the message by using an email client that supports images.</p>
-    #[serde(rename = "ReadRate")]
+    #[serde(rename = "readRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_rate: Option<f64>,
     /// <p>The IP addresses that were used to send the email message.</p>
-    #[serde(rename = "SendingIps")]
+    #[serde(rename = "sendingIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_ips: Option<Vec<String>>,
     /// <p>The number of email messages that were delivered to recipients' spam or junk mail folders.</p>
-    #[serde(rename = "SpamCount")]
+    #[serde(rename = "spamCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spam_count: Option<i64>,
     /// <p>The subject line, or title, of the email message.</p>
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject: Option<String>,
 }
@@ -871,15 +871,15 @@ pub struct DomainDeliverabilityCampaign {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DomainDeliverabilityTrackingOption {
     /// <p>A verified domain that’s associated with your AWS account and currently has an active Deliverability dashboard subscription.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>An object that contains information about the inbox placement data settings for the domain.</p>
-    #[serde(rename = "InboxPlacementTrackingOption")]
+    #[serde(rename = "inboxPlacementTrackingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbox_placement_tracking_option: Option<InboxPlacementTrackingOption>,
     /// <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the domain.</p>
-    #[serde(rename = "SubscriptionStartDate")]
+    #[serde(rename = "subscriptionStartDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription_start_date: Option<f64>,
 }
@@ -889,23 +889,23 @@ pub struct DomainDeliverabilityTrackingOption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainIspPlacement {
     /// <p>The percentage of messages that were sent from the selected domain to the specified email provider that arrived in recipients' inboxes.</p>
-    #[serde(rename = "InboxPercentage")]
+    #[serde(rename = "inboxPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbox_percentage: Option<f64>,
     /// <p>The total number of messages that were sent from the selected domain to the specified email provider that arrived in recipients' inboxes.</p>
-    #[serde(rename = "InboxRawCount")]
+    #[serde(rename = "inboxRawCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbox_raw_count: Option<i64>,
     /// <p>The name of the email provider that the inbox placement data applies to.</p>
-    #[serde(rename = "IspName")]
+    #[serde(rename = "ispName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub isp_name: Option<String>,
     /// <p>The percentage of messages that were sent from the selected domain to the specified email provider that arrived in recipients' spam or junk mail folders.</p>
-    #[serde(rename = "SpamPercentage")]
+    #[serde(rename = "spamPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spam_percentage: Option<f64>,
     /// <p>The total number of messages that were sent from the selected domain to the specified email provider that arrived in recipients' spam or junk mail folders.</p>
-    #[serde(rename = "SpamRawCount")]
+    #[serde(rename = "spamRawCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spam_raw_count: Option<i64>,
 }
@@ -915,15 +915,15 @@ pub struct DomainIspPlacement {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EmailContent {
     /// <p><p>The raw email message. The message has to meet the following criteria:</p> <ul> <li> <p>The message has to contain a header and a body, separated by one blank line.</p> </li> <li> <p>All of the required header fields must be present in the message.</p> </li> <li> <p>Each part of a multipart MIME message must be formatted properly.</p> </li> <li> <p>If you include attachments, they must be in a file format that the Amazon SES API v2 supports. </p> </li> <li> <p>The entire message must be Base64 encoded.</p> </li> <li> <p>If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients&#39; email clients render the message properly.</p> </li> <li> <p>The length of any single line of text in the message can&#39;t exceed 1,000 characters. This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p> </li> </ul></p>
-    #[serde(rename = "Raw")]
+    #[serde(rename = "raw")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raw: Option<RawMessage>,
     /// <p>The simple email message. The message consists of a subject and a message body.</p>
-    #[serde(rename = "Simple")]
+    #[serde(rename = "simple")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub simple: Option<Message>,
     /// <p>The template to use for the email message.</p>
-    #[serde(rename = "Template")]
+    #[serde(rename = "template")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template: Option<Template>,
 }
@@ -932,15 +932,15 @@ pub struct EmailContent {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EmailTemplateContent {
     /// <p>The HTML body of the email.</p>
-    #[serde(rename = "Html")]
+    #[serde(rename = "html")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub html: Option<String>,
     /// <p>The subject line of the email.</p>
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject: Option<String>,
     /// <p>The email body that will be visible to recipients whose email clients do not display HTML.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
 }
@@ -950,11 +950,11 @@ pub struct EmailTemplateContent {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EmailTemplateMetadata {
     /// <p>The time and date the template was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The name of the template.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_name: Option<String>,
 }
@@ -964,29 +964,29 @@ pub struct EmailTemplateMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventDestination {
     /// <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.</p>
-    #[serde(rename = "CloudWatchDestination")]
+    #[serde(rename = "cloudWatchDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_destination: Option<CloudWatchDestination>,
     /// <p>If <code>true</code>, the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this <code>EventDestinationDefinition</code>.</p> <p>If <code>false</code>, the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
-    #[serde(rename = "KinesisFirehoseDestination")]
+    #[serde(rename = "kinesisFirehoseDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_destination: Option<KinesisFirehoseDestination>,
     /// <p>The types of events that Amazon SES sends to the specified event destinations.</p>
-    #[serde(rename = "MatchingEventTypes")]
+    #[serde(rename = "matchingEventTypes")]
     pub matching_event_types: Vec<String>,
     /// <p>A name that identifies the event destination.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>An object that defines an Amazon Pinpoint project destination for email events. You can send email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
-    #[serde(rename = "PinpointDestination")]
+    #[serde(rename = "pinpointDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pinpoint_destination: Option<PinpointDestination>,
     /// <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.</p>
-    #[serde(rename = "SnsDestination")]
+    #[serde(rename = "snsDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_destination: Option<SnsDestination>,
 }
@@ -996,27 +996,27 @@ pub struct EventDestination {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EventDestinationDefinition {
     /// <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.</p>
-    #[serde(rename = "CloudWatchDestination")]
+    #[serde(rename = "cloudWatchDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_destination: Option<CloudWatchDestination>,
     /// <p>If <code>true</code>, the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this <code>EventDestinationDefinition</code>.</p> <p>If <code>false</code>, the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
-    #[serde(rename = "KinesisFirehoseDestination")]
+    #[serde(rename = "kinesisFirehoseDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_destination: Option<KinesisFirehoseDestination>,
     /// <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in this <code>EventDestinationDefinition</code>.</p>
-    #[serde(rename = "MatchingEventTypes")]
+    #[serde(rename = "matchingEventTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub matching_event_types: Option<Vec<String>>,
     /// <p>An object that defines an Amazon Pinpoint project destination for email events. You can send email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
-    #[serde(rename = "PinpointDestination")]
+    #[serde(rename = "pinpointDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pinpoint_destination: Option<PinpointDestination>,
     /// <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.</p>
-    #[serde(rename = "SnsDestination")]
+    #[serde(rename = "snsDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_destination: Option<SnsDestination>,
 }
@@ -1026,11 +1026,11 @@ pub struct EventDestinationDefinition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailureInfo {
     /// <p>A message about why the import job failed.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>An Amazon S3 presigned URL that contains all the failed records and related information.</p>
-    #[serde(rename = "FailedRecordsS3Url")]
+    #[serde(rename = "failedRecordsS3Url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_records_s3_url: Option<String>,
 }
@@ -1045,31 +1045,31 @@ pub struct GetAccountRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccountResponse {
     /// <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP addresses that are associated with your account.</p>
-    #[serde(rename = "DedicatedIpAutoWarmupEnabled")]
+    #[serde(rename = "dedicatedIpAutoWarmupEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_ip_auto_warmup_enabled: Option<bool>,
     /// <p>An object that defines your account details.</p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<AccountDetails>,
     /// <p><p>The reputation status of your Amazon SES account. The status can be one of the following:</p> <ul> <li> <p> <code>HEALTHY</code> – There are no reputation-related issues that currently impact your account.</p> </li> <li> <p> <code>PROBATION</code> – We&#39;ve identified potential issues with your Amazon SES account. We&#39;re placing your account under review while you work on correcting these issues.</p> </li> <li> <p> <code>SHUTDOWN</code> – Your account&#39;s ability to send email is currently paused because of an issue with the email sent from your account. When you correct the issue, you can contact us and request that your account&#39;s ability to send email is resumed.</p> </li> </ul></p>
-    #[serde(rename = "EnforcementStatus")]
+    #[serde(rename = "enforcementStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enforcement_status: Option<String>,
     /// <p>Indicates whether or not your account has production access in the current AWS Region.</p> <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p> <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
-    #[serde(rename = "ProductionAccessEnabled")]
+    #[serde(rename = "productionAccessEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub production_access_enabled: Option<bool>,
     /// <p>An object that contains information about the per-day and per-second sending limits for your Amazon SES account in the current AWS Region.</p>
-    #[serde(rename = "SendQuota")]
+    #[serde(rename = "sendQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub send_quota: Option<SendQuota>,
     /// <p>Indicates whether or not email sending is enabled for your Amazon SES account in the current AWS Region.</p>
-    #[serde(rename = "SendingEnabled")]
+    #[serde(rename = "sendingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_enabled: Option<bool>,
     /// <p>An object that contains information about the email address suppression preferences for your account in the current AWS Region.</p>
-    #[serde(rename = "SuppressionAttributes")]
+    #[serde(rename = "suppressionAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppression_attributes: Option<SuppressionAttributes>,
 }
@@ -1079,7 +1079,7 @@ pub struct GetAccountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetBlacklistReportsRequest {
     /// <p>A list of IP addresses that you want to retrieve blacklist information about. You can only specify the dedicated IP addresses that you use to send email using Amazon SES or Amazon Pinpoint.</p>
-    #[serde(rename = "BlacklistItemNames")]
+    #[serde(rename = "blacklistItemNames")]
     pub blacklist_item_names: Vec<String>,
 }
 
@@ -1088,7 +1088,7 @@ pub struct GetBlacklistReportsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetBlacklistReportsResponse {
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
-    #[serde(rename = "BlacklistReport")]
+    #[serde(rename = "blacklistReport")]
     pub blacklist_report: ::std::collections::HashMap<String, Vec<BlacklistEntry>>,
 }
 
@@ -1097,7 +1097,7 @@ pub struct GetBlacklistReportsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConfigurationSetEventDestinationsRequest {
     /// <p>The name of the configuration set that contains the event destination.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
 }
 
@@ -1106,7 +1106,7 @@ pub struct GetConfigurationSetEventDestinationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConfigurationSetEventDestinationsResponse {
     /// <p>An array that includes all of the events destinations that have been configured for the configuration set.</p>
-    #[serde(rename = "EventDestinations")]
+    #[serde(rename = "eventDestinations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_destinations: Option<Vec<EventDestination>>,
 }
@@ -1116,7 +1116,7 @@ pub struct GetConfigurationSetEventDestinationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConfigurationSetRequest {
     /// <p>The name of the configuration set that you want to obtain more information about.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
 }
 
@@ -1125,31 +1125,31 @@ pub struct GetConfigurationSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConfigurationSetResponse {
     /// <p>The name of the configuration set.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
-    #[serde(rename = "DeliveryOptions")]
+    #[serde(rename = "deliveryOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_options: Option<DeliveryOptions>,
     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
-    #[serde(rename = "ReputationOptions")]
+    #[serde(rename = "reputationOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reputation_options: Option<ReputationOptions>,
     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
-    #[serde(rename = "SendingOptions")]
+    #[serde(rename = "sendingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_options: Option<SendingOptions>,
     /// <p>An object that contains information about the suppression list preferences for your account.</p>
-    #[serde(rename = "SuppressionOptions")]
+    #[serde(rename = "suppressionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppression_options: Option<SuppressionOptions>,
     /// <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
-    #[serde(rename = "TrackingOptions")]
+    #[serde(rename = "trackingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracking_options: Option<TrackingOptions>,
 }
@@ -1158,7 +1158,7 @@ pub struct GetConfigurationSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetContactListRequest {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
 }
 
@@ -1166,27 +1166,27 @@ pub struct GetContactListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetContactListResponse {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_list_name: Option<String>,
     /// <p>A timestamp noting when the contact list was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>A description of what the contact list is about.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A timestamp noting the last time the contact list was updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The tags associated with a contact list.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
-    #[serde(rename = "Topics")]
+    #[serde(rename = "topics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics: Option<Vec<Topic>>,
 }
@@ -1195,10 +1195,10 @@ pub struct GetContactListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetContactRequest {
     /// <p>The name of the contact list to which the contact belongs.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>The contact's email addres.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
 }
 
@@ -1206,35 +1206,35 @@ pub struct GetContactRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetContactResponse {
     /// <p>The attribute data attached to a contact.</p>
-    #[serde(rename = "AttributesData")]
+    #[serde(rename = "attributesData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes_data: Option<String>,
     /// <p>The name of the contact list to which the contact belongs.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_list_name: Option<String>,
     /// <p>A timestamp noting when the contact was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The contact's email addres.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>A timestamp noting the last time the contact's information was updated.</p>
-    #[serde(rename = "LastUpdatedTimestamp")]
+    #[serde(rename = "lastUpdatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<f64>,
     /// <p>The default topic preferences applied to the contact.</p>
-    #[serde(rename = "TopicDefaultPreferences")]
+    #[serde(rename = "topicDefaultPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_default_preferences: Option<Vec<TopicPreference>>,
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.&gt;</p>
-    #[serde(rename = "TopicPreferences")]
+    #[serde(rename = "topicPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_preferences: Option<Vec<TopicPreference>>,
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
-    #[serde(rename = "UnsubscribeAll")]
+    #[serde(rename = "unsubscribeAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unsubscribe_all: Option<bool>,
 }
@@ -1244,7 +1244,7 @@ pub struct GetContactResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCustomVerificationEmailTemplateRequest {
     /// <p>The name of the custom verification email template that you want to retrieve.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -1253,27 +1253,27 @@ pub struct GetCustomVerificationEmailTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCustomVerificationEmailTemplateResponse {
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
-    #[serde(rename = "FailureRedirectionURL")]
+    #[serde(rename = "failureRedirectionURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_redirection_url: Option<String>,
     /// <p>The email address that the custom verification email is sent from.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address: Option<String>,
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
-    #[serde(rename = "SuccessRedirectionURL")]
+    #[serde(rename = "successRedirectionURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub success_redirection_url: Option<String>,
     /// <p>The content of the custom verification email.</p>
-    #[serde(rename = "TemplateContent")]
+    #[serde(rename = "templateContent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_content: Option<String>,
     /// <p>The name of the custom verification email template.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_name: Option<String>,
     /// <p>The subject line of the custom verification email.</p>
-    #[serde(rename = "TemplateSubject")]
+    #[serde(rename = "templateSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_subject: Option<String>,
 }
@@ -1283,7 +1283,7 @@ pub struct GetCustomVerificationEmailTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDedicatedIpRequest {
     /// <p>The IP address that you want to obtain more information about. The value you specify has to be a dedicated IP address that's assocaited with your AWS account.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     pub ip: String,
 }
 
@@ -1292,7 +1292,7 @@ pub struct GetDedicatedIpRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDedicatedIpResponse {
     /// <p>An object that contains information about a dedicated IP address.</p>
-    #[serde(rename = "DedicatedIp")]
+    #[serde(rename = "dedicatedIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_ip: Option<DedicatedIp>,
 }
@@ -1302,15 +1302,15 @@ pub struct GetDedicatedIpResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDedicatedIpsRequest {
     /// <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the position of the dedicated IP pool in the list of IP pools.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The name of the IP pool that the dedicated IP address is associated with.</p>
-    #[serde(rename = "PoolName")]
+    #[serde(rename = "poolName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pool_name: Option<String>,
 }
@@ -1320,11 +1320,11 @@ pub struct GetDedicatedIpsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDedicatedIpsResponse {
     /// <p>A list of dedicated IP addresses that are associated with your AWS account.</p>
-    #[serde(rename = "DedicatedIps")]
+    #[serde(rename = "dedicatedIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_ips: Option<Vec<DedicatedIp>>,
     /// <p>A token that indicates that there are additional dedicated IP addresses to list. To view additional addresses, issue another request to <code>GetDedicatedIps</code>, passing this token in the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1339,22 +1339,22 @@ pub struct GetDeliverabilityDashboardOptionsRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeliverabilityDashboardOptionsResponse {
     /// <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
-    #[serde(rename = "AccountStatus")]
+    #[serde(rename = "accountStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_status: Option<String>,
     /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
-    #[serde(rename = "ActiveSubscribedDomains")]
+    #[serde(rename = "activeSubscribedDomains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_subscribed_domains: Option<Vec<DomainDeliverabilityTrackingOption>>,
     /// <p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>, the dashboard is enabled.</p>
-    #[serde(rename = "DashboardEnabled")]
+    #[serde(rename = "dashboardEnabled")]
     pub dashboard_enabled: bool,
     /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that's scheduled to expire at the end of the current calendar month.</p>
-    #[serde(rename = "PendingExpirationSubscribedDomains")]
+    #[serde(rename = "pendingExpirationSubscribedDomains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_expiration_subscribed_domains: Option<Vec<DomainDeliverabilityTrackingOption>>,
     /// <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard is scheduled to expire, if your subscription is scheduled to expire at the end of the current calendar month. This value is null if you have an active subscription that isn’t due to expire at the end of the month.</p>
-    #[serde(rename = "SubscriptionExpiryDate")]
+    #[serde(rename = "subscriptionExpiryDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription_expiry_date: Option<f64>,
 }
@@ -1364,7 +1364,7 @@ pub struct GetDeliverabilityDashboardOptionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeliverabilityTestReportRequest {
     /// <p>A unique string that identifies the predictive inbox placement test.</p>
-    #[serde(rename = "ReportId")]
+    #[serde(rename = "reportId")]
     pub report_id: String,
 }
 
@@ -1373,20 +1373,20 @@ pub struct GetDeliverabilityTestReportRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeliverabilityTestReportResponse {
     /// <p>An object that contains the results of the predictive inbox placement test.</p>
-    #[serde(rename = "DeliverabilityTestReport")]
+    #[serde(rename = "deliverabilityTestReport")]
     pub deliverability_test_report: DeliverabilityTestReport,
     /// <p>An object that describes how the test email was handled by several email providers, including Gmail, Hotmail, Yahoo, AOL, and others.</p>
-    #[serde(rename = "IspPlacements")]
+    #[serde(rename = "ispPlacements")]
     pub isp_placements: Vec<IspPlacement>,
     /// <p>An object that contains the message that you sent when you performed this predictive inbox placement test.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were delivered to recipients' inboxes, how many were sent to recipients' spam folders, and how many weren't delivered.</p>
-    #[serde(rename = "OverallPlacement")]
+    #[serde(rename = "overallPlacement")]
     pub overall_placement: PlacementStatistics,
     /// <p>An array of objects that define the tags (keys and values) that are associated with the predictive inbox placement test.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1396,7 +1396,7 @@ pub struct GetDeliverabilityTestReportResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDomainDeliverabilityCampaignRequest {
     /// <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates and assigns this identifier to a campaign.</p>
-    #[serde(rename = "CampaignId")]
+    #[serde(rename = "campaignId")]
     pub campaign_id: String,
 }
 
@@ -1405,7 +1405,7 @@ pub struct GetDomainDeliverabilityCampaignRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDomainDeliverabilityCampaignResponse {
     /// <p>An object that contains the deliverability data for the campaign.</p>
-    #[serde(rename = "DomainDeliverabilityCampaign")]
+    #[serde(rename = "domainDeliverabilityCampaign")]
     pub domain_deliverability_campaign: DomainDeliverabilityCampaign,
 }
 
@@ -1414,13 +1414,13 @@ pub struct GetDomainDeliverabilityCampaignResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDomainStatisticsReportRequest {
     /// <p>The domain that you want to obtain deliverability metrics for.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
     /// <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for. The <code>EndDate</code> that you specify has to be less than or equal to 30 days after the <code>StartDate</code>.</p>
-    #[serde(rename = "EndDate")]
+    #[serde(rename = "endDate")]
     pub end_date: f64,
     /// <p>The first day (in Unix time) that you want to obtain domain deliverability metrics for.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     pub start_date: f64,
 }
 
@@ -1429,10 +1429,10 @@ pub struct GetDomainStatisticsReportRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDomainStatisticsReportResponse {
     /// <p>An object that contains deliverability metrics for the domain that you specified. This object contains data for each day, starting on the <code>StartDate</code> and ending on the <code>EndDate</code>.</p>
-    #[serde(rename = "DailyVolumes")]
+    #[serde(rename = "dailyVolumes")]
     pub daily_volumes: Vec<DailyVolume>,
     /// <p>An object that contains deliverability metrics for the domain that you specified. The data in this object is a summary of all of the data that was collected from the <code>StartDate</code> to the <code>EndDate</code>.</p>
-    #[serde(rename = "OverallVolume")]
+    #[serde(rename = "overallVolume")]
     pub overall_volume: OverallVolume,
 }
 
@@ -1441,7 +1441,7 @@ pub struct GetDomainStatisticsReportResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEmailIdentityPoliciesRequest {
     /// <p>The email identity that you want to retrieve policies for.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
 }
 
@@ -1450,7 +1450,7 @@ pub struct GetEmailIdentityPoliciesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEmailIdentityPoliciesResponse {
     /// <p>A map of policy names to policies.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1460,7 +1460,7 @@ pub struct GetEmailIdentityPoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEmailIdentityRequest {
     /// <p>The email identity that you want to retrieve details for.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
 }
 
@@ -1469,35 +1469,35 @@ pub struct GetEmailIdentityRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEmailIdentityResponse {
     /// <p>The configuration set used by default when sending from this identity.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>An object that contains information about the DKIM attributes for the identity.</p>
-    #[serde(rename = "DkimAttributes")]
+    #[serde(rename = "dkimAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dkim_attributes: Option<DkimAttributes>,
     /// <p>The feedback forwarding configuration for the identity.</p> <p>If the value is <code>true</code>, you receive email notifications when bounce or complaint events occur. These notifications are sent to the address that you specified in the <code>Return-Path</code> header of the original email.</p> <p>You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications (for example, by setting up an event destination), you receive an email notification when these events occur (even if this setting is disabled).</p>
-    #[serde(rename = "FeedbackForwardingStatus")]
+    #[serde(rename = "feedbackForwardingStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_forwarding_status: Option<bool>,
     /// <p>The email identity type.</p>
-    #[serde(rename = "IdentityType")]
+    #[serde(rename = "identityType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_type: Option<String>,
     /// <p>An object that contains information about the Mail-From attributes for the email identity.</p>
-    #[serde(rename = "MailFromAttributes")]
+    #[serde(rename = "mailFromAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mail_from_attributes: Option<MailFromAttributes>,
     /// <p>A map of policy names to policies.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<::std::collections::HashMap<String, String>>,
     /// <p>An array of objects that define the tags (keys and values) that are associated with the email identity.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>Specifies whether or not the identity is verified. You can only send email from verified email addresses or domains. For more information about verifying identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
-    #[serde(rename = "VerifiedForSendingStatus")]
+    #[serde(rename = "verifiedForSendingStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verified_for_sending_status: Option<bool>,
 }
@@ -1507,7 +1507,7 @@ pub struct GetEmailIdentityResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEmailTemplateRequest {
     /// <p>The name of the template you want to retrieve.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -1516,10 +1516,10 @@ pub struct GetEmailTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEmailTemplateResponse {
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    #[serde(rename = "TemplateContent")]
+    #[serde(rename = "templateContent")]
     pub template_content: EmailTemplateContent,
     /// <p>The name of the template you want to retrieve.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -1528,7 +1528,7 @@ pub struct GetEmailTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetImportJobRequest {
     /// <p>The ID of the import job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -1537,39 +1537,39 @@ pub struct GetImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetImportJobResponse {
     /// <p>The time stamp of when the import job was completed.</p>
-    #[serde(rename = "CompletedTimestamp")]
+    #[serde(rename = "completedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_timestamp: Option<f64>,
     /// <p>The time stamp of when the import job was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The number of records that failed processing because of invalid input or other reasons.</p>
-    #[serde(rename = "FailedRecordsCount")]
+    #[serde(rename = "failedRecordsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_records_count: Option<i64>,
     /// <p>The failure details about an import job.</p>
-    #[serde(rename = "FailureInfo")]
+    #[serde(rename = "failureInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_info: Option<FailureInfo>,
     /// <p>The data source of the import job.</p>
-    #[serde(rename = "ImportDataSource")]
+    #[serde(rename = "importDataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_data_source: Option<ImportDataSource>,
     /// <p>The destination of the import job.</p>
-    #[serde(rename = "ImportDestination")]
+    #[serde(rename = "importDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_destination: Option<ImportDestination>,
     /// <p>A string that represents the import job ID.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The status of the import job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The current number of records processed.</p>
-    #[serde(rename = "ProcessedRecordsCount")]
+    #[serde(rename = "processedRecordsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub processed_records_count: Option<i64>,
 }
@@ -1579,7 +1579,7 @@ pub struct GetImportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSuppressedDestinationRequest {
     /// <p>The email address that's on the account suppression list.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
 }
 
@@ -1588,7 +1588,7 @@ pub struct GetSuppressedDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSuppressedDestinationResponse {
     /// <p>An object containing information about the suppressed email address.</p>
-    #[serde(rename = "SuppressedDestination")]
+    #[serde(rename = "suppressedDestination")]
     pub suppressed_destination: SuppressedDestination,
 }
 
@@ -1597,15 +1597,15 @@ pub struct GetSuppressedDestinationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IdentityInfo {
     /// <p>The address or domain of the identity.</p>
-    #[serde(rename = "IdentityName")]
+    #[serde(rename = "identityName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_name: Option<String>,
     /// <p><p>The email identity type. The identity type can be one of the following:</p> <ul> <li> <p> <code>EMAIL<em>ADDRESS</code> – The identity is an email address.</p> </li> <li> <p> <code>DOMAIN</code> – The identity is a domain.</p> </li> <li> <p> <code>MANAGED</em>DOMAIN</code> – The identity is a domain that is managed by AWS.</p> </li> </ul></p>
-    #[serde(rename = "IdentityType")]
+    #[serde(rename = "identityType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_type: Option<String>,
     /// <p>Indicates whether or not you can send email from the identity.</p> <p>An <i>identity</i> is an email address or domain that you send email from. Before you can send email from an identity, you have to demostrate that you own the identity, and that you authorize Amazon SES to send email from that identity.</p>
-    #[serde(rename = "SendingEnabled")]
+    #[serde(rename = "sendingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_enabled: Option<bool>,
 }
@@ -1614,10 +1614,10 @@ pub struct IdentityInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ImportDataSource {
     /// <p>The data format of the import job's data source.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     pub data_format: String,
     /// <p>An Amazon S3 URL in the format s3://<i>&lt;bucket_name&gt;</i>/<i>&lt;object&gt;</i>.</p>
-    #[serde(rename = "S3Url")]
+    #[serde(rename = "s3Url")]
     pub s3_url: String,
 }
 
@@ -1625,11 +1625,11 @@ pub struct ImportDataSource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ImportDestination {
     /// <p>An object that contains the action of the import job towards a contact list.</p>
-    #[serde(rename = "ContactListDestination")]
+    #[serde(rename = "contactListDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_list_destination: Option<ContactListDestination>,
     /// <p>An object that contains the action of the import job towards suppression list.</p>
-    #[serde(rename = "SuppressionListDestination")]
+    #[serde(rename = "suppressionListDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppression_list_destination: Option<SuppressionListDestination>,
 }
@@ -1639,16 +1639,16 @@ pub struct ImportDestination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportJobSummary {
     /// <p>The date and time when the import job was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
-    #[serde(rename = "ImportDestination")]
+    #[serde(rename = "importDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_destination: Option<ImportDestination>,
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -1657,11 +1657,11 @@ pub struct ImportJobSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InboxPlacementTrackingOption {
     /// <p>Specifies whether inbox placement data is being tracked for the domain.</p>
-    #[serde(rename = "Global")]
+    #[serde(rename = "global")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global: Option<bool>,
     /// <p>An array of strings, one for each major email provider that the inbox placement data applies to.</p>
-    #[serde(rename = "TrackedIsps")]
+    #[serde(rename = "trackedIsps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracked_isps: Option<Vec<String>>,
 }
@@ -1671,11 +1671,11 @@ pub struct InboxPlacementTrackingOption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IspPlacement {
     /// <p>The name of the email provider that the inbox placement data applies to.</p>
-    #[serde(rename = "IspName")]
+    #[serde(rename = "ispName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub isp_name: Option<String>,
     /// <p>An object that contains inbox placement metrics for a specific email provider.</p>
-    #[serde(rename = "PlacementStatistics")]
+    #[serde(rename = "placementStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub placement_statistics: Option<PlacementStatistics>,
 }
@@ -1684,10 +1684,10 @@ pub struct IspPlacement {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisFirehoseDestination {
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.</p>
-    #[serde(rename = "DeliveryStreamArn")]
+    #[serde(rename = "deliveryStreamArn")]
     pub delivery_stream_arn: String,
     /// <p>The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     pub iam_role_arn: String,
 }
 
@@ -1696,11 +1696,11 @@ pub struct KinesisFirehoseDestination {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConfigurationSetsRequest {
     /// <p>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position in the list of configuration sets.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListConfigurationSets</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1710,11 +1710,11 @@ pub struct ListConfigurationSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConfigurationSetsResponse {
     /// <p>An array that contains all of the configuration sets in your Amazon SES account in the current AWS Region.</p>
-    #[serde(rename = "ConfigurationSets")]
+    #[serde(rename = "configurationSets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_sets: Option<Vec<String>>,
     /// <p>A token that indicates that there are additional configuration sets to list. To view additional configuration sets, issue another request to <code>ListConfigurationSets</code>, and pass this token in the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1723,11 +1723,11 @@ pub struct ListConfigurationSetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListContactListsRequest {
     /// <p>A string token indicating that there might be additional contact lists available to be listed. Use the token provided in the Response to use in the subsequent call to ListContactLists with the same parameters to retrieve the next page of contact lists.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Maximum number of contact lists to return at once. Use this parameter to paginate results. If additional contact lists exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional lists.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1736,11 +1736,11 @@ pub struct ListContactListsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListContactListsResponse {
     /// <p>The available contact lists.</p>
-    #[serde(rename = "ContactLists")]
+    #[serde(rename = "contactLists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_lists: Option<Vec<ContactList>>,
     /// <p>A string token indicating that there might be additional contact lists available to be listed. Copy this token to a subsequent call to <code>ListContactLists</code> with the same parameters to retrieve the next page of contact lists.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1750,11 +1750,11 @@ pub struct ListContactListsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListContactsFilter {
     /// <p>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
-    #[serde(rename = "FilteredStatus")]
+    #[serde(rename = "filteredStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filtered_status: Option<String>,
     /// <p>Used for filtering by a specific topic preference.</p>
-    #[serde(rename = "TopicFilter")]
+    #[serde(rename = "topicFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_filter: Option<TopicFilter>,
 }
@@ -1763,18 +1763,18 @@ pub struct ListContactsFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListContactsRequest {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>A filter that can be applied to a list of contacts.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<ListContactsFilter>,
     /// <p>A string token indicating that there might be additional contacts available to be listed. Use the token provided in the Response to use in the subsequent call to ListContacts with the same parameters to retrieve the next page of contacts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of contacts that may be returned at once, which is dependent on if there are more or less contacts than the value of the PageSize. Use this parameter to paginate results. If additional contacts exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional contacts.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1783,11 +1783,11 @@ pub struct ListContactsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListContactsResponse {
     /// <p>The contacts present in a specific contact list.</p>
-    #[serde(rename = "Contacts")]
+    #[serde(rename = "contacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contacts: Option<Vec<Contact>>,
     /// <p>A string token indicating that there might be additional contacts available to be listed. Copy this token to a subsequent call to <code>ListContacts</code> with the same parameters to retrieve the next page of contacts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1797,11 +1797,11 @@ pub struct ListContactsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCustomVerificationEmailTemplatesRequest {
     /// <p>A token returned from a previous call to <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the list of custom verification email templates.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListCustomVerificationEmailTemplates</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 1, and can be no more than 50.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1811,11 +1811,11 @@ pub struct ListCustomVerificationEmailTemplatesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCustomVerificationEmailTemplatesResponse {
     /// <p>A list of the custom verification email templates that exist in your account.</p>
-    #[serde(rename = "CustomVerificationEmailTemplates")]
+    #[serde(rename = "customVerificationEmailTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_verification_email_templates: Option<Vec<CustomVerificationEmailTemplateMetadata>>,
     /// <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom verification email templates.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1825,11 +1825,11 @@ pub struct ListCustomVerificationEmailTemplatesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDedicatedIpPoolsRequest {
     /// <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate the position in the list of dedicated IP pools.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1839,11 +1839,11 @@ pub struct ListDedicatedIpPoolsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDedicatedIpPoolsResponse {
     /// <p>A list of all of the dedicated IP pools that are associated with your AWS account in the current Region.</p>
-    #[serde(rename = "DedicatedIpPools")]
+    #[serde(rename = "dedicatedIpPools")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_ip_pools: Option<Vec<String>>,
     /// <p>A token that indicates that there are additional IP pools to list. To view additional IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token in the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1853,11 +1853,11 @@ pub struct ListDedicatedIpPoolsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDeliverabilityTestReportsRequest {
     /// <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListDeliverabilityTestReports</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1867,10 +1867,10 @@ pub struct ListDeliverabilityTestReportsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDeliverabilityTestReportsResponse {
     /// <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
-    #[serde(rename = "DeliverabilityTestReports")]
+    #[serde(rename = "deliverabilityTestReports")]
     pub deliverability_test_reports: Vec<DeliverabilityTestReport>,
     /// <p>A token that indicates that there are additional predictive inbox placement tests to list. To view additional predictive inbox placement tests, issue another request to <code>ListDeliverabilityTestReports</code>, and pass this token in the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1880,21 +1880,21 @@ pub struct ListDeliverabilityTestReportsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDomainDeliverabilityCampaignsRequest {
     /// <p>The last day, in Unix time format, that you want to obtain deliverability data for. This value has to be less than or equal to 30 days after the value of the <code>StartDate</code> parameter.</p>
-    #[serde(rename = "EndDate")]
+    #[serde(rename = "endDate")]
     pub end_date: f64,
     /// <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of a campaign in the list of campaigns.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The maximum number of results to include in response to a single call to the <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results is larger than the number that you specify in this parameter, the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The first day, in Unix time format, that you want to obtain deliverability data for.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     pub start_date: f64,
     /// <p>The domain to obtain deliverability data for.</p>
-    #[serde(rename = "SubscribedDomain")]
+    #[serde(rename = "subscribedDomain")]
     pub subscribed_domain: String,
 }
 
@@ -1903,10 +1903,10 @@ pub struct ListDomainDeliverabilityCampaignsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDomainDeliverabilityCampaignsResponse {
     /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
-    #[serde(rename = "DomainDeliverabilityCampaigns")]
+    #[serde(rename = "domainDeliverabilityCampaigns")]
     pub domain_deliverability_campaigns: Vec<DomainDeliverabilityCampaign>,
     /// <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of the campaign in the list of campaigns.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1916,11 +1916,11 @@ pub struct ListDomainDeliverabilityCampaignsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEmailIdentitiesRequest {
     /// <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate the position in the list of identities.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1930,11 +1930,11 @@ pub struct ListEmailIdentitiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEmailIdentitiesResponse {
     /// <p>An array that includes all of the email identities associated with your AWS account.</p>
-    #[serde(rename = "EmailIdentities")]
+    #[serde(rename = "emailIdentities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_identities: Option<Vec<IdentityInfo>>,
     /// <p>A token that indicates that there are additional configuration sets to list. To view additional configuration sets, issue another request to <code>ListEmailIdentities</code>, and pass this token in the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1944,11 +1944,11 @@ pub struct ListEmailIdentitiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEmailTemplatesRequest {
     /// <p>A token returned from a previous call to <code>ListEmailTemplates</code> to indicate the position in the list of email templates.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 1, and can be no more than 10.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1958,11 +1958,11 @@ pub struct ListEmailTemplatesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEmailTemplatesResponse {
     /// <p>A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent <code>ListEmailTemplates</code> call to retrieve the next 10 email templates.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array the contains the name and creation time stamp for each template in your Amazon SES account.</p>
-    #[serde(rename = "TemplatesMetadata")]
+    #[serde(rename = "templatesMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub templates_metadata: Option<Vec<EmailTemplateMetadata>>,
 }
@@ -1972,15 +1972,15 @@ pub struct ListEmailTemplatesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListImportJobsRequest {
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
-    #[serde(rename = "ImportDestinationType")]
+    #[serde(rename = "importDestinationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_destination_type: Option<String>,
     /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Maximum number of import jobs to return at once. Use this parameter to paginate results. If additional import jobs exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional addresses.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
 }
@@ -1990,11 +1990,11 @@ pub struct ListImportJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListImportJobsResponse {
     /// <p>A list of the import job summaries.</p>
-    #[serde(rename = "ImportJobs")]
+    #[serde(rename = "importJobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_jobs: Option<Vec<ImportJobSummary>>,
     /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2004,10 +2004,10 @@ pub struct ListImportJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListManagementOptions {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>The name of the topic.</p>
-    #[serde(rename = "TopicName")]
+    #[serde(rename = "topicName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_name: Option<String>,
 }
@@ -2017,23 +2017,23 @@ pub struct ListManagementOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSuppressedDestinationsRequest {
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list before a specific date. The date that you specify should be in Unix time format.</p>
-    #[serde(rename = "EndDate")]
+    #[serde(rename = "endDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_date: Option<f64>,
     /// <p>A token returned from a previous call to <code>ListSuppressedDestinations</code> to indicate the position in the list of suppressed email addresses.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The number of results to show in a single call to <code>ListSuppressedDestinations</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The factors that caused the email address to be added to .</p>
-    #[serde(rename = "Reasons")]
+    #[serde(rename = "reasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reasons: Option<Vec<String>>,
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list after a specific date. The date that you specify should be in Unix time format.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<f64>,
 }
@@ -2043,11 +2043,11 @@ pub struct ListSuppressedDestinationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSuppressedDestinationsResponse {
     /// <p>A token that indicates that there are additional email addresses on the suppression list for your account. To view additional suppressed addresses, issue another request to <code>ListSuppressedDestinations</code>, and pass this token in the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of summaries, each containing a summary for a suppressed email destination.</p>
-    #[serde(rename = "SuppressedDestinationSummaries")]
+    #[serde(rename = "suppressedDestinationSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppressed_destination_summaries: Option<Vec<SuppressedDestinationSummary>>,
 }
@@ -2056,7 +2056,7 @@ pub struct ListSuppressedDestinationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag information for.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2064,7 +2064,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>An array that lists all the tags that are associated with the resource. Each tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>)</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2073,13 +2073,13 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MailFromAttributes {
     /// <p>The action that you want to take if the required MX record can't be found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p> <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    #[serde(rename = "BehaviorOnMxFailure")]
+    #[serde(rename = "behaviorOnMxFailure")]
     pub behavior_on_mx_failure: String,
     /// <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
-    #[serde(rename = "MailFromDomain")]
+    #[serde(rename = "mailFromDomain")]
     pub mail_from_domain: String,
     /// <p><p>The status of the MAIL FROM domain. This status can have the following values:</p> <ul> <li> <p> <code>PENDING</code> – Amazon SES hasn&#39;t started searching for the MX record yet.</p> </li> <li> <p> <code>SUCCESS</code> – Amazon SES detected the required MX record for the MAIL FROM domain.</p> </li> <li> <p> <code>FAILED</code> – Amazon SES can&#39;t find the required MX record, or the record no longer exists.</p> </li> <li> <p> <code>TEMPORARY_FAILURE</code> – A temporary issue occurred, which prevented Amazon SES from determining the status of the MAIL FROM domain.</p> </li> </ul></p>
-    #[serde(rename = "MailFromDomainStatus")]
+    #[serde(rename = "mailFromDomainStatus")]
     pub mail_from_domain_status: String,
 }
 
@@ -2088,10 +2088,10 @@ pub struct MailFromAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Message {
     /// <p>The body of the message. You can specify an HTML version of the message, a text-only version of the message, or both.</p>
-    #[serde(rename = "Body")]
+    #[serde(rename = "body")]
     pub body: Body,
     /// <p>The subject line of the email. The subject line can only contain 7-bit ASCII characters. However, you can specify non-ASCII characters in the subject line by using encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.</p>
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     pub subject: Content,
 }
 
@@ -2100,10 +2100,10 @@ pub struct Message {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MessageTag {
     /// <p><p>The name of the message tag. The message tag name has to meet the following criteria:</p> <ul> <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> <li> <p>It can contain no more than 256 characters.</p> </li> </ul></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>The value of the message tag. The message tag value has to meet the following criteria:</p> <ul> <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> <li> <p>It can contain no more than 256 characters.</p> </li> </ul></p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -2112,15 +2112,15 @@ pub struct MessageTag {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OverallVolume {
     /// <p>An object that contains inbox and junk mail placement metrics for individual email providers.</p>
-    #[serde(rename = "DomainIspPlacements")]
+    #[serde(rename = "domainIspPlacements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_isp_placements: Option<Vec<DomainIspPlacement>>,
     /// <p>The percentage of emails that were sent from the domain that were read by their recipients.</p>
-    #[serde(rename = "ReadRatePercent")]
+    #[serde(rename = "readRatePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_rate_percent: Option<f64>,
     /// <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
-    #[serde(rename = "VolumeStatistics")]
+    #[serde(rename = "volumeStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_statistics: Option<VolumeStatistics>,
 }
@@ -2129,7 +2129,7 @@ pub struct OverallVolume {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PinpointDestination {
     /// <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send email events to.</p>
-    #[serde(rename = "ApplicationArn")]
+    #[serde(rename = "applicationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_arn: Option<String>,
 }
@@ -2139,23 +2139,23 @@ pub struct PinpointDestination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PlacementStatistics {
     /// <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail (DKIM) during the predictive inbox placement test.</p>
-    #[serde(rename = "DkimPercentage")]
+    #[serde(rename = "dkimPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dkim_percentage: Option<f64>,
     /// <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
-    #[serde(rename = "InboxPercentage")]
+    #[serde(rename = "inboxPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbox_percentage: Option<f64>,
     /// <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the predictive inbox placement test.</p>
-    #[serde(rename = "MissingPercentage")]
+    #[serde(rename = "missingPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub missing_percentage: Option<f64>,
     /// <p>The percentage of emails that arrived in recipients' spam or junk mail folders during the predictive inbox placement test.</p>
-    #[serde(rename = "SpamPercentage")]
+    #[serde(rename = "spamPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spam_percentage: Option<f64>,
     /// <p>The percentage of emails that were authenticated by using Sender Policy Framework (SPF) during the predictive inbox placement test.</p>
-    #[serde(rename = "SpfPercentage")]
+    #[serde(rename = "spfPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spf_percentage: Option<f64>,
 }
@@ -2165,7 +2165,7 @@ pub struct PlacementStatistics {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAccountDedicatedIpWarmupAttributesRequest {
     /// <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are associated with your Amazon SES account in the current AWS Region. Set to <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code> to disable it.</p>
-    #[serde(rename = "AutoWarmupEnabled")]
+    #[serde(rename = "autoWarmupEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_warmup_enabled: Option<bool>,
 }
@@ -2180,25 +2180,25 @@ pub struct PutAccountDedicatedIpWarmupAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAccountDetailsRequest {
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    #[serde(rename = "AdditionalContactEmailAddresses")]
+    #[serde(rename = "additionalContactEmailAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_contact_email_addresses: Option<Vec<String>>,
     /// <p>The language you would prefer to be contacted with.</p>
-    #[serde(rename = "ContactLanguage")]
+    #[serde(rename = "contactLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_language: Option<String>,
     /// <p>The type of email your account will send.</p>
-    #[serde(rename = "MailType")]
+    #[serde(rename = "mailType")]
     pub mail_type: String,
     /// <p>Indicates whether or not your account should have production access in the current AWS Region.</p> <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p> <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
-    #[serde(rename = "ProductionAccessEnabled")]
+    #[serde(rename = "productionAccessEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub production_access_enabled: Option<bool>,
     /// <p>A description of the types of email that you plan to send.</p>
-    #[serde(rename = "UseCaseDescription")]
+    #[serde(rename = "useCaseDescription")]
     pub use_case_description: String,
     /// <p>The URL of your website. This information helps us better understand the type of content that you plan to send.</p>
-    #[serde(rename = "WebsiteURL")]
+    #[serde(rename = "websiteURL")]
     pub website_url: String,
 }
 
@@ -2212,7 +2212,7 @@ pub struct PutAccountDetailsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAccountSendingAttributesRequest {
     /// <p><p>Enables or disables your account&#39;s ability to send email. Set to <code>true</code> to enable email sending, or set to <code>false</code> to disable email sending.</p> <note> <p>If AWS paused your account&#39;s ability to send email, you can&#39;t use this operation to resume your account&#39;s ability to send email.</p> </note></p>
-    #[serde(rename = "SendingEnabled")]
+    #[serde(rename = "sendingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_enabled: Option<bool>,
 }
@@ -2227,7 +2227,7 @@ pub struct PutAccountSendingAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAccountSuppressionAttributesRequest {
     /// <p><p>A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p> </li> </ul></p>
-    #[serde(rename = "SuppressedReasons")]
+    #[serde(rename = "suppressedReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppressed_reasons: Option<Vec<String>>,
 }
@@ -2242,14 +2242,14 @@ pub struct PutAccountSuppressionAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationSetDeliveryOptionsRequest {
     /// <p>The name of the configuration set that you want to associate with a dedicated IP pool.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>The name of the dedicated IP pool that you want to associate with the configuration set.</p>
-    #[serde(rename = "SendingPoolName")]
+    #[serde(rename = "sendingPoolName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_pool_name: Option<String>,
     /// <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>
-    #[serde(rename = "TlsPolicy")]
+    #[serde(rename = "tlsPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_policy: Option<String>,
 }
@@ -2264,10 +2264,10 @@ pub struct PutConfigurationSetDeliveryOptionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationSetReputationOptionsRequest {
     /// <p>The name of the configuration set that you want to enable or disable reputation metric tracking for.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>
-    #[serde(rename = "ReputationMetricsEnabled")]
+    #[serde(rename = "reputationMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reputation_metrics_enabled: Option<bool>,
 }
@@ -2282,10 +2282,10 @@ pub struct PutConfigurationSetReputationOptionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationSetSendingOptionsRequest {
     /// <p>The name of the configuration set that you want to enable or disable email sending for.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>
-    #[serde(rename = "SendingEnabled")]
+    #[serde(rename = "sendingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_enabled: Option<bool>,
 }
@@ -2300,10 +2300,10 @@ pub struct PutConfigurationSetSendingOptionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationSetSuppressionOptionsRequest {
     /// <p>The name of the configuration set that you want to change the suppression list preferences for.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p><p>A list that contains the reasons that email addresses are automatically added to the suppression list for your account. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p> </li> </ul></p>
-    #[serde(rename = "SuppressedReasons")]
+    #[serde(rename = "suppressedReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppressed_reasons: Option<Vec<String>>,
 }
@@ -2318,10 +2318,10 @@ pub struct PutConfigurationSetSuppressionOptionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationSetTrackingOptionsRequest {
     /// <p>The name of the configuration set that you want to add a custom tracking domain to.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>The domain that you want to use to track open and click events.</p>
-    #[serde(rename = "CustomRedirectDomain")]
+    #[serde(rename = "customRedirectDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_redirect_domain: Option<String>,
 }
@@ -2336,10 +2336,10 @@ pub struct PutConfigurationSetTrackingOptionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutDedicatedIpInPoolRequest {
     /// <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
-    #[serde(rename = "DestinationPoolName")]
+    #[serde(rename = "destinationPoolName")]
     pub destination_pool_name: String,
     /// <p>The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that's associated with your AWS account.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     pub ip: String,
 }
 
@@ -2353,10 +2353,10 @@ pub struct PutDedicatedIpInPoolResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutDedicatedIpWarmupAttributesRequest {
     /// <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     pub ip: String,
     /// <p>The warm-up percentage that you want to associate with the dedicated IP address.</p>
-    #[serde(rename = "WarmupPercentage")]
+    #[serde(rename = "warmupPercentage")]
     pub warmup_percentage: i64,
 }
 
@@ -2370,10 +2370,10 @@ pub struct PutDedicatedIpWarmupAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutDeliverabilityDashboardOptionRequest {
     /// <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this value to <code>true</code>.</p>
-    #[serde(rename = "DashboardEnabled")]
+    #[serde(rename = "dashboardEnabled")]
     pub dashboard_enabled: bool,
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
-    #[serde(rename = "SubscribedDomains")]
+    #[serde(rename = "subscribedDomains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscribed_domains: Option<Vec<DomainDeliverabilityTrackingOption>>,
 }
@@ -2388,11 +2388,11 @@ pub struct PutDeliverabilityDashboardOptionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEmailIdentityConfigurationSetAttributesRequest {
     /// <p>The configuration set that you want to associate with an email identity.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>The email address or domain that you want to associate with a configuration set.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
 }
 
@@ -2406,10 +2406,10 @@ pub struct PutEmailIdentityConfigurationSetAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEmailIdentityDkimAttributesRequest {
     /// <p>The email identity that you want to change the DKIM settings for.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p>Sets the DKIM signing configuration for the identity.</p> <p>When you set this value <code>true</code>, then the messages that are sent from the identity are signed using DKIM. If you set this value to <code>false</code>, your messages are sent without DKIM signing.</p>
-    #[serde(rename = "SigningEnabled")]
+    #[serde(rename = "signingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_enabled: Option<bool>,
 }
@@ -2424,14 +2424,14 @@ pub struct PutEmailIdentityDkimAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEmailIdentityDkimSigningAttributesRequest {
     /// <p>The email identity that you want to configure DKIM for.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p>An object that contains information about the private key and selector that you want to use to configure DKIM for the identity. This object is only required if you want to configure Bring Your Own DKIM (BYODKIM) for the identity.</p>
-    #[serde(rename = "SigningAttributes")]
+    #[serde(rename = "signingAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signing_attributes: Option<DkimSigningAttributes>,
     /// <p><p>The method that you want to use to configure DKIM for the identity. There are two possible values:</p> <ul> <li> <p> <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p> </li> <li> <p> <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</p> </li> </ul></p>
-    #[serde(rename = "SigningAttributesOrigin")]
+    #[serde(rename = "signingAttributesOrigin")]
     pub signing_attributes_origin: String,
 }
 
@@ -2440,11 +2440,11 @@ pub struct PutEmailIdentityDkimSigningAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEmailIdentityDkimSigningAttributesResponse {
     /// <p><p>The DKIM authentication status of the identity. Amazon SES determines the authentication status by searching for specific records in the DNS configuration for your domain. If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME records in the DNS configuration for your domain.</p> <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT record that uses the selector that you specified. The value of the TXT record must be a public key that&#39;s paired with the private key that you specified in the process of creating the identity.</p> <p>The status can be one of the following:</p> <ul> <li> <p> <code>PENDING</code> – The verification process was initiated, but Amazon SES hasn&#39;t yet detected the DKIM records in the DNS configuration for the domain.</p> </li> <li> <p> <code>SUCCESS</code> – The verification process completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The verification process failed. This typically occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the domain.</p> </li> <li> <p> <code>TEMPORARY<em>FAILURE</code> – A temporary issue is preventing Amazon SES from determining the DKIM authentication status of the domain.</p> </li> <li> <p> <code>NOT</em>STARTED</code> – The DKIM verification process hasn&#39;t been initiated for the domain.</p> </li> </ul></p>
-    #[serde(rename = "DkimStatus")]
+    #[serde(rename = "dkimStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dkim_status: Option<String>,
     /// <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete.</p> <p>If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector that's associated with your public key.</p> <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-    #[serde(rename = "DkimTokens")]
+    #[serde(rename = "dkimTokens")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dkim_tokens: Option<Vec<String>>,
 }
@@ -2454,11 +2454,11 @@ pub struct PutEmailIdentityDkimSigningAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEmailIdentityFeedbackAttributesRequest {
     /// <p>Sets the feedback forwarding configuration for the identity.</p> <p>If the value is <code>true</code>, you receive email notifications when bounce or complaint events occur. These notifications are sent to the address that you specified in the <code>Return-Path</code> header of the original email.</p> <p>You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications (for example, by setting up an event destination), you receive an email notification when these events occur (even if this setting is disabled).</p>
-    #[serde(rename = "EmailForwardingEnabled")]
+    #[serde(rename = "emailForwardingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_forwarding_enabled: Option<bool>,
     /// <p>The email identity that you want to configure bounce and complaint feedback forwarding for.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
 }
 
@@ -2472,14 +2472,14 @@ pub struct PutEmailIdentityFeedbackAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEmailIdentityMailFromAttributesRequest {
     /// <p>The action that you want to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p> <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    #[serde(rename = "BehaviorOnMxFailure")]
+    #[serde(rename = "behaviorOnMxFailure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub behavior_on_mx_failure: Option<String>,
     /// <p>The verified email identity that you want to set up the custom MAIL FROM domain for.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p><p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must meet the following criteria:</p> <ul> <li> <p>It has to be a subdomain of the verified identity.</p> </li> <li> <p>It can&#39;t be used to receive email.</p> </li> <li> <p>It can&#39;t be used in a &quot;From&quot; address if the MAIL FROM domain is a destination for feedback forwarding emails.</p> </li> </ul></p>
-    #[serde(rename = "MailFromDomain")]
+    #[serde(rename = "mailFromDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mail_from_domain: Option<String>,
 }
@@ -2494,10 +2494,10 @@ pub struct PutEmailIdentityMailFromAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSuppressedDestinationRequest {
     /// <p>The email address that should be added to the suppression list for your account.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The factors that should cause the email address to be added to the suppression list for your account.</p>
-    #[serde(rename = "Reason")]
+    #[serde(rename = "reason")]
     pub reason: String,
 }
 
@@ -2511,7 +2511,7 @@ pub struct PutSuppressedDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RawMessage {
     /// <p><p>The raw email message. The message has to meet the following criteria:</p> <ul> <li> <p>The message has to contain a header and a body, separated by one blank line.</p> </li> <li> <p>All of the required header fields must be present in the message.</p> </li> <li> <p>Each part of a multipart MIME message must be formatted properly.</p> </li> <li> <p>Attachments must be in a file format that the Amazon SES supports.</p> </li> <li> <p>The entire message must be Base64 encoded.</p> </li> <li> <p>If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients&#39; email clients render the message properly.</p> </li> <li> <p>The length of any single line of text in the message can&#39;t exceed 1,000 characters. This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p> </li> </ul></p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -2525,7 +2525,7 @@ pub struct RawMessage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReplacementEmailContent {
     /// <p>The <code>ReplacementTemplate</code> associated with <code>ReplacementEmailContent</code>.</p>
-    #[serde(rename = "ReplacementTemplate")]
+    #[serde(rename = "replacementTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement_template: Option<ReplacementTemplate>,
 }
@@ -2535,7 +2535,7 @@ pub struct ReplacementEmailContent {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReplacementTemplate {
     /// <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
-    #[serde(rename = "ReplacementTemplateData")]
+    #[serde(rename = "replacementTemplateData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement_template_data: Option<String>,
 }
@@ -2544,11 +2544,11 @@ pub struct ReplacementTemplate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ReputationOptions {
     /// <p>The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.</p>
-    #[serde(rename = "LastFreshStart")]
+    #[serde(rename = "lastFreshStart")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_fresh_start: Option<f64>,
     /// <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>
-    #[serde(rename = "ReputationMetricsEnabled")]
+    #[serde(rename = "reputationMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reputation_metrics_enabled: Option<bool>,
 }
@@ -2558,11 +2558,11 @@ pub struct ReputationOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReviewDetails {
     /// <p>The associated support center case ID (if any).</p>
-    #[serde(rename = "CaseId")]
+    #[serde(rename = "caseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub case_id: Option<String>,
     /// <p><p>The status of the latest review of your account. The status can be one of the following:</p> <ul> <li> <p> <code>PENDING</code> – We have received your appeal and are in the process of reviewing it.</p> </li> <li> <p> <code>GRANTED</code> – Your appeal has been reviewed and your production access has been granted.</p> </li> <li> <p> <code>DENIED</code> – Your appeal has been reviewed and your production access has been denied.</p> </li> <li> <p> <code>FAILED</code> – An internal error occurred and we didn&#39;t receive your appeal. You can submit your appeal again.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2572,37 +2572,37 @@ pub struct ReviewDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendBulkEmailRequest {
     /// <p>The list of bulk email entry objects.</p>
-    #[serde(rename = "BulkEmailEntries")]
+    #[serde(rename = "bulkEmailEntries")]
     pub bulk_email_entries: Vec<BulkEmailEntry>,
     /// <p>The name of the configuration set that you want to use when sending the email.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>An object that contains the body of the message. You can specify a template message.</p>
-    #[serde(rename = "DefaultContent")]
+    #[serde(rename = "defaultContent")]
     pub default_content: BulkEmailContent,
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    #[serde(rename = "DefaultEmailTags")]
+    #[serde(rename = "defaultEmailTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_email_tags: Option<Vec<MessageTag>>,
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
-    #[serde(rename = "FeedbackForwardingEmailAddress")]
+    #[serde(rename = "feedbackForwardingEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_forwarding_email_address: Option<String>,
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p> <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p> <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    #[serde(rename = "FeedbackForwardingEmailAddressIdentityArn")]
+    #[serde(rename = "feedbackForwardingEmailAddressIdentityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_forwarding_email_address_identity_arn: Option<String>,
     /// <p>The email address that you want to use as the "From" address for the email. The address that you specify has to be verified.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address: Option<String>,
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p> <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p> <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    #[serde(rename = "FromEmailAddressIdentityArn")]
+    #[serde(rename = "fromEmailAddressIdentityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address_identity_arn: Option<String>,
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    #[serde(rename = "ReplyToAddresses")]
+    #[serde(rename = "replyToAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reply_to_addresses: Option<Vec<String>>,
 }
@@ -2611,7 +2611,7 @@ pub struct SendBulkEmailRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendBulkEmailResponse {
-    #[serde(rename = "BulkEmailEntryResults")]
+    #[serde(rename = "bulkEmailEntryResults")]
     pub bulk_email_entry_results: Vec<BulkEmailEntryResult>,
 }
 
@@ -2620,14 +2620,14 @@ pub struct SendBulkEmailResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendCustomVerificationEmailRequest {
     /// <p>Name of a configuration set to use when sending the verification email.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>The email address to verify.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The name of the custom verification email template to use when sending the verification email.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -2636,7 +2636,7 @@ pub struct SendCustomVerificationEmailRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendCustomVerificationEmailResponse {
     /// <p>The unique message identifier returned from the <code>SendCustomVerificationEmail</code> operation.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -2646,42 +2646,42 @@ pub struct SendCustomVerificationEmailResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendEmailRequest {
     /// <p>The name of the configuration set that you want to use when sending the email.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set_name: Option<String>,
     /// <p>An object that contains the body of the message. You can send either a Simple message Raw message or a template Message.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: EmailContent,
     /// <p>An object that contains the recipients of the email message.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<Destination>,
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events. </p>
-    #[serde(rename = "EmailTags")]
+    #[serde(rename = "emailTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_tags: Option<Vec<MessageTag>>,
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
-    #[serde(rename = "FeedbackForwardingEmailAddress")]
+    #[serde(rename = "feedbackForwardingEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_forwarding_email_address: Option<String>,
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p> <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p> <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    #[serde(rename = "FeedbackForwardingEmailAddressIdentityArn")]
+    #[serde(rename = "feedbackForwardingEmailAddressIdentityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_forwarding_email_address_identity_arn: Option<String>,
     /// <p>The email address that you want to use as the "From" address for the email. The address that you specify has to be verified. </p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address: Option<String>,
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p> <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p> <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p> <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message content.</p>
-    #[serde(rename = "FromEmailAddressIdentityArn")]
+    #[serde(rename = "fromEmailAddressIdentityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_email_address_identity_arn: Option<String>,
     /// <p>An object used to specify a list or topic to which an email belongs, which will be used when a contact chooses to unsubscribe.</p>
-    #[serde(rename = "ListManagementOptions")]
+    #[serde(rename = "listManagementOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_management_options: Option<ListManagementOptions>,
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    #[serde(rename = "ReplyToAddresses")]
+    #[serde(rename = "replyToAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reply_to_addresses: Option<Vec<String>>,
 }
@@ -2691,7 +2691,7 @@ pub struct SendEmailRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendEmailResponse {
     /// <p><p>A unique identifier for the message that is generated when the message is accepted.</p> <note> <p>It&#39;s possible for Amazon SES to accept a message without sending it. This can happen when the message that you&#39;re trying to send has an attachment contains a virus, or when you send a templated email that contains invalid personalization content, for example.</p> </note></p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -2701,15 +2701,15 @@ pub struct SendEmailResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendQuota {
     /// <p>The maximum number of emails that you can send in the current AWS Region over a 24-hour period. This value is also called your <i>sending quota</i>.</p>
-    #[serde(rename = "Max24HourSend")]
+    #[serde(rename = "max24HourSend")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_24_hour_send: Option<f64>,
     /// <p>The maximum number of emails that you can send per second in the current AWS Region. This value is also called your <i>maximum sending rate</i> or your <i>maximum TPS (transactions per second) rate</i>.</p>
-    #[serde(rename = "MaxSendRate")]
+    #[serde(rename = "maxSendRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_send_rate: Option<f64>,
     /// <p>The number of emails sent from your Amazon SES account in the current AWS Region over the past 24 hours.</p>
-    #[serde(rename = "SentLast24Hours")]
+    #[serde(rename = "sentLast24Hours")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sent_last_24_hours: Option<f64>,
 }
@@ -2718,7 +2718,7 @@ pub struct SendQuota {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SendingOptions {
     /// <p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>
-    #[serde(rename = "SendingEnabled")]
+    #[serde(rename = "sendingEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sending_enabled: Option<bool>,
 }
@@ -2727,7 +2727,7 @@ pub struct SendingOptions {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SnsDestination {
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-    #[serde(rename = "TopicArn")]
+    #[serde(rename = "topicArn")]
     pub topic_arn: String,
 }
 
@@ -2736,17 +2736,17 @@ pub struct SnsDestination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SuppressedDestination {
     /// <p>An optional value that can contain additional information about the reasons that the address was added to the suppression list for your account.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<SuppressedDestinationAttributes>,
     /// <p>The email address that is on the suppression list for your account.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     pub last_update_time: f64,
     /// <p>The reason that the address was added to the suppression list for your account.</p>
-    #[serde(rename = "Reason")]
+    #[serde(rename = "reason")]
     pub reason: String,
 }
 
@@ -2755,11 +2755,11 @@ pub struct SuppressedDestination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SuppressedDestinationAttributes {
     /// <p>A unique identifier that's generated when an email address is added to the suppression list for your account.</p>
-    #[serde(rename = "FeedbackId")]
+    #[serde(rename = "feedbackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_id: Option<String>,
     /// <p>The unique identifier of the email message that caused the email address to be added to the suppression list for your account.</p>
-    #[serde(rename = "MessageId")]
+    #[serde(rename = "messageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_id: Option<String>,
 }
@@ -2769,13 +2769,13 @@ pub struct SuppressedDestinationAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SuppressedDestinationSummary {
     /// <p>The email address that's on the suppression list for your account.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     pub last_update_time: f64,
     /// <p>The reason that the address was added to the suppression list for your account.</p>
-    #[serde(rename = "Reason")]
+    #[serde(rename = "reason")]
     pub reason: String,
 }
 
@@ -2784,7 +2784,7 @@ pub struct SuppressedDestinationSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SuppressionAttributes {
     /// <p><p>A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p> </li> </ul></p>
-    #[serde(rename = "SuppressedReasons")]
+    #[serde(rename = "suppressedReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppressed_reasons: Option<Vec<String>>,
 }
@@ -2793,7 +2793,7 @@ pub struct SuppressionAttributes {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SuppressionListDestination {
     /// <p><p>The type of action that you want to perform on the address. Acceptable values:</p> <ul> <li> <p>PUT: add the addresses to the suppression list. If the record already exists, it will override it with the new value.</p> </li> <li> <p>DELETE: remove the addresses from the suppression list.</p> </li> </ul></p>
-    #[serde(rename = "SuppressionListImportAction")]
+    #[serde(rename = "suppressionListImportAction")]
     pub suppression_list_import_action: String,
 }
 
@@ -2801,7 +2801,7 @@ pub struct SuppressionListDestination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SuppressionOptions {
     /// <p><p>A list that contains the reasons that email addresses are automatically added to the suppression list for your account. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p> </li> </ul></p>
-    #[serde(rename = "SuppressedReasons")]
+    #[serde(rename = "suppressedReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suppressed_reasons: Option<Vec<String>>,
 }
@@ -2810,10 +2810,10 @@ pub struct SuppressionOptions {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don't want a resource to have a specific tag value, don't specify a value for this parameter. If you don't specify a value, Amazon SES sets the value to an empty string.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -2821,10 +2821,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A list of the tags that you want to add to the resource. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2837,15 +2837,15 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Template {
     /// <p>The Amazon Resource Name (ARN) of the template.</p>
-    #[serde(rename = "TemplateArn")]
+    #[serde(rename = "templateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_arn: Option<String>,
     /// <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
-    #[serde(rename = "TemplateData")]
+    #[serde(rename = "templateData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_data: Option<String>,
     /// <p>The name of the template. You will refer to this name when you send email using the <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations. </p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_name: Option<String>,
 }
@@ -2855,10 +2855,10 @@ pub struct Template {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TestRenderEmailTemplateRequest {
     /// <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
-    #[serde(rename = "TemplateData")]
+    #[serde(rename = "templateData")]
     pub template_data: String,
     /// <p>The name of the template that you want to render.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -2867,7 +2867,7 @@ pub struct TestRenderEmailTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TestRenderEmailTemplateResponse {
     /// <p>The complete MIME message rendered by applying the data in the <code>TemplateData</code> parameter to the template specified in the TemplateName parameter.</p>
-    #[serde(rename = "RenderedTemplate")]
+    #[serde(rename = "renderedTemplate")]
     pub rendered_template: String,
 }
 
@@ -2875,17 +2875,17 @@ pub struct TestRenderEmailTemplateResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Topic {
     /// <p>The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.</p>
-    #[serde(rename = "DefaultSubscriptionStatus")]
+    #[serde(rename = "defaultSubscriptionStatus")]
     pub default_subscription_status: String,
     /// <p>A description of what the topic is about, which the contact will see.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the topic the contact will see.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     pub display_name: String,
     /// <p>The name of the topic.</p>
-    #[serde(rename = "TopicName")]
+    #[serde(rename = "topicName")]
     pub topic_name: String,
 }
 
@@ -2894,11 +2894,11 @@ pub struct Topic {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TopicFilter {
     /// <p>The name of a topic on which you wish to apply the filter.</p>
-    #[serde(rename = "TopicName")]
+    #[serde(rename = "topicName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_name: Option<String>,
     /// <p>Notes that the default subscription status should be applied to a contact because the contact has not noted their preference for subscribing to a topic.</p>
-    #[serde(rename = "UseDefaultIfPreferenceUnavailable")]
+    #[serde(rename = "useDefaultIfPreferenceUnavailable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_default_if_preference_unavailable: Option<bool>,
 }
@@ -2907,10 +2907,10 @@ pub struct TopicFilter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TopicPreference {
     /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
-    #[serde(rename = "SubscriptionStatus")]
+    #[serde(rename = "subscriptionStatus")]
     pub subscription_status: String,
     /// <p>The name of the topic.</p>
-    #[serde(rename = "TopicName")]
+    #[serde(rename = "topicName")]
     pub topic_name: String,
 }
 
@@ -2918,7 +2918,7 @@ pub struct TopicPreference {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TrackingOptions {
     /// <p>The domain that you want to use for tracking open and click events.</p>
-    #[serde(rename = "CustomRedirectDomain")]
+    #[serde(rename = "customRedirectDomain")]
     pub custom_redirect_domain: String,
 }
 
@@ -2926,10 +2926,10 @@ pub struct TrackingOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more tags from.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p> <p>To remove more than one tag from the resource, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. For example: <code>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</code> </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2942,13 +2942,13 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConfigurationSetEventDestinationRequest {
     /// <p>The name of the configuration set that contains the event destination that you want to modify.</p>
-    #[serde(rename = "ConfigurationSetName")]
+    #[serde(rename = "configurationSetName")]
     pub configuration_set_name: String,
     /// <p>An object that defines the event destination.</p>
-    #[serde(rename = "EventDestination")]
+    #[serde(rename = "eventDestination")]
     pub event_destination: EventDestinationDefinition,
     /// <p>The name of the event destination that you want to modify.</p>
-    #[serde(rename = "EventDestinationName")]
+    #[serde(rename = "eventDestinationName")]
     pub event_destination_name: String,
 }
 
@@ -2961,14 +2961,14 @@ pub struct UpdateConfigurationSetEventDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateContactListRequest {
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>A description of what the contact list is about.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
-    #[serde(rename = "Topics")]
+    #[serde(rename = "topics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics: Option<Vec<Topic>>,
 }
@@ -2981,21 +2981,21 @@ pub struct UpdateContactListResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateContactRequest {
     /// <p>The attribute data attached to a contact.</p>
-    #[serde(rename = "AttributesData")]
+    #[serde(rename = "attributesData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes_data: Option<String>,
     /// <p>The name of the contact list.</p>
-    #[serde(rename = "ContactListName")]
+    #[serde(rename = "contactListName")]
     pub contact_list_name: String,
     /// <p>The contact's email addres.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    #[serde(rename = "TopicPreferences")]
+    #[serde(rename = "topicPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_preferences: Option<Vec<TopicPreference>>,
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
-    #[serde(rename = "UnsubscribeAll")]
+    #[serde(rename = "unsubscribeAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unsubscribe_all: Option<bool>,
 }
@@ -3009,22 +3009,22 @@ pub struct UpdateContactResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCustomVerificationEmailTemplateRequest {
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
-    #[serde(rename = "FailureRedirectionURL")]
+    #[serde(rename = "failureRedirectionURL")]
     pub failure_redirection_url: String,
     /// <p>The email address that the custom verification email is sent from.</p>
-    #[serde(rename = "FromEmailAddress")]
+    #[serde(rename = "fromEmailAddress")]
     pub from_email_address: String,
     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
-    #[serde(rename = "SuccessRedirectionURL")]
+    #[serde(rename = "successRedirectionURL")]
     pub success_redirection_url: String,
     /// <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
-    #[serde(rename = "TemplateContent")]
+    #[serde(rename = "templateContent")]
     pub template_content: String,
     /// <p>The name of the custom verification email template that you want to update.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
     /// <p>The subject line of the custom verification email.</p>
-    #[serde(rename = "TemplateSubject")]
+    #[serde(rename = "templateSubject")]
     pub template_subject: String,
 }
 
@@ -3038,13 +3038,13 @@ pub struct UpdateCustomVerificationEmailTemplateResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEmailIdentityPolicyRequest {
     /// <p>The email identity for which you want to update policy.</p>
-    #[serde(rename = "EmailIdentity")]
+    #[serde(rename = "emailIdentity")]
     pub email_identity: String,
     /// <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     pub policy: String,
     /// <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
-    #[serde(rename = "PolicyName")]
+    #[serde(rename = "policyName")]
     pub policy_name: String,
 }
 
@@ -3058,10 +3058,10 @@ pub struct UpdateEmailIdentityPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEmailTemplateRequest {
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    #[serde(rename = "TemplateContent")]
+    #[serde(rename = "templateContent")]
     pub template_content: EmailTemplateContent,
     /// <p>The name of the template you want to update.</p>
-    #[serde(rename = "TemplateName")]
+    #[serde(rename = "templateName")]
     pub template_name: String,
 }
 
@@ -3075,19 +3075,19 @@ pub struct UpdateEmailTemplateResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VolumeStatistics {
     /// <p>The total number of emails that arrived in recipients' inboxes.</p>
-    #[serde(rename = "InboxRawCount")]
+    #[serde(rename = "inboxRawCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbox_raw_count: Option<i64>,
     /// <p>An estimate of the percentage of emails sent from the current domain that will arrive in recipients' inboxes.</p>
-    #[serde(rename = "ProjectedInbox")]
+    #[serde(rename = "projectedInbox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub projected_inbox: Option<i64>,
     /// <p>An estimate of the percentage of emails sent from the current domain that will arrive in recipients' spam or junk mail folders.</p>
-    #[serde(rename = "ProjectedSpam")]
+    #[serde(rename = "projectedSpam")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub projected_spam: Option<i64>,
     /// <p>The total number of emails that arrived in recipients' spam or junk mail folders.</p>
-    #[serde(rename = "SpamRawCount")]
+    #[serde(rename = "spamRawCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spam_raw_count: Option<i64>,
 }

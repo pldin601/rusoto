@@ -30,7 +30,7 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AvailabilityZone {
     /// <p>Id for the availability zone.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -40,11 +40,11 @@ pub struct AvailabilityZone {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BrokerEngineType {
     /// <p>The type of broker engine.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>The list of engine versions.</p>
-    #[serde(rename = "EngineVersions")]
+    #[serde(rename = "engineVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_versions: Option<Vec<EngineVersion>>,
 }
@@ -54,15 +54,15 @@ pub struct BrokerEngineType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BrokerInstance {
     /// <p>The URL of the broker&#39;s Web Console.</p>
-    #[serde(rename = "ConsoleURL")]
+    #[serde(rename = "consoleURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub console_url: Option<String>,
     /// <p>The broker&#39;s wire-level protocol endpoints.</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<Vec<String>>,
     /// <p>The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address: Option<String>,
 }
@@ -72,27 +72,27 @@ pub struct BrokerInstance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BrokerInstanceOption {
     /// <p>The list of available az.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<AvailabilityZone>>,
     /// <p>The type of broker engine.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>The type of broker instance.</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
     /// <p>The broker&#39;s storage type.</p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
     /// <p>The list of supported deployment modes.</p>
-    #[serde(rename = "SupportedDeploymentModes")]
+    #[serde(rename = "supportedDeploymentModes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_deployment_modes: Option<Vec<String>>,
     /// <p>The list of supported engine versions.</p>
-    #[serde(rename = "SupportedEngineVersions")]
+    #[serde(rename = "supportedEngineVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_engine_versions: Option<Vec<String>>,
 }
@@ -102,35 +102,35 @@ pub struct BrokerInstanceOption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BrokerSummary {
     /// <p>The Amazon Resource Name (ARN) of the broker.</p>
-    #[serde(rename = "BrokerArn")]
+    #[serde(rename = "brokerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_arn: Option<String>,
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
     /// <p>The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.</p>
-    #[serde(rename = "BrokerName")]
+    #[serde(rename = "brokerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_name: Option<String>,
     /// <p>The status of the broker.</p>
-    #[serde(rename = "BrokerState")]
+    #[serde(rename = "brokerState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_state: Option<String>,
     /// <p>The time when the broker was created.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The deployment mode of the broker.</p>
-    #[serde(rename = "DeploymentMode")]
+    #[serde(rename = "deploymentMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_mode: Option<String>,
     /// <p>Required. The type of broker engine.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>The broker&#39;s instance type.</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
 }
@@ -140,43 +140,43 @@ pub struct BrokerSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Configuration {
     /// <p>Required. The ARN of the configuration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The authentication strategy associated with the configuration.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Required. The date and time of the configuration revision.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The description of the configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>Required. The latest revision of the configuration.</p>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
     /// <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The list of all tags associated with this configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -185,11 +185,11 @@ pub struct Configuration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConfigurationId {
     /// <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The revision number of the configuration.</p>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision: Option<i64>,
 }
@@ -199,15 +199,15 @@ pub struct ConfigurationId {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigurationRevision {
     /// <p>Required. The date and time of the configuration revision.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>The description of the configuration revision.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Required. The revision number of the configuration.</p>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision: Option<i64>,
 }
@@ -217,15 +217,15 @@ pub struct ConfigurationRevision {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Configurations {
     /// <p>The current configuration of the broker.</p>
-    #[serde(rename = "Current")]
+    #[serde(rename = "current")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current: Option<ConfigurationId>,
     /// <p>The history of configurations applied to the broker.</p>
-    #[serde(rename = "History")]
+    #[serde(rename = "history")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub history: Option<Vec<ConfigurationId>>,
     /// <p>The pending configuration of the broker.</p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<ConfigurationId>,
 }
@@ -235,79 +235,79 @@ pub struct Configurations {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateBrokerRequest {
     /// <p>The authentication strategy used to secure the broker.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.</p>
-    #[serde(rename = "AutoMinorVersionUpgrade")]
+    #[serde(rename = "autoMinorVersionUpgrade")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_minor_version_upgrade: Option<bool>,
     /// <p>Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.</p>
-    #[serde(rename = "BrokerName")]
+    #[serde(rename = "brokerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_name: Option<String>,
     /// <p>A list of information about the configuration.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<ConfigurationId>,
     /// <p>The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn&#39;t require idempotency.</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>Required. The deployment mode of the broker.</p>
-    #[serde(rename = "DeploymentMode")]
+    #[serde(rename = "deploymentMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_mode: Option<String>,
     /// <p>Encryption options for the broker.</p>
-    #[serde(rename = "EncryptionOptions")]
+    #[serde(rename = "encryptionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_options: Option<EncryptionOptions>,
     /// <p>Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>Required. The broker&#39;s instance type.</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
     /// <p>The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
-    #[serde(rename = "LdapServerMetadata")]
+    #[serde(rename = "ldapServerMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ldap_server_metadata: Option<LdapServerMetadataInput>,
     /// <p>Enables Amazon CloudWatch logging for brokers.</p>
-    #[serde(rename = "Logs")]
+    #[serde(rename = "logs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logs: Option<Logs>,
     /// <p>The parameters that determine the WeeklyStartTime.</p>
-    #[serde(rename = "MaintenanceWindowStartTime")]
+    #[serde(rename = "maintenanceWindowStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maintenance_window_start_time: Option<WeeklyStartTime>,
     /// <p>Required. Enables connections from applications outside of the VPC that hosts the broker&#39;s subnets.</p>
-    #[serde(rename = "PubliclyAccessible")]
+    #[serde(rename = "publiclyAccessible")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub publicly_accessible: Option<bool>,
     /// <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<String>>,
     /// <p>The broker&#39;s storage type.</p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
     /// <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE<em>INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE</em>STANDBY<em>MULTI</em>AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER<em>MULTI</em>AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>Create tags when creating the broker.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<User>>,
 }
@@ -316,11 +316,11 @@ pub struct CreateBrokerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateBrokerResponse {
     /// <p>The Amazon Resource Name (ARN) of the broker.</p>
-    #[serde(rename = "BrokerArn")]
+    #[serde(rename = "brokerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_arn: Option<String>,
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
 }
@@ -330,23 +330,23 @@ pub struct CreateBrokerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConfigurationRequest {
     /// <p>The authentication strategy associated with the configuration.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Create tags when creating the configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -355,27 +355,27 @@ pub struct CreateConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConfigurationResponse {
     /// <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The authentication strategy associated with the configuration.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Required. The date and time of the configuration.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The latest revision of the configuration.</p>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
     /// <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -385,10 +385,10 @@ pub struct CreateConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTagsRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The key-value pair for the resource tag.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -398,22 +398,22 @@ pub struct CreateTagsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
     /// <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
-    #[serde(rename = "ConsoleAccess")]
+    #[serde(rename = "consoleAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub console_access: Option<bool>,
     /// <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
     /// <p>Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -425,7 +425,7 @@ pub struct CreateUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteBrokerRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
 }
 
@@ -433,7 +433,7 @@ pub struct DeleteBrokerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteBrokerResponse {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
 }
@@ -442,10 +442,10 @@ pub struct DeleteBrokerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTagsRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>An array of tag keys to delete</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -453,10 +453,10 @@ pub struct DeleteTagsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
     /// <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -468,15 +468,15 @@ pub struct DeleteUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeBrokerEngineTypesRequest {
     /// <p>Filter response by engine type.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -485,15 +485,15 @@ pub struct DescribeBrokerEngineTypesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeBrokerEngineTypesResponse {
     /// <p>List of available engine types and versions.</p>
-    #[serde(rename = "BrokerEngineTypes")]
+    #[serde(rename = "brokerEngineTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_engine_types: Option<Vec<BrokerEngineType>>,
     /// <p>Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -502,23 +502,23 @@ pub struct DescribeBrokerEngineTypesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeBrokerInstanceOptionsRequest {
     /// <p>Filter response by engine type.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>Filter response by host instance type.</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
     /// <p>The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Filter response by storage type.</p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
 }
@@ -527,15 +527,15 @@ pub struct DescribeBrokerInstanceOptionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeBrokerInstanceOptionsResponse {
     /// <p>List of available broker instance options.</p>
-    #[serde(rename = "BrokerInstanceOptions")]
+    #[serde(rename = "brokerInstanceOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_instance_options: Option<Vec<BrokerInstanceOption>>,
     /// <p>Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -544,7 +544,7 @@ pub struct DescribeBrokerInstanceOptionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeBrokerRequest {
     /// <p>The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
 }
 
@@ -552,115 +552,115 @@ pub struct DescribeBrokerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeBrokerResponse {
     /// <p>The authentication strategy used to secure the broker.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.</p>
-    #[serde(rename = "AutoMinorVersionUpgrade")]
+    #[serde(rename = "autoMinorVersionUpgrade")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_minor_version_upgrade: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the broker.</p>
-    #[serde(rename = "BrokerArn")]
+    #[serde(rename = "brokerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_arn: Option<String>,
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
     /// <p>A list of information about allocated brokers.</p>
-    #[serde(rename = "BrokerInstances")]
+    #[serde(rename = "brokerInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_instances: Option<Vec<BrokerInstance>>,
     /// <p>The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.</p>
-    #[serde(rename = "BrokerName")]
+    #[serde(rename = "brokerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_name: Option<String>,
     /// <p>The status of the broker.</p>
-    #[serde(rename = "BrokerState")]
+    #[serde(rename = "brokerState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_state: Option<String>,
     /// <p>The list of all revisions for the specified configuration.</p>
-    #[serde(rename = "Configurations")]
+    #[serde(rename = "configurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configurations: Option<Configurations>,
     /// <p>The time when the broker was created.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The deployment mode of the broker.</p>
-    #[serde(rename = "DeploymentMode")]
+    #[serde(rename = "deploymentMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_mode: Option<String>,
     /// <p>Encryption options for the broker.</p>
-    #[serde(rename = "EncryptionOptions")]
+    #[serde(rename = "encryptionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_options: Option<EncryptionOptions>,
     /// <p>Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>The broker&#39;s instance type.</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
     /// <p>The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
-    #[serde(rename = "LdapServerMetadata")]
+    #[serde(rename = "ldapServerMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ldap_server_metadata: Option<LdapServerMetadataOutput>,
     /// <p>The list of information about logs currently enabled and pending to be deployed for the specified broker.</p>
-    #[serde(rename = "Logs")]
+    #[serde(rename = "logs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logs: Option<LogsSummary>,
     /// <p>The parameters that determine the WeeklyStartTime.</p>
-    #[serde(rename = "MaintenanceWindowStartTime")]
+    #[serde(rename = "maintenanceWindowStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maintenance_window_start_time: Option<WeeklyStartTime>,
     /// <p>The authentication strategy that will be applied when the broker is rebooted.</p>
-    #[serde(rename = "PendingAuthenticationStrategy")]
+    #[serde(rename = "pendingAuthenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_authentication_strategy: Option<String>,
     /// <p>The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "PendingEngineVersion")]
+    #[serde(rename = "pendingEngineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_engine_version: Option<String>,
     /// <p>The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types</p>
-    #[serde(rename = "PendingHostInstanceType")]
+    #[serde(rename = "pendingHostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_host_instance_type: Option<String>,
     /// <p>The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.</p>
-    #[serde(rename = "PendingLdapServerMetadata")]
+    #[serde(rename = "pendingLdapServerMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_ldap_server_metadata: Option<LdapServerMetadataOutput>,
     /// <p>The list of pending security groups to authorize connections to brokers.</p>
-    #[serde(rename = "PendingSecurityGroups")]
+    #[serde(rename = "pendingSecurityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_security_groups: Option<Vec<String>>,
     /// <p>Required. Enables connections from applications outside of the VPC that hosts the broker&#39;s subnets.</p>
-    #[serde(rename = "PubliclyAccessible")]
+    #[serde(rename = "publiclyAccessible")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub publicly_accessible: Option<bool>,
     /// <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<String>>,
     /// <p>The broker&#39;s storage type.</p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
     /// <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE<em>INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE</em>STANDBY<em>MULTI</em>AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER<em>MULTI</em>AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>The list of all tags associated with this broker.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The list of all broker usernames for the specified broker.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<UserSummary>>,
 }
@@ -669,7 +669,7 @@ pub struct DescribeBrokerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigurationRequest {
     /// <p>The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     pub configuration_id: String,
 }
 
@@ -677,43 +677,43 @@ pub struct DescribeConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigurationResponse {
     /// <p>Required. The ARN of the configuration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The authentication strategy associated with the configuration.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Required. The date and time of the configuration revision.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The description of the configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
-    #[serde(rename = "EngineType")]
+    #[serde(rename = "engineType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_type: Option<String>,
     /// <p>Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>Required. The latest revision of the configuration.</p>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
     /// <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The list of all tags associated with this configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -722,10 +722,10 @@ pub struct DescribeConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigurationRevisionRequest {
     /// <p>The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     pub configuration_id: String,
     /// <p>The revision of the configuration.</p>
-    #[serde(rename = "ConfigurationRevision")]
+    #[serde(rename = "configurationRevision")]
     pub configuration_revision: String,
 }
 
@@ -733,19 +733,19 @@ pub struct DescribeConfigurationRevisionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigurationRevisionResponse {
     /// <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_id: Option<String>,
     /// <p>Required. The date and time of the configuration.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The base64-encoded XML configuration.</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<String>,
     /// <p>The description of the configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -754,10 +754,10 @@ pub struct DescribeConfigurationRevisionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
     /// <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -765,23 +765,23 @@ pub struct DescribeUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserResponse {
     /// <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
     /// <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
-    #[serde(rename = "ConsoleAccess")]
+    #[serde(rename = "consoleAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub console_access: Option<bool>,
     /// <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
     /// <p>The status of the changes pending for the ActiveMQ user.</p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<UserPendingChanges>,
     /// <p>Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -790,11 +790,11 @@ pub struct DescribeUserResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionOptions {
     /// <p>The symmetric customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).</p>
-    #[serde(rename = "UseAwsOwnedKey")]
+    #[serde(rename = "useAwsOwnedKey")]
     pub use_aws_owned_key: bool,
 }
 
@@ -803,7 +803,7 @@ pub struct EncryptionOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EngineVersion {
     /// <p>Id for the version.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -813,47 +813,47 @@ pub struct EngineVersion {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LdapServerMetadataInput {
     /// <p>Fully qualified domain name of the LDAP server. Optional failover server.</p>
-    #[serde(rename = "Hosts")]
+    #[serde(rename = "hosts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hosts: Option<Vec<String>>,
     /// <p>Fully qualified name of the directory to search for a user’s groups.</p>
-    #[serde(rename = "RoleBase")]
+    #[serde(rename = "roleBase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_base: Option<String>,
     /// <p>Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.</p>
-    #[serde(rename = "RoleName")]
+    #[serde(rename = "roleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_name: Option<String>,
     /// <p>The search criteria for groups.</p>
-    #[serde(rename = "RoleSearchMatching")]
+    #[serde(rename = "roleSearchMatching")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_search_matching: Option<String>,
     /// <p>The directory search scope for the role. If set to true, scope is to search the entire sub-tree.</p>
-    #[serde(rename = "RoleSearchSubtree")]
+    #[serde(rename = "roleSearchSubtree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_search_subtree: Option<bool>,
     /// <p>Service account password.</p>
-    #[serde(rename = "ServiceAccountPassword")]
+    #[serde(rename = "serviceAccountPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_account_password: Option<String>,
     /// <p>Service account username.</p>
-    #[serde(rename = "ServiceAccountUsername")]
+    #[serde(rename = "serviceAccountUsername")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_account_username: Option<String>,
     /// <p>Fully qualified name of the directory where you want to search for users.</p>
-    #[serde(rename = "UserBase")]
+    #[serde(rename = "userBase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_base: Option<String>,
     /// <p>Specifies the name of the LDAP attribute for the user group membership.</p>
-    #[serde(rename = "UserRoleName")]
+    #[serde(rename = "userRoleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_role_name: Option<String>,
     /// <p>The search criteria for users.</p>
-    #[serde(rename = "UserSearchMatching")]
+    #[serde(rename = "userSearchMatching")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_search_matching: Option<String>,
     /// <p>The directory search scope for the user. If set to true, scope is to search the entire sub-tree.</p>
-    #[serde(rename = "UserSearchSubtree")]
+    #[serde(rename = "userSearchSubtree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_search_subtree: Option<bool>,
 }
@@ -863,43 +863,43 @@ pub struct LdapServerMetadataInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LdapServerMetadataOutput {
     /// <p>Fully qualified domain name of the LDAP server. Optional failover server.</p>
-    #[serde(rename = "Hosts")]
+    #[serde(rename = "hosts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hosts: Option<Vec<String>>,
     /// <p>Fully qualified name of the directory to search for a user’s groups.</p>
-    #[serde(rename = "RoleBase")]
+    #[serde(rename = "roleBase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_base: Option<String>,
     /// <p>Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.</p>
-    #[serde(rename = "RoleName")]
+    #[serde(rename = "roleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_name: Option<String>,
     /// <p>The search criteria for groups.</p>
-    #[serde(rename = "RoleSearchMatching")]
+    #[serde(rename = "roleSearchMatching")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_search_matching: Option<String>,
     /// <p>The directory search scope for the role. If set to true, scope is to search the entire sub-tree.</p>
-    #[serde(rename = "RoleSearchSubtree")]
+    #[serde(rename = "roleSearchSubtree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_search_subtree: Option<bool>,
     /// <p>Service account username.</p>
-    #[serde(rename = "ServiceAccountUsername")]
+    #[serde(rename = "serviceAccountUsername")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_account_username: Option<String>,
     /// <p>Fully qualified name of the directory where you want to search for users.</p>
-    #[serde(rename = "UserBase")]
+    #[serde(rename = "userBase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_base: Option<String>,
     /// <p>Specifies the name of the LDAP attribute for the user group membership.</p>
-    #[serde(rename = "UserRoleName")]
+    #[serde(rename = "userRoleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_role_name: Option<String>,
     /// <p>The search criteria for users.</p>
-    #[serde(rename = "UserSearchMatching")]
+    #[serde(rename = "userSearchMatching")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_search_matching: Option<String>,
     /// <p>The directory search scope for the user. If set to true, scope is to search the entire sub-tree.</p>
-    #[serde(rename = "UserSearchSubtree")]
+    #[serde(rename = "userSearchSubtree")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_search_subtree: Option<bool>,
 }
@@ -908,11 +908,11 @@ pub struct LdapServerMetadataOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListBrokersRequest {
     /// <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -921,11 +921,11 @@ pub struct ListBrokersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListBrokersResponse {
     /// <p>A list of information about all brokers.</p>
-    #[serde(rename = "BrokerSummaries")]
+    #[serde(rename = "brokerSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_summaries: Option<Vec<BrokerSummary>>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -934,14 +934,14 @@ pub struct ListBrokersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConfigurationRevisionsRequest {
     /// <p>The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     pub configuration_id: String,
     /// <p>The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -950,19 +950,19 @@ pub struct ListConfigurationRevisionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConfigurationRevisionsResponse {
     /// <p>The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_id: Option<String>,
     /// <p>The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of all revisions for the specified configuration.</p>
-    #[serde(rename = "Revisions")]
+    #[serde(rename = "revisions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revisions: Option<Vec<ConfigurationRevision>>,
 }
@@ -971,11 +971,11 @@ pub struct ListConfigurationRevisionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConfigurationsRequest {
     /// <p>The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -984,15 +984,15 @@ pub struct ListConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConfigurationsResponse {
     /// <p>The list of all revisions for the specified configuration.</p>
-    #[serde(rename = "Configurations")]
+    #[serde(rename = "configurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configurations: Option<Vec<Configuration>>,
     /// <p>The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1001,7 +1001,7 @@ pub struct ListConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1009,7 +1009,7 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>The key-value pair for the resource tag.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1018,14 +1018,14 @@ pub struct ListTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
     /// <p>The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1034,19 +1034,19 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
     /// <p>Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Required. The list of all ActiveMQ usernames for the specified broker.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<UserSummary>>,
 }
@@ -1055,11 +1055,11 @@ pub struct ListUsersResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Logs {
     /// <p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.</p>
-    #[serde(rename = "Audit")]
+    #[serde(rename = "audit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit: Option<bool>,
     /// <p>Enables general logging.</p>
-    #[serde(rename = "General")]
+    #[serde(rename = "general")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub general: Option<bool>,
 }
@@ -1069,23 +1069,23 @@ pub struct Logs {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LogsSummary {
     /// <p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.</p>
-    #[serde(rename = "Audit")]
+    #[serde(rename = "audit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit: Option<bool>,
     /// <p>The location of the CloudWatch Logs log group where audit logs are sent.</p>
-    #[serde(rename = "AuditLogGroup")]
+    #[serde(rename = "auditLogGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_log_group: Option<String>,
     /// <p>Enables general logging.</p>
-    #[serde(rename = "General")]
+    #[serde(rename = "general")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub general: Option<bool>,
     /// <p>The location of the CloudWatch Logs log group where general logs are sent.</p>
-    #[serde(rename = "GeneralLogGroup")]
+    #[serde(rename = "generalLogGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub general_log_group: Option<String>,
     /// <p>The list of information about logs pending to be deployed for the specified broker.</p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<PendingLogs>,
 }
@@ -1095,11 +1095,11 @@ pub struct LogsSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PendingLogs {
     /// <p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.</p>
-    #[serde(rename = "Audit")]
+    #[serde(rename = "audit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit: Option<bool>,
     /// <p>Enables general logging.</p>
-    #[serde(rename = "General")]
+    #[serde(rename = "general")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub general: Option<bool>,
 }
@@ -1108,7 +1108,7 @@ pub struct PendingLogs {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebootBrokerRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
 }
 
@@ -1121,15 +1121,15 @@ pub struct RebootBrokerResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SanitizationWarning {
     /// <p>The name of the XML attribute that has been sanitized.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_name: Option<String>,
     /// <p>The name of the XML element that has been sanitized.</p>
-    #[serde(rename = "ElementName")]
+    #[serde(rename = "elementName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub element_name: Option<String>,
     /// <p>Required. The reason for which the XML elements or attributes were sanitized.</p>
-    #[serde(rename = "Reason")]
+    #[serde(rename = "reason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reason: Option<String>,
 }
@@ -1139,38 +1139,38 @@ pub struct SanitizationWarning {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateBrokerRequest {
     /// <p>The authentication strategy used to secure the broker.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.</p>
-    #[serde(rename = "AutoMinorVersionUpgrade")]
+    #[serde(rename = "autoMinorVersionUpgrade")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_minor_version_upgrade: Option<bool>,
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
     /// <p>A list of information about the configuration.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<ConfigurationId>,
     /// <p>The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
     /// <p>The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
-    #[serde(rename = "LdapServerMetadata")]
+    #[serde(rename = "ldapServerMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ldap_server_metadata: Option<LdapServerMetadataInput>,
     /// <p>Enables Amazon CloudWatch logging for brokers.</p>
-    #[serde(rename = "Logs")]
+    #[serde(rename = "logs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logs: Option<Logs>,
     /// <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<String>>,
 }
@@ -1179,39 +1179,39 @@ pub struct UpdateBrokerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateBrokerResponse {
     /// <p>The authentication strategy used to secure the broker.</p>
-    #[serde(rename = "AuthenticationStrategy")]
+    #[serde(rename = "authenticationStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_strategy: Option<String>,
     /// <p>The new value of automatic upgrades to new minor version for brokers.</p>
-    #[serde(rename = "AutoMinorVersionUpgrade")]
+    #[serde(rename = "autoMinorVersionUpgrade")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_minor_version_upgrade: Option<bool>,
     /// <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<String>,
     /// <p>The ID of the updated configuration.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<ConfigurationId>,
     /// <p>The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<String>,
     /// <p>The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types</p>
-    #[serde(rename = "HostInstanceType")]
+    #[serde(rename = "hostInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_instance_type: Option<String>,
     /// <p>The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
-    #[serde(rename = "LdapServerMetadata")]
+    #[serde(rename = "ldapServerMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ldap_server_metadata: Option<LdapServerMetadataOutput>,
     /// <p>The list of information about logs to be enabled for the specified broker.</p>
-    #[serde(rename = "Logs")]
+    #[serde(rename = "logs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logs: Option<Logs>,
     /// <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<String>>,
 }
@@ -1221,14 +1221,14 @@ pub struct UpdateBrokerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConfigurationRequest {
     /// <p>The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     pub configuration_id: String,
     /// <p>Required. The base64-encoded XML configuration.</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<String>,
     /// <p>The description of the configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -1237,27 +1237,27 @@ pub struct UpdateConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateConfigurationResponse {
     /// <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Required. The date and time of the configuration.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The latest revision of the configuration.</p>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
     /// <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<SanitizationWarning>>,
 }
@@ -1267,22 +1267,22 @@ pub struct UpdateConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRequest {
     /// <p>The unique ID that Amazon MQ generates for the broker.</p>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     pub broker_id: String,
     /// <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
-    #[serde(rename = "ConsoleAccess")]
+    #[serde(rename = "consoleAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub console_access: Option<bool>,
     /// <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
     /// <p>The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -1295,19 +1295,19 @@ pub struct UpdateUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct User {
     /// <p>Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).</p>
-    #[serde(rename = "ConsoleAccess")]
+    #[serde(rename = "consoleAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub console_access: Option<bool>,
     /// <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
     /// <p>Required. The password of the broker user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -1317,15 +1317,15 @@ pub struct User {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserPendingChanges {
     /// <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
-    #[serde(rename = "ConsoleAccess")]
+    #[serde(rename = "consoleAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub console_access: Option<bool>,
     /// <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
     /// <p>Required. The type of change pending for the ActiveMQ user.</p>
-    #[serde(rename = "PendingChange")]
+    #[serde(rename = "pendingChange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_change: Option<String>,
 }
@@ -1335,11 +1335,11 @@ pub struct UserPendingChanges {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserSummary {
     /// <p>The type of change pending for the broker user.</p>
-    #[serde(rename = "PendingChange")]
+    #[serde(rename = "pendingChange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_change: Option<String>,
     /// <p>Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -1348,15 +1348,15 @@ pub struct UserSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WeeklyStartTime {
     /// <p>Required. The day of the week.</p>
-    #[serde(rename = "DayOfWeek")]
+    #[serde(rename = "dayOfWeek")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub day_of_week: Option<String>,
     /// <p>Required. The time, in 24-hour format.</p>
-    #[serde(rename = "TimeOfDay")]
+    #[serde(rename = "timeOfDay")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_of_day: Option<String>,
     /// <p>The time zone, UTC by default, in either the Country/City format, or the UTC offset format.</p>
-    #[serde(rename = "TimeZone")]
+    #[serde(rename = "timeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone: Option<String>,
 }

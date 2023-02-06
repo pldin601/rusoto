@@ -28,18 +28,18 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIceServerConfigRequest {
     /// <p>The ARN of the signaling channel to be used for the peer-to-peer connection between configured peers. </p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     pub channel_arn: String,
     /// <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid value.</p>
-    #[serde(rename = "Service")]
+    #[serde(rename = "service")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service: Option<String>,
     /// <p>An optional user ID to be associated with the credentials.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -48,7 +48,7 @@ pub struct GetIceServerConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIceServerConfigResponse {
     /// <p>The list of ICE server information objects.</p>
-    #[serde(rename = "IceServerList")]
+    #[serde(rename = "iceServerList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ice_server_list: Option<Vec<IceServer>>,
 }
@@ -58,19 +58,19 @@ pub struct GetIceServerConfigResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IceServer {
     /// <p>A password to login to the ICE server.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The period of time, in seconds, during which the username and password are valid.</p>
-    #[serde(rename = "Ttl")]
+    #[serde(rename = "ttl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ttl: Option<i64>,
     /// <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different addresses and/or protocols that can be used to reach the TURN server.</p>
-    #[serde(rename = "Uris")]
+    #[serde(rename = "uris")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uris: Option<Vec<String>>,
     /// <p>A username to login to the ICE server.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -79,13 +79,13 @@ pub struct IceServer {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendAlexaOfferToMasterRequest {
     /// <p>The ARN of the signaling channel by which Alexa and the master peer communicate.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     pub channel_arn: String,
     /// <p>The base64-encoded SDP offer content.</p>
-    #[serde(rename = "MessagePayload")]
+    #[serde(rename = "messagePayload")]
     pub message_payload: String,
     /// <p>The unique identifier for the sender client.</p>
-    #[serde(rename = "SenderClientId")]
+    #[serde(rename = "senderClientId")]
     pub sender_client_id: String,
 }
 
@@ -93,7 +93,7 @@ pub struct SendAlexaOfferToMasterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendAlexaOfferToMasterResponse {
     /// <p>The base64-encoded SDP answer content.</p>
-    #[serde(rename = "Answer")]
+    #[serde(rename = "answer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub answer: Option<String>,
 }

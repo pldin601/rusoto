@@ -30,7 +30,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AcceptInboundCrossClusterSearchConnectionRequest {
     /// <p>The id of the inbound connection that you want to accept.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     pub cross_cluster_search_connection_id: String,
 }
 
@@ -39,7 +39,7 @@ pub struct AcceptInboundCrossClusterSearchConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AcceptInboundCrossClusterSearchConnectionResponse {
     /// <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of accepted inbound connection. </p>
-    #[serde(rename = "CrossClusterSearchConnection")]
+    #[serde(rename = "crossClusterSearchConnection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection: Option<InboundCrossClusterSearchConnection>,
 }
@@ -49,10 +49,10 @@ pub struct AcceptInboundCrossClusterSearchConnectionResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccessPoliciesStatus {
     /// <p>The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies" target="_blank"> Configuring Access Policies</a>for more information.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: String,
     /// <p>The status of the access policy for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -61,10 +61,10 @@ pub struct AccessPoliciesStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddTagsRequest {
     /// <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     pub arn: String,
     /// <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     pub tag_list: Vec<Tag>,
 }
 
@@ -73,11 +73,11 @@ pub struct AddTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdditionalLimit {
     /// <p> Name of Additional Limit is specific to a given InstanceType and for each of it's <code> <a>InstanceRole</a> </code> etc. <br/> Attributes and their details: <br/> <ul> <li>MaximumNumberOfDataNodesSupported</li> This attribute will be present in Master node only to specify how much data nodes upto which given <code> <a>ESPartitionInstanceType</a> </code> can support as master node. <li>MaximumNumberOfDataNodesWithoutMasterNode</li> This attribute will be present in Data node only to specify how much data nodes of given <code> <a>ESPartitionInstanceType</a> </code> upto which you don't need any master nodes to govern them. </ul> </p>
-    #[serde(rename = "LimitName")]
+    #[serde(rename = "limitName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_name: Option<String>,
     /// <p> Value for given <code> <a>AdditionalLimit$LimitName</a> </code> . </p>
-    #[serde(rename = "LimitValues")]
+    #[serde(rename = "limitValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_values: Option<Vec<String>>,
 }
@@ -87,10 +87,10 @@ pub struct AdditionalLimit {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdvancedOptionsStatus {
     /// <p> Specifies the status of advanced options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: ::std::collections::HashMap<String, String>,
     /// <p> Specifies the status of <code>OptionStatus</code> for advanced options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -99,15 +99,15 @@ pub struct AdvancedOptionsStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdvancedSecurityOptions {
     /// <p>True if advanced security is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>True if the internal user database is enabled.</p>
-    #[serde(rename = "InternalUserDatabaseEnabled")]
+    #[serde(rename = "internalUserDatabaseEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub internal_user_database_enabled: Option<bool>,
     /// <p>Describes the SAML application configured for a domain.</p>
-    #[serde(rename = "SAMLOptions")]
+    #[serde(rename = "sAMLOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub saml_options: Option<SAMLOptionsOutput>,
 }
@@ -117,19 +117,19 @@ pub struct AdvancedSecurityOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdvancedSecurityOptionsInput {
     /// <p>True if advanced security is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>True if the internal user database is enabled.</p>
-    #[serde(rename = "InternalUserDatabaseEnabled")]
+    #[serde(rename = "internalUserDatabaseEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub internal_user_database_enabled: Option<bool>,
     /// <p>Credentials for the master user: username and password, ARN, or both.</p>
-    #[serde(rename = "MasterUserOptions")]
+    #[serde(rename = "masterUserOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_user_options: Option<MasterUserOptions>,
     /// <p>Specifies the SAML application configuration for the domain.</p>
-    #[serde(rename = "SAMLOptions")]
+    #[serde(rename = "sAMLOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub saml_options: Option<SAMLOptionsInput>,
 }
@@ -139,10 +139,10 @@ pub struct AdvancedSecurityOptionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdvancedSecurityOptionsStatus {
     /// <p> Specifies advanced security options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: AdvancedSecurityOptions,
     /// <p> Status of the advanced security options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -151,10 +151,10 @@ pub struct AdvancedSecurityOptionsStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociatePackageRequest {
     /// <p>Name of the domain that you want to associate the package with.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     pub package_id: String,
 }
 
@@ -163,7 +163,7 @@ pub struct AssociatePackageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociatePackageResponse {
     /// <p><code>DomainPackageDetails</code></p>
-    #[serde(rename = "DomainPackageDetails")]
+    #[serde(rename = "domainPackageDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_package_details: Option<DomainPackageDetails>,
 }
@@ -173,11 +173,11 @@ pub struct AssociatePackageResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AutoTune {
     /// <p>Specifies details of the Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
-    #[serde(rename = "AutoTuneDetails")]
+    #[serde(rename = "autoTuneDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tune_details: Option<AutoTuneDetails>,
     /// <p>Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION. </p>
-    #[serde(rename = "AutoTuneType")]
+    #[serde(rename = "autoTuneType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tune_type: Option<String>,
 }
@@ -186,7 +186,7 @@ pub struct AutoTune {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AutoTuneDetails {
-    #[serde(rename = "ScheduledAutoTuneDetails")]
+    #[serde(rename = "scheduledAutoTuneDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scheduled_auto_tune_details: Option<ScheduledAutoTuneDetails>,
 }
@@ -195,15 +195,15 @@ pub struct AutoTuneDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AutoTuneMaintenanceSchedule {
     /// <p>Specifies cron expression for a recurring maintenance schedule. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "CronExpressionForRecurrence")]
+    #[serde(rename = "cronExpressionForRecurrence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cron_expression_for_recurrence: Option<String>,
     /// <p>Specifies maintenance schedule duration: duration value and duration unit. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<Duration>,
     /// <p>Specifies timestamp at which Auto-Tune maintenance schedule start. </p>
-    #[serde(rename = "StartAt")]
+    #[serde(rename = "startAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_at: Option<f64>,
 }
@@ -212,15 +212,15 @@ pub struct AutoTuneMaintenanceSchedule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AutoTuneOptions {
     /// <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
-    #[serde(rename = "DesiredState")]
+    #[serde(rename = "desiredState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_state: Option<String>,
     /// <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "MaintenanceSchedules")]
+    #[serde(rename = "maintenanceSchedules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maintenance_schedules: Option<Vec<AutoTuneMaintenanceSchedule>>,
     /// <p>Specifies the rollback state while disabling Auto-Tune for the domain. Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK. </p>
-    #[serde(rename = "RollbackOnDisable")]
+    #[serde(rename = "rollbackOnDisable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rollback_on_disable: Option<String>,
 }
@@ -230,11 +230,11 @@ pub struct AutoTuneOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AutoTuneOptionsInput {
     /// <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
-    #[serde(rename = "DesiredState")]
+    #[serde(rename = "desiredState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_state: Option<String>,
     /// <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "MaintenanceSchedules")]
+    #[serde(rename = "maintenanceSchedules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maintenance_schedules: Option<Vec<AutoTuneMaintenanceSchedule>>,
 }
@@ -244,11 +244,11 @@ pub struct AutoTuneOptionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AutoTuneOptionsOutput {
     /// <p>Specifies the error message while enabling or disabling the Auto-Tune.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -258,11 +258,11 @@ pub struct AutoTuneOptionsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AutoTuneOptionsStatus {
     /// <p> Specifies Auto-Tune options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub options: Option<AutoTuneOptions>,
     /// <p> Specifies Status of the Auto-Tune options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<AutoTuneStatus>,
 }
@@ -272,24 +272,24 @@ pub struct AutoTuneOptionsStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AutoTuneStatus {
     /// <p>Timestamp which tells Auto-Tune options creation date .</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     pub creation_date: f64,
     /// <p>Specifies the error message while enabling or disabling the Auto-Tune options.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>Indicates whether the Elasticsearch domain is being deleted.</p>
-    #[serde(rename = "PendingDeletion")]
+    #[serde(rename = "pendingDeletion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_deletion: Option<bool>,
     /// <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
     /// <p>Timestamp which tells Auto-Tune options last updated time.</p>
-    #[serde(rename = "UpdateDate")]
+    #[serde(rename = "updateDate")]
     pub update_date: f64,
     /// <p>Specifies the Auto-Tune options latest version.</p>
-    #[serde(rename = "UpdateVersion")]
+    #[serde(rename = "updateVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_version: Option<i64>,
 }
@@ -299,7 +299,7 @@ pub struct AutoTuneStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelElasticsearchServiceSoftwareUpdateRequest {
     /// <p>The name of the domain that you want to stop the latest service software update on.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -308,7 +308,7 @@ pub struct CancelElasticsearchServiceSoftwareUpdateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CancelElasticsearchServiceSoftwareUpdateResponse {
     /// <p>The current status of the Elasticsearch service software update.</p>
-    #[serde(rename = "ServiceSoftwareOptions")]
+    #[serde(rename = "serviceSoftwareOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_software_options: Option<ServiceSoftwareOptions>,
 }
@@ -317,19 +317,19 @@ pub struct CancelElasticsearchServiceSoftwareUpdateResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CognitoOptions {
     /// <p>Specifies the option to enable Cognito for Kibana authentication.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Specifies the Cognito identity pool ID for Kibana authentication.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
     /// <p>Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>Specifies the Cognito user pool ID for Kibana authentication.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -339,10 +339,10 @@ pub struct CognitoOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CognitoOptionsStatus {
     /// <p>Specifies the Cognito options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: CognitoOptions,
     /// <p>Specifies the status of the Cognito options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -350,7 +350,7 @@ pub struct CognitoOptionsStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColdStorageOptions {
     /// <p>True to enable cold storage for an Elasticsearch domain.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
 }
 
@@ -359,10 +359,10 @@ pub struct ColdStorageOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CompatibleVersionsMap {
     /// <p>The current version of Elasticsearch on which a domain is.</p>
-    #[serde(rename = "SourceVersion")]
+    #[serde(rename = "sourceVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_version: Option<String>,
-    #[serde(rename = "TargetVersions")]
+    #[serde(rename = "targetVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_versions: Option<Vec<String>>,
 }
@@ -371,66 +371,66 @@ pub struct CompatibleVersionsMap {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateElasticsearchDomainRequest {
     /// <p> IAM access policy as a JSON-formatted string.</p>
-    #[serde(rename = "AccessPolicies")]
+    #[serde(rename = "accessPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_policies: Option<String>,
     /// <p> Option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</p>
-    #[serde(rename = "AdvancedOptions")]
+    #[serde(rename = "advancedOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_options: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies advanced security options.</p>
-    #[serde(rename = "AdvancedSecurityOptions")]
+    #[serde(rename = "advancedSecurityOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_security_options: Option<AdvancedSecurityOptionsInput>,
     /// <p>Specifies Auto-Tune options.</p>
-    #[serde(rename = "AutoTuneOptions")]
+    #[serde(rename = "autoTuneOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tune_options: Option<AutoTuneOptionsInput>,
     /// <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-    #[serde(rename = "CognitoOptions")]
+    #[serde(rename = "cognitoOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_options: Option<CognitoOptions>,
     /// <p>Options to specify configuration that will be applied to the domain endpoint.</p>
-    #[serde(rename = "DomainEndpointOptions")]
+    #[serde(rename = "domainEndpointOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_endpoint_options: Option<DomainEndpointOptions>,
     /// <p>The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>Options to enable, disable and specify the type and size of EBS storage volumes. </p>
-    #[serde(rename = "EBSOptions")]
+    #[serde(rename = "eBSOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_options: Option<EBSOptions>,
     /// <p>Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster. </p>
-    #[serde(rename = "ElasticsearchClusterConfig")]
+    #[serde(rename = "elasticsearchClusterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_cluster_config: Option<ElasticsearchClusterConfig>,
     /// <p>String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
-    #[serde(rename = "ElasticsearchVersion")]
+    #[serde(rename = "elasticsearchVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_version: Option<String>,
     /// <p>Specifies the Encryption At Rest Options.</p>
-    #[serde(rename = "EncryptionAtRestOptions")]
+    #[serde(rename = "encryptionAtRestOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_at_rest_options: Option<EncryptionAtRestOptions>,
     /// <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
-    #[serde(rename = "LogPublishingOptions")]
+    #[serde(rename = "logPublishingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_publishing_options: Option<::std::collections::HashMap<String, LogPublishingOption>>,
     /// <p>Specifies the NodeToNodeEncryptionOptions.</p>
-    #[serde(rename = "NodeToNodeEncryptionOptions")]
+    #[serde(rename = "nodeToNodeEncryptionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_to_node_encryption_options: Option<NodeToNodeEncryptionOptions>,
     /// <p>Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours. </p>
-    #[serde(rename = "SnapshotOptions")]
+    #[serde(rename = "snapshotOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_options: Option<SnapshotOptions>,
     /// <p>A list of <code>Tag</code> added during domain creation.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
     /// <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc" target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>
-    #[serde(rename = "VPCOptions")]
+    #[serde(rename = "vPCOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_options: Option<VPCOptions>,
 }
@@ -440,7 +440,7 @@ pub struct CreateElasticsearchDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateElasticsearchDomainResponse {
     /// <p>The status of the newly created Elasticsearch domain. </p>
-    #[serde(rename = "DomainStatus")]
+    #[serde(rename = "domainStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_status: Option<ElasticsearchDomainStatus>,
 }
@@ -450,13 +450,13 @@ pub struct CreateElasticsearchDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateOutboundCrossClusterSearchConnectionRequest {
     /// <p>Specifies the connection alias that will be used by the customer for this connection.</p>
-    #[serde(rename = "ConnectionAlias")]
+    #[serde(rename = "connectionAlias")]
     pub connection_alias: String,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>
-    #[serde(rename = "DestinationDomainInfo")]
+    #[serde(rename = "destinationDomainInfo")]
     pub destination_domain_info: DomainInformation,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
-    #[serde(rename = "SourceDomainInfo")]
+    #[serde(rename = "sourceDomainInfo")]
     pub source_domain_info: DomainInformation,
 }
 
@@ -465,23 +465,23 @@ pub struct CreateOutboundCrossClusterSearchConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateOutboundCrossClusterSearchConnectionResponse {
     /// <p>Specifies the connection alias provided during the create connection request.</p>
-    #[serde(rename = "ConnectionAlias")]
+    #[serde(rename = "connectionAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_alias: Option<String>,
     /// <p>Specifies the <code><a>OutboundCrossClusterSearchConnectionStatus</a></code> for the newly created connection.</p>
-    #[serde(rename = "ConnectionStatus")]
+    #[serde(rename = "connectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_status: Option<OutboundCrossClusterSearchConnectionStatus>,
     /// <p>Unique id for the created outbound connection, which is used for subsequent operations on connection.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection_id: Option<String>,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>
-    #[serde(rename = "DestinationDomainInfo")]
+    #[serde(rename = "destinationDomainInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_domain_info: Option<DomainInformation>,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
-    #[serde(rename = "SourceDomainInfo")]
+    #[serde(rename = "sourceDomainInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_domain_info: Option<DomainInformation>,
 }
@@ -491,17 +491,17 @@ pub struct CreateOutboundCrossClusterSearchConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePackageRequest {
     /// <p>Description of the package.</p>
-    #[serde(rename = "PackageDescription")]
+    #[serde(rename = "packageDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_description: Option<String>,
     /// <p>Unique identifier for the package.</p>
-    #[serde(rename = "PackageName")]
+    #[serde(rename = "packageName")]
     pub package_name: String,
     /// <p>The customer S3 location <code>PackageSource</code> for importing the package.</p>
-    #[serde(rename = "PackageSource")]
+    #[serde(rename = "packageSource")]
     pub package_source: PackageSource,
     /// <p>Type of package. Currently supports only TXT-DICTIONARY.</p>
-    #[serde(rename = "PackageType")]
+    #[serde(rename = "packageType")]
     pub package_type: String,
 }
 
@@ -510,7 +510,7 @@ pub struct CreatePackageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePackageResponse {
     /// <p>Information about the package <code>PackageDetails</code>.</p>
-    #[serde(rename = "PackageDetails")]
+    #[serde(rename = "packageDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_details: Option<PackageDetails>,
 }
@@ -520,7 +520,7 @@ pub struct CreatePackageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteElasticsearchDomainRequest {
     /// <p>The name of the Elasticsearch domain that you want to permanently delete.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -529,7 +529,7 @@ pub struct DeleteElasticsearchDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteElasticsearchDomainResponse {
     /// <p>The status of the Elasticsearch domain being deleted.</p>
-    #[serde(rename = "DomainStatus")]
+    #[serde(rename = "domainStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_status: Option<ElasticsearchDomainStatus>,
 }
@@ -539,7 +539,7 @@ pub struct DeleteElasticsearchDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteInboundCrossClusterSearchConnectionRequest {
     /// <p>The id of the inbound connection that you want to permanently delete.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     pub cross_cluster_search_connection_id: String,
 }
 
@@ -548,7 +548,7 @@ pub struct DeleteInboundCrossClusterSearchConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteInboundCrossClusterSearchConnectionResponse {
     /// <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of deleted inbound connection. </p>
-    #[serde(rename = "CrossClusterSearchConnection")]
+    #[serde(rename = "crossClusterSearchConnection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection: Option<InboundCrossClusterSearchConnection>,
 }
@@ -558,7 +558,7 @@ pub struct DeleteInboundCrossClusterSearchConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteOutboundCrossClusterSearchConnectionRequest {
     /// <p>The id of the outbound connection that you want to permanently delete.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     pub cross_cluster_search_connection_id: String,
 }
 
@@ -567,7 +567,7 @@ pub struct DeleteOutboundCrossClusterSearchConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteOutboundCrossClusterSearchConnectionResponse {
     /// <p>Specifies the <code><a>OutboundCrossClusterSearchConnection</a></code> of deleted outbound connection. </p>
-    #[serde(rename = "CrossClusterSearchConnection")]
+    #[serde(rename = "crossClusterSearchConnection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection: Option<OutboundCrossClusterSearchConnection>,
 }
@@ -577,7 +577,7 @@ pub struct DeleteOutboundCrossClusterSearchConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePackageRequest {
     /// <p>Internal ID of the package that you want to delete. Use <code>DescribePackages</code> to find this value.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     pub package_id: String,
 }
 
@@ -586,7 +586,7 @@ pub struct DeletePackageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeletePackageResponse {
     /// <p><code>PackageDetails</code></p>
-    #[serde(rename = "PackageDetails")]
+    #[serde(rename = "packageDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_details: Option<PackageDetails>,
 }
@@ -596,14 +596,14 @@ pub struct DeletePackageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDomainAutoTunesRequest {
     /// <p>Specifies the domain name for which you want Auto-Tune action details.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -613,11 +613,11 @@ pub struct DescribeDomainAutoTunesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDomainAutoTunesResponse {
     /// <p>Specifies the list of setting adjustments that Auto-Tune has made to the domain. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "AutoTunes")]
+    #[serde(rename = "autoTunes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tunes: Option<Vec<AutoTune>>,
     /// <p>Specifies an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -627,7 +627,7 @@ pub struct DescribeDomainAutoTunesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeElasticsearchDomainConfigRequest {
     /// <p>The Elasticsearch domain that you want to get information about.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -636,7 +636,7 @@ pub struct DescribeElasticsearchDomainConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeElasticsearchDomainConfigResponse {
     /// <p>The configuration information of the domain requested in the <code>DescribeElasticsearchDomainConfig</code> request.</p>
-    #[serde(rename = "DomainConfig")]
+    #[serde(rename = "domainConfig")]
     pub domain_config: ElasticsearchDomainConfig,
 }
 
@@ -645,7 +645,7 @@ pub struct DescribeElasticsearchDomainConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeElasticsearchDomainRequest {
     /// <p>The name of the Elasticsearch domain for which you want information.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -654,7 +654,7 @@ pub struct DescribeElasticsearchDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeElasticsearchDomainResponse {
     /// <p>The current status of the Elasticsearch domain.</p>
-    #[serde(rename = "DomainStatus")]
+    #[serde(rename = "domainStatus")]
     pub domain_status: ElasticsearchDomainStatus,
 }
 
@@ -663,7 +663,7 @@ pub struct DescribeElasticsearchDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeElasticsearchDomainsRequest {
     /// <p>The Elasticsearch domains for which you want information.</p>
-    #[serde(rename = "DomainNames")]
+    #[serde(rename = "domainNames")]
     pub domain_names: Vec<String>,
 }
 
@@ -672,7 +672,7 @@ pub struct DescribeElasticsearchDomainsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeElasticsearchDomainsResponse {
     /// <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
-    #[serde(rename = "DomainStatusList")]
+    #[serde(rename = "domainStatusList")]
     pub domain_status_list: Vec<ElasticsearchDomainStatus>,
 }
 
@@ -681,14 +681,14 @@ pub struct DescribeElasticsearchDomainsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeElasticsearchInstanceTypeLimitsRequest {
     /// <p> DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch <code> <a>Limits</a> </code> for existing domain. </p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p> Version of Elasticsearch for which <code> <a>Limits</a> </code> are needed. </p>
-    #[serde(rename = "ElasticsearchVersion")]
+    #[serde(rename = "elasticsearchVersion")]
     pub elasticsearch_version: String,
     /// <p> The instance type for an Elasticsearch cluster for which Elasticsearch <code> <a>Limits</a> </code> are needed. </p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     pub instance_type: String,
 }
 
@@ -696,7 +696,7 @@ pub struct DescribeElasticsearchInstanceTypeLimitsRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeElasticsearchInstanceTypeLimitsResponse {
-    #[serde(rename = "LimitsByRole")]
+    #[serde(rename = "limitsByRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limits_by_role: Option<::std::collections::HashMap<String, Limits>>,
 }
@@ -706,15 +706,15 @@ pub struct DescribeElasticsearchInstanceTypeLimitsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeInboundCrossClusterSearchConnectionsRequest {
     /// <p> A list of filters used to match properties for inbound cross-cluster search connection. Available <code><a>Filter</a></code> names for this operation are: <ul> <li>cross-cluster-search-connection-id</li> <li>source-domain-info.domain-name</li> <li>source-domain-info.owner-id</li> <li>source-domain-info.region</li> <li>destination-domain-info.domain-name</li> </ul> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p> NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -724,11 +724,11 @@ pub struct DescribeInboundCrossClusterSearchConnectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeInboundCrossClusterSearchConnectionsResponse {
     /// <p>Consists of list of <code><a>InboundCrossClusterSearchConnection</a></code> matching the specified filter criteria.</p>
-    #[serde(rename = "CrossClusterSearchConnections")]
+    #[serde(rename = "crossClusterSearchConnections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connections: Option<Vec<InboundCrossClusterSearchConnection>>,
     /// <p>If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -738,15 +738,15 @@ pub struct DescribeInboundCrossClusterSearchConnectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOutboundCrossClusterSearchConnectionsRequest {
     /// <p> A list of filters used to match properties for outbound cross-cluster search connection. Available <code><a>Filter</a></code> names for this operation are: <ul> <li>cross-cluster-search-connection-id</li> <li>destination-domain-info.domain-name</li> <li>destination-domain-info.owner-id</li> <li>destination-domain-info.region</li> <li>source-domain-info.domain-name</li> </ul> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p> NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -756,11 +756,11 @@ pub struct DescribeOutboundCrossClusterSearchConnectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOutboundCrossClusterSearchConnectionsResponse {
     /// <p>Consists of list of <code><a>OutboundCrossClusterSearchConnection</a></code> matching the specified filter criteria.</p>
-    #[serde(rename = "CrossClusterSearchConnections")]
+    #[serde(rename = "crossClusterSearchConnections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connections: Option<Vec<OutboundCrossClusterSearchConnection>>,
     /// <p>If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -770,11 +770,11 @@ pub struct DescribeOutboundCrossClusterSearchConnectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePackagesFilter {
     /// <p>Any field from <code>PackageDetails</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of values for the specified field.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<Vec<String>>,
 }
@@ -784,15 +784,15 @@ pub struct DescribePackagesFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePackagesRequest {
     /// <p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<DescribePackagesFilter>>,
     /// <p>Limits results to a maximum number of packages.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -801,11 +801,11 @@ pub struct DescribePackagesRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePackagesResponse {
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of <code>PackageDetails</code> objects.</p>
-    #[serde(rename = "PackageDetailsList")]
+    #[serde(rename = "packageDetailsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_details_list: Option<Vec<PackageDetails>>,
 }
@@ -815,15 +815,15 @@ pub struct DescribePackagesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeReservedElasticsearchInstanceOfferingsRequest {
     /// <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceOfferingId")]
+    #[serde(rename = "reservedElasticsearchInstanceOfferingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_offering_id: Option<String>,
 }
@@ -833,11 +833,11 @@ pub struct DescribeReservedElasticsearchInstanceOfferingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReservedElasticsearchInstanceOfferingsResponse {
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of reserved Elasticsearch instance offerings</p>
-    #[serde(rename = "ReservedElasticsearchInstanceOfferings")]
+    #[serde(rename = "reservedElasticsearchInstanceOfferings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_offerings:
         Option<Vec<ReservedElasticsearchInstanceOffering>>,
@@ -848,15 +848,15 @@ pub struct DescribeReservedElasticsearchInstanceOfferingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeReservedElasticsearchInstancesRequest {
     /// <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceId")]
+    #[serde(rename = "reservedElasticsearchInstanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_id: Option<String>,
 }
@@ -866,11 +866,11 @@ pub struct DescribeReservedElasticsearchInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReservedElasticsearchInstancesResponse {
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of reserved Elasticsearch instances.</p>
-    #[serde(rename = "ReservedElasticsearchInstances")]
+    #[serde(rename = "reservedElasticsearchInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instances: Option<Vec<ReservedElasticsearchInstance>>,
 }
@@ -880,10 +880,10 @@ pub struct DescribeReservedElasticsearchInstancesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DissociatePackageRequest {
     /// <p>Name of the domain that you want to associate the package with.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     pub package_id: String,
 }
 
@@ -892,7 +892,7 @@ pub struct DissociatePackageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DissociatePackageResponse {
     /// <p><code>DomainPackageDetails</code></p>
-    #[serde(rename = "DomainPackageDetails")]
+    #[serde(rename = "domainPackageDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_package_details: Option<DomainPackageDetails>,
 }
@@ -901,23 +901,23 @@ pub struct DissociatePackageResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DomainEndpointOptions {
     /// <p>Specify the fully qualified domain for your custom endpoint.</p>
-    #[serde(rename = "CustomEndpoint")]
+    #[serde(rename = "customEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_endpoint: Option<String>,
     /// <p>Specify ACM certificate ARN for your custom endpoint.</p>
-    #[serde(rename = "CustomEndpointCertificateArn")]
+    #[serde(rename = "customEndpointCertificateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_endpoint_certificate_arn: Option<String>,
     /// <p>Specify if custom endpoint should be enabled for the Elasticsearch domain.</p>
-    #[serde(rename = "CustomEndpointEnabled")]
+    #[serde(rename = "customEndpointEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_endpoint_enabled: Option<bool>,
     /// <p>Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.</p>
-    #[serde(rename = "EnforceHTTPS")]
+    #[serde(rename = "enforceHTTPS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enforce_https: Option<bool>,
     /// <p>Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain. <br/> It can be one of the following values: <ul> <li><b>Policy-Min-TLS-1-0-2019-07: </b> TLS security policy which supports TLSv1.0 and higher.</li> <li><b>Policy-Min-TLS-1-2-2019-07: </b> TLS security policy which supports only TLSv1.2</li> </ul> </p>
-    #[serde(rename = "TLSSecurityPolicy")]
+    #[serde(rename = "tLSSecurityPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_security_policy: Option<String>,
 }
@@ -927,10 +927,10 @@ pub struct DomainEndpointOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainEndpointOptionsStatus {
     /// <p>Options to configure endpoint for the Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: DomainEndpointOptions,
     /// <p>The status of the endpoint options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -938,19 +938,19 @@ pub struct DomainEndpointOptionsStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainInfo {
     /// <p> Specifies the <code>DomainName</code>.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DomainInformation {
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
 }
@@ -960,38 +960,38 @@ pub struct DomainInformation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainPackageDetails {
     /// <p>Name of the domain you've associated a package with.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.</p>
-    #[serde(rename = "DomainPackageStatus")]
+    #[serde(rename = "domainPackageStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_package_status: Option<String>,
     /// <p>Additional information if the package is in an error state. Null otherwise.</p>
-    #[serde(rename = "ErrorDetails")]
+    #[serde(rename = "errorDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_details: Option<ErrorDetails>,
     /// <p>Timestamp of the most-recent update to the association status.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>Internal ID of the package.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_id: Option<String>,
     /// <p>User specified name of the package.</p>
-    #[serde(rename = "PackageName")]
+    #[serde(rename = "packageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_name: Option<String>,
     /// <p>Currently supports only TXT-DICTIONARY.</p>
-    #[serde(rename = "PackageType")]
+    #[serde(rename = "packageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_type: Option<String>,
-    #[serde(rename = "PackageVersion")]
+    #[serde(rename = "packageVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_version: Option<String>,
     /// <p>The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.</p>
-    #[serde(rename = "ReferencePath")]
+    #[serde(rename = "referencePath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_path: Option<String>,
 }
@@ -1000,11 +1000,11 @@ pub struct DomainPackageDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Duration {
     /// <p>Specifies the unit of a maintenance schedule duration. Valid value is HOURS. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
     /// <p> Integer to specify the value of a maintenance schedule duration. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<i64>,
 }
@@ -1013,19 +1013,19 @@ pub struct Duration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EBSOptions {
     /// <p>Specifies whether EBS-based storage is enabled.</p>
-    #[serde(rename = "EBSEnabled")]
+    #[serde(rename = "eBSEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_enabled: Option<bool>,
     /// <p>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</p>
-    #[serde(rename = "Iops")]
+    #[serde(rename = "iops")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iops: Option<i64>,
     /// <p> Integer to specify the size of an EBS volume.</p>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_size: Option<i64>,
     /// <p> Specifies the volume type for EBS-based storage.</p>
-    #[serde(rename = "VolumeType")]
+    #[serde(rename = "volumeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_type: Option<String>,
 }
@@ -1035,10 +1035,10 @@ pub struct EBSOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EBSOptionsStatus {
     /// <p> Specifies the EBS options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: EBSOptions,
     /// <p> Specifies the status of the EBS options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -1046,47 +1046,47 @@ pub struct EBSOptionsStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ElasticsearchClusterConfig {
     /// <p>Specifies the <code>ColdStorageOptions</code> configuration for an Elasticsearch domain.</p>
-    #[serde(rename = "ColdStorageOptions")]
+    #[serde(rename = "coldStorageOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cold_storage_options: Option<ColdStorageOptions>,
     /// <p>Total number of dedicated master nodes, active and on standby, for the cluster.</p>
-    #[serde(rename = "DedicatedMasterCount")]
+    #[serde(rename = "dedicatedMasterCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_master_count: Option<i64>,
     /// <p>A boolean value to indicate whether a dedicated master node is enabled. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes" target="_blank">About Dedicated Master Nodes</a> for more information.</p>
-    #[serde(rename = "DedicatedMasterEnabled")]
+    #[serde(rename = "dedicatedMasterEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_master_enabled: Option<bool>,
     /// <p>The instance type for a dedicated master node.</p>
-    #[serde(rename = "DedicatedMasterType")]
+    #[serde(rename = "dedicatedMasterType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_master_type: Option<String>,
     /// <p>The number of instances in the specified domain cluster.</p>
-    #[serde(rename = "InstanceCount")]
+    #[serde(rename = "instanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_count: Option<i64>,
     /// <p>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.</p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <p>The number of warm nodes in the cluster.</p>
-    #[serde(rename = "WarmCount")]
+    #[serde(rename = "warmCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warm_count: Option<i64>,
     /// <p>True to enable warm storage.</p>
-    #[serde(rename = "WarmEnabled")]
+    #[serde(rename = "warmEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warm_enabled: Option<bool>,
     /// <p>The instance type for the Elasticsearch cluster's warm nodes.</p>
-    #[serde(rename = "WarmType")]
+    #[serde(rename = "warmType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warm_type: Option<String>,
     /// <p>Specifies the zone awareness configuration for a domain when zone awareness is enabled.</p>
-    #[serde(rename = "ZoneAwarenessConfig")]
+    #[serde(rename = "zoneAwarenessConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zone_awareness_config: Option<ZoneAwarenessConfig>,
     /// <p>A boolean value to indicate whether zone awareness is enabled. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness" target="_blank">About Zone Awareness</a> for more information.</p>
-    #[serde(rename = "ZoneAwarenessEnabled")]
+    #[serde(rename = "zoneAwarenessEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zone_awareness_enabled: Option<bool>,
 }
@@ -1096,10 +1096,10 @@ pub struct ElasticsearchClusterConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ElasticsearchClusterConfigStatus {
     /// <p> Specifies the cluster configuration for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: ElasticsearchClusterConfig,
     /// <p> Specifies the status of the configuration for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -1108,59 +1108,59 @@ pub struct ElasticsearchClusterConfigStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ElasticsearchDomainConfig {
     /// <p>IAM access policy as a JSON-formatted string.</p>
-    #[serde(rename = "AccessPolicies")]
+    #[serde(rename = "accessPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_policies: Option<AccessPoliciesStatus>,
     /// <p>Specifies the <code>AdvancedOptions</code> for the domain. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuring Advanced Options</a> for more information.</p>
-    #[serde(rename = "AdvancedOptions")]
+    #[serde(rename = "advancedOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_options: Option<AdvancedOptionsStatus>,
     /// <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
-    #[serde(rename = "AdvancedSecurityOptions")]
+    #[serde(rename = "advancedSecurityOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_security_options: Option<AdvancedSecurityOptionsStatus>,
     /// <p>Specifies <code>AutoTuneOptions</code> for the domain. </p>
-    #[serde(rename = "AutoTuneOptions")]
+    #[serde(rename = "autoTuneOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tune_options: Option<AutoTuneOptionsStatus>,
     /// <p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-    #[serde(rename = "CognitoOptions")]
+    #[serde(rename = "cognitoOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_options: Option<CognitoOptionsStatus>,
     /// <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "DomainEndpointOptions")]
+    #[serde(rename = "domainEndpointOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_endpoint_options: Option<DomainEndpointOptionsStatus>,
     /// <p>Specifies the <code>EBSOptions</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "EBSOptions")]
+    #[serde(rename = "eBSOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_options: Option<EBSOptionsStatus>,
     /// <p>Specifies the <code>ElasticsearchClusterConfig</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "ElasticsearchClusterConfig")]
+    #[serde(rename = "elasticsearchClusterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_cluster_config: Option<ElasticsearchClusterConfigStatus>,
     /// <p>String of format X.Y to specify version for the Elasticsearch domain.</p>
-    #[serde(rename = "ElasticsearchVersion")]
+    #[serde(rename = "elasticsearchVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_version: Option<ElasticsearchVersionStatus>,
     /// <p>Specifies the <code>EncryptionAtRestOptions</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "EncryptionAtRestOptions")]
+    #[serde(rename = "encryptionAtRestOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_at_rest_options: Option<EncryptionAtRestOptionsStatus>,
     /// <p>Log publishing options for the given domain.</p>
-    #[serde(rename = "LogPublishingOptions")]
+    #[serde(rename = "logPublishingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_publishing_options: Option<LogPublishingOptionsStatus>,
     /// <p>Specifies the <code>NodeToNodeEncryptionOptions</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "NodeToNodeEncryptionOptions")]
+    #[serde(rename = "nodeToNodeEncryptionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_to_node_encryption_options: Option<NodeToNodeEncryptionOptionsStatus>,
     /// <p>Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "SnapshotOptions")]
+    #[serde(rename = "snapshotOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_options: Option<SnapshotOptionsStatus>,
     /// <p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
-    #[serde(rename = "VPCOptions")]
+    #[serde(rename = "vPCOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_options: Option<VPCDerivedInfoStatus>,
 }
@@ -1170,94 +1170,94 @@ pub struct ElasticsearchDomainConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ElasticsearchDomainStatus {
     /// <p>The Amazon resource name (ARN) of an Elasticsearch domain. See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html" target="_blank">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     pub arn: String,
     /// <p> IAM access policy as a JSON-formatted string.</p>
-    #[serde(rename = "AccessPolicies")]
+    #[serde(rename = "accessPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_policies: Option<String>,
     /// <p>Specifies the status of the <code>AdvancedOptions</code></p>
-    #[serde(rename = "AdvancedOptions")]
+    #[serde(rename = "advancedOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_options: Option<::std::collections::HashMap<String, String>>,
     /// <p>The current status of the Elasticsearch domain's advanced security options.</p>
-    #[serde(rename = "AdvancedSecurityOptions")]
+    #[serde(rename = "advancedSecurityOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_security_options: Option<AdvancedSecurityOptions>,
     /// <p>The current status of the Elasticsearch domain's Auto-Tune options.</p>
-    #[serde(rename = "AutoTuneOptions")]
+    #[serde(rename = "autoTuneOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tune_options: Option<AutoTuneOptionsOutput>,
     /// <p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-    #[serde(rename = "CognitoOptions")]
+    #[serde(rename = "cognitoOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_options: Option<CognitoOptions>,
     /// <p>The domain creation status. <code>True</code> if the creation of an Elasticsearch domain is complete. <code>False</code> if domain creation is still in progress.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<bool>,
     /// <p>The domain deletion status. <code>True</code> if a delete request has been received for the domain but resource cleanup is still in progress. <code>False</code> if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.</p>
-    #[serde(rename = "Deleted")]
+    #[serde(rename = "deleted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deleted: Option<bool>,
     /// <p>The current status of the Elasticsearch domain's endpoint options.</p>
-    #[serde(rename = "DomainEndpointOptions")]
+    #[serde(rename = "domainEndpointOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_endpoint_options: Option<DomainEndpointOptions>,
     /// <p>The unique identifier for the specified Elasticsearch domain.</p>
-    #[serde(rename = "DomainId")]
+    #[serde(rename = "domainId")]
     pub domain_id: String,
     /// <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The <code>EBSOptions</code> for the specified domain. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank">Configuring EBS-based Storage</a> for more information.</p>
-    #[serde(rename = "EBSOptions")]
+    #[serde(rename = "eBSOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_options: Option<EBSOptions>,
     /// <p>The type and number of instances in the domain cluster.</p>
-    #[serde(rename = "ElasticsearchClusterConfig")]
+    #[serde(rename = "elasticsearchClusterConfig")]
     pub elasticsearch_cluster_config: ElasticsearchClusterConfig,
-    #[serde(rename = "ElasticsearchVersion")]
+    #[serde(rename = "elasticsearchVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_version: Option<String>,
     /// <p> Specifies the status of the <code>EncryptionAtRestOptions</code>.</p>
-    #[serde(rename = "EncryptionAtRestOptions")]
+    #[serde(rename = "encryptionAtRestOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_at_rest_options: Option<EncryptionAtRestOptions>,
     /// <p>The Elasticsearch domain endpoint that you use to submit index and search requests.</p>
-    #[serde(rename = "Endpoint")]
+    #[serde(rename = "endpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint: Option<String>,
     /// <p>Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<::std::collections::HashMap<String, String>>,
     /// <p>Log publishing options for the given domain.</p>
-    #[serde(rename = "LogPublishingOptions")]
+    #[serde(rename = "logPublishingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_publishing_options: Option<::std::collections::HashMap<String, LogPublishingOption>>,
     /// <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
-    #[serde(rename = "NodeToNodeEncryptionOptions")]
+    #[serde(rename = "nodeToNodeEncryptionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_to_node_encryption_options: Option<NodeToNodeEncryptionOptions>,
     /// <p>The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active.</p>
-    #[serde(rename = "Processing")]
+    #[serde(rename = "processing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub processing: Option<bool>,
     /// <p>The current status of the Elasticsearch domain's service software.</p>
-    #[serde(rename = "ServiceSoftwareOptions")]
+    #[serde(rename = "serviceSoftwareOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_software_options: Option<ServiceSoftwareOptions>,
     /// <p>Specifies the status of the <code>SnapshotOptions</code></p>
-    #[serde(rename = "SnapshotOptions")]
+    #[serde(rename = "snapshotOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_options: Option<SnapshotOptions>,
     /// <p>The status of an Elasticsearch domain version upgrade. <code>True</code> if Amazon Elasticsearch Service is undergoing a version upgrade. <code>False</code> if the configuration is active.</p>
-    #[serde(rename = "UpgradeProcessing")]
+    #[serde(rename = "upgradeProcessing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_processing: Option<bool>,
     /// <p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
-    #[serde(rename = "VPCOptions")]
+    #[serde(rename = "vPCOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_options: Option<VPCDerivedInfo>,
 }
@@ -1267,10 +1267,10 @@ pub struct ElasticsearchDomainStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ElasticsearchVersionStatus {
     /// <p> Specifies the Elasticsearch version for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: String,
     /// <p> Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -1278,11 +1278,11 @@ pub struct ElasticsearchVersionStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionAtRestOptions {
     /// <p>Specifies the option to enable Encryption At Rest.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p> Specifies the KMS Key ID for Encryption At Rest options.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
 }
@@ -1292,20 +1292,20 @@ pub struct EncryptionAtRestOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EncryptionAtRestOptionsStatus {
     /// <p> Specifies the Encryption At Rest options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: EncryptionAtRestOptions,
     /// <p> Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorDetails {
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
-    #[serde(rename = "ErrorType")]
+    #[serde(rename = "errorType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_type: Option<String>,
 }
@@ -1315,11 +1315,11 @@ pub struct ErrorDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p> Specifies the name of the filter. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p> Contains one or more values for the filter. </p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -1328,7 +1328,7 @@ pub struct Filter {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCompatibleElasticsearchVersionsRequest {
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
 }
@@ -1338,7 +1338,7 @@ pub struct GetCompatibleElasticsearchVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCompatibleElasticsearchVersionsResponse {
     /// <p> A map of compatible Elasticsearch versions returned as part of the <code> <a>GetCompatibleElasticsearchVersions</a> </code> operation. </p>
-    #[serde(rename = "CompatibleElasticsearchVersions")]
+    #[serde(rename = "compatibleElasticsearchVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_elasticsearch_versions: Option<Vec<CompatibleVersionsMap>>,
 }
@@ -1348,15 +1348,15 @@ pub struct GetCompatibleElasticsearchVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPackageVersionHistoryRequest {
     /// <p>Limits results to a maximum number of versions.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns an audit history of versions of the package.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     pub package_id: String,
 }
 
@@ -1364,14 +1364,14 @@ pub struct GetPackageVersionHistoryRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPackageVersionHistoryResponse {
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_id: Option<String>,
     /// <p>List of <code>PackageVersionHistory</code> objects.</p>
-    #[serde(rename = "PackageVersionHistoryList")]
+    #[serde(rename = "packageVersionHistoryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_version_history_list: Option<Vec<PackageVersionHistory>>,
 }
@@ -1380,12 +1380,12 @@ pub struct GetPackageVersionHistoryResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUpgradeHistoryRequest {
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1395,11 +1395,11 @@ pub struct GetUpgradeHistoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUpgradeHistoryResponse {
     /// <p>Pagination token that needs to be supplied to the next call to get the next page of results</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> A list of <code> <a>UpgradeHistory</a> </code> objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of <code> <a>GetUpgradeHistoryResponse</a> </code> object. </p>
-    #[serde(rename = "UpgradeHistories")]
+    #[serde(rename = "upgradeHistories")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_histories: Option<Vec<UpgradeHistory>>,
 }
@@ -1408,7 +1408,7 @@ pub struct GetUpgradeHistoryResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUpgradeStatusRequest {
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -1417,15 +1417,15 @@ pub struct GetUpgradeStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUpgradeStatusResponse {
     /// <p> One of 4 statuses that a step can go through returned as part of the <code> <a>GetUpgradeStatusResponse</a> </code> object. The status can take one of the following values: <ul> <li>In Progress</li> <li>Succeeded</li> <li>Succeeded with Issues</li> <li>Failed</li> </ul> </p>
-    #[serde(rename = "StepStatus")]
+    #[serde(rename = "stepStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub step_status: Option<String>,
     /// <p>A string that describes the update briefly</p>
-    #[serde(rename = "UpgradeName")]
+    #[serde(rename = "upgradeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_name: Option<String>,
     /// <p> Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through: <ul> <li>PreUpgradeCheck</li> <li>Snapshot</li> <li>Upgrade</li> </ul> </p>
-    #[serde(rename = "UpgradeStep")]
+    #[serde(rename = "upgradeStep")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_step: Option<String>,
 }
@@ -1435,19 +1435,19 @@ pub struct GetUpgradeStatusResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InboundCrossClusterSearchConnection {
     /// <p>Specifies the <code><a>InboundCrossClusterSearchConnectionStatus</a></code> for the outbound connection.</p>
-    #[serde(rename = "ConnectionStatus")]
+    #[serde(rename = "connectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_status: Option<InboundCrossClusterSearchConnectionStatus>,
     /// <p>Specifies the connection id for the inbound cross-cluster search connection.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection_id: Option<String>,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>
-    #[serde(rename = "DestinationDomainInfo")]
+    #[serde(rename = "destinationDomainInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_domain_info: Option<DomainInformation>,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
-    #[serde(rename = "SourceDomainInfo")]
+    #[serde(rename = "sourceDomainInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_domain_info: Option<DomainInformation>,
 }
@@ -1457,11 +1457,11 @@ pub struct InboundCrossClusterSearchConnection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InboundCrossClusterSearchConnectionStatus {
     /// <p>Specifies verbose information for the inbound connection status.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The state code for inbound connection. This can be one of the following:</p> <ul> <li>PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.</li> <li>APPROVED: Inbound connection is pending acceptance by destination domain owner.</li> <li>REJECTING: Inbound connection rejection is in process.</li> <li>REJECTED: Inbound connection is rejected.</li> <li>DELETING: Inbound connection deletion is in progress.</li> <li>DELETED: Inbound connection is deleted and cannot be used further.</li> </ul></p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_code: Option<String>,
 }
@@ -1470,10 +1470,10 @@ pub struct InboundCrossClusterSearchConnectionStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceCountLimits {
-    #[serde(rename = "MaximumInstanceCount")]
+    #[serde(rename = "maximumInstanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_instance_count: Option<i64>,
-    #[serde(rename = "MinimumInstanceCount")]
+    #[serde(rename = "minimumInstanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum_instance_count: Option<i64>,
 }
@@ -1482,7 +1482,7 @@ pub struct InstanceCountLimits {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceLimits {
-    #[serde(rename = "InstanceCountLimits")]
+    #[serde(rename = "instanceCountLimits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_count_limits: Option<InstanceCountLimits>,
 }
@@ -1492,14 +1492,14 @@ pub struct InstanceLimits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Limits {
     /// <p> List of additional limits that are specific to a given InstanceType and for each of it's <code> <a>InstanceRole</a> </code> . </p>
-    #[serde(rename = "AdditionalLimits")]
+    #[serde(rename = "additionalLimits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_limits: Option<Vec<AdditionalLimit>>,
-    #[serde(rename = "InstanceLimits")]
+    #[serde(rename = "instanceLimits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_limits: Option<InstanceLimits>,
     /// <p>StorageType represents the list of storage related types and attributes that are available for given InstanceType. </p>
-    #[serde(rename = "StorageTypes")]
+    #[serde(rename = "storageTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_types: Option<Vec<StorageType>>,
 }
@@ -1509,7 +1509,7 @@ pub struct Limits {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDomainNamesResponse {
     /// <p>List of Elasticsearch domain names.</p>
-    #[serde(rename = "DomainNames")]
+    #[serde(rename = "domainNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_names: Option<Vec<DomainInfo>>,
 }
@@ -1519,15 +1519,15 @@ pub struct ListDomainNamesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDomainsForPackageRequest {
     /// <p>Limits results to a maximum number of domains.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The package for which to list domains.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     pub package_id: String,
 }
 
@@ -1536,10 +1536,10 @@ pub struct ListDomainsForPackageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDomainsForPackageResponse {
     /// <p>List of <code>DomainPackageDetails</code> objects.</p>
-    #[serde(rename = "DomainPackageDetailsList")]
+    #[serde(rename = "domainPackageDetailsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_package_details_list: Option<Vec<DomainPackageDetails>>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1549,18 +1549,18 @@ pub struct ListDomainsForPackageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListElasticsearchInstanceTypesRequest {
     /// <p>DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain. </p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>Version of Elasticsearch for which list of supported elasticsearch instance types are needed. </p>
-    #[serde(rename = "ElasticsearchVersion")]
+    #[serde(rename = "elasticsearchVersion")]
     pub elasticsearch_version: String,
     /// <p> Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1570,11 +1570,11 @@ pub struct ListElasticsearchInstanceTypesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListElasticsearchInstanceTypesResponse {
     /// <p> List of instance types supported by Amazon Elasticsearch service for given <code> <a>ElasticsearchVersion</a> </code> </p>
-    #[serde(rename = "ElasticsearchInstanceTypes")]
+    #[serde(rename = "elasticsearchInstanceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_instance_types: Option<Vec<String>>,
     /// <p>In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1584,10 +1584,10 @@ pub struct ListElasticsearchInstanceTypesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListElasticsearchVersionsRequest {
     /// <p> Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1596,10 +1596,10 @@ pub struct ListElasticsearchVersionsRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListElasticsearchVersionsResponse {
-    #[serde(rename = "ElasticsearchVersions")]
+    #[serde(rename = "elasticsearchVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_versions: Option<Vec<String>>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1609,14 +1609,14 @@ pub struct ListElasticsearchVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPackagesForDomainRequest {
     /// <p>The name of the domain for which you want to list associated packages.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>Limits results to a maximum number of packages.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1626,11 +1626,11 @@ pub struct ListPackagesForDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPackagesForDomainResponse {
     /// <p>List of <code>DomainPackageDetails</code> objects.</p>
-    #[serde(rename = "DomainPackageDetailsList")]
+    #[serde(rename = "domainPackageDetailsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_package_details_list: Option<Vec<DomainPackageDetails>>,
     /// <p>Pagination token that needs to be supplied to the next call to get the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1640,7 +1640,7 @@ pub struct ListPackagesForDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     pub arn: String,
 }
 
@@ -1649,7 +1649,7 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -1657,11 +1657,11 @@ pub struct ListTagsResponse {
 /// <p>Log Publishing option that is set for given domain. <br/>Attributes and their details: <ul> <li>CloudWatchLogsLogGroupArn: ARN of the Cloudwatch log group to which log needs to be published.</li> <li>Enabled: Whether the log publishing for given log type is enabled or not</li> </ul> </p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LogPublishingOption {
-    #[serde(rename = "CloudWatchLogsLogGroupArn")]
+    #[serde(rename = "cloudWatchLogsLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_log_group_arn: Option<String>,
     /// <p> Specifies whether given log publishing option is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -1671,11 +1671,11 @@ pub struct LogPublishingOption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LogPublishingOptionsStatus {
     /// <p>The log publishing options configured for the Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub options: Option<::std::collections::HashMap<String, LogPublishingOption>>,
     /// <p>The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<OptionStatus>,
 }
@@ -1685,15 +1685,15 @@ pub struct LogPublishingOptionsStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MasterUserOptions {
     /// <p>ARN for the master user (if IAM is enabled).</p>
-    #[serde(rename = "MasterUserARN")]
+    #[serde(rename = "masterUserARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_user_arn: Option<String>,
     /// <p>The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>
-    #[serde(rename = "MasterUserName")]
+    #[serde(rename = "masterUserName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_user_name: Option<String>,
     /// <p>The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>
-    #[serde(rename = "MasterUserPassword")]
+    #[serde(rename = "masterUserPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_user_password: Option<String>,
 }
@@ -1702,7 +1702,7 @@ pub struct MasterUserOptions {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NodeToNodeEncryptionOptions {
     /// <p>Specify true to enable node-to-node encryption.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -1712,10 +1712,10 @@ pub struct NodeToNodeEncryptionOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NodeToNodeEncryptionOptionsStatus {
     /// <p>Specifies the node-to-node encryption options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: NodeToNodeEncryptionOptions,
     /// <p>Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -1724,20 +1724,20 @@ pub struct NodeToNodeEncryptionOptionsStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OptionStatus {
     /// <p>Timestamp which tells the creation date for the entity.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     pub creation_date: f64,
     /// <p>Indicates whether the Elasticsearch domain is being deleted.</p>
-    #[serde(rename = "PendingDeletion")]
+    #[serde(rename = "pendingDeletion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_deletion: Option<bool>,
     /// <p>Provides the <code>OptionState</code> for the Elasticsearch domain.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
     /// <p>Timestamp which tells the last updated time for the entity.</p>
-    #[serde(rename = "UpdateDate")]
+    #[serde(rename = "updateDate")]
     pub update_date: f64,
     /// <p>Specifies the latest version for the entity.</p>
-    #[serde(rename = "UpdateVersion")]
+    #[serde(rename = "updateVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_version: Option<i64>,
 }
@@ -1747,23 +1747,23 @@ pub struct OptionStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OutboundCrossClusterSearchConnection {
     /// <p>Specifies the connection alias for the outbound cross-cluster search connection.</p>
-    #[serde(rename = "ConnectionAlias")]
+    #[serde(rename = "connectionAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_alias: Option<String>,
     /// <p>Specifies the <code><a>OutboundCrossClusterSearchConnectionStatus</a></code> for the outbound connection.</p>
-    #[serde(rename = "ConnectionStatus")]
+    #[serde(rename = "connectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_status: Option<OutboundCrossClusterSearchConnectionStatus>,
     /// <p>Specifies the connection id for the outbound cross-cluster search connection.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection_id: Option<String>,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>
-    #[serde(rename = "DestinationDomainInfo")]
+    #[serde(rename = "destinationDomainInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_domain_info: Option<DomainInformation>,
     /// <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
-    #[serde(rename = "SourceDomainInfo")]
+    #[serde(rename = "sourceDomainInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_domain_info: Option<DomainInformation>,
 }
@@ -1773,11 +1773,11 @@ pub struct OutboundCrossClusterSearchConnection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OutboundCrossClusterSearchConnectionStatus {
     /// <p>Specifies verbose information for the outbound connection status.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The state code for outbound connection. This can be one of the following:</p> <ul> <li>VALIDATING: The outbound connection request is being validated.</li> <li>VALIDATION<em>FAILED: Validation failed for the connection request.</li> <li>PENDING</em>ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.</li> <li>PROVISIONING: Outbound connection request is in process.</li> <li>ACTIVE: Outbound connection is active and ready to use.</li> <li>REJECTED: Outbound connection request is rejected by destination domain owner.</li> <li>DELETING: Outbound connection deletion is in progress.</li> <li>DELETED: Outbound connection is deleted and cannot be used further.</li> </ul></p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_code: Option<String>,
 }
@@ -1786,38 +1786,38 @@ pub struct OutboundCrossClusterSearchConnectionStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PackageDetails {
-    #[serde(rename = "AvailablePackageVersion")]
+    #[serde(rename = "availablePackageVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub available_package_version: Option<String>,
     /// <p>Timestamp which tells creation date of the package.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Additional information if the package is in an error state. Null otherwise.</p>
-    #[serde(rename = "ErrorDetails")]
+    #[serde(rename = "errorDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_details: Option<ErrorDetails>,
-    #[serde(rename = "LastUpdatedAt")]
+    #[serde(rename = "lastUpdatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_at: Option<f64>,
     /// <p>User-specified description of the package.</p>
-    #[serde(rename = "PackageDescription")]
+    #[serde(rename = "packageDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_description: Option<String>,
     /// <p>Internal ID of the package.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_id: Option<String>,
     /// <p>User specified name of the package.</p>
-    #[serde(rename = "PackageName")]
+    #[serde(rename = "packageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_name: Option<String>,
     /// <p>Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED</p>
-    #[serde(rename = "PackageStatus")]
+    #[serde(rename = "packageStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_status: Option<String>,
     /// <p>Currently supports only TXT-DICTIONARY.</p>
-    #[serde(rename = "PackageType")]
+    #[serde(rename = "packageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_type: Option<String>,
 }
@@ -1827,11 +1827,11 @@ pub struct PackageDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PackageSource {
     /// <p>Name of the bucket containing the package.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>Key (file name) of the package.</p>
-    #[serde(rename = "S3Key")]
+    #[serde(rename = "s3Key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key: Option<String>,
 }
@@ -1841,15 +1841,15 @@ pub struct PackageSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PackageVersionHistory {
     /// <p>A message associated with the version.</p>
-    #[serde(rename = "CommitMessage")]
+    #[serde(rename = "commitMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commit_message: Option<String>,
     /// <p>Timestamp which tells creation time of the package version.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Version of the package.</p>
-    #[serde(rename = "PackageVersion")]
+    #[serde(rename = "packageVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_version: Option<String>,
 }
@@ -1859,14 +1859,14 @@ pub struct PackageVersionHistory {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PurchaseReservedElasticsearchInstanceOfferingRequest {
     /// <p>The number of Elasticsearch instances to reserve.</p>
-    #[serde(rename = "InstanceCount")]
+    #[serde(rename = "instanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_count: Option<i64>,
     /// <p>A customer-specified identifier to track this reservation.</p>
-    #[serde(rename = "ReservationName")]
+    #[serde(rename = "reservationName")]
     pub reservation_name: String,
     /// <p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceOfferingId")]
+    #[serde(rename = "reservedElasticsearchInstanceOfferingId")]
     pub reserved_elasticsearch_instance_offering_id: String,
 }
 
@@ -1875,11 +1875,11 @@ pub struct PurchaseReservedElasticsearchInstanceOfferingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PurchaseReservedElasticsearchInstanceOfferingResponse {
     /// <p>The customer-specified identifier used to track this reservation.</p>
-    #[serde(rename = "ReservationName")]
+    #[serde(rename = "reservationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservation_name: Option<String>,
     /// <p>Details of the reserved Elasticsearch instance which was purchased.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceId")]
+    #[serde(rename = "reservedElasticsearchInstanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_id: Option<String>,
 }
@@ -1889,11 +1889,11 @@ pub struct PurchaseReservedElasticsearchInstanceOfferingResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecurringCharge {
     /// <p>The monetary amount of the recurring charge.</p>
-    #[serde(rename = "RecurringChargeAmount")]
+    #[serde(rename = "recurringChargeAmount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurring_charge_amount: Option<f64>,
     /// <p>The frequency of the recurring charge.</p>
-    #[serde(rename = "RecurringChargeFrequency")]
+    #[serde(rename = "recurringChargeFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurring_charge_frequency: Option<String>,
 }
@@ -1903,7 +1903,7 @@ pub struct RecurringCharge {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RejectInboundCrossClusterSearchConnectionRequest {
     /// <p>The id of the inbound connection that you want to reject.</p>
-    #[serde(rename = "CrossClusterSearchConnectionId")]
+    #[serde(rename = "crossClusterSearchConnectionId")]
     pub cross_cluster_search_connection_id: String,
 }
 
@@ -1912,7 +1912,7 @@ pub struct RejectInboundCrossClusterSearchConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RejectInboundCrossClusterSearchConnectionResponse {
     /// <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of rejected inbound connection. </p>
-    #[serde(rename = "CrossClusterSearchConnection")]
+    #[serde(rename = "crossClusterSearchConnection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_cluster_search_connection: Option<InboundCrossClusterSearchConnection>,
 }
@@ -1922,10 +1922,10 @@ pub struct RejectInboundCrossClusterSearchConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveTagsRequest {
     /// <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     pub arn: String,
     /// <p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1934,55 +1934,55 @@ pub struct RemoveTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReservedElasticsearchInstance {
     /// <p>The currency code for the reserved Elasticsearch instance offering.</p>
-    #[serde(rename = "CurrencyCode")]
+    #[serde(rename = "currencyCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub currency_code: Option<String>,
     /// <p>The duration, in seconds, for which the Elasticsearch instance is reserved.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<i64>,
     /// <p>The number of Elasticsearch instances that have been reserved.</p>
-    #[serde(rename = "ElasticsearchInstanceCount")]
+    #[serde(rename = "elasticsearchInstanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_instance_count: Option<i64>,
     /// <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
-    #[serde(rename = "ElasticsearchInstanceType")]
+    #[serde(rename = "elasticsearchInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_instance_type: Option<String>,
     /// <p>The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering. </p>
-    #[serde(rename = "FixedPrice")]
+    #[serde(rename = "fixedPrice")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fixed_price: Option<f64>,
     /// <p>The payment option as defined in the reserved Elasticsearch instance offering.</p>
-    #[serde(rename = "PaymentOption")]
+    #[serde(rename = "paymentOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payment_option: Option<String>,
     /// <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
-    #[serde(rename = "RecurringCharges")]
+    #[serde(rename = "recurringCharges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurring_charges: Option<Vec<RecurringCharge>>,
     /// <p>The customer-specified identifier to track this reservation.</p>
-    #[serde(rename = "ReservationName")]
+    #[serde(rename = "reservationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservation_name: Option<String>,
     /// <p>The unique identifier for the reservation.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceId")]
+    #[serde(rename = "reservedElasticsearchInstanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_id: Option<String>,
     /// <p>The offering identifier.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceOfferingId")]
+    #[serde(rename = "reservedElasticsearchInstanceOfferingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_offering_id: Option<String>,
     /// <p>The time the reservation started.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The state of the reserved Elasticsearch instance.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The rate you are charged for each hour for the domain that is using this reserved instance.</p>
-    #[serde(rename = "UsagePrice")]
+    #[serde(rename = "usagePrice")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_price: Option<f64>,
 }
@@ -1992,35 +1992,35 @@ pub struct ReservedElasticsearchInstance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReservedElasticsearchInstanceOffering {
     /// <p>The currency code for the reserved Elasticsearch instance offering.</p>
-    #[serde(rename = "CurrencyCode")]
+    #[serde(rename = "currencyCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub currency_code: Option<String>,
     /// <p>The duration, in seconds, for which the offering will reserve the Elasticsearch instance.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<i64>,
     /// <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
-    #[serde(rename = "ElasticsearchInstanceType")]
+    #[serde(rename = "elasticsearchInstanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_instance_type: Option<String>,
     /// <p>The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering. </p>
-    #[serde(rename = "FixedPrice")]
+    #[serde(rename = "fixedPrice")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fixed_price: Option<f64>,
     /// <p>Payment option for the reserved Elasticsearch instance offering</p>
-    #[serde(rename = "PaymentOption")]
+    #[serde(rename = "paymentOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payment_option: Option<String>,
     /// <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
-    #[serde(rename = "RecurringCharges")]
+    #[serde(rename = "recurringCharges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurring_charges: Option<Vec<RecurringCharge>>,
     /// <p>The Elasticsearch reserved instance offering identifier.</p>
-    #[serde(rename = "ReservedElasticsearchInstanceOfferingId")]
+    #[serde(rename = "reservedElasticsearchInstanceOfferingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_elasticsearch_instance_offering_id: Option<String>,
     /// <p>The rate you are charged for each hour the domain that is using the offering is running.</p>
-    #[serde(rename = "UsagePrice")]
+    #[serde(rename = "usagePrice")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_price: Option<f64>,
 }
@@ -2029,10 +2029,10 @@ pub struct ReservedElasticsearchInstanceOffering {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SAMLIdp {
     /// <p>The unique Entity ID of the application in SAML Identity Provider.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The Metadata of the SAML application in xml format.</p>
-    #[serde(rename = "MetadataContent")]
+    #[serde(rename = "metadataContent")]
     pub metadata_content: String,
 }
 
@@ -2041,31 +2041,31 @@ pub struct SAMLIdp {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SAMLOptionsInput {
     /// <p>True if SAML is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Specifies the SAML Identity Provider's information.</p>
-    #[serde(rename = "Idp")]
+    #[serde(rename = "idp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idp: Option<SAMLIdp>,
     /// <p>The backend role to which the SAML master user is mapped to.</p>
-    #[serde(rename = "MasterBackendRole")]
+    #[serde(rename = "masterBackendRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_backend_role: Option<String>,
     /// <p>The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>
-    #[serde(rename = "MasterUserName")]
+    #[serde(rename = "masterUserName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub master_user_name: Option<String>,
     /// <p>The key to use for matching the SAML Roles attribute.</p>
-    #[serde(rename = "RolesKey")]
+    #[serde(rename = "rolesKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub roles_key: Option<String>,
     /// <p>The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.</p>
-    #[serde(rename = "SessionTimeoutMinutes")]
+    #[serde(rename = "sessionTimeoutMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_timeout_minutes: Option<i64>,
     /// <p>The key to use for matching the SAML Subject attribute.</p>
-    #[serde(rename = "SubjectKey")]
+    #[serde(rename = "subjectKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject_key: Option<String>,
 }
@@ -2075,23 +2075,23 @@ pub struct SAMLOptionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SAMLOptionsOutput {
     /// <p>True if SAML is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Describes the SAML Identity Provider's information.</p>
-    #[serde(rename = "Idp")]
+    #[serde(rename = "idp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idp: Option<SAMLIdp>,
     /// <p>The key used for matching the SAML Roles attribute.</p>
-    #[serde(rename = "RolesKey")]
+    #[serde(rename = "rolesKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub roles_key: Option<String>,
     /// <p>The duration, in minutes, after which a user session becomes inactive.</p>
-    #[serde(rename = "SessionTimeoutMinutes")]
+    #[serde(rename = "sessionTimeoutMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_timeout_minutes: Option<i64>,
     /// <p>The key used for matching the SAML Subject attribute.</p>
-    #[serde(rename = "SubjectKey")]
+    #[serde(rename = "subjectKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject_key: Option<String>,
 }
@@ -2101,19 +2101,19 @@ pub struct SAMLOptionsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ScheduledAutoTuneDetails {
     /// <p>Specifies Auto-Tune action description. </p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and JVM_YOUNG_GEN_TUNING. </p>
-    #[serde(rename = "ActionType")]
+    #[serde(rename = "actionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action_type: Option<String>,
     /// <p>Specifies timestamp for the Auto-Tune action scheduled for the domain. </p>
-    #[serde(rename = "Date")]
+    #[serde(rename = "date")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date: Option<f64>,
     /// <p>Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and HIGH. </p>
-    #[serde(rename = "Severity")]
+    #[serde(rename = "severity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub severity: Option<String>,
 }
@@ -2123,35 +2123,35 @@ pub struct ScheduledAutoTuneDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceSoftwareOptions {
     /// <p>Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.</p>
-    #[serde(rename = "AutomatedUpdateDate")]
+    #[serde(rename = "automatedUpdateDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automated_update_date: Option<f64>,
     /// <p><code>True</code> if you are able to cancel your service software version update. <code>False</code> if you are not able to cancel your service software version. </p>
-    #[serde(rename = "Cancellable")]
+    #[serde(rename = "cancellable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cancellable: Option<bool>,
     /// <p>The current service software version that is present on the domain.</p>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_version: Option<String>,
     /// <p>The description of the <code>UpdateStatus</code>.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The new service software version if one is available.</p>
-    #[serde(rename = "NewVersion")]
+    #[serde(rename = "newVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub new_version: Option<String>,
     /// <p><code>True</code> if a service software is never automatically updated. <code>False</code> if a service software is automatically updated after <code>AutomatedUpdateDate</code>. </p>
-    #[serde(rename = "OptionalDeployment")]
+    #[serde(rename = "optionalDeployment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub optional_deployment: Option<bool>,
     /// <p><code>True</code> if you are able to update you service software version. <code>False</code> if you are not able to update your service software version. </p>
-    #[serde(rename = "UpdateAvailable")]
+    #[serde(rename = "updateAvailable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_available: Option<bool>,
     /// <p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>
-    #[serde(rename = "UpdateStatus")]
+    #[serde(rename = "updateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_status: Option<String>,
 }
@@ -2160,7 +2160,7 @@ pub struct ServiceSoftwareOptions {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SnapshotOptions {
     /// <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
-    #[serde(rename = "AutomatedSnapshotStartHour")]
+    #[serde(rename = "automatedSnapshotStartHour")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automated_snapshot_start_hour: Option<i64>,
 }
@@ -2170,10 +2170,10 @@ pub struct SnapshotOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SnapshotOptionsStatus {
     /// <p>Specifies the daily snapshot options specified for the Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: SnapshotOptions,
     /// <p>Specifies the status of a daily automated snapshot.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -2182,7 +2182,7 @@ pub struct SnapshotOptionsStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartElasticsearchServiceSoftwareUpdateRequest {
     /// <p>The name of the domain that you want to update to the latest service software.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -2191,7 +2191,7 @@ pub struct StartElasticsearchServiceSoftwareUpdateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartElasticsearchServiceSoftwareUpdateResponse {
     /// <p>The current status of the Elasticsearch service software update.</p>
-    #[serde(rename = "ServiceSoftwareOptions")]
+    #[serde(rename = "serviceSoftwareOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_software_options: Option<ServiceSoftwareOptions>,
 }
@@ -2200,14 +2200,14 @@ pub struct StartElasticsearchServiceSoftwareUpdateResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StorageType {
-    #[serde(rename = "StorageSubTypeName")]
+    #[serde(rename = "storageSubTypeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_sub_type_name: Option<String>,
     /// <p>List of limits that are applicable for given storage type. </p>
-    #[serde(rename = "StorageTypeLimits")]
+    #[serde(rename = "storageTypeLimits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type_limits: Option<Vec<StorageTypeLimit>>,
-    #[serde(rename = "StorageTypeName")]
+    #[serde(rename = "storageTypeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type_name: Option<String>,
 }
@@ -2217,11 +2217,11 @@ pub struct StorageType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StorageTypeLimit {
     /// <p> Name of storage limits that are applicable for given storage type. If <code> <a>StorageType</a> </code> is ebs, following storage options are applicable <ol> <li>MinimumVolumeSize</li> Minimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable. <li>MaximumVolumeSize</li> Maximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable. <li>MaximumIops</li> Maximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable. <li>MinimumIops</li> Minimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable. </ol> </p>
-    #[serde(rename = "LimitName")]
+    #[serde(rename = "limitName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_name: Option<String>,
     /// <p> Values for the <code> <a>StorageTypeLimit$LimitName</a> </code> . </p>
-    #[serde(rename = "LimitValues")]
+    #[serde(rename = "limitValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_values: Option<Vec<String>>,
 }
@@ -2230,10 +2230,10 @@ pub struct StorageTypeLimit {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>Specifies the <code>TagKey</code>, the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Specifies the <code>TagValue</code>, the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of <code>project : Trinity</code> and <code>cost-center : Trinity</code></p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -2242,58 +2242,58 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateElasticsearchDomainConfigRequest {
     /// <p>IAM access policy as a JSON-formatted string.</p>
-    #[serde(rename = "AccessPolicies")]
+    #[serde(rename = "accessPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_policies: Option<String>,
     /// <p>Modifies the advanced option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</p>
-    #[serde(rename = "AdvancedOptions")]
+    #[serde(rename = "advancedOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_options: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies advanced security options.</p>
-    #[serde(rename = "AdvancedSecurityOptions")]
+    #[serde(rename = "advancedSecurityOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_security_options: Option<AdvancedSecurityOptionsInput>,
     /// <p>Specifies Auto-Tune options.</p>
-    #[serde(rename = "AutoTuneOptions")]
+    #[serde(rename = "autoTuneOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_tune_options: Option<AutoTuneOptions>,
     /// <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-    #[serde(rename = "CognitoOptions")]
+    #[serde(rename = "cognitoOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_options: Option<CognitoOptions>,
     /// <p>Options to specify configuration that will be applied to the domain endpoint.</p>
-    #[serde(rename = "DomainEndpointOptions")]
+    #[serde(rename = "domainEndpointOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_endpoint_options: Option<DomainEndpointOptions>,
     /// <p>The name of the Elasticsearch domain that you are updating. </p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>Specify the type and size of the EBS volume that you want to use. </p>
-    #[serde(rename = "EBSOptions")]
+    #[serde(rename = "eBSOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_options: Option<EBSOptions>,
     /// <p>The type and number of instances to instantiate for the domain cluster.</p>
-    #[serde(rename = "ElasticsearchClusterConfig")]
+    #[serde(rename = "elasticsearchClusterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elasticsearch_cluster_config: Option<ElasticsearchClusterConfig>,
     /// <p>Specifies the Encryption At Rest Options.</p>
-    #[serde(rename = "EncryptionAtRestOptions")]
+    #[serde(rename = "encryptionAtRestOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_at_rest_options: Option<EncryptionAtRestOptions>,
     /// <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
-    #[serde(rename = "LogPublishingOptions")]
+    #[serde(rename = "logPublishingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_publishing_options: Option<::std::collections::HashMap<String, LogPublishingOption>>,
     /// <p>Specifies the NodeToNodeEncryptionOptions.</p>
-    #[serde(rename = "NodeToNodeEncryptionOptions")]
+    #[serde(rename = "nodeToNodeEncryptionOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_to_node_encryption_options: Option<NodeToNodeEncryptionOptions>,
     /// <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>
-    #[serde(rename = "SnapshotOptions")]
+    #[serde(rename = "snapshotOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_options: Option<SnapshotOptions>,
     /// <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc" target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>
-    #[serde(rename = "VPCOptions")]
+    #[serde(rename = "vPCOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_options: Option<VPCOptions>,
 }
@@ -2303,7 +2303,7 @@ pub struct UpdateElasticsearchDomainConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateElasticsearchDomainConfigResponse {
     /// <p>The status of the updated Elasticsearch domain. </p>
-    #[serde(rename = "DomainConfig")]
+    #[serde(rename = "domainConfig")]
     pub domain_config: ElasticsearchDomainConfig,
 }
 
@@ -2312,17 +2312,17 @@ pub struct UpdateElasticsearchDomainConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePackageRequest {
     /// <p>An info message for the new version which will be shown as part of <code>GetPackageVersionHistoryResponse</code>.</p>
-    #[serde(rename = "CommitMessage")]
+    #[serde(rename = "commitMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commit_message: Option<String>,
     /// <p>New description of the package.</p>
-    #[serde(rename = "PackageDescription")]
+    #[serde(rename = "packageDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_description: Option<String>,
     /// <p>Unique identifier for the package.</p>
-    #[serde(rename = "PackageID")]
+    #[serde(rename = "packageID")]
     pub package_id: String,
-    #[serde(rename = "PackageSource")]
+    #[serde(rename = "packageSource")]
     pub package_source: PackageSource,
 }
 
@@ -2331,7 +2331,7 @@ pub struct UpdatePackageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdatePackageResponse {
     /// <p>Information about the package <code>PackageDetails</code>.</p>
-    #[serde(rename = "PackageDetails")]
+    #[serde(rename = "packageDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_details: Option<PackageDetails>,
 }
@@ -2340,14 +2340,14 @@ pub struct UpdatePackageResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpgradeElasticsearchDomainRequest {
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p> This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade. </p>
-    #[serde(rename = "PerformCheckOnly")]
+    #[serde(rename = "performCheckOnly")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub perform_check_only: Option<bool>,
     /// <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
-    #[serde(rename = "TargetVersion")]
+    #[serde(rename = "targetVersion")]
     pub target_version: String,
 }
 
@@ -2355,15 +2355,15 @@ pub struct UpgradeElasticsearchDomainRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpgradeElasticsearchDomainResponse {
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p> This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade. </p>
-    #[serde(rename = "PerformCheckOnly")]
+    #[serde(rename = "performCheckOnly")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub perform_check_only: Option<bool>,
     /// <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
-    #[serde(rename = "TargetVersion")]
+    #[serde(rename = "targetVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_version: Option<String>,
 }
@@ -2373,19 +2373,19 @@ pub struct UpgradeElasticsearchDomainResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpgradeHistory {
     /// <p>UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.</p>
-    #[serde(rename = "StartTimestamp")]
+    #[serde(rename = "startTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_timestamp: Option<f64>,
     /// <p> A list of <code> <a>UpgradeStepItem</a> </code> s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check. </p>
-    #[serde(rename = "StepsList")]
+    #[serde(rename = "stepsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub steps_list: Option<Vec<UpgradeStepItem>>,
     /// <p>A string that describes the update briefly</p>
-    #[serde(rename = "UpgradeName")]
+    #[serde(rename = "upgradeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_name: Option<String>,
     /// <p> The overall status of the update. The status can take one of the following values: <ul> <li>In Progress</li> <li>Succeeded</li> <li>Succeeded with Issues</li> <li>Failed</li> </ul> </p>
-    #[serde(rename = "UpgradeStatus")]
+    #[serde(rename = "upgradeStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_status: Option<String>,
 }
@@ -2395,19 +2395,19 @@ pub struct UpgradeHistory {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpgradeStepItem {
     /// <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
-    #[serde(rename = "Issues")]
+    #[serde(rename = "issues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issues: Option<Vec<String>>,
     /// <p>The Floating point value representing progress percentage of a particular step.</p>
-    #[serde(rename = "ProgressPercent")]
+    #[serde(rename = "progressPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_percent: Option<f64>,
     /// <p> Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through: <ul> <li>PreUpgradeCheck</li> <li>Snapshot</li> <li>Upgrade</li> </ul> </p>
-    #[serde(rename = "UpgradeStep")]
+    #[serde(rename = "upgradeStep")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_step: Option<String>,
     /// <p> The status of a particular step during an upgrade. The status can take one of the following values: <ul> <li>In Progress</li> <li>Succeeded</li> <li>Succeeded with Issues</li> <li>Failed</li> </ul> </p>
-    #[serde(rename = "UpgradeStepStatus")]
+    #[serde(rename = "upgradeStepStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrade_step_status: Option<String>,
 }
@@ -2417,19 +2417,19 @@ pub struct UpgradeStepItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VPCDerivedInfo {
     /// <p>The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<String>>,
     /// <p>Specifies the security groups for VPC endpoint.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>Specifies the subnets for VPC endpoint.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
-    #[serde(rename = "VPCId")]
+    #[serde(rename = "vPCId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -2439,10 +2439,10 @@ pub struct VPCDerivedInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VPCDerivedInfoStatus {
     /// <p> Specifies the VPC options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: VPCDerivedInfo,
     /// <p> Specifies the status of the VPC options for the specified Elasticsearch domain.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: OptionStatus,
 }
 
@@ -2451,11 +2451,11 @@ pub struct VPCDerivedInfoStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VPCOptions {
     /// <p>Specifies the security groups for VPC endpoint.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>Specifies the subnets for VPC endpoint.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
 }
@@ -2464,7 +2464,7 @@ pub struct VPCOptions {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ZoneAwarenessConfig {
     /// <p>An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled</p>
-    #[serde(rename = "AvailabilityZoneCount")]
+    #[serde(rename = "availabilityZoneCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone_count: Option<i64>,
 }

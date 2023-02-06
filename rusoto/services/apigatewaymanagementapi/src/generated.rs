@@ -26,14 +26,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConnectionRequest {
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     pub connection_id: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConnectionRequest {
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     pub connection_id: String,
 }
 
@@ -41,14 +41,14 @@ pub struct GetConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConnectionResponse {
     /// <p>The time in ISO 8601 format for when the connection was established.</p>
-    #[serde(rename = "ConnectedAt")]
+    #[serde(rename = "connectedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connected_at: Option<f64>,
-    #[serde(rename = "Identity")]
+    #[serde(rename = "identity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity: Option<Identity>,
     /// <p>The time in ISO 8601 format for when the connection was last active.</p>
-    #[serde(rename = "LastActiveAt")]
+    #[serde(rename = "lastActiveAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_active_at: Option<f64>,
 }
@@ -57,10 +57,10 @@ pub struct GetConnectionResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Identity {
     /// <p>The source IP address of the TCP connection making the request to API Gateway.</p>
-    #[serde(rename = "SourceIp")]
+    #[serde(rename = "sourceIp")]
     pub source_ip: String,
     /// <p>The User Agent of the API caller.</p>
-    #[serde(rename = "UserAgent")]
+    #[serde(rename = "userAgent")]
     pub user_agent: String,
 }
 
@@ -68,10 +68,10 @@ pub struct Identity {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PostToConnectionRequest {
     /// <p>The identifier of the connection that a specific client is using.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     pub connection_id: String,
     /// <p>The data to be sent to the client specified by its connection id.</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",

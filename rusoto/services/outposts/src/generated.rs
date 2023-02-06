@@ -28,21 +28,21 @@ use serde_json;
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateOutpostInput {
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
-    #[serde(rename = "AvailabilityZoneId")]
+    #[serde(rename = "availabilityZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone_id: Option<String>,
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     pub site_id: String,
     /// <p>The tags to apply to the Outpost.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -50,7 +50,7 @@ pub struct CreateOutpostInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateOutpostOutput {
-    #[serde(rename = "Outpost")]
+    #[serde(rename = "outpost")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost: Option<Outpost>,
 }
@@ -58,7 +58,7 @@ pub struct CreateOutpostOutput {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteOutpostInput {
-    #[serde(rename = "OutpostId")]
+    #[serde(rename = "outpostId")]
     pub outpost_id: String,
 }
 
@@ -69,7 +69,7 @@ pub struct DeleteOutpostOutput {}
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSiteInput {
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     pub site_id: String,
 }
 
@@ -80,36 +80,36 @@ pub struct DeleteSiteOutput {}
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetOutpostInput {
-    #[serde(rename = "OutpostId")]
+    #[serde(rename = "outpostId")]
     pub outpost_id: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetOutpostInstanceTypesInput {
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "OutpostId")]
+    #[serde(rename = "outpostId")]
     pub outpost_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetOutpostInstanceTypesOutput {
-    #[serde(rename = "InstanceTypes")]
+    #[serde(rename = "instanceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_types: Option<Vec<InstanceTypeItem>>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "OutpostArn")]
+    #[serde(rename = "outpostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost_arn: Option<String>,
-    #[serde(rename = "OutpostId")]
+    #[serde(rename = "outpostId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost_id: Option<String>,
 }
@@ -117,7 +117,7 @@ pub struct GetOutpostInstanceTypesOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetOutpostOutput {
-    #[serde(rename = "Outpost")]
+    #[serde(rename = "outpost")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost: Option<Outpost>,
 }
@@ -126,7 +126,7 @@ pub struct GetOutpostOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceTypeItem {
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
 }
@@ -134,10 +134,10 @@ pub struct InstanceTypeItem {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOutpostsInput {
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -145,10 +145,10 @@ pub struct ListOutpostsInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOutpostsOutput {
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "Outposts")]
+    #[serde(rename = "outposts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outposts: Option<Vec<Outpost>>,
 }
@@ -156,10 +156,10 @@ pub struct ListOutpostsOutput {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSitesInput {
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -167,10 +167,10 @@ pub struct ListSitesInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSitesOutput {
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "Sites")]
+    #[serde(rename = "sites")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sites: Option<Vec<Site>>,
 }
@@ -179,7 +179,7 @@ pub struct ListSitesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -187,7 +187,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The resource tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -196,38 +196,38 @@ pub struct ListTagsForResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Outpost {
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
-    #[serde(rename = "AvailabilityZoneId")]
+    #[serde(rename = "availabilityZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone_id: Option<String>,
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "LifeCycleStatus")]
+    #[serde(rename = "lifeCycleStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub life_cycle_status: Option<String>,
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    #[serde(rename = "OutpostArn")]
+    #[serde(rename = "outpostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost_arn: Option<String>,
-    #[serde(rename = "OutpostId")]
+    #[serde(rename = "outpostId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost_id: Option<String>,
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
-    #[serde(rename = "SiteArn")]
+    #[serde(rename = "siteArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_arn: Option<String>,
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The Outpost tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -236,23 +236,23 @@ pub struct Outpost {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Site {
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    #[serde(rename = "SiteArn")]
+    #[serde(rename = "siteArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_arn: Option<String>,
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The site tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -261,10 +261,10 @@ pub struct Site {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to add to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -276,10 +276,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 

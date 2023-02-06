@@ -55,10 +55,10 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddTagsRequest {
     /// <p>Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>Contains a list of CloudTrail tags, up to a limit of 50</p>
-    #[serde(rename = "TagsList")]
+    #[serde(rename = "tagsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_list: Option<Vec<Tag>>,
 }
@@ -72,10 +72,10 @@ pub struct AddTagsResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AdvancedEventSelector {
     /// <p>Contains all selector statements in an advanced event selector.</p>
-    #[serde(rename = "FieldSelectors")]
+    #[serde(rename = "fieldSelectors")]
     pub field_selectors: Vec<AdvancedFieldSelector>,
     /// <p>An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -84,30 +84,30 @@ pub struct AdvancedEventSelector {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AdvancedFieldSelector {
     /// <p> An operator that includes events that match the last few characters of the event record field specified as the value of <code>Field</code>. </p>
-    #[serde(rename = "EndsWith")]
+    #[serde(rename = "endsWith")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ends_with: Option<Vec<String>>,
     /// <p> An operator that includes events that match the exact value of the event record field specified as the value of <code>Field</code>. This is the only valid operator that you can use with the <code>readOnly</code>, <code>eventCategory</code>, and <code>resources.type</code> fields. </p>
-    #[serde(rename = "Equals")]
+    #[serde(rename = "equals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub equals: Option<Vec<String>>,
     /// <p><p> A field in an event record on which to filter events to be logged. Supported fields include <code>readOnly</code>, <code>eventCategory</code>, <code>eventSource</code> (for management events), <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>. </p> <ul> <li> <p> <b> <code>readOnly</code> </b> - Optional. Can be set to <code>Equals</code> a value of <code>true</code> or <code>false</code>. A value of <code>false</code> logs both <code>read</code> and <code>write</code> events.</p> </li> <li> <p> <b> <code>eventSource</code> </b> - For filtering management events only. This can be set only to <code>NotEquals</code> <code>kms.amazonaws.com</code>.</p> </li> <li> <p> <b> <code>eventName</code> </b> - Can use any operator. You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as <code>PutBucket</code>. You can have multiple values for this ﬁeld, separated by commas.</p> </li> <li> <p> <b> <code>eventCategory</code> </b> - This is required. It must be set to <code>Equals</code>, and the value must be <code>Management</code> or <code>Data</code>.</p> </li> <li> <p> <b> <code>resources.type</code> </b> - This ﬁeld is required. <code>resources.type</code> can only use the <code>Equals</code> operator, and the value can be one of the following: <code>AWS::S3::Object</code>, <code>AWS::Lambda::Function</code>, <code>AWS::DynamoDB::Table</code>, <code>AWS::S3Outposts::Object</code>, <code>AWS::ManagedBlockchain::Node</code>, or <code>AWS::S3ObjectLambda::AccessPoint</code>. You can have only one <code>resources.type</code> ﬁeld per selector. To log data events on more than one resource type, add another selector.</p> </li> <li> <p> <b> <code>resources.ARN</code> </b> - You can use any operator with resources.ARN, but if you use <code>Equals</code> or <code>NotEquals</code>, the value must exactly match the ARN of a valid resource of the type you&#39;ve speciﬁed in the template as the value of resources.type. For example, if resources.type equals <code>AWS::S3::Object</code>, the ARN must be in one of the following formats. To log all data events for all objects in a specific S3 bucket, use the <code>StartsWith</code> operator, and include only the bucket ARN as the matching value.</p> <p>The trailing slash is intentional; do not exclude it.</p> <ul> <li> <p> <code>arn:partition:s3:::bucket<em>name/</code> </p> </li> <li> <p> <code>arn:partition:s3:::bucket</em>name/object<em>or</em>file<em>name/</code> </p> </li> </ul> <p>When resources.type equals <code>AWS::Lambda::Function</code>, and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p> <ul> <li> <p> <code>arn:partition:lambda:region:account</em>ID:function:function<em>name</code> </p> </li> </ul> <p>When resources.type equals <code>AWS::DynamoDB::Table</code>, and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p> <ul> <li> <p> <code>arn:partition:dynamodb:region:account</em>ID:table:table<em>name</code> </p> </li> </ul> <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p> <ul> <li> <p> <code>arn:partition:s3-outposts:region:&gt;account</em>ID:object<em>path</code> </p> </li> </ul> <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Node</code>, and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p> <ul> <li> <p> <code>arn:partition:managedblockchain:region:account</em>ID:nodes/node<em>ID</code> </p> </li> </ul> <p>When <code>resources.type</code> equals <code>AWS::S3ObjectLambda::AccessPoint</code>, and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p> <ul> <li> <p> <code>arn:partition:s3-object-lambda:region:account</em>ID:accesspoint/access<em>point</em>name</code> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Field")]
+    #[serde(rename = "field")]
     pub field: String,
     /// <p> An operator that excludes events that match the last few characters of the event record field specified as the value of <code>Field</code>. </p>
-    #[serde(rename = "NotEndsWith")]
+    #[serde(rename = "notEndsWith")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_ends_with: Option<Vec<String>>,
     /// <p> An operator that excludes events that match the exact value of the event record field specified as the value of <code>Field</code>. </p>
-    #[serde(rename = "NotEquals")]
+    #[serde(rename = "notEquals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_equals: Option<Vec<String>>,
     /// <p> An operator that excludes events that match the first few characters of the event record field specified as the value of <code>Field</code>. </p>
-    #[serde(rename = "NotStartsWith")]
+    #[serde(rename = "notStartsWith")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_starts_with: Option<Vec<String>>,
     /// <p> An operator that includes events that match the first few characters of the event record field specified as the value of <code>Field</code>. </p>
-    #[serde(rename = "StartsWith")]
+    #[serde(rename = "startsWith")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starts_with: Option<Vec<String>>,
 }
@@ -117,48 +117,48 @@ pub struct AdvancedFieldSelector {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTrailRequest {
     /// <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>
-    #[serde(rename = "CloudWatchLogsLogGroupArn")]
+    #[serde(rename = "cloudWatchLogsLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_log_group_arn: Option<String>,
     /// <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_role_arn: Option<String>,
     /// <p><p>Specifies whether log file integrity validation is enabled. The default is false.</p> <note> <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p> </note></p>
-    #[serde(rename = "EnableLogFileValidation")]
+    #[serde(rename = "enableLogFileValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_log_file_validation: Option<bool>,
     /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
-    #[serde(rename = "IncludeGlobalServiceEvents")]
+    #[serde(rename = "includeGlobalServiceEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_global_service_events: Option<bool>,
     /// <p>Specifies whether the trail is created in the current region or in all regions. The default is false, which creates a trail only in the region where you are signed in. As a best practice, consider creating trails that log events in all regions.</p>
-    #[serde(rename = "IsMultiRegionTrail")]
+    #[serde(rename = "isMultiRegionTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_multi_region_trail: Option<bool>,
     /// <p>Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.</p>
-    #[serde(rename = "IsOrganizationTrail")]
+    #[serde(rename = "isOrganizationTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_organization_trail: Option<bool>,
     /// <p><p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by &quot;alias/&quot;, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</p> <p>Examples:</p> <ul> <li> <p>alias/MyAliasName</p> </li> <li> <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p> </li> <li> <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p> </li> <li> <p>12345678-1234-1234-1234-123456789012</p> </li> </ul></p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p><p>Specifies the name of the trail. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (<em>), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-</em>namespace</code> and <code>my--namespace</code> are invalid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     pub s3_bucket_name: String,
     /// <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.</p>
-    #[serde(rename = "SnsTopicName")]
+    #[serde(rename = "snsTopicName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_name: Option<String>,
-    #[serde(rename = "TagsList")]
+    #[serde(rename = "tagsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_list: Option<Vec<Tag>>,
 }
@@ -168,51 +168,51 @@ pub struct CreateTrailRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTrailResponse {
     /// <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
-    #[serde(rename = "CloudWatchLogsLogGroupArn")]
+    #[serde(rename = "cloudWatchLogsLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_log_group_arn: Option<String>,
     /// <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_role_arn: Option<String>,
     /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
-    #[serde(rename = "IncludeGlobalServiceEvents")]
+    #[serde(rename = "includeGlobalServiceEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_global_service_events: Option<bool>,
     /// <p>Specifies whether the trail exists in one region or in all regions.</p>
-    #[serde(rename = "IsMultiRegionTrail")]
+    #[serde(rename = "isMultiRegionTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_multi_region_trail: Option<bool>,
     /// <p>Specifies whether the trail is an organization trail.</p>
-    #[serde(rename = "IsOrganizationTrail")]
+    #[serde(rename = "isOrganizationTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_organization_trail: Option<bool>,
     /// <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p> <p> <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>Specifies whether log file integrity validation is enabled.</p>
-    #[serde(rename = "LogFileValidationEnabled")]
+    #[serde(rename = "logFileValidationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_file_validation_enabled: Option<bool>,
     /// <p>Specifies the name of the trail.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p> <p> <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code> </p>
-    #[serde(rename = "SnsTopicARN")]
+    #[serde(rename = "snsTopicARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
     /// <p>Specifies the ARN of the trail that was created. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -221,11 +221,11 @@ pub struct CreateTrailResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataResource {
     /// <p>The resource type in which you want to log data events. You can specify <code>AWS::S3::Object</code>, <code>AWS::Lambda::Function</code>, or <code>AWS::DynamoDB::Table</code> resources.</p> <p>The <code>AWS::S3Outposts::Object</code>, <code>AWS::ManagedBlockchain::Node</code>, and <code>AWS::S3ObjectLambda::AccessPoint</code> resource types are not valid in basic event selectors. To log data events on these resource types, use advanced event selectors.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p><p>An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.</p> <ul> <li> <p>To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as <code>arn:aws:s3:::</code>. </p> <note> <p>This will also enable logging of data event activity performed by any user or role in your AWS account, even if that activity is performed on a bucket that belongs to another AWS account. </p> </note> </li> <li> <p>To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as <code>arn:aws:s3:::bucket-1/</code>. The trail logs data events for all objects in this S3 bucket.</p> </li> <li> <p>To log data events for specific objects, specify the S3 bucket and object prefix such as <code>arn:aws:s3:::bucket-1/example-images</code>. The trail logs data events for objects in this S3 bucket that match the prefix.</p> </li> <li> <p>To log data events for all Lambda functions in your AWS account, specify the prefix as <code>arn:aws:lambda</code>.</p> <note> <p>This will also enable logging of <code>Invoke</code> activity performed by any user or role in your AWS account, even if that activity is performed on a function that belongs to another AWS account. </p> </note> </li> <li> <p>To log data events for a specific Lambda function, specify the function ARN.</p> <note> <p>Lambda function ARNs are exact. For example, if you specify a function ARN <i>arn:aws:lambda:us-west-2:111111111111:function:helloworld</i>, data events will only be logged for <i>arn:aws:lambda:us-west-2:111111111111:function:helloworld</i>. They will not be logged for <i>arn:aws:lambda:us-west-2:111111111111:function:helloworld2</i>.</p> </note> </li> <li> <p>To log data events for all DynamoDB tables in your AWS account, specify the prefix as <code>arn:aws:dynamodb</code>.</p> </li> </ul></p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -235,7 +235,7 @@ pub struct DataResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTrailRequest {
     /// <p>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -273,39 +273,39 @@ pub struct DescribeTrailsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Event {
     /// <p>The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.</p>
-    #[serde(rename = "AccessKeyId")]
+    #[serde(rename = "accessKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_key_id: Option<String>,
     /// <p>A JSON string that contains a representation of the event returned.</p>
-    #[serde(rename = "CloudTrailEvent")]
+    #[serde(rename = "cloudTrailEvent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_trail_event: Option<String>,
     /// <p>The CloudTrail ID of the event returned.</p>
-    #[serde(rename = "EventId")]
+    #[serde(rename = "eventId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_id: Option<String>,
     /// <p>The name of the event returned.</p>
-    #[serde(rename = "EventName")]
+    #[serde(rename = "eventName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_name: Option<String>,
     /// <p>The AWS service that the request was made to.</p>
-    #[serde(rename = "EventSource")]
+    #[serde(rename = "eventSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source: Option<String>,
     /// <p>The date and time of the event returned.</p>
-    #[serde(rename = "EventTime")]
+    #[serde(rename = "eventTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_time: Option<f64>,
     /// <p>Information about whether the event is a write event or a read event. </p>
-    #[serde(rename = "ReadOnly")]
+    #[serde(rename = "readOnly")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_only: Option<String>,
     /// <p>A list of resources referenced by the event returned.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<Vec<Resource>>,
     /// <p>A user name or role name of the requester that called the API in the event returned.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -314,19 +314,19 @@ pub struct Event {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EventSelector {
     /// <p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events">Data Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in AWS CloudTrail</a> in the <i>AWS CloudTrail User Guide</i>.</p>
-    #[serde(rename = "DataResources")]
+    #[serde(rename = "dataResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_resources: Option<Vec<DataResource>>,
     /// <p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing <code>"kms.amazonaws.com"</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and AWS KMS events are included in events that are logged to your trail. </p>
-    #[serde(rename = "ExcludeManagementEventSources")]
+    #[serde(rename = "excludeManagementEventSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_management_event_sources: Option<Vec<String>>,
     /// <p>Specify if you want your event selector to include management events for your trail.</p> <p> For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events">Management Events</a> in the <i>AWS CloudTrail User Guide</i>.</p> <p>By default, the value is <code>true</code>.</p> <p>The first copy of management events is free. You are charged for additional copies of management events that you are logging on any subsequent trail in the same region. For more information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">AWS CloudTrail Pricing</a>.</p>
-    #[serde(rename = "IncludeManagementEvents")]
+    #[serde(rename = "includeManagementEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_management_events: Option<bool>,
     /// <p>Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 <code>GetConsoleOutput</code> is a read-only API operation and <code>RunInstances</code> is a write-only API operation.</p> <p> By default, the value is <code>All</code>.</p>
-    #[serde(rename = "ReadWriteType")]
+    #[serde(rename = "readWriteType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_write_type: Option<String>,
 }
@@ -335,7 +335,7 @@ pub struct EventSelector {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEventSelectorsRequest {
     /// <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailName")]
+    #[serde(rename = "trailName")]
     pub trail_name: String,
 }
 
@@ -343,15 +343,15 @@ pub struct GetEventSelectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEventSelectorsResponse {
     /// <p> The advanced event selectors that are configured for the trail. </p>
-    #[serde(rename = "AdvancedEventSelectors")]
+    #[serde(rename = "advancedEventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_event_selectors: Option<Vec<AdvancedEventSelector>>,
     /// <p>The event selectors that are configured for the trail.</p>
-    #[serde(rename = "EventSelectors")]
+    #[serde(rename = "eventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_selectors: Option<Vec<EventSelector>>,
     /// <p>The specified trail ARN that has the event selectors.</p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -360,7 +360,7 @@ pub struct GetEventSelectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInsightSelectorsRequest {
     /// <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailName")]
+    #[serde(rename = "trailName")]
     pub trail_name: String,
 }
 
@@ -368,11 +368,11 @@ pub struct GetInsightSelectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInsightSelectorsResponse {
     /// <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
-    #[serde(rename = "InsightSelectors")]
+    #[serde(rename = "insightSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_selectors: Option<Vec<InsightSelector>>,
     /// <p>The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.</p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -381,14 +381,14 @@ pub struct GetInsightSelectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTrailRequest {
     /// <p>The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve settings information.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTrailResponse {
-    #[serde(rename = "Trail")]
+    #[serde(rename = "trail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail: Option<Trail>,
 }
@@ -398,7 +398,7 @@ pub struct GetTrailResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTrailStatusRequest {
     /// <p>Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a shadow trail (a replication of the trail in another region), you must specify its ARN. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -407,71 +407,71 @@ pub struct GetTrailStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTrailStatusResponse {
     /// <p>Whether the CloudTrail is currently logging AWS API calls.</p>
-    #[serde(rename = "IsLogging")]
+    #[serde(rename = "isLogging")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_logging: Option<bool>,
     /// <p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.</p>
-    #[serde(rename = "LatestCloudWatchLogsDeliveryError")]
+    #[serde(rename = "latestCloudWatchLogsDeliveryError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_cloud_watch_logs_delivery_error: Option<String>,
     /// <p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>
-    #[serde(rename = "LatestCloudWatchLogsDeliveryTime")]
+    #[serde(rename = "latestCloudWatchLogsDeliveryTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_cloud_watch_logs_delivery_time: Option<f64>,
     /// <p>This field is no longer in use.</p>
-    #[serde(rename = "LatestDeliveryAttemptSucceeded")]
+    #[serde(rename = "latestDeliveryAttemptSucceeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_delivery_attempt_succeeded: Option<String>,
     /// <p>This field is no longer in use.</p>
-    #[serde(rename = "LatestDeliveryAttemptTime")]
+    #[serde(rename = "latestDeliveryAttemptTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_delivery_attempt_time: Option<String>,
     /// <p><p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver log files to the designated bucket. For more information see the topic <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error Responses</a> in the Amazon S3 API Reference. </p> <note> <p>This error occurs only when there is a problem with the destination S3 bucket and will not occur for timeouts. To resolve the issue, create a new bucket and call <code>UpdateTrail</code> to specify the new bucket, or fix the existing objects so that CloudTrail can again write to the bucket.</p> </note></p>
-    #[serde(rename = "LatestDeliveryError")]
+    #[serde(rename = "latestDeliveryError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_delivery_error: Option<String>,
     /// <p>Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.</p>
-    #[serde(rename = "LatestDeliveryTime")]
+    #[serde(rename = "latestDeliveryTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_delivery_time: Option<f64>,
     /// <p><p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest file to the designated bucket. For more information see the topic <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error Responses</a> in the Amazon S3 API Reference. </p> <note> <p>This error occurs only when there is a problem with the destination S3 bucket and will not occur for timeouts. To resolve the issue, create a new bucket and call <code>UpdateTrail</code> to specify the new bucket, or fix the existing objects so that CloudTrail can again write to the bucket.</p> </note></p>
-    #[serde(rename = "LatestDigestDeliveryError")]
+    #[serde(rename = "latestDigestDeliveryError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_digest_delivery_error: Option<String>,
     /// <p>Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.</p>
-    #[serde(rename = "LatestDigestDeliveryTime")]
+    #[serde(rename = "latestDigestDeliveryTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_digest_delivery_time: Option<f64>,
     /// <p>This field is no longer in use.</p>
-    #[serde(rename = "LatestNotificationAttemptSucceeded")]
+    #[serde(rename = "latestNotificationAttemptSucceeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_notification_attempt_succeeded: Option<String>,
     /// <p>This field is no longer in use.</p>
-    #[serde(rename = "LatestNotificationAttemptTime")]
+    #[serde(rename = "latestNotificationAttemptTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_notification_attempt_time: Option<String>,
     /// <p>Displays any Amazon SNS error that CloudTrail encountered when attempting to send a notification. For more information about Amazon SNS errors, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon SNS Developer Guide</a>. </p>
-    #[serde(rename = "LatestNotificationError")]
+    #[serde(rename = "latestNotificationError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_notification_error: Option<String>,
     /// <p>Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.</p>
-    #[serde(rename = "LatestNotificationTime")]
+    #[serde(rename = "latestNotificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_notification_time: Option<f64>,
     /// <p>Specifies the most recent date and time when CloudTrail started recording API calls for an AWS account.</p>
-    #[serde(rename = "StartLoggingTime")]
+    #[serde(rename = "startLoggingTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_logging_time: Option<f64>,
     /// <p>Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.</p>
-    #[serde(rename = "StopLoggingTime")]
+    #[serde(rename = "stopLoggingTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stop_logging_time: Option<f64>,
     /// <p>This field is no longer in use.</p>
-    #[serde(rename = "TimeLoggingStarted")]
+    #[serde(rename = "timeLoggingStarted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_logging_started: Option<String>,
     /// <p>This field is no longer in use.</p>
-    #[serde(rename = "TimeLoggingStopped")]
+    #[serde(rename = "timeLoggingStopped")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_logging_stopped: Option<String>,
 }
@@ -480,7 +480,7 @@ pub struct GetTrailStatusResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InsightSelector {
     /// <p>The type of insights to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
-    #[serde(rename = "InsightType")]
+    #[serde(rename = "insightType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_type: Option<String>,
 }
@@ -490,15 +490,15 @@ pub struct InsightSelector {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPublicKeysRequest {
     /// <p>Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Reserved for future use.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -508,11 +508,11 @@ pub struct ListPublicKeysRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPublicKeysResponse {
     /// <p>Reserved for future use.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>Contains an array of PublicKey objects.</p> <note> <p>The returned public keys may have validity time ranges that overlap.</p> </note></p>
-    #[serde(rename = "PublicKeyList")]
+    #[serde(rename = "publicKeyList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_key_list: Option<Vec<PublicKey>>,
 }
@@ -522,11 +522,11 @@ pub struct ListPublicKeysResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>Reserved for future use.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "ResourceIdList")]
+    #[serde(rename = "resourceIdList")]
     pub resource_id_list: Vec<String>,
 }
 
@@ -535,11 +535,11 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>Reserved for future use.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of resource tags.</p>
-    #[serde(rename = "ResourceTagList")]
+    #[serde(rename = "resourceTagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_tag_list: Option<Vec<ResourceTag>>,
 }
@@ -548,7 +548,7 @@ pub struct ListTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTrailsRequest {
     /// <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -557,11 +557,11 @@ pub struct ListTrailsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTrailsResponse {
     /// <p>The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns the name, ARN, and home region of trails in the current account.</p>
-    #[serde(rename = "Trails")]
+    #[serde(rename = "trails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trails: Option<Vec<TrailInfo>>,
 }
@@ -571,10 +571,10 @@ pub struct ListTrailsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LookupAttribute {
     /// <p>Specifies an attribute on which to filter the events returned.</p>
-    #[serde(rename = "AttributeKey")]
+    #[serde(rename = "attributeKey")]
     pub attribute_key: String,
     /// <p>Specifies a value for the specified AttributeKey.</p>
-    #[serde(rename = "AttributeValue")]
+    #[serde(rename = "attributeValue")]
     pub attribute_value: String,
 }
 
@@ -583,27 +583,27 @@ pub struct LookupAttribute {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LookupEventsRequest {
     /// <p>Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Specifies the event category. If you do not specify an event category, events of the category are not returned in the response. For example, if you do not specify <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are returned.</p>
-    #[serde(rename = "EventCategory")]
+    #[serde(rename = "eventCategory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_category: Option<String>,
     /// <p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>
-    #[serde(rename = "LookupAttributes")]
+    #[serde(rename = "lookupAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lookup_attributes: Option<Vec<LookupAttribute>>,
     /// <p>The number of events to return. Possible values are 1 through 50. The default is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -613,11 +613,11 @@ pub struct LookupEventsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LookupEventsResponse {
     /// <p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events: Option<Vec<Event>>,
     /// <p>The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -627,19 +627,19 @@ pub struct LookupEventsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PublicKey {
     /// <p>The fingerprint of the public key.</p>
-    #[serde(rename = "Fingerprint")]
+    #[serde(rename = "fingerprint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fingerprint: Option<String>,
     /// <p>The ending time of validity of the public key.</p>
-    #[serde(rename = "ValidityEndTime")]
+    #[serde(rename = "validityEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity_end_time: Option<f64>,
     /// <p>The starting time of validity of the public key.</p>
-    #[serde(rename = "ValidityStartTime")]
+    #[serde(rename = "validityStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity_start_time: Option<f64>,
     /// <p>The DER encoded public key value in PKCS#1 format.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -653,15 +653,15 @@ pub struct PublicKey {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEventSelectorsRequest {
     /// <p> Specifies the settings for advanced event selectors. You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code> to a trail, any existing <code>EventSelectors</code> are overwritten. For more information about advanced event selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails</a> in the <i>AWS CloudTrail User Guide</i>. </p>
-    #[serde(rename = "AdvancedEventSelectors")]
+    #[serde(rename = "advancedEventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_event_selectors: Option<Vec<AdvancedEventSelector>>,
     /// <p>Specifies the settings for your event selectors. You can configure up to five event selectors for a trail. You can use either <code>EventSelectors</code> or <code>AdvancedEventSelectors</code> in a <code>PutEventSelectors</code> request, but not both. If you apply <code>EventSelectors</code> to a trail, any existing <code>AdvancedEventSelectors</code> are overwritten.</p>
-    #[serde(rename = "EventSelectors")]
+    #[serde(rename = "eventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_selectors: Option<Vec<EventSelector>>,
     /// <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are invalid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailName")]
+    #[serde(rename = "trailName")]
     pub trail_name: String,
 }
 
@@ -669,15 +669,15 @@ pub struct PutEventSelectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEventSelectorsResponse {
     /// <p>Specifies the advanced event selectors configured for your trail.</p>
-    #[serde(rename = "AdvancedEventSelectors")]
+    #[serde(rename = "advancedEventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub advanced_event_selectors: Option<Vec<AdvancedEventSelector>>,
     /// <p>Specifies the event selectors configured for your trail.</p>
-    #[serde(rename = "EventSelectors")]
+    #[serde(rename = "eventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_selectors: Option<Vec<EventSelector>>,
     /// <p>Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -686,10 +686,10 @@ pub struct PutEventSelectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutInsightSelectorsRequest {
     /// <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
-    #[serde(rename = "InsightSelectors")]
+    #[serde(rename = "insightSelectors")]
     pub insight_selectors: Vec<InsightSelector>,
     /// <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p>
-    #[serde(rename = "TrailName")]
+    #[serde(rename = "trailName")]
     pub trail_name: String,
 }
 
@@ -697,11 +697,11 @@ pub struct PutInsightSelectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutInsightSelectorsResponse {
     /// <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
-    #[serde(rename = "InsightSelectors")]
+    #[serde(rename = "insightSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_selectors: Option<Vec<InsightSelector>>,
     /// <p>The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.</p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -711,10 +711,10 @@ pub struct PutInsightSelectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveTagsRequest {
     /// <p>Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>Specifies a list of tags to be removed.</p>
-    #[serde(rename = "TagsList")]
+    #[serde(rename = "tagsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_list: Option<Vec<Tag>>,
 }
@@ -729,11 +729,11 @@ pub struct RemoveTagsResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Resource {
     /// <p>The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_name: Option<String>,
     /// <p>The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: <b>Instance</b> for EC2, <b>Trail</b> for CloudTrail, <b>DBInstance</b> for RDS, and <b>AccessKey</b> for IAM. To learn more about how to look up and filter events by the resource types supported for a service, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events">Filtering CloudTrail Events</a>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -743,11 +743,11 @@ pub struct Resource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceTag {
     /// <p>Specifies the ARN of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>A list of tags.</p>
-    #[serde(rename = "TagsList")]
+    #[serde(rename = "tagsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_list: Option<Vec<Tag>>,
 }
@@ -757,7 +757,7 @@ pub struct ResourceTag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartLoggingRequest {
     /// <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -771,7 +771,7 @@ pub struct StartLoggingResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopLoggingRequest {
     /// <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -784,10 +784,10 @@ pub struct StopLoggingResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key in a key-value pair. The key must be must be no longer than 128 Unicode characters. The key must be unique for the resource to which it applies.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -797,63 +797,63 @@ pub struct Tag {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Trail {
     /// <p>Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.</p>
-    #[serde(rename = "CloudWatchLogsLogGroupArn")]
+    #[serde(rename = "cloudWatchLogsLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_log_group_arn: Option<String>,
     /// <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_role_arn: Option<String>,
     /// <p>Specifies if the trail has custom event selectors.</p>
-    #[serde(rename = "HasCustomEventSelectors")]
+    #[serde(rename = "hasCustomEventSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub has_custom_event_selectors: Option<bool>,
     /// <p>Specifies whether a trail has insight types specified in an <code>InsightSelector</code> list.</p>
-    #[serde(rename = "HasInsightSelectors")]
+    #[serde(rename = "hasInsightSelectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub has_insight_selectors: Option<bool>,
     /// <p>The region in which the trail was created.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
     /// <p>Set to <b>True</b> to include AWS API calls from AWS global services such as IAM. Otherwise, <b>False</b>.</p>
-    #[serde(rename = "IncludeGlobalServiceEvents")]
+    #[serde(rename = "includeGlobalServiceEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_global_service_events: Option<bool>,
     /// <p>Specifies whether the trail exists only in one region or exists in all regions.</p>
-    #[serde(rename = "IsMultiRegionTrail")]
+    #[serde(rename = "isMultiRegionTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_multi_region_trail: Option<bool>,
     /// <p>Specifies whether the trail is an organization trail.</p>
-    #[serde(rename = "IsOrganizationTrail")]
+    #[serde(rename = "isOrganizationTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_organization_trail: Option<bool>,
     /// <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p> <p> <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>Specifies whether log file validation is enabled.</p>
-    #[serde(rename = "LogFileValidationEnabled")]
+    #[serde(rename = "logFileValidationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_file_validation_enabled: Option<bool>,
     /// <p>Name of the trail set by calling <a>CreateTrail</a>. The maximum length is 128 characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.The maximum length is 200 characters.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p> <p> <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code> </p>
-    #[serde(rename = "SnsTopicARN")]
+    #[serde(rename = "snsTopicARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
     /// <p>Specifies the ARN of the trail. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -863,15 +863,15 @@ pub struct Trail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TrailInfo {
     /// <p>The AWS region in which a trail was created.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
     /// <p>The name of a trail.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ARN of a trail.</p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }
@@ -881,46 +881,46 @@ pub struct TrailInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTrailRequest {
     /// <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>
-    #[serde(rename = "CloudWatchLogsLogGroupArn")]
+    #[serde(rename = "cloudWatchLogsLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_log_group_arn: Option<String>,
     /// <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_role_arn: Option<String>,
     /// <p><p>Specifies whether log file validation is enabled. The default is false.</p> <note> <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p> </note></p>
-    #[serde(rename = "EnableLogFileValidation")]
+    #[serde(rename = "enableLogFileValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_log_file_validation: Option<bool>,
     /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
-    #[serde(rename = "IncludeGlobalServiceEvents")]
+    #[serde(rename = "includeGlobalServiceEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_global_service_events: Option<bool>,
     /// <p>Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.</p>
-    #[serde(rename = "IsMultiRegionTrail")]
+    #[serde(rename = "isMultiRegionTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_multi_region_trail: Option<bool>,
     /// <p>Specifies whether the trail is applied to all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations. If the trail is not an organization trail and this is set to true, the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to false, the trail will remain in the current AWS account but be deleted from all member accounts in the organization.</p>
-    #[serde(rename = "IsOrganizationTrail")]
+    #[serde(rename = "isOrganizationTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_organization_trail: Option<bool>,
     /// <p><p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by &quot;alias/&quot;, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</p> <p>Examples:</p> <ul> <li> <p>alias/MyAliasName</p> </li> <li> <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p> </li> <li> <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p> </li> <li> <p>12345678-1234-1234-1234-123456789012</p> </li> </ul></p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are invalid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If <code>Name</code> is a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.</p>
-    #[serde(rename = "SnsTopicName")]
+    #[serde(rename = "snsTopicName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_name: Option<String>,
 }
@@ -930,51 +930,51 @@ pub struct UpdateTrailRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateTrailResponse {
     /// <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
-    #[serde(rename = "CloudWatchLogsLogGroupArn")]
+    #[serde(rename = "cloudWatchLogsLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_log_group_arn: Option<String>,
     /// <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_role_arn: Option<String>,
     /// <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
-    #[serde(rename = "IncludeGlobalServiceEvents")]
+    #[serde(rename = "includeGlobalServiceEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_global_service_events: Option<bool>,
     /// <p>Specifies whether the trail exists in one region or in all regions.</p>
-    #[serde(rename = "IsMultiRegionTrail")]
+    #[serde(rename = "isMultiRegionTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_multi_region_trail: Option<bool>,
     /// <p>Specifies whether the trail is an organization trail.</p>
-    #[serde(rename = "IsOrganizationTrail")]
+    #[serde(rename = "isOrganizationTrail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_organization_trail: Option<bool>,
     /// <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p> <p> <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>Specifies whether log file integrity validation is enabled.</p>
-    #[serde(rename = "LogFileValidationEnabled")]
+    #[serde(rename = "logFileValidationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_file_validation_enabled: Option<bool>,
     /// <p>Specifies the name of the trail.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p> <p> <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code> </p>
-    #[serde(rename = "SnsTopicARN")]
+    #[serde(rename = "snsTopicARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
     /// <p>Specifies the ARN of the trail that was updated. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
-    #[serde(rename = "TrailARN")]
+    #[serde(rename = "trailARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trail_arn: Option<String>,
 }

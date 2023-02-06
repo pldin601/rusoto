@@ -28,17 +28,17 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddFacetToObjectRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Attributes on the facet that you are adding to the object.</p>
-    #[serde(rename = "ObjectAttributeList")]
+    #[serde(rename = "objectAttributeList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_attribute_list: Option<Vec<AttributeKeyAndValue>>,
     /// <p>A reference to the object you are adding the specified facet to.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>Identifiers for the facet that you are adding to the object. See <a>SchemaFacet</a> for details.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: SchemaFacet,
 }
 
@@ -50,10 +50,10 @@ pub struct AddFacetToObjectResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ApplySchemaRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> into which the schema is copied. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "PublishedSchemaArn")]
+    #[serde(rename = "publishedSchemaArn")]
     pub published_schema_arn: String,
 }
 
@@ -61,11 +61,11 @@ pub struct ApplySchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplySchemaResponse {
     /// <p>The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on this directory. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "AppliedSchemaArn")]
+    #[serde(rename = "appliedSchemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub applied_schema_arn: Option<String>,
     /// <p>The ARN that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_arn: Option<String>,
 }
@@ -74,16 +74,16 @@ pub struct ApplySchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AttachObjectRequest {
     /// <p>The child object reference to be attached to the object.</p>
-    #[serde(rename = "ChildReference")]
+    #[serde(rename = "childReference")]
     pub child_reference: ObjectReference,
     /// <p>Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where both objects reside. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The link name with which the child object is attached to the parent.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     pub link_name: String,
     /// <p>The parent object reference.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     pub parent_reference: ObjectReference,
 }
 
@@ -91,7 +91,7 @@ pub struct AttachObjectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttachObjectResponse {
     /// <p>The attached <code>ObjectIdentifier</code>, which is the child <code>ObjectIdentifier</code>.</p>
-    #[serde(rename = "AttachedObjectIdentifier")]
+    #[serde(rename = "attachedObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_object_identifier: Option<String>,
 }
@@ -100,13 +100,13 @@ pub struct AttachObjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AttachPolicyRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where both objects reside. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The reference that identifies the object to which the policy will be attached.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>The reference that is associated with the policy object.</p>
-    #[serde(rename = "PolicyReference")]
+    #[serde(rename = "policyReference")]
     pub policy_reference: ObjectReference,
 }
 
@@ -118,13 +118,13 @@ pub struct AttachPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AttachToIndexRequest {
     /// <p>The Amazon Resource Name (ARN) of the directory where the object and index exist.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A reference to the index that you are attaching the object to.</p>
-    #[serde(rename = "IndexReference")]
+    #[serde(rename = "indexReference")]
     pub index_reference: ObjectReference,
     /// <p>A reference to the object that you are attaching to the index.</p>
-    #[serde(rename = "TargetReference")]
+    #[serde(rename = "targetReference")]
     pub target_reference: ObjectReference,
 }
 
@@ -132,7 +132,7 @@ pub struct AttachToIndexRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttachToIndexResponse {
     /// <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
-    #[serde(rename = "AttachedObjectIdentifier")]
+    #[serde(rename = "attachedObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_object_identifier: Option<String>,
 }
@@ -141,19 +141,19 @@ pub struct AttachToIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AttachTypedLinkRequest {
     /// <p>A set of attributes that are associated with the typed link.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     pub attributes: Vec<AttributeNameAndValue>,
     /// <p>The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Identifies the source object that the typed link will attach to.</p>
-    #[serde(rename = "SourceObjectReference")]
+    #[serde(rename = "sourceObjectReference")]
     pub source_object_reference: ObjectReference,
     /// <p>Identifies the target object that the typed link will attach to.</p>
-    #[serde(rename = "TargetObjectReference")]
+    #[serde(rename = "targetObjectReference")]
     pub target_object_reference: ObjectReference,
     /// <p>Identifies the typed link facet that is associated with the typed link.</p>
-    #[serde(rename = "TypedLinkFacet")]
+    #[serde(rename = "typedLinkFacet")]
     pub typed_link_facet: TypedLinkSchemaAndFacetName,
 }
 
@@ -161,7 +161,7 @@ pub struct AttachTypedLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttachTypedLinkResponse {
     /// <p>Returns a typed link specifier as output.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub typed_link_specifier: Option<TypedLinkSpecifier>,
 }
@@ -170,13 +170,13 @@ pub struct AttachTypedLinkResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AttributeKey {
     /// <p>The name of the facet that the attribute exists within.</p>
-    #[serde(rename = "FacetName")]
+    #[serde(rename = "facetName")]
     pub facet_name: String,
     /// <p>The name of the attribute.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -184,10 +184,10 @@ pub struct AttributeKey {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AttributeKeyAndValue {
     /// <p>The key of the attribute.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: AttributeKey,
     /// <p>The value of the attribute.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: TypedAttributeValue,
 }
 
@@ -195,10 +195,10 @@ pub struct AttributeKeyAndValue {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AttributeNameAndValue {
     /// <p>The attribute name of the typed link.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     pub attribute_name: String,
     /// <p>The value for the typed link.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: TypedAttributeValue,
 }
 
@@ -207,13 +207,13 @@ pub struct AttributeNameAndValue {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAddFacetToObject {
     /// <p>The attributes to set on the object.</p>
-    #[serde(rename = "ObjectAttributeList")]
+    #[serde(rename = "objectAttributeList")]
     pub object_attribute_list: Vec<AttributeKeyAndValue>,
     /// <p>A reference to the object being mutated.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>Represents the facet being added to the object.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: SchemaFacet,
 }
 
@@ -227,13 +227,13 @@ pub struct BatchAddFacetToObjectResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAttachObject {
     /// <p>The child object reference that is to be attached to the object.</p>
-    #[serde(rename = "ChildReference")]
+    #[serde(rename = "childReference")]
     pub child_reference: ObjectReference,
     /// <p>The name of the link.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     pub link_name: String,
     /// <p>The parent object reference.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     pub parent_reference: ObjectReference,
 }
 
@@ -252,10 +252,10 @@ pub struct BatchAttachObjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAttachPolicy {
     /// <p>The reference that identifies the object to which the policy will be attached.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>The reference that is associated with the policy object.</p>
-    #[serde(rename = "PolicyReference")]
+    #[serde(rename = "policyReference")]
     pub policy_reference: ObjectReference,
 }
 
@@ -269,10 +269,10 @@ pub struct BatchAttachPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAttachToIndex {
     /// <p>A reference to the index that you are attaching the object to.</p>
-    #[serde(rename = "IndexReference")]
+    #[serde(rename = "indexReference")]
     pub index_reference: ObjectReference,
     /// <p>A reference to the object that you are attaching to the index.</p>
-    #[serde(rename = "TargetReference")]
+    #[serde(rename = "targetReference")]
     pub target_reference: ObjectReference,
 }
 
@@ -281,7 +281,7 @@ pub struct BatchAttachToIndex {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchAttachToIndexResponse {
     /// <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
-    #[serde(rename = "AttachedObjectIdentifier")]
+    #[serde(rename = "attachedObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_object_identifier: Option<String>,
 }
@@ -291,16 +291,16 @@ pub struct BatchAttachToIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAttachTypedLink {
     /// <p>A set of attributes that are associated with the typed link.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     pub attributes: Vec<AttributeNameAndValue>,
     /// <p>Identifies the source object that the typed link will attach to.</p>
-    #[serde(rename = "SourceObjectReference")]
+    #[serde(rename = "sourceObjectReference")]
     pub source_object_reference: ObjectReference,
     /// <p>Identifies the target object that the typed link will attach to.</p>
-    #[serde(rename = "TargetObjectReference")]
+    #[serde(rename = "targetObjectReference")]
     pub target_object_reference: ObjectReference,
     /// <p>Identifies the typed link facet that is associated with the typed link.</p>
-    #[serde(rename = "TypedLinkFacet")]
+    #[serde(rename = "typedLinkFacet")]
     pub typed_link_facet: TypedLinkSchemaAndFacetName,
 }
 
@@ -309,7 +309,7 @@ pub struct BatchAttachTypedLink {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchAttachTypedLinkResponse {
     /// <p>Returns a typed link specifier as output.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub typed_link_specifier: Option<TypedLinkSpecifier>,
 }
@@ -319,21 +319,21 @@ pub struct BatchAttachTypedLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchCreateIndex {
     /// <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
-    #[serde(rename = "BatchReferenceName")]
+    #[serde(rename = "batchReferenceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_reference_name: Option<String>,
     /// <p>Indicates whether the attribute that is being indexed has unique values or not.</p>
-    #[serde(rename = "IsUnique")]
+    #[serde(rename = "isUnique")]
     pub is_unique: bool,
     /// <p>The name of the link between the parent object and the index object.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_name: Option<String>,
     /// <p>Specifies the attributes that should be indexed on. Currently only a single attribute is supported.</p>
-    #[serde(rename = "OrderedIndexedAttributeList")]
+    #[serde(rename = "orderedIndexedAttributeList")]
     pub ordered_indexed_attribute_list: Vec<AttributeKey>,
     /// <p>A reference to the parent object that contains the index object.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_reference: Option<ObjectReference>,
 }
@@ -343,7 +343,7 @@ pub struct BatchCreateIndex {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchCreateIndexResponse {
     /// <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -353,22 +353,22 @@ pub struct BatchCreateIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchCreateObject {
     /// <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
-    #[serde(rename = "BatchReferenceName")]
+    #[serde(rename = "batchReferenceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_reference_name: Option<String>,
     /// <p>The name of the link.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_name: Option<String>,
     /// <p>An attribute map, which contains an attribute ARN as the key and attribute value as the map value.</p>
-    #[serde(rename = "ObjectAttributeList")]
+    #[serde(rename = "objectAttributeList")]
     pub object_attribute_list: Vec<AttributeKeyAndValue>,
     /// <p>If specified, the parent reference to which this object will be attached.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_reference: Option<ObjectReference>,
     /// <p>A list of <code>FacetArns</code> that will be associated with the object. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: Vec<SchemaFacet>,
 }
 
@@ -377,7 +377,7 @@ pub struct BatchCreateObject {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchCreateObjectResponse {
     /// <p>The ID that is associated with the object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -387,7 +387,7 @@ pub struct BatchCreateObjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDeleteObject {
     /// <p>The reference that identifies the object.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -401,10 +401,10 @@ pub struct BatchDeleteObjectResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetachFromIndex {
     /// <p>A reference to the index object.</p>
-    #[serde(rename = "IndexReference")]
+    #[serde(rename = "indexReference")]
     pub index_reference: ObjectReference,
     /// <p>A reference to the object being detached from the index.</p>
-    #[serde(rename = "TargetReference")]
+    #[serde(rename = "targetReference")]
     pub target_reference: ObjectReference,
 }
 
@@ -413,7 +413,7 @@ pub struct BatchDetachFromIndex {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetachFromIndexResponse {
     /// <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
-    #[serde(rename = "DetachedObjectIdentifier")]
+    #[serde(rename = "detachedObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detached_object_identifier: Option<String>,
 }
@@ -423,14 +423,14 @@ pub struct BatchDetachFromIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetachObject {
     /// <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
-    #[serde(rename = "BatchReferenceName")]
+    #[serde(rename = "batchReferenceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_reference_name: Option<String>,
     /// <p>The name of the link.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     pub link_name: String,
     /// <p>Parent reference from which the object with the specified link name is detached.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     pub parent_reference: ObjectReference,
 }
 
@@ -449,10 +449,10 @@ pub struct BatchDetachObjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetachPolicy {
     /// <p>Reference that identifies the object whose policy object will be detached.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>Reference that identifies the policy object.</p>
-    #[serde(rename = "PolicyReference")]
+    #[serde(rename = "policyReference")]
     pub policy_reference: ObjectReference,
 }
 
@@ -466,7 +466,7 @@ pub struct BatchDetachPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetachTypedLink {
     /// <p>Used to accept a typed link specifier as input.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     pub typed_link_specifier: TypedLinkSpecifier,
 }
 
@@ -480,10 +480,10 @@ pub struct BatchDetachTypedLinkResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetLinkAttributes {
     /// <p>A list of attribute names whose values will be retrieved.</p>
-    #[serde(rename = "AttributeNames")]
+    #[serde(rename = "attributeNames")]
     pub attribute_names: Vec<String>,
     /// <p>Allows a typed link specifier to be accepted as input.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     pub typed_link_specifier: TypedLinkSpecifier,
 }
 
@@ -492,7 +492,7 @@ pub struct BatchGetLinkAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetLinkAttributesResponse {
     /// <p>The attributes that are associated with the typed link.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeKeyAndValue>>,
 }
@@ -502,13 +502,13 @@ pub struct BatchGetLinkAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetObjectAttributes {
     /// <p>List of attribute names whose values will be retrieved.</p>
-    #[serde(rename = "AttributeNames")]
+    #[serde(rename = "attributeNames")]
     pub attribute_names: Vec<String>,
     /// <p>Reference that identifies the object whose attributes will be retrieved.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: SchemaFacet,
 }
 
@@ -517,7 +517,7 @@ pub struct BatchGetObjectAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetObjectAttributesResponse {
     /// <p>The attribute values that are associated with an object.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeKeyAndValue>>,
 }
@@ -527,7 +527,7 @@ pub struct BatchGetObjectAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetObjectInformation {
     /// <p>A reference to the object.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -536,11 +536,11 @@ pub struct BatchGetObjectInformation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetObjectInformationResponse {
     /// <p>The <code>ObjectIdentifier</code> of the specified object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
     /// <p>The facets attached to the specified object.</p>
-    #[serde(rename = "SchemaFacets")]
+    #[serde(rename = "schemaFacets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_facets: Option<Vec<SchemaFacet>>,
 }
@@ -550,15 +550,15 @@ pub struct BatchGetObjectInformationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListAttachedIndices {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A reference to the object that has indices attached.</p>
-    #[serde(rename = "TargetReference")]
+    #[serde(rename = "targetReference")]
     pub target_reference: ObjectReference,
 }
 
@@ -567,11 +567,11 @@ pub struct BatchListAttachedIndices {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListAttachedIndicesResponse {
     /// <p>The indices attached to the specified object.</p>
-    #[serde(rename = "IndexAttachments")]
+    #[serde(rename = "indexAttachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index_attachments: Option<Vec<IndexAttachment>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -581,23 +581,23 @@ pub struct BatchListAttachedIndicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListIncomingTypedLinks {
     /// <p>Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.</p>
-    #[serde(rename = "FilterAttributeRanges")]
+    #[serde(rename = "filterAttributeRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_attribute_ranges: Option<Vec<TypedLinkAttributeRange>>,
     /// <p>Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.</p>
-    #[serde(rename = "FilterTypedLink")]
+    #[serde(rename = "filterTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_typed_link: Option<TypedLinkSchemaAndFacetName>,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -606,11 +606,11 @@ pub struct BatchListIncomingTypedLinks {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListIncomingTypedLinksResponse {
     /// <p>Returns one or more typed link specifiers as output.</p>
-    #[serde(rename = "LinkSpecifiers")]
+    #[serde(rename = "linkSpecifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_specifiers: Option<Vec<TypedLinkSpecifier>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -620,18 +620,18 @@ pub struct BatchListIncomingTypedLinksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListIndex {
     /// <p>The reference to the index to list.</p>
-    #[serde(rename = "IndexReference")]
+    #[serde(rename = "indexReference")]
     pub index_reference: ObjectReference,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies the ranges of indexed values that you want to query.</p>
-    #[serde(rename = "RangesOnIndexedValues")]
+    #[serde(rename = "rangesOnIndexedValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ranges_on_indexed_values: Option<Vec<ObjectAttributeRange>>,
 }
@@ -641,11 +641,11 @@ pub struct BatchListIndex {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListIndexResponse {
     /// <p>The objects and indexed values attached to the index.</p>
-    #[serde(rename = "IndexAttachments")]
+    #[serde(rename = "indexAttachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index_attachments: Option<Vec<IndexAttachment>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -655,19 +655,19 @@ pub struct BatchListIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListObjectAttributes {
     /// <p>Used to filter the list of object attributes that are associated with a certain facet.</p>
-    #[serde(rename = "FacetFilter")]
+    #[serde(rename = "facetFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_filter: Option<SchemaFacet>,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Reference of the object whose attributes need to be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -676,11 +676,11 @@ pub struct BatchListObjectAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListObjectAttributesResponse {
     /// <p>The attributes map that is associated with the object. <code>AttributeArn</code> is the key; attribute value is the value.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeKeyAndValue>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -690,15 +690,15 @@ pub struct BatchListObjectAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListObjectChildren {
     /// <p>Maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Reference of the object for which child objects are being listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -707,11 +707,11 @@ pub struct BatchListObjectChildren {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListObjectChildrenResponse {
     /// <p>The children structure, which is a map with the key as the <code>LinkName</code> and <code>ObjectIdentifier</code> as the value.</p>
-    #[serde(rename = "Children")]
+    #[serde(rename = "children")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub children: Option<::std::collections::HashMap<String, String>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -721,15 +721,15 @@ pub struct BatchListObjectChildrenResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListObjectParentPaths {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -738,11 +738,11 @@ pub struct BatchListObjectParentPaths {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListObjectParentPathsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the directory.</p>
-    #[serde(rename = "PathToObjectIdentifiersList")]
+    #[serde(rename = "pathToObjectIdentifiersList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_to_object_identifiers_list: Option<Vec<PathToObjectIdentifiers>>,
 }
@@ -750,23 +750,23 @@ pub struct BatchListObjectParentPathsResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListObjectParents {
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListObjectParentsResponse {
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "ParentLinks")]
+    #[serde(rename = "parentLinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_links: Option<Vec<ObjectIdentifierAndLinkNameTuple>>,
 }
@@ -776,15 +776,15 @@ pub struct BatchListObjectParentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListObjectPolicies {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -793,11 +793,11 @@ pub struct BatchListObjectPolicies {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListObjectPoliciesResponse {
     /// <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the object.</p>
-    #[serde(rename = "AttachedPolicyIds")]
+    #[serde(rename = "attachedPolicyIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_policy_ids: Option<Vec<String>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -807,23 +807,23 @@ pub struct BatchListObjectPoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListOutgoingTypedLinks {
     /// <p>Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.</p>
-    #[serde(rename = "FilterAttributeRanges")]
+    #[serde(rename = "filterAttributeRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_attribute_ranges: Option<Vec<TypedLinkAttributeRange>>,
     /// <p>Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.</p>
-    #[serde(rename = "FilterTypedLink")]
+    #[serde(rename = "filterTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_typed_link: Option<TypedLinkSchemaAndFacetName>,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -832,11 +832,11 @@ pub struct BatchListOutgoingTypedLinks {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListOutgoingTypedLinksResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a typed link specifier as output.</p>
-    #[serde(rename = "TypedLinkSpecifiers")]
+    #[serde(rename = "typedLinkSpecifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub typed_link_specifiers: Option<Vec<TypedLinkSpecifier>>,
 }
@@ -846,15 +846,15 @@ pub struct BatchListOutgoingTypedLinksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchListPolicyAttachments {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the policy object.</p>
-    #[serde(rename = "PolicyReference")]
+    #[serde(rename = "policyReference")]
     pub policy_reference: ObjectReference,
 }
 
@@ -863,11 +863,11 @@ pub struct BatchListPolicyAttachments {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchListPolicyAttachmentsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
-    #[serde(rename = "ObjectIdentifiers")]
+    #[serde(rename = "objectIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifiers: Option<Vec<String>>,
 }
@@ -877,15 +877,15 @@ pub struct BatchListPolicyAttachmentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchLookupPolicy {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Reference that identifies the object whose policies will be looked up.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -894,11 +894,11 @@ pub struct BatchLookupPolicy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchLookupPolicyResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-    #[serde(rename = "PolicyToPathList")]
+    #[serde(rename = "policyToPathList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_to_path_list: Option<Vec<PolicyToPath>>,
 }
@@ -908,11 +908,11 @@ pub struct BatchLookupPolicyResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchReadException {
     /// <p>An exception message that is associated with the failure.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>A type of exception, such as <code>InvalidArnException</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -922,58 +922,58 @@ pub struct BatchReadException {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchReadOperation {
     /// <p>Retrieves attributes that are associated with a typed link.</p>
-    #[serde(rename = "GetLinkAttributes")]
+    #[serde(rename = "getLinkAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_link_attributes: Option<BatchGetLinkAttributes>,
     /// <p>Retrieves attributes within a facet that are associated with an object.</p>
-    #[serde(rename = "GetObjectAttributes")]
+    #[serde(rename = "getObjectAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_object_attributes: Option<BatchGetObjectAttributes>,
     /// <p>Retrieves metadata about an object.</p>
-    #[serde(rename = "GetObjectInformation")]
+    #[serde(rename = "getObjectInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_object_information: Option<BatchGetObjectInformation>,
     /// <p>Lists indices attached to an object.</p>
-    #[serde(rename = "ListAttachedIndices")]
+    #[serde(rename = "listAttachedIndices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_attached_indices: Option<BatchListAttachedIndices>,
     /// <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "ListIncomingTypedLinks")]
+    #[serde(rename = "listIncomingTypedLinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_incoming_typed_links: Option<BatchListIncomingTypedLinks>,
     /// <p>Lists objects attached to the specified index.</p>
-    #[serde(rename = "ListIndex")]
+    #[serde(rename = "listIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_index: Option<BatchListIndex>,
     /// <p>Lists all attributes that are associated with an object.</p>
-    #[serde(rename = "ListObjectAttributes")]
+    #[serde(rename = "listObjectAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_attributes: Option<BatchListObjectAttributes>,
     /// <p>Returns a paginated list of child objects that are associated with a given object.</p>
-    #[serde(rename = "ListObjectChildren")]
+    #[serde(rename = "listObjectChildren")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_children: Option<BatchListObjectChildren>,
     /// <p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
-    #[serde(rename = "ListObjectParentPaths")]
+    #[serde(rename = "listObjectParentPaths")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_parent_paths: Option<BatchListObjectParentPaths>,
-    #[serde(rename = "ListObjectParents")]
+    #[serde(rename = "listObjectParents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_parents: Option<BatchListObjectParents>,
     /// <p>Returns policies attached to an object in pagination fashion.</p>
-    #[serde(rename = "ListObjectPolicies")]
+    #[serde(rename = "listObjectPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_policies: Option<BatchListObjectPolicies>,
     /// <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "ListOutgoingTypedLinks")]
+    #[serde(rename = "listOutgoingTypedLinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_outgoing_typed_links: Option<BatchListOutgoingTypedLinks>,
     /// <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
-    #[serde(rename = "ListPolicyAttachments")]
+    #[serde(rename = "listPolicyAttachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_policy_attachments: Option<BatchListPolicyAttachments>,
     /// <p>Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-    #[serde(rename = "LookupPolicy")]
+    #[serde(rename = "lookupPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lookup_policy: Option<BatchLookupPolicy>,
 }
@@ -983,11 +983,11 @@ pub struct BatchReadOperation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchReadOperationResponse {
     /// <p>Identifies which operation in a batch has failed.</p>
-    #[serde(rename = "ExceptionResponse")]
+    #[serde(rename = "exceptionResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exception_response: Option<BatchReadException>,
     /// <p>Identifies which operation in a batch has succeeded.</p>
-    #[serde(rename = "SuccessfulResponse")]
+    #[serde(rename = "successfulResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub successful_response: Option<BatchReadSuccessfulResponse>,
 }
@@ -996,14 +996,14 @@ pub struct BatchReadOperationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchReadRequest {
     /// <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A list of operations that are part of the batch.</p>
-    #[serde(rename = "Operations")]
+    #[serde(rename = "operations")]
     pub operations: Vec<BatchReadOperation>,
 }
 
@@ -1011,7 +1011,7 @@ pub struct BatchReadRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchReadResponse {
     /// <p>A list of all the responses for each batch read.</p>
-    #[serde(rename = "Responses")]
+    #[serde(rename = "responses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub responses: Option<Vec<BatchReadOperationResponse>>,
 }
@@ -1021,58 +1021,58 @@ pub struct BatchReadResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchReadSuccessfulResponse {
     /// <p>The list of attributes to retrieve from the typed link.</p>
-    #[serde(rename = "GetLinkAttributes")]
+    #[serde(rename = "getLinkAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_link_attributes: Option<BatchGetLinkAttributesResponse>,
     /// <p>Retrieves attributes within a facet that are associated with an object.</p>
-    #[serde(rename = "GetObjectAttributes")]
+    #[serde(rename = "getObjectAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_object_attributes: Option<BatchGetObjectAttributesResponse>,
     /// <p>Retrieves metadata about an object.</p>
-    #[serde(rename = "GetObjectInformation")]
+    #[serde(rename = "getObjectInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub get_object_information: Option<BatchGetObjectInformationResponse>,
     /// <p>Lists indices attached to an object.</p>
-    #[serde(rename = "ListAttachedIndices")]
+    #[serde(rename = "listAttachedIndices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_attached_indices: Option<BatchListAttachedIndicesResponse>,
     /// <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "ListIncomingTypedLinks")]
+    #[serde(rename = "listIncomingTypedLinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_incoming_typed_links: Option<BatchListIncomingTypedLinksResponse>,
     /// <p>Lists objects attached to the specified index.</p>
-    #[serde(rename = "ListIndex")]
+    #[serde(rename = "listIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_index: Option<BatchListIndexResponse>,
     /// <p>Lists all attributes that are associated with an object.</p>
-    #[serde(rename = "ListObjectAttributes")]
+    #[serde(rename = "listObjectAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_attributes: Option<BatchListObjectAttributesResponse>,
     /// <p>Returns a paginated list of child objects that are associated with a given object.</p>
-    #[serde(rename = "ListObjectChildren")]
+    #[serde(rename = "listObjectChildren")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_children: Option<BatchListObjectChildrenResponse>,
     /// <p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
-    #[serde(rename = "ListObjectParentPaths")]
+    #[serde(rename = "listObjectParentPaths")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_parent_paths: Option<BatchListObjectParentPathsResponse>,
-    #[serde(rename = "ListObjectParents")]
+    #[serde(rename = "listObjectParents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_parents: Option<BatchListObjectParentsResponse>,
     /// <p>Returns policies attached to an object in pagination fashion.</p>
-    #[serde(rename = "ListObjectPolicies")]
+    #[serde(rename = "listObjectPolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_object_policies: Option<BatchListObjectPoliciesResponse>,
     /// <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "ListOutgoingTypedLinks")]
+    #[serde(rename = "listOutgoingTypedLinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_outgoing_typed_links: Option<BatchListOutgoingTypedLinksResponse>,
     /// <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
-    #[serde(rename = "ListPolicyAttachments")]
+    #[serde(rename = "listPolicyAttachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_policy_attachments: Option<BatchListPolicyAttachmentsResponse>,
     /// <p>Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-    #[serde(rename = "LookupPolicy")]
+    #[serde(rename = "lookupPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lookup_policy: Option<BatchLookupPolicyResponse>,
 }
@@ -1082,10 +1082,10 @@ pub struct BatchReadSuccessfulResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchRemoveFacetFromObject {
     /// <p>A reference to the object whose facet will be removed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>The facet to remove from the object.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: SchemaFacet,
 }
 
@@ -1099,10 +1099,10 @@ pub struct BatchRemoveFacetFromObjectResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUpdateLinkAttributes {
     /// <p>The attributes update structure.</p>
-    #[serde(rename = "AttributeUpdates")]
+    #[serde(rename = "attributeUpdates")]
     pub attribute_updates: Vec<LinkAttributeUpdate>,
     /// <p>Allows a typed link specifier to be accepted as input.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     pub typed_link_specifier: TypedLinkSpecifier,
 }
 
@@ -1116,10 +1116,10 @@ pub struct BatchUpdateLinkAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchUpdateObjectAttributes {
     /// <p>Attributes update structure.</p>
-    #[serde(rename = "AttributeUpdates")]
+    #[serde(rename = "attributeUpdates")]
     pub attribute_updates: Vec<ObjectAttributeUpdate>,
     /// <p>Reference that identifies the object.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -1128,7 +1128,7 @@ pub struct BatchUpdateObjectAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchUpdateObjectAttributesResponse {
     /// <p>ID that is associated with the object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -1138,63 +1138,63 @@ pub struct BatchUpdateObjectAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchWriteOperation {
     /// <p>A batch operation that adds a facet to an object.</p>
-    #[serde(rename = "AddFacetToObject")]
+    #[serde(rename = "addFacetToObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_facet_to_object: Option<BatchAddFacetToObject>,
     /// <p>Attaches an object to a <a>Directory</a>.</p>
-    #[serde(rename = "AttachObject")]
+    #[serde(rename = "attachObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_object: Option<BatchAttachObject>,
     /// <p>Attaches a policy object to a regular object. An object can have a limited number of attached policies.</p>
-    #[serde(rename = "AttachPolicy")]
+    #[serde(rename = "attachPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_policy: Option<BatchAttachPolicy>,
     /// <p>Attaches the specified object to the specified index.</p>
-    #[serde(rename = "AttachToIndex")]
+    #[serde(rename = "attachToIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_to_index: Option<BatchAttachToIndex>,
     /// <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "AttachTypedLink")]
+    #[serde(rename = "attachTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_typed_link: Option<BatchAttachTypedLink>,
     /// <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
-    #[serde(rename = "CreateIndex")]
+    #[serde(rename = "createIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_index: Option<BatchCreateIndex>,
     /// <p>Creates an object.</p>
-    #[serde(rename = "CreateObject")]
+    #[serde(rename = "createObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_object: Option<BatchCreateObject>,
     /// <p>Deletes an object in a <a>Directory</a>.</p>
-    #[serde(rename = "DeleteObject")]
+    #[serde(rename = "deleteObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_object: Option<BatchDeleteObject>,
     /// <p>Detaches the specified object from the specified index.</p>
-    #[serde(rename = "DetachFromIndex")]
+    #[serde(rename = "detachFromIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_from_index: Option<BatchDetachFromIndex>,
     /// <p>Detaches an object from a <a>Directory</a>.</p>
-    #[serde(rename = "DetachObject")]
+    #[serde(rename = "detachObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_object: Option<BatchDetachObject>,
     /// <p>Detaches a policy from a <a>Directory</a>.</p>
-    #[serde(rename = "DetachPolicy")]
+    #[serde(rename = "detachPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_policy: Option<BatchDetachPolicy>,
     /// <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "DetachTypedLink")]
+    #[serde(rename = "detachTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_typed_link: Option<BatchDetachTypedLink>,
     /// <p>A batch operation that removes a facet from an object.</p>
-    #[serde(rename = "RemoveFacetFromObject")]
+    #[serde(rename = "removeFacetFromObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_facet_from_object: Option<BatchRemoveFacetFromObject>,
     /// <p>Updates a given object's attributes.</p>
-    #[serde(rename = "UpdateLinkAttributes")]
+    #[serde(rename = "updateLinkAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_link_attributes: Option<BatchUpdateLinkAttributes>,
     /// <p>Updates a given object's attributes.</p>
-    #[serde(rename = "UpdateObjectAttributes")]
+    #[serde(rename = "updateObjectAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_object_attributes: Option<BatchUpdateObjectAttributes>,
 }
@@ -1204,63 +1204,63 @@ pub struct BatchWriteOperation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchWriteOperationResponse {
     /// <p>The result of an add facet to object batch operation.</p>
-    #[serde(rename = "AddFacetToObject")]
+    #[serde(rename = "addFacetToObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_facet_to_object: Option<BatchAddFacetToObjectResponse>,
     /// <p>Attaches an object to a <a>Directory</a>.</p>
-    #[serde(rename = "AttachObject")]
+    #[serde(rename = "attachObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_object: Option<BatchAttachObjectResponse>,
     /// <p>Attaches a policy object to a regular object. An object can have a limited number of attached policies.</p>
-    #[serde(rename = "AttachPolicy")]
+    #[serde(rename = "attachPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_policy: Option<BatchAttachPolicyResponse>,
     /// <p>Attaches the specified object to the specified index.</p>
-    #[serde(rename = "AttachToIndex")]
+    #[serde(rename = "attachToIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_to_index: Option<BatchAttachToIndexResponse>,
     /// <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "AttachTypedLink")]
+    #[serde(rename = "attachTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attach_typed_link: Option<BatchAttachTypedLinkResponse>,
     /// <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
-    #[serde(rename = "CreateIndex")]
+    #[serde(rename = "createIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_index: Option<BatchCreateIndexResponse>,
     /// <p>Creates an object in a <a>Directory</a>.</p>
-    #[serde(rename = "CreateObject")]
+    #[serde(rename = "createObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_object: Option<BatchCreateObjectResponse>,
     /// <p>Deletes an object in a <a>Directory</a>.</p>
-    #[serde(rename = "DeleteObject")]
+    #[serde(rename = "deleteObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_object: Option<BatchDeleteObjectResponse>,
     /// <p>Detaches the specified object from the specified index.</p>
-    #[serde(rename = "DetachFromIndex")]
+    #[serde(rename = "detachFromIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_from_index: Option<BatchDetachFromIndexResponse>,
     /// <p>Detaches an object from a <a>Directory</a>.</p>
-    #[serde(rename = "DetachObject")]
+    #[serde(rename = "detachObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_object: Option<BatchDetachObjectResponse>,
     /// <p>Detaches a policy from a <a>Directory</a>.</p>
-    #[serde(rename = "DetachPolicy")]
+    #[serde(rename = "detachPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_policy: Option<BatchDetachPolicyResponse>,
     /// <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "DetachTypedLink")]
+    #[serde(rename = "detachTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detach_typed_link: Option<BatchDetachTypedLinkResponse>,
     /// <p>The result of a batch remove facet from object operation.</p>
-    #[serde(rename = "RemoveFacetFromObject")]
+    #[serde(rename = "removeFacetFromObject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_facet_from_object: Option<BatchRemoveFacetFromObjectResponse>,
     /// <p>Represents the output of a <code>BatchWrite</code> response operation.</p>
-    #[serde(rename = "UpdateLinkAttributes")]
+    #[serde(rename = "updateLinkAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_link_attributes: Option<BatchUpdateLinkAttributesResponse>,
     /// <p>Updates a given object’s attributes.</p>
-    #[serde(rename = "UpdateObjectAttributes")]
+    #[serde(rename = "updateObjectAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_object_attributes: Option<BatchUpdateObjectAttributesResponse>,
 }
@@ -1269,10 +1269,10 @@ pub struct BatchWriteOperationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchWriteRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A list of operations that are part of the batch.</p>
-    #[serde(rename = "Operations")]
+    #[serde(rename = "operations")]
     pub operations: Vec<BatchWriteOperation>,
 }
 
@@ -1280,7 +1280,7 @@ pub struct BatchWriteRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchWriteResponse {
     /// <p>A list of all the responses for each batch write.</p>
-    #[serde(rename = "Responses")]
+    #[serde(rename = "responses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub responses: Option<Vec<BatchWriteOperationResponse>>,
 }
@@ -1289,10 +1289,10 @@ pub struct BatchWriteResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDirectoryRequest {
     /// <p>The name of the <a>Directory</a>. Should be unique per account, per region.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) of the published schema that will be copied into the data <a>Directory</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1300,16 +1300,16 @@ pub struct CreateDirectoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDirectoryResponse {
     /// <p>The ARN of the published schema in the <a>Directory</a>. Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "AppliedSchemaArn")]
+    #[serde(rename = "appliedSchemaArn")]
     pub applied_schema_arn: String,
     /// <p>The ARN that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The name of the <a>Directory</a>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The root object node of the created directory.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     pub object_identifier: String,
 }
 
@@ -1317,22 +1317,22 @@ pub struct CreateDirectoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFacetRequest {
     /// <p>The attributes that are associated with the <a>Facet</a>.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<FacetAttribute>>,
     /// <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
-    #[serde(rename = "FacetStyle")]
+    #[serde(rename = "facetStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_style: Option<String>,
     /// <p>The name of the <a>Facet</a>, which is unique for a given schema.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>Specifies whether a given object created from this facet is of type node, leaf node, policy or index.</p> <ul> <li> <p>Node: Can have multiple children but one parent.</p> </li> </ul> <ul> <li> <p>Leaf node: Cannot have children but can have multiple parents.</p> </li> </ul> <ul> <li> <p>Policy: Allows you to store a policy document and policy type. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p> </li> </ul> <ul> <li> <p>Index: Can be created with the Index API.</p> </li> </ul></p>
-    #[serde(rename = "ObjectType")]
+    #[serde(rename = "objectType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_type: Option<String>,
     /// <p>The schema ARN in which the new <a>Facet</a> will be created. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1344,20 +1344,20 @@ pub struct CreateFacetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIndexRequest {
     /// <p>The ARN of the directory where the index should be created.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Indicates whether the attribute that is being indexed has unique values or not.</p>
-    #[serde(rename = "IsUnique")]
+    #[serde(rename = "isUnique")]
     pub is_unique: bool,
     /// <p>The name of the link between the parent object and the index object.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_name: Option<String>,
     /// <p>Specifies the attributes that should be indexed on. Currently only a single attribute is supported.</p>
-    #[serde(rename = "OrderedIndexedAttributeList")]
+    #[serde(rename = "orderedIndexedAttributeList")]
     pub ordered_indexed_attribute_list: Vec<AttributeKey>,
     /// <p>A reference to the parent object that contains the index object.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_reference: Option<ObjectReference>,
 }
@@ -1366,7 +1366,7 @@ pub struct CreateIndexRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIndexResponse {
     /// <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -1375,22 +1375,22 @@ pub struct CreateIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateObjectRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> in which the object will be created. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The name of link that is used to attach this object to a parent.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_name: Option<String>,
     /// <p>The attribute map whose attribute ARN contains the key and attribute value as the map value.</p>
-    #[serde(rename = "ObjectAttributeList")]
+    #[serde(rename = "objectAttributeList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_attribute_list: Option<Vec<AttributeKeyAndValue>>,
     /// <p>If specified, the parent reference to which this object will be attached.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_reference: Option<ObjectReference>,
     /// <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p>
-    #[serde(rename = "SchemaFacets")]
+    #[serde(rename = "schemaFacets")]
     pub schema_facets: Vec<SchemaFacet>,
 }
 
@@ -1398,7 +1398,7 @@ pub struct CreateObjectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateObjectResponse {
     /// <p>The identifier that is associated with the object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -1407,7 +1407,7 @@ pub struct CreateObjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSchemaRequest {
     /// <p>The name that is associated with the schema. This is unique to each account and in each region.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1415,7 +1415,7 @@ pub struct CreateSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSchemaResponse {
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -1424,10 +1424,10 @@ pub struct CreateSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTypedLinkFacetRequest {
     /// <p> <a>Facet</a> structure that is associated with the typed link facet.</p>
-    #[serde(rename = "Facet")]
+    #[serde(rename = "facet")]
     pub facet: TypedLinkFacet,
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1439,7 +1439,7 @@ pub struct CreateTypedLinkFacetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDirectoryRequest {
     /// <p>The ARN of the directory to delete.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1447,7 +1447,7 @@ pub struct DeleteDirectoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteDirectoryResponse {
     /// <p>The ARN of the deleted directory.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1455,10 +1455,10 @@ pub struct DeleteDirectoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFacetRequest {
     /// <p>The name of the facet to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1470,10 +1470,10 @@ pub struct DeleteFacetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteObjectRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A reference that identifies the object.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -1485,7 +1485,7 @@ pub struct DeleteObjectResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSchemaRequest {
     /// <p>The Amazon Resource Name (ARN) of the development schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1493,7 +1493,7 @@ pub struct DeleteSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSchemaResponse {
     /// <p>The input ARN that is returned as part of the response. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -1502,10 +1502,10 @@ pub struct DeleteSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTypedLinkFacetRequest {
     /// <p>The unique name of the typed link facet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1517,13 +1517,13 @@ pub struct DeleteTypedLinkFacetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetachFromIndexRequest {
     /// <p>The Amazon Resource Name (ARN) of the directory the index and object exist in.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A reference to the index object.</p>
-    #[serde(rename = "IndexReference")]
+    #[serde(rename = "indexReference")]
     pub index_reference: ObjectReference,
     /// <p>A reference to the object being detached from the index.</p>
-    #[serde(rename = "TargetReference")]
+    #[serde(rename = "targetReference")]
     pub target_reference: ObjectReference,
 }
 
@@ -1531,7 +1531,7 @@ pub struct DetachFromIndexRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetachFromIndexResponse {
     /// <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
-    #[serde(rename = "DetachedObjectIdentifier")]
+    #[serde(rename = "detachedObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detached_object_identifier: Option<String>,
 }
@@ -1540,13 +1540,13 @@ pub struct DetachFromIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetachObjectRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where objects reside. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The link name associated with the object that needs to be detached.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     pub link_name: String,
     /// <p>The parent reference from which the object with the specified link name is detached.</p>
-    #[serde(rename = "ParentReference")]
+    #[serde(rename = "parentReference")]
     pub parent_reference: ObjectReference,
 }
 
@@ -1554,7 +1554,7 @@ pub struct DetachObjectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetachObjectResponse {
     /// <p>The <code>ObjectIdentifier</code> that was detached from the object.</p>
-    #[serde(rename = "DetachedObjectIdentifier")]
+    #[serde(rename = "detachedObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detached_object_identifier: Option<String>,
 }
@@ -1563,13 +1563,13 @@ pub struct DetachObjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetachPolicyRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where both objects reside. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Reference that identifies the object whose policy object will be detached.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>Reference that identifies the policy object.</p>
-    #[serde(rename = "PolicyReference")]
+    #[serde(rename = "policyReference")]
     pub policy_reference: ObjectReference,
 }
 
@@ -1581,10 +1581,10 @@ pub struct DetachPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetachTypedLinkRequest {
     /// <p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Used to accept a typed link specifier as input.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     pub typed_link_specifier: TypedLinkSpecifier,
 }
 
@@ -1593,19 +1593,19 @@ pub struct DetachTypedLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Directory {
     /// <p>The date and time when the directory was created.</p>
-    #[serde(rename = "CreationDateTime")]
+    #[serde(rename = "creationDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the directory. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_arn: Option<String>,
     /// <p>The name of the directory.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1614,7 +1614,7 @@ pub struct Directory {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisableDirectoryRequest {
     /// <p>The ARN of the directory to disable.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1622,7 +1622,7 @@ pub struct DisableDirectoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisableDirectoryResponse {
     /// <p>The ARN of the directory that has been disabled.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1630,7 +1630,7 @@ pub struct DisableDirectoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EnableDirectoryRequest {
     /// <p>The ARN of the directory to enable.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1638,7 +1638,7 @@ pub struct EnableDirectoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EnableDirectoryResponse {
     /// <p>The ARN of the enabled directory.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1647,15 +1647,15 @@ pub struct EnableDirectoryResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Facet {
     /// <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
-    #[serde(rename = "FacetStyle")]
+    #[serde(rename = "facetStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_style: Option<String>,
     /// <p>The name of the <a>Facet</a>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
-    #[serde(rename = "ObjectType")]
+    #[serde(rename = "objectType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_type: Option<String>,
 }
@@ -1664,18 +1664,18 @@ pub struct Facet {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FacetAttribute {
     /// <p>A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-    #[serde(rename = "AttributeDefinition")]
+    #[serde(rename = "attributeDefinition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_definition: Option<FacetAttributeDefinition>,
     /// <p>An attribute reference that is associated with the attribute. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-    #[serde(rename = "AttributeReference")]
+    #[serde(rename = "attributeReference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_reference: Option<FacetAttributeReference>,
     /// <p>The name of the facet attribute.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The required behavior of the <code>FacetAttribute</code>.</p>
-    #[serde(rename = "RequiredBehavior")]
+    #[serde(rename = "requiredBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub required_behavior: Option<String>,
 }
@@ -1684,19 +1684,19 @@ pub struct FacetAttribute {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FacetAttributeDefinition {
     /// <p>The default value of the attribute (if configured).</p>
-    #[serde(rename = "DefaultValue")]
+    #[serde(rename = "defaultValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_value: Option<TypedAttributeValue>,
     /// <p>Whether the attribute is mutable or not.</p>
-    #[serde(rename = "IsImmutable")]
+    #[serde(rename = "isImmutable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_immutable: Option<bool>,
     /// <p>Validation rules attached to the attribute definition.</p>
-    #[serde(rename = "Rules")]
+    #[serde(rename = "rules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rules: Option<::std::collections::HashMap<String, Rule>>,
     /// <p>The type of the attribute.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1704,10 +1704,10 @@ pub struct FacetAttributeDefinition {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FacetAttributeReference {
     /// <p>The target attribute name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-    #[serde(rename = "TargetAttributeName")]
+    #[serde(rename = "targetAttributeName")]
     pub target_attribute_name: String,
     /// <p>The target facet name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-    #[serde(rename = "TargetFacetName")]
+    #[serde(rename = "targetFacetName")]
     pub target_facet_name: String,
 }
 
@@ -1716,11 +1716,11 @@ pub struct FacetAttributeReference {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FacetAttributeUpdate {
     /// <p>The action to perform when updating the attribute.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The attribute to update.</p>
-    #[serde(rename = "Attribute")]
+    #[serde(rename = "attribute")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute: Option<FacetAttribute>,
 }
@@ -1729,7 +1729,7 @@ pub struct FacetAttributeUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAppliedSchemaVersionRequest {
     /// <p>The ARN of the applied schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1737,7 +1737,7 @@ pub struct GetAppliedSchemaVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAppliedSchemaVersionResponse {
     /// <p>Current applied schema ARN, including the minor version in use if one was provided.</p>
-    #[serde(rename = "AppliedSchemaArn")]
+    #[serde(rename = "appliedSchemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub applied_schema_arn: Option<String>,
 }
@@ -1746,7 +1746,7 @@ pub struct GetAppliedSchemaVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDirectoryRequest {
     /// <p>The ARN of the directory.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
 }
 
@@ -1754,7 +1754,7 @@ pub struct GetDirectoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDirectoryResponse {
     /// <p>Metadata about the directory.</p>
-    #[serde(rename = "Directory")]
+    #[serde(rename = "directory")]
     pub directory: Directory,
 }
 
@@ -1762,10 +1762,10 @@ pub struct GetDirectoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFacetRequest {
     /// <p>The name of the facet to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1773,7 +1773,7 @@ pub struct GetFacetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFacetResponse {
     /// <p>The <a>Facet</a> structure that is associated with the facet.</p>
-    #[serde(rename = "Facet")]
+    #[serde(rename = "facet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet: Option<Facet>,
 }
@@ -1782,17 +1782,17 @@ pub struct GetFacetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLinkAttributesRequest {
     /// <p>A list of attribute names whose values will be retrieved.</p>
-    #[serde(rename = "AttributeNames")]
+    #[serde(rename = "attributeNames")]
     pub attribute_names: Vec<String>,
     /// <p>The consistency level at which to retrieve the attributes on a typed link.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Allows a typed link specifier to be accepted as input.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     pub typed_link_specifier: TypedLinkSpecifier,
 }
 
@@ -1800,7 +1800,7 @@ pub struct GetLinkAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLinkAttributesResponse {
     /// <p>The attributes that are associated with the typed link.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeKeyAndValue>>,
 }
@@ -1809,20 +1809,20 @@ pub struct GetLinkAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetObjectAttributesRequest {
     /// <p>List of attribute names whose values will be retrieved.</p>
-    #[serde(rename = "AttributeNames")]
+    #[serde(rename = "attributeNames")]
     pub attribute_names: Vec<String>,
     /// <p>The consistency level at which to retrieve the attributes on an object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Reference that identifies the object whose attributes will be retrieved.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: SchemaFacet,
 }
 
@@ -1830,7 +1830,7 @@ pub struct GetObjectAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetObjectAttributesResponse {
     /// <p>The attributes that are associated with the object.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeKeyAndValue>>,
 }
@@ -1839,14 +1839,14 @@ pub struct GetObjectAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetObjectInformationRequest {
     /// <p>The consistency level at which to retrieve the object information.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The ARN of the directory being retrieved.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A reference to the object.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -1854,11 +1854,11 @@ pub struct GetObjectInformationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetObjectInformationResponse {
     /// <p>The <code>ObjectIdentifier</code> of the specified object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
     /// <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p>
-    #[serde(rename = "SchemaFacets")]
+    #[serde(rename = "schemaFacets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_facets: Option<Vec<SchemaFacet>>,
 }
@@ -1867,7 +1867,7 @@ pub struct GetObjectInformationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSchemaAsJsonRequest {
     /// <p>The ARN of the schema to retrieve.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1875,11 +1875,11 @@ pub struct GetSchemaAsJsonRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSchemaAsJsonResponse {
     /// <p>The JSON representation of the schema document.</p>
-    #[serde(rename = "Document")]
+    #[serde(rename = "document")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document: Option<String>,
     /// <p>The name of the retrieved schema.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1888,10 +1888,10 @@ pub struct GetSchemaAsJsonResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTypedLinkFacetInformationRequest {
     /// <p>The unique name of the typed link facet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -1899,7 +1899,7 @@ pub struct GetTypedLinkFacetInformationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTypedLinkFacetInformationResponse {
     /// <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "IdentityAttributeOrder")]
+    #[serde(rename = "identityAttributeOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_attribute_order: Option<Vec<String>>,
 }
@@ -1909,11 +1909,11 @@ pub struct GetTypedLinkFacetInformationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IndexAttachment {
     /// <p>The indexed attribute values.</p>
-    #[serde(rename = "IndexedAttributes")]
+    #[serde(rename = "indexedAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub indexed_attributes: Option<Vec<AttributeKeyAndValue>>,
     /// <p>In response to <a>ListIndex</a>, the <code>ObjectIdentifier</code> of the object attached to the index. In response to <a>ListAttachedIndices</a>, the <code>ObjectIdentifier</code> of the index attached to the object. This field will always contain the <code>ObjectIdentifier</code> of the object on the opposite side of the attachment specified in the query.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -1923,11 +1923,11 @@ pub struct IndexAttachment {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LinkAttributeAction {
     /// <p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>
-    #[serde(rename = "AttributeActionType")]
+    #[serde(rename = "attributeActionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_action_type: Option<String>,
     /// <p>The value that you want to update to.</p>
-    #[serde(rename = "AttributeUpdateValue")]
+    #[serde(rename = "attributeUpdateValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_update_value: Option<TypedAttributeValue>,
 }
@@ -1937,11 +1937,11 @@ pub struct LinkAttributeAction {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LinkAttributeUpdate {
     /// <p>The action to perform as part of the attribute update.</p>
-    #[serde(rename = "AttributeAction")]
+    #[serde(rename = "attributeAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_action: Option<LinkAttributeAction>,
     /// <p>The key of the attribute being updated.</p>
-    #[serde(rename = "AttributeKey")]
+    #[serde(rename = "attributeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_key: Option<AttributeKey>,
 }
@@ -1950,18 +1950,18 @@ pub struct LinkAttributeUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAppliedSchemaArnsRequest {
     /// <p>The ARN of the directory you are listing.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -1970,11 +1970,11 @@ pub struct ListAppliedSchemaArnsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAppliedSchemaArnsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARNs of schemas that are applied to the directory.</p>
-    #[serde(rename = "SchemaArns")]
+    #[serde(rename = "schemaArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arns: Option<Vec<String>>,
 }
@@ -1983,22 +1983,22 @@ pub struct ListAppliedSchemaArnsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAttachedIndicesRequest {
     /// <p>The consistency level to use for this operation.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The ARN of the directory.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A reference to the object that has indices attached.</p>
-    #[serde(rename = "TargetReference")]
+    #[serde(rename = "targetReference")]
     pub target_reference: ObjectReference,
 }
 
@@ -2006,11 +2006,11 @@ pub struct ListAttachedIndicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAttachedIndicesResponse {
     /// <p>The indices attached to the specified object.</p>
-    #[serde(rename = "IndexAttachments")]
+    #[serde(rename = "indexAttachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index_attachments: Option<Vec<IndexAttachment>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2019,11 +2019,11 @@ pub struct ListAttachedIndicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDevelopmentSchemaArnsRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2032,11 +2032,11 @@ pub struct ListDevelopmentSchemaArnsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDevelopmentSchemaArnsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARNs of retrieved development schemas.</p>
-    #[serde(rename = "SchemaArns")]
+    #[serde(rename = "schemaArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arns: Option<Vec<String>>,
 }
@@ -2045,11 +2045,11 @@ pub struct ListDevelopmentSchemaArnsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDirectoriesRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.</p>
@@ -2062,10 +2062,10 @@ pub struct ListDirectoriesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDirectoriesResponse {
     /// <p>Lists all directories that are associated with your account in pagination fashion.</p>
-    #[serde(rename = "Directories")]
+    #[serde(rename = "directories")]
     pub directories: Vec<Directory>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2074,18 +2074,18 @@ pub struct ListDirectoriesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFacetAttributesRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The name of the facet whose attributes will be retrieved.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARN of the schema where the facet resides.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -2093,11 +2093,11 @@ pub struct ListFacetAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFacetAttributesResponse {
     /// <p>The attributes attached to the facet.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<FacetAttribute>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2106,15 +2106,15 @@ pub struct ListFacetAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFacetNamesRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -2122,11 +2122,11 @@ pub struct ListFacetNamesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFacetNamesResponse {
     /// <p>The names of facets that exist within the schema.</p>
-    #[serde(rename = "FacetNames")]
+    #[serde(rename = "facetNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_names: Option<Vec<String>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2135,30 +2135,30 @@ pub struct ListFacetNamesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIncomingTypedLinksRequest {
     /// <p>The consistency level to execute the request at.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed links.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.</p>
-    #[serde(rename = "FilterAttributeRanges")]
+    #[serde(rename = "filterAttributeRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_attribute_ranges: Option<Vec<TypedLinkAttributeRange>>,
     /// <p>Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.</p>
-    #[serde(rename = "FilterTypedLink")]
+    #[serde(rename = "filterTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_typed_link: Option<TypedLinkSchemaAndFacetName>,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2166,11 +2166,11 @@ pub struct ListIncomingTypedLinksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIncomingTypedLinksResponse {
     /// <p>Returns one or more typed link specifiers as output.</p>
-    #[serde(rename = "LinkSpecifiers")]
+    #[serde(rename = "linkSpecifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_specifiers: Option<Vec<TypedLinkSpecifier>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2179,25 +2179,25 @@ pub struct ListIncomingTypedLinksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIndexRequest {
     /// <p>The consistency level to execute the request at.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The ARN of the directory that the index exists in.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The reference to the index to list.</p>
-    #[serde(rename = "IndexReference")]
+    #[serde(rename = "indexReference")]
     pub index_reference: ObjectReference,
     /// <p>The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies the ranges of indexed values that you want to query.</p>
-    #[serde(rename = "RangesOnIndexedValues")]
+    #[serde(rename = "rangesOnIndexedValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ranges_on_indexed_values: Option<Vec<ObjectAttributeRange>>,
 }
@@ -2206,11 +2206,11 @@ pub struct ListIndexRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIndexResponse {
     /// <p>The objects and indexed values attached to the index.</p>
-    #[serde(rename = "IndexAttachments")]
+    #[serde(rename = "indexAttachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index_attachments: Option<Vec<IndexAttachment>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2219,15 +2219,15 @@ pub struct ListIndexResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListManagedSchemaArnsRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -2236,11 +2236,11 @@ pub struct ListManagedSchemaArnsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListManagedSchemaArnsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARNs for all AWS managed schemas.</p>
-    #[serde(rename = "SchemaArns")]
+    #[serde(rename = "schemaArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arns: Option<Vec<String>>,
 }
@@ -2249,26 +2249,26 @@ pub struct ListManagedSchemaArnsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListObjectAttributesRequest {
     /// <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Used to filter the list of object attributes that are associated with a certain facet.</p>
-    #[serde(rename = "FacetFilter")]
+    #[serde(rename = "facetFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_filter: Option<SchemaFacet>,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2276,11 +2276,11 @@ pub struct ListObjectAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListObjectAttributesResponse {
     /// <p>Attributes map that is associated with the object. <code>AttributeArn</code> is the key, and attribute value is the value.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeKeyAndValue>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2289,22 +2289,22 @@ pub struct ListObjectAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListObjectChildrenRequest {
     /// <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object for which child objects are being listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2312,11 +2312,11 @@ pub struct ListObjectChildrenRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListObjectChildrenResponse {
     /// <p>Children structure, which is a map with key as the <code>LinkName</code> and <code>ObjectIdentifier</code> as the value.</p>
-    #[serde(rename = "Children")]
+    #[serde(rename = "children")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub children: Option<::std::collections::HashMap<String, String>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2325,18 +2325,18 @@ pub struct ListObjectChildrenResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListObjectParentPathsRequest {
     /// <p>The ARN of the directory to which the parent path applies.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object whose parent paths are listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2344,11 +2344,11 @@ pub struct ListObjectParentPathsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListObjectParentPathsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the directory.</p>
-    #[serde(rename = "PathToObjectIdentifiersList")]
+    #[serde(rename = "pathToObjectIdentifiersList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_to_object_identifiers_list: Option<Vec<PathToObjectIdentifiers>>,
 }
@@ -2357,26 +2357,26 @@ pub struct ListObjectParentPathsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListObjectParentsRequest {
     /// <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>
-    #[serde(rename = "IncludeAllLinksToEachParent")]
+    #[serde(rename = "includeAllLinksToEachParent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_all_links_to_each_parent: Option<bool>,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the object for which parent objects are being listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2384,15 +2384,15 @@ pub struct ListObjectParentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListObjectParentsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a list of parent reference and LinkName Tuples.</p>
-    #[serde(rename = "ParentLinks")]
+    #[serde(rename = "parentLinks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_links: Option<Vec<ObjectIdentifierAndLinkNameTuple>>,
     /// <p>The parent structure, which is a map with key as the <code>ObjectIdentifier</code> and LinkName as the value.</p>
-    #[serde(rename = "Parents")]
+    #[serde(rename = "parents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parents: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2401,22 +2401,22 @@ pub struct ListObjectParentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListObjectPoliciesRequest {
     /// <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where objects reside. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Reference that identifies the object for which policies will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2424,11 +2424,11 @@ pub struct ListObjectPoliciesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListObjectPoliciesResponse {
     /// <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the object.</p>
-    #[serde(rename = "AttachedPolicyIds")]
+    #[serde(rename = "attachedPolicyIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_policy_ids: Option<Vec<String>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2437,30 +2437,30 @@ pub struct ListObjectPoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOutgoingTypedLinksRequest {
     /// <p>The consistency level to execute the request at.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed links.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.</p>
-    #[serde(rename = "FilterAttributeRanges")]
+    #[serde(rename = "filterAttributeRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_attribute_ranges: Option<Vec<TypedLinkAttributeRange>>,
     /// <p>Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.</p>
-    #[serde(rename = "FilterTypedLink")]
+    #[serde(rename = "filterTypedLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_typed_link: Option<TypedLinkSchemaAndFacetName>,
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A reference that identifies the object whose attributes will be listed.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2468,11 +2468,11 @@ pub struct ListOutgoingTypedLinksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOutgoingTypedLinksResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a typed link specifier as output.</p>
-    #[serde(rename = "TypedLinkSpecifiers")]
+    #[serde(rename = "typedLinkSpecifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub typed_link_specifiers: Option<Vec<TypedLinkSpecifier>>,
 }
@@ -2481,22 +2481,22 @@ pub struct ListOutgoingTypedLinksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPolicyAttachmentsRequest {
     /// <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
-    #[serde(rename = "ConsistencyLevel")]
+    #[serde(rename = "consistencyLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consistency_level: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where objects reside. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The reference that identifies the policy object.</p>
-    #[serde(rename = "PolicyReference")]
+    #[serde(rename = "policyReference")]
     pub policy_reference: ObjectReference,
 }
 
@@ -2504,11 +2504,11 @@ pub struct ListPolicyAttachmentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPolicyAttachmentsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
-    #[serde(rename = "ObjectIdentifiers")]
+    #[serde(rename = "objectIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifiers: Option<Vec<String>>,
 }
@@ -2517,15 +2517,15 @@ pub struct ListPolicyAttachmentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPublishedSchemaArnsRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -2534,11 +2534,11 @@ pub struct ListPublishedSchemaArnsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPublishedSchemaArnsResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARNs of published schemas.</p>
-    #[serde(rename = "SchemaArns")]
+    #[serde(rename = "schemaArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arns: Option<Vec<String>>,
 }
@@ -2547,15 +2547,15 @@ pub struct ListPublishedSchemaArnsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The <code>MaxResults</code> parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token. This is for future use. Currently pagination is not supported for tagging.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2563,11 +2563,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of tag key value pairs that are associated with the response.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2576,18 +2576,18 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTypedLinkFacetAttributesRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The unique name of the typed link facet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -2595,11 +2595,11 @@ pub struct ListTypedLinkFacetAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTypedLinkFacetAttributesResponse {
     /// <p>An ordered set of attributes associate with the typed link.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<TypedLinkAttributeDefinition>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2608,15 +2608,15 @@ pub struct ListTypedLinkFacetAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTypedLinkFacetNamesRequest {
     /// <p>The maximum number of results to retrieve.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -2624,11 +2624,11 @@ pub struct ListTypedLinkFacetNamesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTypedLinkFacetNamesResponse {
     /// <p>The names of typed link facets that exist within the schema.</p>
-    #[serde(rename = "FacetNames")]
+    #[serde(rename = "facetNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_names: Option<Vec<String>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2637,18 +2637,18 @@ pub struct ListTypedLinkFacetNamesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LookupPolicyRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Reference that identifies the object whose policies will be looked up.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -2656,11 +2656,11 @@ pub struct LookupPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LookupPolicyResponse {
     /// <p>The pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-    #[serde(rename = "PolicyToPathList")]
+    #[serde(rename = "policyToPathList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_to_path_list: Option<Vec<PolicyToPath>>,
 }
@@ -2670,11 +2670,11 @@ pub struct LookupPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ObjectAttributeAction {
     /// <p>A type that can be either <code>Update</code> or <code>Delete</code>.</p>
-    #[serde(rename = "ObjectAttributeActionType")]
+    #[serde(rename = "objectAttributeActionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_attribute_action_type: Option<String>,
     /// <p>The value that you want to update to.</p>
-    #[serde(rename = "ObjectAttributeUpdateValue")]
+    #[serde(rename = "objectAttributeUpdateValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_attribute_update_value: Option<TypedAttributeValue>,
 }
@@ -2684,11 +2684,11 @@ pub struct ObjectAttributeAction {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ObjectAttributeRange {
     /// <p>The key of the attribute that the attribute range covers.</p>
-    #[serde(rename = "AttributeKey")]
+    #[serde(rename = "attributeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_key: Option<AttributeKey>,
     /// <p>The range of attribute values being selected.</p>
-    #[serde(rename = "Range")]
+    #[serde(rename = "range")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub range: Option<TypedAttributeValueRange>,
 }
@@ -2698,11 +2698,11 @@ pub struct ObjectAttributeRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ObjectAttributeUpdate {
     /// <p>The action to perform as part of the attribute update.</p>
-    #[serde(rename = "ObjectAttributeAction")]
+    #[serde(rename = "objectAttributeAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_attribute_action: Option<ObjectAttributeAction>,
     /// <p>The key of the attribute being updated.</p>
-    #[serde(rename = "ObjectAttributeKey")]
+    #[serde(rename = "objectAttributeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_attribute_key: Option<AttributeKey>,
 }
@@ -2712,11 +2712,11 @@ pub struct ObjectAttributeUpdate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ObjectIdentifierAndLinkNameTuple {
     /// <p>The name of the link between the parent and the child object.</p>
-    #[serde(rename = "LinkName")]
+    #[serde(rename = "linkName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_name: Option<String>,
     /// <p>The ID that is associated with the object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -2725,7 +2725,7 @@ pub struct ObjectIdentifierAndLinkNameTuple {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ObjectReference {
     /// <p><p>A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access Objects</a>. You can identify an object in one of the following ways:</p> <ul> <li> <p> <i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier</p> </li> <li> <p> <i>/some/path</i> - Identifies the object based on path</p> </li> <li> <p> <i>#SomeBatchReference</i> - Identifies the object in a batch call</p> </li> </ul></p>
-    #[serde(rename = "Selector")]
+    #[serde(rename = "selector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub selector: Option<String>,
 }
@@ -2735,11 +2735,11 @@ pub struct ObjectReference {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PathToObjectIdentifiers {
     /// <p>Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the request.</p>
-    #[serde(rename = "ObjectIdentifiers")]
+    #[serde(rename = "objectIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifiers: Option<Vec<String>>,
     /// <p>The path that is used to identify the object starting from directory root.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
 }
@@ -2749,15 +2749,15 @@ pub struct PathToObjectIdentifiers {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PolicyAttachment {
     /// <p>The <code>ObjectIdentifier</code> that is associated with <code>PolicyAttachment</code>.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
     /// <p>The ID of <code>PolicyAttachment</code>.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The type of policy that can be associated with <code>PolicyAttachment</code>.</p>
-    #[serde(rename = "PolicyType")]
+    #[serde(rename = "policyType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_type: Option<String>,
 }
@@ -2767,11 +2767,11 @@ pub struct PolicyAttachment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PolicyToPath {
     /// <p>The path that is referenced from the root.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
     /// <p>List of policy objects.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<Vec<PolicyAttachment>>,
 }
@@ -2780,18 +2780,18 @@ pub struct PolicyToPath {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PublishSchemaRequest {
     /// <p>The Amazon Resource Name (ARN) that is associated with the development schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DevelopmentSchemaArn")]
+    #[serde(rename = "developmentSchemaArn")]
     pub development_schema_arn: String,
     /// <p>The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.</p>
-    #[serde(rename = "MinorVersion")]
+    #[serde(rename = "minorVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minor_version: Option<String>,
     /// <p>The new name under which the schema will be published. If this is not provided, the development schema is considered.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The major version under which the schema will be published. Schemas have both a major and minor version associated with them.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     pub version: String,
 }
 
@@ -2799,7 +2799,7 @@ pub struct PublishSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PublishSchemaResponse {
     /// <p>The ARN that is associated with the published schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "PublishedSchemaArn")]
+    #[serde(rename = "publishedSchemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub published_schema_arn: Option<String>,
 }
@@ -2808,10 +2808,10 @@ pub struct PublishSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSchemaFromJsonRequest {
     /// <p>The replacement JSON schema.</p>
-    #[serde(rename = "Document")]
+    #[serde(rename = "document")]
     pub document: String,
     /// <p>The ARN of the schema to update.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -2819,7 +2819,7 @@ pub struct PutSchemaFromJsonRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutSchemaFromJsonResponse {
     /// <p>The ARN of the schema to update.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -2828,13 +2828,13 @@ pub struct PutSchemaFromJsonResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveFacetFromObjectRequest {
     /// <p>The ARN of the directory in which the object resides.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>A reference to the object to remove the facet from.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
     /// <p>The facet to remove. See <a>SchemaFacet</a> for details.</p>
-    #[serde(rename = "SchemaFacet")]
+    #[serde(rename = "schemaFacet")]
     pub schema_facet: SchemaFacet,
 }
 
@@ -2846,11 +2846,11 @@ pub struct RemoveFacetFromObjectResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Rule {
     /// <p>The minimum and maximum parameters that are associated with the rule.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of attribute validation rule.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2859,11 +2859,11 @@ pub struct Rule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaFacet {
     /// <p>The name of the facet.</p>
-    #[serde(rename = "FacetName")]
+    #[serde(rename = "facetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub facet_name: Option<String>,
     /// <p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place Schema Upgrade</a> for a description of when to provide minor versions.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -2872,11 +2872,11 @@ pub struct SchemaFacet {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key that is associated with the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value that is associated with the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2885,10 +2885,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A list of tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2900,7 +2900,7 @@ pub struct TagResourceResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TypedAttributeValue {
     /// <p>A binary data value.</p>
-    #[serde(rename = "BinaryValue")]
+    #[serde(rename = "binaryValue")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -2909,19 +2909,19 @@ pub struct TypedAttributeValue {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub binary_value: Option<bytes::Bytes>,
     /// <p>A Boolean data value.</p>
-    #[serde(rename = "BooleanValue")]
+    #[serde(rename = "booleanValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub boolean_value: Option<bool>,
     /// <p>A date and time value.</p>
-    #[serde(rename = "DatetimeValue")]
+    #[serde(rename = "datetimeValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub datetime_value: Option<f64>,
     /// <p>A number data value.</p>
-    #[serde(rename = "NumberValue")]
+    #[serde(rename = "numberValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_value: Option<String>,
     /// <p>A string data value.</p>
-    #[serde(rename = "StringValue")]
+    #[serde(rename = "stringValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_value: Option<String>,
 }
@@ -2931,17 +2931,17 @@ pub struct TypedAttributeValue {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TypedAttributeValueRange {
     /// <p>The inclusive or exclusive range end.</p>
-    #[serde(rename = "EndMode")]
+    #[serde(rename = "endMode")]
     pub end_mode: String,
     /// <p>The attribute value to terminate the range at.</p>
-    #[serde(rename = "EndValue")]
+    #[serde(rename = "endValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_value: Option<TypedAttributeValue>,
     /// <p>The inclusive or exclusive range start.</p>
-    #[serde(rename = "StartMode")]
+    #[serde(rename = "startMode")]
     pub start_mode: String,
     /// <p>The value to start the range at.</p>
-    #[serde(rename = "StartValue")]
+    #[serde(rename = "startValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_value: Option<TypedAttributeValue>,
 }
@@ -2950,25 +2950,25 @@ pub struct TypedAttributeValueRange {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TypedLinkAttributeDefinition {
     /// <p>The default value of the attribute (if configured).</p>
-    #[serde(rename = "DefaultValue")]
+    #[serde(rename = "defaultValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_value: Option<TypedAttributeValue>,
     /// <p>Whether the attribute is mutable or not.</p>
-    #[serde(rename = "IsImmutable")]
+    #[serde(rename = "isImmutable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_immutable: Option<bool>,
     /// <p>The unique name of the typed link attribute.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
-    #[serde(rename = "RequiredBehavior")]
+    #[serde(rename = "requiredBehavior")]
     pub required_behavior: String,
     /// <p>Validation rules that are attached to the attribute definition.</p>
-    #[serde(rename = "Rules")]
+    #[serde(rename = "rules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rules: Option<::std::collections::HashMap<String, Rule>>,
     /// <p>The type of the attribute.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -2977,11 +2977,11 @@ pub struct TypedLinkAttributeDefinition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TypedLinkAttributeRange {
     /// <p>The unique name of the typed link attribute.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_name: Option<String>,
     /// <p>The range of attribute values that are being selected.</p>
-    #[serde(rename = "Range")]
+    #[serde(rename = "range")]
     pub range: TypedAttributeValueRange,
 }
 
@@ -2990,13 +2990,13 @@ pub struct TypedLinkAttributeRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TypedLinkFacet {
     /// <p>A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     pub attributes: Vec<TypedLinkAttributeDefinition>,
     /// <p>The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for details.</p>
-    #[serde(rename = "IdentityAttributeOrder")]
+    #[serde(rename = "identityAttributeOrder")]
     pub identity_attribute_order: Vec<String>,
     /// <p>The unique name of the typed link facet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -3005,10 +3005,10 @@ pub struct TypedLinkFacet {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TypedLinkFacetAttributeUpdate {
     /// <p>The action to perform when updating the attribute.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>The attribute to update.</p>
-    #[serde(rename = "Attribute")]
+    #[serde(rename = "attribute")]
     pub attribute: TypedLinkAttributeDefinition,
 }
 
@@ -3016,10 +3016,10 @@ pub struct TypedLinkFacetAttributeUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TypedLinkSchemaAndFacetName {
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
     /// <p>The unique name of the typed link facet.</p>
-    #[serde(rename = "TypedLinkName")]
+    #[serde(rename = "typedLinkName")]
     pub typed_link_name: String,
 }
 
@@ -3027,16 +3027,16 @@ pub struct TypedLinkSchemaAndFacetName {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TypedLinkSpecifier {
     /// <p>Identifies the attribute value to update.</p>
-    #[serde(rename = "IdentityAttributeValues")]
+    #[serde(rename = "identityAttributeValues")]
     pub identity_attribute_values: Vec<AttributeNameAndValue>,
     /// <p>Identifies the source object that the typed link will attach to.</p>
-    #[serde(rename = "SourceObjectReference")]
+    #[serde(rename = "sourceObjectReference")]
     pub source_object_reference: ObjectReference,
     /// <p>Identifies the target object that the typed link will attach to.</p>
-    #[serde(rename = "TargetObjectReference")]
+    #[serde(rename = "targetObjectReference")]
     pub target_object_reference: ObjectReference,
     /// <p>Identifies the typed link facet that is associated with the typed link.</p>
-    #[serde(rename = "TypedLinkFacet")]
+    #[serde(rename = "typedLinkFacet")]
     pub typed_link_facet: TypedLinkSchemaAndFacetName,
 }
 
@@ -3044,10 +3044,10 @@ pub struct TypedLinkSpecifier {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Keys of the tag that need to be removed from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -3059,18 +3059,18 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFacetRequest {
     /// <p>List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update operation to perform. </p>
-    #[serde(rename = "AttributeUpdates")]
+    #[serde(rename = "attributeUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_updates: Option<Vec<FacetAttributeUpdate>>,
     /// <p>The name of the facet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
-    #[serde(rename = "ObjectType")]
+    #[serde(rename = "objectType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_type: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -3082,13 +3082,13 @@ pub struct UpdateFacetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLinkAttributesRequest {
     /// <p>The attributes update structure.</p>
-    #[serde(rename = "AttributeUpdates")]
+    #[serde(rename = "attributeUpdates")]
     pub attribute_updates: Vec<LinkAttributeUpdate>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Allows a typed link specifier to be accepted as input.</p>
-    #[serde(rename = "TypedLinkSpecifier")]
+    #[serde(rename = "typedLinkSpecifier")]
     pub typed_link_specifier: TypedLinkSpecifier,
 }
 
@@ -3100,13 +3100,13 @@ pub struct UpdateLinkAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateObjectAttributesRequest {
     /// <p>The attributes update structure.</p>
-    #[serde(rename = "AttributeUpdates")]
+    #[serde(rename = "attributeUpdates")]
     pub attribute_updates: Vec<ObjectAttributeUpdate>,
     /// <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>The reference that identifies the object.</p>
-    #[serde(rename = "ObjectReference")]
+    #[serde(rename = "objectReference")]
     pub object_reference: ObjectReference,
 }
 
@@ -3114,7 +3114,7 @@ pub struct UpdateObjectAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateObjectAttributesResponse {
     /// <p>The <code>ObjectIdentifier</code> of the updated object.</p>
-    #[serde(rename = "ObjectIdentifier")]
+    #[serde(rename = "objectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub object_identifier: Option<String>,
 }
@@ -3123,10 +3123,10 @@ pub struct UpdateObjectAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSchemaRequest {
     /// <p>The name of the schema.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) of the development schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -3134,7 +3134,7 @@ pub struct UpdateSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSchemaResponse {
     /// <p>The ARN that is associated with the updated schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
 }
@@ -3143,16 +3143,16 @@ pub struct UpdateSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTypedLinkFacetRequest {
     /// <p>Attributes update structure.</p>
-    #[serde(rename = "AttributeUpdates")]
+    #[serde(rename = "attributeUpdates")]
     pub attribute_updates: Vec<TypedLinkFacetAttributeUpdate>,
     /// <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-    #[serde(rename = "IdentityAttributeOrder")]
+    #[serde(rename = "identityAttributeOrder")]
     pub identity_attribute_order: Vec<String>,
     /// <p>The unique name of the typed link facet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     pub schema_arn: String,
 }
 
@@ -3164,14 +3164,14 @@ pub struct UpdateTypedLinkFacetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpgradeAppliedSchemaRequest {
     /// <p>The ARN for the directory to which the upgraded schema will be applied.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     pub directory_arn: String,
     /// <p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The revision of the published schema to upgrade the directory to.</p>
-    #[serde(rename = "PublishedSchemaArn")]
+    #[serde(rename = "publishedSchemaArn")]
     pub published_schema_arn: String,
 }
 
@@ -3179,11 +3179,11 @@ pub struct UpgradeAppliedSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpgradeAppliedSchemaResponse {
     /// <p>The ARN of the directory that is returned as part of the response.</p>
-    #[serde(rename = "DirectoryArn")]
+    #[serde(rename = "directoryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_arn: Option<String>,
     /// <p>The ARN of the upgraded schema that is returned as part of the response.</p>
-    #[serde(rename = "UpgradedSchemaArn")]
+    #[serde(rename = "upgradedSchemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgraded_schema_arn: Option<String>,
 }
@@ -3192,17 +3192,17 @@ pub struct UpgradeAppliedSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpgradePublishedSchemaRequest {
     /// <p>The ARN of the development schema with the changes used for the upgrade.</p>
-    #[serde(rename = "DevelopmentSchemaArn")]
+    #[serde(rename = "developmentSchemaArn")]
     pub development_schema_arn: String,
     /// <p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Identifies the minor version of the published schema that will be created. This parameter is NOT optional.</p>
-    #[serde(rename = "MinorVersion")]
+    #[serde(rename = "minorVersion")]
     pub minor_version: String,
     /// <p>The ARN of the published schema to be upgraded.</p>
-    #[serde(rename = "PublishedSchemaArn")]
+    #[serde(rename = "publishedSchemaArn")]
     pub published_schema_arn: String,
 }
 
@@ -3210,7 +3210,7 @@ pub struct UpgradePublishedSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpgradePublishedSchemaResponse {
     /// <p>The ARN of the upgraded schema that is returned as part of the response.</p>
-    #[serde(rename = "UpgradedSchemaArn")]
+    #[serde(rename = "upgradedSchemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgraded_schema_arn: Option<String>,
 }

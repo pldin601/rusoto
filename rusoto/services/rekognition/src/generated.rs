@@ -55,11 +55,11 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AgeRange {
     /// <p>The highest estimated age.</p>
-    #[serde(rename = "High")]
+    #[serde(rename = "high")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub high: Option<i64>,
     /// <p>The lowest estimated age.</p>
-    #[serde(rename = "Low")]
+    #[serde(rename = "low")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub low: Option<i64>,
 }
@@ -67,7 +67,7 @@ pub struct AgeRange {
 /// <p>Assets are the images that you use to train and evaluate a model version. Assets can also contain validation information that you use to debug a failed model training. </p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Asset {
-    #[serde(rename = "GroundTruthManifest")]
+    #[serde(rename = "groundTruthManifest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ground_truth_manifest: Option<GroundTruthManifest>,
 }
@@ -77,19 +77,19 @@ pub struct Asset {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AudioMetadata {
     /// <p>The audio codec used to encode or decode the audio stream. </p>
-    #[serde(rename = "Codec")]
+    #[serde(rename = "codec")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub codec: Option<String>,
     /// <p>The duration of the audio stream in milliseconds.</p>
-    #[serde(rename = "DurationMillis")]
+    #[serde(rename = "durationMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_millis: Option<i64>,
     /// <p>The number of audio channels in the segment.</p>
-    #[serde(rename = "NumberOfChannels")]
+    #[serde(rename = "numberOfChannels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_channels: Option<i64>,
     /// <p>The sample rate for the audio stream.</p>
-    #[serde(rename = "SampleRate")]
+    #[serde(rename = "sampleRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sample_rate: Option<i64>,
 }
@@ -99,11 +99,11 @@ pub struct AudioMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Beard {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the face has beard or not.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -112,19 +112,19 @@ pub struct Beard {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BoundingBox {
     /// <p>Height of the bounding box as a ratio of the overall image height.</p>
-    #[serde(rename = "Height")]
+    #[serde(rename = "height")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub height: Option<f32>,
     /// <p>Left coordinate of the bounding box as a ratio of overall image width.</p>
-    #[serde(rename = "Left")]
+    #[serde(rename = "left")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub left: Option<f32>,
     /// <p>Top coordinate of the bounding box as a ratio of overall image height.</p>
-    #[serde(rename = "Top")]
+    #[serde(rename = "top")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top: Option<f32>,
     /// <p>Width of the bounding box as a ratio of the overall image width.</p>
-    #[serde(rename = "Width")]
+    #[serde(rename = "width")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub width: Option<f32>,
 }
@@ -134,23 +134,23 @@ pub struct BoundingBox {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Celebrity {
     /// <p>Provides information about the celebrity's face, such as its location on the image.</p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<ComparedFace>,
     /// <p>A unique identifier for the celebrity. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.</p>
-    #[serde(rename = "MatchConfidence")]
+    #[serde(rename = "matchConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub match_confidence: Option<f32>,
     /// <p>The name of the celebrity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.</p>
-    #[serde(rename = "Urls")]
+    #[serde(rename = "urls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub urls: Option<Vec<String>>,
 }
@@ -160,27 +160,27 @@ pub struct Celebrity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CelebrityDetail {
     /// <p>Bounding box around the body of a celebrity.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity. </p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Face details for the recognized celebrity.</p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<FaceDetail>,
     /// <p>The unique identifier for the celebrity. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the celebrity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An array of URLs pointing to additional celebrity information. </p>
-    #[serde(rename = "Urls")]
+    #[serde(rename = "urls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub urls: Option<Vec<String>>,
 }
@@ -190,11 +190,11 @@ pub struct CelebrityDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CelebrityRecognition {
     /// <p>Information about a recognized celebrity.</p>
-    #[serde(rename = "Celebrity")]
+    #[serde(rename = "celebrity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub celebrity: Option<CelebrityDetail>,
     /// <p>The time, in milliseconds from the start of the video, that the celebrity was recognized.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -204,11 +204,11 @@ pub struct CelebrityRecognition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CompareFacesMatch {
     /// <p>Provides face metadata (bounding box and confidence that the bounding box actually contains a face).</p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<ComparedFace>,
     /// <p>Level of confidence that the faces match.</p>
-    #[serde(rename = "Similarity")]
+    #[serde(rename = "similarity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub similarity: Option<f32>,
 }
@@ -217,18 +217,18 @@ pub struct CompareFacesMatch {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CompareFacesRequest {
     /// <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is <code>NONE</code>. </p> <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
-    #[serde(rename = "QualityFilter")]
+    #[serde(rename = "qualityFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quality_filter: Option<String>,
     /// <p>The minimum level of confidence in the face matches that a match must meet to be included in the <code>FaceMatches</code> array.</p>
-    #[serde(rename = "SimilarityThreshold")]
+    #[serde(rename = "similarityThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub similarity_threshold: Option<f32>,
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "SourceImage")]
+    #[serde(rename = "sourceImage")]
     pub source_image: Image,
     /// <p>The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "TargetImage")]
+    #[serde(rename = "targetImage")]
     pub target_image: Image,
 }
 
@@ -236,23 +236,23 @@ pub struct CompareFacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CompareFacesResponse {
     /// <p>An array of faces in the target image that match the source image face. Each <code>CompareFacesMatch</code> object provides the bounding box, the confidence level that the bounding box contains a face, and the similarity score for the face in the bounding box and the face in the source image.</p>
-    #[serde(rename = "FaceMatches")]
+    #[serde(rename = "faceMatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_matches: Option<Vec<CompareFacesMatch>>,
     /// <p>The face in the source image that was used for comparison.</p>
-    #[serde(rename = "SourceImageFace")]
+    #[serde(rename = "sourceImageFace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_image_face: Option<ComparedSourceImageFace>,
     /// <p>The value of <code>SourceImageOrientationCorrection</code> is always null.</p> <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p> <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
-    #[serde(rename = "SourceImageOrientationCorrection")]
+    #[serde(rename = "sourceImageOrientationCorrection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_image_orientation_correction: Option<String>,
     /// <p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p> <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p> <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
-    #[serde(rename = "TargetImageOrientationCorrection")]
+    #[serde(rename = "targetImageOrientationCorrection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_image_orientation_correction: Option<String>,
     /// <p>An array of faces in the target image that did not match the source image face.</p>
-    #[serde(rename = "UnmatchedFaces")]
+    #[serde(rename = "unmatchedFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unmatched_faces: Option<Vec<ComparedFace>>,
 }
@@ -262,23 +262,23 @@ pub struct CompareFacesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComparedFace {
     /// <p>Bounding box of the face.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Level of confidence that what the bounding box contains is a face.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>An array of facial landmarks.</p>
-    #[serde(rename = "Landmarks")]
+    #[serde(rename = "landmarks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub landmarks: Option<Vec<Landmark>>,
     /// <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
-    #[serde(rename = "Pose")]
+    #[serde(rename = "pose")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pose: Option<Pose>,
     /// <p>Identifies face image brightness and sharpness. </p>
-    #[serde(rename = "Quality")]
+    #[serde(rename = "quality")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quality: Option<ImageQuality>,
 }
@@ -288,11 +288,11 @@ pub struct ComparedFace {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComparedSourceImageFace {
     /// <p>Bounding box of the face.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Confidence level that the selected bounding box contains a face.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
 }
@@ -302,11 +302,11 @@ pub struct ComparedSourceImageFace {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ContentModerationDetection {
     /// <p>The unsafe content label detected by in the stored video.</p>
-    #[serde(rename = "ModerationLabel")]
+    #[serde(rename = "moderationLabel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderation_label: Option<ModerationLabel>,
     /// <p>Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -316,11 +316,11 @@ pub struct ContentModerationDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CoversBodyPart {
     /// <p>The confidence that Amazon Rekognition has in the value of <code>Value</code>.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>True if the PPE covers the corresponding body part, otherwise false.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -329,10 +329,10 @@ pub struct CoversBodyPart {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCollectionRequest {
     /// <p>ID for the collection that you are creating.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p> A set of tags (key-value pairs) that you want to attach to the collection. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -341,15 +341,15 @@ pub struct CreateCollectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCollectionResponse {
     /// <p>Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources. </p>
-    #[serde(rename = "CollectionArn")]
+    #[serde(rename = "collectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collection_arn: Option<String>,
     /// <p>Version number of the face detection model associated with the collection you are creating.</p>
-    #[serde(rename = "FaceModelVersion")]
+    #[serde(rename = "faceModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_version: Option<String>,
     /// <p>HTTP status code indicating the result of the operation.</p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_code: Option<i64>,
 }
@@ -358,7 +358,7 @@ pub struct CreateCollectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProjectRequest {
     /// <p>The name of the project to create.</p>
-    #[serde(rename = "ProjectName")]
+    #[serde(rename = "projectName")]
     pub project_name: String,
 }
 
@@ -366,7 +366,7 @@ pub struct CreateProjectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProjectResponse {
     /// <p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to configure IAM access to the project. </p>
-    #[serde(rename = "ProjectArn")]
+    #[serde(rename = "projectArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_arn: Option<String>,
 }
@@ -375,27 +375,27 @@ pub struct CreateProjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProjectVersionRequest {
     /// <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK). You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK, or an alias for your CMK. The key is used to encrypt training and test images copied into the service for model training. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p> <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The Amazon S3 location to store the results of training.</p>
-    #[serde(rename = "OutputConfig")]
+    #[serde(rename = "outputConfig")]
     pub output_config: OutputConfig,
     /// <p>The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.</p>
-    #[serde(rename = "ProjectArn")]
+    #[serde(rename = "projectArn")]
     pub project_arn: String,
     /// <p> A set of tags (key-value pairs) that you want to attach to the model. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The dataset to use for testing.</p>
-    #[serde(rename = "TestingData")]
+    #[serde(rename = "testingData")]
     pub testing_data: TestingData,
     /// <p>The dataset to use for training. </p>
-    #[serde(rename = "TrainingData")]
+    #[serde(rename = "trainingData")]
     pub training_data: TrainingData,
     /// <p>A name for the version of the model. This value must be unique.</p>
-    #[serde(rename = "VersionName")]
+    #[serde(rename = "versionName")]
     pub version_name: String,
 }
 
@@ -403,7 +403,7 @@ pub struct CreateProjectVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProjectVersionResponse {
     /// <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code> to get the current status of the training operation.</p>
-    #[serde(rename = "ProjectVersionArn")]
+    #[serde(rename = "projectVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_version_arn: Option<String>,
 }
@@ -412,22 +412,22 @@ pub struct CreateProjectVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStreamProcessorRequest {
     /// <p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>.</p>
-    #[serde(rename = "Input")]
+    #[serde(rename = "input")]
     pub input: StreamProcessorInput,
     /// <p>An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor. For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>
-    #[serde(rename = "Output")]
+    #[serde(rename = "output")]
     pub output: StreamProcessorOutput,
     /// <p>ARN of the IAM role that allows access to the stream processor.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.</p>
-    #[serde(rename = "Settings")]
+    #[serde(rename = "settings")]
     pub settings: StreamProcessorSettings,
     /// <p> A set of tags (key-value pairs) that you want to attach to the stream processor. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -436,7 +436,7 @@ pub struct CreateStreamProcessorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateStreamProcessorResponse {
     /// <p>ARN for the newly create stream processor.</p>
-    #[serde(rename = "StreamProcessorArn")]
+    #[serde(rename = "streamProcessorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_processor_arn: Option<String>,
 }
@@ -446,15 +446,15 @@ pub struct CreateStreamProcessorResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomLabel {
     /// <p>The confidence that the model has in the detection of the custom label. The range is 0-100. A higher value indicates a higher confidence.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The location of the detected object on the image that corresponds to the custom label. Includes an axis aligned coarse bounding box surrounding the object and a finer grain polygon for more accurate spatial information.</p>
-    #[serde(rename = "Geometry")]
+    #[serde(rename = "geometry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geometry: Option<Geometry>,
     /// <p>The name of the custom label.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -463,7 +463,7 @@ pub struct CustomLabel {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCollectionRequest {
     /// <p>ID of the collection to delete.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
 }
 
@@ -471,7 +471,7 @@ pub struct DeleteCollectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteCollectionResponse {
     /// <p>HTTP status code that indicates the result of the operation.</p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_code: Option<i64>,
 }
@@ -480,10 +480,10 @@ pub struct DeleteCollectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFacesRequest {
     /// <p>Collection from which to remove the specific faces.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p>An array of face IDs to delete.</p>
-    #[serde(rename = "FaceIds")]
+    #[serde(rename = "faceIds")]
     pub face_ids: Vec<String>,
 }
 
@@ -491,7 +491,7 @@ pub struct DeleteFacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFacesResponse {
     /// <p>An array of strings (face IDs) of the faces that were deleted.</p>
-    #[serde(rename = "DeletedFaces")]
+    #[serde(rename = "deletedFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deleted_faces: Option<Vec<String>>,
 }
@@ -500,7 +500,7 @@ pub struct DeleteFacesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProjectRequest {
     /// <p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>
-    #[serde(rename = "ProjectArn")]
+    #[serde(rename = "projectArn")]
     pub project_arn: String,
 }
 
@@ -508,7 +508,7 @@ pub struct DeleteProjectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteProjectResponse {
     /// <p>The current status of the delete project operation.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -517,7 +517,7 @@ pub struct DeleteProjectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProjectVersionRequest {
     /// <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
-    #[serde(rename = "ProjectVersionArn")]
+    #[serde(rename = "projectVersionArn")]
     pub project_version_arn: String,
 }
 
@@ -525,7 +525,7 @@ pub struct DeleteProjectVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteProjectVersionResponse {
     /// <p>The status of the deletion operation.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -534,7 +534,7 @@ pub struct DeleteProjectVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStreamProcessorRequest {
     /// <p>The name of the stream processor you want to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -546,7 +546,7 @@ pub struct DeleteStreamProcessorResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCollectionRequest {
     /// <p>The ID of the collection to describe.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
 }
 
@@ -554,19 +554,19 @@ pub struct DescribeCollectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCollectionResponse {
     /// <p>The Amazon Resource Name (ARN) of the collection.</p>
-    #[serde(rename = "CollectionARN")]
+    #[serde(rename = "collectionARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collection_arn: Option<String>,
     /// <p>The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>
-    #[serde(rename = "CreationTimestamp")]
+    #[serde(rename = "creationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_timestamp: Option<f64>,
     /// <p>The number of faces that are indexed into the collection. To index faces into a collection, use <a>IndexFaces</a>.</p>
-    #[serde(rename = "FaceCount")]
+    #[serde(rename = "faceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_count: Option<i64>,
     /// <p>The version of the face model that's used by the collection for face detection.</p> <p>For more information, see Model Versioning in the Amazon Rekognition Developer Guide.</p>
-    #[serde(rename = "FaceModelVersion")]
+    #[serde(rename = "faceModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_version: Option<String>,
 }
@@ -575,18 +575,18 @@ pub struct DescribeCollectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProjectVersionsRequest {
     /// <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
-    #[serde(rename = "ProjectArn")]
+    #[serde(rename = "projectArn")]
     pub project_arn: String,
     /// <p>A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>
-    #[serde(rename = "VersionNames")]
+    #[serde(rename = "versionNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_names: Option<Vec<String>>,
 }
@@ -595,11 +595,11 @@ pub struct DescribeProjectVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProjectVersionsResponse {
     /// <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.</p>
-    #[serde(rename = "ProjectVersionDescriptions")]
+    #[serde(rename = "projectVersionDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_version_descriptions: Option<Vec<ProjectVersionDescription>>,
 }
@@ -608,11 +608,11 @@ pub struct DescribeProjectVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProjectsRequest {
     /// <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -621,11 +621,11 @@ pub struct DescribeProjectsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProjectsResponse {
     /// <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
-    #[serde(rename = "ProjectDescriptions")]
+    #[serde(rename = "projectDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_descriptions: Option<Vec<ProjectDescription>>,
 }
@@ -634,7 +634,7 @@ pub struct DescribeProjectsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStreamProcessorRequest {
     /// <p>Name of the stream processor for which you want information.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -642,43 +642,43 @@ pub struct DescribeStreamProcessorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStreamProcessorResponse {
     /// <p>Date and time the stream processor was created</p>
-    #[serde(rename = "CreationTimestamp")]
+    #[serde(rename = "creationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_timestamp: Option<f64>,
     /// <p>Kinesis video stream that provides the source streaming video.</p>
-    #[serde(rename = "Input")]
+    #[serde(rename = "input")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input: Option<StreamProcessorInput>,
     /// <p>The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.</p>
-    #[serde(rename = "LastUpdateTimestamp")]
+    #[serde(rename = "lastUpdateTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_timestamp: Option<f64>,
     /// <p>Name of the stream processor. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Kinesis data stream to which Amazon Rekognition Video puts the analysis results.</p>
-    #[serde(rename = "Output")]
+    #[serde(rename = "output")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output: Option<StreamProcessorOutput>,
     /// <p>ARN of the IAM role that allows access to the stream processor.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.</p>
-    #[serde(rename = "Settings")]
+    #[serde(rename = "settings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub settings: Option<StreamProcessorSettings>,
     /// <p>Current status of the stream processor.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Detailed status message about the stream processor.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>ARN of the stream processor.</p>
-    #[serde(rename = "StreamProcessorArn")]
+    #[serde(rename = "streamProcessorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_processor_arn: Option<String>,
 }
@@ -686,18 +686,18 @@ pub struct DescribeStreamProcessorResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectCustomLabelsRequest {
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
     /// <p>Maximum number of results you want the service to return in the response. The service returns the specified number of highest confidence labels ranked from highest confidence to lowest.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.</p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_confidence: Option<f32>,
     /// <p>The ARN of the model version that you want to use.</p>
-    #[serde(rename = "ProjectVersionArn")]
+    #[serde(rename = "projectVersionArn")]
     pub project_version_arn: String,
 }
 
@@ -705,7 +705,7 @@ pub struct DetectCustomLabelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectCustomLabelsResponse {
     /// <p>An array of custom labels detected in the input image.</p>
-    #[serde(rename = "CustomLabels")]
+    #[serde(rename = "customLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_labels: Option<Vec<CustomLabel>>,
 }
@@ -714,11 +714,11 @@ pub struct DetectCustomLabelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectFacesRequest {
     /// <p>An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p> <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<String>>,
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
 }
 
@@ -726,11 +726,11 @@ pub struct DetectFacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectFacesResponse {
     /// <p>Details of each face found in the image. </p>
-    #[serde(rename = "FaceDetails")]
+    #[serde(rename = "faceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_details: Option<Vec<FaceDetail>>,
     /// <p>The value of <code>OrientationCorrection</code> is always null.</p> <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p> <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
-    #[serde(rename = "OrientationCorrection")]
+    #[serde(rename = "orientationCorrection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub orientation_correction: Option<String>,
 }
@@ -739,14 +739,14 @@ pub struct DetectFacesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectLabelsRequest {
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.</p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
     /// <p>Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels. </p>
-    #[serde(rename = "MaxLabels")]
+    #[serde(rename = "maxLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_labels: Option<i64>,
     /// <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.</p> <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.</p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_confidence: Option<f32>,
 }
@@ -755,15 +755,15 @@ pub struct DetectLabelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectLabelsResponse {
     /// <p>Version number of the label detection model that was used to detect labels.</p>
-    #[serde(rename = "LabelModelVersion")]
+    #[serde(rename = "labelModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label_model_version: Option<String>,
     /// <p>An array of labels for the real-world objects detected. </p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<Label>>,
     /// <p>The value of <code>OrientationCorrection</code> is always null.</p> <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p> <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
-    #[serde(rename = "OrientationCorrection")]
+    #[serde(rename = "orientationCorrection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub orientation_correction: Option<String>,
 }
@@ -772,14 +772,14 @@ pub struct DetectLabelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectModerationLabelsRequest {
     /// <p>Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.</p>
-    #[serde(rename = "HumanLoopConfig")]
+    #[serde(rename = "humanLoopConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_config: Option<HumanLoopConfig>,
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
     /// <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_confidence: Option<f32>,
 }
@@ -788,15 +788,15 @@ pub struct DetectModerationLabelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectModerationLabelsResponse {
     /// <p>Shows the results of the human in the loop evaluation.</p>
-    #[serde(rename = "HumanLoopActivationOutput")]
+    #[serde(rename = "humanLoopActivationOutput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_activation_output: Option<HumanLoopActivationOutput>,
     /// <p>Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.</p>
-    #[serde(rename = "ModerationLabels")]
+    #[serde(rename = "moderationLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderation_labels: Option<Vec<ModerationLabel>>,
     /// <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
-    #[serde(rename = "ModerationModelVersion")]
+    #[serde(rename = "moderationModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderation_model_version: Option<String>,
 }
@@ -805,10 +805,10 @@ pub struct DetectModerationLabelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectProtectiveEquipmentRequest {
     /// <p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket. </p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
     /// <p>An array of PPE types that you want to summarize.</p>
-    #[serde(rename = "SummarizationAttributes")]
+    #[serde(rename = "summarizationAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summarization_attributes: Option<ProtectiveEquipmentSummarizationAttributes>,
 }
@@ -817,15 +817,15 @@ pub struct DetectProtectiveEquipmentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectProtectiveEquipmentResponse {
     /// <p>An array of persons detected in the image (including persons not wearing PPE).</p>
-    #[serde(rename = "Persons")]
+    #[serde(rename = "persons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persons: Option<Vec<ProtectiveEquipmentPerson>>,
     /// <p>The version number of the PPE detection model used to detect PPE in the image.</p>
-    #[serde(rename = "ProtectiveEquipmentModelVersion")]
+    #[serde(rename = "protectiveEquipmentModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protective_equipment_model_version: Option<String>,
     /// <p>Summary information for the types of PPE specified in the <code>SummarizationAttributes</code> input parameter.</p>
-    #[serde(rename = "Summary")]
+    #[serde(rename = "summary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary: Option<ProtectiveEquipmentSummary>,
 }
@@ -835,10 +835,10 @@ pub struct DetectProtectiveEquipmentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectTextFilters {
     /// <p> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code> object to set the region of the image.</p>
-    #[serde(rename = "RegionsOfInterest")]
+    #[serde(rename = "regionsOfInterest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub regions_of_interest: Option<Vec<RegionOfInterest>>,
-    #[serde(rename = "WordFilter")]
+    #[serde(rename = "wordFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub word_filter: Option<DetectionFilter>,
 }
@@ -847,11 +847,11 @@ pub struct DetectTextFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectTextRequest {
     /// <p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<DetectTextFilters>,
     /// <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
 }
 
@@ -859,11 +859,11 @@ pub struct DetectTextRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectTextResponse {
     /// <p>An array of text that was detected in the input image.</p>
-    #[serde(rename = "TextDetections")]
+    #[serde(rename = "textDetections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_detections: Option<Vec<TextDetection>>,
     /// <p>The model version used to detect text.</p>
-    #[serde(rename = "TextModelVersion")]
+    #[serde(rename = "textModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_model_version: Option<String>,
 }
@@ -873,15 +873,15 @@ pub struct DetectTextResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectionFilter {
     /// <p>Sets the minimum height of the word bounding box. Words with bounding box heights lesser than this value will be excluded from the result. Value is relative to the video frame height.</p>
-    #[serde(rename = "MinBoundingBoxHeight")]
+    #[serde(rename = "minBoundingBoxHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_bounding_box_height: Option<f32>,
     /// <p>Sets the minimum width of the word bounding box. Words with bounding boxes widths lesser than this value will be excluded from the result. Value is relative to the video frame width.</p>
-    #[serde(rename = "MinBoundingBoxWidth")]
+    #[serde(rename = "minBoundingBoxWidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_bounding_box_width: Option<f32>,
     /// <p>Sets the confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 50 and 100 as Text in Video will not return any result below 50.</p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_confidence: Option<f32>,
 }
@@ -891,11 +891,11 @@ pub struct DetectionFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Emotion {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Type of emotion detected.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -905,19 +905,19 @@ pub struct Emotion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EquipmentDetection {
     /// <p>A bounding box surrounding the item of detected PPE.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>The confidence that Amazon Rekognition has that the bounding box (<code>BoundingBox</code>) contains an item of PPE.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Information about the body part covered by the detected PPE.</p>
-    #[serde(rename = "CoversBodyPart")]
+    #[serde(rename = "coversBodyPart")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub covers_body_part: Option<CoversBodyPart>,
     /// <p>The type of detected PPE.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -927,11 +927,11 @@ pub struct EquipmentDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationResult {
     /// <p>The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly. </p>
-    #[serde(rename = "F1Score")]
+    #[serde(rename = "f1Score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub f1_score: Option<f32>,
     /// <p>The S3 bucket that contains the training summary.</p>
-    #[serde(rename = "Summary")]
+    #[serde(rename = "summary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary: Option<Summary>,
 }
@@ -941,11 +941,11 @@ pub struct EvaluationResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EyeOpen {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the eyes on the face are open.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -955,11 +955,11 @@ pub struct EyeOpen {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Eyeglasses {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the face is wearing eye glasses or not.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -969,23 +969,23 @@ pub struct Eyeglasses {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Face {
     /// <p>Bounding box of the face.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Confidence level that the bounding box contains a face (and not a different object such as a tree).</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Identifier that you assign to all the faces in the input image.</p>
-    #[serde(rename = "ExternalImageId")]
+    #[serde(rename = "externalImageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_image_id: Option<String>,
     /// <p>Unique identifier that Amazon Rekognition assigns to the face.</p>
-    #[serde(rename = "FaceId")]
+    #[serde(rename = "faceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_id: Option<String>,
     /// <p>Unique identifier that Amazon Rekognition assigns to the input image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
 }
@@ -995,63 +995,63 @@ pub struct Face {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaceDetail {
     /// <p>The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.</p>
-    #[serde(rename = "AgeRange")]
+    #[serde(rename = "ageRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub age_range: Option<AgeRange>,
     /// <p>Indicates whether or not the face has a beard, and the confidence level in the determination.</p>
-    #[serde(rename = "Beard")]
+    #[serde(rename = "beard")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub beard: Option<Beard>,
     /// <p>Bounding box of the face. Default attribute.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.</p>
-    #[serde(rename = "Emotions")]
+    #[serde(rename = "emotions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub emotions: Option<Vec<Emotion>>,
     /// <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.</p>
-    #[serde(rename = "Eyeglasses")]
+    #[serde(rename = "eyeglasses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eyeglasses: Option<Eyeglasses>,
     /// <p>Indicates whether or not the eyes on the face are open, and the confidence level in the determination.</p>
-    #[serde(rename = "EyesOpen")]
+    #[serde(rename = "eyesOpen")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eyes_open: Option<EyeOpen>,
     /// <p>The predicted gender of a detected face. </p>
-    #[serde(rename = "Gender")]
+    #[serde(rename = "gender")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gender: Option<Gender>,
     /// <p>Indicates the location of landmarks on the face. Default attribute.</p>
-    #[serde(rename = "Landmarks")]
+    #[serde(rename = "landmarks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub landmarks: Option<Vec<Landmark>>,
     /// <p>Indicates whether or not the mouth on the face is open, and the confidence level in the determination.</p>
-    #[serde(rename = "MouthOpen")]
+    #[serde(rename = "mouthOpen")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mouth_open: Option<MouthOpen>,
     /// <p>Indicates whether or not the face has a mustache, and the confidence level in the determination.</p>
-    #[serde(rename = "Mustache")]
+    #[serde(rename = "mustache")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mustache: Option<Mustache>,
     /// <p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>
-    #[serde(rename = "Pose")]
+    #[serde(rename = "pose")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pose: Option<Pose>,
     /// <p>Identifies image brightness and sharpness. Default attribute.</p>
-    #[serde(rename = "Quality")]
+    #[serde(rename = "quality")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quality: Option<ImageQuality>,
     /// <p>Indicates whether or not the face is smiling, and the confidence level in the determination.</p>
-    #[serde(rename = "Smile")]
+    #[serde(rename = "smile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub smile: Option<Smile>,
     /// <p>Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.</p>
-    #[serde(rename = "Sunglasses")]
+    #[serde(rename = "sunglasses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sunglasses: Option<Sunglasses>,
 }
@@ -1061,11 +1061,11 @@ pub struct FaceDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaceDetection {
     /// <p>The face properties for the detected face.</p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<FaceDetail>,
     /// <p>Time, in milliseconds from the start of the video, that the face was detected.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -1075,11 +1075,11 @@ pub struct FaceDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaceMatch {
     /// <p>Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.</p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<Face>,
     /// <p>Confidence in the match of this face with the input face.</p>
-    #[serde(rename = "Similarity")]
+    #[serde(rename = "similarity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub similarity: Option<f32>,
 }
@@ -1089,11 +1089,11 @@ pub struct FaceMatch {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaceRecord {
     /// <p>Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned. </p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<Face>,
     /// <p>Structure containing attributes of the face that the algorithm detected.</p>
-    #[serde(rename = "FaceDetail")]
+    #[serde(rename = "faceDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_detail: Option<FaceDetail>,
 }
@@ -1102,11 +1102,11 @@ pub struct FaceRecord {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FaceSearchSettings {
     /// <p>The ID of a collection that contains faces that you want to search for.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collection_id: Option<String>,
     /// <p>Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.</p>
-    #[serde(rename = "FaceMatchThreshold")]
+    #[serde(rename = "faceMatchThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_match_threshold: Option<f32>,
 }
@@ -1116,11 +1116,11 @@ pub struct FaceSearchSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Gender {
     /// <p>Level of confidence in the prediction.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The predicted gender of the face.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1130,11 +1130,11 @@ pub struct Gender {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Geometry {
     /// <p>An axis-aligned coarse representation of the detected item's location on the image.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Within the bounding box, a fine-grained polygon around the detected item.</p>
-    #[serde(rename = "Polygon")]
+    #[serde(rename = "polygon")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub polygon: Option<Vec<Point>>,
 }
@@ -1143,7 +1143,7 @@ pub struct Geometry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCelebrityInfoRequest {
     /// <p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation, which recognizes celebrities in an image. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -1151,11 +1151,11 @@ pub struct GetCelebrityInfoRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCelebrityInfoResponse {
     /// <p>The name of the celebrity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An array of URLs pointing to additional celebrity information. </p>
-    #[serde(rename = "Urls")]
+    #[serde(rename = "urls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub urls: Option<Vec<String>>,
 }
@@ -1164,18 +1164,18 @@ pub struct GetCelebrityInfoResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCelebrityRecognitionRequest {
     /// <p>Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to <code>StartCelebrityRecognition</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier, specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
 }
@@ -1184,23 +1184,23 @@ pub struct GetCelebrityRecognitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCelebrityRecognitionResponse {
     /// <p>Array of celebrities recognized in the video.</p>
-    #[serde(rename = "Celebrities")]
+    #[serde(rename = "celebrities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub celebrities: Option<Vec<CelebrityRecognition>>,
     /// <p>The current status of the celebrity recognition job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1209,18 +1209,18 @@ pub struct GetCelebrityRecognitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetContentModerationRequest {
     /// <p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of unsafe content labels.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Sort to use for elements in the <code>ModerationLabelDetections</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected. Use <code>NAME</code> to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
 }
@@ -1229,27 +1229,27 @@ pub struct GetContentModerationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetContentModerationResponse {
     /// <p>The current status of the unsafe content analysis job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The detected unsafe content labels and the time(s) they were detected.</p>
-    #[serde(rename = "ModerationLabels")]
+    #[serde(rename = "moderationLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderation_labels: Option<Vec<ContentModerationDetection>>,
     /// <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
-    #[serde(rename = "ModerationModelVersion")]
+    #[serde(rename = "moderationModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub moderation_model_version: Option<String>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of unsafe content labels. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from <code>GetContentModeration</code>. </p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1258,14 +1258,14 @@ pub struct GetContentModerationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFaceDetectionRequest {
     /// <p>Unique identifier for the face detection job. The <code>JobId</code> is returned from <code>StartFaceDetection</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1274,23 +1274,23 @@ pub struct GetFaceDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFaceDetectionResponse {
     /// <p>An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected. </p>
-    #[serde(rename = "Faces")]
+    #[serde(rename = "faces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub faces: Option<Vec<FaceDetection>>,
     /// <p>The current status of the face detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1299,18 +1299,18 @@ pub struct GetFaceDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFaceSearchRequest {
     /// <p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
 }
@@ -1319,23 +1319,23 @@ pub struct GetFaceSearchRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFaceSearchResponse {
     /// <p>The current status of the face search job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of persons, <a>PersonMatch</a>, in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to <code>StartFaceSearch</code>. Each <code>Persons</code> element includes a time the person was matched, face match details (<code>FaceMatches</code>) for matching faces in the collection, and person information (<code>Person</code>) for the matched person. </p>
-    #[serde(rename = "Persons")]
+    #[serde(rename = "persons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persons: Option<Vec<PersonMatch>>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation. </p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1344,18 +1344,18 @@ pub struct GetFaceSearchResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLabelDetectionRequest {
     /// <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartlabelDetection</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Sort to use for elements in the <code>Labels</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected. Use <code>NAME</code> to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
 }
@@ -1364,27 +1364,27 @@ pub struct GetLabelDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLabelDetectionResponse {
     /// <p>The current status of the label detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Version number of the label detection model that was used to detect labels.</p>
-    #[serde(rename = "LabelModelVersion")]
+    #[serde(rename = "labelModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label_model_version: Option<String>,
     /// <p>An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected. </p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<LabelDetection>>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1393,18 +1393,18 @@ pub struct GetLabelDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPersonTrackingRequest {
     /// <p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>. </p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Sort to use for elements in the <code>Persons</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time persons are detected. Use <code>INDEX</code> to sort by the tracked persons. If you sort by <code>INDEX</code>, the array elements for each person are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
 }
@@ -1413,23 +1413,23 @@ pub struct GetPersonTrackingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPersonTrackingResponse {
     /// <p>The current status of the person tracking job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person's path is tracked. </p>
-    #[serde(rename = "Persons")]
+    #[serde(rename = "persons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persons: Option<Vec<PersonDetection>>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1438,14 +1438,14 @@ pub struct GetPersonTrackingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSegmentDetectionRequest {
     /// <p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1454,31 +1454,31 @@ pub struct GetSegmentDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSegmentDetectionResponse {
     /// <p>An array of objects. There can be multiple audio streams. Each <code>AudioMetadata</code> object contains metadata for a single audio stream. Audio information in an <code>AudioMetadata</code> objects includes the audio codec, the number of audio channels, the duration of the audio stream, and the sample rate. Audio metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>
-    #[serde(rename = "AudioMetadata")]
+    #[serde(rename = "audioMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audio_metadata: Option<Vec<AudioMetadata>>,
     /// <p>Current status of the segment detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of segments detected in a video. The array is sorted by the segment types (TECHNICAL_CUE or SHOT) specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Within each segment type the array is sorted by timestamp values.</p>
-    #[serde(rename = "Segments")]
+    #[serde(rename = "segments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segments: Option<Vec<SegmentDetection>>,
     /// <p>An array containing the segment types requested in the call to <code>StartSegmentDetection</code>. </p>
-    #[serde(rename = "SelectedSegmentTypes")]
+    #[serde(rename = "selectedSegmentTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub selected_segment_types: Option<Vec<SegmentTypeInfo>>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Currently, Amazon Rekognition Video returns a single object in the <code>VideoMetadata</code> array. The object contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze. The <code>VideoMetadata</code> object includes the video codec, video format and other information. Video metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<Vec<VideoMetadata>>,
 }
@@ -1487,14 +1487,14 @@ pub struct GetSegmentDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTextDetectionRequest {
     /// <p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1503,26 +1503,26 @@ pub struct GetTextDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTextDetectionResponse {
     /// <p>Current status of the text detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
-    #[serde(rename = "TextDetections")]
+    #[serde(rename = "textDetections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_detections: Option<Vec<TextDetectionResult>>,
     /// <p>Version number of the text detection model that was used to detect text.</p>
-    #[serde(rename = "TextModelVersion")]
+    #[serde(rename = "textModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_model_version: Option<String>,
-    #[serde(rename = "VideoMetadata")]
+    #[serde(rename = "videoMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_metadata: Option<VideoMetadata>,
 }
@@ -1530,7 +1530,7 @@ pub struct GetTextDetectionResponse {
 /// <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file. </p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GroundTruthManifest {
-    #[serde(rename = "S3Object")]
+    #[serde(rename = "s3Object")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object: Option<S3Object>,
 }
@@ -1540,15 +1540,15 @@ pub struct GroundTruthManifest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HumanLoopActivationOutput {
     /// <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
-    #[serde(rename = "HumanLoopActivationConditionsEvaluationResults")]
+    #[serde(rename = "humanLoopActivationConditionsEvaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_activation_conditions_evaluation_results: Option<String>,
     /// <p>Shows if and why human review was needed.</p>
-    #[serde(rename = "HumanLoopActivationReasons")]
+    #[serde(rename = "humanLoopActivationReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_activation_reasons: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
-    #[serde(rename = "HumanLoopArn")]
+    #[serde(rename = "humanLoopArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_arn: Option<String>,
 }
@@ -1558,14 +1558,14 @@ pub struct HumanLoopActivationOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HumanLoopConfig {
     /// <p>Sets attributes of the input data.</p>
-    #[serde(rename = "DataAttributes")]
+    #[serde(rename = "dataAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_attributes: Option<HumanLoopDataAttributes>,
     /// <p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html">CreateFlowDefinition</a> Operation. </p>
-    #[serde(rename = "FlowDefinitionArn")]
+    #[serde(rename = "flowDefinitionArn")]
     pub flow_definition_arn: String,
     /// <p>The name of the human review used for this image. This should be kept unique within a region.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
 }
 
@@ -1574,7 +1574,7 @@ pub struct HumanLoopConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HumanLoopDataAttributes {
     /// <p>Sets whether the input image is free of personally identifiable information.</p>
-    #[serde(rename = "ContentClassifiers")]
+    #[serde(rename = "contentClassifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_classifiers: Option<Vec<String>>,
 }
@@ -1584,7 +1584,7 @@ pub struct HumanLoopDataAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Image {
     /// <p>Blob of image bytes up to 5 MBs.</p>
-    #[serde(rename = "Bytes")]
+    #[serde(rename = "bytes")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -1593,7 +1593,7 @@ pub struct Image {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes: Option<bytes::Bytes>,
     /// <p>Identifies an S3 object as the image source.</p>
-    #[serde(rename = "S3Object")]
+    #[serde(rename = "s3Object")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object: Option<S3Object>,
 }
@@ -1603,11 +1603,11 @@ pub struct Image {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImageQuality {
     /// <p>Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.</p>
-    #[serde(rename = "Brightness")]
+    #[serde(rename = "brightness")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub brightness: Option<f32>,
     /// <p>Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.</p>
-    #[serde(rename = "Sharpness")]
+    #[serde(rename = "sharpness")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sharpness: Option<f32>,
 }
@@ -1616,25 +1616,25 @@ pub struct ImageQuality {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IndexFacesRequest {
     /// <p>The ID of an existing collection to which you want to add the faces that are detected in the input images.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p>An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p> <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
-    #[serde(rename = "DetectionAttributes")]
+    #[serde(rename = "detectionAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detection_attributes: Option<Vec<String>>,
     /// <p>The ID you want to assign to all the faces detected in the image.</p>
-    #[serde(rename = "ExternalImageId")]
+    #[serde(rename = "externalImageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_image_id: Option<String>,
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
     /// <p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an image, even if you specify a larger value for <code>MaxFaces</code>.</p> <p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the faces with the lowest quality are filtered out first. If there are still more faces than the value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p> <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face bounding box size to the smallest size, in descending order.</p> <p> <code>MaxFaces</code> can be used with a collection associated with any version of the face model.</p>
-    #[serde(rename = "MaxFaces")]
+    #[serde(rename = "maxFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_faces: Option<i64>,
     /// <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The default value is <code>AUTO</code>. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. </p> <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
-    #[serde(rename = "QualityFilter")]
+    #[serde(rename = "qualityFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quality_filter: Option<String>,
 }
@@ -1643,19 +1643,19 @@ pub struct IndexFacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IndexFacesResponse {
     /// <p>The version number of the face detection model that's associated with the input collection (<code>CollectionId</code>).</p>
-    #[serde(rename = "FaceModelVersion")]
+    #[serde(rename = "faceModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_version: Option<String>,
     /// <p>An array of faces detected and added to the collection. For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide. </p>
-    #[serde(rename = "FaceRecords")]
+    #[serde(rename = "faceRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_records: Option<Vec<FaceRecord>>,
     /// <p>If your collection is associated with a face detection model that's later than version 3.0, the value of <code>OrientationCorrection</code> is always null and no orientation information is returned.</p> <p>If your collection is associated with a face detection model that's version 3.0 or earlier, the following applies:</p> <ul> <li> <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction - the bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. The value of <code>OrientationCorrection</code> is null.</p> </li> <li> <p>If the image doesn't contain orientation information in its Exif metadata, Amazon Rekognition returns an estimated orientation (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition doesn’t perform image correction for images. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.</p> </li> </ul> <p>Bounding box information is returned in the <code>FaceRecords</code> array. You can get the version of the face detection model by calling <a>DescribeCollection</a>. </p>
-    #[serde(rename = "OrientationCorrection")]
+    #[serde(rename = "orientationCorrection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub orientation_correction: Option<String>,
     /// <p>An array of faces that were detected in the image but weren't indexed. They weren't indexed because the quality filter identified them as low quality, or the <code>MaxFaces</code> request parameter filtered them out. To use the quality filter, you specify the <code>QualityFilter</code> request parameter.</p>
-    #[serde(rename = "UnindexedFaces")]
+    #[serde(rename = "unindexedFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unindexed_faces: Option<Vec<UnindexedFace>>,
 }
@@ -1665,11 +1665,11 @@ pub struct IndexFacesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Instance {
     /// <p>The position of the label instance on the image.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>The confidence that Amazon Rekognition has in the accuracy of the bounding box.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
 }
@@ -1678,7 +1678,7 @@ pub struct Instance {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisDataStream {
     /// <p>ARN of the output Amazon Kinesis Data Streams stream.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -1687,7 +1687,7 @@ pub struct KinesisDataStream {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisVideoStream {
     /// <p>ARN of the Kinesis video stream stream that streams the source video.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -1697,19 +1697,19 @@ pub struct KinesisVideoStream {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Label {
     /// <p>Level of confidence.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>If <code>Label</code> represents an object, <code>Instances</code> contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.</p>
-    #[serde(rename = "Instances")]
+    #[serde(rename = "instances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instances: Option<Vec<Instance>>,
     /// <p>The name (label) of the object or scene.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The parent labels for a label. The response includes all ancestor labels.</p>
-    #[serde(rename = "Parents")]
+    #[serde(rename = "parents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parents: Option<Vec<Parent>>,
 }
@@ -1719,11 +1719,11 @@ pub struct Label {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LabelDetection {
     /// <p>Details about the detected label.</p>
-    #[serde(rename = "Label")]
+    #[serde(rename = "label")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label: Option<Label>,
     /// <p>Time, in milliseconds from the start of the video, that the label was detected.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -1733,15 +1733,15 @@ pub struct LabelDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Landmark {
     /// <p>Type of landmark.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The x-coordinate of the landmark expressed as a ratio of the width of the image. The x-coordinate is measured from the left-side of the image. For example, if the image is 700 pixels wide and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
-    #[serde(rename = "X")]
+    #[serde(rename = "x")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x: Option<f32>,
     /// <p>The y-coordinate of the landmark expressed as a ratio of the height of the image. The y-coordinate is measured from the top of the image. For example, if the image height is 200 pixels and the y-coordinate of the landmark is at 50 pixels, this value is 0.25.</p>
-    #[serde(rename = "Y")]
+    #[serde(rename = "y")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub y: Option<f32>,
 }
@@ -1750,11 +1750,11 @@ pub struct Landmark {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCollectionsRequest {
     /// <p>Maximum number of collection IDs to return. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token from the previous response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1763,15 +1763,15 @@ pub struct ListCollectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCollectionsResponse {
     /// <p>An array of collection IDs.</p>
-    #[serde(rename = "CollectionIds")]
+    #[serde(rename = "collectionIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collection_ids: Option<Vec<String>>,
     /// <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>. For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used by the collection in <code>CollectionId[2]</code>.</p>
-    #[serde(rename = "FaceModelVersions")]
+    #[serde(rename = "faceModelVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_versions: Option<Vec<String>>,
     /// <p>If the result is truncated, the response provides a <code>NextToken</code> that you can use in the subsequent request to fetch the next set of collection IDs.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1780,14 +1780,14 @@ pub struct ListCollectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFacesRequest {
     /// <p>ID of the collection from which to list the faces.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p>Maximum number of faces to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1796,15 +1796,15 @@ pub struct ListFacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFacesResponse {
     /// <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
-    #[serde(rename = "FaceModelVersion")]
+    #[serde(rename = "faceModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_version: Option<String>,
     /// <p>An array of <code>Face</code> objects. </p>
-    #[serde(rename = "Faces")]
+    #[serde(rename = "faces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub faces: Option<Vec<Face>>,
     /// <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1813,11 +1813,11 @@ pub struct ListFacesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListStreamProcessorsRequest {
     /// <p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1826,11 +1826,11 @@ pub struct ListStreamProcessorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListStreamProcessorsResponse {
     /// <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of stream processors that you have created.</p>
-    #[serde(rename = "StreamProcessors")]
+    #[serde(rename = "streamProcessors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_processors: Option<Vec<StreamProcessor>>,
 }
@@ -1839,7 +1839,7 @@ pub struct ListStreamProcessorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that contains the tags that you want a list of. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1847,7 +1847,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p> A list of key-value tags assigned to the resource. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1857,15 +1857,15 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ModerationLabel {
     /// <p>Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.</p> <p>If you don't specify the <code>MinConfidence</code> parameter in the call to <code>DetectModerationLabels</code>, the operation returns labels with a confidence value greater than or equal to 50 percent.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The label name for the type of unsafe content detected in the image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The name for the parent label. Labels at the top level of the hierarchy have the parent label <code>""</code>.</p>
-    #[serde(rename = "ParentName")]
+    #[serde(rename = "parentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_name: Option<String>,
 }
@@ -1875,11 +1875,11 @@ pub struct ModerationLabel {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MouthOpen {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the mouth on the face is open or not.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -1889,11 +1889,11 @@ pub struct MouthOpen {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Mustache {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the face has mustache or not.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -1903,10 +1903,10 @@ pub struct Mustache {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct NotificationChannel {
     /// <p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</p>
-    #[serde(rename = "SNSTopicArn")]
+    #[serde(rename = "sNSTopicArn")]
     pub sns_topic_arn: String,
 }
 
@@ -1914,11 +1914,11 @@ pub struct NotificationChannel {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OutputConfig {
     /// <p>The S3 bucket where training output is placed.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket: Option<String>,
     /// <p>The prefix applied to the training output files. </p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
 }
@@ -1928,7 +1928,7 @@ pub struct OutputConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Parent {
     /// <p>The name of the parent label.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1938,15 +1938,15 @@ pub struct Parent {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PersonDetail {
     /// <p>Bounding box around the detected person.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Face details for the detected person.</p>
-    #[serde(rename = "Face")]
+    #[serde(rename = "face")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face: Option<FaceDetail>,
     /// <p>Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
 }
@@ -1956,11 +1956,11 @@ pub struct PersonDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PersonDetection {
     /// <p>Details about a person whose path was tracked in a video.</p>
-    #[serde(rename = "Person")]
+    #[serde(rename = "person")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub person: Option<PersonDetail>,
     /// <p>The time, in milliseconds from the start of the video, that the person's path was tracked.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -1970,15 +1970,15 @@ pub struct PersonDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PersonMatch {
     /// <p>Information about the faces in the input collection that match the face of a person in the video.</p>
-    #[serde(rename = "FaceMatches")]
+    #[serde(rename = "faceMatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_matches: Option<Vec<FaceMatch>>,
     /// <p>Information about the matched person.</p>
-    #[serde(rename = "Person")]
+    #[serde(rename = "person")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub person: Option<PersonDetail>,
     /// <p>The time, in milliseconds from the beginning of the video, that the person was matched in the video.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -1988,11 +1988,11 @@ pub struct PersonMatch {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Point {
     /// <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
-    #[serde(rename = "X")]
+    #[serde(rename = "x")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x: Option<f32>,
     /// <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
-    #[serde(rename = "Y")]
+    #[serde(rename = "y")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub y: Option<f32>,
 }
@@ -2002,15 +2002,15 @@ pub struct Point {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Pose {
     /// <p>Value representing the face rotation on the pitch axis.</p>
-    #[serde(rename = "Pitch")]
+    #[serde(rename = "pitch")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pitch: Option<f32>,
     /// <p>Value representing the face rotation on the roll axis.</p>
-    #[serde(rename = "Roll")]
+    #[serde(rename = "roll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub roll: Option<f32>,
     /// <p>Value representing the face rotation on the yaw axis.</p>
-    #[serde(rename = "Yaw")]
+    #[serde(rename = "yaw")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub yaw: Option<f32>,
 }
@@ -2020,15 +2020,15 @@ pub struct Pose {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProjectDescription {
     /// <p>The Unix timestamp for the date and time that the project was created.</p>
-    #[serde(rename = "CreationTimestamp")]
+    #[serde(rename = "creationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_timestamp: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the project.</p>
-    #[serde(rename = "ProjectArn")]
+    #[serde(rename = "projectArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_arn: Option<String>,
     /// <p>The current status of the project.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2038,55 +2038,55 @@ pub struct ProjectDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProjectVersionDescription {
     /// <p>The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.</p>
-    #[serde(rename = "BillableTrainingTimeInSeconds")]
+    #[serde(rename = "billableTrainingTimeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub billable_training_time_in_seconds: Option<i64>,
     /// <p>The Unix datetime for the date and time that training started.</p>
-    #[serde(rename = "CreationTimestamp")]
+    #[serde(rename = "creationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_timestamp: Option<f64>,
     /// <p>The training results. <code>EvaluationResult</code> is only returned if training is successful.</p>
-    #[serde(rename = "EvaluationResult")]
+    #[serde(rename = "evaluationResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_result: Option<EvaluationResult>,
     /// <p>The identifer for the AWS Key Management Service (AWS KMS) customer master key that was used to encrypt the model during training. </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.</p>
-    #[serde(rename = "ManifestSummary")]
+    #[serde(rename = "manifestSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_summary: Option<GroundTruthManifest>,
     /// <p>The minimum number of inference units used by the model. For more information, see <a>StartProjectVersion</a>.</p>
-    #[serde(rename = "MinInferenceUnits")]
+    #[serde(rename = "minInferenceUnits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_inference_units: Option<i64>,
     /// <p>The location where training results are saved.</p>
-    #[serde(rename = "OutputConfig")]
+    #[serde(rename = "outputConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_config: Option<OutputConfig>,
     /// <p>The Amazon Resource Name (ARN) of the model version. </p>
-    #[serde(rename = "ProjectVersionArn")]
+    #[serde(rename = "projectVersionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_version_arn: Option<String>,
     /// <p>The current status of the model version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>A descriptive message for an error or warning that occurred.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>Contains information about the testing results.</p>
-    #[serde(rename = "TestingDataResult")]
+    #[serde(rename = "testingDataResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub testing_data_result: Option<TestingDataResult>,
     /// <p>Contains information about the training results.</p>
-    #[serde(rename = "TrainingDataResult")]
+    #[serde(rename = "trainingDataResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_data_result: Option<TrainingDataResult>,
     /// <p>The Unix date and time that training of the model ended.</p>
-    #[serde(rename = "TrainingEndTimestamp")]
+    #[serde(rename = "trainingEndTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_end_timestamp: Option<f64>,
 }
@@ -2096,15 +2096,15 @@ pub struct ProjectVersionDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectiveEquipmentBodyPart {
     /// <p>The confidence that Amazon Rekognition has in the detection accuracy of the detected body part. </p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>An array of Personal Protective Equipment items detected around a body part.</p>
-    #[serde(rename = "EquipmentDetections")]
+    #[serde(rename = "equipmentDetections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub equipment_detections: Option<Vec<EquipmentDetection>>,
     /// <p>The detected body part.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2114,19 +2114,19 @@ pub struct ProtectiveEquipmentBodyPart {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectiveEquipmentPerson {
     /// <p>An array of body parts detected on a person's body (including body parts without PPE). </p>
-    #[serde(rename = "BodyParts")]
+    #[serde(rename = "bodyParts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub body_parts: Option<Vec<ProtectiveEquipmentBodyPart>>,
     /// <p>A bounding box around the detected person.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>The confidence that Amazon Rekognition has that the bounding box contains a person.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The identifier for the detected person. The identifier is only unique for a single call to <code>DetectProtectiveEquipment</code>.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<i64>,
 }
@@ -2136,10 +2136,10 @@ pub struct ProtectiveEquipmentPerson {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProtectiveEquipmentSummarizationAttributes {
     /// <p>The minimum confidence level for which you want summary information. The confidence level applies to person detection, body part detection, equipment detection, and body part coverage. Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a default value.</p> <p>Specify a <code>MinConfidence</code> value that is between 50-100% as <code>DetectProtectiveEquipment</code> returns predictions only where the detection confidence is between 50% - 100%. If you specify a value that is less than 50%, the results are the same specifying a value of 50%.</p> <p> </p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     pub min_confidence: f32,
     /// <p>An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the <code>PersonsWithRequiredEquipment</code> array field returned in <a>ProtectiveEquipmentSummary</a> by <code>DetectProtectiveEquipment</code>. </p>
-    #[serde(rename = "RequiredEquipmentTypes")]
+    #[serde(rename = "requiredEquipmentTypes")]
     pub required_equipment_types: Vec<String>,
 }
 
@@ -2148,15 +2148,15 @@ pub struct ProtectiveEquipmentSummarizationAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtectiveEquipmentSummary {
     /// <p>An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment. </p>
-    #[serde(rename = "PersonsIndeterminate")]
+    #[serde(rename = "personsIndeterminate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persons_indeterminate: Option<Vec<i64>>,
     /// <p>An array of IDs for persons who are wearing detected personal protective equipment. </p>
-    #[serde(rename = "PersonsWithRequiredEquipment")]
+    #[serde(rename = "personsWithRequiredEquipment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persons_with_required_equipment: Option<Vec<i64>>,
     /// <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the <code>RequiredEquipmentTypes</code> field of the detected personal protective equipment. </p>
-    #[serde(rename = "PersonsWithoutRequiredEquipment")]
+    #[serde(rename = "personsWithoutRequiredEquipment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub persons_without_required_equipment: Option<Vec<i64>>,
 }
@@ -2165,7 +2165,7 @@ pub struct ProtectiveEquipmentSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RecognizeCelebritiesRequest {
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
 }
 
@@ -2173,15 +2173,15 @@ pub struct RecognizeCelebritiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecognizeCelebritiesResponse {
     /// <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.</p>
-    #[serde(rename = "CelebrityFaces")]
+    #[serde(rename = "celebrityFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub celebrity_faces: Option<Vec<Celebrity>>,
     /// <p><p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p> <note> <p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image&#39;s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don&#39;t contain Exif metadata. </p> </note></p>
-    #[serde(rename = "OrientationCorrection")]
+    #[serde(rename = "orientationCorrection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub orientation_correction: Option<String>,
     /// <p>Details about each unrecognized face in the image.</p>
-    #[serde(rename = "UnrecognizedFaces")]
+    #[serde(rename = "unrecognizedFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unrecognized_faces: Option<Vec<ComparedFace>>,
 }
@@ -2191,7 +2191,7 @@ pub struct RecognizeCelebritiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegionOfInterest {
     /// <p>The box representing a region of interest on screen.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
 }
@@ -2200,15 +2200,15 @@ pub struct RegionOfInterest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Object {
     /// <p>Name of the S3 bucket.</p>
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket: Option<String>,
     /// <p>S3 object key name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>If the bucket is versioning enabled, you can specify the object version. </p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -2217,21 +2217,21 @@ pub struct S3Object {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchFacesByImageRequest {
     /// <p>ID of the collection to search.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p>(Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.</p>
-    #[serde(rename = "FaceMatchThreshold")]
+    #[serde(rename = "faceMatchThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_match_threshold: Option<f32>,
     /// <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     pub image: Image,
     /// <p>Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.</p>
-    #[serde(rename = "MaxFaces")]
+    #[serde(rename = "maxFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_faces: Option<i64>,
     /// <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is <code>NONE</code>. </p> <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
-    #[serde(rename = "QualityFilter")]
+    #[serde(rename = "qualityFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quality_filter: Option<String>,
 }
@@ -2240,19 +2240,19 @@ pub struct SearchFacesByImageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchFacesByImageResponse {
     /// <p>An array of faces that match the input face, along with the confidence in the match.</p>
-    #[serde(rename = "FaceMatches")]
+    #[serde(rename = "faceMatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_matches: Option<Vec<FaceMatch>>,
     /// <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
-    #[serde(rename = "FaceModelVersion")]
+    #[serde(rename = "faceModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_version: Option<String>,
     /// <p>The bounding box around the face in the input image that Amazon Rekognition used for the search.</p>
-    #[serde(rename = "SearchedFaceBoundingBox")]
+    #[serde(rename = "searchedFaceBoundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub searched_face_bounding_box: Option<BoundingBox>,
     /// <p>The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a face.</p>
-    #[serde(rename = "SearchedFaceConfidence")]
+    #[serde(rename = "searchedFaceConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub searched_face_confidence: Option<f32>,
 }
@@ -2261,17 +2261,17 @@ pub struct SearchFacesByImageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchFacesRequest {
     /// <p>ID of the collection the face belongs to.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p>ID of a face to find matches for in the collection.</p>
-    #[serde(rename = "FaceId")]
+    #[serde(rename = "faceId")]
     pub face_id: String,
     /// <p>Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%. </p>
-    #[serde(rename = "FaceMatchThreshold")]
+    #[serde(rename = "faceMatchThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_match_threshold: Option<f32>,
     /// <p>Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.</p>
-    #[serde(rename = "MaxFaces")]
+    #[serde(rename = "maxFaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_faces: Option<i64>,
 }
@@ -2280,15 +2280,15 @@ pub struct SearchFacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchFacesResponse {
     /// <p>An array of faces that matched the input face, along with the confidence in the match.</p>
-    #[serde(rename = "FaceMatches")]
+    #[serde(rename = "faceMatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_matches: Option<Vec<FaceMatch>>,
     /// <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
-    #[serde(rename = "FaceModelVersion")]
+    #[serde(rename = "faceModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_model_version: Option<String>,
     /// <p>ID of the face that was searched for matches in a collection.</p>
-    #[serde(rename = "SearchedFaceId")]
+    #[serde(rename = "searchedFaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub searched_face_id: Option<String>,
 }
@@ -2298,39 +2298,39 @@ pub struct SearchFacesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SegmentDetection {
     /// <p>The duration of the detected segment in milliseconds. </p>
-    #[serde(rename = "DurationMillis")]
+    #[serde(rename = "durationMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_millis: Option<i64>,
     /// <p>The duration of the timecode for the detected segment in SMPTE format.</p>
-    #[serde(rename = "DurationSMPTE")]
+    #[serde(rename = "durationSMPTE")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_smpte: Option<String>,
     /// <p>The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. <code>EndTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates).</p>
-    #[serde(rename = "EndTimecodeSMPTE")]
+    #[serde(rename = "endTimecodeSMPTE")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_timecode_smpte: Option<String>,
     /// <p>The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.</p>
-    #[serde(rename = "EndTimestampMillis")]
+    #[serde(rename = "endTimestampMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_timestamp_millis: Option<i64>,
     /// <p>If the segment is a shot detection, contains information about the shot detection.</p>
-    #[serde(rename = "ShotSegment")]
+    #[serde(rename = "shotSegment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shot_segment: Option<ShotSegment>,
     /// <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates). </p>
-    #[serde(rename = "StartTimecodeSMPTE")]
+    #[serde(rename = "startTimecodeSMPTE")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_timecode_smpte: Option<String>,
     /// <p>The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.</p>
-    #[serde(rename = "StartTimestampMillis")]
+    #[serde(rename = "startTimestampMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_timestamp_millis: Option<i64>,
     /// <p>If the segment is a technical cue, contains information about the technical cue.</p>
-    #[serde(rename = "TechnicalCueSegment")]
+    #[serde(rename = "technicalCueSegment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub technical_cue_segment: Option<TechnicalCueSegment>,
     /// <p>The type of the segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2340,11 +2340,11 @@ pub struct SegmentDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SegmentTypeInfo {
     /// <p>The version of the model used to detect segments.</p>
-    #[serde(rename = "ModelVersion")]
+    #[serde(rename = "modelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_version: Option<String>,
     /// <p>The type of a segment (technical cue or shot detection).</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2354,11 +2354,11 @@ pub struct SegmentTypeInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ShotSegment {
     /// <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>An Identifier for a shot detection segment detected in a video. </p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
 }
@@ -2368,11 +2368,11 @@ pub struct ShotSegment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Smile {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the face is smiling or not.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -2381,19 +2381,19 @@ pub struct Smile {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartCelebrityRecognitionRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.</p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.</p>
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2401,7 +2401,7 @@ pub struct StartCelebrityRecognitionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartCelebrityRecognitionResponse {
     /// <p>The identifier for the celebrity recognition analysis job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetCelebrityRecognition</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2410,23 +2410,23 @@ pub struct StartCelebrityRecognitionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartContentModerationRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartContentModeration</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with confidence values greater than or equal to 50 percent.</p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_confidence: Option<f32>,
     /// <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.</p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.</p>
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2434,7 +2434,7 @@ pub struct StartContentModerationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartContentModerationResponse {
     /// <p>The identifier for the unsafe content analysis job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2443,23 +2443,23 @@ pub struct StartContentModerationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartFaceDetectionRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartFaceDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The face attributes you want returned.</p> <p> <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p> <p> <code>ALL</code> - All facial attributes are returned.</p>
-    #[serde(rename = "FaceAttributes")]
+    #[serde(rename = "faceAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_attributes: Option<String>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation.</p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.</p>
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2467,7 +2467,7 @@ pub struct StartFaceDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartFaceDetectionResponse {
     /// <p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceDetection</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2476,26 +2476,26 @@ pub struct StartFaceDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartFaceSearchRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartFaceSearch</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>ID of the collection that contains the faces you want to search for.</p>
-    #[serde(rename = "CollectionId")]
+    #[serde(rename = "collectionId")]
     pub collection_id: String,
     /// <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.</p>
-    #[serde(rename = "FaceMatchThreshold")]
+    #[serde(rename = "faceMatchThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_match_threshold: Option<f32>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2503,7 +2503,7 @@ pub struct StartFaceSearchRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartFaceSearchResponse {
     /// <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2512,23 +2512,23 @@ pub struct StartFaceSearchResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartLabelDetectionRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartLabelDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
-    #[serde(rename = "MinConfidence")]
+    #[serde(rename = "minConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_confidence: Option<f32>,
     /// <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. </p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.</p>
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2536,7 +2536,7 @@ pub struct StartLabelDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartLabelDetectionResponse {
     /// <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetLabelDetection</code>. </p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2545,19 +2545,19 @@ pub struct StartLabelDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartPersonTrackingRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartPersonTracking</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to.</p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>The video in which you want to detect people. The video must be stored in an Amazon S3 bucket.</p>
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2565,7 +2565,7 @@ pub struct StartPersonTrackingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartPersonTrackingResponse {
     /// <p>The identifier for the person detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetPersonTracking</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2574,10 +2574,10 @@ pub struct StartPersonTrackingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartProjectVersionRequest {
     /// <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
-    #[serde(rename = "MinInferenceUnits")]
+    #[serde(rename = "minInferenceUnits")]
     pub min_inference_units: i64,
     /// <p>The Amazon Resource Name(ARN) of the model version that you want to start.</p>
-    #[serde(rename = "ProjectVersionArn")]
+    #[serde(rename = "projectVersionArn")]
     pub project_version_arn: String,
 }
 
@@ -2585,7 +2585,7 @@ pub struct StartProjectVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartProjectVersionResponse {
     /// <p>The current running status of the model. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2595,11 +2595,11 @@ pub struct StartProjectVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSegmentDetectionFilters {
     /// <p>Filters that are specific to shot detections.</p>
-    #[serde(rename = "ShotFilter")]
+    #[serde(rename = "shotFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shot_filter: Option<StartShotDetectionFilter>,
     /// <p>Filters that are specific to technical cues.</p>
-    #[serde(rename = "TechnicalCueFilter")]
+    #[serde(rename = "technicalCueFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub technical_cue_filter: Option<StartTechnicalCueDetectionFilter>,
 }
@@ -2608,25 +2608,25 @@ pub struct StartSegmentDetectionFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSegmentDetectionRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartSegmentDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>Filters for technical cue or shot detection.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<StartSegmentDetectionFilters>,
     /// <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.</p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
-    #[serde(rename = "SegmentTypes")]
+    #[serde(rename = "segmentTypes")]
     pub segment_types: Vec<String>,
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2634,7 +2634,7 @@ pub struct StartSegmentDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartSegmentDetectionResponse {
     /// <p>Unique identifier for the segment detection job. The <code>JobId</code> is returned from <code>StartSegmentDetection</code>. </p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2644,7 +2644,7 @@ pub struct StartSegmentDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartShotDetectionFilter {
     /// <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinSegmentConfidence</code>, the <code>GetSegmentDetection</code> returns segments with confidence values greater than or equal to 50 percent.</p>
-    #[serde(rename = "MinSegmentConfidence")]
+    #[serde(rename = "minSegmentConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_segment_confidence: Option<f32>,
 }
@@ -2653,7 +2653,7 @@ pub struct StartShotDetectionFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartStreamProcessorRequest {
     /// <p>The name of the stream processor to start processing.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2666,7 +2666,7 @@ pub struct StartStreamProcessorResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTechnicalCueDetectionFilter {
     /// <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinSegmentConfidence</code>, <code>GetSegmentDetection</code> returns segments with confidence values greater than or equal to 50 percent.</p>
-    #[serde(rename = "MinSegmentConfidence")]
+    #[serde(rename = "minSegmentConfidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_segment_confidence: Option<f32>,
 }
@@ -2676,11 +2676,11 @@ pub struct StartTechnicalCueDetectionFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTextDetectionFilters {
     /// <p>Filter focusing on a certain area of the frame. Uses a <code>BoundingBox</code> object to set the region of the screen.</p>
-    #[serde(rename = "RegionsOfInterest")]
+    #[serde(rename = "regionsOfInterest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub regions_of_interest: Option<Vec<RegionOfInterest>>,
     /// <p>Filters focusing on qualities of the text, such as confidence or size.</p>
-    #[serde(rename = "WordFilter")]
+    #[serde(rename = "wordFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub word_filter: Option<DetectionFilter>,
 }
@@ -2689,21 +2689,21 @@ pub struct StartTextDetectionFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTextDetectionRequest {
     /// <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentaly started more than once.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<StartTextDetectionFilters>,
     /// <p>An identifier returned in the completion status published by your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
-    #[serde(rename = "Video")]
+    #[serde(rename = "video")]
     pub video: Video,
 }
 
@@ -2711,7 +2711,7 @@ pub struct StartTextDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTextDetectionResponse {
     /// <p>Identifier for the text detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -2720,7 +2720,7 @@ pub struct StartTextDetectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopProjectVersionRequest {
     /// <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p> <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
-    #[serde(rename = "ProjectVersionArn")]
+    #[serde(rename = "projectVersionArn")]
     pub project_version_arn: String,
 }
 
@@ -2728,7 +2728,7 @@ pub struct StopProjectVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopProjectVersionResponse {
     /// <p>The current status of the stop operation. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2737,7 +2737,7 @@ pub struct StopProjectVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopStreamProcessorRequest {
     /// <p>The name of a stream processor created by <a>CreateStreamProcessor</a>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2750,11 +2750,11 @@ pub struct StopStreamProcessorResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StreamProcessor {
     /// <p>Name of the Amazon Rekognition stream processor. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Current status of the Amazon Rekognition stream processor.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2763,7 +2763,7 @@ pub struct StreamProcessor {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamProcessorInput {
     /// <p>The Kinesis video stream input stream for the source streaming video.</p>
-    #[serde(rename = "KinesisVideoStream")]
+    #[serde(rename = "kinesisVideoStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_video_stream: Option<KinesisVideoStream>,
 }
@@ -2772,7 +2772,7 @@ pub struct StreamProcessorInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamProcessorOutput {
     /// <p>The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.</p>
-    #[serde(rename = "KinesisDataStream")]
+    #[serde(rename = "kinesisDataStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_data_stream: Option<KinesisDataStream>,
 }
@@ -2781,7 +2781,7 @@ pub struct StreamProcessorOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamProcessorSettings {
     /// <p>Face search settings to use on a streaming video. </p>
-    #[serde(rename = "FaceSearch")]
+    #[serde(rename = "faceSearch")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_search: Option<FaceSearchSettings>,
 }
@@ -2790,7 +2790,7 @@ pub struct StreamProcessorSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Summary {
-    #[serde(rename = "S3Object")]
+    #[serde(rename = "s3Object")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object: Option<S3Object>,
 }
@@ -2800,11 +2800,11 @@ pub struct Summary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Sunglasses {
     /// <p>Level of confidence in the determination.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>Boolean value that indicates whether the face is wearing sunglasses or not.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<bool>,
 }
@@ -2813,10 +2813,10 @@ pub struct Sunglasses {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to assign the tags to. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p> The key-value tags to assign to the resource. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -2829,11 +2829,11 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TechnicalCueSegment {
     /// <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The type of the technical cue.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2842,11 +2842,11 @@ pub struct TechnicalCueSegment {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TestingData {
     /// <p>The assets used for testing.</p>
-    #[serde(rename = "Assets")]
+    #[serde(rename = "assets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assets: Option<Vec<Asset>>,
     /// <p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>
-    #[serde(rename = "AutoCreate")]
+    #[serde(rename = "autoCreate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_create: Option<bool>,
 }
@@ -2856,15 +2856,15 @@ pub struct TestingData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TestingDataResult {
     /// <p>The testing dataset that was supplied for training.</p>
-    #[serde(rename = "Input")]
+    #[serde(rename = "input")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input: Option<TestingData>,
     /// <p>The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues. </p>
-    #[serde(rename = "Output")]
+    #[serde(rename = "output")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output: Option<TestingData>,
     /// <p>The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.</p>
-    #[serde(rename = "Validation")]
+    #[serde(rename = "validation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validation: Option<ValidationData>,
 }
@@ -2874,27 +2874,27 @@ pub struct TestingDataResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TextDetection {
     /// <p>The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The word or line of text recognized by Amazon Rekognition. </p>
-    #[serde(rename = "DetectedText")]
+    #[serde(rename = "detectedText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detected_text: Option<String>,
     /// <p>The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.</p>
-    #[serde(rename = "Geometry")]
+    #[serde(rename = "geometry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geometry: Option<Geometry>,
     /// <p>The identifier for the detected text. The identifier is only unique for a single call to <code>DetectText</code>. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<i64>,
     /// <p>The Parent identifier for the detected text identified by the value of <code>ID</code>. If the type of detected text is <code>LINE</code>, the value of <code>ParentId</code> is <code>Null</code>. </p>
-    #[serde(rename = "ParentId")]
+    #[serde(rename = "parentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<i64>,
     /// <p>The type of text that was detected.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2904,11 +2904,11 @@ pub struct TextDetection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TextDetectionResult {
     /// <p>Details about text detected in a video.</p>
-    #[serde(rename = "TextDetection")]
+    #[serde(rename = "textDetection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_detection: Option<TextDetection>,
     /// <p>The time, in milliseconds from the start of the video, that the text was detected.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
 }
@@ -2917,7 +2917,7 @@ pub struct TextDetectionResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TrainingData {
     /// <p>A Sagemaker GroundTruth manifest file that contains the training images (assets).</p>
-    #[serde(rename = "Assets")]
+    #[serde(rename = "assets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assets: Option<Vec<Asset>>,
 }
@@ -2927,15 +2927,15 @@ pub struct TrainingData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TrainingDataResult {
     /// <p>The training assets that you supplied for training.</p>
-    #[serde(rename = "Input")]
+    #[serde(rename = "input")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input: Option<TrainingData>,
     /// <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
-    #[serde(rename = "Output")]
+    #[serde(rename = "output")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output: Option<TrainingData>,
     /// <p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>
-    #[serde(rename = "Validation")]
+    #[serde(rename = "validation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validation: Option<ValidationData>,
 }
@@ -2945,11 +2945,11 @@ pub struct TrainingDataResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnindexedFace {
     /// <p>The structure that contains attributes of a face that <code>IndexFaces</code>detected, but didn't index. </p>
-    #[serde(rename = "FaceDetail")]
+    #[serde(rename = "faceDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub face_detail: Option<FaceDetail>,
     /// <p><p>An array of reasons that specify why a face wasn&#39;t indexed. </p> <ul> <li> <p>EXTREME<em>POSE - The face is at a pose that can&#39;t be detected. For example, the head is turned too far away from the camera.</p> </li> <li> <p>EXCEEDS</em>MAX<em>FACES - The number of faces detected is already higher than that specified by the <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p> </li> <li> <p>LOW</em>BRIGHTNESS - The image is too dark.</p> </li> <li> <p>LOW<em>SHARPNESS - The image is too blurry.</p> </li> <li> <p>LOW</em>CONFIDENCE - The face was detected with a low confidence.</p> </li> <li> <p>SMALL<em>BOUNDING</em>BOX - The bounding box around the face is too small.</p> </li> </ul></p>
-    #[serde(rename = "Reasons")]
+    #[serde(rename = "reasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reasons: Option<Vec<String>>,
 }
@@ -2958,10 +2958,10 @@ pub struct UnindexedFace {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to remove the tags from. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p> A list of the tags that you want to remove. </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2974,7 +2974,7 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ValidationData {
     /// <p>The assets that comprise the validation data. </p>
-    #[serde(rename = "Assets")]
+    #[serde(rename = "assets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assets: Option<Vec<Asset>>,
 }
@@ -2984,7 +2984,7 @@ pub struct ValidationData {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Video {
     /// <p>The Amazon S3 bucket name and file name for the video.</p>
-    #[serde(rename = "S3Object")]
+    #[serde(rename = "s3Object")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object: Option<S3Object>,
 }
@@ -2994,27 +2994,27 @@ pub struct Video {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VideoMetadata {
     /// <p>Type of compression used in the analyzed video. </p>
-    #[serde(rename = "Codec")]
+    #[serde(rename = "codec")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub codec: Option<String>,
     /// <p>Length of the video in milliseconds.</p>
-    #[serde(rename = "DurationMillis")]
+    #[serde(rename = "durationMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_millis: Option<i64>,
     /// <p>Format of the analyzed video. Possible values are MP4, MOV and AVI. </p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>Vertical pixel dimension of the video.</p>
-    #[serde(rename = "FrameHeight")]
+    #[serde(rename = "frameHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub frame_height: Option<i64>,
     /// <p>Number of frames per second in the video.</p>
-    #[serde(rename = "FrameRate")]
+    #[serde(rename = "frameRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub frame_rate: Option<f32>,
     /// <p>Horizontal pixel dimension of the video.</p>
-    #[serde(rename = "FrameWidth")]
+    #[serde(rename = "frameWidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub frame_width: Option<i64>,
 }

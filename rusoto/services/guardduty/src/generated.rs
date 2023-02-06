@@ -29,13 +29,13 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AcceptInvitationRequest {
     /// <p>The unique ID of the detector of the GuardDuty member account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The value that is used to validate the administrator account to the member account.</p>
-    #[serde(rename = "InvitationId")]
+    #[serde(rename = "invitationId")]
     pub invitation_id: String,
     /// <p>The account ID of the GuardDuty administrator account whose invitation you're accepting.</p>
-    #[serde(rename = "MasterId")]
+    #[serde(rename = "masterId")]
     pub master_id: String,
 }
 
@@ -48,11 +48,11 @@ pub struct AcceptInvitationResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccessControlList {
     /// <p>A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).</p>
-    #[serde(rename = "AllowsPublicReadAccess")]
+    #[serde(rename = "allowsPublicReadAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allows_public_read_access: Option<bool>,
     /// <p>A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).</p>
-    #[serde(rename = "AllowsPublicWriteAccess")]
+    #[serde(rename = "allowsPublicWriteAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allows_public_write_access: Option<bool>,
 }
@@ -62,19 +62,19 @@ pub struct AccessControlList {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccessKeyDetails {
     /// <p>The access key ID of the user.</p>
-    #[serde(rename = "AccessKeyId")]
+    #[serde(rename = "accessKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_key_id: Option<String>,
     /// <p>The principal ID of the user.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_id: Option<String>,
     /// <p>The name of the user.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
     /// <p>The type of the user.</p>
-    #[serde(rename = "UserType")]
+    #[serde(rename = "userType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_type: Option<String>,
 }
@@ -84,10 +84,10 @@ pub struct AccessKeyDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AccountDetail {
     /// <p>The member account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The email address of the member account.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     pub email: String,
 }
 
@@ -96,7 +96,7 @@ pub struct AccountDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccountLevelPermissions {
     /// <p>Describes the S3 Block Public Access settings of the bucket's parent account.</p>
-    #[serde(rename = "BlockPublicAccess")]
+    #[serde(rename = "blockPublicAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_public_access: Option<BlockPublicAccess>,
 }
@@ -106,23 +106,23 @@ pub struct AccountLevelPermissions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Action {
     /// <p>The GuardDuty finding activity type.</p>
-    #[serde(rename = "ActionType")]
+    #[serde(rename = "actionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action_type: Option<String>,
     /// <p>Information about the AWS_API_CALL action described in this finding.</p>
-    #[serde(rename = "AwsApiCallAction")]
+    #[serde(rename = "awsApiCallAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_api_call_action: Option<AwsApiCallAction>,
     /// <p>Information about the DNS_REQUEST action described in this finding.</p>
-    #[serde(rename = "DnsRequestAction")]
+    #[serde(rename = "dnsRequestAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_request_action: Option<DnsRequestAction>,
     /// <p>Information about the NETWORK_CONNECTION action described in this finding.</p>
-    #[serde(rename = "NetworkConnectionAction")]
+    #[serde(rename = "networkConnectionAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_connection_action: Option<NetworkConnectionAction>,
     /// <p>Information about the PORT_PROBE action described in this finding.</p>
-    #[serde(rename = "PortProbeAction")]
+    #[serde(rename = "portProbeAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_probe_action: Option<PortProbeAction>,
 }
@@ -132,11 +132,11 @@ pub struct Action {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminAccount {
     /// <p>The AWS account ID for the account.</p>
-    #[serde(rename = "AdminAccountId")]
+    #[serde(rename = "adminAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_account_id: Option<String>,
     /// <p>Indicates whether the account is enabled as the delegated administrator.</p>
-    #[serde(rename = "AdminStatus")]
+    #[serde(rename = "adminStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_status: Option<String>,
 }
@@ -145,10 +145,10 @@ pub struct AdminAccount {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ArchiveFindingsRequest {
     /// <p>The ID of the detector that specifies the GuardDuty service whose findings you want to archive.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The IDs of the findings that you want to archive.</p>
-    #[serde(rename = "FindingIds")]
+    #[serde(rename = "findingIds")]
     pub finding_ids: Vec<String>,
 }
 
@@ -161,27 +161,27 @@ pub struct ArchiveFindingsResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AwsApiCallAction {
     /// <p>The AWS API name.</p>
-    #[serde(rename = "Api")]
+    #[serde(rename = "api")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api: Option<String>,
     /// <p>The AWS API caller type.</p>
-    #[serde(rename = "CallerType")]
+    #[serde(rename = "callerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub caller_type: Option<String>,
     /// <p>The domain information for the AWS API call.</p>
-    #[serde(rename = "DomainDetails")]
+    #[serde(rename = "domainDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_details: Option<DomainDetails>,
     /// <p>The error code of the failed AWS API action.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The remote IP information of the connection that initiated the AWS API call.</p>
-    #[serde(rename = "RemoteIpDetails")]
+    #[serde(rename = "remoteIpDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_ip_details: Option<RemoteIpDetails>,
     /// <p>The AWS service name whose API was invoked.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
 }
@@ -191,19 +191,19 @@ pub struct AwsApiCallAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BlockPublicAccess {
     /// <p>Indicates if S3 Block Public Access is set to <code>BlockPublicAcls</code>.</p>
-    #[serde(rename = "BlockPublicAcls")]
+    #[serde(rename = "blockPublicAcls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_public_acls: Option<bool>,
     /// <p>Indicates if S3 Block Public Access is set to <code>BlockPublicPolicy</code>.</p>
-    #[serde(rename = "BlockPublicPolicy")]
+    #[serde(rename = "blockPublicPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_public_policy: Option<bool>,
     /// <p>Indicates if S3 Block Public Access is set to <code>IgnorePublicAcls</code>.</p>
-    #[serde(rename = "IgnorePublicAcls")]
+    #[serde(rename = "ignorePublicAcls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ignore_public_acls: Option<bool>,
     /// <p>Indicates if S3 Block Public Access is set to <code>RestrictPublicBuckets</code>.</p>
-    #[serde(rename = "RestrictPublicBuckets")]
+    #[serde(rename = "restrictPublicBuckets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub restrict_public_buckets: Option<bool>,
 }
@@ -213,15 +213,15 @@ pub struct BlockPublicAccess {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BucketLevelPermissions {
     /// <p>Contains information on how Access Control Policies are applied to the bucket.</p>
-    #[serde(rename = "AccessControlList")]
+    #[serde(rename = "accessControlList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_control_list: Option<AccessControlList>,
     /// <p>Contains information on which account level S3 Block Public Access settings are applied to the S3 bucket.</p>
-    #[serde(rename = "BlockPublicAccess")]
+    #[serde(rename = "blockPublicAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_public_access: Option<BlockPublicAccess>,
     /// <p>Contains information on the bucket policies for the S3 bucket.</p>
-    #[serde(rename = "BucketPolicy")]
+    #[serde(rename = "bucketPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_policy: Option<BucketPolicy>,
 }
@@ -231,11 +231,11 @@ pub struct BucketLevelPermissions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BucketPolicy {
     /// <p>A value that indicates whether public read access for the bucket is enabled through a bucket policy.</p>
-    #[serde(rename = "AllowsPublicReadAccess")]
+    #[serde(rename = "allowsPublicReadAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allows_public_read_access: Option<bool>,
     /// <p>A value that indicates whether public write access for the bucket is enabled through a bucket policy.</p>
-    #[serde(rename = "AllowsPublicWriteAccess")]
+    #[serde(rename = "allowsPublicWriteAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allows_public_write_access: Option<bool>,
 }
@@ -245,7 +245,7 @@ pub struct BucketPolicy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct City {
     /// <p>The city name of the remote IP address.</p>
-    #[serde(rename = "CityName")]
+    #[serde(rename = "cityName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub city_name: Option<String>,
 }
@@ -255,7 +255,7 @@ pub struct City {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CloudTrailConfigurationResult {
     /// <p>Describes whether CloudTrail is enabled as a data source for the detector.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -263,27 +263,27 @@ pub struct CloudTrailConfigurationResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Condition {
     /// <p>Represents an <i>equal</i> <b/> condition to be applied to a single field when querying for findings.</p>
-    #[serde(rename = "Equals")]
+    #[serde(rename = "equals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub equals: Option<Vec<String>>,
     /// <p>Represents a <i>greater than</i> condition to be applied to a single field when querying for findings.</p>
-    #[serde(rename = "GreaterThan")]
+    #[serde(rename = "greaterThan")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub greater_than: Option<i64>,
     /// <p>Represents a <i>greater than or equal</i> condition to be applied to a single field when querying for findings.</p>
-    #[serde(rename = "GreaterThanOrEqual")]
+    #[serde(rename = "greaterThanOrEqual")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub greater_than_or_equal: Option<i64>,
     /// <p>Represents a <i>less than</i> condition to be applied to a single field when querying for findings.</p>
-    #[serde(rename = "LessThan")]
+    #[serde(rename = "lessThan")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub less_than: Option<i64>,
     /// <p>Represents a <i>less than or equal</i> condition to be applied to a single field when querying for findings.</p>
-    #[serde(rename = "LessThanOrEqual")]
+    #[serde(rename = "lessThanOrEqual")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub less_than_or_equal: Option<i64>,
     /// <p>Represents a <i>not equal</i> <b/> condition to be applied to a single field when querying for findings.</p>
-    #[serde(rename = "NotEquals")]
+    #[serde(rename = "notEquals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_equals: Option<Vec<String>>,
 }
@@ -293,11 +293,11 @@ pub struct Condition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Country {
     /// <p>The country code of the remote IP address.</p>
-    #[serde(rename = "CountryCode")]
+    #[serde(rename = "countryCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country_code: Option<String>,
     /// <p>The country name of the remote IP address.</p>
-    #[serde(rename = "CountryName")]
+    #[serde(rename = "countryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country_name: Option<String>,
 }
@@ -306,22 +306,22 @@ pub struct Country {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDetectorRequest {
     /// <p>The idempotency token for the create request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>Describes which data sources will be enabled for the detector.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<DataSourceConfigurations>,
     /// <p>A Boolean value that specifies whether the detector is to be enabled.</p>
-    #[serde(rename = "Enable")]
+    #[serde(rename = "enable")]
     pub enable: bool,
     /// <p>A value that specifies how frequently updated findings are exported.</p>
-    #[serde(rename = "FindingPublishingFrequency")]
+    #[serde(rename = "findingPublishingFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_publishing_frequency: Option<String>,
     /// <p>The tags to be added to a new detector resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -330,7 +330,7 @@ pub struct CreateDetectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDetectorResponse {
     /// <p>The unique ID of the created detector.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detector_id: Option<String>,
 }
@@ -339,32 +339,32 @@ pub struct CreateDetectorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFilterRequest {
     /// <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The idempotency token for the create request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The description of the filter.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p><p>Represents the criteria to be used in the filter for querying findings.</p> <p>You can only use the following attributes to query findings:</p> <ul> <li> <p>accountId</p> </li> <li> <p>region</p> </li> <li> <p>confidence</p> </li> <li> <p>id</p> </li> <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> <li> <p>resource.accessKeyDetails.principalId</p> </li> <li> <p>resource.accessKeyDetails.userName</p> </li> <li> <p>resource.accessKeyDetails.userType</p> </li> <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> <li> <p>resource.instanceDetails.imageId</p> </li> <li> <p>resource.instanceDetails.instanceId</p> </li> <li> <p>resource.instanceDetails.outpostArn</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> <li> <p>resource.instanceDetails.tags.key</p> </li> <li> <p>resource.instanceDetails.tags.value</p> </li> <li> <p>resource.resourceType</p> </li> <li> <p>service.action.actionType</p> </li> <li> <p>service.action.awsApiCallAction.api</p> </li> <li> <p>service.action.awsApiCallAction.callerType</p> </li> <li> <p>service.action.awsApiCallAction.errorCode</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> <li> <p>service.action.awsApiCallAction.serviceName</p> </li> <li> <p>service.action.dnsRequestAction.domain</p> </li> <li> <p>service.action.networkConnectionAction.blocked</p> </li> <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> <li> <p>service.action.networkConnectionAction.protocol</p> </li> <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> <li> <p>service.additionalInfo.threatListName</p> </li> <li> <p>service.archived</p> <p>When this attribute is set to TRUE, only archived findings are listed. When it&#39;s set to FALSE, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.</p> </li> <li> <p>service.resourceRole</p> </li> <li> <p>severity</p> </li> <li> <p>type</p> </li> <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> </ul></p>
-    #[serde(rename = "FindingCriteria")]
+    #[serde(rename = "findingCriteria")]
     pub finding_criteria: FindingCriteria,
     /// <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
-    #[serde(rename = "Rank")]
+    #[serde(rename = "rank")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rank: Option<i64>,
     /// <p>The tags to be added to a new filter resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -373,7 +373,7 @@ pub struct CreateFilterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFilterResponse {
     /// <p>The name of the successfully created filter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -381,26 +381,26 @@ pub struct CreateFilterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIPSetRequest {
     /// <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.</p>
-    #[serde(rename = "Activate")]
+    #[serde(rename = "activate")]
     pub activate: bool,
     /// <p>The idempotency token for the create request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The format of the file that contains the IPSet.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
     /// <p>The user-friendly name to identify the IPSet.</p> <p> Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to be added to a new IP set resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -409,7 +409,7 @@ pub struct CreateIPSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIPSetResponse {
     /// <p>The ID of the IPSet resource.</p>
-    #[serde(rename = "IpSetId")]
+    #[serde(rename = "ipSetId")]
     pub ip_set_id: String,
 }
 
@@ -417,10 +417,10 @@ pub struct CreateIPSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMembersRequest {
     /// <p>A list of account ID and email address pairs of the accounts that you want to associate with the GuardDuty administrator account.</p>
-    #[serde(rename = "AccountDetails")]
+    #[serde(rename = "accountDetails")]
     pub account_details: Vec<AccountDetail>,
     /// <p>The unique ID of the detector of the GuardDuty account that you want to associate member accounts with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -428,7 +428,7 @@ pub struct CreateMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMembersResponse {
     /// <p>A list of objects that include the <code>accountIds</code> of the unprocessed accounts and a result string that explains why each was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -436,17 +436,17 @@ pub struct CreateMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePublishingDestinationRequest {
     /// <p>The idempotency token for the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The properties of the publishing destination, including the ARNs for the destination and the KMS key used for encryption.</p>
-    #[serde(rename = "DestinationProperties")]
+    #[serde(rename = "destinationProperties")]
     pub destination_properties: DestinationProperties,
     /// <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.</p>
-    #[serde(rename = "DestinationType")]
+    #[serde(rename = "destinationType")]
     pub destination_type: String,
     /// <p>The ID of the GuardDuty detector associated with the publishing destination.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -454,7 +454,7 @@ pub struct CreatePublishingDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePublishingDestinationResponse {
     /// <p>The ID of the publishing destination that is created.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     pub destination_id: String,
 }
 
@@ -462,10 +462,10 @@ pub struct CreatePublishingDestinationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSampleFindingsRequest {
     /// <p>The ID of the detector to create sample findings for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The types of sample findings to generate.</p>
-    #[serde(rename = "FindingTypes")]
+    #[serde(rename = "findingTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_types: Option<Vec<String>>,
 }
@@ -478,26 +478,26 @@ pub struct CreateSampleFindingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateThreatIntelSetRequest {
     /// <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.</p>
-    #[serde(rename = "Activate")]
+    #[serde(rename = "activate")]
     pub activate: bool,
     /// <p>The idempotency token for the create request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The format of the file that contains the ThreatIntelSet.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
     /// <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to be added to a new threat list resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -506,7 +506,7 @@ pub struct CreateThreatIntelSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateThreatIntelSetResponse {
     /// <p>The ID of the ThreatIntelSet resource.</p>
-    #[serde(rename = "ThreatIntelSetId")]
+    #[serde(rename = "threatIntelSetId")]
     pub threat_intel_set_id: String,
 }
 
@@ -515,7 +515,7 @@ pub struct CreateThreatIntelSetResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DNSLogsConfigurationResult {
     /// <p>Denotes whether DNS logs is enabled as a data source.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -524,7 +524,7 @@ pub struct DNSLogsConfigurationResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DataSourceConfigurations {
     /// <p>Describes whether S3 data event logs are enabled as a data source.</p>
-    #[serde(rename = "S3Logs")]
+    #[serde(rename = "s3Logs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_logs: Option<S3LogsConfiguration>,
 }
@@ -534,16 +534,16 @@ pub struct DataSourceConfigurations {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSourceConfigurationsResult {
     /// <p>An object that contains information on the status of CloudTrail as a data source.</p>
-    #[serde(rename = "CloudTrail")]
+    #[serde(rename = "cloudTrail")]
     pub cloud_trail: CloudTrailConfigurationResult,
     /// <p>An object that contains information on the status of DNS logs as a data source.</p>
-    #[serde(rename = "DNSLogs")]
+    #[serde(rename = "dNSLogs")]
     pub dns_logs: DNSLogsConfigurationResult,
     /// <p>An object that contains information on the status of VPC flow logs as a data source.</p>
-    #[serde(rename = "FlowLogs")]
+    #[serde(rename = "flowLogs")]
     pub flow_logs: FlowLogsConfigurationResult,
     /// <p>An object that contains information on the status of S3 Data event logs as a data source.</p>
-    #[serde(rename = "S3Logs")]
+    #[serde(rename = "s3Logs")]
     pub s3_logs: S3LogsConfigurationResult,
 }
 
@@ -551,7 +551,7 @@ pub struct DataSourceConfigurationsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeclineInvitationsRequest {
     /// <p>A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
 }
 
@@ -559,7 +559,7 @@ pub struct DeclineInvitationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeclineInvitationsResponse {
     /// <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -568,11 +568,11 @@ pub struct DeclineInvitationsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DefaultServerSideEncryption {
     /// <p>The type of encryption used for objects within the S3 bucket.</p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket <code>EncryptionType</code> is <code>aws:kms</code>.</p>
-    #[serde(rename = "KmsMasterKeyArn")]
+    #[serde(rename = "kmsMasterKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_master_key_arn: Option<String>,
 }
@@ -581,7 +581,7 @@ pub struct DefaultServerSideEncryption {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDetectorRequest {
     /// <p>The unique ID of the detector that you want to delete.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -593,10 +593,10 @@ pub struct DeleteDetectorResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFilterRequest {
     /// <p>The unique ID of the detector that the filter is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The name of the filter that you want to delete.</p>
-    #[serde(rename = "FilterName")]
+    #[serde(rename = "filterName")]
     pub filter_name: String,
 }
 
@@ -608,10 +608,10 @@ pub struct DeleteFilterResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIPSetRequest {
     /// <p>The unique ID of the detector associated with the IPSet.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The unique ID of the IPSet to delete.</p>
-    #[serde(rename = "IpSetId")]
+    #[serde(rename = "ipSetId")]
     pub ip_set_id: String,
 }
 
@@ -623,7 +623,7 @@ pub struct DeleteIPSetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteInvitationsRequest {
     /// <p>A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
 }
 
@@ -631,7 +631,7 @@ pub struct DeleteInvitationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteInvitationsResponse {
     /// <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -639,10 +639,10 @@ pub struct DeleteInvitationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteMembersRequest {
     /// <p>A list of account IDs of the GuardDuty member accounts that you want to delete.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The unique ID of the detector of the GuardDuty account whose members you want to delete.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -650,7 +650,7 @@ pub struct DeleteMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteMembersResponse {
     /// <p>The accounts that could not be processed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -658,10 +658,10 @@ pub struct DeleteMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePublishingDestinationRequest {
     /// <p>The ID of the publishing destination to delete.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     pub destination_id: String,
     /// <p>The unique ID of the detector associated with the publishing destination to delete.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -673,10 +673,10 @@ pub struct DeletePublishingDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteThreatIntelSetRequest {
     /// <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The unique ID of the threatIntelSet that you want to delete.</p>
-    #[serde(rename = "ThreatIntelSetId")]
+    #[serde(rename = "threatIntelSetId")]
     pub threat_intel_set_id: String,
 }
 
@@ -688,7 +688,7 @@ pub struct DeleteThreatIntelSetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOrganizationConfigurationRequest {
     /// <p>The ID of the detector to retrieve information about the delegated administrator from.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -696,14 +696,14 @@ pub struct DescribeOrganizationConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOrganizationConfigurationResponse {
     /// <p>Indicates whether GuardDuty is automatically enabled for accounts added to the organization.</p>
-    #[serde(rename = "AutoEnable")]
+    #[serde(rename = "autoEnable")]
     pub auto_enable: bool,
     /// <p>Describes which data sources are enabled automatically for member accounts.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<OrganizationDataSourceConfigurationsResult>,
     /// <p>Indicates whether the maximum number of allowed member accounts are already associated with the delegated administrator account for your organization.</p>
-    #[serde(rename = "MemberAccountLimitReached")]
+    #[serde(rename = "memberAccountLimitReached")]
     pub member_account_limit_reached: bool,
 }
 
@@ -711,10 +711,10 @@ pub struct DescribeOrganizationConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePublishingDestinationRequest {
     /// <p>The ID of the publishing destination to retrieve.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     pub destination_id: String,
     /// <p>The unique ID of the detector associated with the publishing destination to retrieve.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -722,19 +722,19 @@ pub struct DescribePublishingDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePublishingDestinationResponse {
     /// <p>The ID of the publishing destination.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     pub destination_id: String,
     /// <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code> and <code>KmsKeyArn</code> of the publishing destination.</p>
-    #[serde(rename = "DestinationProperties")]
+    #[serde(rename = "destinationProperties")]
     pub destination_properties: DestinationProperties,
     /// <p>The type of publishing destination. Currently, only Amazon S3 buckets are supported.</p>
-    #[serde(rename = "DestinationType")]
+    #[serde(rename = "destinationType")]
     pub destination_type: String,
     /// <p>The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.</p>
-    #[serde(rename = "PublishingFailureStartTimestamp")]
+    #[serde(rename = "publishingFailureStartTimestamp")]
     pub publishing_failure_start_timestamp: i64,
     /// <p>The status of the publishing destination.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -743,13 +743,13 @@ pub struct DescribePublishingDestinationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Destination {
     /// <p>The unique ID of the publishing destination.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     pub destination_id: String,
     /// <p>The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.</p>
-    #[serde(rename = "DestinationType")]
+    #[serde(rename = "destinationType")]
     pub destination_type: String,
     /// <p>The status of the publishing destination.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -757,11 +757,11 @@ pub struct Destination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DestinationProperties {
     /// <p>The ARN of the resource to publish to.</p>
-    #[serde(rename = "DestinationArn")]
+    #[serde(rename = "destinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_arn: Option<String>,
     /// <p>The ARN of the KMS key to use for encryption.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
 }
@@ -770,7 +770,7 @@ pub struct DestinationProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisableOrganizationAdminAccountRequest {
     /// <p>The AWS Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.</p>
-    #[serde(rename = "AdminAccountId")]
+    #[serde(rename = "adminAccountId")]
     pub admin_account_id: String,
 }
 
@@ -782,7 +782,7 @@ pub struct DisableOrganizationAdminAccountResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateFromMasterAccountRequest {
     /// <p>The unique ID of the detector of the GuardDuty member account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -794,10 +794,10 @@ pub struct DisassociateFromMasterAccountResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateMembersRequest {
     /// <p>A list of account IDs of the GuardDuty member accounts that you want to disassociate from the administrator account.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the administrator account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -805,7 +805,7 @@ pub struct DisassociateMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateMembersResponse {
     /// <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -814,7 +814,7 @@ pub struct DisassociateMembersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DnsRequestAction {
     /// <p>The domain information for the API request.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
 }
@@ -824,7 +824,7 @@ pub struct DnsRequestAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainDetails {
     /// <p>The domain information for the AWS API call.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
 }
@@ -833,7 +833,7 @@ pub struct DomainDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EnableOrganizationAdminAccountRequest {
     /// <p>The AWS Account ID for the organization account to be enabled as a GuardDuty delegated administrator.</p>
-    #[serde(rename = "AdminAccountId")]
+    #[serde(rename = "adminAccountId")]
     pub admin_account_id: String,
 }
 
@@ -846,7 +846,7 @@ pub struct EnableOrganizationAdminAccountResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Evidence {
     /// <p>A list of threat intelligence details related to the evidence.</p>
-    #[serde(rename = "ThreatIntelligenceDetails")]
+    #[serde(rename = "threatIntelligenceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threat_intelligence_details: Option<Vec<ThreatIntelligenceDetail>>,
 }
@@ -856,52 +856,52 @@ pub struct Evidence {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Finding {
     /// <p>The ID of the account in which the finding was generated.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The ARN of the finding.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The confidence score for the finding.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f64>,
     /// <p>The time and date when the finding was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     pub created_at: String,
     /// <p>The description of the finding.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the finding.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The partition associated with the finding.</p>
-    #[serde(rename = "Partition")]
+    #[serde(rename = "partition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition: Option<String>,
     /// <p>The Region where the finding was generated.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     pub region: String,
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: Resource,
     /// <p>The version of the schema used for the finding.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     pub schema_version: String,
-    #[serde(rename = "Service")]
+    #[serde(rename = "service")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service: Option<Service>,
     /// <p>The severity of the finding.</p>
-    #[serde(rename = "Severity")]
+    #[serde(rename = "severity")]
     pub severity: f64,
     /// <p>The title of the finding.</p>
-    #[serde(rename = "Title")]
+    #[serde(rename = "title")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
     /// <p>The type of finding.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>The time and date when the finding was last updated.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     pub updated_at: String,
 }
 
@@ -909,7 +909,7 @@ pub struct Finding {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FindingCriteria {
     /// <p>Represents a map of finding properties that match specified conditions and values when querying findings.</p>
-    #[serde(rename = "Criterion")]
+    #[serde(rename = "criterion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub criterion: Option<::std::collections::HashMap<String, Condition>>,
 }
@@ -919,7 +919,7 @@ pub struct FindingCriteria {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FindingStatistics {
     /// <p>Represents a map of severity to count statistics for a set of findings.</p>
-    #[serde(rename = "CountBySeverity")]
+    #[serde(rename = "countBySeverity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_by_severity: Option<::std::collections::HashMap<String, i64>>,
 }
@@ -929,7 +929,7 @@ pub struct FindingStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FlowLogsConfigurationResult {
     /// <p>Denotes whether VPC flow logs is enabled as a data source.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -938,11 +938,11 @@ pub struct FlowLogsConfigurationResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GeoLocation {
     /// <p>The latitude information of the remote IP address.</p>
-    #[serde(rename = "Lat")]
+    #[serde(rename = "lat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lat: Option<f64>,
     /// <p>The longitude information of the remote IP address.</p>
-    #[serde(rename = "Lon")]
+    #[serde(rename = "lon")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lon: Option<f64>,
 }
@@ -951,7 +951,7 @@ pub struct GeoLocation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDetectorRequest {
     /// <p>The unique ID of the detector that you want to get.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -959,29 +959,29 @@ pub struct GetDetectorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDetectorResponse {
     /// <p>The timestamp of when the detector was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>Describes which data sources are enabled for the detector.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<DataSourceConfigurationsResult>,
     /// <p>The publishing frequency of the finding.</p>
-    #[serde(rename = "FindingPublishingFrequency")]
+    #[serde(rename = "findingPublishingFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_publishing_frequency: Option<String>,
     /// <p>The GuardDuty service role.</p>
-    #[serde(rename = "ServiceRole")]
+    #[serde(rename = "serviceRole")]
     pub service_role: String,
     /// <p>The detector status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>The tags of the detector resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The last-updated timestamp for the detector.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<String>,
 }
@@ -990,10 +990,10 @@ pub struct GetDetectorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFilterRequest {
     /// <p>The unique ID of the detector that the filter is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The name of the filter you want to get.</p>
-    #[serde(rename = "FilterName")]
+    #[serde(rename = "filterName")]
     pub filter_name: String,
 }
 
@@ -1001,24 +1001,24 @@ pub struct GetFilterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFilterResponse {
     /// <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>The description of the filter.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    #[serde(rename = "FindingCriteria")]
+    #[serde(rename = "findingCriteria")]
     pub finding_criteria: FindingCriteria,
     /// <p>The name of the filter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
-    #[serde(rename = "Rank")]
+    #[serde(rename = "rank")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rank: Option<i64>,
     /// <p>The tags of the filter resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1027,13 +1027,13 @@ pub struct GetFilterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFindingsRequest {
     /// <p>The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The IDs of the findings that you want to retrieve.</p>
-    #[serde(rename = "FindingIds")]
+    #[serde(rename = "findingIds")]
     pub finding_ids: Vec<String>,
     /// <p>Represents the criteria used for sorting findings.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<SortCriteria>,
 }
@@ -1042,7 +1042,7 @@ pub struct GetFindingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFindingsResponse {
     /// <p>A list of findings.</p>
-    #[serde(rename = "Findings")]
+    #[serde(rename = "findings")]
     pub findings: Vec<Finding>,
 }
 
@@ -1050,14 +1050,14 @@ pub struct GetFindingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFindingsStatisticsRequest {
     /// <p>The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>Represents the criteria that is used for querying findings.</p>
-    #[serde(rename = "FindingCriteria")]
+    #[serde(rename = "findingCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_criteria: Option<FindingCriteria>,
     /// <p>The types of finding statistics to retrieve.</p>
-    #[serde(rename = "FindingStatisticTypes")]
+    #[serde(rename = "findingStatisticTypes")]
     pub finding_statistic_types: Vec<String>,
 }
 
@@ -1065,7 +1065,7 @@ pub struct GetFindingsStatisticsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFindingsStatisticsResponse {
     /// <p>The finding statistics object.</p>
-    #[serde(rename = "FindingStatistics")]
+    #[serde(rename = "findingStatistics")]
     pub finding_statistics: FindingStatistics,
 }
 
@@ -1073,10 +1073,10 @@ pub struct GetFindingsStatisticsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIPSetRequest {
     /// <p>The unique ID of the detector that the IPSet is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The unique ID of the IPSet to retrieve.</p>
-    #[serde(rename = "IpSetId")]
+    #[serde(rename = "ipSetId")]
     pub ip_set_id: String,
 }
 
@@ -1084,19 +1084,19 @@ pub struct GetIPSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIPSetResponse {
     /// <p>The format of the file that contains the IPSet.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
     /// <p>The user-friendly name for the IPSet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The status of IPSet file that was uploaded.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>The tags of the IPSet resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1109,7 +1109,7 @@ pub struct GetInvitationsCountRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInvitationsCountResponse {
     /// <p>The number of received invitations.</p>
-    #[serde(rename = "InvitationsCount")]
+    #[serde(rename = "invitationsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invitations_count: Option<i64>,
 }
@@ -1118,7 +1118,7 @@ pub struct GetInvitationsCountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMasterAccountRequest {
     /// <p>The unique ID of the detector of the GuardDuty member account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -1126,7 +1126,7 @@ pub struct GetMasterAccountRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMasterAccountResponse {
     /// <p>The administrator account details.</p>
-    #[serde(rename = "Master")]
+    #[serde(rename = "master")]
     pub master: Master,
 }
 
@@ -1134,10 +1134,10 @@ pub struct GetMasterAccountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMemberDetectorsRequest {
     /// <p>The account ID of the member account.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The detector ID for the administrator account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -1145,10 +1145,10 @@ pub struct GetMemberDetectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMemberDetectorsResponse {
     /// <p>An object that describes which data sources are enabled for a member account.</p>
-    #[serde(rename = "MemberDataSourceConfigurations")]
+    #[serde(rename = "memberDataSourceConfigurations")]
     pub member_data_source_configurations: Vec<MemberDataSourceConfiguration>,
     /// <p>A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -1156,10 +1156,10 @@ pub struct GetMemberDetectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMembersRequest {
     /// <p>A list of account IDs of the GuardDuty member accounts that you want to describe.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The unique ID of the detector of the GuardDuty account whose members you want to retrieve.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -1167,10 +1167,10 @@ pub struct GetMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMembersResponse {
     /// <p>A list of members.</p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     pub members: Vec<Member>,
     /// <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -1178,10 +1178,10 @@ pub struct GetMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetThreatIntelSetRequest {
     /// <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The unique ID of the threatIntelSet that you want to get.</p>
-    #[serde(rename = "ThreatIntelSetId")]
+    #[serde(rename = "threatIntelSetId")]
     pub threat_intel_set_id: String,
 }
 
@@ -1189,19 +1189,19 @@ pub struct GetThreatIntelSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetThreatIntelSetResponse {
     /// <p>The format of the threatIntelSet.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
     /// <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The status of threatIntelSet file uploaded.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>The tags of the threat list resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1210,25 +1210,25 @@ pub struct GetThreatIntelSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUsageStatisticsRequest {
     /// <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you want to retrieve.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The maximum number of results to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The currency unit you would like to view your usage statistics in. Current valid values are USD.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
     /// <p>Represents the criteria used for querying usage.</p>
-    #[serde(rename = "UsageCriteria")]
+    #[serde(rename = "usageCriteria")]
     pub usage_criteria: UsageCriteria,
     /// <p>The type of usage statistics to retrieve.</p>
-    #[serde(rename = "UsageStatisticType")]
+    #[serde(rename = "usageStatisticType")]
     pub usage_statistic_type: String,
 }
 
@@ -1236,11 +1236,11 @@ pub struct GetUsageStatisticsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUsageStatisticsResponse {
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The usage statistics object. If a UsageStatisticType was provided, the objects representing other types will be null.</p>
-    #[serde(rename = "UsageStatistics")]
+    #[serde(rename = "usageStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_statistics: Option<UsageStatistics>,
 }
@@ -1250,11 +1250,11 @@ pub struct GetUsageStatisticsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IamInstanceProfile {
     /// <p>The profile ARN of the EC2 instance.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The profile ID of the EC2 instance.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -1264,55 +1264,55 @@ pub struct IamInstanceProfile {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceDetails {
     /// <p>The Availability Zone of the EC2 instance.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The profile information of the EC2 instance.</p>
-    #[serde(rename = "IamInstanceProfile")]
+    #[serde(rename = "iamInstanceProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_instance_profile: Option<IamInstanceProfile>,
     /// <p>The image description of the EC2 instance.</p>
-    #[serde(rename = "ImageDescription")]
+    #[serde(rename = "imageDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_description: Option<String>,
     /// <p>The image ID of the EC2 instance.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
     /// <p>The ID of the EC2 instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The state of the EC2 instance.</p>
-    #[serde(rename = "InstanceState")]
+    #[serde(rename = "instanceState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_state: Option<String>,
     /// <p>The type of the EC2 instance.</p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <p>The launch time of the EC2 instance.</p>
-    #[serde(rename = "LaunchTime")]
+    #[serde(rename = "launchTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_time: Option<String>,
     /// <p>The elastic network interface information of the EC2 instance.</p>
-    #[serde(rename = "NetworkInterfaces")]
+    #[serde(rename = "networkInterfaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_interfaces: Option<Vec<NetworkInterface>>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to AWS Outposts instances.</p>
-    #[serde(rename = "OutpostArn")]
+    #[serde(rename = "outpostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outpost_arn: Option<String>,
     /// <p>The platform of the EC2 instance.</p>
-    #[serde(rename = "Platform")]
+    #[serde(rename = "platform")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform: Option<String>,
     /// <p>The product code of the EC2 instance.</p>
-    #[serde(rename = "ProductCodes")]
+    #[serde(rename = "productCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_codes: Option<Vec<ProductCode>>,
     /// <p>The tags of the EC2 instance.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1322,19 +1322,19 @@ pub struct InstanceDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Invitation {
     /// <p>The ID of the account that the invitation was sent from.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The ID of the invitation. This value is used to validate the inviter account to the member account.</p>
-    #[serde(rename = "InvitationId")]
+    #[serde(rename = "invitationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invitation_id: Option<String>,
     /// <p>The timestamp when the invitation was sent.</p>
-    #[serde(rename = "InvitedAt")]
+    #[serde(rename = "invitedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_at: Option<String>,
     /// <p>The status of the relationship between the inviter and invitee accounts.</p>
-    #[serde(rename = "RelationshipStatus")]
+    #[serde(rename = "relationshipStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub relationship_status: Option<String>,
 }
@@ -1343,17 +1343,17 @@ pub struct Invitation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InviteMembersRequest {
     /// <p>A list of account IDs of the accounts that you want to invite to GuardDuty as members.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The unique ID of the detector of the GuardDuty account that you want to invite members with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.</p>
-    #[serde(rename = "DisableEmailNotification")]
+    #[serde(rename = "disableEmailNotification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_email_notification: Option<bool>,
     /// <p>The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1362,7 +1362,7 @@ pub struct InviteMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InviteMembersResponse {
     /// <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -1370,11 +1370,11 @@ pub struct InviteMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDetectorsRequest {
     /// <p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1383,10 +1383,10 @@ pub struct ListDetectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDetectorsResponse {
     /// <p>A list of detector IDs.</p>
-    #[serde(rename = "DetectorIds")]
+    #[serde(rename = "detectorIds")]
     pub detector_ids: Vec<String>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1395,14 +1395,14 @@ pub struct ListDetectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFiltersRequest {
     /// <p>The unique ID of the detector that the filter is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1411,10 +1411,10 @@ pub struct ListFiltersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFiltersResponse {
     /// <p>A list of filter names.</p>
-    #[serde(rename = "FilterNames")]
+    #[serde(rename = "filterNames")]
     pub filter_names: Vec<String>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1423,22 +1423,22 @@ pub struct ListFiltersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFindingsRequest {
     /// <p>The ID of the detector that specifies the GuardDuty service whose findings you want to list.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p><p>Represents the criteria used for querying findings. Valid values include:</p> <ul> <li> <p>JSON field name</p> </li> <li> <p>accountId</p> </li> <li> <p>region</p> </li> <li> <p>confidence</p> </li> <li> <p>id</p> </li> <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> <li> <p>resource.accessKeyDetails.principalId</p> </li> <li> <p>resource.accessKeyDetails.userName</p> </li> <li> <p>resource.accessKeyDetails.userType</p> </li> <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> <li> <p>resource.instanceDetails.imageId</p> </li> <li> <p>resource.instanceDetails.instanceId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> <li> <p>resource.instanceDetails.tags.key</p> </li> <li> <p>resource.instanceDetails.tags.value</p> </li> <li> <p>resource.resourceType</p> </li> <li> <p>service.action.actionType</p> </li> <li> <p>service.action.awsApiCallAction.api</p> </li> <li> <p>service.action.awsApiCallAction.callerType</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> <li> <p>service.action.awsApiCallAction.serviceName</p> </li> <li> <p>service.action.dnsRequestAction.domain</p> </li> <li> <p>service.action.networkConnectionAction.blocked</p> </li> <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> <li> <p>service.action.networkConnectionAction.protocol</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> <li> <p>service.additionalInfo.threatListName</p> </li> <li> <p>service.archived</p> <p>When this attribute is set to &#39;true&#39;, only archived findings are listed. When it&#39;s set to &#39;false&#39;, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.</p> </li> <li> <p>service.resourceRole</p> </li> <li> <p>severity</p> </li> <li> <p>type</p> </li> <li> <p>updatedAt</p> <p>Type: Timestamp in Unix Epoch millisecond format: 1486685375000</p> </li> </ul></p>
-    #[serde(rename = "FindingCriteria")]
+    #[serde(rename = "findingCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_criteria: Option<FindingCriteria>,
     /// <p>You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Represents the criteria used for sorting findings.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<SortCriteria>,
 }
@@ -1447,10 +1447,10 @@ pub struct ListFindingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFindingsResponse {
     /// <p>The IDs of the findings that you're listing.</p>
-    #[serde(rename = "FindingIds")]
+    #[serde(rename = "findingIds")]
     pub finding_ids: Vec<String>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1459,14 +1459,14 @@ pub struct ListFindingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIPSetsRequest {
     /// <p>The unique ID of the detector that the IPSet is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1475,10 +1475,10 @@ pub struct ListIPSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIPSetsResponse {
     /// <p>The IDs of the IPSet resources.</p>
-    #[serde(rename = "IpSetIds")]
+    #[serde(rename = "ipSetIds")]
     pub ip_set_ids: Vec<String>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1487,11 +1487,11 @@ pub struct ListIPSetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListInvitationsRequest {
     /// <p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1500,11 +1500,11 @@ pub struct ListInvitationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListInvitationsResponse {
     /// <p>A list of invitation descriptions.</p>
-    #[serde(rename = "Invitations")]
+    #[serde(rename = "invitations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invitations: Option<Vec<Invitation>>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1513,18 +1513,18 @@ pub struct ListInvitationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMembersRequest {
     /// <p>The unique ID of the detector the member is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).</p>
-    #[serde(rename = "OnlyAssociated")]
+    #[serde(rename = "onlyAssociated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub only_associated: Option<String>,
 }
@@ -1533,11 +1533,11 @@ pub struct ListMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMembersResponse {
     /// <p>A list of members.</p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub members: Option<Vec<Member>>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1546,11 +1546,11 @@ pub struct ListMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOrganizationAdminAccountsRequest {
     /// <p>The maximum number of results to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1559,11 +1559,11 @@ pub struct ListOrganizationAdminAccountsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOrganizationAdminAccountsResponse {
     /// <p>A list of accounts configured as GuardDuty delegated administrators.</p>
-    #[serde(rename = "AdminAccounts")]
+    #[serde(rename = "adminAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_accounts: Option<Vec<AdminAccount>>,
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1572,14 +1572,14 @@ pub struct ListOrganizationAdminAccountsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPublishingDestinationsRequest {
     /// <p>The ID of the detector to retrieve publishing destinations for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The maximum number of results to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1588,10 +1588,10 @@ pub struct ListPublishingDestinationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPublishingDestinationsResponse {
     /// <p>A <code>Destinations</code> object that includes information about each publishing destination returned.</p>
-    #[serde(rename = "Destinations")]
+    #[serde(rename = "destinations")]
     pub destinations: Vec<Destination>,
     /// <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1600,7 +1600,7 @@ pub struct ListPublishingDestinationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the given GuardDuty resource. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1608,7 +1608,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1617,14 +1617,14 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListThreatIntelSetsRequest {
     /// <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1633,11 +1633,11 @@ pub struct ListThreatIntelSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListThreatIntelSetsResponse {
     /// <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The IDs of the ThreatIntelSet resources.</p>
-    #[serde(rename = "ThreatIntelSetIds")]
+    #[serde(rename = "threatIntelSetIds")]
     pub threat_intel_set_ids: Vec<String>,
 }
 
@@ -1646,7 +1646,7 @@ pub struct ListThreatIntelSetsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LocalIpDetails {
     /// <p>The IPv4 local address of the connection.</p>
-    #[serde(rename = "IpAddressV4")]
+    #[serde(rename = "ipAddressV4")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_v4: Option<String>,
 }
@@ -1656,11 +1656,11 @@ pub struct LocalIpDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LocalPortDetails {
     /// <p>The port number of the local connection.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>The port name of the local connection.</p>
-    #[serde(rename = "PortName")]
+    #[serde(rename = "portName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_name: Option<String>,
 }
@@ -1670,19 +1670,19 @@ pub struct LocalPortDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Master {
     /// <p>The ID of the account used as the administrator account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The value used to validate the administrator account to the member account.</p>
-    #[serde(rename = "InvitationId")]
+    #[serde(rename = "invitationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invitation_id: Option<String>,
     /// <p>The timestamp when the invitation was sent.</p>
-    #[serde(rename = "InvitedAt")]
+    #[serde(rename = "invitedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_at: Option<String>,
     /// <p>The status of the relationship between the administrator and member accounts.</p>
-    #[serde(rename = "RelationshipStatus")]
+    #[serde(rename = "relationshipStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub relationship_status: Option<String>,
 }
@@ -1692,27 +1692,27 @@ pub struct Master {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Member {
     /// <p>The ID of the member account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The detector ID of the member account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detector_id: Option<String>,
     /// <p>The email address of the member account.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     pub email: String,
     /// <p>The timestamp when the invitation was sent.</p>
-    #[serde(rename = "InvitedAt")]
+    #[serde(rename = "invitedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_at: Option<String>,
     /// <p>The administrator account ID.</p>
-    #[serde(rename = "MasterId")]
+    #[serde(rename = "masterId")]
     pub master_id: String,
     /// <p>The status of the relationship between the member and the administrator.</p>
-    #[serde(rename = "RelationshipStatus")]
+    #[serde(rename = "relationshipStatus")]
     pub relationship_status: String,
     /// <p>The last-updated timestamp of the member.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     pub updated_at: String,
 }
 
@@ -1721,10 +1721,10 @@ pub struct Member {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MemberDataSourceConfiguration {
     /// <p>The account ID for the member account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>Contains information on the status of data sources for the account.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     pub data_sources: DataSourceConfigurationsResult,
 }
 
@@ -1733,31 +1733,31 @@ pub struct MemberDataSourceConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkConnectionAction {
     /// <p>Indicates whether EC2 blocked the network connection to your instance.</p>
-    #[serde(rename = "Blocked")]
+    #[serde(rename = "blocked")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocked: Option<bool>,
     /// <p>The network connection direction.</p>
-    #[serde(rename = "ConnectionDirection")]
+    #[serde(rename = "connectionDirection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_direction: Option<String>,
     /// <p>The local IP information of the connection.</p>
-    #[serde(rename = "LocalIpDetails")]
+    #[serde(rename = "localIpDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub local_ip_details: Option<LocalIpDetails>,
     /// <p>The local port information of the connection.</p>
-    #[serde(rename = "LocalPortDetails")]
+    #[serde(rename = "localPortDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub local_port_details: Option<LocalPortDetails>,
     /// <p>The network connection protocol.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The remote IP information of the connection.</p>
-    #[serde(rename = "RemoteIpDetails")]
+    #[serde(rename = "remoteIpDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_ip_details: Option<RemoteIpDetails>,
     /// <p>The remote port information of the connection.</p>
-    #[serde(rename = "RemotePortDetails")]
+    #[serde(rename = "remotePortDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_port_details: Option<RemotePortDetails>,
 }
@@ -1767,43 +1767,43 @@ pub struct NetworkConnectionAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkInterface {
     /// <p>A list of IPv6 addresses for the EC2 instance.</p>
-    #[serde(rename = "Ipv6Addresses")]
+    #[serde(rename = "ipv6Addresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ipv_6_addresses: Option<Vec<String>>,
     /// <p>The ID of the network interface.</p>
-    #[serde(rename = "NetworkInterfaceId")]
+    #[serde(rename = "networkInterfaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_interface_id: Option<String>,
     /// <p>The private DNS name of the EC2 instance.</p>
-    #[serde(rename = "PrivateDnsName")]
+    #[serde(rename = "privateDnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_dns_name: Option<String>,
     /// <p>The private IP address of the EC2 instance.</p>
-    #[serde(rename = "PrivateIpAddress")]
+    #[serde(rename = "privateIpAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_ip_address: Option<String>,
     /// <p>Other private IP address information of the EC2 instance.</p>
-    #[serde(rename = "PrivateIpAddresses")]
+    #[serde(rename = "privateIpAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_ip_addresses: Option<Vec<PrivateIpAddressDetails>>,
     /// <p>The public DNS name of the EC2 instance.</p>
-    #[serde(rename = "PublicDnsName")]
+    #[serde(rename = "publicDnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_dns_name: Option<String>,
     /// <p>The public IP address of the EC2 instance.</p>
-    #[serde(rename = "PublicIp")]
+    #[serde(rename = "publicIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_ip: Option<String>,
     /// <p>The security groups associated with the EC2 instance.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<SecurityGroup>>,
     /// <p>The subnet ID of the EC2 instance.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The VPC ID of the EC2 instance.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -1813,19 +1813,19 @@ pub struct NetworkInterface {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Organization {
     /// <p>The Autonomous System Number (ASN) of the internet provider of the remote IP address.</p>
-    #[serde(rename = "Asn")]
+    #[serde(rename = "asn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asn: Option<String>,
     /// <p>The organization that registered this ASN.</p>
-    #[serde(rename = "AsnOrg")]
+    #[serde(rename = "asnOrg")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asn_org: Option<String>,
     /// <p>The ISP information for the internet provider.</p>
-    #[serde(rename = "Isp")]
+    #[serde(rename = "isp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub isp: Option<String>,
     /// <p>The name of the internet provider.</p>
-    #[serde(rename = "Org")]
+    #[serde(rename = "org")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub org: Option<String>,
 }
@@ -1835,7 +1835,7 @@ pub struct Organization {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct OrganizationDataSourceConfigurations {
     /// <p>Describes whether S3 data event logs are enabled for new members of the organization.</p>
-    #[serde(rename = "S3Logs")]
+    #[serde(rename = "s3Logs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_logs: Option<OrganizationS3LogsConfiguration>,
 }
@@ -1845,7 +1845,7 @@ pub struct OrganizationDataSourceConfigurations {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationDataSourceConfigurationsResult {
     /// <p>Describes whether S3 data event logs are enabled as a data source.</p>
-    #[serde(rename = "S3Logs")]
+    #[serde(rename = "s3Logs")]
     pub s3_logs: OrganizationS3LogsConfigurationResult,
 }
 
@@ -1854,7 +1854,7 @@ pub struct OrganizationDataSourceConfigurationsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct OrganizationS3LogsConfiguration {
     /// <p>A value that contains information on whether S3 data event logs will be enabled automatically as a data source for the organization.</p>
-    #[serde(rename = "AutoEnable")]
+    #[serde(rename = "autoEnable")]
     pub auto_enable: bool,
 }
 
@@ -1863,7 +1863,7 @@ pub struct OrganizationS3LogsConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationS3LogsConfigurationResult {
     /// <p>A value that describes whether S3 data event logs are automatically enabled for new members of the organization.</p>
-    #[serde(rename = "AutoEnable")]
+    #[serde(rename = "autoEnable")]
     pub auto_enable: bool,
 }
 
@@ -1872,7 +1872,7 @@ pub struct OrganizationS3LogsConfigurationResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Owner {
     /// <p>The canonical user ID of the bucket owner. For information about locating your canonical user ID see <a href="https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId">Finding Your Account Canonical User ID.</a> </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -1882,11 +1882,11 @@ pub struct Owner {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PermissionConfiguration {
     /// <p>Contains information about the account level permissions on the S3 bucket.</p>
-    #[serde(rename = "AccountLevelPermissions")]
+    #[serde(rename = "accountLevelPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_level_permissions: Option<AccountLevelPermissions>,
     /// <p>Contains information about the bucket level permissions for the S3 bucket.</p>
-    #[serde(rename = "BucketLevelPermissions")]
+    #[serde(rename = "bucketLevelPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_level_permissions: Option<BucketLevelPermissions>,
 }
@@ -1896,11 +1896,11 @@ pub struct PermissionConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PortProbeAction {
     /// <p>Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.</p>
-    #[serde(rename = "Blocked")]
+    #[serde(rename = "blocked")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocked: Option<bool>,
     /// <p>A list of objects related to port probe details.</p>
-    #[serde(rename = "PortProbeDetails")]
+    #[serde(rename = "portProbeDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_probe_details: Option<Vec<PortProbeDetail>>,
 }
@@ -1910,15 +1910,15 @@ pub struct PortProbeAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PortProbeDetail {
     /// <p>The local IP information of the connection.</p>
-    #[serde(rename = "LocalIpDetails")]
+    #[serde(rename = "localIpDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub local_ip_details: Option<LocalIpDetails>,
     /// <p>The local port information of the connection.</p>
-    #[serde(rename = "LocalPortDetails")]
+    #[serde(rename = "localPortDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub local_port_details: Option<LocalPortDetails>,
     /// <p>The remote IP information of the connection.</p>
-    #[serde(rename = "RemoteIpDetails")]
+    #[serde(rename = "remoteIpDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_ip_details: Option<RemoteIpDetails>,
 }
@@ -1928,11 +1928,11 @@ pub struct PortProbeDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PrivateIpAddressDetails {
     /// <p>The private DNS name of the EC2 instance.</p>
-    #[serde(rename = "PrivateDnsName")]
+    #[serde(rename = "privateDnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_dns_name: Option<String>,
     /// <p>The private IP address of the EC2 instance.</p>
-    #[serde(rename = "PrivateIpAddress")]
+    #[serde(rename = "privateIpAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_ip_address: Option<String>,
 }
@@ -1942,11 +1942,11 @@ pub struct PrivateIpAddressDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProductCode {
     /// <p>The product code information.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>The product code type.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
 }
@@ -1956,11 +1956,11 @@ pub struct ProductCode {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PublicAccess {
     /// <p>Describes the effective permission on this bucket after factoring all attached policies.</p>
-    #[serde(rename = "EffectivePermission")]
+    #[serde(rename = "effectivePermission")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub effective_permission: Option<String>,
     /// <p>Contains information about how permissions are configured for the S3 bucket.</p>
-    #[serde(rename = "PermissionConfiguration")]
+    #[serde(rename = "permissionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permission_configuration: Option<PermissionConfiguration>,
 }
@@ -1970,23 +1970,23 @@ pub struct PublicAccess {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoteIpDetails {
     /// <p>The city information of the remote IP address.</p>
-    #[serde(rename = "City")]
+    #[serde(rename = "city")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub city: Option<City>,
     /// <p>The country code of the remote IP address.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country: Option<Country>,
     /// <p>The location information of the remote IP address.</p>
-    #[serde(rename = "GeoLocation")]
+    #[serde(rename = "geoLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geo_location: Option<GeoLocation>,
     /// <p>The IPv4 remote address of the connection.</p>
-    #[serde(rename = "IpAddressV4")]
+    #[serde(rename = "ipAddressV4")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_v4: Option<String>,
     /// <p>The ISP organization information of the remote IP address.</p>
-    #[serde(rename = "Organization")]
+    #[serde(rename = "organization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization: Option<Organization>,
 }
@@ -1996,11 +1996,11 @@ pub struct RemoteIpDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemotePortDetails {
     /// <p>The port number of the remote connection.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>The port name of the remote connection.</p>
-    #[serde(rename = "PortName")]
+    #[serde(rename = "portName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_name: Option<String>,
 }
@@ -2010,19 +2010,19 @@ pub struct RemotePortDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Resource {
     /// <p>The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.</p>
-    #[serde(rename = "AccessKeyDetails")]
+    #[serde(rename = "accessKeyDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_key_details: Option<AccessKeyDetails>,
     /// <p>The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.</p>
-    #[serde(rename = "InstanceDetails")]
+    #[serde(rename = "instanceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_details: Option<InstanceDetails>,
     /// <p>The type of AWS resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>Contains information on the S3 bucket.</p>
-    #[serde(rename = "S3BucketDetails")]
+    #[serde(rename = "s3BucketDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_details: Option<Vec<S3BucketDetail>>,
 }
@@ -2032,35 +2032,35 @@ pub struct Resource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct S3BucketDetail {
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time the bucket was created at.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Describes the server side encryption method used in the S3 bucket.</p>
-    #[serde(rename = "DefaultServerSideEncryption")]
+    #[serde(rename = "defaultServerSideEncryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_server_side_encryption: Option<DefaultServerSideEncryption>,
     /// <p>The name of the S3 bucket.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the S3 bucket.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<Owner>,
     /// <p>Describes the public access policies that apply to the S3 bucket.</p>
-    #[serde(rename = "PublicAccess")]
+    #[serde(rename = "publicAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_access: Option<PublicAccess>,
     /// <p>All tags attached to the S3 bucket</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>Describes whether the bucket is a source or destination bucket.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2070,7 +2070,7 @@ pub struct S3BucketDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct S3LogsConfiguration {
     /// <p> The status of S3 data event logs as a data source.</p>
-    #[serde(rename = "Enable")]
+    #[serde(rename = "enable")]
     pub enable: bool,
 }
 
@@ -2079,7 +2079,7 @@ pub struct S3LogsConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct S3LogsConfigurationResult {
     /// <p>A value that describes whether S3 data event logs are automatically enabled for new members of the organization.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -2088,11 +2088,11 @@ pub struct S3LogsConfigurationResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityGroup {
     /// <p>The security group ID of the EC2 instance.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_id: Option<String>,
     /// <p>The security group name of the EC2 instance.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -2102,43 +2102,43 @@ pub struct SecurityGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Service {
     /// <p>Information about the activity that is described in a finding.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<Action>,
     /// <p>Indicates whether this finding is archived.</p>
-    #[serde(rename = "Archived")]
+    #[serde(rename = "archived")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archived: Option<bool>,
     /// <p>The total count of the occurrences of this finding type.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>The detector ID for the GuardDuty service.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detector_id: Option<String>,
     /// <p>The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.</p>
-    #[serde(rename = "EventFirstSeen")]
+    #[serde(rename = "eventFirstSeen")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_first_seen: Option<String>,
     /// <p>The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.</p>
-    #[serde(rename = "EventLastSeen")]
+    #[serde(rename = "eventLastSeen")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_last_seen: Option<String>,
     /// <p>An evidence object associated with the service.</p>
-    #[serde(rename = "Evidence")]
+    #[serde(rename = "evidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evidence: Option<Evidence>,
     /// <p>The resource role information for this finding.</p>
-    #[serde(rename = "ResourceRole")]
+    #[serde(rename = "resourceRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_role: Option<String>,
     /// <p>The name of the AWS service (GuardDuty) that generated a finding.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
     /// <p>Feedback that was submitted about the finding.</p>
-    #[serde(rename = "UserFeedback")]
+    #[serde(rename = "userFeedback")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_feedback: Option<String>,
 }
@@ -2148,11 +2148,11 @@ pub struct Service {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SortCriteria {
     /// <p>Represents the finding attribute (for example, accountId) to sort findings by.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_name: Option<String>,
     /// <p>The order by which the sorted findings are to be displayed.</p>
-    #[serde(rename = "OrderBy")]
+    #[serde(rename = "orderBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub order_by: Option<String>,
 }
@@ -2161,10 +2161,10 @@ pub struct SortCriteria {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartMonitoringMembersRequest {
     /// <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The unique ID of the detector of the GuardDuty administrator account associated with the member accounts to monitor.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -2172,7 +2172,7 @@ pub struct StartMonitoringMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartMonitoringMembersResponse {
     /// <p>A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -2180,10 +2180,10 @@ pub struct StartMonitoringMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopMonitoringMembersRequest {
     /// <p>A list of account IDs for the member accounts to stop monitoring.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The unique ID of the detector associated with the GuardDuty administrator account that is monitoring member accounts.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -2191,7 +2191,7 @@ pub struct StopMonitoringMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopMonitoringMembersResponse {
     /// <p>A list of objects that contain an accountId for each account that could not be processed, and a result string that indicates why the account was not processed. </p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -2200,11 +2200,11 @@ pub struct StopMonitoringMembersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Tag {
     /// <p>The EC2 instance tag key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The EC2 instance tag value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2213,10 +2213,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to be added to a resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -2229,11 +2229,11 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ThreatIntelligenceDetail {
     /// <p>The name of the threat intelligence list that triggered the finding.</p>
-    #[serde(rename = "ThreatListName")]
+    #[serde(rename = "threatListName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threat_list_name: Option<String>,
     /// <p>A list of names of the threats in the threat intelligence list that triggered the finding.</p>
-    #[serde(rename = "ThreatNames")]
+    #[serde(rename = "threatNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threat_names: Option<Vec<String>>,
 }
@@ -2243,11 +2243,11 @@ pub struct ThreatIntelligenceDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Total {
     /// <p>The total usage.</p>
-    #[serde(rename = "Amount")]
+    #[serde(rename = "amount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub amount: Option<String>,
     /// <p>The currency unit that the amount is given in.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -2256,10 +2256,10 @@ pub struct Total {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UnarchiveFindingsRequest {
     /// <p>The ID of the detector associated with the findings to unarchive.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The IDs of the findings to unarchive.</p>
-    #[serde(rename = "FindingIds")]
+    #[serde(rename = "findingIds")]
     pub finding_ids: Vec<String>,
 }
 
@@ -2272,10 +2272,10 @@ pub struct UnarchiveFindingsResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnprocessedAccount {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>A reason why the account hasn't been processed.</p>
-    #[serde(rename = "Result")]
+    #[serde(rename = "result")]
     pub result: String,
 }
 
@@ -2283,10 +2283,10 @@ pub struct UnprocessedAccount {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys to remove from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2298,18 +2298,18 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDetectorRequest {
     /// <p>Describes which data sources will be updated.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<DataSourceConfigurations>,
     /// <p>The unique ID of the detector to update.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>Specifies whether the detector is enabled or not enabled.</p>
-    #[serde(rename = "Enable")]
+    #[serde(rename = "enable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable: Option<bool>,
     /// <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch Events.</p>
-    #[serde(rename = "FindingPublishingFrequency")]
+    #[serde(rename = "findingPublishingFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_publishing_frequency: Option<String>,
 }
@@ -2322,25 +2322,25 @@ pub struct UpdateDetectorResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFilterRequest {
     /// <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The description of the filter.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The unique ID of the detector that specifies the GuardDuty service where you want to update a filter.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The name of the filter.</p>
-    #[serde(rename = "FilterName")]
+    #[serde(rename = "filterName")]
     pub filter_name: String,
     /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    #[serde(rename = "FindingCriteria")]
+    #[serde(rename = "findingCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finding_criteria: Option<FindingCriteria>,
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
-    #[serde(rename = "Rank")]
+    #[serde(rename = "rank")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rank: Option<i64>,
 }
@@ -2349,7 +2349,7 @@ pub struct UpdateFilterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFilterResponse {
     /// <p>The name of the filter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2357,17 +2357,17 @@ pub struct UpdateFilterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFindingsFeedbackRequest {
     /// <p>Additional feedback about the GuardDuty findings.</p>
-    #[serde(rename = "Comments")]
+    #[serde(rename = "comments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comments: Option<String>,
     /// <p>The ID of the detector associated with the findings to update feedback for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The feedback for the finding.</p>
-    #[serde(rename = "Feedback")]
+    #[serde(rename = "feedback")]
     pub feedback: String,
     /// <p>The IDs of the findings that you want to mark as useful or not useful.</p>
-    #[serde(rename = "FindingIds")]
+    #[serde(rename = "findingIds")]
     pub finding_ids: Vec<String>,
 }
 
@@ -2379,21 +2379,21 @@ pub struct UpdateFindingsFeedbackResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateIPSetRequest {
     /// <p>The updated Boolean value that specifies whether the IPSet is active or not.</p>
-    #[serde(rename = "Activate")]
+    #[serde(rename = "activate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub activate: Option<bool>,
     /// <p>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The unique ID that specifies the IPSet that you want to update.</p>
-    #[serde(rename = "IpSetId")]
+    #[serde(rename = "ipSetId")]
     pub ip_set_id: String,
     /// <p>The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// <p>The unique ID that specifies the IPSet that you want to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2406,14 +2406,14 @@ pub struct UpdateIPSetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateMemberDetectorsRequest {
     /// <p>A list of member account IDs to be updated.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>Describes which data sources will be updated.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<DataSourceConfigurations>,
     /// <p>The detector ID of the administrator account.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -2421,7 +2421,7 @@ pub struct UpdateMemberDetectorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateMemberDetectorsResponse {
     /// <p>A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     pub unprocessed_accounts: Vec<UnprocessedAccount>,
 }
 
@@ -2429,14 +2429,14 @@ pub struct UpdateMemberDetectorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateOrganizationConfigurationRequest {
     /// <p>Indicates whether to automatically enable member accounts in the organization.</p>
-    #[serde(rename = "AutoEnable")]
+    #[serde(rename = "autoEnable")]
     pub auto_enable: bool,
     /// <p>Describes which data sources will be updated.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<OrganizationDataSourceConfigurations>,
     /// <p>The ID of the detector to update the delegated administrator for.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -2448,14 +2448,14 @@ pub struct UpdateOrganizationConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePublishingDestinationRequest {
     /// <p>The ID of the publishing destination to update.</p>
-    #[serde(rename = "DestinationId")]
+    #[serde(rename = "destinationId")]
     pub destination_id: String,
     /// <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code> and <code>KmsKeyArn</code> of the publishing destination.</p>
-    #[serde(rename = "DestinationProperties")]
+    #[serde(rename = "destinationProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_properties: Option<DestinationProperties>,
     /// <p>The ID of the detector associated with the publishing destinations to update.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
 }
 
@@ -2467,22 +2467,22 @@ pub struct UpdatePublishingDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateThreatIntelSetRequest {
     /// <p>The updated Boolean value that specifies whether the ThreateIntelSet is active or not.</p>
-    #[serde(rename = "Activate")]
+    #[serde(rename = "activate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub activate: Option<bool>,
     /// <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.</p>
-    #[serde(rename = "DetectorId")]
+    #[serde(rename = "detectorId")]
     pub detector_id: String,
     /// <p>The updated URI of the file that contains the ThreateIntelSet.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// <p>The unique ID that specifies the ThreatIntelSet that you want to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique ID that specifies the ThreatIntelSet that you want to update.</p>
-    #[serde(rename = "ThreatIntelSetId")]
+    #[serde(rename = "threatIntelSetId")]
     pub threat_intel_set_id: String,
 }
 
@@ -2495,11 +2495,11 @@ pub struct UpdateThreatIntelSetResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageAccountResult {
     /// <p>The Account ID that generated usage.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>Represents the total of usage for the Account ID.</p>
-    #[serde(rename = "Total")]
+    #[serde(rename = "total")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total: Option<Total>,
 }
@@ -2509,14 +2509,14 @@ pub struct UsageAccountResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UsageCriteria {
     /// <p>The account IDs to aggregate usage statistics from.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_ids: Option<Vec<String>>,
     /// <p>The data sources to aggregate usage statistics from.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     pub data_sources: Vec<String>,
     /// <p>The resources to aggregate usage statistics from. Only accepts exact resource names.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<Vec<String>>,
 }
@@ -2526,11 +2526,11 @@ pub struct UsageCriteria {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageDataSourceResult {
     /// <p>The data source type that generated usage.</p>
-    #[serde(rename = "DataSource")]
+    #[serde(rename = "dataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source: Option<String>,
     /// <p>Represents the total of usage for the specified data source.</p>
-    #[serde(rename = "Total")]
+    #[serde(rename = "total")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total: Option<Total>,
 }
@@ -2540,11 +2540,11 @@ pub struct UsageDataSourceResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageResourceResult {
     /// <p>The AWS resource that generated usage.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource: Option<String>,
     /// <p>Represents the sum total of usage for the specified resource type.</p>
-    #[serde(rename = "Total")]
+    #[serde(rename = "total")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total: Option<Total>,
 }
@@ -2554,19 +2554,19 @@ pub struct UsageResourceResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageStatistics {
     /// <p>The usage statistic sum organized by account ID.</p>
-    #[serde(rename = "SumByAccount")]
+    #[serde(rename = "sumByAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sum_by_account: Option<Vec<UsageAccountResult>>,
     /// <p>The usage statistic sum organized by on data source.</p>
-    #[serde(rename = "SumByDataSource")]
+    #[serde(rename = "sumByDataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sum_by_data_source: Option<Vec<UsageDataSourceResult>>,
     /// <p>The usage statistic sum organized by resource.</p>
-    #[serde(rename = "SumByResource")]
+    #[serde(rename = "sumByResource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sum_by_resource: Option<Vec<UsageResourceResult>>,
     /// <p>Lists the top 50 resources that have generated the most GuardDuty usage, in order from most to least expensive.</p>
-    #[serde(rename = "TopResources")]
+    #[serde(rename = "topResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top_resources: Option<Vec<UsageResourceResult>>,
 }

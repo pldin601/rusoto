@@ -29,11 +29,11 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AWSLocation {
     /// <p>The Amazon Resource Name (ARN) of the subnet the device is located in.</p>
-    #[serde(rename = "SubnetArn")]
+    #[serde(rename = "subnetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_arn: Option<String>,
     /// <p>The Zone the device is located in. This can be the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.</p>
-    #[serde(rename = "Zone")]
+    #[serde(rename = "zone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zone: Option<String>,
 }
@@ -42,16 +42,16 @@ pub struct AWSLocation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateCustomerGatewayRequest {
     /// <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
-    #[serde(rename = "CustomerGatewayArn")]
+    #[serde(rename = "customerGatewayArn")]
     pub customer_gateway_arn: String,
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
 }
@@ -60,7 +60,7 @@ pub struct AssociateCustomerGatewayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateCustomerGatewayResponse {
     /// <p>The customer gateway association.</p>
-    #[serde(rename = "CustomerGatewayAssociation")]
+    #[serde(rename = "customerGatewayAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_gateway_association: Option<CustomerGatewayAssociation>,
 }
@@ -69,13 +69,13 @@ pub struct AssociateCustomerGatewayResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateLinkRequest {
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     pub link_id: String,
 }
 
@@ -83,7 +83,7 @@ pub struct AssociateLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateLinkResponse {
     /// <p>The link association.</p>
-    #[serde(rename = "LinkAssociation")]
+    #[serde(rename = "linkAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_association: Option<LinkAssociation>,
 }
@@ -92,17 +92,17 @@ pub struct AssociateLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateTransitGatewayConnectPeerRequest {
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the Connect peer.</p>
-    #[serde(rename = "TransitGatewayConnectPeerArn")]
+    #[serde(rename = "transitGatewayConnectPeerArn")]
     pub transit_gateway_connect_peer_arn: String,
 }
 
@@ -110,7 +110,7 @@ pub struct AssociateTransitGatewayConnectPeerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateTransitGatewayConnectPeerResponse {
     /// <p>The transit gateway Connect peer association.</p>
-    #[serde(rename = "TransitGatewayConnectPeerAssociation")]
+    #[serde(rename = "transitGatewayConnectPeerAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_connect_peer_association: Option<TransitGatewayConnectPeerAssociation>,
 }
@@ -119,11 +119,11 @@ pub struct AssociateTransitGatewayConnectPeerResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Bandwidth {
     /// <p>Download speed in Mbps.</p>
-    #[serde(rename = "DownloadSpeed")]
+    #[serde(rename = "downloadSpeed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub download_speed: Option<i64>,
     /// <p>Upload speed in Mbps.</p>
-    #[serde(rename = "UploadSpeed")]
+    #[serde(rename = "uploadSpeed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upload_speed: Option<i64>,
 }
@@ -133,47 +133,47 @@ pub struct Bandwidth {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Connection {
     /// <p>The ID of the second device in the connection.</p>
-    #[serde(rename = "ConnectedDeviceId")]
+    #[serde(rename = "connectedDeviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connected_device_id: Option<String>,
     /// <p>The ID of the link for the second device in the connection.</p>
-    #[serde(rename = "ConnectedLinkId")]
+    #[serde(rename = "connectedLinkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connected_link_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the connection.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The ID of the connection.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The date and time that the connection was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description of the connection.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the first device in the connection.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The ID of the link for the first device in the connection.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The state of the connection.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags for the connection.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -182,28 +182,28 @@ pub struct Connection {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionRequest {
     /// <p>The ID of the second device in the connection.</p>
-    #[serde(rename = "ConnectedDeviceId")]
+    #[serde(rename = "connectedDeviceId")]
     pub connected_device_id: String,
     /// <p>The ID of the link for the second device.</p>
-    #[serde(rename = "ConnectedLinkId")]
+    #[serde(rename = "connectedLinkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connected_link_id: Option<String>,
     /// <p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the first device in the connection.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link for the first device.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The tags to apply to the resource during creation.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -212,7 +212,7 @@ pub struct CreateConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConnectionResponse {
     /// <p>Information about the connection.</p>
-    #[serde(rename = "Connection")]
+    #[serde(rename = "connection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection: Option<Connection>,
 }
@@ -221,42 +221,42 @@ pub struct CreateConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDeviceRequest {
     /// <p>The AWS location of the device.</p>
-    #[serde(rename = "AWSLocation")]
+    #[serde(rename = "aWSLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_location: Option<AWSLocation>,
     /// <p>A description of the device.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The location of the device.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The model of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Model")]
+    #[serde(rename = "model")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model: Option<String>,
     /// <p>The serial number of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "SerialNumber")]
+    #[serde(rename = "serialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serial_number: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The tags to apply to the resource during creation.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The type of the device.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The vendor of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Vendor")]
+    #[serde(rename = "vendor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor: Option<String>,
 }
@@ -265,7 +265,7 @@ pub struct CreateDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDeviceResponse {
     /// <p>Information about the device.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<Device>,
 }
@@ -274,11 +274,11 @@ pub struct CreateDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGlobalNetworkRequest {
     /// <p>A description of the global network.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The tags to apply to the resource during creation.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -287,7 +287,7 @@ pub struct CreateGlobalNetworkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGlobalNetworkResponse {
     /// <p>Information about the global network object.</p>
-    #[serde(rename = "GlobalNetwork")]
+    #[serde(rename = "globalNetwork")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network: Option<GlobalNetwork>,
 }
@@ -296,28 +296,28 @@ pub struct CreateGlobalNetworkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLinkRequest {
     /// <p> The upload speed and download speed in Mbps. </p>
-    #[serde(rename = "Bandwidth")]
+    #[serde(rename = "bandwidth")]
     pub bandwidth: Bandwidth,
     /// <p>A description of the link.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The provider of the link.</p> <p>Constraints: Cannot include the following characters: | \ ^</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Provider")]
+    #[serde(rename = "provider")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     pub site_id: String,
     /// <p>The tags to apply to the resource during creation.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The type of the link.</p> <p>Constraints: Cannot include the following characters: | \ ^</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -326,7 +326,7 @@ pub struct CreateLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLinkResponse {
     /// <p>Information about the link.</p>
-    #[serde(rename = "Link")]
+    #[serde(rename = "link")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link: Option<Link>,
 }
@@ -335,18 +335,18 @@ pub struct CreateLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSiteRequest {
     /// <p>A description of your site.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p><p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> <ul> <li> <p> <code>Address</code>: The physical address of the site.</p> </li> <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> </ul></p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The tags to apply to the resource during creation.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -355,7 +355,7 @@ pub struct CreateSiteRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSiteResponse {
     /// <p>Information about the site.</p>
-    #[serde(rename = "Site")]
+    #[serde(rename = "site")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site: Option<Site>,
 }
@@ -365,23 +365,23 @@ pub struct CreateSiteResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomerGatewayAssociation {
     /// <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
-    #[serde(rename = "CustomerGatewayArn")]
+    #[serde(rename = "customerGatewayArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_gateway_arn: Option<String>,
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The association state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -390,10 +390,10 @@ pub struct CustomerGatewayAssociation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConnectionRequest {
     /// <p>The ID of the connection.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     pub connection_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
 }
 
@@ -401,7 +401,7 @@ pub struct DeleteConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteConnectionResponse {
     /// <p>Information about the connection.</p>
-    #[serde(rename = "Connection")]
+    #[serde(rename = "connection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection: Option<Connection>,
 }
@@ -410,10 +410,10 @@ pub struct DeleteConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDeviceRequest {
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
 }
 
@@ -421,7 +421,7 @@ pub struct DeleteDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteDeviceResponse {
     /// <p>Information about the device.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<Device>,
 }
@@ -430,7 +430,7 @@ pub struct DeleteDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGlobalNetworkRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
 }
 
@@ -438,7 +438,7 @@ pub struct DeleteGlobalNetworkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteGlobalNetworkResponse {
     /// <p>Information about the global network.</p>
-    #[serde(rename = "GlobalNetwork")]
+    #[serde(rename = "globalNetwork")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network: Option<GlobalNetwork>,
 }
@@ -447,10 +447,10 @@ pub struct DeleteGlobalNetworkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLinkRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     pub link_id: String,
 }
 
@@ -458,7 +458,7 @@ pub struct DeleteLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteLinkResponse {
     /// <p>Information about the link.</p>
-    #[serde(rename = "Link")]
+    #[serde(rename = "link")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link: Option<Link>,
 }
@@ -467,10 +467,10 @@ pub struct DeleteLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSiteRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     pub site_id: String,
 }
 
@@ -478,7 +478,7 @@ pub struct DeleteSiteRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSiteResponse {
     /// <p>Information about the site.</p>
-    #[serde(rename = "Site")]
+    #[serde(rename = "site")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site: Option<Site>,
 }
@@ -487,10 +487,10 @@ pub struct DeleteSiteResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterTransitGatewayRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
-    #[serde(rename = "TransitGatewayArn")]
+    #[serde(rename = "transitGatewayArn")]
     pub transit_gateway_arn: String,
 }
 
@@ -498,7 +498,7 @@ pub struct DeregisterTransitGatewayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeregisterTransitGatewayResponse {
     /// <p>The transit gateway registration information.</p>
-    #[serde(rename = "TransitGatewayRegistration")]
+    #[serde(rename = "transitGatewayRegistration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_registration: Option<TransitGatewayRegistration>,
 }
@@ -507,15 +507,15 @@ pub struct DeregisterTransitGatewayResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeGlobalNetworksRequest {
     /// <p>The IDs of one or more global networks. The maximum is 10.</p>
-    #[serde(rename = "GlobalNetworkIds")]
+    #[serde(rename = "globalNetworkIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_ids: Option<Vec<String>>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -524,11 +524,11 @@ pub struct DescribeGlobalNetworksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeGlobalNetworksResponse {
     /// <p>Information about the global networks.</p>
-    #[serde(rename = "GlobalNetworks")]
+    #[serde(rename = "globalNetworks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_networks: Option<Vec<GlobalNetwork>>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -538,59 +538,59 @@ pub struct DescribeGlobalNetworksResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Device {
     /// <p>The AWS location of the device.</p>
-    #[serde(rename = "AWSLocation")]
+    #[serde(rename = "aWSLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_location: Option<AWSLocation>,
     /// <p>The date and time that the site was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description of the device.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the device.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The site location.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The device model.</p>
-    #[serde(rename = "Model")]
+    #[serde(rename = "model")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model: Option<String>,
     /// <p>The device serial number.</p>
-    #[serde(rename = "SerialNumber")]
+    #[serde(rename = "serialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serial_number: Option<String>,
     /// <p>The site ID.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The device state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags for the device.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The device type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The device vendor.</p>
-    #[serde(rename = "Vendor")]
+    #[serde(rename = "vendor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor: Option<String>,
 }
@@ -599,10 +599,10 @@ pub struct Device {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateCustomerGatewayRequest {
     /// <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
-    #[serde(rename = "CustomerGatewayArn")]
+    #[serde(rename = "customerGatewayArn")]
     pub customer_gateway_arn: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
 }
 
@@ -610,7 +610,7 @@ pub struct DisassociateCustomerGatewayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateCustomerGatewayResponse {
     /// <p>Information about the customer gateway association.</p>
-    #[serde(rename = "CustomerGatewayAssociation")]
+    #[serde(rename = "customerGatewayAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_gateway_association: Option<CustomerGatewayAssociation>,
 }
@@ -619,13 +619,13 @@ pub struct DisassociateCustomerGatewayResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateLinkRequest {
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     pub link_id: String,
 }
 
@@ -633,7 +633,7 @@ pub struct DisassociateLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateLinkResponse {
     /// <p>Information about the link association.</p>
-    #[serde(rename = "LinkAssociation")]
+    #[serde(rename = "linkAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_association: Option<LinkAssociation>,
 }
@@ -642,10 +642,10 @@ pub struct DisassociateLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateTransitGatewayConnectPeerRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The Amazon Resource Name (ARN) of the transit gateway Connect peer.</p>
-    #[serde(rename = "TransitGatewayConnectPeerArn")]
+    #[serde(rename = "transitGatewayConnectPeerArn")]
     pub transit_gateway_connect_peer_arn: String,
 }
 
@@ -653,7 +653,7 @@ pub struct DisassociateTransitGatewayConnectPeerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateTransitGatewayConnectPeerResponse {
     /// <p>The transit gateway Connect peer association.</p>
-    #[serde(rename = "TransitGatewayConnectPeerAssociation")]
+    #[serde(rename = "transitGatewayConnectPeerAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_connect_peer_association: Option<TransitGatewayConnectPeerAssociation>,
 }
@@ -662,22 +662,22 @@ pub struct DisassociateTransitGatewayConnectPeerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConnectionsRequest {
     /// <p>One or more connection IDs.</p>
-    #[serde(rename = "ConnectionIds")]
+    #[serde(rename = "connectionIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_ids: Option<Vec<String>>,
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -686,11 +686,11 @@ pub struct GetConnectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConnectionsResponse {
     /// <p>Information about the connections.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<Vec<Connection>>,
     /// <p>The token to use for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -699,18 +699,18 @@ pub struct GetConnectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCustomerGatewayAssociationsRequest {
     /// <p>One or more customer gateway Amazon Resource Names (ARNs). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>. The maximum is 10.</p>
-    #[serde(rename = "CustomerGatewayArns")]
+    #[serde(rename = "customerGatewayArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_gateway_arns: Option<Vec<String>>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -719,11 +719,11 @@ pub struct GetCustomerGatewayAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCustomerGatewayAssociationsResponse {
     /// <p>The customer gateway associations.</p>
-    #[serde(rename = "CustomerGatewayAssociations")]
+    #[serde(rename = "customerGatewayAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_gateway_associations: Option<Vec<CustomerGatewayAssociation>>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -732,22 +732,22 @@ pub struct GetCustomerGatewayAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDevicesRequest {
     /// <p>One or more device IDs. The maximum is 10.</p>
-    #[serde(rename = "DeviceIds")]
+    #[serde(rename = "deviceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_ids: Option<Vec<String>>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
 }
@@ -756,11 +756,11 @@ pub struct GetDevicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDevicesResponse {
     /// <p>The devices.</p>
-    #[serde(rename = "Devices")]
+    #[serde(rename = "devices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub devices: Option<Vec<Device>>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -769,22 +769,22 @@ pub struct GetDevicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLinkAssociationsRequest {
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -793,11 +793,11 @@ pub struct GetLinkAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLinkAssociationsResponse {
     /// <p>The link associations.</p>
-    #[serde(rename = "LinkAssociations")]
+    #[serde(rename = "linkAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_associations: Option<Vec<LinkAssociation>>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -806,30 +806,30 @@ pub struct GetLinkAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLinksRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>One or more link IDs. The maximum is 10.</p>
-    #[serde(rename = "LinkIds")]
+    #[serde(rename = "linkIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_ids: Option<Vec<String>>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The link provider.</p>
-    #[serde(rename = "Provider")]
+    #[serde(rename = "provider")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The link type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -838,11 +838,11 @@ pub struct GetLinksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLinksResponse {
     /// <p>The links.</p>
-    #[serde(rename = "Links")]
+    #[serde(rename = "links")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub links: Option<Vec<Link>>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -851,18 +851,18 @@ pub struct GetLinksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSitesRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>One or more site IDs. The maximum is 10.</p>
-    #[serde(rename = "SiteIds")]
+    #[serde(rename = "siteIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_ids: Option<Vec<String>>,
 }
@@ -871,11 +871,11 @@ pub struct GetSitesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSitesResponse {
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sites.</p>
-    #[serde(rename = "Sites")]
+    #[serde(rename = "sites")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sites: Option<Vec<Site>>,
 }
@@ -884,18 +884,18 @@ pub struct GetSitesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTransitGatewayConnectPeerAssociationsRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>One or more transit gateway Connect peer Amazon Resource Names (ARNs).</p>
-    #[serde(rename = "TransitGatewayConnectPeerArns")]
+    #[serde(rename = "transitGatewayConnectPeerArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_connect_peer_arns: Option<Vec<String>>,
 }
@@ -904,11 +904,11 @@ pub struct GetTransitGatewayConnectPeerAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTransitGatewayConnectPeerAssociationsResponse {
     /// <p>The token to use for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the transit gateway Connect peer associations.</p>
-    #[serde(rename = "TransitGatewayConnectPeerAssociations")]
+    #[serde(rename = "transitGatewayConnectPeerAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_connect_peer_associations:
         Option<Vec<TransitGatewayConnectPeerAssociation>>,
@@ -918,18 +918,18 @@ pub struct GetTransitGatewayConnectPeerAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTransitGatewayRegistrationsRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is 10.</p>
-    #[serde(rename = "TransitGatewayArns")]
+    #[serde(rename = "transitGatewayArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_arns: Option<Vec<String>>,
 }
@@ -938,11 +938,11 @@ pub struct GetTransitGatewayRegistrationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTransitGatewayRegistrationsResponse {
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The transit gateway registrations.</p>
-    #[serde(rename = "TransitGatewayRegistrations")]
+    #[serde(rename = "transitGatewayRegistrations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_registrations: Option<Vec<TransitGatewayRegistration>>,
 }
@@ -952,27 +952,27 @@ pub struct GetTransitGatewayRegistrationsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GlobalNetwork {
     /// <p>The date and time that the global network was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description of the global network.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the global network.</p>
-    #[serde(rename = "GlobalNetworkArn")]
+    #[serde(rename = "globalNetworkArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_arn: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The state of the global network.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags for the global network.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -982,47 +982,47 @@ pub struct GlobalNetwork {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Link {
     /// <p>The bandwidth for the link.</p>
-    #[serde(rename = "Bandwidth")]
+    #[serde(rename = "bandwidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bandwidth: Option<Bandwidth>,
     /// <p>The date and time that the link was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description of the link.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the link.</p>
-    #[serde(rename = "LinkArn")]
+    #[serde(rename = "linkArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_arn: Option<String>,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The provider of the link.</p>
-    #[serde(rename = "Provider")]
+    #[serde(rename = "provider")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The state of the link.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags for the link.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The type of the link.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1032,19 +1032,19 @@ pub struct Link {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LinkAssociation {
     /// <p>The device ID for the link association.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The state of the association.</p>
-    #[serde(rename = "LinkAssociationState")]
+    #[serde(rename = "linkAssociationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_association_state: Option<String>,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
 }
@@ -1053,7 +1053,7 @@ pub struct LinkAssociation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1061,7 +1061,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The list of tags.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -1070,15 +1070,15 @@ pub struct ListTagsForResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Location {
     /// <p>The physical address.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
     /// <p>The latitude.</p>
-    #[serde(rename = "Latitude")]
+    #[serde(rename = "latitude")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latitude: Option<String>,
     /// <p>The longitude.</p>
-    #[serde(rename = "Longitude")]
+    #[serde(rename = "longitude")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub longitude: Option<String>,
 }
@@ -1087,10 +1087,10 @@ pub struct Location {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterTransitGatewayRequest {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The Amazon Resource Name (ARN) of the transit gateway. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
-    #[serde(rename = "TransitGatewayArn")]
+    #[serde(rename = "transitGatewayArn")]
     pub transit_gateway_arn: String,
 }
 
@@ -1098,7 +1098,7 @@ pub struct RegisterTransitGatewayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterTransitGatewayResponse {
     /// <p>Information about the transit gateway registration.</p>
-    #[serde(rename = "TransitGatewayRegistration")]
+    #[serde(rename = "transitGatewayRegistration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_registration: Option<TransitGatewayRegistration>,
 }
@@ -1108,35 +1108,35 @@ pub struct RegisterTransitGatewayResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Site {
     /// <p>The date and time that the site was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description of the site.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The location of the site.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The Amazon Resource Name (ARN) of the site.</p>
-    #[serde(rename = "SiteArn")]
+    #[serde(rename = "siteArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_arn: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The state of the site.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags for the site.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1145,11 +1145,11 @@ pub struct Site {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The tag key.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The tag value.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1158,10 +1158,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to apply to the specified resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1174,23 +1174,23 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TransitGatewayConnectPeerAssociation {
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
     /// <p>The state of the association.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the transit gateway Connect peer.</p>
-    #[serde(rename = "TransitGatewayConnectPeerArn")]
+    #[serde(rename = "transitGatewayConnectPeerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_connect_peer_arn: Option<String>,
 }
@@ -1200,15 +1200,15 @@ pub struct TransitGatewayConnectPeerAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TransitGatewayRegistration {
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network_id: Option<String>,
     /// <p>The state of the transit gateway registration.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<TransitGatewayRegistrationStateReason>,
     /// <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
-    #[serde(rename = "TransitGatewayArn")]
+    #[serde(rename = "transitGatewayArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transit_gateway_arn: Option<String>,
 }
@@ -1218,11 +1218,11 @@ pub struct TransitGatewayRegistration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TransitGatewayRegistrationStateReason {
     /// <p>The code for the state reason.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>The message for the state reason.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1231,10 +1231,10 @@ pub struct TransitGatewayRegistrationStateReason {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys to remove from the specified resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1246,21 +1246,21 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionRequest {
     /// <p>The ID of the link for the second device in the connection.</p>
-    #[serde(rename = "ConnectedLinkId")]
+    #[serde(rename = "connectedLinkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connected_link_id: Option<String>,
     /// <p>The ID of the connection.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     pub connection_id: String,
     /// <p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link for the first device in the connection.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link_id: Option<String>,
 }
@@ -1269,7 +1269,7 @@ pub struct UpdateConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateConnectionResponse {
     /// <p>Information about the connection.</p>
-    #[serde(rename = "Connection")]
+    #[serde(rename = "connection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection: Option<Connection>,
 }
@@ -1278,40 +1278,40 @@ pub struct UpdateConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDeviceRequest {
     /// <p>The AWS location of the device.</p>
-    #[serde(rename = "AWSLocation")]
+    #[serde(rename = "aWSLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_location: Option<AWSLocation>,
     /// <p>A description of the device.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The model of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Model")]
+    #[serde(rename = "model")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model: Option<String>,
     /// <p>The serial number of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "SerialNumber")]
+    #[serde(rename = "serialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serial_number: Option<String>,
     /// <p>The ID of the site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site_id: Option<String>,
     /// <p>The type of the device.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The vendor of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Vendor")]
+    #[serde(rename = "vendor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor: Option<String>,
 }
@@ -1320,7 +1320,7 @@ pub struct UpdateDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDeviceResponse {
     /// <p>Information about the device.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<Device>,
 }
@@ -1329,11 +1329,11 @@ pub struct UpdateDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGlobalNetworkRequest {
     /// <p>A description of the global network.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of your global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
 }
 
@@ -1341,7 +1341,7 @@ pub struct UpdateGlobalNetworkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateGlobalNetworkResponse {
     /// <p>Information about the global network object.</p>
-    #[serde(rename = "GlobalNetwork")]
+    #[serde(rename = "globalNetwork")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_network: Option<GlobalNetwork>,
 }
@@ -1350,25 +1350,25 @@ pub struct UpdateGlobalNetworkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLinkRequest {
     /// <p>The upload and download speed in Mbps. </p>
-    #[serde(rename = "Bandwidth")]
+    #[serde(rename = "bandwidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bandwidth: Option<Bandwidth>,
     /// <p>A description of the link.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p>The ID of the link.</p>
-    #[serde(rename = "LinkId")]
+    #[serde(rename = "linkId")]
     pub link_id: String,
     /// <p>The provider of the link.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Provider")]
+    #[serde(rename = "provider")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider: Option<String>,
     /// <p>The type of the link.</p> <p>Length Constraints: Maximum length of 128 characters.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1377,7 +1377,7 @@ pub struct UpdateLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateLinkResponse {
     /// <p>Information about the link.</p>
-    #[serde(rename = "Link")]
+    #[serde(rename = "link")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub link: Option<Link>,
 }
@@ -1386,18 +1386,18 @@ pub struct UpdateLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSiteRequest {
     /// <p>A description of your site.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the global network.</p>
-    #[serde(rename = "GlobalNetworkId")]
+    #[serde(rename = "globalNetworkId")]
     pub global_network_id: String,
     /// <p><p>The site location:</p> <ul> <li> <p> <code>Address</code>: The physical address of the site.</p> </li> <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> </ul></p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Location>,
     /// <p>The ID of your site.</p>
-    #[serde(rename = "SiteId")]
+    #[serde(rename = "siteId")]
     pub site_id: String,
 }
 
@@ -1405,7 +1405,7 @@ pub struct UpdateSiteRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSiteResponse {
     /// <p>Information about the site.</p>
-    #[serde(rename = "Site")]
+    #[serde(rename = "site")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub site: Option<Site>,
 }

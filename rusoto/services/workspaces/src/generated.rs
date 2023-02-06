@@ -55,27 +55,27 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccountModification {
     /// <p>The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.</p>
-    #[serde(rename = "DedicatedTenancyManagementCidrRange")]
+    #[serde(rename = "dedicatedTenancyManagementCidrRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_tenancy_management_cidr_range: Option<String>,
     /// <p>The status of BYOL (whether BYOL is being enabled or disabled).</p>
-    #[serde(rename = "DedicatedTenancySupport")]
+    #[serde(rename = "dedicatedTenancySupport")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_tenancy_support: Option<String>,
     /// <p>The error code that is returned if the configuration of BYOL cannot be modified.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The text of the error message that is returned if the configuration of BYOL cannot be modified.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The state of the modification to the configuration of BYOL.</p>
-    #[serde(rename = "ModificationState")]
+    #[serde(rename = "modificationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_state: Option<String>,
     /// <p>The timestamp when the modification of the BYOL configuration was started.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -84,10 +84,10 @@ pub struct AccountModification {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateConnectionAliasRequest {
     /// <p>The identifier of the connection alias.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     pub alias_id: String,
     /// <p>The identifier of the directory to associate the connection alias with.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -95,7 +95,7 @@ pub struct AssociateConnectionAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateConnectionAliasResult {
     /// <p>The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies. </p>
-    #[serde(rename = "ConnectionIdentifier")]
+    #[serde(rename = "connectionIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_identifier: Option<String>,
 }
@@ -104,10 +104,10 @@ pub struct AssociateConnectionAliasResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateIpGroupsRequest {
     /// <p>The identifier of the directory.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     pub directory_id: String,
     /// <p>The identifiers of one or more IP access control groups.</p>
-    #[serde(rename = "GroupIds")]
+    #[serde(rename = "groupIds")]
     pub group_ids: Vec<String>,
 }
 
@@ -119,10 +119,10 @@ pub struct AssociateIpGroupsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AuthorizeIpRulesRequest {
     /// <p>The identifier of the group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The rules to add to the group.</p>
-    #[serde(rename = "UserRules")]
+    #[serde(rename = "userRules")]
     pub user_rules: Vec<IpRuleItem>,
 }
 
@@ -134,7 +134,7 @@ pub struct AuthorizeIpRulesResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ClientProperties {
     /// <p>Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials. </p>
-    #[serde(rename = "ReconnectEnabled")]
+    #[serde(rename = "reconnectEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reconnect_enabled: Option<String>,
 }
@@ -144,11 +144,11 @@ pub struct ClientProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClientPropertiesResult {
     /// <p>Information about the Amazon WorkSpaces client.</p>
-    #[serde(rename = "ClientProperties")]
+    #[serde(rename = "clientProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_properties: Option<ClientProperties>,
     /// <p>The resource identifier, in the form of a directory ID.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
 }
@@ -157,7 +157,7 @@ pub struct ClientPropertiesResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ComputeType {
     /// <p>The compute type.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -167,23 +167,23 @@ pub struct ComputeType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionAlias {
     /// <p>The identifier of the connection alias.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_id: Option<String>,
     /// <p>The association status of the connection alias.</p>
-    #[serde(rename = "Associations")]
+    #[serde(rename = "associations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub associations: Option<Vec<ConnectionAliasAssociation>>,
     /// <p>The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p>
-    #[serde(rename = "ConnectionString")]
+    #[serde(rename = "connectionString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_string: Option<String>,
     /// <p>The identifier of the AWS account that owns the connection alias.</p>
-    #[serde(rename = "OwnerAccountId")]
+    #[serde(rename = "ownerAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_account_id: Option<String>,
     /// <p>The current state of the connection alias.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -193,19 +193,19 @@ pub struct ConnectionAlias {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionAliasAssociation {
     /// <p>The identifier of the AWS account that associated the connection alias with a directory.</p>
-    #[serde(rename = "AssociatedAccountId")]
+    #[serde(rename = "associatedAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub associated_account_id: Option<String>,
     /// <p>The association status of the connection alias.</p>
-    #[serde(rename = "AssociationStatus")]
+    #[serde(rename = "associationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_status: Option<String>,
     /// <p>The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.</p>
-    #[serde(rename = "ConnectionIdentifier")]
+    #[serde(rename = "connectionIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_identifier: Option<String>,
     /// <p>The identifier of the directory associated with a connection alias.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
 }
@@ -214,10 +214,10 @@ pub struct ConnectionAliasAssociation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionAliasPermission {
     /// <p>Indicates whether the specified AWS account is allowed to associate the connection alias with a directory.</p>
-    #[serde(rename = "AllowAssociation")]
+    #[serde(rename = "allowAssociation")]
     pub allow_association: bool,
     /// <p>The identifier of the AWS account that the connection alias is shared with.</p>
-    #[serde(rename = "SharedAccountId")]
+    #[serde(rename = "sharedAccountId")]
     pub shared_account_id: String,
 }
 
@@ -225,20 +225,20 @@ pub struct ConnectionAliasPermission {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CopyWorkspaceImageRequest {
     /// <p>A description of the image.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The identifier of the source image.</p>
-    #[serde(rename = "SourceImageId")]
+    #[serde(rename = "sourceImageId")]
     pub source_image_id: String,
     /// <p>The identifier of the source Region.</p>
-    #[serde(rename = "SourceRegion")]
+    #[serde(rename = "sourceRegion")]
     pub source_region: String,
     /// <p>The tags for the image.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -247,7 +247,7 @@ pub struct CopyWorkspaceImageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CopyWorkspaceImageResult {
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
 }
@@ -256,10 +256,10 @@ pub struct CopyWorkspaceImageResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionAliasRequest {
     /// <p><p>A connection string in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p> <important> <p>After you create a connection string, it is always associated to your AWS account. You cannot recreate the same connection string with a different account, even if you delete all instances of it from the original account. The connection string is globally reserved for your account.</p> </important></p>
-    #[serde(rename = "ConnectionString")]
+    #[serde(rename = "connectionString")]
     pub connection_string: String,
     /// <p>The tags to associate with the connection alias.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -268,7 +268,7 @@ pub struct CreateConnectionAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConnectionAliasResult {
     /// <p>The identifier of the connection alias.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_id: Option<String>,
 }
@@ -277,18 +277,18 @@ pub struct CreateConnectionAliasResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIpGroupRequest {
     /// <p>The description of the group.</p>
-    #[serde(rename = "GroupDesc")]
+    #[serde(rename = "groupDesc")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_desc: Option<String>,
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The rules to add to the group.</p>
-    #[serde(rename = "UserRules")]
+    #[serde(rename = "userRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_rules: Option<Vec<IpRuleItem>>,
 }
@@ -297,7 +297,7 @@ pub struct CreateIpGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIpGroupResult {
     /// <p>The identifier of the group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_id: Option<String>,
 }
@@ -306,10 +306,10 @@ pub struct CreateIpGroupResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTagsRequest {
     /// <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -321,31 +321,31 @@ pub struct CreateTagsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateWorkspaceBundleRequest {
     /// <p>The description of the bundle.</p>
-    #[serde(rename = "BundleDescription")]
+    #[serde(rename = "bundleDescription")]
     pub bundle_description: String,
     /// <p>The name of the bundle.</p>
-    #[serde(rename = "BundleName")]
+    #[serde(rename = "bundleName")]
     pub bundle_name: String,
-    #[serde(rename = "ComputeType")]
+    #[serde(rename = "computeType")]
     pub compute_type: ComputeType,
     /// <p>The identifier of the image that is used to create the bundle.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     pub image_id: String,
-    #[serde(rename = "RootStorage")]
+    #[serde(rename = "rootStorage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_storage: Option<RootStorage>,
     /// <p><p>The tags associated with the bundle.</p> <note> <p>To add tags at the same time when you&#39;re creating the bundle, you must create an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p> </note></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
-    #[serde(rename = "UserStorage")]
+    #[serde(rename = "userStorage")]
     pub user_storage: UserStorage,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateWorkspaceBundleResult {
-    #[serde(rename = "WorkspaceBundle")]
+    #[serde(rename = "workspaceBundle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_bundle: Option<WorkspaceBundle>,
 }
@@ -354,7 +354,7 @@ pub struct CreateWorkspaceBundleResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateWorkspacesRequest {
     /// <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
-    #[serde(rename = "Workspaces")]
+    #[serde(rename = "workspaces")]
     pub workspaces: Vec<WorkspaceRequest>,
 }
 
@@ -362,11 +362,11 @@ pub struct CreateWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateWorkspacesResult {
     /// <p>Information about the WorkSpaces that could not be created.</p>
-    #[serde(rename = "FailedRequests")]
+    #[serde(rename = "failedRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_requests: Option<Vec<FailedCreateWorkspaceRequest>>,
     /// <p>Information about the WorkSpaces that were created.</p> <p>Because this operation is asynchronous, the identifier returned is not immediately available for use with other operations. For example, if you call <a>DescribeWorkspaces</a> before the WorkSpace is created, the information returned can be incomplete.</p>
-    #[serde(rename = "PendingRequests")]
+    #[serde(rename = "pendingRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_requests: Option<Vec<Workspace>>,
 }
@@ -376,27 +376,27 @@ pub struct CreateWorkspacesResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DefaultWorkspaceCreationProperties {
     /// <p>The identifier of the default security group to apply to WorkSpaces when they are created. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html"> Security Groups for Your WorkSpaces</a>.</p>
-    #[serde(rename = "CustomSecurityGroupId")]
+    #[serde(rename = "customSecurityGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_security_group_id: Option<String>,
     /// <p>The organizational unit (OU) in the directory for the WorkSpace machine accounts.</p>
-    #[serde(rename = "DefaultOu")]
+    #[serde(rename = "defaultOu")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_ou: Option<String>,
     /// <p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html"> Configure a VPC for Amazon WorkSpaces</a>.</p>
-    #[serde(rename = "EnableInternetAccess")]
+    #[serde(rename = "enableInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_internet_access: Option<bool>,
     /// <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace Maintenance</a>.</p>
-    #[serde(rename = "EnableMaintenanceMode")]
+    #[serde(rename = "enableMaintenanceMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_maintenance_mode: Option<bool>,
     /// <p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>
-    #[serde(rename = "EnableWorkDocs")]
+    #[serde(rename = "enableWorkDocs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_work_docs: Option<bool>,
     /// <p>Specifies whether WorkSpace users are local administrators on their WorkSpaces.</p>
-    #[serde(rename = "UserEnabledAsLocalAdministrator")]
+    #[serde(rename = "userEnabledAsLocalAdministrator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_enabled_as_local_administrator: Option<bool>,
 }
@@ -405,7 +405,7 @@ pub struct DefaultWorkspaceCreationProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConnectionAliasRequest {
     /// <p>The identifier of the connection alias to delete.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     pub alias_id: String,
 }
 
@@ -417,7 +417,7 @@ pub struct DeleteConnectionAliasResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIpGroupRequest {
     /// <p>The identifier of the IP access control group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
 }
 
@@ -429,10 +429,10 @@ pub struct DeleteIpGroupResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTagsRequest {
     /// <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -444,7 +444,7 @@ pub struct DeleteTagsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteWorkspaceBundleRequest {
     /// <p>The identifier of the bundle.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundle_id: Option<String>,
 }
@@ -457,7 +457,7 @@ pub struct DeleteWorkspaceBundleResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteWorkspaceImageRequest {
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     pub image_id: String,
 }
 
@@ -469,7 +469,7 @@ pub struct DeleteWorkspaceImageResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterWorkspaceDirectoryRequest {
     /// <p>The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     pub directory_id: String,
 }
 
@@ -481,7 +481,7 @@ pub struct DeregisterWorkspaceDirectoryResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAccountModificationsRequest {
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -490,11 +490,11 @@ pub struct DescribeAccountModificationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAccountModificationsResult {
     /// <p>The list of modifications to the configuration of BYOL.</p>
-    #[serde(rename = "AccountModifications")]
+    #[serde(rename = "accountModifications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_modifications: Option<Vec<AccountModification>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -507,11 +507,11 @@ pub struct DescribeAccountRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAccountResult {
     /// <p>The IP address range, specified as an IPv4 CIDR block, used for the management network interface.</p> <p>The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
-    #[serde(rename = "DedicatedTenancyManagementCidrRange")]
+    #[serde(rename = "dedicatedTenancyManagementCidrRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_tenancy_management_cidr_range: Option<String>,
     /// <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
-    #[serde(rename = "DedicatedTenancySupport")]
+    #[serde(rename = "dedicatedTenancySupport")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_tenancy_support: Option<String>,
 }
@@ -520,7 +520,7 @@ pub struct DescribeAccountResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeClientPropertiesRequest {
     /// <p>The resource identifier, in the form of directory IDs.</p>
-    #[serde(rename = "ResourceIds")]
+    #[serde(rename = "resourceIds")]
     pub resource_ids: Vec<String>,
 }
 
@@ -528,7 +528,7 @@ pub struct DescribeClientPropertiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeClientPropertiesResult {
     /// <p>Information about the specified Amazon WorkSpaces clients.</p>
-    #[serde(rename = "ClientPropertiesList")]
+    #[serde(rename = "clientPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_properties_list: Option<Vec<ClientPropertiesResult>>,
 }
@@ -537,14 +537,14 @@ pub struct DescribeClientPropertiesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConnectionAliasPermissionsRequest {
     /// <p>The identifier of the connection alias.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     pub alias_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -553,15 +553,15 @@ pub struct DescribeConnectionAliasPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConnectionAliasPermissionsResult {
     /// <p>The identifier of the connection alias.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_id: Option<String>,
     /// <p>The permissions associated with a connection alias.</p>
-    #[serde(rename = "ConnectionAliasPermissions")]
+    #[serde(rename = "connectionAliasPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_alias_permissions: Option<Vec<ConnectionAliasPermission>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -570,19 +570,19 @@ pub struct DescribeConnectionAliasPermissionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConnectionAliasesRequest {
     /// <p>The identifiers of the connection aliases to describe.</p>
-    #[serde(rename = "AliasIds")]
+    #[serde(rename = "aliasIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_ids: Option<Vec<String>>,
     /// <p>The maximum number of connection aliases to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier of the directory associated with the connection alias.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
 }
@@ -591,11 +591,11 @@ pub struct DescribeConnectionAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConnectionAliasesResult {
     /// <p>Information about the specified connection aliases.</p>
-    #[serde(rename = "ConnectionAliases")]
+    #[serde(rename = "connectionAliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_aliases: Option<Vec<ConnectionAlias>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -604,15 +604,15 @@ pub struct DescribeConnectionAliasesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeIpGroupsRequest {
     /// <p>The identifiers of one or more IP access control groups.</p>
-    #[serde(rename = "GroupIds")]
+    #[serde(rename = "groupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_ids: Option<Vec<String>>,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -621,11 +621,11 @@ pub struct DescribeIpGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeIpGroupsResult {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the IP access control groups.</p>
-    #[serde(rename = "Result")]
+    #[serde(rename = "result")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result: Option<Vec<WorkspacesIpGroup>>,
 }
@@ -634,7 +634,7 @@ pub struct DescribeIpGroupsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTagsRequest {
     /// <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -642,7 +642,7 @@ pub struct DescribeTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTagsResult {
     /// <p>The tags.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -651,15 +651,15 @@ pub struct DescribeTagsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspaceBundlesRequest {
     /// <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
-    #[serde(rename = "BundleIds")]
+    #[serde(rename = "bundleIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundle_ids: Option<Vec<String>>,
     /// <p>The token for the next set of results. (You received this token from a previous call.)</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p> <p>To describe the bundles provided by AWS, specify <code>AMAZON</code>. To describe the bundles that belong to your account, don't specify a value.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
 }
@@ -668,11 +668,11 @@ pub struct DescribeWorkspaceBundlesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspaceBundlesResult {
     /// <p>Information about the bundles.</p>
-    #[serde(rename = "Bundles")]
+    #[serde(rename = "bundles")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundles: Option<Vec<WorkspaceBundle>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. This token is valid for one day and must be used within that time frame.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -681,15 +681,15 @@ pub struct DescribeWorkspaceBundlesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspaceDirectoriesRequest {
     /// <p>The identifiers of the directories. If the value is null, all directories are retrieved.</p>
-    #[serde(rename = "DirectoryIds")]
+    #[serde(rename = "directoryIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_ids: Option<Vec<String>>,
     /// <p>The maximum number of directories to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -698,11 +698,11 @@ pub struct DescribeWorkspaceDirectoriesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspaceDirectoriesResult {
     /// <p>Information about the directories.</p>
-    #[serde(rename = "Directories")]
+    #[serde(rename = "directories")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directories: Option<Vec<WorkspaceDirectory>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -711,14 +711,14 @@ pub struct DescribeWorkspaceDirectoriesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspaceImagePermissionsRequest {
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     pub image_id: String,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -727,15 +727,15 @@ pub struct DescribeWorkspaceImagePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspaceImagePermissionsResult {
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
     /// <p>The identifiers of the AWS accounts that the image has been shared with.</p>
-    #[serde(rename = "ImagePermissions")]
+    #[serde(rename = "imagePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_permissions: Option<Vec<ImagePermission>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -744,19 +744,19 @@ pub struct DescribeWorkspaceImagePermissionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspaceImagesRequest {
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageIds")]
+    #[serde(rename = "imageIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_ids: Option<Vec<String>>,
     /// <p>The type (owned or shared) of the image.</p>
-    #[serde(rename = "ImageType")]
+    #[serde(rename = "imageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_type: Option<String>,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -765,11 +765,11 @@ pub struct DescribeWorkspaceImagesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspaceImagesResult {
     /// <p>Information about the images.</p>
-    #[serde(rename = "Images")]
+    #[serde(rename = "images")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub images: Option<Vec<WorkspaceImage>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -778,7 +778,7 @@ pub struct DescribeWorkspaceImagesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspaceSnapshotsRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
 }
 
@@ -786,11 +786,11 @@ pub struct DescribeWorkspaceSnapshotsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspaceSnapshotsResult {
     /// <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include the user volume.</p>
-    #[serde(rename = "RebuildSnapshots")]
+    #[serde(rename = "rebuildSnapshots")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rebuild_snapshots: Option<Vec<Snapshot>>,
     /// <p>Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.</p>
-    #[serde(rename = "RestoreSnapshots")]
+    #[serde(rename = "restoreSnapshots")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub restore_snapshots: Option<Vec<Snapshot>>,
 }
@@ -799,11 +799,11 @@ pub struct DescribeWorkspaceSnapshotsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspacesConnectionStatusRequest {
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
-    #[serde(rename = "WorkspaceIds")]
+    #[serde(rename = "workspaceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_ids: Option<Vec<String>>,
 }
@@ -812,11 +812,11 @@ pub struct DescribeWorkspacesConnectionStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspacesConnectionStatusResult {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the connection status of the WorkSpace.</p>
-    #[serde(rename = "WorkspacesConnectionStatus")]
+    #[serde(rename = "workspacesConnectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspaces_connection_status: Option<Vec<WorkspaceConnectionStatus>>,
 }
@@ -825,27 +825,27 @@ pub struct DescribeWorkspacesConnectionStatusResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeWorkspacesRequest {
     /// <p>The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundle_id: Option<String>,
     /// <p>The identifier of the directory. In addition, you can optionally specify a specific directory user (see <code>UserName</code>). You cannot combine this parameter with any other filter.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the directory user. You must specify this parameter with <code>DirectoryId</code>.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
     /// <p>The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.</p> <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>
-    #[serde(rename = "WorkspaceIds")]
+    #[serde(rename = "workspaceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_ids: Option<Vec<String>>,
 }
@@ -854,11 +854,11 @@ pub struct DescribeWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeWorkspacesResult {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the WorkSpaces.</p> <p>Because <a>CreateWorkspaces</a> is an asynchronous operation, some of the returned information could be incomplete.</p>
-    #[serde(rename = "Workspaces")]
+    #[serde(rename = "workspaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspaces: Option<Vec<Workspace>>,
 }
@@ -867,7 +867,7 @@ pub struct DescribeWorkspacesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateConnectionAliasRequest {
     /// <p>The identifier of the connection alias to disassociate.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     pub alias_id: String,
 }
 
@@ -879,10 +879,10 @@ pub struct DisassociateConnectionAliasResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateIpGroupsRequest {
     /// <p>The identifier of the directory.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     pub directory_id: String,
     /// <p>The identifiers of one or more IP access control groups.</p>
-    #[serde(rename = "GroupIds")]
+    #[serde(rename = "groupIds")]
     pub group_ids: Vec<String>,
 }
 
@@ -895,15 +895,15 @@ pub struct DisassociateIpGroupsResult {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedCreateWorkspaceRequest {
     /// <p>The error code that is returned if the WorkSpace cannot be created.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The text of the error message that is returned if the WorkSpace cannot be created.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>Information about the WorkSpace.</p>
-    #[serde(rename = "WorkspaceRequest")]
+    #[serde(rename = "workspaceRequest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_request: Option<WorkspaceRequest>,
 }
@@ -913,15 +913,15 @@ pub struct FailedCreateWorkspaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedWorkspaceChangeRequest {
     /// <p>The error code that is returned if the WorkSpace cannot be rebooted.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The text of the error message that is returned if the WorkSpace cannot be rebooted.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_id: Option<String>,
 }
@@ -931,7 +931,7 @@ pub struct FailedWorkspaceChangeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImagePermission {
     /// <p>The identifier of the AWS account that an image has been shared with.</p>
-    #[serde(rename = "SharedAccountId")]
+    #[serde(rename = "sharedAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shared_account_id: Option<String>,
 }
@@ -940,23 +940,23 @@ pub struct ImagePermission {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportWorkspaceImageRequest {
     /// <p><p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows Desktop Licenses</a>.</p> <note> <p>Although this parameter is an array, only one item is allowed at this time.</p> </note></p>
-    #[serde(rename = "Applications")]
+    #[serde(rename = "applications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub applications: Option<Vec<String>>,
     /// <p>The identifier of the EC2 image.</p>
-    #[serde(rename = "Ec2ImageId")]
+    #[serde(rename = "ec2ImageId")]
     pub ec_2_image_id: String,
     /// <p>The description of the WorkSpace image.</p>
-    #[serde(rename = "ImageDescription")]
+    #[serde(rename = "imageDescription")]
     pub image_description: String,
     /// <p>The name of the WorkSpace image.</p>
-    #[serde(rename = "ImageName")]
+    #[serde(rename = "imageName")]
     pub image_name: String,
     /// <p>The ingestion process to be used when importing the image, depending on which protocol you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>. </p> <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the protocol.</p>
-    #[serde(rename = "IngestionProcess")]
+    #[serde(rename = "ingestionProcess")]
     pub ingestion_process: String,
     /// <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -965,7 +965,7 @@ pub struct ImportWorkspaceImageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportWorkspaceImageResult {
     /// <p>The identifier of the WorkSpace image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
 }
@@ -987,14 +987,14 @@ pub struct IpRuleItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAvailableManagementCidrRangesRequest {
     /// <p>The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).</p>
-    #[serde(rename = "ManagementCidrRangeConstraint")]
+    #[serde(rename = "managementCidrRangeConstraint")]
     pub management_cidr_range_constraint: String,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1003,11 +1003,11 @@ pub struct ListAvailableManagementCidrRangesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAvailableManagementCidrRangesResult {
     /// <p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>
-    #[serde(rename = "ManagementCidrRanges")]
+    #[serde(rename = "managementCidrRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub management_cidr_ranges: Option<Vec<String>>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1016,10 +1016,10 @@ pub struct ListAvailableManagementCidrRangesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MigrateWorkspaceRequest {
     /// <p>The identifier of the target bundle type to migrate the WorkSpace to.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     pub bundle_id: String,
     /// <p>The identifier of the WorkSpace to migrate from.</p>
-    #[serde(rename = "SourceWorkspaceId")]
+    #[serde(rename = "sourceWorkspaceId")]
     pub source_workspace_id: String,
 }
 
@@ -1027,11 +1027,11 @@ pub struct MigrateWorkspaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MigrateWorkspaceResult {
     /// <p>The original identifier of the WorkSpace that is being migrated.</p>
-    #[serde(rename = "SourceWorkspaceId")]
+    #[serde(rename = "sourceWorkspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_workspace_id: Option<String>,
     /// <p>The new identifier of the WorkSpace that is being migrated. If the migration does not succeed, the target WorkSpace ID will not be used, and the WorkSpace will still have the original WorkSpace ID.</p>
-    #[serde(rename = "TargetWorkspaceId")]
+    #[serde(rename = "targetWorkspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_workspace_id: Option<String>,
 }
@@ -1041,11 +1041,11 @@ pub struct MigrateWorkspaceResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ModificationState {
     /// <p>The resource.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource: Option<String>,
     /// <p>The modification state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1054,11 +1054,11 @@ pub struct ModificationState {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyAccountRequest {
     /// <p>The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the <code>ListAvailableManagementCidrRanges</code> operation.</p>
-    #[serde(rename = "DedicatedTenancyManagementCidrRange")]
+    #[serde(rename = "dedicatedTenancyManagementCidrRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_tenancy_management_cidr_range: Option<String>,
     /// <p>The status of BYOL.</p>
-    #[serde(rename = "DedicatedTenancySupport")]
+    #[serde(rename = "dedicatedTenancySupport")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dedicated_tenancy_support: Option<String>,
 }
@@ -1071,10 +1071,10 @@ pub struct ModifyAccountResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyClientPropertiesRequest {
     /// <p>Information about the Amazon WorkSpaces client.</p>
-    #[serde(rename = "ClientProperties")]
+    #[serde(rename = "clientProperties")]
     pub client_properties: ClientProperties,
     /// <p>The resource identifiers, in the form of directory IDs.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1086,10 +1086,10 @@ pub struct ModifyClientPropertiesResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifySelfservicePermissionsRequest {
     /// <p>The identifier of the directory.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The permissions to enable or disable self-service capabilities.</p>
-    #[serde(rename = "SelfservicePermissions")]
+    #[serde(rename = "selfservicePermissions")]
     pub selfservice_permissions: SelfservicePermissions,
 }
 
@@ -1101,10 +1101,10 @@ pub struct ModifySelfservicePermissionsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyWorkspaceAccessPropertiesRequest {
     /// <p>The identifier of the directory.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The device types and operating systems to enable or disable for access.</p>
-    #[serde(rename = "WorkspaceAccessProperties")]
+    #[serde(rename = "workspaceAccessProperties")]
     pub workspace_access_properties: WorkspaceAccessProperties,
 }
 
@@ -1116,10 +1116,10 @@ pub struct ModifyWorkspaceAccessPropertiesResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyWorkspaceCreationPropertiesRequest {
     /// <p>The identifier of the directory.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The default properties for creating WorkSpaces.</p>
-    #[serde(rename = "WorkspaceCreationProperties")]
+    #[serde(rename = "workspaceCreationProperties")]
     pub workspace_creation_properties: WorkspaceCreationProperties,
 }
 
@@ -1131,10 +1131,10 @@ pub struct ModifyWorkspaceCreationPropertiesResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyWorkspacePropertiesRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
     /// <p>The properties of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceProperties")]
+    #[serde(rename = "workspaceProperties")]
     pub workspace_properties: WorkspaceProperties,
 }
 
@@ -1146,10 +1146,10 @@ pub struct ModifyWorkspacePropertiesResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyWorkspaceStateRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
     /// <p>The WorkSpace state.</p>
-    #[serde(rename = "WorkspaceState")]
+    #[serde(rename = "workspaceState")]
     pub workspace_state: String,
 }
 
@@ -1162,7 +1162,7 @@ pub struct ModifyWorkspaceStateResult {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OperatingSystem {
     /// <p>The operating system.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1172,7 +1172,7 @@ pub struct OperatingSystem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebootRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
 }
 
@@ -1180,7 +1180,7 @@ pub struct RebootRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebootWorkspacesRequest {
     /// <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
-    #[serde(rename = "RebootWorkspaceRequests")]
+    #[serde(rename = "rebootWorkspaceRequests")]
     pub reboot_workspace_requests: Vec<RebootRequest>,
 }
 
@@ -1188,7 +1188,7 @@ pub struct RebootWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RebootWorkspacesResult {
     /// <p>Information about the WorkSpaces that could not be rebooted.</p>
-    #[serde(rename = "FailedRequests")]
+    #[serde(rename = "failedRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_requests: Option<Vec<FailedWorkspaceChangeRequest>>,
 }
@@ -1198,7 +1198,7 @@ pub struct RebootWorkspacesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebuildRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
 }
 
@@ -1206,7 +1206,7 @@ pub struct RebuildRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebuildWorkspacesRequest {
     /// <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
-    #[serde(rename = "RebuildWorkspaceRequests")]
+    #[serde(rename = "rebuildWorkspaceRequests")]
     pub rebuild_workspace_requests: Vec<RebuildRequest>,
 }
 
@@ -1214,7 +1214,7 @@ pub struct RebuildWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RebuildWorkspacesResult {
     /// <p>Information about the WorkSpace that could not be rebuilt.</p>
-    #[serde(rename = "FailedRequests")]
+    #[serde(rename = "failedRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_requests: Option<Vec<FailedWorkspaceChangeRequest>>,
 }
@@ -1223,25 +1223,25 @@ pub struct RebuildWorkspacesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterWorkspaceDirectoryRequest {
     /// <p>The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     pub directory_id: String,
     /// <p>Indicates whether self-service capabilities are enabled or disabled.</p>
-    #[serde(rename = "EnableSelfService")]
+    #[serde(rename = "enableSelfService")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_self_service: Option<bool>,
     /// <p>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set <code>EnableWorkDocs</code> to disabled, and try again.</p>
-    #[serde(rename = "EnableWorkDocs")]
+    #[serde(rename = "enableWorkDocs")]
     pub enable_work_docs: bool,
     /// <p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException error.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>The tags associated with the directory.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to <code>DEDICATED</code> and your AWS account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows Desktop Images</a>.</p>
-    #[serde(rename = "Tenancy")]
+    #[serde(rename = "tenancy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tenancy: Option<String>,
 }
@@ -1254,7 +1254,7 @@ pub struct RegisterWorkspaceDirectoryResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RestoreWorkspaceRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
 }
 
@@ -1266,10 +1266,10 @@ pub struct RestoreWorkspaceResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RevokeIpRulesRequest {
     /// <p>The identifier of the group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The rules to remove from the group.</p>
-    #[serde(rename = "UserRules")]
+    #[serde(rename = "userRules")]
     pub user_rules: Vec<String>,
 }
 
@@ -1281,7 +1281,7 @@ pub struct RevokeIpRulesResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RootStorage {
     /// <p>The size of the root volume.</p>
-    #[serde(rename = "Capacity")]
+    #[serde(rename = "capacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capacity: Option<String>,
 }
@@ -1290,23 +1290,23 @@ pub struct RootStorage {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SelfservicePermissions {
     /// <p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>
-    #[serde(rename = "ChangeComputeType")]
+    #[serde(rename = "changeComputeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub change_compute_type: Option<String>,
     /// <p>Specifies whether users can increase the volume size of the drives on their WorkSpace.</p>
-    #[serde(rename = "IncreaseVolumeSize")]
+    #[serde(rename = "increaseVolumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub increase_volume_size: Option<String>,
     /// <p>Specifies whether users can rebuild the operating system of a WorkSpace to its original state.</p>
-    #[serde(rename = "RebuildWorkspace")]
+    #[serde(rename = "rebuildWorkspace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rebuild_workspace: Option<String>,
     /// <p>Specifies whether users can restart their WorkSpace.</p>
-    #[serde(rename = "RestartWorkspace")]
+    #[serde(rename = "restartWorkspace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub restart_workspace: Option<String>,
     /// <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
-    #[serde(rename = "SwitchRunningMode")]
+    #[serde(rename = "switchRunningMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub switch_running_mode: Option<String>,
 }
@@ -1316,7 +1316,7 @@ pub struct SelfservicePermissions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Snapshot {
     /// <p>The time when the snapshot was created.</p>
-    #[serde(rename = "SnapshotTime")]
+    #[serde(rename = "snapshotTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_time: Option<f64>,
 }
@@ -1326,7 +1326,7 @@ pub struct Snapshot {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_id: Option<String>,
 }
@@ -1335,7 +1335,7 @@ pub struct StartRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartWorkspacesRequest {
     /// <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
-    #[serde(rename = "StartWorkspaceRequests")]
+    #[serde(rename = "startWorkspaceRequests")]
     pub start_workspace_requests: Vec<StartRequest>,
 }
 
@@ -1343,7 +1343,7 @@ pub struct StartWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartWorkspacesResult {
     /// <p>Information about the WorkSpaces that could not be started.</p>
-    #[serde(rename = "FailedRequests")]
+    #[serde(rename = "failedRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_requests: Option<Vec<FailedWorkspaceChangeRequest>>,
 }
@@ -1353,7 +1353,7 @@ pub struct StartWorkspacesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_id: Option<String>,
 }
@@ -1362,7 +1362,7 @@ pub struct StopRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopWorkspacesRequest {
     /// <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
-    #[serde(rename = "StopWorkspaceRequests")]
+    #[serde(rename = "stopWorkspaceRequests")]
     pub stop_workspace_requests: Vec<StopRequest>,
 }
 
@@ -1370,7 +1370,7 @@ pub struct StopWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopWorkspacesResult {
     /// <p>Information about the WorkSpaces that could not be stopped.</p>
-    #[serde(rename = "FailedRequests")]
+    #[serde(rename = "failedRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_requests: Option<Vec<FailedWorkspaceChangeRequest>>,
 }
@@ -1379,10 +1379,10 @@ pub struct StopWorkspacesResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1392,7 +1392,7 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TerminateRequest {
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     pub workspace_id: String,
 }
 
@@ -1400,7 +1400,7 @@ pub struct TerminateRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TerminateWorkspacesRequest {
     /// <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
-    #[serde(rename = "TerminateWorkspaceRequests")]
+    #[serde(rename = "terminateWorkspaceRequests")]
     pub terminate_workspace_requests: Vec<TerminateRequest>,
 }
 
@@ -1408,7 +1408,7 @@ pub struct TerminateWorkspacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TerminateWorkspacesResult {
     /// <p>Information about the WorkSpaces that could not be terminated.</p>
-    #[serde(rename = "FailedRequests")]
+    #[serde(rename = "failedRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_requests: Option<Vec<FailedWorkspaceChangeRequest>>,
 }
@@ -1417,10 +1417,10 @@ pub struct TerminateWorkspacesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionAliasPermissionRequest {
     /// <p>The identifier of the connection alias that you want to update permissions for.</p>
-    #[serde(rename = "AliasId")]
+    #[serde(rename = "aliasId")]
     pub alias_id: String,
     /// <p>Indicates whether to share or unshare the connection alias with the specified AWS account.</p>
-    #[serde(rename = "ConnectionAliasPermission")]
+    #[serde(rename = "connectionAliasPermission")]
     pub connection_alias_permission: ConnectionAliasPermission,
 }
 
@@ -1432,10 +1432,10 @@ pub struct UpdateConnectionAliasPermissionResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRulesOfIpGroupRequest {
     /// <p>The identifier of the group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>One or more rules.</p>
-    #[serde(rename = "UserRules")]
+    #[serde(rename = "userRules")]
     pub user_rules: Vec<IpRuleItem>,
 }
 
@@ -1447,11 +1447,11 @@ pub struct UpdateRulesOfIpGroupResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateWorkspaceBundleRequest {
     /// <p>The identifier of the bundle.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundle_id: Option<String>,
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
 }
@@ -1464,13 +1464,13 @@ pub struct UpdateWorkspaceBundleResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateWorkspaceImagePermissionRequest {
     /// <p>The permission to copy the image. This permission can be revoked only after an image has been shared.</p>
-    #[serde(rename = "AllowCopyImage")]
+    #[serde(rename = "allowCopyImage")]
     pub allow_copy_image: bool,
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     pub image_id: String,
     /// <p><p>The identifier of the AWS account to share or unshare the image with.</p> <important> <p>Before sharing the image, confirm that you are sharing to the correct AWS account ID.</p> </important></p>
-    #[serde(rename = "SharedAccountId")]
+    #[serde(rename = "sharedAccountId")]
     pub shared_account_id: String,
 }
 
@@ -1482,7 +1482,7 @@ pub struct UpdateWorkspaceImagePermissionResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserStorage {
     /// <p>The size of the user volume.</p>
-    #[serde(rename = "Capacity")]
+    #[serde(rename = "capacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capacity: Option<String>,
 }
@@ -1492,63 +1492,63 @@ pub struct UserStorage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Workspace {
     /// <p>The identifier of the bundle used to create the WorkSpace.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundle_id: Option<String>,
     /// <p>The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html"> Launch a WorkSpace</a>. </p>
-    #[serde(rename = "ComputerName")]
+    #[serde(rename = "computerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub computer_name: Option<String>,
     /// <p>The identifier of the AWS Directory Service directory for the WorkSpace.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>The error code that is returned if the WorkSpace cannot be created.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The text of the error message that is returned if the WorkSpace cannot be created.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The IP address of the WorkSpace.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address: Option<String>,
     /// <p>The modification states of the WorkSpace.</p>
-    #[serde(rename = "ModificationStates")]
+    #[serde(rename = "modificationStates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_states: Option<Vec<ModificationState>>,
     /// <p>Indicates whether the data stored on the root volume is encrypted.</p>
-    #[serde(rename = "RootVolumeEncryptionEnabled")]
+    #[serde(rename = "rootVolumeEncryptionEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_volume_encryption_enabled: Option<bool>,
     /// <p><p>The operational state of the WorkSpace.</p> <note> <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn&#39;t returned, then the WorkSpace has been successfully terminated.</p> </note></p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The identifier of the subnet for the WorkSpace.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The user for the WorkSpace.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
     /// <p>Indicates whether the data stored on the user volume is encrypted.</p>
-    #[serde(rename = "UserVolumeEncryptionEnabled")]
+    #[serde(rename = "userVolumeEncryptionEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_volume_encryption_enabled: Option<bool>,
     /// <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
-    #[serde(rename = "VolumeEncryptionKey")]
+    #[serde(rename = "volumeEncryptionKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_encryption_key: Option<String>,
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_id: Option<String>,
     /// <p>The properties of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceProperties")]
+    #[serde(rename = "workspaceProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_properties: Option<WorkspaceProperties>,
 }
@@ -1557,35 +1557,35 @@ pub struct Workspace {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WorkspaceAccessProperties {
     /// <p>Indicates whether users can use Android devices to access their WorkSpaces.</p>
-    #[serde(rename = "DeviceTypeAndroid")]
+    #[serde(rename = "deviceTypeAndroid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_android: Option<String>,
     /// <p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>
-    #[serde(rename = "DeviceTypeChromeOs")]
+    #[serde(rename = "deviceTypeChromeOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_chrome_os: Option<String>,
     /// <p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>
-    #[serde(rename = "DeviceTypeIos")]
+    #[serde(rename = "deviceTypeIos")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_ios: Option<String>,
     /// <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
-    #[serde(rename = "DeviceTypeLinux")]
+    #[serde(rename = "deviceTypeLinux")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_linux: Option<String>,
     /// <p>Indicates whether users can use macOS clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict WorkSpaces Access to Trusted Devices</a>. </p>
-    #[serde(rename = "DeviceTypeOsx")]
+    #[serde(rename = "deviceTypeOsx")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_osx: Option<String>,
     /// <p>Indicates whether users can access their WorkSpaces through a web browser.</p>
-    #[serde(rename = "DeviceTypeWeb")]
+    #[serde(rename = "deviceTypeWeb")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_web: Option<String>,
     /// <p>Indicates whether users can use Windows clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict WorkSpaces Access to Trusted Devices</a>. </p>
-    #[serde(rename = "DeviceTypeWindows")]
+    #[serde(rename = "deviceTypeWindows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_windows: Option<String>,
     /// <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
-    #[serde(rename = "DeviceTypeZeroClient")]
+    #[serde(rename = "deviceTypeZeroClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type_zero_client: Option<String>,
 }
@@ -1595,43 +1595,43 @@ pub struct WorkspaceAccessProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkspaceBundle {
     /// <p>The identifier of the bundle.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bundle_id: Option<String>,
     /// <p>The compute type of the bundle. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
-    #[serde(rename = "ComputeType")]
+    #[serde(rename = "computeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compute_type: Option<ComputeType>,
     /// <p>The time when the bundle was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The description of the bundle.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the image that was used to create the bundle.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
     /// <p>The last time that the bundle was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The name of the bundle.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the bundle. This is the account identifier of the owner, or <code>AMAZON</code> if the bundle is provided by AWS.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The size of the root volume.</p>
-    #[serde(rename = "RootStorage")]
+    #[serde(rename = "rootStorage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_storage: Option<RootStorage>,
     /// <p>The size of the user volume.</p>
-    #[serde(rename = "UserStorage")]
+    #[serde(rename = "userStorage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_storage: Option<UserStorage>,
 }
@@ -1641,19 +1641,19 @@ pub struct WorkspaceBundle {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkspaceConnectionStatus {
     /// <p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace is stopped.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>The timestamp of the connection status check.</p>
-    #[serde(rename = "ConnectionStateCheckTimestamp")]
+    #[serde(rename = "connectionStateCheckTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state_check_timestamp: Option<f64>,
     /// <p>The timestamp of the last known user connection.</p>
-    #[serde(rename = "LastKnownUserConnectionTimestamp")]
+    #[serde(rename = "lastKnownUserConnectionTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_known_user_connection_timestamp: Option<f64>,
     /// <p>The identifier of the WorkSpace.</p>
-    #[serde(rename = "WorkspaceId")]
+    #[serde(rename = "workspaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_id: Option<String>,
 }
@@ -1663,27 +1663,27 @@ pub struct WorkspaceConnectionStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct WorkspaceCreationProperties {
     /// <p>The identifier of your custom security group.</p>
-    #[serde(rename = "CustomSecurityGroupId")]
+    #[serde(rename = "customSecurityGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_security_group_id: Option<String>,
     /// <p><p>The default organizational unit (OU) for your WorkSpaces directories. This string must be the full Lightweight Directory Access Protocol (LDAP) distinguished name for the target domain and OU. It must be in the form <code>&quot;OU=<i>value</i>,DC=<i>value</i>,DC=<i>value</i>&quot;</code>, where <i>value</i> is any string of characters, and the number of domain components (DCs) is two or more. For example, <code>OU=WorkSpaces_machines,DC=machines,DC=example,DC=com</code>. </p> <important> <ul> <li> <p>To avoid errors, certain characters in the distinguished name must be escaped. For more information, see <a href="https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names"> Distinguished Names</a> in the Microsoft documentation.</p> </li> <li> <p>The API doesn&#39;t validate whether the OU exists.</p> </li> </ul> </important></p>
-    #[serde(rename = "DefaultOu")]
+    #[serde(rename = "defaultOu")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_ou: Option<String>,
     /// <p>Indicates whether internet access is enabled for your WorkSpaces.</p>
-    #[serde(rename = "EnableInternetAccess")]
+    #[serde(rename = "enableInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_internet_access: Option<bool>,
     /// <p>Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace Maintenance</a>. </p>
-    #[serde(rename = "EnableMaintenanceMode")]
+    #[serde(rename = "enableMaintenanceMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_maintenance_mode: Option<bool>,
     /// <p><p>Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</p> <note> <p>If WorkDocs is already enabled for a WorkSpaces directory and you disable it, new WorkSpaces launched in the directory will not have WorkDocs enabled. However, WorkDocs remains enabled for any existing WorkSpaces, unless you either disable users&#39; access to WorkDocs or you delete the WorkDocs site. To disable users&#39; access to WorkDocs, see <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html">Disabling Users</a> in the <i>Amazon WorkDocs Administration Guide</i>. To delete a WorkDocs site, see <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html">Deleting a Site</a> in the <i>Amazon WorkDocs Administration Guide</i>.</p> <p>If you enable WorkDocs on a directory that already has existing WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are launched in the directory will have WorkDocs enabled.</p> </note></p>
-    #[serde(rename = "EnableWorkDocs")]
+    #[serde(rename = "enableWorkDocs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_work_docs: Option<bool>,
     /// <p>Indicates whether users are local administrators of their WorkSpaces.</p>
-    #[serde(rename = "UserEnabledAsLocalAdministrator")]
+    #[serde(rename = "userEnabledAsLocalAdministrator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_enabled_as_local_administrator: Option<bool>,
 }
@@ -1693,63 +1693,63 @@ pub struct WorkspaceCreationProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkspaceDirectory {
     /// <p>The directory alias.</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias: Option<String>,
     /// <p>The user name for the service account.</p>
-    #[serde(rename = "CustomerUserName")]
+    #[serde(rename = "customerUserName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_user_name: Option<String>,
     /// <p>The directory identifier.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>The name of the directory.</p>
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_name: Option<String>,
     /// <p>The directory type.</p>
-    #[serde(rename = "DirectoryType")]
+    #[serde(rename = "directoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_type: Option<String>,
     /// <p>The IP addresses of the DNS servers for the directory.</p>
-    #[serde(rename = "DnsIpAddresses")]
+    #[serde(rename = "dnsIpAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_ip_addresses: Option<Vec<String>>,
     /// <p>The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.</p>
-    #[serde(rename = "IamRoleId")]
+    #[serde(rename = "iamRoleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_id: Option<String>,
     /// <p>The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.</p>
-    #[serde(rename = "RegistrationCode")]
+    #[serde(rename = "registrationCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registration_code: Option<String>,
     /// <p>The default self-service permissions for WorkSpaces in the directory.</p>
-    #[serde(rename = "SelfservicePermissions")]
+    #[serde(rename = "selfservicePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub selfservice_permissions: Option<SelfservicePermissions>,
     /// <p>The state of the directory's registration with Amazon WorkSpaces. After a directory is deregistered, the <code>DEREGISTERED</code> state is returned very briefly before the directory metadata is cleaned up, so this state is rarely returned. To confirm that a directory is deregistered, check for the directory ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html"> DescribeWorkspaceDirectories</a>. If the directory ID isn't returned, then the directory has been successfully deregistered.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The identifiers of the subnets used with the directory.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows Desktop Images</a>.</p>
-    #[serde(rename = "Tenancy")]
+    #[serde(rename = "tenancy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tenancy: Option<String>,
     /// <p>The devices and operating systems that users can use to access WorkSpaces.</p>
-    #[serde(rename = "WorkspaceAccessProperties")]
+    #[serde(rename = "workspaceAccessProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_access_properties: Option<WorkspaceAccessProperties>,
     /// <p>The default creation properties for all WorkSpaces in the directory.</p>
-    #[serde(rename = "WorkspaceCreationProperties")]
+    #[serde(rename = "workspaceCreationProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_creation_properties: Option<DefaultWorkspaceCreationProperties>,
     /// <p>The identifier of the security group that is assigned to new WorkSpaces.</p>
-    #[serde(rename = "WorkspaceSecurityGroupId")]
+    #[serde(rename = "workspaceSecurityGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_security_group_id: Option<String>,
     /// <p>The identifiers of the IP access control groups associated with the directory.</p>
@@ -1763,43 +1763,43 @@ pub struct WorkspaceDirectory {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkspaceImage {
     /// <p>The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>The description of the image.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The error code that is returned for the image.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The text of the error message that is returned for the image.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The identifier of the image.</p>
-    #[serde(rename = "ImageId")]
+    #[serde(rename = "imageId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_id: Option<String>,
     /// <p>The name of the image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The operating system that the image is running. </p>
-    #[serde(rename = "OperatingSystem")]
+    #[serde(rename = "operatingSystem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operating_system: Option<OperatingSystem>,
     /// <p>The identifier of the AWS account that owns the image.</p>
-    #[serde(rename = "OwnerAccountId")]
+    #[serde(rename = "ownerAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_account_id: Option<String>,
     /// <p>Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows Desktop Images</a>.</p>
-    #[serde(rename = "RequiredTenancy")]
+    #[serde(rename = "requiredTenancy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub required_tenancy: Option<String>,
     /// <p>The status of the image.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1808,23 +1808,23 @@ pub struct WorkspaceImage {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WorkspaceProperties {
     /// <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
-    #[serde(rename = "ComputeTypeName")]
+    #[serde(rename = "computeTypeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compute_type_name: Option<String>,
     /// <p>The size of the root volume. For important information about how to modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">Modify a WorkSpace</a>.</p>
-    #[serde(rename = "RootVolumeSizeGib")]
+    #[serde(rename = "rootVolumeSizeGib")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_volume_size_gib: Option<i64>,
     /// <p>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage the WorkSpace Running Mode</a>.</p>
-    #[serde(rename = "RunningMode")]
+    #[serde(rename = "runningMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub running_mode: Option<String>,
     /// <p>The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.</p>
-    #[serde(rename = "RunningModeAutoStopTimeoutInMinutes")]
+    #[serde(rename = "runningModeAutoStopTimeoutInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub running_mode_auto_stop_timeout_in_minutes: Option<i64>,
     /// <p>The size of the user storage. For important information about how to modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">Modify a WorkSpace</a>.</p>
-    #[serde(rename = "UserVolumeSizeGib")]
+    #[serde(rename = "userVolumeSizeGib")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_volume_size_gib: Option<i64>,
 }
@@ -1833,32 +1833,32 @@ pub struct WorkspaceProperties {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WorkspaceRequest {
     /// <p>The identifier of the bundle for the WorkSpace. You can use <a>DescribeWorkspaceBundles</a> to list the available bundles.</p>
-    #[serde(rename = "BundleId")]
+    #[serde(rename = "bundleId")]
     pub bundle_id: String,
     /// <p>The identifier of the AWS Directory Service directory for the WorkSpace. You can use <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     pub directory_id: String,
     /// <p>Indicates whether the data stored on the root volume is encrypted.</p>
-    #[serde(rename = "RootVolumeEncryptionEnabled")]
+    #[serde(rename = "rootVolumeEncryptionEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_volume_encryption_enabled: Option<bool>,
     /// <p>The tags for the WorkSpace.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
     /// <p>Indicates whether the data stored on the user volume is encrypted.</p>
-    #[serde(rename = "UserVolumeEncryptionEnabled")]
+    #[serde(rename = "userVolumeEncryptionEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_volume_encryption_enabled: Option<bool>,
     /// <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
-    #[serde(rename = "VolumeEncryptionKey")]
+    #[serde(rename = "volumeEncryptionKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_encryption_key: Option<String>,
     /// <p>The WorkSpace properties.</p>
-    #[serde(rename = "WorkspaceProperties")]
+    #[serde(rename = "workspaceProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_properties: Option<WorkspaceProperties>,
 }

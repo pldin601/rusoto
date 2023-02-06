@@ -1556,11 +1556,11 @@ pub struct GetCommitOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDifferencesInput {
     /// <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</p>
@@ -1587,7 +1587,7 @@ pub struct GetDifferencesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDifferencesOutput {
     /// <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M).</p>
@@ -3100,7 +3100,7 @@ pub struct ReplaceContentEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RepositoryMetadata {
     /// <p>The Amazon Resource Name (ARN) of the repository.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the AWS account associated with the repository.</p>

@@ -54,7 +54,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetNamedQueryInput {
     /// <p>An array of query IDs.</p>
-    #[serde(rename = "NamedQueryIds")]
+    #[serde(rename = "namedQueryIds")]
     pub named_query_ids: Vec<String>,
 }
 
@@ -62,11 +62,11 @@ pub struct BatchGetNamedQueryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetNamedQueryOutput {
     /// <p>Information about the named query IDs submitted.</p>
-    #[serde(rename = "NamedQueries")]
+    #[serde(rename = "namedQueries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub named_queries: Option<Vec<NamedQuery>>,
     /// <p>Information about provided query IDs.</p>
-    #[serde(rename = "UnprocessedNamedQueryIds")]
+    #[serde(rename = "unprocessedNamedQueryIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_named_query_ids: Option<Vec<UnprocessedNamedQueryId>>,
 }
@@ -75,7 +75,7 @@ pub struct BatchGetNamedQueryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetQueryExecutionInput {
     /// <p>An array of query execution IDs.</p>
-    #[serde(rename = "QueryExecutionIds")]
+    #[serde(rename = "queryExecutionIds")]
     pub query_execution_ids: Vec<String>,
 }
 
@@ -83,11 +83,11 @@ pub struct BatchGetQueryExecutionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetQueryExecutionOutput {
     /// <p>Information about a query execution.</p>
-    #[serde(rename = "QueryExecutions")]
+    #[serde(rename = "queryExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_executions: Option<Vec<QueryExecution>>,
     /// <p>Information about the query executions that failed to run.</p>
-    #[serde(rename = "UnprocessedQueryExecutionIds")]
+    #[serde(rename = "unprocessedQueryExecutionIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_query_execution_ids: Option<Vec<UnprocessedQueryExecutionId>>,
 }
@@ -97,14 +97,14 @@ pub struct BatchGetQueryExecutionOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Column {
     /// <p>Optional information about the column.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The name of the column.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The data type of the column.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -114,42 +114,42 @@ pub struct Column {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnInfo {
     /// <p>Indicates whether values in the column are case-sensitive.</p>
-    #[serde(rename = "CaseSensitive")]
+    #[serde(rename = "caseSensitive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub case_sensitive: Option<bool>,
     /// <p>The catalog to which the query results belong.</p>
-    #[serde(rename = "CatalogName")]
+    #[serde(rename = "catalogName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_name: Option<String>,
     /// <p>A column label.</p>
-    #[serde(rename = "Label")]
+    #[serde(rename = "label")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label: Option<String>,
     /// <p>The name of the column.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Indicates the column's nullable status.</p>
-    #[serde(rename = "Nullable")]
+    #[serde(rename = "nullable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nullable: Option<String>,
     /// <p>For <code>DECIMAL</code> data types, specifies the total number of digits, up to 38. For performance reasons, we recommend up to 18 digits.</p>
-    #[serde(rename = "Precision")]
+    #[serde(rename = "precision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precision: Option<i64>,
     /// <p>For <code>DECIMAL</code> data types, specifies the total number of digits in the fractional part of the value. Defaults to 0.</p>
-    #[serde(rename = "Scale")]
+    #[serde(rename = "scale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scale: Option<i64>,
     /// <p>The schema name (database name) to which the query results belong.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The table name for the query results.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_name: Option<String>,
     /// <p>The data type of the column.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -157,22 +157,22 @@ pub struct ColumnInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDataCatalogInput {
     /// <p>A description of the data catalog to be created.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. </p> <ul> <li> <p>For the <code>HIVE</code> data catalog type, use the following syntax. The <code>metadata-function</code> parameter is required. <code>The sdk-version</code> parameter is optional and defaults to the currently supported version.</p> <p> <code>metadata-function=<i>lambda<em>arn</i>, sdk-version=<i>version</em>number</i> </code> </p> </li> <li> <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets of required parameters, but not both.</p> <ul> <li> <p>If you have one Lambda function that processes metadata and another for reading the actual data, use the following syntax. Both parameters are required.</p> <p> <code>metadata-function=<i>lambda<em>arn</i>, record-function=<i>lambda</em>arn</i> </code> </p> </li> <li> <p> If you have a composite Lambda function that processes both metadata and data, use the following syntax to specify your Lambda function.</p> <p> <code>function=<i>lambda_arn</i> </code> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of comma separated tags to add to the data catalog that is created.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p><p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog or <code>HIVE</code> for an external hive metastore.</p> <note> <p>Do not use the <code>GLUE</code> type. This refers to the <code>AwsDataCatalog</code> that already exists in your account, of which you can have only one. Specifying the <code>GLUE</code> type will result in an <code>INVALID_INPUT</code> error.</p> </note></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -184,24 +184,24 @@ pub struct CreateDataCatalogOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateNamedQueryInput {
     /// <p><p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>CreateNamedQuery</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p> <important> <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.</p> </important></p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The database to which the query belongs.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>The query description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The query name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The contents of the query with all query statements.</p>
-    #[serde(rename = "QueryString")]
+    #[serde(rename = "queryString")]
     pub query_string: String,
     /// <p>The name of the workgroup in which the named query is being created.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -210,7 +210,7 @@ pub struct CreateNamedQueryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateNamedQueryOutput {
     /// <p>The unique ID of the query.</p>
-    #[serde(rename = "NamedQueryId")]
+    #[serde(rename = "namedQueryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub named_query_id: Option<String>,
 }
@@ -219,17 +219,17 @@ pub struct CreateNamedQueryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePreparedStatementInput {
     /// <p>The description of the prepared statement.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The query string for the prepared statement.</p>
-    #[serde(rename = "QueryStatement")]
+    #[serde(rename = "queryStatement")]
     pub query_statement: String,
     /// <p>The name of the prepared statement.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     pub statement_name: String,
     /// <p>The name of the workgroup to which the prepared statement belongs.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -241,18 +241,18 @@ pub struct CreatePreparedStatementOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateWorkGroupInput {
     /// <p>The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings (specified with EnforceWorkGroupConfiguration) in the WorkGroupConfiguration override client-side settings. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<WorkGroupConfiguration>,
     /// <p>The workgroup description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The workgroup name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of comma separated tags to add to the workgroup that is created.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -266,18 +266,18 @@ pub struct CreateWorkGroupOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataCatalog {
     /// <p>An optional description of the data catalog.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>Specifies the Lambda function or functions to use for the data catalog. This is a mapping whose values depend on the catalog type. </p> <ul> <li> <p>For the <code>HIVE</code> data catalog type, use the following syntax. The <code>metadata-function</code> parameter is required. <code>The sdk-version</code> parameter is optional and defaults to the currently supported version.</p> <p> <code>metadata-function=<i>lambda<em>arn</i>, sdk-version=<i>version</em>number</i> </code> </p> </li> <li> <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets of required parameters, but not both.</p> <ul> <li> <p>If you have one Lambda function that processes metadata and another for reading the actual data, use the following syntax. Both parameters are required.</p> <p> <code>metadata-function=<i>lambda<em>arn</i>, record-function=<i>lambda</em>arn</i> </code> </p> </li> <li> <p> If you have a composite Lambda function that processes both metadata and data, use the following syntax to specify your Lambda function.</p> <p> <code>function=<i>lambda_arn</i> </code> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of data catalog: <code>LAMBDA</code> for a federated catalog or <code>HIVE</code> for an external hive metastore. <code>GLUE</code> refers to the <code>AwsDataCatalog</code> that already exists in your account, of which you can have only one.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -286,11 +286,11 @@ pub struct DataCatalog {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataCatalogSummary {
     /// <p>The name of the data catalog.</p>
-    #[serde(rename = "CatalogName")]
+    #[serde(rename = "catalogName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_name: Option<String>,
     /// <p>The data catalog type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -300,14 +300,14 @@ pub struct DataCatalogSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Database {
     /// <p>An optional description of the database.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the database.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A set of custom key/value pairs.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
 }
@@ -317,7 +317,7 @@ pub struct Database {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Datum {
     /// <p>The value of the datum.</p>
-    #[serde(rename = "VarCharValue")]
+    #[serde(rename = "varCharValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub var_char_value: Option<String>,
 }
@@ -326,7 +326,7 @@ pub struct Datum {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDataCatalogInput {
     /// <p>The name of the data catalog to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -338,7 +338,7 @@ pub struct DeleteDataCatalogOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteNamedQueryInput {
     /// <p>The unique ID of the query to delete.</p>
-    #[serde(rename = "NamedQueryId")]
+    #[serde(rename = "namedQueryId")]
     pub named_query_id: String,
 }
 
@@ -350,10 +350,10 @@ pub struct DeleteNamedQueryOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePreparedStatementInput {
     /// <p>The name of the prepared statement to delete.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     pub statement_name: String,
     /// <p>The workgroup to which the statement to be deleted belongs.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -365,11 +365,11 @@ pub struct DeletePreparedStatementOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteWorkGroupInput {
     /// <p>The option to delete the workgroup and its contents even if the workgroup contains any named queries or query executions.</p>
-    #[serde(rename = "RecursiveDeleteOption")]
+    #[serde(rename = "recursiveDeleteOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recursive_delete_option: Option<bool>,
     /// <p>The unique name of the workgroup to delete.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -381,10 +381,10 @@ pub struct DeleteWorkGroupOutput {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionConfiguration {
     /// <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>), server-side encryption with KMS-managed keys (<code>SSE-KMS</code>), or client-side encryption with KMS-managed keys (CSE-KMS) is used.</p> <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup. </p>
-    #[serde(rename = "EncryptionOption")]
+    #[serde(rename = "encryptionOption")]
     pub encryption_option: String,
     /// <p>For <code>SSE-KMS</code> and <code>CSE-KMS</code>, this is the KMS key ARN or ID.</p>
-    #[serde(rename = "KmsKey")]
+    #[serde(rename = "kmsKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key: Option<String>,
 }
@@ -393,11 +393,11 @@ pub struct EncryptionConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EngineVersion {
     /// <p>Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a <code>CreateWorkGroup</code> or <code>UpdateWorkGroup</code> operation, the <code>EffectiveEngineVersion</code> field is ignored.</p>
-    #[serde(rename = "EffectiveEngineVersion")]
+    #[serde(rename = "effectiveEngineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub effective_engine_version: Option<String>,
     /// <p>The engine version requested by the user. Possible values are determined by the output of <code>ListEngineVersions</code>, including Auto. The default is Auto.</p>
-    #[serde(rename = "SelectedEngineVersion")]
+    #[serde(rename = "selectedEngineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub selected_engine_version: Option<String>,
 }
@@ -406,7 +406,7 @@ pub struct EngineVersion {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDataCatalogInput {
     /// <p>The name of the data catalog to return.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -414,7 +414,7 @@ pub struct GetDataCatalogInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataCatalogOutput {
     /// <p>The data catalog returned.</p>
-    #[serde(rename = "DataCatalog")]
+    #[serde(rename = "dataCatalog")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_catalog: Option<DataCatalog>,
 }
@@ -423,10 +423,10 @@ pub struct GetDataCatalogOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDatabaseInput {
     /// <p>The name of the data catalog that contains the database to return.</p>
-    #[serde(rename = "CatalogName")]
+    #[serde(rename = "catalogName")]
     pub catalog_name: String,
     /// <p>The name of the database to return.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
 }
 
@@ -434,7 +434,7 @@ pub struct GetDatabaseInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDatabaseOutput {
     /// <p>The database returned.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database: Option<Database>,
 }
@@ -443,7 +443,7 @@ pub struct GetDatabaseOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetNamedQueryInput {
     /// <p>The unique ID of the query. Use <a>ListNamedQueries</a> to get query IDs.</p>
-    #[serde(rename = "NamedQueryId")]
+    #[serde(rename = "namedQueryId")]
     pub named_query_id: String,
 }
 
@@ -451,7 +451,7 @@ pub struct GetNamedQueryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetNamedQueryOutput {
     /// <p>Information about the query.</p>
-    #[serde(rename = "NamedQuery")]
+    #[serde(rename = "namedQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub named_query: Option<NamedQuery>,
 }
@@ -460,10 +460,10 @@ pub struct GetNamedQueryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPreparedStatementInput {
     /// <p>The name of the prepared statement to retrieve.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     pub statement_name: String,
     /// <p>The workgroup to which the statement to be retrieved belongs.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -471,7 +471,7 @@ pub struct GetPreparedStatementInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPreparedStatementOutput {
     /// <p>The name of the prepared statement that was retrieved.</p>
-    #[serde(rename = "PreparedStatement")]
+    #[serde(rename = "preparedStatement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prepared_statement: Option<PreparedStatement>,
 }
@@ -480,7 +480,7 @@ pub struct GetPreparedStatementOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetQueryExecutionInput {
     /// <p>The unique ID of the query execution.</p>
-    #[serde(rename = "QueryExecutionId")]
+    #[serde(rename = "queryExecutionId")]
     pub query_execution_id: String,
 }
 
@@ -488,7 +488,7 @@ pub struct GetQueryExecutionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetQueryExecutionOutput {
     /// <p>Information about the query execution.</p>
-    #[serde(rename = "QueryExecution")]
+    #[serde(rename = "queryExecution")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution: Option<QueryExecution>,
 }
@@ -497,15 +497,15 @@ pub struct GetQueryExecutionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetQueryResultsInput {
     /// <p>The maximum number of results (rows) to return in this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The unique ID of the query execution.</p>
-    #[serde(rename = "QueryExecutionId")]
+    #[serde(rename = "queryExecutionId")]
     pub query_execution_id: String,
 }
 
@@ -513,15 +513,15 @@ pub struct GetQueryResultsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetQueryResultsOutput {
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The results of the query execution.</p>
-    #[serde(rename = "ResultSet")]
+    #[serde(rename = "resultSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_set: Option<ResultSet>,
     /// <p>The number of rows inserted with a CREATE TABLE AS SELECT statement. </p>
-    #[serde(rename = "UpdateCount")]
+    #[serde(rename = "updateCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_count: Option<i64>,
 }
@@ -530,13 +530,13 @@ pub struct GetQueryResultsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTableMetadataInput {
     /// <p>The name of the data catalog that contains the database and table metadata to return.</p>
-    #[serde(rename = "CatalogName")]
+    #[serde(rename = "catalogName")]
     pub catalog_name: String,
     /// <p>The name of the database that contains the table metadata to return.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table for which metadata is returned.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -544,7 +544,7 @@ pub struct GetTableMetadataInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTableMetadataOutput {
     /// <p>An object that contains table metadata.</p>
-    #[serde(rename = "TableMetadata")]
+    #[serde(rename = "tableMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_metadata: Option<TableMetadata>,
 }
@@ -553,7 +553,7 @@ pub struct GetTableMetadataOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetWorkGroupInput {
     /// <p>The name of the workgroup.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -561,7 +561,7 @@ pub struct GetWorkGroupInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetWorkGroupOutput {
     /// <p>Information about the workgroup.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<WorkGroup>,
 }
@@ -570,11 +570,11 @@ pub struct GetWorkGroupOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDataCatalogsInput {
     /// <p>Specifies the maximum number of data catalogs to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -583,11 +583,11 @@ pub struct ListDataCatalogsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDataCatalogsOutput {
     /// <p>A summary list of data catalogs.</p>
-    #[serde(rename = "DataCatalogsSummary")]
+    #[serde(rename = "dataCatalogsSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_catalogs_summary: Option<Vec<DataCatalogSummary>>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -596,14 +596,14 @@ pub struct ListDataCatalogsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDatabasesInput {
     /// <p>The name of the data catalog that contains the databases to return.</p>
-    #[serde(rename = "CatalogName")]
+    #[serde(rename = "catalogName")]
     pub catalog_name: String,
     /// <p>Specifies the maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -612,11 +612,11 @@ pub struct ListDatabasesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDatabasesOutput {
     /// <p>A list of databases from a data catalog.</p>
-    #[serde(rename = "DatabaseList")]
+    #[serde(rename = "databaseList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_list: Option<Vec<Database>>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -625,11 +625,11 @@ pub struct ListDatabasesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEngineVersionsInput {
     /// <p>The maximum number of engine versions to return in this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -638,11 +638,11 @@ pub struct ListEngineVersionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEngineVersionsOutput {
     /// <p>A list of engine versions that are available to choose from.</p>
-    #[serde(rename = "EngineVersions")]
+    #[serde(rename = "engineVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_versions: Option<Vec<EngineVersion>>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -651,15 +651,15 @@ pub struct ListEngineVersionsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListNamedQueriesInput {
     /// <p>The maximum number of queries to return in this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the workgroup from which the named queries are being returned. If a workgroup is not specified, the saved queries for the primary workgroup are returned.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -668,11 +668,11 @@ pub struct ListNamedQueriesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListNamedQueriesOutput {
     /// <p>The list of unique query IDs.</p>
-    #[serde(rename = "NamedQueryIds")]
+    #[serde(rename = "namedQueryIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub named_query_ids: Option<Vec<String>>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -681,15 +681,15 @@ pub struct ListNamedQueriesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPreparedStatementsInput {
     /// <p>The maximum number of results to return in this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The workgroup to list the prepared statements for.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -697,11 +697,11 @@ pub struct ListPreparedStatementsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPreparedStatementsOutput {
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of prepared statements for the workgroup.</p>
-    #[serde(rename = "PreparedStatements")]
+    #[serde(rename = "preparedStatements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prepared_statements: Option<Vec<PreparedStatementSummary>>,
 }
@@ -710,15 +710,15 @@ pub struct ListPreparedStatementsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListQueryExecutionsInput {
     /// <p>The maximum number of query executions to return in this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the workgroup from which queries are being returned. If a workgroup is not specified, a list of available query execution IDs for the queries in the primary workgroup is returned.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -727,11 +727,11 @@ pub struct ListQueryExecutionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListQueryExecutionsOutput {
     /// <p>A token to be used by the next request if this request is truncated.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The unique IDs of each query execution as an array of strings.</p>
-    #[serde(rename = "QueryExecutionIds")]
+    #[serde(rename = "queryExecutionIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution_ids: Option<Vec<String>>,
 }
@@ -740,21 +740,21 @@ pub struct ListQueryExecutionsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTableMetadataInput {
     /// <p>The name of the data catalog for which table metadata should be returned.</p>
-    #[serde(rename = "CatalogName")]
+    #[serde(rename = "catalogName")]
     pub catalog_name: String,
     /// <p>The name of the database for which table metadata should be returned.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>A regex filter that pattern-matches table names. If no expression is supplied, metadata for all tables are listed.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expression: Option<String>,
     /// <p>Specifies the maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -763,11 +763,11 @@ pub struct ListTableMetadataInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTableMetadataOutput {
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of table metadata.</p>
-    #[serde(rename = "TableMetadataList")]
+    #[serde(rename = "tableMetadataList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_metadata_list: Option<Vec<TableMetadata>>,
 }
@@ -776,15 +776,15 @@ pub struct ListTableMetadataOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceInput {
     /// <p>The maximum number of results to be returned per request that lists the tags for the resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no additional results for this request, where the request lists the tags for the resource with the specified ARN.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Lists the tags for the resource with the specified ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -792,11 +792,11 @@ pub struct ListTagsForResourceInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceOutput {
     /// <p>A token to be used by the next request if this request is truncated.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of tags associated with the specified resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -805,11 +805,11 @@ pub struct ListTagsForResourceOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListWorkGroupsInput {
     /// <p>The maximum number of workgroups to return in this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -818,11 +818,11 @@ pub struct ListWorkGroupsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListWorkGroupsOutput {
     /// <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <a>WorkGroupSummary</a> objects that include the names, descriptions, creation times, and states for each workgroup.</p>
-    #[serde(rename = "WorkGroups")]
+    #[serde(rename = "workGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_groups: Option<Vec<WorkGroupSummary>>,
 }
@@ -832,24 +832,24 @@ pub struct ListWorkGroupsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NamedQuery {
     /// <p>The database to which the query belongs.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>The query description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The query name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The unique identifier of the query.</p>
-    #[serde(rename = "NamedQueryId")]
+    #[serde(rename = "namedQueryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub named_query_id: Option<String>,
     /// <p>The SQL query statements that comprise the query.</p>
-    #[serde(rename = "QueryString")]
+    #[serde(rename = "queryString")]
     pub query_string: String,
     /// <p>The name of the workgroup that contains the named query.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -859,23 +859,23 @@ pub struct NamedQuery {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PreparedStatement {
     /// <p>The description of the prepared statement.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The last modified time of the prepared statement.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The query string for the prepared statement.</p>
-    #[serde(rename = "QueryStatement")]
+    #[serde(rename = "queryStatement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_statement: Option<String>,
     /// <p>The name of the prepared statement.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement_name: Option<String>,
     /// <p>The name of the workgroup to which the prepared statement belongs.</p>
-    #[serde(rename = "WorkGroupName")]
+    #[serde(rename = "workGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group_name: Option<String>,
 }
@@ -885,11 +885,11 @@ pub struct PreparedStatement {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PreparedStatementSummary {
     /// <p>The last modified time of the prepared statement.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the prepared statement.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement_name: Option<String>,
 }
@@ -899,39 +899,39 @@ pub struct PreparedStatementSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueryExecution {
     /// <p>The engine version that executed the query.</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<EngineVersion>,
     /// <p>The SQL query statements which the query execution ran.</p>
-    #[serde(rename = "Query")]
+    #[serde(rename = "query")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query: Option<String>,
     /// <p>The database in which the query execution occurred.</p>
-    #[serde(rename = "QueryExecutionContext")]
+    #[serde(rename = "queryExecutionContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution_context: Option<QueryExecutionContext>,
     /// <p>The unique identifier for each query execution.</p>
-    #[serde(rename = "QueryExecutionId")]
+    #[serde(rename = "queryExecutionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution_id: Option<String>,
     /// <p>The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.</p>
-    #[serde(rename = "ResultConfiguration")]
+    #[serde(rename = "resultConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_configuration: Option<ResultConfiguration>,
     /// <p>The type of query statement that was run. <code>DDL</code> indicates DDL query statements. <code>DML</code> indicates DML (Data Manipulation Language) query statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or <code>DESCRIBE &lt;table&gt;</code>.</p>
-    #[serde(rename = "StatementType")]
+    #[serde(rename = "statementType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement_type: Option<String>,
     /// <p>Query execution statistics, such as the amount of data scanned, the amount of time that the query took to process, and the type of statement that was run.</p>
-    #[serde(rename = "Statistics")]
+    #[serde(rename = "statistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statistics: Option<QueryExecutionStatistics>,
     /// <p>The completion date, current state, submission time, and state change reason (if applicable) for the query execution.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<QueryExecutionStatus>,
     /// <p>The name of the workgroup in which the query ran.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -940,11 +940,11 @@ pub struct QueryExecution {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct QueryExecutionContext {
     /// <p>The name of the data catalog used in the query execution.</p>
-    #[serde(rename = "Catalog")]
+    #[serde(rename = "catalog")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog: Option<String>,
     /// <p>The name of the database used in the query execution.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database: Option<String>,
 }
@@ -954,31 +954,31 @@ pub struct QueryExecutionContext {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueryExecutionStatistics {
     /// <p>The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User Guide</i>.</p>
-    #[serde(rename = "DataManifestLocation")]
+    #[serde(rename = "dataManifestLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_manifest_location: Option<String>,
     /// <p>The number of bytes in the data that was queried.</p>
-    #[serde(rename = "DataScannedInBytes")]
+    #[serde(rename = "dataScannedInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_scanned_in_bytes: Option<i64>,
     /// <p>The number of milliseconds that the query took to execute.</p>
-    #[serde(rename = "EngineExecutionTimeInMillis")]
+    #[serde(rename = "engineExecutionTimeInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_execution_time_in_millis: Option<i64>,
     /// <p>The number of milliseconds that Athena took to plan the query processing flow. This includes the time spent retrieving table partitions from the data source. Note that because the query engine performs the query planning, query planning time is a subset of engine processing time.</p>
-    #[serde(rename = "QueryPlanningTimeInMillis")]
+    #[serde(rename = "queryPlanningTimeInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_planning_time_in_millis: Option<i64>,
     /// <p>The number of milliseconds that the query was in your query queue waiting for resources. Note that if transient errors occur, Athena might automatically add the query back to the queue.</p>
-    #[serde(rename = "QueryQueueTimeInMillis")]
+    #[serde(rename = "queryQueueTimeInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_queue_time_in_millis: Option<i64>,
     /// <p>The number of milliseconds that Athena took to finalize and publish the query results after the query engine finished running the query.</p>
-    #[serde(rename = "ServiceProcessingTimeInMillis")]
+    #[serde(rename = "serviceProcessingTimeInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_processing_time_in_millis: Option<i64>,
     /// <p>The number of milliseconds that Athena took to run the query.</p>
-    #[serde(rename = "TotalExecutionTimeInMillis")]
+    #[serde(rename = "totalExecutionTimeInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_execution_time_in_millis: Option<i64>,
 }
@@ -988,19 +988,19 @@ pub struct QueryExecutionStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueryExecutionStatus {
     /// <p>The date and time that the query completed.</p>
-    #[serde(rename = "CompletionDateTime")]
+    #[serde(rename = "completionDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completion_date_time: Option<f64>,
     /// <p><p>The state of query execution. <code>QUEUED</code> indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. <code>RUNNING</code> indicates that the query is in execution phase. <code>SUCCEEDED</code> indicates that the query completed without errors. <code>FAILED</code> indicates that the query experienced an error and did not complete processing. <code>CANCELLED</code> indicates that a user input interrupted query execution.</p> <note> <p>Athena automatically retries your queries in cases of certain transient errors. As a result, you may see the query state transition from <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p> </note></p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Further detail about the status of the query.</p>
-    #[serde(rename = "StateChangeReason")]
+    #[serde(rename = "stateChangeReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_change_reason: Option<String>,
     /// <p>The date and time that the query was submitted.</p>
-    #[serde(rename = "SubmissionDateTime")]
+    #[serde(rename = "submissionDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submission_date_time: Option<f64>,
 }
@@ -1009,11 +1009,11 @@ pub struct QueryExecutionStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResultConfiguration {
     /// <p>If query results are encrypted in Amazon S3, indicates the encryption option used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-    #[serde(rename = "EncryptionConfiguration")]
+    #[serde(rename = "encryptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_configuration: Option<EncryptionConfiguration>,
     /// <p>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the query results location using one of the ways: either for individual queries using either this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>. If none of them is set, Athena issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>. If workgroup settings override client-side settings, then the query uses the settings specified for the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
-    #[serde(rename = "OutputLocation")]
+    #[serde(rename = "outputLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_location: Option<String>,
 }
@@ -1023,19 +1023,19 @@ pub struct ResultConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResultConfigurationUpdates {
     /// <p>The encryption configuration for the query results.</p>
-    #[serde(rename = "EncryptionConfiguration")]
+    #[serde(rename = "encryptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_configuration: Option<EncryptionConfiguration>,
     /// <p>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
-    #[serde(rename = "OutputLocation")]
+    #[serde(rename = "outputLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_location: Option<String>,
     /// <p>If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-    #[serde(rename = "RemoveEncryptionConfiguration")]
+    #[serde(rename = "removeEncryptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_encryption_configuration: Option<bool>,
     /// <p>If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-    #[serde(rename = "RemoveOutputLocation")]
+    #[serde(rename = "removeOutputLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_output_location: Option<bool>,
 }
@@ -1045,11 +1045,11 @@ pub struct ResultConfigurationUpdates {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResultSet {
     /// <p>The metadata that describes the column structure and data types of a table of query results.</p>
-    #[serde(rename = "ResultSetMetadata")]
+    #[serde(rename = "resultSetMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_set_metadata: Option<ResultSetMetadata>,
     /// <p>The rows in the table.</p>
-    #[serde(rename = "Rows")]
+    #[serde(rename = "rows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rows: Option<Vec<Row>>,
 }
@@ -1059,7 +1059,7 @@ pub struct ResultSet {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResultSetMetadata {
     /// <p>Information about the columns returned in a query result metadata.</p>
-    #[serde(rename = "ColumnInfo")]
+    #[serde(rename = "columnInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_info: Option<Vec<ColumnInfo>>,
 }
@@ -1069,7 +1069,7 @@ pub struct ResultSetMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Row {
     /// <p>The data that populates a row in a query result table.</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<Vec<Datum>>,
 }
@@ -1078,22 +1078,22 @@ pub struct Row {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartQueryExecutionInput {
     /// <p><p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>StartQueryExecution</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p> <important> <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.</p> </important></p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The database within which the query executes.</p>
-    #[serde(rename = "QueryExecutionContext")]
+    #[serde(rename = "queryExecutionContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution_context: Option<QueryExecutionContext>,
     /// <p>The SQL query statements to be executed.</p>
-    #[serde(rename = "QueryString")]
+    #[serde(rename = "queryString")]
     pub query_string: String,
     /// <p>Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
-    #[serde(rename = "ResultConfiguration")]
+    #[serde(rename = "resultConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_configuration: Option<ResultConfiguration>,
     /// <p>The name of the workgroup in which the query is being started.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -1102,7 +1102,7 @@ pub struct StartQueryExecutionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartQueryExecutionOutput {
     /// <p>The unique ID of the query that ran as a result of this request.</p>
-    #[serde(rename = "QueryExecutionId")]
+    #[serde(rename = "queryExecutionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution_id: Option<String>,
 }
@@ -1111,7 +1111,7 @@ pub struct StartQueryExecutionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopQueryExecutionInput {
     /// <p>The unique ID of the query execution to stop.</p>
-    #[serde(rename = "QueryExecutionId")]
+    #[serde(rename = "queryExecutionId")]
     pub query_execution_id: String,
 }
 
@@ -1124,30 +1124,30 @@ pub struct StopQueryExecutionOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TableMetadata {
     /// <p>A list of the columns in the table.</p>
-    #[serde(rename = "Columns")]
+    #[serde(rename = "columns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub columns: Option<Vec<Column>>,
     /// <p>The time that the table was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>The last time the table was accessed.</p>
-    #[serde(rename = "LastAccessTime")]
+    #[serde(rename = "lastAccessTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_access_time: Option<f64>,
     /// <p>The name of the table.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A set of custom key/value pairs for table properties.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of the partition keys in the table.</p>
-    #[serde(rename = "PartitionKeys")]
+    #[serde(rename = "partitionKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partition_keys: Option<Vec<Column>>,
     /// <p>The type of table. In Athena, only <code>EXTERNAL_TABLE</code> is supported.</p>
-    #[serde(rename = "TableType")]
+    #[serde(rename = "tableType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_type: Option<String>,
 }
@@ -1156,11 +1156,11 @@ pub struct TableMetadata {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>A tag key. The tag key length is from 1 to 128 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys are case-sensitive and must be unique per resource. </p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>A tag value. The tag value length is from 0 to 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag values are case-sensitive. </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1169,10 +1169,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceInput {
     /// <p>Specifies the ARN of the Athena resource (workgroup or data catalog) to which tags are to be added.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A collection of one or more tags, separated by commas, to be added to an Athena workgroup or data catalog resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1185,15 +1185,15 @@ pub struct TagResourceOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnprocessedNamedQueryId {
     /// <p>The error code returned when the processing request for the named query failed, if applicable.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message returned when the processing request for the named query failed, if applicable.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The unique identifier of the named query.</p>
-    #[serde(rename = "NamedQueryId")]
+    #[serde(rename = "namedQueryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub named_query_id: Option<String>,
 }
@@ -1203,15 +1203,15 @@ pub struct UnprocessedNamedQueryId {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnprocessedQueryExecutionId {
     /// <p>The error code returned when the query execution failed to process, if applicable.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message returned when the query execution failed to process, if applicable.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The unique identifier of the query execution.</p>
-    #[serde(rename = "QueryExecutionId")]
+    #[serde(rename = "queryExecutionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_execution_id: Option<String>,
 }
@@ -1220,10 +1220,10 @@ pub struct UnprocessedQueryExecutionId {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceInput {
     /// <p>Specifies the ARN of the resource from which tags are to be removed.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A comma-separated list of one or more tag keys whose tags are to be removed from the specified resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1235,18 +1235,18 @@ pub struct UntagResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataCatalogInput {
     /// <p>New or modified text that describes the data catalog.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the data catalog to update. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>Specifies the Lambda function or functions to use for updating the data catalog. This is a mapping whose values depend on the catalog type. </p> <ul> <li> <p>For the <code>HIVE</code> data catalog type, use the following syntax. The <code>metadata-function</code> parameter is required. <code>The sdk-version</code> parameter is optional and defaults to the currently supported version.</p> <p> <code>metadata-function=<i>lambda<em>arn</i>, sdk-version=<i>version</em>number</i> </code> </p> </li> <li> <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets of required parameters, but not both.</p> <ul> <li> <p>If you have one Lambda function that processes metadata and another for reading the actual data, use the following syntax. Both parameters are required.</p> <p> <code>metadata-function=<i>lambda<em>arn</i>, record-function=<i>lambda</em>arn</i> </code> </p> </li> <li> <p> If you have a composite Lambda function that processes both metadata and data, use the following syntax to specify your Lambda function.</p> <p> <code>function=<i>lambda_arn</i> </code> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p><p>Specifies the type of data catalog to update. Specify <code>LAMBDA</code> for a federated catalog or <code>HIVE</code> for an external hive metastore.</p> <note> <p>Do not use the <code>GLUE</code> type. This refers to the <code>AwsDataCatalog</code> that already exists in your account, of which you can have only one. Specifying the <code>GLUE</code> type will result in an <code>INVALID_INPUT</code> error.</p> </note></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1258,17 +1258,17 @@ pub struct UpdateDataCatalogOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePreparedStatementInput {
     /// <p>The description of the prepared statement.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The query string for the prepared statement.</p>
-    #[serde(rename = "QueryStatement")]
+    #[serde(rename = "queryStatement")]
     pub query_statement: String,
     /// <p>The name of the prepared statement.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     pub statement_name: String,
     /// <p>The workgroup for the prepared statement.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -1280,19 +1280,19 @@ pub struct UpdatePreparedStatementOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateWorkGroupInput {
     /// <p>The workgroup configuration that will be updated for the given workgroup.</p>
-    #[serde(rename = "ConfigurationUpdates")]
+    #[serde(rename = "configurationUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_updates: Option<WorkGroupConfigurationUpdates>,
     /// <p>The workgroup description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The workgroup state that will be updated for the given workgroup.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The specified workgroup that will be updated.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     pub work_group: String,
 }
 
@@ -1305,22 +1305,22 @@ pub struct UpdateWorkGroupOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkGroup {
     /// <p>The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<WorkGroupConfiguration>,
     /// <p>The date and time the workgroup was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The workgroup description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The workgroup name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The state of the workgroup: ENABLED or DISABLED.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1329,27 +1329,27 @@ pub struct WorkGroup {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WorkGroupConfiguration {
     /// <p>The upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.</p>
-    #[serde(rename = "BytesScannedCutoffPerQuery")]
+    #[serde(rename = "bytesScannedCutoffPerQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_scanned_cutoff_per_query: Option<i64>,
     /// <p>If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-    #[serde(rename = "EnforceWorkGroupConfiguration")]
+    #[serde(rename = "enforceWorkGroupConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enforce_work_group_configuration: Option<bool>,
     /// <p>The engine version that all queries running on the workgroup use. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<EngineVersion>,
     /// <p>Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.</p>
-    #[serde(rename = "PublishCloudWatchMetricsEnabled")]
+    #[serde(rename = "publishCloudWatchMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub publish_cloud_watch_metrics_enabled: Option<bool>,
     /// <p>If set to <code>true</code>, allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is <code>false</code>. For more information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-    #[serde(rename = "RequesterPaysEnabled")]
+    #[serde(rename = "requesterPaysEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requester_pays_enabled: Option<bool>,
     /// <p>The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. To run the query, you must specify the query results location using one of the ways: either in the workgroup using this setting, or for individual queries (client-side), using <a>ResultConfiguration$OutputLocation</a>. If none of them is set, Athena issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>.</p>
-    #[serde(rename = "ResultConfiguration")]
+    #[serde(rename = "resultConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_configuration: Option<ResultConfiguration>,
 }
@@ -1359,31 +1359,31 @@ pub struct WorkGroupConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct WorkGroupConfigurationUpdates {
     /// <p>The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.</p>
-    #[serde(rename = "BytesScannedCutoffPerQuery")]
+    #[serde(rename = "bytesScannedCutoffPerQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_scanned_cutoff_per_query: Option<i64>,
     /// <p>If set to "true", the settings for the workgroup override client-side settings. If set to "false" client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-    #[serde(rename = "EnforceWorkGroupConfiguration")]
+    #[serde(rename = "enforceWorkGroupConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enforce_work_group_configuration: Option<bool>,
     /// <p>The engine version requested when a workgroup is updated. After the update, all queries on the workgroup run on the requested engine version. If no value was previously set, the default is Auto. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<EngineVersion>,
     /// <p>Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.</p>
-    #[serde(rename = "PublishCloudWatchMetricsEnabled")]
+    #[serde(rename = "publishCloudWatchMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub publish_cloud_watch_metrics_enabled: Option<bool>,
     /// <p>Indicates that the data usage control limit per query is removed. <a>WorkGroupConfiguration$BytesScannedCutoffPerQuery</a> </p>
-    #[serde(rename = "RemoveBytesScannedCutoffPerQuery")]
+    #[serde(rename = "removeBytesScannedCutoffPerQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_bytes_scanned_cutoff_per_query: Option<bool>,
     /// <p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is <code>false</code>. For more information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-    #[serde(rename = "RequesterPaysEnabled")]
+    #[serde(rename = "requesterPaysEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requester_pays_enabled: Option<bool>,
     /// <p>The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.</p>
-    #[serde(rename = "ResultConfigurationUpdates")]
+    #[serde(rename = "resultConfigurationUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_configuration_updates: Option<ResultConfigurationUpdates>,
 }
@@ -1393,23 +1393,23 @@ pub struct WorkGroupConfigurationUpdates {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WorkGroupSummary {
     /// <p>The workgroup creation date and time.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The workgroup description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The engine version setting for all queries on the workgroup. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
-    #[serde(rename = "EngineVersion")]
+    #[serde(rename = "engineVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine_version: Option<EngineVersion>,
     /// <p>The name of the workgroup.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the workgroup.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }

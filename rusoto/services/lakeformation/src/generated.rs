@@ -55,14 +55,14 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddLFTagsToResourceRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The tags to attach to the resource.</p>
-    #[serde(rename = "LFTags")]
+    #[serde(rename = "lFTags")]
     pub lf_tags: Vec<LFTagPair>,
     /// <p>The resource to which to attach a tag.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: Resource,
 }
 
@@ -70,7 +70,7 @@ pub struct AddLFTagsToResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddLFTagsToResourceResponse {
     /// <p>A list of failures to tag the resource.</p>
-    #[serde(rename = "Failures")]
+    #[serde(rename = "failures")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failures: Option<Vec<LFTagError>>,
 }
@@ -79,11 +79,11 @@ pub struct AddLFTagsToResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGrantPermissionsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     pub entries: Vec<BatchPermissionsRequestEntry>,
 }
 
@@ -91,7 +91,7 @@ pub struct BatchGrantPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGrantPermissionsResponse {
     /// <p>A list of failures to grant permissions to the resources.</p>
-    #[serde(rename = "Failures")]
+    #[serde(rename = "failures")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failures: Option<Vec<BatchPermissionsFailureEntry>>,
 }
@@ -101,11 +101,11 @@ pub struct BatchGrantPermissionsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchPermissionsFailureEntry {
     /// <p>An error message that applies to the failure of the entry.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<ErrorDetail>,
     /// <p>An identifier for an entry of the batch request.</p>
-    #[serde(rename = "RequestEntry")]
+    #[serde(rename = "requestEntry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_entry: Option<BatchPermissionsRequestEntry>,
 }
@@ -114,22 +114,22 @@ pub struct BatchPermissionsFailureEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BatchPermissionsRequestEntry {
     /// <p>A unique identifier for the batch permissions request entry.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The permissions to be granted.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<String>>,
     /// <p>Indicates if the option to pass permissions is granted.</p>
-    #[serde(rename = "PermissionsWithGrantOption")]
+    #[serde(rename = "permissionsWithGrantOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions_with_grant_option: Option<Vec<String>>,
     /// <p>The principal to be granted a permission.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<DataLakePrincipal>,
     /// <p>The resource to which the principal is to be granted a permission.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource: Option<Resource>,
 }
@@ -138,11 +138,11 @@ pub struct BatchPermissionsRequestEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchRevokePermissionsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     pub entries: Vec<BatchPermissionsRequestEntry>,
 }
 
@@ -150,7 +150,7 @@ pub struct BatchRevokePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchRevokePermissionsResponse {
     /// <p>A list of failures to revoke permissions to the resources.</p>
-    #[serde(rename = "Failures")]
+    #[serde(rename = "failures")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failures: Option<Vec<BatchPermissionsFailureEntry>>,
 }
@@ -164,11 +164,11 @@ pub struct CatalogResource {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnLFTag {
     /// <p>The tags attached to a column resource.</p>
-    #[serde(rename = "LFTags")]
+    #[serde(rename = "lFTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags: Option<Vec<LFTagPair>>,
     /// <p>The name of a column resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -177,7 +177,7 @@ pub struct ColumnLFTag {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnWildcard {
     /// <p>Excludes column names. Any column with this name will be excluded.</p>
-    #[serde(rename = "ExcludedColumnNames")]
+    #[serde(rename = "excludedColumnNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excluded_column_names: Option<Vec<String>>,
 }
@@ -186,14 +186,14 @@ pub struct ColumnWildcard {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLFTagRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
     /// <p>A list of possible values an attribute can take.</p>
-    #[serde(rename = "TagValues")]
+    #[serde(rename = "tagValues")]
     pub tag_values: Vec<String>,
 }
 
@@ -205,7 +205,7 @@ pub struct CreateLFTagResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataLakePrincipal {
     /// <p>An identifier for the AWS Lake Formation principal.</p>
-    #[serde(rename = "DataLakePrincipalIdentifier")]
+    #[serde(rename = "dataLakePrincipalIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_lake_principal_identifier: Option<String>,
 }
@@ -214,19 +214,19 @@ pub struct DataLakePrincipal {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataLakeSettings {
     /// <p>A structure representing a list of up to three principal permissions entries for default create database permissions.</p>
-    #[serde(rename = "CreateDatabaseDefaultPermissions")]
+    #[serde(rename = "createDatabaseDefaultPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_database_default_permissions: Option<Vec<PrincipalPermissions>>,
     /// <p>A structure representing a list of up to three principal permissions entries for default create table permissions.</p>
-    #[serde(rename = "CreateTableDefaultPermissions")]
+    #[serde(rename = "createTableDefaultPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_table_default_permissions: Option<Vec<PrincipalPermissions>>,
     /// <p>A list of AWS Lake Formation principals. Supported principals are IAM users or IAM roles.</p>
-    #[serde(rename = "DataLakeAdmins")]
+    #[serde(rename = "dataLakeAdmins")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_lake_admins: Option<Vec<DataLakePrincipal>>,
     /// <p>A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's AWS CloudTrail log.</p> <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>
-    #[serde(rename = "TrustedResourceOwners")]
+    #[serde(rename = "trustedResourceOwners")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trusted_resource_owners: Option<Vec<String>>,
 }
@@ -235,11 +235,11 @@ pub struct DataLakeSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataLocationResource {
     /// <p>The identifier for the Data Catalog where the location is registered with AWS Lake Formation. By default, it is the account ID of the caller.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the data location resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -247,11 +247,11 @@ pub struct DataLocationResource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DatabaseResource {
     /// <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the database resource. Unique to the Data Catalog.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -259,11 +259,11 @@ pub struct DatabaseResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLFTagRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag to delete.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
 }
 
@@ -275,7 +275,7 @@ pub struct DeleteLFTagResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -287,7 +287,7 @@ pub struct DeregisterResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -295,7 +295,7 @@ pub struct DescribeResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeResourceResponse {
     /// <p>A structure containing information about an AWS Lake Formation resource.</p>
-    #[serde(rename = "ResourceInfo")]
+    #[serde(rename = "resourceInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_info: Option<ResourceInfo>,
 }
@@ -305,7 +305,7 @@ pub struct DescribeResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetailsMap {
     /// <p>A resource share ARN for a catalog resource shared through AWS Resource Access Manager (AWS RAM).</p>
-    #[serde(rename = "ResourceShare")]
+    #[serde(rename = "resourceShare")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_share: Option<Vec<String>>,
 }
@@ -315,11 +315,11 @@ pub struct DetailsMap {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorDetail {
     /// <p>The code associated with this error.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>A message describing the error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -329,15 +329,15 @@ pub struct ErrorDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FilterCondition {
     /// <p>The comparison operator used in the filter condition.</p>
-    #[serde(rename = "ComparisonOperator")]
+    #[serde(rename = "comparisonOperator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparison_operator: Option<String>,
     /// <p>The field to filter in the filter condition.</p>
-    #[serde(rename = "Field")]
+    #[serde(rename = "field")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field: Option<String>,
     /// <p>A string with values used in evaluating the filter condition.</p>
-    #[serde(rename = "StringValueList")]
+    #[serde(rename = "stringValueList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_value_list: Option<Vec<String>>,
 }
@@ -346,7 +346,7 @@ pub struct FilterCondition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDataLakeSettingsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
 }
@@ -355,7 +355,7 @@ pub struct GetDataLakeSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataLakeSettingsResponse {
     /// <p>A structure representing a list of AWS Lake Formation principals designated as data lake administrators.</p>
-    #[serde(rename = "DataLakeSettings")]
+    #[serde(rename = "dataLakeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_lake_settings: Option<DataLakeSettings>,
 }
@@ -364,19 +364,19 @@ pub struct GetDataLakeSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEffectivePermissionsForPathRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the resource for which you want to get permissions.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -384,11 +384,11 @@ pub struct GetEffectivePermissionsForPathRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEffectivePermissionsForPathResponse {
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<PrincipalResourcePermissions>>,
 }
@@ -397,11 +397,11 @@ pub struct GetEffectivePermissionsForPathResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLFTagRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
 }
 
@@ -409,15 +409,15 @@ pub struct GetLFTagRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLFTagResponse {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_key: Option<String>,
     /// <p>A list of possible values an attribute can take.</p>
-    #[serde(rename = "TagValues")]
+    #[serde(rename = "tagValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_values: Option<Vec<String>>,
 }
@@ -426,14 +426,14 @@ pub struct GetLFTagResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourceLFTagsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The resource for which you want to return tags.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: Resource,
     /// <p>Indicates whether to show the assigned tags.</p>
-    #[serde(rename = "ShowAssignedLFTags")]
+    #[serde(rename = "showAssignedLFTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub show_assigned_lf_tags: Option<bool>,
 }
@@ -442,15 +442,15 @@ pub struct GetResourceLFTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourceLFTagsResponse {
     /// <p>A list of tags applied to a database resource.</p>
-    #[serde(rename = "LFTagOnDatabase")]
+    #[serde(rename = "lFTagOnDatabase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tag_on_database: Option<Vec<LFTagPair>>,
     /// <p>A list of tags applied to a column resource.</p>
-    #[serde(rename = "LFTagsOnColumns")]
+    #[serde(rename = "lFTagsOnColumns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags_on_columns: Option<Vec<ColumnLFTag>>,
     /// <p>A list of tags applied to a table resource.</p>
-    #[serde(rename = "LFTagsOnTable")]
+    #[serde(rename = "lFTagsOnTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags_on_table: Option<Vec<LFTagPair>>,
 }
@@ -459,21 +459,21 @@ pub struct GetResourceLFTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GrantPermissionsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. </p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     pub permissions: Vec<String>,
     /// <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
-    #[serde(rename = "PermissionsWithGrantOption")]
+    #[serde(rename = "permissionsWithGrantOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions_with_grant_option: Option<Vec<String>>,
     /// <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p> <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: DataLakePrincipal,
     /// <p>The resource to which permissions are to be granted. Resources in AWS Lake Formation are the Data Catalog, databases, and tables.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: Resource,
 }
 
@@ -485,10 +485,10 @@ pub struct GrantPermissionsResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LFTag {
     /// <p>The key-name for the tag.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
     /// <p>A list of possible values an attribute can take.</p>
-    #[serde(rename = "TagValues")]
+    #[serde(rename = "tagValues")]
     pub tag_values: Vec<String>,
 }
 
@@ -497,11 +497,11 @@ pub struct LFTag {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LFTagError {
     /// <p>An error that occurred with the attachment or detachment of the tag.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<ErrorDetail>,
     /// <p>The key-name of the tag.</p>
-    #[serde(rename = "LFTag")]
+    #[serde(rename = "lFTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tag: Option<LFTagPair>,
 }
@@ -510,14 +510,14 @@ pub struct LFTagError {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LFTagKeyResource {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
     /// <p>A list of possible values an attribute can take.</p>
-    #[serde(rename = "TagValues")]
+    #[serde(rename = "tagValues")]
     pub tag_values: Vec<String>,
 }
 
@@ -525,14 +525,14 @@ pub struct LFTagKeyResource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LFTagPair {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
     /// <p>A list of possible values an attribute can take.</p>
-    #[serde(rename = "TagValues")]
+    #[serde(rename = "tagValues")]
     pub tag_values: Vec<String>,
 }
 
@@ -540,14 +540,14 @@ pub struct LFTagPair {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LFTagPolicyResource {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of tag conditions that apply to the resource's tag policy.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     pub expression: Vec<LFTag>,
     /// <p>The resource type for which the tag policy applies.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -555,19 +555,19 @@ pub struct LFTagPolicyResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLFTagsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>If resource share type is <code>ALL</code>, returns both in-account tags and shared tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>, returns all share tags that the requester can view. If no resource share type is passed, lists tags in the given catalog ID that the requester has permission to view.</p>
-    #[serde(rename = "ResourceShareType")]
+    #[serde(rename = "resourceShareType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_share_type: Option<String>,
 }
@@ -576,11 +576,11 @@ pub struct ListLFTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLFTagsResponse {
     /// <p>A list of tags that the requested has permission to view.</p>
-    #[serde(rename = "LFTags")]
+    #[serde(rename = "lFTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags: Option<Vec<LFTagPair>>,
     /// <p>A continuation token, present if the current list segment is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -589,27 +589,27 @@ pub struct ListLFTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPermissionsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifies a principal to filter the permissions returned.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<DataLakePrincipal>,
     /// <p>A resource where you will get a list of the principal permissions.</p> <p>This operation does not support getting privileges on a table with columns. Instead, call this operation on the table, and the operation returns the table and the table w columns.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource: Option<Resource>,
     /// <p>Specifies a resource type to filter the permissions returned.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -618,11 +618,11 @@ pub struct ListPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPermissionsResponse {
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>
-    #[serde(rename = "PrincipalResourcePermissions")]
+    #[serde(rename = "principalResourcePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_resource_permissions: Option<Vec<PrincipalResourcePermissions>>,
 }
@@ -631,15 +631,15 @@ pub struct ListPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourcesRequest {
     /// <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
-    #[serde(rename = "FilterConditionList")]
+    #[serde(rename = "filterConditionList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_condition_list: Option<Vec<FilterCondition>>,
     /// <p>The maximum number of resource results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve these resources.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -648,11 +648,11 @@ pub struct ListResourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourcesResponse {
     /// <p>A continuation token, if this is not the first call to retrieve these resources.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A summary of the data lake resources.</p>
-    #[serde(rename = "ResourceInfoList")]
+    #[serde(rename = "resourceInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_info_list: Option<Vec<ResourceInfo>>,
 }
@@ -661,11 +661,11 @@ pub struct ListResourcesResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PrincipalPermissions {
     /// <p>The permissions that are granted to the principal.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<String>>,
     /// <p>The principal who is granted permissions.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<DataLakePrincipal>,
 }
@@ -675,23 +675,23 @@ pub struct PrincipalPermissions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PrincipalResourcePermissions {
     /// <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM resource share ARN.</p>
-    #[serde(rename = "AdditionalDetails")]
+    #[serde(rename = "additionalDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_details: Option<DetailsMap>,
     /// <p>The permissions to be granted or revoked on the resource.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<String>>,
     /// <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
-    #[serde(rename = "PermissionsWithGrantOption")]
+    #[serde(rename = "permissionsWithGrantOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions_with_grant_option: Option<Vec<String>>,
     /// <p>The Data Lake principal to be granted or revoked permissions.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<DataLakePrincipal>,
     /// <p>The resource where permissions are to be granted or revoked.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource: Option<Resource>,
 }
@@ -700,11 +700,11 @@ pub struct PrincipalResourcePermissions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutDataLakeSettingsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A structure representing a list of AWS Lake Formation principals designated as data lake administrators.</p>
-    #[serde(rename = "DataLakeSettings")]
+    #[serde(rename = "dataLakeSettings")]
     pub data_lake_settings: DataLakeSettings,
 }
 
@@ -716,14 +716,14 @@ pub struct PutDataLakeSettingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The identifier for the role that registers the resource.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.</p> <p>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html">Using Service-Linked Roles for Lake Formation</a>.</p>
-    #[serde(rename = "UseServiceLinkedRole")]
+    #[serde(rename = "useServiceLinkedRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_service_linked_role: Option<bool>,
 }
@@ -736,14 +736,14 @@ pub struct RegisterResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveLFTagsFromResourceRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The tags to be removed from the resource.</p>
-    #[serde(rename = "LFTags")]
+    #[serde(rename = "lFTags")]
     pub lf_tags: Vec<LFTagPair>,
     /// <p>The resource where you want to remove a tag.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: Resource,
 }
 
@@ -751,7 +751,7 @@ pub struct RemoveLFTagsFromResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveLFTagsFromResourceResponse {
     /// <p>A list of failures to untag a resource.</p>
-    #[serde(rename = "Failures")]
+    #[serde(rename = "failures")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failures: Option<Vec<LFTagError>>,
 }
@@ -760,31 +760,31 @@ pub struct RemoveLFTagsFromResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Resource {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "Catalog")]
+    #[serde(rename = "catalog")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog: Option<CatalogResource>,
     /// <p>The location of an Amazon S3 path where permissions are granted or revoked. </p>
-    #[serde(rename = "DataLocation")]
+    #[serde(rename = "dataLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_location: Option<DataLocationResource>,
     /// <p>The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. </p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database: Option<DatabaseResource>,
     /// <p>The tag key and values attached to a resource.</p>
-    #[serde(rename = "LFTag")]
+    #[serde(rename = "lFTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tag: Option<LFTagKeyResource>,
     /// <p>A list of tag conditions that define a resource's tag policy.</p>
-    #[serde(rename = "LFTagPolicy")]
+    #[serde(rename = "lFTagPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tag_policy: Option<LFTagPolicyResource>,
     /// <p>The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
-    #[serde(rename = "Table")]
+    #[serde(rename = "table")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table: Option<TableResource>,
     /// <p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>
-    #[serde(rename = "TableWithColumns")]
+    #[serde(rename = "tableWithColumns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_with_columns: Option<TableWithColumnsResource>,
 }
@@ -794,15 +794,15 @@ pub struct Resource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceInfo {
     /// <p>The date and time the resource was last modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The IAM role that registered a resource.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -811,21 +811,21 @@ pub struct ResourceInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RevokePermissionsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     pub permissions: Vec<String>,
     /// <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
-    #[serde(rename = "PermissionsWithGrantOption")]
+    #[serde(rename = "permissionsWithGrantOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions_with_grant_option: Option<Vec<String>>,
     /// <p>The principal to be revoked permissions on the resource.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: DataLakePrincipal,
     /// <p>The resource to which permissions are to be revoked.</p>
-    #[serde(rename = "Resource")]
+    #[serde(rename = "resource")]
     pub resource: Resource,
 }
 
@@ -837,18 +837,18 @@ pub struct RevokePermissionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchDatabasesByLFTagsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of conditions (<code>LFTag</code> structures) to search for in database resources.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     pub expression: Vec<LFTag>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -857,11 +857,11 @@ pub struct SearchDatabasesByLFTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchDatabasesByLFTagsResponse {
     /// <p>A list of databases that meet the tag conditions.</p>
-    #[serde(rename = "DatabaseList")]
+    #[serde(rename = "databaseList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_list: Option<Vec<TaggedDatabase>>,
     /// <p>A continuation token, present if the current list segment is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -870,18 +870,18 @@ pub struct SearchDatabasesByLFTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchTablesByLFTagsRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>A list of conditions (<code>LFTag</code> structures) to search for in table resources.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     pub expression: Vec<LFTag>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A continuation token, if this is not the first call to retrieve this list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -890,11 +890,11 @@ pub struct SearchTablesByLFTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchTablesByLFTagsResponse {
     /// <p>A continuation token, present if the current list segment is not the last.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of tables that meet the tag conditions.</p>
-    #[serde(rename = "TableList")]
+    #[serde(rename = "tableList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_list: Option<Vec<TaggedTable>>,
 }
@@ -903,18 +903,18 @@ pub struct SearchTablesByLFTagsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TableResource {
     /// <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A wildcard object representing every table under a database.</p> <p>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code> is required.</p>
-    #[serde(rename = "TableWildcard")]
+    #[serde(rename = "tableWildcard")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_wildcard: Option<TableWildcard>,
 }
@@ -927,22 +927,22 @@ pub struct TableWildcard {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TableWithColumnsResource {
     /// <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The list of column names for the table. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
-    #[serde(rename = "ColumnNames")]
+    #[serde(rename = "columnNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_names: Option<Vec<String>>,
     /// <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
-    #[serde(rename = "ColumnWildcard")]
+    #[serde(rename = "columnWildcard")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_wildcard: Option<ColumnWildcard>,
     /// <p>The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     pub database_name: String,
     /// <p>The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -951,11 +951,11 @@ pub struct TableWithColumnsResource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaggedDatabase {
     /// <p>A database that has tags attached to it.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database: Option<DatabaseResource>,
     /// <p>A list of tags attached to the database.</p>
-    #[serde(rename = "LFTags")]
+    #[serde(rename = "lFTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags: Option<Vec<LFTagPair>>,
 }
@@ -965,19 +965,19 @@ pub struct TaggedDatabase {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaggedTable {
     /// <p>A list of tags attached to the database where the table resides.</p>
-    #[serde(rename = "LFTagOnDatabase")]
+    #[serde(rename = "lFTagOnDatabase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tag_on_database: Option<Vec<LFTagPair>>,
     /// <p>A list of tags attached to columns in the table.</p>
-    #[serde(rename = "LFTagsOnColumns")]
+    #[serde(rename = "lFTagsOnColumns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags_on_columns: Option<Vec<ColumnLFTag>>,
     /// <p>A list of tags attached to the table.</p>
-    #[serde(rename = "LFTagsOnTable")]
+    #[serde(rename = "lFTagsOnTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lf_tags_on_table: Option<Vec<LFTagPair>>,
     /// <p>A table that has tags attached to it.</p>
-    #[serde(rename = "Table")]
+    #[serde(rename = "table")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table: Option<TableResource>,
 }
@@ -986,18 +986,18 @@ pub struct TaggedTable {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLFTagRequest {
     /// <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
-    #[serde(rename = "CatalogId")]
+    #[serde(rename = "catalogId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog_id: Option<String>,
     /// <p>The key-name for the tag for which to add or delete values.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     pub tag_key: String,
     /// <p>A list of tag values to add from the tag.</p>
-    #[serde(rename = "TagValuesToAdd")]
+    #[serde(rename = "tagValuesToAdd")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_values_to_add: Option<Vec<String>>,
     /// <p>A list of tag values to delete from the tag.</p>
-    #[serde(rename = "TagValuesToDelete")]
+    #[serde(rename = "tagValuesToDelete")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_values_to_delete: Option<Vec<String>>,
 }
@@ -1010,10 +1010,10 @@ pub struct UpdateLFTagResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The new role to use for the given resource registered in AWS Lake Formation.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
 }
 

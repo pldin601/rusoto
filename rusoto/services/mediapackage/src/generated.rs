@@ -29,10 +29,10 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Authorization {
     /// <p>The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.</p>
-    #[serde(rename = "CdnIdentifierSecret")]
+    #[serde(rename = "cdnIdentifierSecret")]
     pub cdn_identifier_secret: String,
     /// <p>The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.</p>
-    #[serde(rename = "SecretsRoleArn")]
+    #[serde(rename = "secretsRoleArn")]
     pub secrets_role_arn: String,
 }
 
@@ -41,27 +41,27 @@ pub struct Authorization {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Channel {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -70,14 +70,14 @@ pub struct Channel {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CmafEncryption {
     /// <p>An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don&#39;t specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
-    #[serde(rename = "ConstantInitializationVector")]
+    #[serde(rename = "constantInitializationVector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constant_initialization_vector: Option<String>,
     /// <p>Time (in seconds) between each encryption key rotation.</p>
-    #[serde(rename = "KeyRotationIntervalSeconds")]
+    #[serde(rename = "keyRotationIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_rotation_interval_seconds: Option<i64>,
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
@@ -85,23 +85,23 @@ pub struct CmafEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CmafPackage {
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<CmafEncryption>,
     /// <p>A list of HLS manifest configurations</p>
-    #[serde(rename = "HlsManifests")]
+    #[serde(rename = "hlsManifests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_manifests: Option<Vec<HlsManifest>>,
     /// <p>Duration (in seconds) of each segment. Actual segments will be
     /// rounded to the nearest multiple of the source segment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
     /// <p>An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.</p>
-    #[serde(rename = "SegmentPrefix")]
+    #[serde(rename = "segmentPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_prefix: Option<String>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
 }
@@ -110,23 +110,23 @@ pub struct CmafPackage {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CmafPackageCreateOrUpdateParameters {
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<CmafEncryption>,
     /// <p>A list of HLS manifest configurations</p>
-    #[serde(rename = "HlsManifests")]
+    #[serde(rename = "hlsManifests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_manifests: Option<Vec<HlsManifestCreateOrUpdateParameters>>,
     /// <p>Duration (in seconds) of each segment. Actual segments will be
     /// rounded to the nearest multiple of the source segment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
     /// <p>An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.</p>
-    #[serde(rename = "SegmentPrefix")]
+    #[serde(rename = "segmentPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_prefix: Option<String>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
 }
@@ -135,13 +135,13 @@ pub struct CmafPackageCreateOrUpdateParameters {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfigureLogsRequest {
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the channel to log subscription.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
 }
@@ -150,27 +150,27 @@ pub struct ConfigureLogsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigureLogsResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -180,14 +180,14 @@ pub struct ConfigureLogsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateChannelRequest {
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the Channel. The ID must be unique within the region and it
     /// cannot be changed after a Channel is created.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -196,27 +196,27 @@ pub struct CreateChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateChannelResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -226,20 +226,20 @@ pub struct CreateChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateHarvestJobRequest {
     /// <p>The end of the time-window which will be harvested</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: String,
     /// <p>The ID of the HarvestJob. The ID must be unique within the region
     /// and it cannot be changed after the HarvestJob is submitted</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The ID of the OriginEndpoint that the HarvestJob will harvest from.
     /// This cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "OriginEndpointId")]
+    #[serde(rename = "originEndpointId")]
     pub origin_endpoint_id: String,
-    #[serde(rename = "S3Destination")]
+    #[serde(rename = "s3Destination")]
     pub s3_destination: S3Destination,
     /// <p>The start of the time-window which will be harvested</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: String,
 }
 
@@ -247,42 +247,42 @@ pub struct CreateHarvestJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateHarvestJobResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the HarvestJob.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the Channel that the HarvestJob will harvest from.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
     /// <p>The time the HarvestJob was submitted</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The end of the time-window which will be harvested.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<String>,
     /// <p>The ID of the HarvestJob. The ID must be unique within the region
     /// and it cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the OriginEndpoint that the HarvestJob will harvest from.
     /// This cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "OriginEndpointId")]
+    #[serde(rename = "originEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_endpoint_id: Option<String>,
-    #[serde(rename = "S3Destination")]
+    #[serde(rename = "s3Destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_destination: Option<S3Destination>,
     /// <p>The start of the time-window which will be harvested.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<String>,
     /// <p>The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
     /// HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
     /// include an explanation of why the HarvestJob failed.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -291,58 +291,58 @@ pub struct CreateHarvestJobResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateOriginEndpointRequest {
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The ID of the Channel that the OriginEndpoint will be associated with.
     /// This cannot be changed after the OriginEndpoint is created.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     pub channel_id: String,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackageCreateOrUpdateParameters>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
     /// <p>A short text description of the OriginEndpoint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the OriginEndpoint.  The ID must be unique within the region
     /// and it cannot be changed after the OriginEndpoint is created.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>A short string that will be used as the filename of the OriginEndpoint URL (defaults to &quot;index&quot;).</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
     /// may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
     /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<String>,
     /// <p>Maximum duration (seconds) of content to retain for startover playback.
     /// If not specified, startover playback will be disabled for the OriginEndpoint.</p>
-    #[serde(rename = "StartoverWindowSeconds")]
+    #[serde(rename = "startoverWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub startover_window_seconds: Option<i64>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Amount of delay (seconds) to enforce on the playback of live content.
     /// If not specified, there will be no time delay in effect for the OriginEndpoint.</p>
-    #[serde(rename = "TimeDelaySeconds")]
+    #[serde(rename = "timeDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_delay_seconds: Option<i64>,
     /// <p>A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.</p>
-    #[serde(rename = "Whitelist")]
+    #[serde(rename = "whitelist")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist: Option<Vec<String>>,
 }
@@ -351,65 +351,65 @@ pub struct CreateOriginEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateOriginEndpointResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The ID of the Channel the OriginEndpoint is associated with.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
     /// <p>A short text description of the OriginEndpoint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the OriginEndpoint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A short string appended to the end of the OriginEndpoint URL.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
     /// may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
     /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<String>,
     /// <p>Maximum duration (seconds) of content to retain for startover playback.
     /// If not specified, startover playback will be disabled for the OriginEndpoint.</p>
-    #[serde(rename = "StartoverWindowSeconds")]
+    #[serde(rename = "startoverWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub startover_window_seconds: Option<i64>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Amount of delay (seconds) to enforce on the playback of live content.
     /// If not specified, there will be no time delay in effect for the OriginEndpoint.</p>
-    #[serde(rename = "TimeDelaySeconds")]
+    #[serde(rename = "timeDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_delay_seconds: Option<i64>,
     /// <p>The URL of the packaged OriginEndpoint for consumption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.</p>
-    #[serde(rename = "Whitelist")]
+    #[serde(rename = "whitelist")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist: Option<Vec<String>>,
 }
@@ -418,74 +418,74 @@ pub struct CreateOriginEndpointResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DashEncryption {
     /// <p>Time (in seconds) between each encryption key rotation.</p>
-    #[serde(rename = "KeyRotationIntervalSeconds")]
+    #[serde(rename = "keyRotationIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_rotation_interval_seconds: Option<i64>,
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
 /// <p>A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DashPackage {
-    #[serde(rename = "AdTriggers")]
+    #[serde(rename = "adTriggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_triggers: Option<Vec<String>>,
-    #[serde(rename = "AdsOnDeliveryRestrictions")]
+    #[serde(rename = "adsOnDeliveryRestrictions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ads_on_delivery_restrictions: Option<String>,
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<DashEncryption>,
     /// <p>Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.</p>
-    #[serde(rename = "ManifestLayout")]
+    #[serde(rename = "manifestLayout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_layout: Option<String>,
     /// <p>Time window (in seconds) contained in each manifest.</p>
-    #[serde(rename = "ManifestWindowSeconds")]
+    #[serde(rename = "manifestWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_window_seconds: Option<i64>,
     /// <p>Minimum duration (in seconds) that a player will buffer media before starting the presentation.</p>
-    #[serde(rename = "MinBufferTimeSeconds")]
+    #[serde(rename = "minBufferTimeSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_buffer_time_seconds: Option<i64>,
     /// <p>Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).</p>
-    #[serde(rename = "MinUpdatePeriodSeconds")]
+    #[serde(rename = "minUpdatePeriodSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_update_period_seconds: Option<i64>,
     /// <p>A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
     /// Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
     /// be partitioned into more than one period. If the list contains &quot;ADS&quot;, new periods will be created where
     /// the Channel source contains SCTE-35 ad markers.</p>
-    #[serde(rename = "PeriodTriggers")]
+    #[serde(rename = "periodTriggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period_triggers: Option<Vec<String>>,
     /// <p>The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to &quot;HBBTV<em>1</em>5&quot;, HbbTV 1.5 compliant output is enabled.</p>
-    #[serde(rename = "Profile")]
+    #[serde(rename = "profile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile: Option<String>,
     /// <p>Duration (in seconds) of each segment. Actual segments will be
     /// rounded to the nearest multiple of the source segment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
     /// <p>Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER<em>WITH</em>TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME<em>WITH</em>TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER<em>WITH</em>DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.</p>
-    #[serde(rename = "SegmentTemplateFormat")]
+    #[serde(rename = "segmentTemplateFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_template_format: Option<String>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
     /// <p>Duration (in seconds) to delay live content before presentation.</p>
-    #[serde(rename = "SuggestedPresentationDelaySeconds")]
+    #[serde(rename = "suggestedPresentationDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suggested_presentation_delay_seconds: Option<i64>,
     /// <p>Determines the type of UTCTiming included in the Media Presentation Description (MPD)</p>
-    #[serde(rename = "UtcTiming")]
+    #[serde(rename = "utcTiming")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub utc_timing: Option<String>,
     /// <p>Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD</p>
-    #[serde(rename = "UtcTimingUri")]
+    #[serde(rename = "utcTimingUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub utc_timing_uri: Option<String>,
 }
@@ -494,7 +494,7 @@ pub struct DashPackage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelRequest {
     /// <p>The ID of the Channel to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -506,7 +506,7 @@ pub struct DeleteChannelResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteOriginEndpointRequest {
     /// <p>The ID of the OriginEndpoint to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -518,7 +518,7 @@ pub struct DeleteOriginEndpointResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelRequest {
     /// <p>The ID of a Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -526,27 +526,27 @@ pub struct DescribeChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -555,7 +555,7 @@ pub struct DescribeChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeHarvestJobRequest {
     /// <p>The ID of the HarvestJob.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -563,42 +563,42 @@ pub struct DescribeHarvestJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeHarvestJobResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the HarvestJob.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the Channel that the HarvestJob will harvest from.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
     /// <p>The time the HarvestJob was submitted</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The end of the time-window which will be harvested.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<String>,
     /// <p>The ID of the HarvestJob. The ID must be unique within the region
     /// and it cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the OriginEndpoint that the HarvestJob will harvest from.
     /// This cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "OriginEndpointId")]
+    #[serde(rename = "originEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_endpoint_id: Option<String>,
-    #[serde(rename = "S3Destination")]
+    #[serde(rename = "s3Destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_destination: Option<S3Destination>,
     /// <p>The start of the time-window which will be harvested.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<String>,
     /// <p>The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
     /// HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
     /// include an explanation of why the HarvestJob failed.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -607,7 +607,7 @@ pub struct DescribeHarvestJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOriginEndpointRequest {
     /// <p>The ID of the OriginEndpoint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -615,65 +615,65 @@ pub struct DescribeOriginEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOriginEndpointResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The ID of the Channel the OriginEndpoint is associated with.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
     /// <p>A short text description of the OriginEndpoint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the OriginEndpoint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A short string appended to the end of the OriginEndpoint URL.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
     /// may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
     /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<String>,
     /// <p>Maximum duration (seconds) of content to retain for startover playback.
     /// If not specified, startover playback will be disabled for the OriginEndpoint.</p>
-    #[serde(rename = "StartoverWindowSeconds")]
+    #[serde(rename = "startoverWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub startover_window_seconds: Option<i64>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Amount of delay (seconds) to enforce on the playback of live content.
     /// If not specified, there will be no time delay in effect for the OriginEndpoint.</p>
-    #[serde(rename = "TimeDelaySeconds")]
+    #[serde(rename = "timeDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_delay_seconds: Option<i64>,
     /// <p>The URL of the packaged OriginEndpoint for consumption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.</p>
-    #[serde(rename = "Whitelist")]
+    #[serde(rename = "whitelist")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist: Option<Vec<String>>,
 }
@@ -682,7 +682,7 @@ pub struct DescribeOriginEndpointResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EgressAccessLogs {
     /// <p>Customize the log group name.</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
 }
@@ -696,10 +696,10 @@ pub struct EgressAccessLogs {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionContractConfiguration {
     /// <p>A collection of audio encryption presets.</p>
-    #[serde(rename = "PresetSpeke20Audio")]
+    #[serde(rename = "presetSpeke20Audio")]
     pub preset_speke_20_audio: String,
     /// <p>A collection of video encryption presets.</p>
-    #[serde(rename = "PresetSpeke20Video")]
+    #[serde(rename = "presetSpeke20Video")]
     pub preset_speke_20_video: String,
 }
 
@@ -708,42 +708,42 @@ pub struct EncryptionContractConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HarvestJob {
     /// <p>The Amazon Resource Name (ARN) assigned to the HarvestJob.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the Channel that the HarvestJob will harvest from.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
     /// <p>The time the HarvestJob was submitted</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The end of the time-window which will be harvested.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<String>,
     /// <p>The ID of the HarvestJob. The ID must be unique within the region
     /// and it cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the OriginEndpoint that the HarvestJob will harvest from.
     /// This cannot be changed after the HarvestJob is submitted.</p>
-    #[serde(rename = "OriginEndpointId")]
+    #[serde(rename = "originEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_endpoint_id: Option<String>,
-    #[serde(rename = "S3Destination")]
+    #[serde(rename = "s3Destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_destination: Option<S3Destination>,
     /// <p>The start of the time-window which will be harvested.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<String>,
     /// <p>The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
     /// HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
     /// include an explanation of why the HarvestJob failed.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -753,22 +753,22 @@ pub struct HarvestJob {
 pub struct HlsEncryption {
     /// <p>A constant initialization vector for encryption (optional).
     /// When not specified the initialization vector will be periodically rotated.</p>
-    #[serde(rename = "ConstantInitializationVector")]
+    #[serde(rename = "constantInitializationVector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constant_initialization_vector: Option<String>,
     /// <p>The encryption method to use.</p>
-    #[serde(rename = "EncryptionMethod")]
+    #[serde(rename = "encryptionMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_method: Option<String>,
     /// <p>Interval (in seconds) between each encryption key rotation.</p>
-    #[serde(rename = "KeyRotationIntervalSeconds")]
+    #[serde(rename = "keyRotationIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_rotation_interval_seconds: Option<i64>,
     /// <p>When enabled, the EXT-X-KEY tag will be repeated in output manifests.</p>
-    #[serde(rename = "RepeatExtXKey")]
+    #[serde(rename = "repeatExtXKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repeat_ext_x_key: Option<bool>,
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
@@ -777,7 +777,7 @@ pub struct HlsEncryption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HlsIngest {
     /// <p>A list of endpoints to which the source stream should be sent.</p>
-    #[serde(rename = "IngestEndpoints")]
+    #[serde(rename = "ingestEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingest_endpoints: Option<Vec<IngestEndpoint>>,
 }
@@ -795,28 +795,28 @@ pub struct HlsManifest {
     /// &quot;DATERANGE&quot; inserts EXT-X-DATERANGE tags to signal ad and program transition events
     /// in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
     /// that is greater than 0.</p>
-    #[serde(rename = "AdMarkers")]
+    #[serde(rename = "adMarkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_markers: Option<String>,
     /// <p>The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>When enabled, an I-Frame only stream will be included in the output.</p>
-    #[serde(rename = "IncludeIframeOnlyStream")]
+    #[serde(rename = "includeIframeOnlyStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_iframe_only_stream: Option<bool>,
     /// <p>An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
     /// <p>The HTTP Live Streaming (HLS) playlist type.
     /// When either &quot;EVENT&quot; or &quot;VOD&quot; is specified, a corresponding EXT-X-PLAYLIST-TYPE
     /// entry will be included in the media playlist.</p>
-    #[serde(rename = "PlaylistType")]
+    #[serde(rename = "playlistType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playlist_type: Option<String>,
     /// <p>Time window (in seconds) contained in each parent manifest.</p>
-    #[serde(rename = "PlaylistWindowSeconds")]
+    #[serde(rename = "playlistWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playlist_window_seconds: Option<i64>,
     /// <p>The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -828,11 +828,11 @@ pub struct HlsManifest {
     /// ID3Timed Metadata messages will be generated. Note that irrespective
     /// of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
     /// it will be passed through to HLS output.</p>
-    #[serde(rename = "ProgramDateTimeIntervalSeconds")]
+    #[serde(rename = "programDateTimeIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub program_date_time_interval_seconds: Option<i64>,
     /// <p>The URL of the packaged OriginEndpoint for consumption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -850,34 +850,34 @@ pub struct HlsManifestCreateOrUpdateParameters {
     /// &quot;DATERANGE&quot; inserts EXT-X-DATERANGE tags to signal ad and program transition events
     /// in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
     /// that is greater than 0.</p>
-    #[serde(rename = "AdMarkers")]
+    #[serde(rename = "adMarkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_markers: Option<String>,
-    #[serde(rename = "AdTriggers")]
+    #[serde(rename = "adTriggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_triggers: Option<Vec<String>>,
-    #[serde(rename = "AdsOnDeliveryRestrictions")]
+    #[serde(rename = "adsOnDeliveryRestrictions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ads_on_delivery_restrictions: Option<String>,
     /// <p>The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>When enabled, an I-Frame only stream will be included in the output.</p>
-    #[serde(rename = "IncludeIframeOnlyStream")]
+    #[serde(rename = "includeIframeOnlyStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_iframe_only_stream: Option<bool>,
     /// <p>An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
     /// <p>The HTTP Live Streaming (HLS) playlist type.
     /// When either &quot;EVENT&quot; or &quot;VOD&quot; is specified, a corresponding EXT-X-PLAYLIST-TYPE
     /// entry will be included in the media playlist.</p>
-    #[serde(rename = "PlaylistType")]
+    #[serde(rename = "playlistType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playlist_type: Option<String>,
     /// <p>Time window (in seconds) contained in each parent manifest.</p>
-    #[serde(rename = "PlaylistWindowSeconds")]
+    #[serde(rename = "playlistWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playlist_window_seconds: Option<i64>,
     /// <p>The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -889,7 +889,7 @@ pub struct HlsManifestCreateOrUpdateParameters {
     /// ID3Timed Metadata messages will be generated. Note that irrespective
     /// of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
     /// it will be passed through to HLS output.</p>
-    #[serde(rename = "ProgramDateTimeIntervalSeconds")]
+    #[serde(rename = "programDateTimeIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub program_date_time_interval_seconds: Option<i64>,
 }
@@ -906,30 +906,30 @@ pub struct HlsPackage {
     /// &quot;DATERANGE&quot; inserts EXT-X-DATERANGE tags to signal ad and program transition events
     /// in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
     /// that is greater than 0.</p>
-    #[serde(rename = "AdMarkers")]
+    #[serde(rename = "adMarkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_markers: Option<String>,
-    #[serde(rename = "AdTriggers")]
+    #[serde(rename = "adTriggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_triggers: Option<Vec<String>>,
-    #[serde(rename = "AdsOnDeliveryRestrictions")]
+    #[serde(rename = "adsOnDeliveryRestrictions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ads_on_delivery_restrictions: Option<String>,
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<HlsEncryption>,
     /// <p>When enabled, an I-Frame only stream will be included in the output.</p>
-    #[serde(rename = "IncludeIframeOnlyStream")]
+    #[serde(rename = "includeIframeOnlyStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_iframe_only_stream: Option<bool>,
     /// <p>The HTTP Live Streaming (HLS) playlist type.
     /// When either &quot;EVENT&quot; or &quot;VOD&quot; is specified, a corresponding EXT-X-PLAYLIST-TYPE
     /// entry will be included in the media playlist.</p>
-    #[serde(rename = "PlaylistType")]
+    #[serde(rename = "playlistType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playlist_type: Option<String>,
     /// <p>Time window (in seconds) contained in each parent manifest.</p>
-    #[serde(rename = "PlaylistWindowSeconds")]
+    #[serde(rename = "playlistWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playlist_window_seconds: Option<i64>,
     /// <p>The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -941,19 +941,19 @@ pub struct HlsPackage {
     /// ID3Timed Metadata messages will be generated. Note that irrespective
     /// of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
     /// it will be passed through to HLS output.</p>
-    #[serde(rename = "ProgramDateTimeIntervalSeconds")]
+    #[serde(rename = "programDateTimeIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub program_date_time_interval_seconds: Option<i64>,
     /// <p>Duration (in seconds) of each fragment. Actual fragments will be
     /// rounded to the nearest multiple of the source fragment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
     /// <p>When enabled, audio streams will be placed in rendition groups in the output.</p>
-    #[serde(rename = "UseAudioRenditionGroup")]
+    #[serde(rename = "useAudioRenditionGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_audio_rendition_group: Option<bool>,
 }
@@ -963,19 +963,19 @@ pub struct HlsPackage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IngestEndpoint {
     /// <p>The system generated unique identifier for the IngestEndpoint</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The system generated password for ingest authentication.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The ingest URL to which the source stream should be sent.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>The system generated username for ingest authentication.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -984,7 +984,7 @@ pub struct IngestEndpoint {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct IngressAccessLogs {
     /// <p>Customize the log group name.</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
 }
@@ -993,11 +993,11 @@ pub struct IngressAccessLogs {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelsRequest {
     /// <p>Upper bound on number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token used to resume pagination from the end of a previous request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1006,11 +1006,11 @@ pub struct ListChannelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelsResponse {
     /// <p>A list of Channel records.</p>
-    #[serde(rename = "Channels")]
+    #[serde(rename = "channels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channels: Option<Vec<Channel>>,
     /// <p>A token that can be used to resume pagination from the end of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1019,19 +1019,19 @@ pub struct ListChannelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListHarvestJobsRequest {
     /// <p>When specified, the request will return only HarvestJobs associated with the given Channel ID.</p>
-    #[serde(rename = "IncludeChannelId")]
+    #[serde(rename = "includeChannelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_channel_id: Option<String>,
     /// <p>When specified, the request will return only HarvestJobs in the given status.</p>
-    #[serde(rename = "IncludeStatus")]
+    #[serde(rename = "includeStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_status: Option<String>,
     /// <p>The upper bound on the number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token used to resume pagination from the end of a previous request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1040,11 +1040,11 @@ pub struct ListHarvestJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListHarvestJobsResponse {
     /// <p>A list of HarvestJob records.</p>
-    #[serde(rename = "HarvestJobs")]
+    #[serde(rename = "harvestJobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub harvest_jobs: Option<Vec<HarvestJob>>,
     /// <p>A token that can be used to resume pagination from the end of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1053,15 +1053,15 @@ pub struct ListHarvestJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOriginEndpointsRequest {
     /// <p>When specified, the request will return only OriginEndpoints associated with the given Channel ID.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
     /// <p>The upper bound on the number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token used to resume pagination from the end of a previous request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1070,11 +1070,11 @@ pub struct ListOriginEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOriginEndpointsResponse {
     /// <p>A token that can be used to resume pagination from the end of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of OriginEndpoint records.</p>
-    #[serde(rename = "OriginEndpoints")]
+    #[serde(rename = "originEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_endpoints: Option<Vec<OriginEndpoint>>,
 }
@@ -1082,14 +1082,14 @@ pub struct ListOriginEndpointsResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1097,25 +1097,25 @@ pub struct ListTagsForResourceResponse {
 /// <p>A Microsoft Smooth Streaming (MSS) encryption configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MssEncryption {
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
 /// <p>A Microsoft Smooth Streaming (MSS) packaging configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MssPackage {
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<MssEncryption>,
     /// <p>The time window (in seconds) contained in each manifest.</p>
-    #[serde(rename = "ManifestWindowSeconds")]
+    #[serde(rename = "manifestWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_window_seconds: Option<i64>,
     /// <p>The duration (in seconds) of each segment.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
 }
@@ -1125,65 +1125,65 @@ pub struct MssPackage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OriginEndpoint {
     /// <p>The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The ID of the Channel the OriginEndpoint is associated with.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
     /// <p>A short text description of the OriginEndpoint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the OriginEndpoint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A short string appended to the end of the OriginEndpoint URL.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
     /// may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
     /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<String>,
     /// <p>Maximum duration (seconds) of content to retain for startover playback.
     /// If not specified, startover playback will be disabled for the OriginEndpoint.</p>
-    #[serde(rename = "StartoverWindowSeconds")]
+    #[serde(rename = "startoverWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub startover_window_seconds: Option<i64>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Amount of delay (seconds) to enforce on the playback of live content.
     /// If not specified, there will be no time delay in effect for the OriginEndpoint.</p>
-    #[serde(rename = "TimeDelaySeconds")]
+    #[serde(rename = "timeDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_delay_seconds: Option<i64>,
     /// <p>The URL of the packaged OriginEndpoint for consumption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.</p>
-    #[serde(rename = "Whitelist")]
+    #[serde(rename = "whitelist")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist: Option<Vec<String>>,
 }
@@ -1192,7 +1192,7 @@ pub struct OriginEndpoint {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RotateChannelCredentialsRequest {
     /// <p>The ID of the channel to update.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -1200,27 +1200,27 @@ pub struct RotateChannelCredentialsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RotateChannelCredentialsResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1229,10 +1229,10 @@ pub struct RotateChannelCredentialsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RotateIngestEndpointCredentialsRequest {
     /// <p>The ID of the channel the IngestEndpoint is on.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The id of the IngestEndpoint whose credentials should be rotated</p>
-    #[serde(rename = "IngestEndpointId")]
+    #[serde(rename = "ingestEndpointId")]
     pub ingest_endpoint_id: String,
 }
 
@@ -1240,27 +1240,27 @@ pub struct RotateIngestEndpointCredentialsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RotateIngestEndpointCredentialsResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1269,13 +1269,13 @@ pub struct RotateIngestEndpointCredentialsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Destination {
     /// <p>The name of an S3 bucket within which harvested content will be exported</p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     pub bucket_name: String,
     /// <p>The key in the specified S3 bucket where the harvested top-level manifest will be placed.</p>
-    #[serde(rename = "ManifestKey")]
+    #[serde(rename = "manifestKey")]
     pub manifest_key: String,
     /// <p>The IAM role used to write to the specified S3 bucket</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
 }
 
@@ -1285,24 +1285,24 @@ pub struct SpekeKeyProvider {
     /// <p>An Amazon Resource Name (ARN) of a Certificate Manager certificate
     /// that MediaPackage will use for enforcing secure end-to-end data
     /// transfer with the key provider service.</p>
-    #[serde(rename = "CertificateArn")]
+    #[serde(rename = "certificateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_arn: Option<String>,
-    #[serde(rename = "EncryptionContractConfiguration")]
+    #[serde(rename = "encryptionContractConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_contract_configuration: Option<EncryptionContractConfiguration>,
     /// <p>The resource ID to include in key requests.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
     /// MediaPackage will assume when accessing the key provider service.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The system IDs to include in key requests.</p>
-    #[serde(rename = "SystemIds")]
+    #[serde(rename = "systemIds")]
     pub system_ids: Vec<String>,
     /// <p>The URL of the external key provider service.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     pub url: String,
 }
 
@@ -1310,15 +1310,15 @@ pub struct SpekeKeyProvider {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamSelection {
     /// <p>The maximum video bitrate (bps) to include in output.</p>
-    #[serde(rename = "MaxVideoBitsPerSecond")]
+    #[serde(rename = "maxVideoBitsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_video_bits_per_second: Option<i64>,
     /// <p>The minimum video bitrate (bps) to include in output.</p>
-    #[serde(rename = "MinVideoBitsPerSecond")]
+    #[serde(rename = "minVideoBitsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_video_bits_per_second: Option<i64>,
     /// <p>A directive that determines the order of streams in the output.</p>
-    #[serde(rename = "StreamOrder")]
+    #[serde(rename = "streamOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_order: Option<String>,
 }
@@ -1326,19 +1326,19 @@ pub struct StreamSelection {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The key(s) of tag to be deleted</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1347,11 +1347,11 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateChannelRequest {
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the Channel to update.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -1359,27 +1359,27 @@ pub struct UpdateChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateChannelResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the Channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A short text description of the Channel.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
-    #[serde(rename = "HlsIngest")]
+    #[serde(rename = "hlsIngest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_ingest: Option<HlsIngest>,
     /// <p>The ID of the Channel.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "IngressAccessLogs")]
+    #[serde(rename = "ingressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingress_access_logs: Option<IngressAccessLogs>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1388,50 +1388,50 @@ pub struct UpdateChannelResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateOriginEndpointRequest {
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackageCreateOrUpdateParameters>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
     /// <p>A short text description of the OriginEndpoint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the OriginEndpoint to update.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>A short string that will be appended to the end of the Endpoint URL.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
     /// may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
     /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<String>,
     /// <p>Maximum duration (in seconds) of content to retain for startover playback.
     /// If not specified, startover playback will be disabled for the OriginEndpoint.</p>
-    #[serde(rename = "StartoverWindowSeconds")]
+    #[serde(rename = "startoverWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub startover_window_seconds: Option<i64>,
     /// <p>Amount of delay (in seconds) to enforce on the playback of live content.
     /// If not specified, there will be no time delay in effect for the OriginEndpoint.</p>
-    #[serde(rename = "TimeDelaySeconds")]
+    #[serde(rename = "timeDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_delay_seconds: Option<i64>,
     /// <p>A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.</p>
-    #[serde(rename = "Whitelist")]
+    #[serde(rename = "whitelist")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist: Option<Vec<String>>,
 }
@@ -1440,65 +1440,65 @@ pub struct UpdateOriginEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateOriginEndpointResponse {
     /// <p>The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The ID of the Channel the OriginEndpoint is associated with.</p>
-    #[serde(rename = "ChannelId")]
+    #[serde(rename = "channelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
     /// <p>A short text description of the OriginEndpoint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the OriginEndpoint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A short string appended to the end of the OriginEndpoint URL.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
     /// may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
     /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</p>
-    #[serde(rename = "Origination")]
+    #[serde(rename = "origination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origination: Option<String>,
     /// <p>Maximum duration (seconds) of content to retain for startover playback.
     /// If not specified, startover playback will be disabled for the OriginEndpoint.</p>
-    #[serde(rename = "StartoverWindowSeconds")]
+    #[serde(rename = "startoverWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub startover_window_seconds: Option<i64>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Amount of delay (seconds) to enforce on the playback of live content.
     /// If not specified, there will be no time delay in effect for the OriginEndpoint.</p>
-    #[serde(rename = "TimeDelaySeconds")]
+    #[serde(rename = "timeDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_delay_seconds: Option<i64>,
     /// <p>The URL of the packaged OriginEndpoint for consumption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.</p>
-    #[serde(rename = "Whitelist")]
+    #[serde(rename = "whitelist")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist: Option<Vec<String>>,
 }

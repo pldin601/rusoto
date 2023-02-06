@@ -30,11 +30,11 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Block {
     /// <p>The block index.</p>
-    #[serde(rename = "BlockIndex")]
+    #[serde(rename = "blockIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_index: Option<i64>,
     /// <p>The block token for the block index.</p>
-    #[serde(rename = "BlockToken")]
+    #[serde(rename = "blockToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_token: Option<String>,
 }
@@ -44,15 +44,15 @@ pub struct Block {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChangedBlock {
     /// <p>The block index.</p>
-    #[serde(rename = "BlockIndex")]
+    #[serde(rename = "blockIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_index: Option<i64>,
     /// <p>The block token for the block index of the <code>FirstSnapshotId</code> specified in the <code>ListChangedBlocks</code> operation. This value is absent if the first snapshot does not have the changed block that is on the second snapshot.</p>
-    #[serde(rename = "FirstBlockToken")]
+    #[serde(rename = "firstBlockToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_block_token: Option<String>,
     /// <p>The block token for the block index of the <code>SecondSnapshotId</code> specified in the <code>ListChangedBlocks</code> operation.</p>
-    #[serde(rename = "SecondBlockToken")]
+    #[serde(rename = "secondBlockToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub second_block_token: Option<String>,
 }
@@ -61,22 +61,22 @@ pub struct ChangedBlock {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CompleteSnapshotRequest {
     /// <p>The number of blocks that were written to the snapshot.</p>
-    #[serde(rename = "ChangedBlocksCount")]
+    #[serde(rename = "changedBlocksCount")]
     pub changed_blocks_count: i64,
     /// <p>An aggregated Base-64 SHA256 checksum based on the checksums of each written block.</p> <p>To generate the aggregated checksum using the linear aggregation method, arrange the checksums for each written block in ascending order of their block index, concatenate them to form a single string, and then generate the checksum on the entire string using the SHA256 algorithm.</p>
-    #[serde(rename = "Checksum")]
+    #[serde(rename = "checksum")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checksum: Option<String>,
     /// <p>The aggregation method used to generate the checksum. Currently, the only supported aggregation method is <code>LINEAR</code>.</p>
-    #[serde(rename = "ChecksumAggregationMethod")]
+    #[serde(rename = "checksumAggregationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checksum_aggregation_method: Option<String>,
     /// <p>The algorithm used to generate the checksum. Currently, the only supported algorithm is <code>SHA256</code>.</p>
-    #[serde(rename = "ChecksumAlgorithm")]
+    #[serde(rename = "checksumAlgorithm")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checksum_algorithm: Option<String>,
     /// <p>The ID of the snapshot.</p>
-    #[serde(rename = "SnapshotId")]
+    #[serde(rename = "snapshotId")]
     pub snapshot_id: String,
 }
 
@@ -84,7 +84,7 @@ pub struct CompleteSnapshotRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CompleteSnapshotResponse {
     /// <p>The status of the snapshot.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -93,13 +93,13 @@ pub struct CompleteSnapshotResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSnapshotBlockRequest {
     /// <p>The block index of the block from which to get data.</p> <p>Obtain the <code>BlockIndex</code> by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>
-    #[serde(rename = "BlockIndex")]
+    #[serde(rename = "blockIndex")]
     pub block_index: i64,
     /// <p>The block token of the block from which to get data.</p> <p>Obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>
-    #[serde(rename = "BlockToken")]
+    #[serde(rename = "blockToken")]
     pub block_token: String,
     /// <p>The ID of the snapshot containing the block from which to get data.</p>
-    #[serde(rename = "SnapshotId")]
+    #[serde(rename = "snapshotId")]
     pub snapshot_id: String,
 }
 
@@ -119,22 +119,22 @@ pub struct GetSnapshotBlockResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChangedBlocksRequest {
     /// <p><p>The ID of the first snapshot to use for the comparison.</p> <important> <p>The <code>FirstSnapshotID</code> parameter must be specified with a <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p> </important></p>
-    #[serde(rename = "FirstSnapshotId")]
+    #[serde(rename = "firstSnapshotId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_snapshot_id: Option<String>,
     /// <p>The number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>The ID of the second snapshot to use for the comparison.</p> <important> <p>The <code>SecondSnapshotId</code> parameter must be specified with a <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p> </important></p>
-    #[serde(rename = "SecondSnapshotId")]
+    #[serde(rename = "secondSnapshotId")]
     pub second_snapshot_id: String,
     /// <p>The block index from which the comparison should start.</p> <p>The list in the response will start from this block index or the next valid block index in the snapshots.</p>
-    #[serde(rename = "StartingBlockIndex")]
+    #[serde(rename = "startingBlockIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_block_index: Option<i64>,
 }
@@ -143,23 +143,23 @@ pub struct ListChangedBlocksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChangedBlocksResponse {
     /// <p>The size of the block.</p>
-    #[serde(rename = "BlockSize")]
+    #[serde(rename = "blockSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_size: Option<i64>,
     /// <p>An array of objects containing information about the changed blocks.</p>
-    #[serde(rename = "ChangedBlocks")]
+    #[serde(rename = "changedBlocks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub changed_blocks: Option<Vec<ChangedBlock>>,
     /// <p>The time when the <code>BlockToken</code> expires.</p>
-    #[serde(rename = "ExpiryTime")]
+    #[serde(rename = "expiryTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiry_time: Option<f64>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The size of the volume in GB.</p>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_size: Option<i64>,
 }
@@ -168,18 +168,18 @@ pub struct ListChangedBlocksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSnapshotBlocksRequest {
     /// <p>The number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
-    #[serde(rename = "SnapshotId")]
+    #[serde(rename = "snapshotId")]
     pub snapshot_id: String,
     /// <p>The block index from which the list should start. The list in the response will start from this block index or the next valid block index in the snapshot.</p>
-    #[serde(rename = "StartingBlockIndex")]
+    #[serde(rename = "startingBlockIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_block_index: Option<i64>,
 }
@@ -188,23 +188,23 @@ pub struct ListSnapshotBlocksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSnapshotBlocksResponse {
     /// <p>The size of the block.</p>
-    #[serde(rename = "BlockSize")]
+    #[serde(rename = "blockSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_size: Option<i64>,
     /// <p>An array of objects containing information about the blocks.</p>
-    #[serde(rename = "Blocks")]
+    #[serde(rename = "blocks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocks: Option<Vec<Block>>,
     /// <p>The time when the <code>BlockToken</code> expires.</p>
-    #[serde(rename = "ExpiryTime")]
+    #[serde(rename = "expiryTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiry_time: Option<f64>,
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The size of the volume in GB.</p>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_size: Option<i64>,
 }
@@ -213,7 +213,7 @@ pub struct ListSnapshotBlocksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSnapshotBlockRequest {
     /// <p>The data to write to the block.</p> <p>The block data is not signed as part of the Signature Version 4 signing process. As a result, you must generate and provide a Base64-encoded SHA256 checksum for the block data using the <b>x-amz-Checksum</b> header. Also, you must specify the checksum algorithm using the <b>x-amz-Checksum-Algorithm</b> header. The checksum that you provide is part of the Signature Version 4 signing process. It is validated against a checksum generated by Amazon EBS to ensure the validity and authenticity of the data. If the checksums do not correspond, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums"> Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-    #[serde(rename = "BlockData")]
+    #[serde(rename = "blockData")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -221,23 +221,23 @@ pub struct PutSnapshotBlockRequest {
     )]
     pub block_data: bytes::Bytes,
     /// <p>The block index of the block in which to write the data. A block index is a logical index in units of <code>512</code> KiB blocks. To identify the block index, divide the logical offset of the data in the logical volume by the block size (logical offset of data/<code>524288</code>). The logical offset of the data must be <code>512</code> KiB aligned.</p>
-    #[serde(rename = "BlockIndex")]
+    #[serde(rename = "blockIndex")]
     pub block_index: i64,
     /// <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are supported.</p>
-    #[serde(rename = "Checksum")]
+    #[serde(rename = "checksum")]
     pub checksum: String,
     /// <p>The algorithm used to generate the checksum. Currently, the only supported algorithm is <code>SHA256</code>.</p>
-    #[serde(rename = "ChecksumAlgorithm")]
+    #[serde(rename = "checksumAlgorithm")]
     pub checksum_algorithm: String,
     /// <p>The size of the data to write to the block, in bytes. Currently, the only supported size is <code>524288</code>.</p> <p>Valid values: <code>524288</code> </p>
-    #[serde(rename = "DataLength")]
+    #[serde(rename = "dataLength")]
     pub data_length: i64,
     /// <p>The progress of the write process, as a percentage.</p>
-    #[serde(rename = "Progress")]
+    #[serde(rename = "progress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress: Option<i64>,
     /// <p>The ID of the snapshot.</p>
-    #[serde(rename = "SnapshotId")]
+    #[serde(rename = "snapshotId")]
     pub snapshot_id: String,
 }
 
@@ -245,11 +245,11 @@ pub struct PutSnapshotBlockRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutSnapshotBlockResponse {
     /// <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
-    #[serde(rename = "Checksum")]
+    #[serde(rename = "checksum")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checksum: Option<String>,
     /// <p>The algorithm used by Amazon EBS to generate the checksum.</p>
-    #[serde(rename = "ChecksumAlgorithm")]
+    #[serde(rename = "checksumAlgorithm")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checksum_algorithm: Option<String>,
 }
@@ -258,35 +258,35 @@ pub struct PutSnapshotBlockResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSnapshotRequest {
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you do not specify a client token, one is automatically generated by the AWS SDK.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html"> Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>A description for the snapshot.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Indicates whether to encrypt the snapshot. To create an encrypted snapshot, specify <code>true</code>. To create an unencrypted snapshot, omit this parameter.</p> <p>If you specify a value for <b>ParentSnapshotId</b>, omit this parameter.</p> <p>If you specify <code>true</code>, the snapshot is encrypted using the CMK specified using the <b>KmsKeyArn</b> parameter. If no value is specified for <b>KmsKeyArn</b>, the default CMK for your account is used. If no default CMK has been specified for your account, the AWS managed CMK is used. To set a default CMK for your account, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyEbsDefaultKmsKeyId.html"> ModifyEbsDefaultKmsKeyId</a>.</p> <p>If your account is enabled for encryption by default, you cannot set this parameter to <code>false</code>. In this case, you can omit this parameter.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-encryption"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-    #[serde(rename = "Encrypted")]
+    #[serde(rename = "encrypted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encrypted: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) to be used to encrypt the snapshot. If you do not specify a CMK, the default AWS managed CMK is used.</p> <p>If you specify a <b>ParentSnapshotId</b>, omit this parameter; the snapshot will be encrypted using the same CMK that was used to encrypt the parent snapshot.</p> <p>If <b>Encrypted</b> is set to <code>true</code>, you must specify a CMK ARN. </p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating the first snapshot for an on-premises volume, omit this parameter.</p> <p>If your account is enabled for encryption by default, you cannot use an unencrypted snapshot as a parent snapshot. You must first create an encrypted copy of the parent snapshot using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopySnapshot.html">CopySnapshot</a>.</p>
-    #[serde(rename = "ParentSnapshotId")]
+    #[serde(rename = "parentSnapshotId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_snapshot_id: Option<String>,
     /// <p>The tags to apply to the snapshot.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The amount of time (in minutes) after which the snapshot is automatically cancelled if:</p> <ul> <li> <p>No blocks are written to the snapshot.</p> </li> <li> <p>The snapshot is not completed after writing the last block of data.</p> </li> </ul> <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
-    #[serde(rename = "Timeout")]
+    #[serde(rename = "timeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout: Option<i64>,
     /// <p>The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16 TiB).</p>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     pub volume_size: i64,
 }
 
@@ -294,43 +294,43 @@ pub struct StartSnapshotRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartSnapshotResponse {
     /// <p>The size of the blocks in the snapshot, in bytes.</p>
-    #[serde(rename = "BlockSize")]
+    #[serde(rename = "blockSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_size: Option<i64>,
     /// <p>The description of the snapshot.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the snapshot.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The AWS account ID of the snapshot owner.</p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>The ID of the parent snapshot.</p>
-    #[serde(rename = "ParentSnapshotId")]
+    #[serde(rename = "parentSnapshotId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_snapshot_id: Option<String>,
     /// <p>The ID of the snapshot.</p>
-    #[serde(rename = "SnapshotId")]
+    #[serde(rename = "snapshotId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_id: Option<String>,
     /// <p>The timestamp when the snapshot was created.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The status of the snapshot.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html"> Tagging your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The size of the volume, in GiB.</p>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_size: Option<i64>,
 }
@@ -339,11 +339,11 @@ pub struct StartSnapshotResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }

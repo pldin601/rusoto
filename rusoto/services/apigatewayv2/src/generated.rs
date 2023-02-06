@@ -29,11 +29,11 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccessLogSettings {
     /// <p>The ARN of the CloudWatch Logs log group to receive access logs.</p>
-    #[serde(rename = "DestinationArn")]
+    #[serde(rename = "destinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_arn: Option<String>,
     /// <p>A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
 }
@@ -43,64 +43,64 @@ pub struct AccessLogSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Api {
     /// <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-    #[serde(rename = "ApiEndpoint")]
+    #[serde(rename = "apiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_endpoint: Option<String>,
     /// <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The API ID.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>The timestamp when the API was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ImportInfo")]
+    #[serde(rename = "importInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_info: Option<Vec<String>>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     pub protocol_type: String,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     pub route_selection_expression: String,
     /// <p>A collection of tags associated with the API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<String>>,
 }
@@ -110,18 +110,18 @@ pub struct Api {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApiMapping {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_id: Option<String>,
     /// <p>The API mapping key.</p>
-    #[serde(rename = "ApiMappingKey")]
+    #[serde(rename = "apiMappingKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_key: Option<String>,
     /// <p>The API stage.</p>
-    #[serde(rename = "Stage")]
+    #[serde(rename = "stage")]
     pub stage: String,
 }
 
@@ -130,48 +130,48 @@ pub struct ApiMapping {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Authorizer {
     /// <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerCredentialsArn")]
+    #[serde(rename = "authorizerCredentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_credentials_arn: Option<String>,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-    #[serde(rename = "AuthorizerPayloadFormatVersion")]
+    #[serde(rename = "authorizerPayloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_payload_format_version: Option<String>,
     /// <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-    #[serde(rename = "AuthorizerResultTtlInSeconds")]
+    #[serde(rename = "authorizerResultTtlInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_result_ttl_in_seconds: Option<i64>,
     /// <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-    #[serde(rename = "AuthorizerType")]
+    #[serde(rename = "authorizerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_type: Option<String>,
     /// <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
     /// , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerUri")]
+    #[serde(rename = "authorizerUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_uri: Option<String>,
     /// <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-    #[serde(rename = "EnableSimpleResponses")]
+    #[serde(rename = "enableSimpleResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_simple_responses: Option<bool>,
     /// <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-    #[serde(rename = "IdentitySource")]
+    #[serde(rename = "identitySource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_source: Option<Vec<String>>,
     /// <p>The validation expression does not apply to the REQUEST authorizer.</p>
-    #[serde(rename = "IdentityValidationExpression")]
+    #[serde(rename = "identityValidationExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_validation_expression: Option<String>,
     /// <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "JwtConfiguration")]
+    #[serde(rename = "jwtConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jwt_configuration: Option<JWTConfiguration>,
     /// <p>The name of the authorizer.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -179,27 +179,27 @@ pub struct Authorizer {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Cors {
     /// <p>Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.</p>
-    #[serde(rename = "AllowCredentials")]
+    #[serde(rename = "allowCredentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_credentials: Option<bool>,
     /// <p>Represents a collection of allowed headers. Supported only for HTTP APIs.</p>
-    #[serde(rename = "AllowHeaders")]
+    #[serde(rename = "allowHeaders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_headers: Option<Vec<String>>,
     /// <p>Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.</p>
-    #[serde(rename = "AllowMethods")]
+    #[serde(rename = "allowMethods")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_methods: Option<Vec<String>>,
     /// <p>Represents a collection of allowed origins. Supported only for HTTP APIs.</p>
-    #[serde(rename = "AllowOrigins")]
+    #[serde(rename = "allowOrigins")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_origins: Option<Vec<String>>,
     /// <p>Represents a collection of exposed headers. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ExposeHeaders")]
+    #[serde(rename = "exposeHeaders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expose_headers: Option<Vec<String>>,
     /// <p>The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.</p>
-    #[serde(rename = "MaxAge")]
+    #[serde(rename = "maxAge")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_age: Option<i64>,
 }
@@ -209,17 +209,17 @@ pub struct Cors {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateApiMappingRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The API mapping key.</p>
-    #[serde(rename = "ApiMappingKey")]
+    #[serde(rename = "apiMappingKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_key: Option<String>,
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The API stage.</p>
-    #[serde(rename = "Stage")]
+    #[serde(rename = "stage")]
     pub stage: String,
 }
 
@@ -227,19 +227,19 @@ pub struct CreateApiMappingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateApiMappingResponse {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_id: Option<String>,
     /// <p>The API mapping key.</p>
-    #[serde(rename = "ApiMappingKey")]
+    #[serde(rename = "apiMappingKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_key: Option<String>,
     /// <p>The API stage.</p>
-    #[serde(rename = "Stage")]
+    #[serde(rename = "stage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage: Option<String>,
 }
@@ -249,53 +249,53 @@ pub struct CreateApiMappingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateApiRequest {
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>This property is part of quick create. It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null. Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     pub protocol_type: String,
     /// <p>This property is part of quick create. If you don't specify a routeKey, a default route of $default is created. The $default route acts as a catch-all for any request made to your API, for a particular stage. The $default route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_key: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -304,67 +304,67 @@ pub struct CreateApiRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateApiResponse {
     /// <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-    #[serde(rename = "ApiEndpoint")]
+    #[serde(rename = "apiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_endpoint: Option<String>,
     /// <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The API ID.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>The timestamp when the API was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ImportInfo")]
+    #[serde(rename = "importInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_info: Option<Vec<String>>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_type: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>A collection of tags associated with the API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<String>>,
 }
@@ -374,45 +374,45 @@ pub struct CreateApiResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAuthorizerRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerCredentialsArn")]
+    #[serde(rename = "authorizerCredentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_credentials_arn: Option<String>,
     /// <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-    #[serde(rename = "AuthorizerPayloadFormatVersion")]
+    #[serde(rename = "authorizerPayloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_payload_format_version: Option<String>,
     /// <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-    #[serde(rename = "AuthorizerResultTtlInSeconds")]
+    #[serde(rename = "authorizerResultTtlInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_result_ttl_in_seconds: Option<i64>,
     /// <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-    #[serde(rename = "AuthorizerType")]
+    #[serde(rename = "authorizerType")]
     pub authorizer_type: String,
     /// <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
     /// , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerUri")]
+    #[serde(rename = "authorizerUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_uri: Option<String>,
     /// <p>Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-    #[serde(rename = "EnableSimpleResponses")]
+    #[serde(rename = "enableSimpleResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_simple_responses: Option<bool>,
     /// <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-    #[serde(rename = "IdentitySource")]
+    #[serde(rename = "identitySource")]
     pub identity_source: Vec<String>,
     /// <p>This parameter is not used.</p>
-    #[serde(rename = "IdentityValidationExpression")]
+    #[serde(rename = "identityValidationExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_validation_expression: Option<String>,
     /// <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "JwtConfiguration")]
+    #[serde(rename = "jwtConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jwt_configuration: Option<JWTConfiguration>,
     /// <p>The name of the authorizer.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -420,48 +420,48 @@ pub struct CreateAuthorizerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAuthorizerResponse {
     /// <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerCredentialsArn")]
+    #[serde(rename = "authorizerCredentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_credentials_arn: Option<String>,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-    #[serde(rename = "AuthorizerPayloadFormatVersion")]
+    #[serde(rename = "authorizerPayloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_payload_format_version: Option<String>,
     /// <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-    #[serde(rename = "AuthorizerResultTtlInSeconds")]
+    #[serde(rename = "authorizerResultTtlInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_result_ttl_in_seconds: Option<i64>,
     /// <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-    #[serde(rename = "AuthorizerType")]
+    #[serde(rename = "authorizerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_type: Option<String>,
     /// <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
     /// , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerUri")]
+    #[serde(rename = "authorizerUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_uri: Option<String>,
     /// <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-    #[serde(rename = "EnableSimpleResponses")]
+    #[serde(rename = "enableSimpleResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_simple_responses: Option<bool>,
     /// <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-    #[serde(rename = "IdentitySource")]
+    #[serde(rename = "identitySource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_source: Option<Vec<String>>,
     /// <p>The validation expression does not apply to the REQUEST authorizer.</p>
-    #[serde(rename = "IdentityValidationExpression")]
+    #[serde(rename = "identityValidationExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_validation_expression: Option<String>,
     /// <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "JwtConfiguration")]
+    #[serde(rename = "jwtConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jwt_configuration: Option<JWTConfiguration>,
     /// <p>The name of the authorizer.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -471,14 +471,14 @@ pub struct CreateAuthorizerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDeploymentRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The description for the deployment resource.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the Stage resource for the Deployment resource to create.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_name: Option<String>,
 }
@@ -487,27 +487,27 @@ pub struct CreateDeploymentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDeploymentResponse {
     /// <p>Specifies whether a deployment was automatically released.</p>
-    #[serde(rename = "AutoDeployed")]
+    #[serde(rename = "autoDeployed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deployed: Option<bool>,
     /// <p>The date and time when the Deployment resource was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The identifier for the deployment.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
-    #[serde(rename = "DeploymentStatus")]
+    #[serde(rename = "deploymentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status: Option<String>,
     /// <p>May contain additional feedback on the status of an API deployment.</p>
-    #[serde(rename = "DeploymentStatusMessage")]
+    #[serde(rename = "deploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status_message: Option<String>,
     /// <p>The description for the deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -517,18 +517,18 @@ pub struct CreateDeploymentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDomainNameRequest {
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The domain name configurations.</p>
-    #[serde(rename = "DomainNameConfigurations")]
+    #[serde(rename = "domainNameConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_configurations: Option<Vec<DomainNameConfiguration>>,
     /// <p>The mutual TLS authentication configuration for a custom domain name.</p>
-    #[serde(rename = "MutualTlsAuthentication")]
+    #[serde(rename = "mutualTlsAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutual_tls_authentication: Option<MutualTlsAuthenticationInput>,
     /// <p>The collection of tags associated with a domain name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -537,23 +537,23 @@ pub struct CreateDomainNameRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDomainNameResponse {
     /// <p>The API mapping selection expression.</p>
-    #[serde(rename = "ApiMappingSelectionExpression")]
+    #[serde(rename = "apiMappingSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_selection_expression: Option<String>,
     /// <p>The name of the DomainName resource.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>The domain name configurations.</p>
-    #[serde(rename = "DomainNameConfigurations")]
+    #[serde(rename = "domainNameConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_configurations: Option<Vec<DomainNameConfiguration>>,
     /// <p>The mutual TLS authentication configuration for a custom domain name.</p>
-    #[serde(rename = "MutualTlsAuthentication")]
+    #[serde(rename = "mutualTlsAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutual_tls_authentication: Option<MutualTlsAuthentication>,
     /// <p>The collection of tags associated with a domain name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -563,49 +563,49 @@ pub struct CreateDomainNameResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIntegrationRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>The description of the integration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies the integration's HTTP method type.</p>
-    #[serde(rename = "IntegrationMethod")]
+    #[serde(rename = "integrationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_method: Option<String>,
     /// <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-    #[serde(rename = "IntegrationSubtype")]
+    #[serde(rename = "integrationSubtype")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_subtype: Option<String>,
     /// <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an HTTP_PROXY integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     pub integration_type: String,
     /// <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-    #[serde(rename = "IntegrationUri")]
+    #[serde(rename = "integrationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_uri: Option<String>,
     /// <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-    #[serde(rename = "PassthroughBehavior")]
+    #[serde(rename = "passthroughBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passthrough_behavior: Option<String>,
     /// <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-    #[serde(rename = "PayloadFormatVersion")]
+    #[serde(rename = "payloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload_format_version: Option<String>,
     /// <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -614,28 +614,28 @@ pub struct CreateIntegrationRequest {
     /// is querystring, path, or header; and
     /// <replaceable>{name}</replaceable>
     /// must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API integrations without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt; where action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestTemplates")]
+    #[serde(rename = "requestTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The template selection expression for the integration.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
     /// <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-    #[serde(rename = "TimeoutInMillis")]
+    #[serde(rename = "timeoutInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_in_millis: Option<i64>,
     /// <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-    #[serde(rename = "TlsConfig")]
+    #[serde(rename = "tlsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_config: Option<TlsConfigInput>,
 }
@@ -645,28 +645,28 @@ pub struct CreateIntegrationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIntegrationResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
     /// <p>The integration response key.</p>
-    #[serde(rename = "IntegrationResponseKey")]
+    #[serde(rename = "integrationResponseKey")]
     pub integration_response_key: String,
     /// <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where {name} is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where {name} is a valid and unique response header name and {JSON-expression} is a valid JSON expression without the $ prefix.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-    #[serde(rename = "ResponseTemplates")]
+    #[serde(rename = "responseTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
 }
@@ -675,27 +675,27 @@ pub struct CreateIntegrationResponseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIntegrationResponseResponse {
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_id: Option<String>,
     /// <p>The integration response key.</p>
-    #[serde(rename = "IntegrationResponseKey")]
+    #[serde(rename = "integrationResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_key: Option<String>,
     /// <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-    #[serde(rename = "ResponseTemplates")]
+    #[serde(rename = "responseTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template selection expressions for the integration response.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
 }
@@ -704,59 +704,59 @@ pub struct CreateIntegrationResponseResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIntegrationResult {
     /// <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>Represents the description of an integration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Represents the identifier of an integration.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_id: Option<String>,
     /// <p>Specifies the integration's HTTP method type.</p>
-    #[serde(rename = "IntegrationMethod")]
+    #[serde(rename = "integrationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_method: Option<String>,
     /// <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
-    #[serde(rename = "IntegrationResponseSelectionExpression")]
+    #[serde(rename = "integrationResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_selection_expression: Option<String>,
     /// <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-    #[serde(rename = "IntegrationSubtype")]
+    #[serde(rename = "integrationSubtype")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_subtype: Option<String>,
     /// <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_type: Option<String>,
     /// <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-    #[serde(rename = "IntegrationUri")]
+    #[serde(rename = "integrationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_uri: Option<String>,
     /// <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-    #[serde(rename = "PassthroughBehavior")]
+    #[serde(rename = "passthroughBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passthrough_behavior: Option<String>,
     /// <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-    #[serde(rename = "PayloadFormatVersion")]
+    #[serde(rename = "payloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload_format_version: Option<String>,
     /// <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -765,28 +765,28 @@ pub struct CreateIntegrationResult {
     /// is querystring, path, or header; and
     /// <replaceable>{name}</replaceable>
     /// must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestTemplates")]
+    #[serde(rename = "requestTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
     /// <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-    #[serde(rename = "TimeoutInMillis")]
+    #[serde(rename = "timeoutInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_in_millis: Option<i64>,
     /// <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-    #[serde(rename = "TlsConfig")]
+    #[serde(rename = "tlsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_config: Option<TlsConfig>,
 }
@@ -796,21 +796,21 @@ pub struct CreateIntegrationResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateModelRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The content-type for the model, for example, "application/json".</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The description of the model.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the model. Must be alphanumeric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     pub schema: String,
 }
 
@@ -818,23 +818,23 @@ pub struct CreateModelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateModelResponse {
     /// <p>The content-type for the model, for example, "application/json".</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The description of the model.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The model identifier.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_id: Option<String>,
     /// <p>The name of the model. Must be alphanumeric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<String>,
 }
@@ -844,49 +844,49 @@ pub struct CreateModelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRouteRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies whether an API key is required for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ApiKeyRequired")]
+    #[serde(rename = "apiKeyRequired")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_required: Option<bool>,
     /// <p>The authorization scopes supported by this route.</p>
-    #[serde(rename = "AuthorizationScopes")]
+    #[serde(rename = "authorizationScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_scopes: Option<Vec<String>>,
     /// <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The operation name for the route.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The request models for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestModels")]
+    #[serde(rename = "requestModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route key for the route.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     pub route_key: String,
     /// <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RouteResponseSelectionExpression")]
+    #[serde(rename = "routeResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_selection_expression: Option<String>,
     /// <p>The target for the route.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
 }
@@ -896,25 +896,25 @@ pub struct CreateRouteRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRouteResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The model selection expression for the route response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The response models for the route response.</p>
-    #[serde(rename = "ResponseModels")]
+    #[serde(rename = "responseModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The route response parameters.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
     /// <p>The route response key.</p>
-    #[serde(rename = "RouteResponseKey")]
+    #[serde(rename = "routeResponseKey")]
     pub route_response_key: String,
 }
 
@@ -922,23 +922,23 @@ pub struct CreateRouteResponseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRouteResponseResponse {
     /// <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>Represents the response models of a route response.</p>
-    #[serde(rename = "ResponseModels")]
+    #[serde(rename = "responseModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents the response parameters of a route response.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>Represents the identifier of a route response.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_id: Option<String>,
     /// <p>Represents the route response key of a route response.</p>
-    #[serde(rename = "RouteResponseKey")]
+    #[serde(rename = "routeResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_key: Option<String>,
 }
@@ -947,55 +947,55 @@ pub struct CreateRouteResponseResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRouteResult {
     /// <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ApiKeyRequired")]
+    #[serde(rename = "apiKeyRequired")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_required: Option<bool>,
     /// <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-    #[serde(rename = "AuthorizationScopes")]
+    #[serde(rename = "authorizationScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_scopes: Option<Vec<String>>,
     /// <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The operation name for the route.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The request models for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestModels")]
+    #[serde(rename = "requestModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_id: Option<String>,
     /// <p>The route key for the route.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_key: Option<String>,
     /// <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RouteResponseSelectionExpression")]
+    #[serde(rename = "routeResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_selection_expression: Option<String>,
     /// <p>The target for the route.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
 }
@@ -1005,45 +1005,45 @@ pub struct CreateRouteResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStageRequest {
     /// <p>Settings for logging access in this stage.</p>
-    #[serde(rename = "AccessLogSettings")]
+    #[serde(rename = "accessLogSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_log_settings: Option<AccessLogSettings>,
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-    #[serde(rename = "AutoDeploy")]
+    #[serde(rename = "autoDeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
     /// <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ClientCertificateId")]
+    #[serde(rename = "clientCertificateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_certificate_id: Option<String>,
     /// <p>The default route settings for the stage.</p>
-    #[serde(rename = "DefaultRouteSettings")]
+    #[serde(rename = "defaultRouteSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_route_settings: Option<RouteSettings>,
     /// <p>The deployment identifier of the API stage.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The description for the API stage.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Route settings for the stage, by routeKey.</p>
-    #[serde(rename = "RouteSettings")]
+    #[serde(rename = "routeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_settings: Option<::std::collections::HashMap<String, RouteSettings>>,
     /// <p>The name of the stage.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
     /// <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-    #[serde(rename = "StageVariables")]
+    #[serde(rename = "stageVariables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_variables: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1052,59 +1052,59 @@ pub struct CreateStageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateStageResponse {
     /// <p>Settings for logging access in this stage.</p>
-    #[serde(rename = "AccessLogSettings")]
+    #[serde(rename = "accessLogSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_log_settings: Option<AccessLogSettings>,
     /// <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-    #[serde(rename = "AutoDeploy")]
+    #[serde(rename = "autoDeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
     /// <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ClientCertificateId")]
+    #[serde(rename = "clientCertificateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_certificate_id: Option<String>,
     /// <p>The timestamp when the stage was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>Default route settings for the stage.</p>
-    #[serde(rename = "DefaultRouteSettings")]
+    #[serde(rename = "defaultRouteSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_route_settings: Option<RouteSettings>,
     /// <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The description of the stage.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-    #[serde(rename = "LastDeploymentStatusMessage")]
+    #[serde(rename = "lastDeploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_deployment_status_message: Option<String>,
     /// <p>The timestamp when the stage was last updated.</p>
-    #[serde(rename = "LastUpdatedDate")]
+    #[serde(rename = "lastUpdatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_date: Option<f64>,
     /// <p>Route settings for the stage, by routeKey.</p>
-    #[serde(rename = "RouteSettings")]
+    #[serde(rename = "routeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_settings: Option<::std::collections::HashMap<String, RouteSettings>>,
     /// <p>The name of the stage.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_name: Option<String>,
     /// <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-    #[serde(rename = "StageVariables")]
+    #[serde(rename = "stageVariables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_variables: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1114,17 +1114,17 @@ pub struct CreateStageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateVpcLinkRequest {
     /// <p>The name of the VPC link.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of security group IDs for the VPC link.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>A list of subnet IDs to include in the VPC link.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
     /// <p>A list of tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1133,39 +1133,39 @@ pub struct CreateVpcLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateVpcLinkResponse {
     /// <p>The timestamp when the VPC link was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The name of the VPC link.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of security group IDs for the VPC link.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>A list of subnet IDs to include in the VPC link.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>Tags for the VPC link.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_id: Option<String>,
     /// <p>The status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatus")]
+    #[serde(rename = "vpcLinkStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status: Option<String>,
     /// <p>A message summarizing the cause of the status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatusMessage")]
+    #[serde(rename = "vpcLinkStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status_message: Option<String>,
     /// <p>The version of the VPC link.</p>
-    #[serde(rename = "VpcLinkVersion")]
+    #[serde(rename = "vpcLinkVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_version: Option<String>,
 }
@@ -1174,10 +1174,10 @@ pub struct CreateVpcLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAccessLogSettingsRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
 }
 
@@ -1185,10 +1185,10 @@ pub struct DeleteAccessLogSettingsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApiMappingRequest {
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     pub api_mapping_id: String,
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -1196,7 +1196,7 @@ pub struct DeleteApiMappingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApiRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
 }
 
@@ -1204,10 +1204,10 @@ pub struct DeleteApiRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAuthorizerRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     pub authorizer_id: String,
 }
 
@@ -1215,7 +1215,7 @@ pub struct DeleteAuthorizerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCorsConfigurationRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
 }
 
@@ -1223,10 +1223,10 @@ pub struct DeleteCorsConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDeploymentRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The deployment ID.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     pub deployment_id: String,
 }
 
@@ -1234,7 +1234,7 @@ pub struct DeleteDeploymentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDomainNameRequest {
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -1242,10 +1242,10 @@ pub struct DeleteDomainNameRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIntegrationRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
 }
 
@@ -1253,13 +1253,13 @@ pub struct DeleteIntegrationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIntegrationResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     pub integration_response_id: String,
 }
 
@@ -1267,10 +1267,10 @@ pub struct DeleteIntegrationResponseRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteModelRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The model ID.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     pub model_id: String,
 }
 
@@ -1278,10 +1278,10 @@ pub struct DeleteModelRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRouteRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
 }
 
@@ -1289,13 +1289,13 @@ pub struct DeleteRouteRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRouteRequestParameterRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The route request parameter key.</p>
-    #[serde(rename = "RequestParameterKey")]
+    #[serde(rename = "requestParameterKey")]
     pub request_parameter_key: String,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
 }
 
@@ -1303,13 +1303,13 @@ pub struct DeleteRouteRequestParameterRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRouteResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
     /// <p>The route response ID.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     pub route_response_id: String,
 }
 
@@ -1317,13 +1317,13 @@ pub struct DeleteRouteResponseRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRouteSettingsRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The route key.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     pub route_key: String,
     /// <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
 }
 
@@ -1331,10 +1331,10 @@ pub struct DeleteRouteSettingsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStageRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
 }
 
@@ -1342,7 +1342,7 @@ pub struct DeleteStageRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVpcLinkRequest {
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     pub vpc_link_id: String,
 }
 
@@ -1355,27 +1355,27 @@ pub struct DeleteVpcLinkResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Deployment {
     /// <p>Specifies whether a deployment was automatically released.</p>
-    #[serde(rename = "AutoDeployed")]
+    #[serde(rename = "autoDeployed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deployed: Option<bool>,
     /// <p>The date and time when the Deployment resource was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The identifier for the deployment.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
-    #[serde(rename = "DeploymentStatus")]
+    #[serde(rename = "deploymentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status: Option<String>,
     /// <p>May contain additional feedback on the status of an API deployment.</p>
-    #[serde(rename = "DeploymentStatusMessage")]
+    #[serde(rename = "deploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status_message: Option<String>,
     /// <p>The description for the deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -1385,22 +1385,22 @@ pub struct Deployment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainName {
     /// <p>The API mapping selection expression.</p>
-    #[serde(rename = "ApiMappingSelectionExpression")]
+    #[serde(rename = "apiMappingSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_selection_expression: Option<String>,
     /// <p>The name of the DomainName resource.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The domain name configurations.</p>
-    #[serde(rename = "DomainNameConfigurations")]
+    #[serde(rename = "domainNameConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_configurations: Option<Vec<DomainNameConfiguration>>,
     /// <p>The mutual TLS authentication configuration for a custom domain name.</p>
-    #[serde(rename = "MutualTlsAuthentication")]
+    #[serde(rename = "mutualTlsAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutual_tls_authentication: Option<MutualTlsAuthentication>,
     /// <p>The collection of tags associated with a domain name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1409,39 +1409,39 @@ pub struct DomainName {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DomainNameConfiguration {
     /// <p>A domain name for the API.</p>
-    #[serde(rename = "ApiGatewayDomainName")]
+    #[serde(rename = "apiGatewayDomainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_domain_name: Option<String>,
     /// <p>An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
-    #[serde(rename = "CertificateArn")]
+    #[serde(rename = "certificateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_arn: Option<String>,
     /// <p>The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.</p>
-    #[serde(rename = "CertificateName")]
+    #[serde(rename = "certificateName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_name: Option<String>,
     /// <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
-    #[serde(rename = "CertificateUploadDate")]
+    #[serde(rename = "certificateUploadDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_upload_date: Option<f64>,
     /// <p>The status of the domain name migration. The valid values are AVAILABLE and UPDATING. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>
-    #[serde(rename = "DomainNameStatus")]
+    #[serde(rename = "domainNameStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_status: Option<String>,
     /// <p>An optional text message containing detailed information about status of the domain name migration.</p>
-    #[serde(rename = "DomainNameStatusMessage")]
+    #[serde(rename = "domainNameStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_status_message: Option<String>,
     /// <p>The endpoint type.</p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_type: Option<String>,
     /// <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
-    #[serde(rename = "HostedZoneId")]
+    #[serde(rename = "hostedZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hosted_zone_id: Option<String>,
     /// <p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
-    #[serde(rename = "SecurityPolicy")]
+    #[serde(rename = "securityPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_policy: Option<String>,
 }
@@ -1450,24 +1450,24 @@ pub struct DomainNameConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExportApiRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is 1.0.</p>
-    #[serde(rename = "ExportVersion")]
+    #[serde(rename = "exportVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_version: Option<String>,
     /// <p>Specifies whether to include <a href="https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html">API Gateway extensions</a> in the exported API definition. API Gateway extensions are included by default.</p>
-    #[serde(rename = "IncludeExtensions")]
+    #[serde(rename = "includeExtensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_extensions: Option<bool>,
     /// <p>The output type of the exported definition file. Valid values are JSON and YAML.</p>
-    #[serde(rename = "OutputType")]
+    #[serde(rename = "outputType")]
     pub output_type: String,
     /// <p>The version of the API specification to use. OAS30, for OpenAPI 3.0, is the only supported value.</p>
-    #[serde(rename = "Specification")]
+    #[serde(rename = "specification")]
     pub specification: String,
     /// <p>The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_name: Option<String>,
 }
@@ -1481,10 +1481,10 @@ pub struct ExportApiResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetApiMappingRequest {
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     pub api_mapping_id: String,
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -1492,19 +1492,19 @@ pub struct GetApiMappingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetApiMappingResponse {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_id: Option<String>,
     /// <p>The API mapping key.</p>
-    #[serde(rename = "ApiMappingKey")]
+    #[serde(rename = "apiMappingKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_key: Option<String>,
     /// <p>The API stage.</p>
-    #[serde(rename = "Stage")]
+    #[serde(rename = "stage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage: Option<String>,
 }
@@ -1513,14 +1513,14 @@ pub struct GetApiMappingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetApiMappingsRequest {
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1529,11 +1529,11 @@ pub struct GetApiMappingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetApiMappingsResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<ApiMapping>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1542,7 +1542,7 @@ pub struct GetApiMappingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetApiRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
 }
 
@@ -1550,67 +1550,67 @@ pub struct GetApiRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetApiResponse {
     /// <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-    #[serde(rename = "ApiEndpoint")]
+    #[serde(rename = "apiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_endpoint: Option<String>,
     /// <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The API ID.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>The timestamp when the API was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ImportInfo")]
+    #[serde(rename = "importInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_info: Option<Vec<String>>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_type: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>A collection of tags associated with the API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<String>>,
 }
@@ -1619,11 +1619,11 @@ pub struct GetApiResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetApisRequest {
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1632,11 +1632,11 @@ pub struct GetApisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetApisResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Api>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1645,10 +1645,10 @@ pub struct GetApisResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAuthorizerRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     pub authorizer_id: String,
 }
 
@@ -1656,48 +1656,48 @@ pub struct GetAuthorizerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAuthorizerResponse {
     /// <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerCredentialsArn")]
+    #[serde(rename = "authorizerCredentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_credentials_arn: Option<String>,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-    #[serde(rename = "AuthorizerPayloadFormatVersion")]
+    #[serde(rename = "authorizerPayloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_payload_format_version: Option<String>,
     /// <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-    #[serde(rename = "AuthorizerResultTtlInSeconds")]
+    #[serde(rename = "authorizerResultTtlInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_result_ttl_in_seconds: Option<i64>,
     /// <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-    #[serde(rename = "AuthorizerType")]
+    #[serde(rename = "authorizerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_type: Option<String>,
     /// <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
     /// , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerUri")]
+    #[serde(rename = "authorizerUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_uri: Option<String>,
     /// <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-    #[serde(rename = "EnableSimpleResponses")]
+    #[serde(rename = "enableSimpleResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_simple_responses: Option<bool>,
     /// <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-    #[serde(rename = "IdentitySource")]
+    #[serde(rename = "identitySource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_source: Option<Vec<String>>,
     /// <p>The validation expression does not apply to the REQUEST authorizer.</p>
-    #[serde(rename = "IdentityValidationExpression")]
+    #[serde(rename = "identityValidationExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_validation_expression: Option<String>,
     /// <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "JwtConfiguration")]
+    #[serde(rename = "jwtConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jwt_configuration: Option<JWTConfiguration>,
     /// <p>The name of the authorizer.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1706,14 +1706,14 @@ pub struct GetAuthorizerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAuthorizersRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1722,11 +1722,11 @@ pub struct GetAuthorizersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAuthorizersResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Authorizer>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1735,10 +1735,10 @@ pub struct GetAuthorizersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeploymentRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The deployment ID.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     pub deployment_id: String,
 }
 
@@ -1746,27 +1746,27 @@ pub struct GetDeploymentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeploymentResponse {
     /// <p>Specifies whether a deployment was automatically released.</p>
-    #[serde(rename = "AutoDeployed")]
+    #[serde(rename = "autoDeployed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deployed: Option<bool>,
     /// <p>The date and time when the Deployment resource was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The identifier for the deployment.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
-    #[serde(rename = "DeploymentStatus")]
+    #[serde(rename = "deploymentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status: Option<String>,
     /// <p>May contain additional feedback on the status of an API deployment.</p>
-    #[serde(rename = "DeploymentStatusMessage")]
+    #[serde(rename = "deploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status_message: Option<String>,
     /// <p>The description for the deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -1775,14 +1775,14 @@ pub struct GetDeploymentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeploymentsRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1791,11 +1791,11 @@ pub struct GetDeploymentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeploymentsResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Deployment>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1804,7 +1804,7 @@ pub struct GetDeploymentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDomainNameRequest {
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
 }
 
@@ -1812,23 +1812,23 @@ pub struct GetDomainNameRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDomainNameResponse {
     /// <p>The API mapping selection expression.</p>
-    #[serde(rename = "ApiMappingSelectionExpression")]
+    #[serde(rename = "apiMappingSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_selection_expression: Option<String>,
     /// <p>The name of the DomainName resource.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>The domain name configurations.</p>
-    #[serde(rename = "DomainNameConfigurations")]
+    #[serde(rename = "domainNameConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_configurations: Option<Vec<DomainNameConfiguration>>,
     /// <p>The mutual TLS authentication configuration for a custom domain name.</p>
-    #[serde(rename = "MutualTlsAuthentication")]
+    #[serde(rename = "mutualTlsAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutual_tls_authentication: Option<MutualTlsAuthentication>,
     /// <p>The collection of tags associated with a domain name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1837,11 +1837,11 @@ pub struct GetDomainNameResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDomainNamesRequest {
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1850,11 +1850,11 @@ pub struct GetDomainNamesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDomainNamesResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<DomainName>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1863,10 +1863,10 @@ pub struct GetDomainNamesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIntegrationRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
 }
 
@@ -1874,13 +1874,13 @@ pub struct GetIntegrationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIntegrationResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     pub integration_response_id: String,
 }
 
@@ -1888,27 +1888,27 @@ pub struct GetIntegrationResponseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIntegrationResponseResponse {
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_id: Option<String>,
     /// <p>The integration response key.</p>
-    #[serde(rename = "IntegrationResponseKey")]
+    #[serde(rename = "integrationResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_key: Option<String>,
     /// <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-    #[serde(rename = "ResponseTemplates")]
+    #[serde(rename = "responseTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template selection expressions for the integration response.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
 }
@@ -1917,17 +1917,17 @@ pub struct GetIntegrationResponseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIntegrationResponsesRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1936,11 +1936,11 @@ pub struct GetIntegrationResponsesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIntegrationResponsesResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<IntegrationResponse>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1949,59 +1949,59 @@ pub struct GetIntegrationResponsesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIntegrationResult {
     /// <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>Represents the description of an integration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Represents the identifier of an integration.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_id: Option<String>,
     /// <p>Specifies the integration's HTTP method type.</p>
-    #[serde(rename = "IntegrationMethod")]
+    #[serde(rename = "integrationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_method: Option<String>,
     /// <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
-    #[serde(rename = "IntegrationResponseSelectionExpression")]
+    #[serde(rename = "integrationResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_selection_expression: Option<String>,
     /// <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-    #[serde(rename = "IntegrationSubtype")]
+    #[serde(rename = "integrationSubtype")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_subtype: Option<String>,
     /// <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_type: Option<String>,
     /// <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-    #[serde(rename = "IntegrationUri")]
+    #[serde(rename = "integrationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_uri: Option<String>,
     /// <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-    #[serde(rename = "PassthroughBehavior")]
+    #[serde(rename = "passthroughBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passthrough_behavior: Option<String>,
     /// <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-    #[serde(rename = "PayloadFormatVersion")]
+    #[serde(rename = "payloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload_format_version: Option<String>,
     /// <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -2010,28 +2010,28 @@ pub struct GetIntegrationResult {
     /// is querystring, path, or header; and
     /// <replaceable>{name}</replaceable>
     /// must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestTemplates")]
+    #[serde(rename = "requestTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
     /// <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-    #[serde(rename = "TimeoutInMillis")]
+    #[serde(rename = "timeoutInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_in_millis: Option<i64>,
     /// <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-    #[serde(rename = "TlsConfig")]
+    #[serde(rename = "tlsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_config: Option<TlsConfig>,
 }
@@ -2040,14 +2040,14 @@ pub struct GetIntegrationResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIntegrationsRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2056,11 +2056,11 @@ pub struct GetIntegrationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIntegrationsResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Integration>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2069,10 +2069,10 @@ pub struct GetIntegrationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetModelRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The model ID.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     pub model_id: String,
 }
 
@@ -2080,23 +2080,23 @@ pub struct GetModelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetModelResponse {
     /// <p>The content-type for the model, for example, "application/json".</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The description of the model.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The model identifier.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_id: Option<String>,
     /// <p>The name of the model. Must be alphanumeric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<String>,
 }
@@ -2105,10 +2105,10 @@ pub struct GetModelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetModelTemplateRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The model ID.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     pub model_id: String,
 }
 
@@ -2116,7 +2116,7 @@ pub struct GetModelTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetModelTemplateResponse {
     /// <p>The template value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2125,14 +2125,14 @@ pub struct GetModelTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetModelsRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2141,11 +2141,11 @@ pub struct GetModelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetModelsResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Model>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2154,10 +2154,10 @@ pub struct GetModelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRouteRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
 }
 
@@ -2165,13 +2165,13 @@ pub struct GetRouteRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRouteResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
     /// <p>The route response ID.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     pub route_response_id: String,
 }
 
@@ -2179,23 +2179,23 @@ pub struct GetRouteResponseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRouteResponseResponse {
     /// <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>Represents the response models of a route response.</p>
-    #[serde(rename = "ResponseModels")]
+    #[serde(rename = "responseModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents the response parameters of a route response.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>Represents the identifier of a route response.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_id: Option<String>,
     /// <p>Represents the route response key of a route response.</p>
-    #[serde(rename = "RouteResponseKey")]
+    #[serde(rename = "routeResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_key: Option<String>,
 }
@@ -2204,18 +2204,18 @@ pub struct GetRouteResponseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRouteResponsesRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
 }
 
@@ -2223,11 +2223,11 @@ pub struct GetRouteResponsesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRouteResponsesResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<RouteResponse>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2236,55 +2236,55 @@ pub struct GetRouteResponsesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRouteResult {
     /// <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ApiKeyRequired")]
+    #[serde(rename = "apiKeyRequired")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_required: Option<bool>,
     /// <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-    #[serde(rename = "AuthorizationScopes")]
+    #[serde(rename = "authorizationScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_scopes: Option<Vec<String>>,
     /// <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The operation name for the route.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The request models for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestModels")]
+    #[serde(rename = "requestModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_id: Option<String>,
     /// <p>The route key for the route.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_key: Option<String>,
     /// <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RouteResponseSelectionExpression")]
+    #[serde(rename = "routeResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_selection_expression: Option<String>,
     /// <p>The target for the route.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
 }
@@ -2293,14 +2293,14 @@ pub struct GetRouteResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRoutesRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2309,11 +2309,11 @@ pub struct GetRoutesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRoutesResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Route>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2322,10 +2322,10 @@ pub struct GetRoutesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetStageRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
 }
 
@@ -2333,59 +2333,59 @@ pub struct GetStageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetStageResponse {
     /// <p>Settings for logging access in this stage.</p>
-    #[serde(rename = "AccessLogSettings")]
+    #[serde(rename = "accessLogSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_log_settings: Option<AccessLogSettings>,
     /// <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-    #[serde(rename = "AutoDeploy")]
+    #[serde(rename = "autoDeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
     /// <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ClientCertificateId")]
+    #[serde(rename = "clientCertificateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_certificate_id: Option<String>,
     /// <p>The timestamp when the stage was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>Default route settings for the stage.</p>
-    #[serde(rename = "DefaultRouteSettings")]
+    #[serde(rename = "defaultRouteSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_route_settings: Option<RouteSettings>,
     /// <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The description of the stage.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-    #[serde(rename = "LastDeploymentStatusMessage")]
+    #[serde(rename = "lastDeploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_deployment_status_message: Option<String>,
     /// <p>The timestamp when the stage was last updated.</p>
-    #[serde(rename = "LastUpdatedDate")]
+    #[serde(rename = "lastUpdatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_date: Option<f64>,
     /// <p>Route settings for the stage, by routeKey.</p>
-    #[serde(rename = "RouteSettings")]
+    #[serde(rename = "routeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_settings: Option<::std::collections::HashMap<String, RouteSettings>>,
     /// <p>The name of the stage.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_name: Option<String>,
     /// <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-    #[serde(rename = "StageVariables")]
+    #[serde(rename = "stageVariables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_variables: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2394,14 +2394,14 @@ pub struct GetStageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetStagesRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2410,11 +2410,11 @@ pub struct GetStagesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetStagesResponse {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Stage>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2423,14 +2423,14 @@ pub struct GetStagesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTagsRequest {
     /// <p>The resource ARN for the tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTagsResponse {
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2439,7 +2439,7 @@ pub struct GetTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVpcLinkRequest {
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     pub vpc_link_id: String,
 }
 
@@ -2447,39 +2447,39 @@ pub struct GetVpcLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVpcLinkResponse {
     /// <p>The timestamp when the VPC link was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The name of the VPC link.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of security group IDs for the VPC link.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>A list of subnet IDs to include in the VPC link.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>Tags for the VPC link.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_id: Option<String>,
     /// <p>The status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatus")]
+    #[serde(rename = "vpcLinkStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status: Option<String>,
     /// <p>A message summarizing the cause of the status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatusMessage")]
+    #[serde(rename = "vpcLinkStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status_message: Option<String>,
     /// <p>The version of the VPC link.</p>
-    #[serde(rename = "VpcLinkVersion")]
+    #[serde(rename = "vpcLinkVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_version: Option<String>,
 }
@@ -2488,11 +2488,11 @@ pub struct GetVpcLinkResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetVpcLinksRequest {
     /// <p>The maximum number of elements to be returned for this resource.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<String>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2501,11 +2501,11 @@ pub struct GetVpcLinksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVpcLinksResponse {
     /// <p>A collection of VPC links.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<VpcLink>>,
     /// <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2515,14 +2515,14 @@ pub struct GetVpcLinksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportApiRequest {
     /// <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Basepath")]
+    #[serde(rename = "basepath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub basepath: Option<String>,
     /// <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Body")]
+    #[serde(rename = "body")]
     pub body: String,
     /// <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
-    #[serde(rename = "FailOnWarnings")]
+    #[serde(rename = "failOnWarnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fail_on_warnings: Option<bool>,
 }
@@ -2531,67 +2531,67 @@ pub struct ImportApiRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportApiResponse {
     /// <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-    #[serde(rename = "ApiEndpoint")]
+    #[serde(rename = "apiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_endpoint: Option<String>,
     /// <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The API ID.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>The timestamp when the API was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ImportInfo")]
+    #[serde(rename = "importInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_info: Option<Vec<String>>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_type: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>A collection of tags associated with the API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<String>>,
 }
@@ -2601,59 +2601,59 @@ pub struct ImportApiResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Integration {
     /// <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>Represents the description of an integration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Represents the identifier of an integration.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_id: Option<String>,
     /// <p>Specifies the integration's HTTP method type.</p>
-    #[serde(rename = "IntegrationMethod")]
+    #[serde(rename = "integrationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_method: Option<String>,
     /// <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
-    #[serde(rename = "IntegrationResponseSelectionExpression")]
+    #[serde(rename = "integrationResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_selection_expression: Option<String>,
     /// <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-    #[serde(rename = "IntegrationSubtype")]
+    #[serde(rename = "integrationSubtype")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_subtype: Option<String>,
     /// <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_type: Option<String>,
     /// <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-    #[serde(rename = "IntegrationUri")]
+    #[serde(rename = "integrationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_uri: Option<String>,
     /// <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-    #[serde(rename = "PassthroughBehavior")]
+    #[serde(rename = "passthroughBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passthrough_behavior: Option<String>,
     /// <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-    #[serde(rename = "PayloadFormatVersion")]
+    #[serde(rename = "payloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload_format_version: Option<String>,
     /// <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -2662,28 +2662,28 @@ pub struct Integration {
     /// is querystring, path, or header; and
     /// <replaceable>{name}</replaceable>
     /// must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestTemplates")]
+    #[serde(rename = "requestTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
     /// <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-    #[serde(rename = "TimeoutInMillis")]
+    #[serde(rename = "timeoutInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_in_millis: Option<i64>,
     /// <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-    #[serde(rename = "TlsConfig")]
+    #[serde(rename = "tlsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_config: Option<TlsConfig>,
 }
@@ -2693,26 +2693,26 @@ pub struct Integration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IntegrationResponse {
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_id: Option<String>,
     /// <p>The integration response key.</p>
-    #[serde(rename = "IntegrationResponseKey")]
+    #[serde(rename = "integrationResponseKey")]
     pub integration_response_key: String,
     /// <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-    #[serde(rename = "ResponseTemplates")]
+    #[serde(rename = "responseTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template selection expressions for the integration response.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
 }
@@ -2721,12 +2721,12 @@ pub struct IntegrationResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JWTConfiguration {
     /// <p>A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC 7519</a>. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Audience")]
+    #[serde(rename = "audience")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audience: Option<Vec<String>>,
     /// <p>The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>{region}</replaceable>.amazonaws.com/<replaceable>{userPoolId}</replaceable>
     /// . Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Issuer")]
+    #[serde(rename = "issuer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issuer: Option<String>,
 }
@@ -2736,22 +2736,22 @@ pub struct JWTConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Model {
     /// <p>The content-type for the model, for example, "application/json".</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The description of the model.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The model identifier.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_id: Option<String>,
     /// <p>The name of the model. Must be alphanumeric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<String>,
 }
@@ -2760,15 +2760,15 @@ pub struct Model {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MutualTlsAuthentication {
     /// <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
-    #[serde(rename = "TruststoreUri")]
+    #[serde(rename = "truststoreUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub truststore_uri: Option<String>,
     /// <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.</p>
-    #[serde(rename = "TruststoreVersion")]
+    #[serde(rename = "truststoreVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub truststore_version: Option<String>,
     /// <p>A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.</p>
-    #[serde(rename = "TruststoreWarnings")]
+    #[serde(rename = "truststoreWarnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub truststore_warnings: Option<Vec<String>>,
 }
@@ -2777,11 +2777,11 @@ pub struct MutualTlsAuthentication {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MutualTlsAuthenticationInput {
     /// <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
-    #[serde(rename = "TruststoreUri")]
+    #[serde(rename = "truststoreUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub truststore_uri: Option<String>,
     /// <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.</p>
-    #[serde(rename = "TruststoreVersion")]
+    #[serde(rename = "truststoreVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub truststore_version: Option<String>,
 }
@@ -2790,7 +2790,7 @@ pub struct MutualTlsAuthenticationInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ParameterConstraints {
     /// <p>Whether or not the parameter is required.</p>
-    #[serde(rename = "Required")]
+    #[serde(rename = "required")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub required: Option<bool>,
 }
@@ -2800,17 +2800,17 @@ pub struct ParameterConstraints {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReimportApiRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Basepath")]
+    #[serde(rename = "basepath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub basepath: Option<String>,
     /// <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Body")]
+    #[serde(rename = "body")]
     pub body: String,
     /// <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
-    #[serde(rename = "FailOnWarnings")]
+    #[serde(rename = "failOnWarnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fail_on_warnings: Option<bool>,
 }
@@ -2819,67 +2819,67 @@ pub struct ReimportApiRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReimportApiResponse {
     /// <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-    #[serde(rename = "ApiEndpoint")]
+    #[serde(rename = "apiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_endpoint: Option<String>,
     /// <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The API ID.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>The timestamp when the API was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ImportInfo")]
+    #[serde(rename = "importInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_info: Option<Vec<String>>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_type: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>A collection of tags associated with the API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<String>>,
 }
@@ -2888,10 +2888,10 @@ pub struct ReimportApiResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResetAuthorizersCacheRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
 }
 
@@ -2900,54 +2900,54 @@ pub struct ResetAuthorizersCacheRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Route {
     /// <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ApiKeyRequired")]
+    #[serde(rename = "apiKeyRequired")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_required: Option<bool>,
     /// <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-    #[serde(rename = "AuthorizationScopes")]
+    #[serde(rename = "authorizationScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_scopes: Option<Vec<String>>,
     /// <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The operation name for the route.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The request models for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestModels")]
+    #[serde(rename = "requestModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_id: Option<String>,
     /// <p>The route key for the route.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     pub route_key: String,
     /// <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RouteResponseSelectionExpression")]
+    #[serde(rename = "routeResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_selection_expression: Option<String>,
     /// <p>The target for the route.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
 }
@@ -2957,23 +2957,23 @@ pub struct Route {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RouteResponse {
     /// <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>Represents the response models of a route response.</p>
-    #[serde(rename = "ResponseModels")]
+    #[serde(rename = "responseModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents the response parameters of a route response.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>Represents the identifier of a route response.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_id: Option<String>,
     /// <p>Represents the route response key of a route response.</p>
-    #[serde(rename = "RouteResponseKey")]
+    #[serde(rename = "routeResponseKey")]
     pub route_response_key: String,
 }
 
@@ -2981,23 +2981,23 @@ pub struct RouteResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RouteSettings {
     /// <p>Specifies whether (true) or not (false) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DataTraceEnabled")]
+    #[serde(rename = "dataTraceEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_trace_enabled: Option<bool>,
     /// <p>Specifies whether detailed metrics are enabled.</p>
-    #[serde(rename = "DetailedMetricsEnabled")]
+    #[serde(rename = "detailedMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detailed_metrics_enabled: Option<bool>,
     /// <p>Specifies the logging level for this route: INFO, ERROR, or OFF. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "LoggingLevel")]
+    #[serde(rename = "loggingLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_level: Option<String>,
     /// <p>Specifies the throttling burst limit.</p>
-    #[serde(rename = "ThrottlingBurstLimit")]
+    #[serde(rename = "throttlingBurstLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub throttling_burst_limit: Option<i64>,
     /// <p>Specifies the throttling rate limit.</p>
-    #[serde(rename = "ThrottlingRateLimit")]
+    #[serde(rename = "throttlingRateLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub throttling_rate_limit: Option<f64>,
 }
@@ -3007,58 +3007,58 @@ pub struct RouteSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Stage {
     /// <p>Settings for logging access in this stage.</p>
-    #[serde(rename = "AccessLogSettings")]
+    #[serde(rename = "accessLogSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_log_settings: Option<AccessLogSettings>,
     /// <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-    #[serde(rename = "AutoDeploy")]
+    #[serde(rename = "autoDeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
     /// <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ClientCertificateId")]
+    #[serde(rename = "clientCertificateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_certificate_id: Option<String>,
     /// <p>The timestamp when the stage was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>Default route settings for the stage.</p>
-    #[serde(rename = "DefaultRouteSettings")]
+    #[serde(rename = "defaultRouteSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_route_settings: Option<RouteSettings>,
     /// <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The description of the stage.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-    #[serde(rename = "LastDeploymentStatusMessage")]
+    #[serde(rename = "lastDeploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_deployment_status_message: Option<String>,
     /// <p>The timestamp when the stage was last updated.</p>
-    #[serde(rename = "LastUpdatedDate")]
+    #[serde(rename = "lastUpdatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_date: Option<f64>,
     /// <p>Route settings for the stage, by routeKey.</p>
-    #[serde(rename = "RouteSettings")]
+    #[serde(rename = "routeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_settings: Option<::std::collections::HashMap<String, RouteSettings>>,
     /// <p>The name of the stage.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
     /// <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-    #[serde(rename = "StageVariables")]
+    #[serde(rename = "stageVariables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_variables: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -3068,10 +3068,10 @@ pub struct Stage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The resource ARN for the tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -3085,7 +3085,7 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TlsConfig {
     /// <p>If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.</p>
-    #[serde(rename = "ServerNameToVerify")]
+    #[serde(rename = "serverNameToVerify")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_name_to_verify: Option<String>,
 }
@@ -3095,7 +3095,7 @@ pub struct TlsConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TlsConfigInput {
     /// <p>If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.</p>
-    #[serde(rename = "ServerNameToVerify")]
+    #[serde(rename = "serverNameToVerify")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_name_to_verify: Option<String>,
 }
@@ -3104,10 +3104,10 @@ pub struct TlsConfigInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The resource ARN for the tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The Tag keys to delete</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -3116,20 +3116,20 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateApiMappingRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     pub api_mapping_id: String,
     /// <p>The API mapping key.</p>
-    #[serde(rename = "ApiMappingKey")]
+    #[serde(rename = "apiMappingKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_key: Option<String>,
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The API stage.</p>
-    #[serde(rename = "Stage")]
+    #[serde(rename = "stage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage: Option<String>,
 }
@@ -3138,19 +3138,19 @@ pub struct UpdateApiMappingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateApiMappingResponse {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>The API mapping identifier.</p>
-    #[serde(rename = "ApiMappingId")]
+    #[serde(rename = "apiMappingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_id: Option<String>,
     /// <p>The API mapping key.</p>
-    #[serde(rename = "ApiMappingKey")]
+    #[serde(rename = "apiMappingKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_key: Option<String>,
     /// <p>The API stage.</p>
-    #[serde(rename = "Stage")]
+    #[serde(rename = "stage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage: Option<String>,
 }
@@ -3160,50 +3160,50 @@ pub struct UpdateApiMappingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateApiRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>This property is part of quick create. It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, don't specify this parameter. Currently, this property is not used for HTTP integrations. If provided, this value replaces the credentials associated with the quick create integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>This property is part of quick create. If not specified, the route created using quick create is kept. Otherwise, this value replaces the route key of the quick create route. Additional routes may still be added after the API is updated. Supported only for HTTP APIs.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_key: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>This property is part of quick create. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. The value provided updates the integration URI and integration type. You can update a quick-created target, but you can't remove it from an API. Supported only for HTTP APIs.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -3212,67 +3212,67 @@ pub struct UpdateApiRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateApiResponse {
     /// <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-    #[serde(rename = "ApiEndpoint")]
+    #[serde(rename = "apiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_endpoint: Option<String>,
     /// <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The API ID.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_id: Option<String>,
     /// <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-    #[serde(rename = "ApiKeySelectionExpression")]
+    #[serde(rename = "apiKeySelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_selection_expression: Option<String>,
     /// <p>A CORS configuration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "CorsConfiguration")]
+    #[serde(rename = "corsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cors_configuration: Option<Cors>,
     /// <p>The timestamp when the API was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The description of the API.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-    #[serde(rename = "DisableExecuteApiEndpoint")]
+    #[serde(rename = "disableExecuteApiEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_execute_api_endpoint: Option<bool>,
     /// <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "DisableSchemaValidation")]
+    #[serde(rename = "disableSchemaValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_schema_validation: Option<bool>,
     /// <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ImportInfo")]
+    #[serde(rename = "importInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_info: Option<Vec<String>>,
     /// <p>The name of the API.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The API protocol.</p>
-    #[serde(rename = "ProtocolType")]
+    #[serde(rename = "protocolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_type: Option<String>,
     /// <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-    #[serde(rename = "RouteSelectionExpression")]
+    #[serde(rename = "routeSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_selection_expression: Option<String>,
     /// <p>A collection of tags associated with the API.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A version identifier for the API.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
     /// <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<String>>,
 }
@@ -3282,50 +3282,50 @@ pub struct UpdateApiResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAuthorizerRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter.</p>
-    #[serde(rename = "AuthorizerCredentialsArn")]
+    #[serde(rename = "authorizerCredentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_credentials_arn: Option<String>,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     pub authorizer_id: String,
     /// <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-    #[serde(rename = "AuthorizerPayloadFormatVersion")]
+    #[serde(rename = "authorizerPayloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_payload_format_version: Option<String>,
     /// <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-    #[serde(rename = "AuthorizerResultTtlInSeconds")]
+    #[serde(rename = "authorizerResultTtlInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_result_ttl_in_seconds: Option<i64>,
     /// <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-    #[serde(rename = "AuthorizerType")]
+    #[serde(rename = "authorizerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_type: Option<String>,
     /// <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
     /// , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerUri")]
+    #[serde(rename = "authorizerUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_uri: Option<String>,
     /// <p>Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-    #[serde(rename = "EnableSimpleResponses")]
+    #[serde(rename = "enableSimpleResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_simple_responses: Option<bool>,
     /// <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-    #[serde(rename = "IdentitySource")]
+    #[serde(rename = "identitySource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_source: Option<Vec<String>>,
     /// <p>This parameter is not used.</p>
-    #[serde(rename = "IdentityValidationExpression")]
+    #[serde(rename = "identityValidationExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_validation_expression: Option<String>,
     /// <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "JwtConfiguration")]
+    #[serde(rename = "jwtConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jwt_configuration: Option<JWTConfiguration>,
     /// <p>The name of the authorizer.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3334,48 +3334,48 @@ pub struct UpdateAuthorizerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAuthorizerResponse {
     /// <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerCredentialsArn")]
+    #[serde(rename = "authorizerCredentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_credentials_arn: Option<String>,
     /// <p>The authorizer identifier.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-    #[serde(rename = "AuthorizerPayloadFormatVersion")]
+    #[serde(rename = "authorizerPayloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_payload_format_version: Option<String>,
     /// <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-    #[serde(rename = "AuthorizerResultTtlInSeconds")]
+    #[serde(rename = "authorizerResultTtlInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_result_ttl_in_seconds: Option<i64>,
     /// <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-    #[serde(rename = "AuthorizerType")]
+    #[serde(rename = "authorizerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_type: Option<String>,
     /// <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
     /// , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-    #[serde(rename = "AuthorizerUri")]
+    #[serde(rename = "authorizerUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_uri: Option<String>,
     /// <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-    #[serde(rename = "EnableSimpleResponses")]
+    #[serde(rename = "enableSimpleResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_simple_responses: Option<bool>,
     /// <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-    #[serde(rename = "IdentitySource")]
+    #[serde(rename = "identitySource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_source: Option<Vec<String>>,
     /// <p>The validation expression does not apply to the REQUEST authorizer.</p>
-    #[serde(rename = "IdentityValidationExpression")]
+    #[serde(rename = "identityValidationExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_validation_expression: Option<String>,
     /// <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-    #[serde(rename = "JwtConfiguration")]
+    #[serde(rename = "jwtConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jwt_configuration: Option<JWTConfiguration>,
     /// <p>The name of the authorizer.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3385,13 +3385,13 @@ pub struct UpdateAuthorizerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDeploymentRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The deployment ID.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     pub deployment_id: String,
     /// <p>The description for the deployment resource.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -3400,27 +3400,27 @@ pub struct UpdateDeploymentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDeploymentResponse {
     /// <p>Specifies whether a deployment was automatically released.</p>
-    #[serde(rename = "AutoDeployed")]
+    #[serde(rename = "autoDeployed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deployed: Option<bool>,
     /// <p>The date and time when the Deployment resource was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The identifier for the deployment.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
-    #[serde(rename = "DeploymentStatus")]
+    #[serde(rename = "deploymentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status: Option<String>,
     /// <p>May contain additional feedback on the status of an API deployment.</p>
-    #[serde(rename = "DeploymentStatusMessage")]
+    #[serde(rename = "deploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_status_message: Option<String>,
     /// <p>The description for the deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -3430,14 +3430,14 @@ pub struct UpdateDeploymentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDomainNameRequest {
     /// <p>The domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>The domain name configurations.</p>
-    #[serde(rename = "DomainNameConfigurations")]
+    #[serde(rename = "domainNameConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_configurations: Option<Vec<DomainNameConfiguration>>,
     /// <p>The mutual TLS authentication configuration for a custom domain name.</p>
-    #[serde(rename = "MutualTlsAuthentication")]
+    #[serde(rename = "mutualTlsAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutual_tls_authentication: Option<MutualTlsAuthenticationInput>,
 }
@@ -3446,23 +3446,23 @@ pub struct UpdateDomainNameRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDomainNameResponse {
     /// <p>The API mapping selection expression.</p>
-    #[serde(rename = "ApiMappingSelectionExpression")]
+    #[serde(rename = "apiMappingSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_mapping_selection_expression: Option<String>,
     /// <p>The name of the DomainName resource.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>The domain name configurations.</p>
-    #[serde(rename = "DomainNameConfigurations")]
+    #[serde(rename = "domainNameConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name_configurations: Option<Vec<DomainNameConfiguration>>,
     /// <p>The mutual TLS authentication configuration for a custom domain name.</p>
-    #[serde(rename = "MutualTlsAuthentication")]
+    #[serde(rename = "mutualTlsAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutual_tls_authentication: Option<MutualTlsAuthentication>,
     /// <p>The collection of tags associated with a domain name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -3472,53 +3472,53 @@ pub struct UpdateDomainNameResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateIntegrationRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>The description of the integration</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
     /// <p>Specifies the integration's HTTP method type.</p>
-    #[serde(rename = "IntegrationMethod")]
+    #[serde(rename = "integrationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_method: Option<String>,
     /// <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-    #[serde(rename = "IntegrationSubtype")]
+    #[serde(rename = "integrationSubtype")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_subtype: Option<String>,
     /// <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an HTTP_PROXY integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_type: Option<String>,
     /// <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-    #[serde(rename = "IntegrationUri")]
+    #[serde(rename = "integrationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_uri: Option<String>,
     /// <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-    #[serde(rename = "PassthroughBehavior")]
+    #[serde(rename = "passthroughBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passthrough_behavior: Option<String>,
     /// <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-    #[serde(rename = "PayloadFormatVersion")]
+    #[serde(rename = "payloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload_format_version: Option<String>,
     /// <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -3527,28 +3527,28 @@ pub struct UpdateIntegrationRequest {
     /// is querystring, path, or header; and
     /// <replaceable>{name}</replaceable>
     /// must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API integrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt; where action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestTemplates")]
+    #[serde(rename = "requestTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The template selection expression for the integration.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
     /// <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-    #[serde(rename = "TimeoutInMillis")]
+    #[serde(rename = "timeoutInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_in_millis: Option<i64>,
     /// <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-    #[serde(rename = "TlsConfig")]
+    #[serde(rename = "tlsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_config: Option<TlsConfigInput>,
 }
@@ -3558,20 +3558,20 @@ pub struct UpdateIntegrationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateIntegrationResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>The integration ID.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     pub integration_id: String,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     pub integration_response_id: String,
     /// <p>The integration response key.</p>
-    #[serde(rename = "IntegrationResponseKey")]
+    #[serde(rename = "integrationResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_key: Option<String>,
     /// <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.<replaceable>{name}</replaceable>
@@ -3582,15 +3582,15 @@ pub struct UpdateIntegrationResponseRequest {
     /// is a valid and unique response header name and
     /// <replaceable>{JSON-expression}</replaceable>
     /// is a valid JSON expression without the $ prefix.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-    #[serde(rename = "ResponseTemplates")]
+    #[serde(rename = "responseTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
 }
@@ -3599,27 +3599,27 @@ pub struct UpdateIntegrationResponseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateIntegrationResponseResponse {
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>The integration response ID.</p>
-    #[serde(rename = "IntegrationResponseId")]
+    #[serde(rename = "integrationResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_id: Option<String>,
     /// <p>The integration response key.</p>
-    #[serde(rename = "IntegrationResponseKey")]
+    #[serde(rename = "integrationResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_key: Option<String>,
     /// <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-    #[serde(rename = "ResponseTemplates")]
+    #[serde(rename = "responseTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template selection expressions for the integration response.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
 }
@@ -3628,59 +3628,59 @@ pub struct UpdateIntegrationResponseResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateIntegrationResult {
     /// <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-    #[serde(rename = "ConnectionId")]
+    #[serde(rename = "connectionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_id: Option<String>,
     /// <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-    #[serde(rename = "ConnectionType")]
+    #[serde(rename = "connectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_type: Option<String>,
     /// <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-    #[serde(rename = "ContentHandlingStrategy")]
+    #[serde(rename = "contentHandlingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_handling_strategy: Option<String>,
     /// <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-    #[serde(rename = "CredentialsArn")]
+    #[serde(rename = "credentialsArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials_arn: Option<String>,
     /// <p>Represents the description of an integration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Represents the identifier of an integration.</p>
-    #[serde(rename = "IntegrationId")]
+    #[serde(rename = "integrationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_id: Option<String>,
     /// <p>Specifies the integration's HTTP method type.</p>
-    #[serde(rename = "IntegrationMethod")]
+    #[serde(rename = "integrationMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_method: Option<String>,
     /// <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
-    #[serde(rename = "IntegrationResponseSelectionExpression")]
+    #[serde(rename = "integrationResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_response_selection_expression: Option<String>,
     /// <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-    #[serde(rename = "IntegrationSubtype")]
+    #[serde(rename = "integrationSubtype")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_subtype: Option<String>,
     /// <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "IntegrationType")]
+    #[serde(rename = "integrationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_type: Option<String>,
     /// <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-    #[serde(rename = "IntegrationUri")]
+    #[serde(rename = "integrationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integration_uri: Option<String>,
     /// <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-    #[serde(rename = "PassthroughBehavior")]
+    #[serde(rename = "passthroughBehavior")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passthrough_behavior: Option<String>,
     /// <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-    #[serde(rename = "PayloadFormatVersion")]
+    #[serde(rename = "payloadFormatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub payload_format_version: Option<String>,
     /// <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -3689,28 +3689,28 @@ pub struct UpdateIntegrationResult {
     /// is querystring, path, or header; and
     /// <replaceable>{name}</replaceable>
     /// must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestTemplates")]
+    #[serde(rename = "requestTemplates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_templates: Option<::std::collections::HashMap<String, String>>,
     /// <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "TemplateSelectionExpression")]
+    #[serde(rename = "templateSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_selection_expression: Option<String>,
     /// <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-    #[serde(rename = "TimeoutInMillis")]
+    #[serde(rename = "timeoutInMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_in_millis: Option<i64>,
     /// <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-    #[serde(rename = "TlsConfig")]
+    #[serde(rename = "tlsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_config: Option<TlsConfig>,
 }
@@ -3720,25 +3720,25 @@ pub struct UpdateIntegrationResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateModelRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The content-type for the model, for example, "application/json".</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The description of the model.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The model ID.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     pub model_id: String,
     /// <p>The name of the model.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<String>,
 }
@@ -3747,23 +3747,23 @@ pub struct UpdateModelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateModelResponse {
     /// <p>The content-type for the model, for example, "application/json".</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The description of the model.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The model identifier.</p>
-    #[serde(rename = "ModelId")]
+    #[serde(rename = "modelId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_id: Option<String>,
     /// <p>The name of the model. Must be alphanumeric.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<String>,
 }
@@ -3773,53 +3773,53 @@ pub struct UpdateModelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRouteRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies whether an API key is required for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ApiKeyRequired")]
+    #[serde(rename = "apiKeyRequired")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_required: Option<bool>,
     /// <p>The authorization scopes supported by this route.</p>
-    #[serde(rename = "AuthorizationScopes")]
+    #[serde(rename = "authorizationScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_scopes: Option<Vec<String>>,
     /// <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The operation name for the route.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The request models for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestModels")]
+    #[serde(rename = "requestModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
     /// <p>The route key for the route.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_key: Option<String>,
     /// <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RouteResponseSelectionExpression")]
+    #[serde(rename = "routeResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_selection_expression: Option<String>,
     /// <p>The target for the route.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
 }
@@ -3829,28 +3829,28 @@ pub struct UpdateRouteRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRouteResponseRequest {
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>The model selection expression for the route response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The response models for the route response.</p>
-    #[serde(rename = "ResponseModels")]
+    #[serde(rename = "responseModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The route response parameters.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     pub route_id: String,
     /// <p>The route response ID.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     pub route_response_id: String,
     /// <p>The route response key.</p>
-    #[serde(rename = "RouteResponseKey")]
+    #[serde(rename = "routeResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_key: Option<String>,
 }
@@ -3859,23 +3859,23 @@ pub struct UpdateRouteResponseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRouteResponseResponse {
     /// <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>Represents the response models of a route response.</p>
-    #[serde(rename = "ResponseModels")]
+    #[serde(rename = "responseModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>Represents the response parameters of a route response.</p>
-    #[serde(rename = "ResponseParameters")]
+    #[serde(rename = "responseParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>Represents the identifier of a route response.</p>
-    #[serde(rename = "RouteResponseId")]
+    #[serde(rename = "routeResponseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_id: Option<String>,
     /// <p>Represents the route response key of a route response.</p>
-    #[serde(rename = "RouteResponseKey")]
+    #[serde(rename = "routeResponseKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_key: Option<String>,
 }
@@ -3884,55 +3884,55 @@ pub struct UpdateRouteResponseResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRouteResult {
     /// <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ApiKeyRequired")]
+    #[serde(rename = "apiKeyRequired")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_required: Option<bool>,
     /// <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-    #[serde(rename = "AuthorizationScopes")]
+    #[serde(rename = "authorizationScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_scopes: Option<Vec<String>>,
     /// <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-    #[serde(rename = "AuthorizerId")]
+    #[serde(rename = "authorizerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorizer_id: Option<String>,
     /// <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ModelSelectionExpression")]
+    #[serde(rename = "modelSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_selection_expression: Option<String>,
     /// <p>The operation name for the route.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The request models for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestModels")]
+    #[serde(rename = "requestModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_models: Option<::std::collections::HashMap<String, String>>,
     /// <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RequestParameters")]
+    #[serde(rename = "requestParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_parameters: Option<::std::collections::HashMap<String, ParameterConstraints>>,
     /// <p>The route ID.</p>
-    #[serde(rename = "RouteId")]
+    #[serde(rename = "routeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_id: Option<String>,
     /// <p>The route key for the route.</p>
-    #[serde(rename = "RouteKey")]
+    #[serde(rename = "routeKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_key: Option<String>,
     /// <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "RouteResponseSelectionExpression")]
+    #[serde(rename = "routeResponseSelectionExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_response_selection_expression: Option<String>,
     /// <p>The target for the route.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
 }
@@ -3942,41 +3942,41 @@ pub struct UpdateRouteResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateStageRequest {
     /// <p>Settings for logging access in this stage.</p>
-    #[serde(rename = "AccessLogSettings")]
+    #[serde(rename = "accessLogSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_log_settings: Option<AccessLogSettings>,
     /// <p>The API identifier.</p>
-    #[serde(rename = "ApiId")]
+    #[serde(rename = "apiId")]
     pub api_id: String,
     /// <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-    #[serde(rename = "AutoDeploy")]
+    #[serde(rename = "autoDeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
     /// <p>The identifier of a client certificate for a Stage.</p>
-    #[serde(rename = "ClientCertificateId")]
+    #[serde(rename = "clientCertificateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_certificate_id: Option<String>,
     /// <p>The default route settings for the stage.</p>
-    #[serde(rename = "DefaultRouteSettings")]
+    #[serde(rename = "defaultRouteSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_route_settings: Option<RouteSettings>,
     /// <p>The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The description for the API stage.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Route settings for the stage.</p>
-    #[serde(rename = "RouteSettings")]
+    #[serde(rename = "routeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_settings: Option<::std::collections::HashMap<String, RouteSettings>>,
     /// <p>The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     pub stage_name: String,
     /// <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-    #[serde(rename = "StageVariables")]
+    #[serde(rename = "stageVariables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_variables: Option<::std::collections::HashMap<String, String>>,
 }
@@ -3985,59 +3985,59 @@ pub struct UpdateStageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateStageResponse {
     /// <p>Settings for logging access in this stage.</p>
-    #[serde(rename = "AccessLogSettings")]
+    #[serde(rename = "accessLogSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_log_settings: Option<AccessLogSettings>,
     /// <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
-    #[serde(rename = "ApiGatewayManaged")]
+    #[serde(rename = "apiGatewayManaged")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_gateway_managed: Option<bool>,
     /// <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-    #[serde(rename = "AutoDeploy")]
+    #[serde(rename = "autoDeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
     /// <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-    #[serde(rename = "ClientCertificateId")]
+    #[serde(rename = "clientCertificateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_certificate_id: Option<String>,
     /// <p>The timestamp when the stage was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>Default route settings for the stage.</p>
-    #[serde(rename = "DefaultRouteSettings")]
+    #[serde(rename = "defaultRouteSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_route_settings: Option<RouteSettings>,
     /// <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The description of the stage.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-    #[serde(rename = "LastDeploymentStatusMessage")]
+    #[serde(rename = "lastDeploymentStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_deployment_status_message: Option<String>,
     /// <p>The timestamp when the stage was last updated.</p>
-    #[serde(rename = "LastUpdatedDate")]
+    #[serde(rename = "lastUpdatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_date: Option<f64>,
     /// <p>Route settings for the stage, by routeKey.</p>
-    #[serde(rename = "RouteSettings")]
+    #[serde(rename = "routeSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub route_settings: Option<::std::collections::HashMap<String, RouteSettings>>,
     /// <p>The name of the stage.</p>
-    #[serde(rename = "StageName")]
+    #[serde(rename = "stageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_name: Option<String>,
     /// <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-    #[serde(rename = "StageVariables")]
+    #[serde(rename = "stageVariables")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stage_variables: Option<::std::collections::HashMap<String, String>>,
     /// <p>The collection of tags. Each tag element is associated with a given resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -4047,11 +4047,11 @@ pub struct UpdateStageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateVpcLinkRequest {
     /// <p>The name of the VPC link.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     pub vpc_link_id: String,
 }
 
@@ -4059,39 +4059,39 @@ pub struct UpdateVpcLinkRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateVpcLinkResponse {
     /// <p>The timestamp when the VPC link was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The name of the VPC link.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of security group IDs for the VPC link.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>A list of subnet IDs to include in the VPC link.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>Tags for the VPC link.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_id: Option<String>,
     /// <p>The status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatus")]
+    #[serde(rename = "vpcLinkStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status: Option<String>,
     /// <p>A message summarizing the cause of the status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatusMessage")]
+    #[serde(rename = "vpcLinkStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status_message: Option<String>,
     /// <p>The version of the VPC link.</p>
-    #[serde(rename = "VpcLinkVersion")]
+    #[serde(rename = "vpcLinkVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_version: Option<String>,
 }
@@ -4101,35 +4101,35 @@ pub struct UpdateVpcLinkResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VpcLink {
     /// <p>The timestamp when the VPC link was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The name of the VPC link.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of security group IDs for the VPC link.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     pub security_group_ids: Vec<String>,
     /// <p>A list of subnet IDs to include in the VPC link.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
     /// <p>Tags for the VPC link.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The ID of the VPC link.</p>
-    #[serde(rename = "VpcLinkId")]
+    #[serde(rename = "vpcLinkId")]
     pub vpc_link_id: String,
     /// <p>The status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatus")]
+    #[serde(rename = "vpcLinkStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status: Option<String>,
     /// <p>A message summarizing the cause of the status of the VPC link.</p>
-    #[serde(rename = "VpcLinkStatusMessage")]
+    #[serde(rename = "vpcLinkStatusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_status_message: Option<String>,
     /// <p>The version of the VPC link.</p>
-    #[serde(rename = "VpcLinkVersion")]
+    #[serde(rename = "vpcLinkVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_link_version: Option<String>,
 }

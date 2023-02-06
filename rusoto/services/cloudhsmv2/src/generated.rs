@@ -56,46 +56,46 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Backup {
     /// <p>The identifier (ID) of the backup.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
     /// <p>The state of the backup.</p>
-    #[serde(rename = "BackupState")]
+    #[serde(rename = "backupState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup_state: Option<String>,
     /// <p>The identifier (ID) of the cluster that was backed up.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>The date and time when the backup was copied from a source backup.</p>
-    #[serde(rename = "CopyTimestamp")]
+    #[serde(rename = "copyTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_timestamp: Option<f64>,
     /// <p>The date and time when the backup was created.</p>
-    #[serde(rename = "CreateTimestamp")]
+    #[serde(rename = "createTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_timestamp: Option<f64>,
     /// <p>The date and time when the backup will be permanently deleted.</p>
-    #[serde(rename = "DeleteTimestamp")]
+    #[serde(rename = "deleteTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_timestamp: Option<f64>,
     /// <p>Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster.</p>
-    #[serde(rename = "NeverExpires")]
+    #[serde(rename = "neverExpires")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub never_expires: Option<bool>,
     /// <p>The identifier (ID) of the source backup from which the new backup was copied.</p>
-    #[serde(rename = "SourceBackup")]
+    #[serde(rename = "sourceBackup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_backup: Option<String>,
     /// <p>The identifier (ID) of the cluster containing the source backup from which the new backup was copied.</p>
-    #[serde(rename = "SourceCluster")]
+    #[serde(rename = "sourceCluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_cluster: Option<String>,
     /// <p>The AWS Region that contains the source backup from which the new backup was copied.</p>
-    #[serde(rename = "SourceRegion")]
+    #[serde(rename = "sourceRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_region: Option<String>,
     /// <p>The list of tags for the backup.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -104,11 +104,11 @@ pub struct Backup {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BackupRetentionPolicy {
     /// <p>The type of backup retention policy. For the <code>DAYS</code> type, the value is the number of days to retain backups.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>Use a value between 7 - 379.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -118,23 +118,23 @@ pub struct BackupRetentionPolicy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Certificates {
     /// <p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>
-    #[serde(rename = "AwsHardwareCertificate")]
+    #[serde(rename = "awsHardwareCertificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_hardware_certificate: Option<String>,
     /// <p>The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.</p>
-    #[serde(rename = "ClusterCertificate")]
+    #[serde(rename = "clusterCertificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_certificate: Option<String>,
     /// <p>The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is <code>UNINITIALIZED</code>.</p>
-    #[serde(rename = "ClusterCsr")]
+    #[serde(rename = "clusterCsr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_csr: Option<String>,
     /// <p>The HSM certificate issued (signed) by the HSM hardware.</p>
-    #[serde(rename = "HsmCertificate")]
+    #[serde(rename = "hsmCertificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hsm_certificate: Option<String>,
     /// <p>The HSM hardware certificate issued (signed) by the hardware manufacturer.</p>
-    #[serde(rename = "ManufacturerHardwareCertificate")]
+    #[serde(rename = "manufacturerHardwareCertificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manufacturer_hardware_certificate: Option<String>,
 }
@@ -144,63 +144,63 @@ pub struct Certificates {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Cluster {
     /// <p>The cluster's backup policy.</p>
-    #[serde(rename = "BackupPolicy")]
+    #[serde(rename = "backupPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup_policy: Option<String>,
     /// <p>A policy that defines how the service retains backups.</p>
-    #[serde(rename = "BackupRetentionPolicy")]
+    #[serde(rename = "backupRetentionPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup_retention_policy: Option<BackupRetentionPolicy>,
     /// <p>Contains one or more certificates or a certificate signing request (CSR).</p>
-    #[serde(rename = "Certificates")]
+    #[serde(rename = "certificates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificates: Option<Certificates>,
     /// <p>The cluster's identifier (ID).</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>The date and time when the cluster was created.</p>
-    #[serde(rename = "CreateTimestamp")]
+    #[serde(rename = "createTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_timestamp: Option<f64>,
     /// <p>The type of HSM that the cluster contains.</p>
-    #[serde(rename = "HsmType")]
+    #[serde(rename = "hsmType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hsm_type: Option<String>,
     /// <p>Contains information about the HSMs in the cluster.</p>
-    #[serde(rename = "Hsms")]
+    #[serde(rename = "hsms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hsms: Option<Vec<Hsm>>,
     /// <p>The default password for the cluster's Pre-Crypto Officer (PRECO) user.</p>
-    #[serde(rename = "PreCoPassword")]
+    #[serde(rename = "preCoPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pre_co_password: Option<String>,
     /// <p>The identifier (ID) of the cluster's security group.</p>
-    #[serde(rename = "SecurityGroup")]
+    #[serde(rename = "securityGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group: Option<String>,
     /// <p>The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.</p>
-    #[serde(rename = "SourceBackupId")]
+    #[serde(rename = "sourceBackupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_backup_id: Option<String>,
     /// <p>The cluster's state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A description of the cluster's state.</p>
-    #[serde(rename = "StateMessage")]
+    #[serde(rename = "stateMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_message: Option<String>,
     /// <p>A map from availability zone to the cluster’s subnet in that availability zone.</p>
-    #[serde(rename = "SubnetMapping")]
+    #[serde(rename = "subnetMapping")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_mapping: Option<::std::collections::HashMap<String, String>>,
     /// <p>The list of tags for the cluster.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
     /// <p>The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -209,13 +209,13 @@ pub struct Cluster {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CopyBackupToRegionRequest {
     /// <p>The ID of the backup that will be copied to the destination region. </p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
     /// <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
-    #[serde(rename = "DestinationRegion")]
+    #[serde(rename = "destinationRegion")]
     pub destination_region: String,
     /// <p>Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -224,7 +224,7 @@ pub struct CopyBackupToRegionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CopyBackupToRegionResponse {
     /// <p>Information on the backup that will be copied to the destination region, including CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the destination backup will be the same as that of the source backup.</p> <p>You will need to use the <code>sourceBackupID</code> returned in this operation to use the <a>DescribeBackups</a> operation on the backup that will be copied to the destination region.</p>
-    #[serde(rename = "DestinationBackup")]
+    #[serde(rename = "destinationBackup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_backup: Option<DestinationBackup>,
 }
@@ -233,21 +233,21 @@ pub struct CopyBackupToRegionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateClusterRequest {
     /// <p>A policy that defines how the service retains backups.</p>
-    #[serde(rename = "BackupRetentionPolicy")]
+    #[serde(rename = "backupRetentionPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup_retention_policy: Option<BackupRetentionPolicy>,
     /// <p>The type of HSM to use in the cluster. Currently the only allowed value is <code>hsm1.medium</code>.</p>
-    #[serde(rename = "HsmType")]
+    #[serde(rename = "hsmType")]
     pub hsm_type: String,
     /// <p>The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>.</p>
-    #[serde(rename = "SourceBackupId")]
+    #[serde(rename = "sourceBackupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_backup_id: Option<String>,
     /// <p><p>The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:</p> <ul> <li> <p>All subnets must be in the same virtual private cloud (VPC).</p> </li> <li> <p>You can specify only one subnet per Availability Zone.</p> </li> </ul></p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
     /// <p>Tags to apply to the CloudHSM cluster during creation.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -256,7 +256,7 @@ pub struct CreateClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateClusterResponse {
     /// <p>Information about the cluster that was created.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -265,13 +265,13 @@ pub struct CreateClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateHsmRequest {
     /// <p>The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     pub availability_zone: String,
     /// <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
     /// <p>The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address: Option<String>,
 }
@@ -280,7 +280,7 @@ pub struct CreateHsmRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateHsmResponse {
     /// <p>Information about the HSM that was created.</p>
-    #[serde(rename = "Hsm")]
+    #[serde(rename = "hsm")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hsm: Option<Hsm>,
 }
@@ -289,7 +289,7 @@ pub struct CreateHsmResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteBackupRequest {
     /// <p>The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
 }
 
@@ -297,7 +297,7 @@ pub struct DeleteBackupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteBackupResponse {
     /// <p>Information on the <code>Backup</code> object deleted.</p>
-    #[serde(rename = "Backup")]
+    #[serde(rename = "backup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup: Option<Backup>,
 }
@@ -306,7 +306,7 @@ pub struct DeleteBackupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteClusterRequest {
     /// <p>The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
 }
 
@@ -314,7 +314,7 @@ pub struct DeleteClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteClusterResponse {
     /// <p>Information about the cluster that was deleted.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -323,18 +323,18 @@ pub struct DeleteClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteHsmRequest {
     /// <p>The identifier (ID) of the cluster that contains the HSM that you are deleting.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
     /// <p>The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.</p>
-    #[serde(rename = "EniId")]
+    #[serde(rename = "eniId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eni_id: Option<String>,
     /// <p>The IP address of the elastic network interface (ENI) of the HSM that you are deleting.</p>
-    #[serde(rename = "EniIp")]
+    #[serde(rename = "eniIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eni_ip: Option<String>,
     /// <p>The identifier (ID) of the HSM that you are deleting.</p>
-    #[serde(rename = "HsmId")]
+    #[serde(rename = "hsmId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hsm_id: Option<String>,
 }
@@ -343,7 +343,7 @@ pub struct DeleteHsmRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteHsmResponse {
     /// <p>The identifier (ID) of the HSM that was deleted.</p>
-    #[serde(rename = "HsmId")]
+    #[serde(rename = "hsmId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hsm_id: Option<String>,
 }
@@ -352,19 +352,19 @@ pub struct DeleteHsmResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeBackupsRequest {
     /// <p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their backup identifier (ID).</p> <p>Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.</p> <p>Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>states</code> filter to return only backups that match the specified state.</p> <p>Use the <code>neverExpires</code> filter to return backups filtered by the value in the <code>neverExpires</code> parameter. <code>True</code> returns all backups exempt from the backup retention policy. <code>False</code> returns all backups with a backup retention policy defined at the cluster.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more backups.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Designates whether or not to sort the return backups by ascending chronological order of generation.</p>
-    #[serde(rename = "SortAscending")]
+    #[serde(rename = "sortAscending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_ascending: Option<bool>,
 }
@@ -373,11 +373,11 @@ pub struct DescribeBackupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeBackupsResponse {
     /// <p>A list of backups.</p>
-    #[serde(rename = "Backups")]
+    #[serde(rename = "backups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backups: Option<Vec<Backup>>,
     /// <p>An opaque string that indicates that the response contains only a subset of backups. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -386,15 +386,15 @@ pub struct DescribeBackupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeClustersRequest {
     /// <p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</p> <p>Use the <code>states</code> filter to return only clusters that match the specified state.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more clusters.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -403,11 +403,11 @@ pub struct DescribeClustersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeClustersResponse {
     /// <p>A list of clusters.</p>
-    #[serde(rename = "Clusters")]
+    #[serde(rename = "clusters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clusters: Option<Vec<Cluster>>,
     /// <p>An opaque string that indicates that the response contains only a subset of clusters. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -417,19 +417,19 @@ pub struct DescribeClustersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DestinationBackup {
     /// <p>The date and time when both the source backup was created.</p>
-    #[serde(rename = "CreateTimestamp")]
+    #[serde(rename = "createTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_timestamp: Option<f64>,
     /// <p>The identifier (ID) of the source backup from which the new backup was copied.</p>
-    #[serde(rename = "SourceBackup")]
+    #[serde(rename = "sourceBackup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_backup: Option<String>,
     /// <p>The identifier (ID) of the cluster containing the source backup from which the new backup was copied.</p>
-    #[serde(rename = "SourceCluster")]
+    #[serde(rename = "sourceCluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_cluster: Option<String>,
     /// <p>The AWS region that contains the source backup from which the new backup was copied.</p>
-    #[serde(rename = "SourceRegion")]
+    #[serde(rename = "sourceRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_region: Option<String>,
 }
@@ -439,34 +439,34 @@ pub struct DestinationBackup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Hsm {
     /// <p>The Availability Zone that contains the HSM.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The identifier (ID) of the cluster that contains the HSM.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>The identifier (ID) of the HSM's elastic network interface (ENI).</p>
-    #[serde(rename = "EniId")]
+    #[serde(rename = "eniId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eni_id: Option<String>,
     /// <p>The IP address of the HSM's elastic network interface (ENI).</p>
-    #[serde(rename = "EniIp")]
+    #[serde(rename = "eniIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eni_ip: Option<String>,
     /// <p>The HSM's identifier (ID).</p>
-    #[serde(rename = "HsmId")]
+    #[serde(rename = "hsmId")]
     pub hsm_id: String,
     /// <p>The HSM's state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A description of the HSM's state.</p>
-    #[serde(rename = "StateMessage")]
+    #[serde(rename = "stateMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_message: Option<String>,
     /// <p>The subnet that contains the HSM's elastic network interface (ENI).</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
 }
@@ -475,13 +475,13 @@ pub struct Hsm {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InitializeClusterRequest {
     /// <p>The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
     /// <p>The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.</p>
-    #[serde(rename = "SignedCert")]
+    #[serde(rename = "signedCert")]
     pub signed_cert: String,
     /// <p>The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. You must use a self-signed certificate. The certificate used to sign the HSM CSR must be directly available, and thus must be the root certificate. The certificate must be in PEM format and can contain a maximum of 5000 characters.</p>
-    #[serde(rename = "TrustAnchor")]
+    #[serde(rename = "trustAnchor")]
     pub trust_anchor: String,
 }
 
@@ -489,11 +489,11 @@ pub struct InitializeClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InitializeClusterResponse {
     /// <p>The cluster's state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A description of the cluster's state.</p>
-    #[serde(rename = "StateMessage")]
+    #[serde(rename = "stateMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_message: Option<String>,
 }
@@ -502,15 +502,15 @@ pub struct InitializeClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -518,11 +518,11 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent <code>ListTags</code> request to get more tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of tags.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     pub tag_list: Vec<Tag>,
 }
 
@@ -530,17 +530,17 @@ pub struct ListTagsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyBackupAttributesRequest {
     /// <p>The identifier (ID) of the backup to modify. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
     /// <p>Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster.</p>
-    #[serde(rename = "NeverExpires")]
+    #[serde(rename = "neverExpires")]
     pub never_expires: bool,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ModifyBackupAttributesResponse {
-    #[serde(rename = "Backup")]
+    #[serde(rename = "backup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup: Option<Backup>,
 }
@@ -549,17 +549,17 @@ pub struct ModifyBackupAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ModifyClusterRequest {
     /// <p>A policy that defines how the service retains backups.</p>
-    #[serde(rename = "BackupRetentionPolicy")]
+    #[serde(rename = "backupRetentionPolicy")]
     pub backup_retention_policy: BackupRetentionPolicy,
     /// <p>The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ModifyClusterResponse {
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -568,7 +568,7 @@ pub struct ModifyClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RestoreBackupRequest {
     /// <p>The ID of the backup to be restored. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
 }
 
@@ -576,7 +576,7 @@ pub struct RestoreBackupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RestoreBackupResponse {
     /// <p>Information on the <code>Backup</code> object created.</p>
-    #[serde(rename = "Backup")]
+    #[serde(rename = "backup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup: Option<Backup>,
 }
@@ -585,10 +585,10 @@ pub struct RestoreBackupResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -596,10 +596,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>A list of one or more tags.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     pub tag_list: Vec<Tag>,
 }
 
@@ -611,10 +611,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>A list of one or more tag keys for the tags that you are removing. Specify only the tag keys, not the tag values.</p>
-    #[serde(rename = "TagKeyList")]
+    #[serde(rename = "tagKeyList")]
     pub tag_key_list: Vec<String>,
 }
 

@@ -60,32 +60,32 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplicationComponent {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub component_name: Option<String>,
     /// <p> If logging is supported for the resource type, indicates whether the component has configured logs to be monitored. </p>
-    #[serde(rename = "ComponentRemarks")]
+    #[serde(rename = "componentRemarks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub component_remarks: Option<String>,
     /// <p> Workloads detected in the application component. </p>
-    #[serde(rename = "DetectedWorkload")]
+    #[serde(rename = "detectedWorkload")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detected_workload:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>Indicates whether the application component is monitored. </p>
-    #[serde(rename = "Monitor")]
+    #[serde(rename = "monitor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitor: Option<bool>,
     /// <p> The operating system of the component. </p>
-    #[serde(rename = "OsType")]
+    #[serde(rename = "osType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub os_type: Option<String>,
     /// <p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The stack tier of the application component.</p>
-    #[serde(rename = "Tier")]
+    #[serde(rename = "tier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tier: Option<String>,
 }
@@ -95,27 +95,27 @@ pub struct ApplicationComponent {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplicationInfo {
     /// <p> Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others. </p>
-    #[serde(rename = "CWEMonitorEnabled")]
+    #[serde(rename = "cWEMonitorEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cwe_monitor_enabled: Option<bool>,
     /// <p>The lifecycle of the application. </p>
-    #[serde(rename = "LifeCycle")]
+    #[serde(rename = "lifeCycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub life_cycle: Option<String>,
     /// <p> Indicates whether Application Insights will create opsItems for any problem detected by Application Insights for an application. </p>
-    #[serde(rename = "OpsCenterEnabled")]
+    #[serde(rename = "opsCenterEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ops_center_enabled: Option<bool>,
     /// <p> The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications for opsItem updates. </p>
-    #[serde(rename = "OpsItemSNSTopicArn")]
+    #[serde(rename = "opsItemSNSTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ops_item_sns_topic_arn: Option<String>,
     /// <p><p>The issues on the user side that block Application Insights from successfully monitoring an application. Example remarks include:</p> <ul> <li> <p>“Configuring application, detected 1 Errors, 3 Warnings”</p> </li> <li> <p>“Configuring application, detected 1 Unconfigured Components”</p> </li> </ul></p>
-    #[serde(rename = "Remarks")]
+    #[serde(rename = "remarks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remarks: Option<String>,
     /// <p>The name of the resource group used for the application.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
 }
@@ -125,27 +125,27 @@ pub struct ApplicationInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigurationEvent {
     /// <p> The details of the event in plain text. </p>
-    #[serde(rename = "EventDetail")]
+    #[serde(rename = "eventDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_detail: Option<String>,
     /// <p> The name of the resource Application Insights attempted to configure. </p>
-    #[serde(rename = "EventResourceName")]
+    #[serde(rename = "eventResourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_resource_name: Option<String>,
     /// <p> The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM. </p>
-    #[serde(rename = "EventResourceType")]
+    #[serde(rename = "eventResourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_resource_type: Option<String>,
     /// <p> The status of the configuration update event. Possible values include INFO, WARN, and ERROR. </p>
-    #[serde(rename = "EventStatus")]
+    #[serde(rename = "eventStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_status: Option<String>,
     /// <p> The timestamp of the event. </p>
-    #[serde(rename = "EventTime")]
+    #[serde(rename = "eventTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_time: Option<f64>,
     /// <p> The resource monitored by Application Insights. </p>
-    #[serde(rename = "MonitoredResourceARN")]
+    #[serde(rename = "monitoredResourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitored_resource_arn: Option<String>,
 }
@@ -154,22 +154,22 @@ pub struct ConfigurationEvent {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateApplicationRequest {
     /// <p> Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others. </p>
-    #[serde(rename = "CWEMonitorEnabled")]
+    #[serde(rename = "cWEMonitorEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cwe_monitor_enabled: Option<bool>,
     /// <p> When set to <code>true</code>, creates opsItems for any problems detected on an application. </p>
-    #[serde(rename = "OpsCenterEnabled")]
+    #[serde(rename = "opsCenterEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ops_center_enabled: Option<bool>,
     /// <p> The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem. </p>
-    #[serde(rename = "OpsItemSNSTopicArn")]
+    #[serde(rename = "opsItemSNSTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ops_item_sns_topic_arn: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
     /// <p>List of tags to add to the application. tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -178,7 +178,7 @@ pub struct CreateApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateApplicationResponse {
     /// <p>Information about the application.</p>
-    #[serde(rename = "ApplicationInfo")]
+    #[serde(rename = "applicationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_info: Option<ApplicationInfo>,
 }
@@ -187,13 +187,13 @@ pub struct CreateApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateComponentRequest {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
     /// <p>The list of resource ARNs that belong to the component.</p>
-    #[serde(rename = "ResourceList")]
+    #[serde(rename = "resourceList")]
     pub resource_list: Vec<String>,
 }
 
@@ -205,19 +205,19 @@ pub struct CreateComponentResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLogPatternRequest {
     /// <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     pub pattern: String,
     /// <p>The name of the log pattern.</p>
-    #[serde(rename = "PatternName")]
+    #[serde(rename = "patternName")]
     pub pattern_name: String,
     /// <p>The name of the log pattern set.</p>
-    #[serde(rename = "PatternSetName")]
+    #[serde(rename = "patternSetName")]
     pub pattern_set_name: String,
     /// <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns. </p>
-    #[serde(rename = "Rank")]
+    #[serde(rename = "rank")]
     pub rank: i64,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -225,11 +225,11 @@ pub struct CreateLogPatternRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLogPatternResponse {
     /// <p>The successfully created log pattern.</p>
-    #[serde(rename = "LogPattern")]
+    #[serde(rename = "logPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_pattern: Option<LogPattern>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
 }
@@ -238,7 +238,7 @@ pub struct CreateLogPatternResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationRequest {
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -250,10 +250,10 @@ pub struct DeleteApplicationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteComponentRequest {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -265,13 +265,13 @@ pub struct DeleteComponentResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLogPatternRequest {
     /// <p>The name of the log pattern.</p>
-    #[serde(rename = "PatternName")]
+    #[serde(rename = "patternName")]
     pub pattern_name: String,
     /// <p>The name of the log pattern set.</p>
-    #[serde(rename = "PatternSetName")]
+    #[serde(rename = "patternSetName")]
     pub pattern_set_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -283,7 +283,7 @@ pub struct DeleteLogPatternResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeApplicationRequest {
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -291,7 +291,7 @@ pub struct DescribeApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeApplicationResponse {
     /// <p>Information about the application.</p>
-    #[serde(rename = "ApplicationInfo")]
+    #[serde(rename = "applicationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_info: Option<ApplicationInfo>,
 }
@@ -300,13 +300,13 @@ pub struct DescribeApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeComponentConfigurationRecommendationRequest {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
     /// <p>The tier of the application component. Supported tiers include <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>
-    #[serde(rename = "Tier")]
+    #[serde(rename = "tier")]
     pub tier: String,
 }
 
@@ -314,7 +314,7 @@ pub struct DescribeComponentConfigurationRecommendationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeComponentConfigurationRecommendationResponse {
     /// <p>The recommended configuration settings of the component. The value is the escaped JSON of the configuration.</p>
-    #[serde(rename = "ComponentConfiguration")]
+    #[serde(rename = "componentConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub component_configuration: Option<String>,
 }
@@ -323,10 +323,10 @@ pub struct DescribeComponentConfigurationRecommendationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeComponentConfigurationRequest {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -334,15 +334,15 @@ pub struct DescribeComponentConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeComponentConfigurationResponse {
     /// <p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>
-    #[serde(rename = "ComponentConfiguration")]
+    #[serde(rename = "componentConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub component_configuration: Option<String>,
     /// <p>Indicates whether the application component is monitored.</p>
-    #[serde(rename = "Monitor")]
+    #[serde(rename = "monitor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitor: Option<bool>,
     /// <p>The tier of the application component. Supported tiers include <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code> </p>
-    #[serde(rename = "Tier")]
+    #[serde(rename = "tier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tier: Option<String>,
 }
@@ -351,21 +351,21 @@ pub struct DescribeComponentConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeComponentRequest {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeComponentResponse {
-    #[serde(rename = "ApplicationComponent")]
+    #[serde(rename = "applicationComponent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_component: Option<ApplicationComponent>,
     /// <p>The list of resource ARNs that belong to the component.</p>
-    #[serde(rename = "ResourceList")]
+    #[serde(rename = "resourceList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_list: Option<Vec<String>>,
 }
@@ -374,13 +374,13 @@ pub struct DescribeComponentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLogPatternRequest {
     /// <p>The name of the log pattern.</p>
-    #[serde(rename = "PatternName")]
+    #[serde(rename = "patternName")]
     pub pattern_name: String,
     /// <p>The name of the log pattern set.</p>
-    #[serde(rename = "PatternSetName")]
+    #[serde(rename = "patternSetName")]
     pub pattern_set_name: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -388,11 +388,11 @@ pub struct DescribeLogPatternRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLogPatternResponse {
     /// <p>The successfully created log pattern.</p>
-    #[serde(rename = "LogPattern")]
+    #[serde(rename = "logPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_pattern: Option<LogPattern>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
 }
@@ -401,7 +401,7 @@ pub struct DescribeLogPatternResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeObservationRequest {
     /// <p>The ID of the observation.</p>
-    #[serde(rename = "ObservationId")]
+    #[serde(rename = "observationId")]
     pub observation_id: String,
 }
 
@@ -409,7 +409,7 @@ pub struct DescribeObservationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeObservationResponse {
     /// <p>Information about the observation.</p>
-    #[serde(rename = "Observation")]
+    #[serde(rename = "observation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub observation: Option<Observation>,
 }
@@ -418,7 +418,7 @@ pub struct DescribeObservationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProblemObservationsRequest {
     /// <p>The ID of the problem.</p>
-    #[serde(rename = "ProblemId")]
+    #[serde(rename = "problemId")]
     pub problem_id: String,
 }
 
@@ -426,7 +426,7 @@ pub struct DescribeProblemObservationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProblemObservationsResponse {
     /// <p>Observations related to the problem.</p>
-    #[serde(rename = "RelatedObservations")]
+    #[serde(rename = "relatedObservations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub related_observations: Option<RelatedObservations>,
 }
@@ -435,7 +435,7 @@ pub struct DescribeProblemObservationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProblemRequest {
     /// <p>The ID of the problem.</p>
-    #[serde(rename = "ProblemId")]
+    #[serde(rename = "problemId")]
     pub problem_id: String,
 }
 
@@ -443,7 +443,7 @@ pub struct DescribeProblemRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProblemResponse {
     /// <p>Information about the problem. </p>
-    #[serde(rename = "Problem")]
+    #[serde(rename = "problem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub problem: Option<Problem>,
 }
@@ -452,11 +452,11 @@ pub struct DescribeProblemResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListApplicationsRequest {
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -465,11 +465,11 @@ pub struct ListApplicationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListApplicationsResponse {
     /// <p>The list of applications.</p>
-    #[serde(rename = "ApplicationInfoList")]
+    #[serde(rename = "applicationInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_info_list: Option<Vec<ApplicationInfo>>,
     /// <p>The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -478,15 +478,15 @@ pub struct ListApplicationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListComponentsRequest {
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -494,11 +494,11 @@ pub struct ListComponentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListComponentsResponse {
     /// <p>The list of application components.</p>
-    #[serde(rename = "ApplicationComponentList")]
+    #[serde(rename = "applicationComponentList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_component_list: Option<Vec<ApplicationComponent>>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -507,27 +507,27 @@ pub struct ListComponentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConfigurationHistoryRequest {
     /// <p>The end time of the event.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The status of the configuration update event. Possible values include INFO, WARN, and ERROR.</p>
-    #[serde(rename = "EventStatus")]
+    #[serde(rename = "eventStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_status: Option<String>,
     /// <p> The maximum number of results returned by <code>ListConfigurationHistory</code> in paginated output. When this parameter is used, <code>ListConfigurationHistory</code> returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListConfigurationHistory</code> request with the returned <code>NextToken</code> value. If this parameter is not used, then <code>ListConfigurationHistory</code> returns all results. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Resource group to which the application belongs. </p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
     /// <p>The start time of the event. </p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -536,11 +536,11 @@ pub struct ListConfigurationHistoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConfigurationHistoryResponse {
     /// <p> The list of configuration events and their corresponding details. </p>
-    #[serde(rename = "EventList")]
+    #[serde(rename = "eventList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_list: Option<Vec<ConfigurationEvent>>,
     /// <p>The <code>NextToken</code> value to include in a future <code>ListConfigurationHistory</code> request. When the results of a <code>ListConfigurationHistory</code> request exceed <code>MaxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -549,15 +549,15 @@ pub struct ListConfigurationHistoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLogPatternSetsRequest {
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -565,15 +565,15 @@ pub struct ListLogPatternSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLogPatternSetsResponse {
     /// <p>The list of log pattern sets.</p>
-    #[serde(rename = "LogPatternSets")]
+    #[serde(rename = "logPatternSets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_pattern_sets: Option<Vec<String>>,
     /// <p>The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
 }
@@ -582,19 +582,19 @@ pub struct ListLogPatternSetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLogPatternsRequest {
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the log pattern set.</p>
-    #[serde(rename = "PatternSetName")]
+    #[serde(rename = "patternSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern_set_name: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -602,15 +602,15 @@ pub struct ListLogPatternsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLogPatternsResponse {
     /// <p>The list of log patterns.</p>
-    #[serde(rename = "LogPatterns")]
+    #[serde(rename = "logPatterns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_patterns: Option<Vec<LogPattern>>,
     /// <p>The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
 }
@@ -619,23 +619,23 @@ pub struct ListLogPatternsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProblemsRequest {
     /// <p>The time when the problem ended, in epoch seconds. If not specified, problems within the past seven days are returned.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
     /// <p>The time when the problem was detected, in epoch seconds. If you don't specify a time frame for the request, problems within the past seven days are returned.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -644,11 +644,11 @@ pub struct ListProblemsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProblemsResponse {
     /// <p>The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of problems. </p>
-    #[serde(rename = "ProblemList")]
+    #[serde(rename = "problemList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub problem_list: Option<Vec<Problem>>,
 }
@@ -657,7 +657,7 @@ pub struct ListProblemsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the application that you want to retrieve tag information for.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -665,7 +665,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>An array that lists all the tags that are associated with the application. Each tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>).</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -675,19 +675,19 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LogPattern {
     /// <p>A regular expression that defines the log pattern. A log pattern can contain as many as 50 characters, and it cannot be empty. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern: Option<String>,
     /// <p>The name of the log pattern. A log pattern name can contain as many as 50 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.</p>
-    #[serde(rename = "PatternName")]
+    #[serde(rename = "patternName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern_name: Option<String>,
     /// <p>The name of the log pattern. A log pattern name can contain as many as 30 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.</p>
-    #[serde(rename = "PatternSetName")]
+    #[serde(rename = "patternSetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern_set_name: Option<String>,
     /// <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns. </p>
-    #[serde(rename = "Rank")]
+    #[serde(rename = "rank")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rank: Option<i64>,
 }
@@ -697,183 +697,183 @@ pub struct LogPattern {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Observation {
     /// <p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2 Instance State-change Notification</code>. </p>
-    #[serde(rename = "CloudWatchEventDetailType")]
+    #[serde(rename = "cloudWatchEventDetailType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_event_detail_type: Option<String>,
     /// <p> The ID of the CloudWatch Event-based observation related to the detected problem. </p>
-    #[serde(rename = "CloudWatchEventId")]
+    #[serde(rename = "cloudWatchEventId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_event_id: Option<String>,
     /// <p> The source of the CloudWatch Event. </p>
-    #[serde(rename = "CloudWatchEventSource")]
+    #[serde(rename = "cloudWatchEventSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_event_source: Option<String>,
     /// <p> The CodeDeploy application to which the deployment belongs. </p>
-    #[serde(rename = "CodeDeployApplication")]
+    #[serde(rename = "codeDeployApplication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_deploy_application: Option<String>,
     /// <p> The deployment group to which the CodeDeploy deployment belongs. </p>
-    #[serde(rename = "CodeDeployDeploymentGroup")]
+    #[serde(rename = "codeDeployDeploymentGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_deploy_deployment_group: Option<String>,
     /// <p> The deployment ID of the CodeDeploy-based observation related to the detected problem. </p>
-    #[serde(rename = "CodeDeployDeploymentId")]
+    #[serde(rename = "codeDeployDeploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_deploy_deployment_id: Option<String>,
     /// <p> The instance group to which the CodeDeploy instance belongs. </p>
-    #[serde(rename = "CodeDeployInstanceGroupId")]
+    #[serde(rename = "codeDeployInstanceGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_deploy_instance_group_id: Option<String>,
     /// <p> The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code> FAILURE</code>. </p>
-    #[serde(rename = "CodeDeployState")]
+    #[serde(rename = "codeDeployState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_deploy_state: Option<String>,
     /// <p> The cause of an EBS CloudWatch event. </p>
-    #[serde(rename = "EbsCause")]
+    #[serde(rename = "ebsCause")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_cause: Option<String>,
     /// <p> The type of EBS CloudWatch event, such as <code>createVolume</code>, <code>deleteVolume</code> or <code>attachVolume</code>. </p>
-    #[serde(rename = "EbsEvent")]
+    #[serde(rename = "ebsEvent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_event: Option<String>,
     /// <p> The request ID of an EBS CloudWatch event. </p>
-    #[serde(rename = "EbsRequestId")]
+    #[serde(rename = "ebsRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_request_id: Option<String>,
     /// <p> The result of an EBS CloudWatch event, such as <code>failed</code> or <code>succeeded</code>. </p>
-    #[serde(rename = "EbsResult")]
+    #[serde(rename = "ebsResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_result: Option<String>,
     /// <p> The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>. </p>
-    #[serde(rename = "Ec2State")]
+    #[serde(rename = "ec2State")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_state: Option<String>,
     /// <p>The time when the observation ended, in epoch seconds.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p> The Amazon Resource Name (ARN) of the AWS Health Event-based observation.</p>
-    #[serde(rename = "HealthEventArn")]
+    #[serde(rename = "healthEventArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_event_arn: Option<String>,
     /// <p> The description of the AWS Health event provided by the service, such as Amazon EC2. </p>
-    #[serde(rename = "HealthEventDescription")]
+    #[serde(rename = "healthEventDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_event_description: Option<String>,
     /// <p> The category of the AWS Health event, such as <code>issue</code>. </p>
-    #[serde(rename = "HealthEventTypeCategory")]
+    #[serde(rename = "healthEventTypeCategory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_event_type_category: Option<String>,
     /// <p> The type of the AWS Health event, for example, <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>
-    #[serde(rename = "HealthEventTypeCode")]
+    #[serde(rename = "healthEventTypeCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_event_type_code: Option<String>,
     /// <p> The service to which the AWS Health Event belongs, such as EC2. </p>
-    #[serde(rename = "HealthService")]
+    #[serde(rename = "healthService")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_service: Option<String>,
     /// <p>The ID of the observation type.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>
-    #[serde(rename = "LineTime")]
+    #[serde(rename = "lineTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub line_time: Option<f64>,
     /// <p>The log filter of the observation.</p>
-    #[serde(rename = "LogFilter")]
+    #[serde(rename = "logFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_filter: Option<String>,
     /// <p>The log group name.</p>
-    #[serde(rename = "LogGroup")]
+    #[serde(rename = "logGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group: Option<String>,
     /// <p>The log text of the observation.</p>
-    #[serde(rename = "LogText")]
+    #[serde(rename = "logText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_text: Option<String>,
     /// <p>The name of the observation metric.</p>
-    #[serde(rename = "MetricName")]
+    #[serde(rename = "metricName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_name: Option<String>,
     /// <p>The namespace of the observation metric.</p>
-    #[serde(rename = "MetricNamespace")]
+    #[serde(rename = "metricNamespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_namespace: Option<String>,
     /// <p> The category of an RDS event. </p>
-    #[serde(rename = "RdsEventCategories")]
+    #[serde(rename = "rdsEventCategories")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rds_event_categories: Option<String>,
     /// <p> The message of an RDS event. </p>
-    #[serde(rename = "RdsEventMessage")]
+    #[serde(rename = "rdsEventMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rds_event_message: Option<String>,
     /// <p> The name of the S3 CloudWatch Event-based observation. </p>
-    #[serde(rename = "S3EventName")]
+    #[serde(rename = "s3EventName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_event_name: Option<String>,
     /// <p>The source resource ARN of the observation.</p>
-    #[serde(rename = "SourceARN")]
+    #[serde(rename = "sourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The source type of the observation.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_type: Option<String>,
     /// <p>The time when the observation was first detected, in epoch seconds.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p> The Amazon Resource Name (ARN) of the step function-based observation. </p>
-    #[serde(rename = "StatesArn")]
+    #[serde(rename = "statesArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states_arn: Option<String>,
     /// <p> The Amazon Resource Name (ARN) of the step function execution-based observation. </p>
-    #[serde(rename = "StatesExecutionArn")]
+    #[serde(rename = "statesExecutionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states_execution_arn: Option<String>,
     /// <p> The input to the step function-based observation. </p>
-    #[serde(rename = "StatesInput")]
+    #[serde(rename = "statesInput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states_input: Option<String>,
     /// <p> The status of the step function-related observation. </p>
-    #[serde(rename = "StatesStatus")]
+    #[serde(rename = "statesStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states_status: Option<String>,
     /// <p>The unit of the source observation metric.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
     /// <p>The value of the source observation metric.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
     /// <p> The X-Ray request error percentage for this node. </p>
-    #[serde(rename = "XRayErrorPercent")]
+    #[serde(rename = "xRayErrorPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_error_percent: Option<i64>,
     /// <p> The X-Ray request fault percentage for this node. </p>
-    #[serde(rename = "XRayFaultPercent")]
+    #[serde(rename = "xRayFaultPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_fault_percent: Option<i64>,
     /// <p> The name of the X-Ray node. </p>
-    #[serde(rename = "XRayNodeName")]
+    #[serde(rename = "xRayNodeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_node_name: Option<String>,
     /// <p> The type of the X-Ray node. </p>
-    #[serde(rename = "XRayNodeType")]
+    #[serde(rename = "xRayNodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_node_type: Option<String>,
     /// <p> The X-Ray node request average latency for this node. </p>
-    #[serde(rename = "XRayRequestAverageLatency")]
+    #[serde(rename = "xRayRequestAverageLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_request_average_latency: Option<i64>,
     /// <p> The X-Ray request count for this node. </p>
-    #[serde(rename = "XRayRequestCount")]
+    #[serde(rename = "xRayRequestCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_request_count: Option<i64>,
     /// <p> The X-Ray request throttle percentage for this node. </p>
-    #[serde(rename = "XRayThrottlePercent")]
+    #[serde(rename = "xRayThrottlePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x_ray_throttle_percent: Option<i64>,
 }
@@ -883,43 +883,43 @@ pub struct Observation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Problem {
     /// <p>The resource affected by the problem.</p>
-    #[serde(rename = "AffectedResource")]
+    #[serde(rename = "affectedResource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub affected_resource: Option<String>,
     /// <p>The time when the problem ended, in epoch seconds.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Feedback provided by the user about the problem.</p>
-    #[serde(rename = "Feedback")]
+    #[serde(rename = "feedback")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback: Option<::std::collections::HashMap<String, String>>,
     /// <p>The ID of the problem.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A detailed analysis of the problem using machine learning.</p>
-    #[serde(rename = "Insights")]
+    #[serde(rename = "insights")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insights: Option<String>,
     /// <p>The name of the resource group affected by the problem.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
     /// <p>A measure of the level of impact of the problem.</p>
-    #[serde(rename = "SeverityLevel")]
+    #[serde(rename = "severityLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub severity_level: Option<String>,
     /// <p>The time when the problem started, in epoch seconds.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The status of the problem.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The name of the problem.</p>
-    #[serde(rename = "Title")]
+    #[serde(rename = "title")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
 }
@@ -929,7 +929,7 @@ pub struct Problem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RelatedObservations {
     /// <p>The list of observations related to the problem.</p>
-    #[serde(rename = "ObservationList")]
+    #[serde(rename = "observationList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub observation_list: Option<Vec<Observation>>,
 }
@@ -938,10 +938,10 @@ pub struct RelatedObservations {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don't want an application to have a specific tag value, don't specify a value for this parameter.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -949,10 +949,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A list of tags that to add to the application. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -964,10 +964,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p> <p>To remove more than one tag from the application, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -979,23 +979,23 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateApplicationRequest {
     /// <p> Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others. </p>
-    #[serde(rename = "CWEMonitorEnabled")]
+    #[serde(rename = "cWEMonitorEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cwe_monitor_enabled: Option<bool>,
     /// <p> When set to <code>true</code>, creates opsItems for any problems detected on an application. </p>
-    #[serde(rename = "OpsCenterEnabled")]
+    #[serde(rename = "opsCenterEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ops_center_enabled: Option<bool>,
     /// <p> The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.</p>
-    #[serde(rename = "OpsItemSNSTopicArn")]
+    #[serde(rename = "opsItemSNSTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ops_item_sns_topic_arn: Option<String>,
     /// <p> Disassociates the SNS topic from the opsItem created for detected problems.</p>
-    #[serde(rename = "RemoveSNSTopic")]
+    #[serde(rename = "removeSNSTopic")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_sns_topic: Option<bool>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -1003,7 +1003,7 @@ pub struct UpdateApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateApplicationResponse {
     /// <p>Information about the application. </p>
-    #[serde(rename = "ApplicationInfo")]
+    #[serde(rename = "applicationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_info: Option<ApplicationInfo>,
 }
@@ -1012,21 +1012,21 @@ pub struct UpdateApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateComponentConfigurationRequest {
     /// <p>The configuration settings of the component. The value is the escaped JSON of the configuration. For more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working with JSON</a>. You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete format of the component configuration file, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
-    #[serde(rename = "ComponentConfiguration")]
+    #[serde(rename = "componentConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub component_configuration: Option<String>,
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>Indicates whether the application component is monitored.</p>
-    #[serde(rename = "Monitor")]
+    #[serde(rename = "monitor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitor: Option<bool>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
     /// <p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>
-    #[serde(rename = "Tier")]
+    #[serde(rename = "tier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tier: Option<String>,
 }
@@ -1039,17 +1039,17 @@ pub struct UpdateComponentConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateComponentRequest {
     /// <p>The name of the component.</p>
-    #[serde(rename = "ComponentName")]
+    #[serde(rename = "componentName")]
     pub component_name: String,
     /// <p>The new name of the component.</p>
-    #[serde(rename = "NewComponentName")]
+    #[serde(rename = "newComponentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub new_component_name: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
     /// <p>The list of resource ARNs that belong to the component.</p>
-    #[serde(rename = "ResourceList")]
+    #[serde(rename = "resourceList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_list: Option<Vec<String>>,
 }
@@ -1062,21 +1062,21 @@ pub struct UpdateComponentResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLogPatternRequest {
     /// <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
-    #[serde(rename = "Pattern")]
+    #[serde(rename = "pattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern: Option<String>,
     /// <p>The name of the log pattern.</p>
-    #[serde(rename = "PatternName")]
+    #[serde(rename = "patternName")]
     pub pattern_name: String,
     /// <p>The name of the log pattern set.</p>
-    #[serde(rename = "PatternSetName")]
+    #[serde(rename = "patternSetName")]
     pub pattern_set_name: String,
     /// <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns. </p>
-    #[serde(rename = "Rank")]
+    #[serde(rename = "rank")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rank: Option<i64>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     pub resource_group_name: String,
 }
 
@@ -1084,11 +1084,11 @@ pub struct UpdateLogPatternRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateLogPatternResponse {
     /// <p>The successfully created log pattern.</p>
-    #[serde(rename = "LogPattern")]
+    #[serde(rename = "logPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_pattern: Option<LogPattern>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "ResourceGroupName")]
+    #[serde(rename = "resourceGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_group_name: Option<String>,
 }

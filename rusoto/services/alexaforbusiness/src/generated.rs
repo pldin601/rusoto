@@ -55,15 +55,15 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddressBook {
     /// <p>The ARN of the address book.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_book_arn: Option<String>,
     /// <p>The description of the address book.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the address book.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -73,15 +73,15 @@ pub struct AddressBook {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddressBookData {
     /// <p>The ARN of the address book.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_book_arn: Option<String>,
     /// <p>The description of the address book.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the address book.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -90,7 +90,7 @@ pub struct AddressBookData {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ApproveSkillRequest {
     /// <p>The unique identifier of the skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -102,10 +102,10 @@ pub struct ApproveSkillResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateContactWithAddressBookRequest {
     /// <p>The ARN of the address book with which to associate the contact.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     pub address_book_arn: String,
     /// <p>The ARN of the contact to associate with an address book.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     pub contact_arn: String,
 }
 
@@ -117,10 +117,10 @@ pub struct AssociateContactWithAddressBookResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateDeviceWithNetworkProfileRequest {
     /// <p>The device ARN.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     pub device_arn: String,
     /// <p>The ARN of the network profile to associate with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     pub network_profile_arn: String,
 }
 
@@ -132,11 +132,11 @@ pub struct AssociateDeviceWithNetworkProfileResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateDeviceWithRoomRequest {
     /// <p>The ARN of the device to associate to a room. Required.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
     /// <p>The ARN of the room with which to associate the device. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
 }
@@ -149,11 +149,11 @@ pub struct AssociateDeviceWithRoomResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateSkillGroupWithRoomRequest {
     /// <p>The ARN of the room with which to associate the skill group. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The ARN of the skill group to associate with a room. Required.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
 }
@@ -166,11 +166,11 @@ pub struct AssociateSkillGroupWithRoomResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateSkillWithSkillGroupRequest {
     /// <p>The ARN of the skill group to associate the skill to. Required.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
     /// <p>The unique identifier of the skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -182,7 +182,7 @@ pub struct AssociateSkillWithSkillGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateSkillWithUsersRequest {
     /// <p>The private skill ID you want to make available to enrolled users.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -195,10 +195,10 @@ pub struct AssociateSkillWithUsersResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Audio {
     /// <p>The locale of the audio message. Currently, en-US is supported.</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     pub locale: String,
     /// <p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters">Safe Characters</a>.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
 }
 
@@ -207,23 +207,23 @@ pub struct Audio {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BusinessReport {
     /// <p>The time of report delivery.</p>
-    #[serde(rename = "DeliveryTime")]
+    #[serde(rename = "deliveryTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_time: Option<f64>,
     /// <p>The download link where a user can download the report.</p>
-    #[serde(rename = "DownloadUrl")]
+    #[serde(rename = "downloadUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub download_url: Option<String>,
     /// <p>The failure code.</p>
-    #[serde(rename = "FailureCode")]
+    #[serde(rename = "failureCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_code: Option<String>,
     /// <p>The S3 location of the output reports.</p>
-    #[serde(rename = "S3Location")]
+    #[serde(rename = "s3Location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_location: Option<BusinessReportS3Location>,
     /// <p>The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -232,7 +232,7 @@ pub struct BusinessReport {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BusinessReportContentRange {
     /// <p>The interval of the content range.</p>
-    #[serde(rename = "Interval")]
+    #[serde(rename = "interval")]
     pub interval: String,
 }
 
@@ -240,7 +240,7 @@ pub struct BusinessReportContentRange {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BusinessReportRecurrence {
     /// <p>The start date.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
 }
@@ -250,11 +250,11 @@ pub struct BusinessReportRecurrence {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BusinessReportS3Location {
     /// <p>The S3 bucket name of the output reports.</p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_name: Option<String>,
     /// <p>The path of the business report.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
 }
@@ -264,35 +264,35 @@ pub struct BusinessReportS3Location {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BusinessReportSchedule {
     /// <p>The content range of the reports.</p>
-    #[serde(rename = "ContentRange")]
+    #[serde(rename = "contentRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_range: Option<BusinessReportContentRange>,
     /// <p>The format of the generated report (individual CSV files or zipped files of individual files).</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>The details of the last business report delivery for a specified time interval.</p>
-    #[serde(rename = "LastBusinessReport")]
+    #[serde(rename = "lastBusinessReport")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_business_report: Option<BusinessReport>,
     /// <p>The recurrence of the reports.</p>
-    #[serde(rename = "Recurrence")]
+    #[serde(rename = "recurrence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurrence: Option<BusinessReportRecurrence>,
     /// <p>The S3 bucket name of the output reports.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The S3 key where the report is delivered.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>The ARN of the business report schedule.</p>
-    #[serde(rename = "ScheduleArn")]
+    #[serde(rename = "scheduleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_arn: Option<String>,
     /// <p>The name identifier of the schedule.</p>
-    #[serde(rename = "ScheduleName")]
+    #[serde(rename = "scheduleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_name: Option<String>,
 }
@@ -302,11 +302,11 @@ pub struct BusinessReportSchedule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Category {
     /// <p>The ID of the skill store category.</p>
-    #[serde(rename = "CategoryId")]
+    #[serde(rename = "categoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub category_id: Option<i64>,
     /// <p>The name of the skill store category.</p>
-    #[serde(rename = "CategoryName")]
+    #[serde(rename = "categoryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub category_name: Option<String>,
 }
@@ -315,7 +315,7 @@ pub struct Category {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConferencePreference {
     /// <p>The ARN of the default conference provider.</p>
-    #[serde(rename = "DefaultConferenceProviderArn")]
+    #[serde(rename = "defaultConferenceProviderArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_conference_provider_arn: Option<String>,
 }
@@ -325,27 +325,27 @@ pub struct ConferencePreference {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConferenceProvider {
     /// <p>The ARN of the newly created conference provider.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The IP endpoint and protocol for calling.</p>
-    #[serde(rename = "IPDialIn")]
+    #[serde(rename = "iPDialIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_dial_in: Option<IPDialIn>,
     /// <p>The meeting settings for the conference provider.</p>
-    #[serde(rename = "MeetingSetting")]
+    #[serde(rename = "meetingSetting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_setting: Option<MeetingSetting>,
     /// <p>The name of the conference provider.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The information for PSTN conferencing.</p>
-    #[serde(rename = "PSTNDialIn")]
+    #[serde(rename = "pSTNDialIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pstn_dial_in: Option<PSTNDialIn>,
     /// <p>The type of conference providers.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -355,31 +355,31 @@ pub struct ConferenceProvider {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Contact {
     /// <p>The ARN of the contact.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_arn: Option<String>,
     /// <p>The name of the contact to display on the console.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The first name of the contact, used to call the contact on the device.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name of the contact, used to call the contact on the device.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p>The phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The list of phone numbers for the contact.</p>
-    #[serde(rename = "PhoneNumbers")]
+    #[serde(rename = "phoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_numbers: Option<Vec<PhoneNumber>>,
     /// <p>The list of SIP addresses for the contact.</p>
-    #[serde(rename = "SipAddresses")]
+    #[serde(rename = "sipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_addresses: Option<Vec<SipAddress>>,
 }
@@ -389,31 +389,31 @@ pub struct Contact {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ContactData {
     /// <p>The ARN of the contact.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_arn: Option<String>,
     /// <p>The name of the contact to display on the console.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The first name of the contact, used to call the contact on the device.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name of the contact, used to call the contact on the device.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p>The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The list of phone numbers for the contact.</p>
-    #[serde(rename = "PhoneNumbers")]
+    #[serde(rename = "phoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_numbers: Option<Vec<PhoneNumber>>,
     /// <p>The list of SIP addresses for the contact.</p>
-    #[serde(rename = "SipAddresses")]
+    #[serde(rename = "sipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_addresses: Option<Vec<SipAddress>>,
 }
@@ -423,15 +423,15 @@ pub struct ContactData {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Content {
     /// <p>The list of audio messages.</p>
-    #[serde(rename = "AudioList")]
+    #[serde(rename = "audioList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audio_list: Option<Vec<Audio>>,
     /// <p>The list of SSML messages.</p>
-    #[serde(rename = "SsmlList")]
+    #[serde(rename = "ssmlList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssml_list: Option<Vec<Ssml>>,
     /// <p>The list of text messages.</p>
-    #[serde(rename = "TextList")]
+    #[serde(rename = "textList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_list: Option<Vec<Text>>,
 }
@@ -440,18 +440,18 @@ pub struct Content {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAddressBookRequest {
     /// <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The description of the address book.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the address book.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to be added to the specified resource. Do not provide system tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -460,7 +460,7 @@ pub struct CreateAddressBookRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAddressBookResponse {
     /// <p>The ARN of the newly created address book.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_book_arn: Option<String>,
 }
@@ -469,33 +469,33 @@ pub struct CreateAddressBookResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateBusinessReportScheduleRequest {
     /// <p>The client request token.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The content range of the reports.</p>
-    #[serde(rename = "ContentRange")]
+    #[serde(rename = "contentRange")]
     pub content_range: BusinessReportContentRange,
     /// <p>The format of the generated report (individual CSV files or zipped files of individual files).</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>The recurrence of the reports. If this isn't specified, the report will only be delivered one time when the API is called. </p>
-    #[serde(rename = "Recurrence")]
+    #[serde(rename = "recurrence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurrence: Option<BusinessReportRecurrence>,
     /// <p>The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule. </p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The S3 key where the report is delivered.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>The name identifier of the schedule.</p>
-    #[serde(rename = "ScheduleName")]
+    #[serde(rename = "scheduleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_name: Option<String>,
     /// <p>The tags for the business report schedule.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -504,7 +504,7 @@ pub struct CreateBusinessReportScheduleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateBusinessReportScheduleResponse {
     /// <p>The ARN of the business report schedule.</p>
-    #[serde(rename = "ScheduleArn")]
+    #[serde(rename = "scheduleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_arn: Option<String>,
 }
@@ -513,28 +513,28 @@ pub struct CreateBusinessReportScheduleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConferenceProviderRequest {
     /// <p>The request token of the client.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The name of the conference provider.</p>
-    #[serde(rename = "ConferenceProviderName")]
+    #[serde(rename = "conferenceProviderName")]
     pub conference_provider_name: String,
     /// <p>Represents a type within a list of predefined types.</p>
-    #[serde(rename = "ConferenceProviderType")]
+    #[serde(rename = "conferenceProviderType")]
     pub conference_provider_type: String,
     /// <p>The IP endpoint and protocol for calling.</p>
-    #[serde(rename = "IPDialIn")]
+    #[serde(rename = "iPDialIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_dial_in: Option<IPDialIn>,
     /// <p>The meeting settings for the conference provider.</p>
-    #[serde(rename = "MeetingSetting")]
+    #[serde(rename = "meetingSetting")]
     pub meeting_setting: MeetingSetting,
     /// <p>The information for PSTN conferencing.</p>
-    #[serde(rename = "PSTNDialIn")]
+    #[serde(rename = "pSTNDialIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pstn_dial_in: Option<PSTNDialIn>,
     /// <p>The tags to be added to the specified resource. Do not provide system tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -543,7 +543,7 @@ pub struct CreateConferenceProviderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConferenceProviderResponse {
     /// <p>The ARN of the newly-created conference provider.</p>
-    #[serde(rename = "ConferenceProviderArn")]
+    #[serde(rename = "conferenceProviderArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conference_provider_arn: Option<String>,
 }
@@ -552,34 +552,34 @@ pub struct CreateConferenceProviderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateContactRequest {
     /// <p>A unique, user-specified identifier for this request that ensures idempotency.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The name of the contact to display on the console.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The first name of the contact that is used to call the contact on the device.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     pub first_name: String,
     /// <p>The last name of the contact that is used to call the contact on the device.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p>The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The list of phone numbers for the contact.</p>
-    #[serde(rename = "PhoneNumbers")]
+    #[serde(rename = "phoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_numbers: Option<Vec<PhoneNumber>>,
     /// <p>The list of SIP addresses for the contact.</p>
-    #[serde(rename = "SipAddresses")]
+    #[serde(rename = "sipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_addresses: Option<Vec<SipAddress>>,
     /// <p>The tags to be added to the specified resource. Do not provide system tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -588,7 +588,7 @@ pub struct CreateContactRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateContactResponse {
     /// <p>The ARN of the newly created address book.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_arn: Option<String>,
 }
@@ -598,13 +598,13 @@ pub struct CreateContactResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEndOfMeetingReminder {
     /// <p>Whether an end of meeting reminder is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
     /// <p> A range of 3 to 15 minutes that determines when the reminder begins.</p>
-    #[serde(rename = "ReminderAtMinutes")]
+    #[serde(rename = "reminderAtMinutes")]
     pub reminder_at_minutes: Vec<i64>,
     /// <p>The type of sound that users hear during the end of meeting reminder. </p>
-    #[serde(rename = "ReminderType")]
+    #[serde(rename = "reminderType")]
     pub reminder_type: String,
 }
 
@@ -612,17 +612,17 @@ pub struct CreateEndOfMeetingReminder {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGatewayGroupRequest {
     /// <p> A unique, user-specified identifier for the request that ensures idempotency.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The description of the gateway group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the gateway group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to be added to the specified resource. Do not provide system tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -631,7 +631,7 @@ pub struct CreateGatewayGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGatewayGroupResponse {
     /// <p>The ARN of the created gateway group.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway_group_arn: Option<String>,
 }
@@ -641,10 +641,10 @@ pub struct CreateGatewayGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateInstantBooking {
     /// <p>Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.</p>
-    #[serde(rename = "DurationInMinutes")]
+    #[serde(rename = "durationInMinutes")]
     pub duration_in_minutes: i64,
     /// <p>Whether instant booking is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
 }
 
@@ -652,19 +652,19 @@ pub struct CreateInstantBooking {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMeetingRoomConfiguration {
-    #[serde(rename = "EndOfMeetingReminder")]
+    #[serde(rename = "endOfMeetingReminder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_of_meeting_reminder: Option<CreateEndOfMeetingReminder>,
     /// <p>Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.</p>
-    #[serde(rename = "InstantBooking")]
+    #[serde(rename = "instantBooking")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instant_booking: Option<CreateInstantBooking>,
     /// <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”</p>
-    #[serde(rename = "RequireCheckIn")]
+    #[serde(rename = "requireCheckIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_check_in: Option<CreateRequireCheckIn>,
     /// <p>Whether room utilization metrics are enabled or not.</p>
-    #[serde(rename = "RoomUtilizationMetricsEnabled")]
+    #[serde(rename = "roomUtilizationMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_utilization_metrics_enabled: Option<bool>,
 }
@@ -673,42 +673,42 @@ pub struct CreateMeetingRoomConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateNetworkProfileRequest {
     /// <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn: Option<String>,
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The current password of the Wi-Fi network.</p>
-    #[serde(rename = "CurrentPassword")]
+    #[serde(rename = "currentPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_password: Option<String>,
     /// <p>Detailed information about a device's network profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.</p>
-    #[serde(rename = "EapMethod")]
+    #[serde(rename = "eapMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eap_method: Option<String>,
     /// <p>The name of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileName")]
+    #[serde(rename = "networkProfileName")]
     pub network_profile_name: String,
     /// <p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword. </p>
-    #[serde(rename = "NextPassword")]
+    #[serde(rename = "nextPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_password: Option<String>,
     /// <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.</p>
-    #[serde(rename = "SecurityType")]
+    #[serde(rename = "securityType")]
     pub security_type: String,
     /// <p>The SSID of the Wi-Fi network.</p>
-    #[serde(rename = "Ssid")]
+    #[serde(rename = "ssid")]
     pub ssid: String,
     /// <p>The tags to be added to the specified resource. Do not provide system tags. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The root certificates of your authentication server that is installed on your devices and used to trust your authentication server during EAP negotiation. </p>
-    #[serde(rename = "TrustAnchors")]
+    #[serde(rename = "trustAnchors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trust_anchors: Option<Vec<String>>,
 }
@@ -717,7 +717,7 @@ pub struct CreateNetworkProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateNetworkProfileResponse {
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_arn: Option<String>,
 }
@@ -726,54 +726,54 @@ pub struct CreateNetworkProfileResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProfileRequest {
     /// <p>The valid address for the room.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     pub address: String,
     /// <p>The user-specified token that is used during the creation of a profile.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>Whether data retention of the profile is enabled.</p>
-    #[serde(rename = "DataRetentionOptIn")]
+    #[serde(rename = "dataRetentionOptIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_retention_opt_in: Option<bool>,
     /// <p>The distance unit to be used by devices in the profile.</p>
-    #[serde(rename = "DistanceUnit")]
+    #[serde(rename = "distanceUnit")]
     pub distance_unit: String,
     /// <p>The locale of the room profile. (This is currently only available to a limited preview audience.)</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
     /// <p>The maximum volume limit for a room profile.</p>
-    #[serde(rename = "MaxVolumeLimit")]
+    #[serde(rename = "maxVolumeLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_volume_limit: Option<i64>,
     /// <p>The meeting room settings of a room profile.</p>
-    #[serde(rename = "MeetingRoomConfiguration")]
+    #[serde(rename = "meetingRoomConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_room_configuration: Option<CreateMeetingRoomConfiguration>,
     /// <p>Whether PSTN calling is enabled.</p>
-    #[serde(rename = "PSTNEnabled")]
+    #[serde(rename = "pSTNEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pstn_enabled: Option<bool>,
     /// <p>The name of a room profile.</p>
-    #[serde(rename = "ProfileName")]
+    #[serde(rename = "profileName")]
     pub profile_name: String,
     /// <p>Whether room profile setup is enabled.</p>
-    #[serde(rename = "SetupModeDisabled")]
+    #[serde(rename = "setupModeDisabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub setup_mode_disabled: Option<bool>,
     /// <p>The tags for the profile.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The temperature unit to be used by devices in the profile.</p>
-    #[serde(rename = "TemperatureUnit")]
+    #[serde(rename = "temperatureUnit")]
     pub temperature_unit: String,
     /// <p>The time zone used by a room profile.</p>
-    #[serde(rename = "Timezone")]
+    #[serde(rename = "timezone")]
     pub timezone: String,
     /// <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
-    #[serde(rename = "WakeWord")]
+    #[serde(rename = "wakeWord")]
     pub wake_word: String,
 }
 
@@ -781,7 +781,7 @@ pub struct CreateProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProfileResponse {
     /// <p>The ARN of the newly created room profile in the response.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
 }
@@ -791,10 +791,10 @@ pub struct CreateProfileResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRequireCheckIn {
     /// <p>Whether require check in is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
     /// <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.</p>
-    #[serde(rename = "ReleaseAfterMinutes")]
+    #[serde(rename = "releaseAfterMinutes")]
     pub release_after_minutes: i64,
 }
 
@@ -802,26 +802,26 @@ pub struct CreateRequireCheckIn {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRoomRequest {
     /// <p>A unique, user-specified identifier for this request that ensures idempotency. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The description for the room.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The profile ARN for the room. This is required.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The calendar ARN for the room.</p>
-    #[serde(rename = "ProviderCalendarId")]
+    #[serde(rename = "providerCalendarId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_calendar_id: Option<String>,
     /// <p>The name for the room.</p>
-    #[serde(rename = "RoomName")]
+    #[serde(rename = "roomName")]
     pub room_name: String,
     /// <p>The tags for the room.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -830,7 +830,7 @@ pub struct CreateRoomRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRoomResponse {
     /// <p>The ARN of the newly created room in the response.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
 }
@@ -839,18 +839,18 @@ pub struct CreateRoomResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSkillGroupRequest {
     /// <p>A unique, user-specified identifier for this request that ensures idempotency. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The description for the skill group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name for the skill group.</p>
-    #[serde(rename = "SkillGroupName")]
+    #[serde(rename = "skillGroupName")]
     pub skill_group_name: String,
     /// <p>The tags for the skill group.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -859,7 +859,7 @@ pub struct CreateSkillGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSkillGroupResponse {
     /// <p>The ARN of the newly created skill group in the response.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
 }
@@ -868,27 +868,27 @@ pub struct CreateSkillGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>A unique, user-specified identifier for this request that ensures idempotency. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The email address for the user.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The first name for the user.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name for the user.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p>The tags for the user.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The ARN for the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -896,7 +896,7 @@ pub struct CreateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserResponse {
     /// <p>The ARN of the newly created user in the response.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }
@@ -905,7 +905,7 @@ pub struct CreateUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAddressBookRequest {
     /// <p>The ARN of the address book to delete.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     pub address_book_arn: String,
 }
 
@@ -917,7 +917,7 @@ pub struct DeleteAddressBookResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteBusinessReportScheduleRequest {
     /// <p>The ARN of the business report schedule.</p>
-    #[serde(rename = "ScheduleArn")]
+    #[serde(rename = "scheduleArn")]
     pub schedule_arn: String,
 }
 
@@ -929,7 +929,7 @@ pub struct DeleteBusinessReportScheduleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConferenceProviderRequest {
     /// <p>The ARN of the conference provider.</p>
-    #[serde(rename = "ConferenceProviderArn")]
+    #[serde(rename = "conferenceProviderArn")]
     pub conference_provider_arn: String,
 }
 
@@ -941,7 +941,7 @@ pub struct DeleteConferenceProviderResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteContactRequest {
     /// <p>The ARN of the contact to delete.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     pub contact_arn: String,
 }
 
@@ -953,7 +953,7 @@ pub struct DeleteContactResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDeviceRequest {
     /// <p>The ARN of the device for which to request details.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     pub device_arn: String,
 }
 
@@ -965,10 +965,10 @@ pub struct DeleteDeviceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDeviceUsageDataRequest {
     /// <p>The ARN of the device.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     pub device_arn: String,
     /// <p>The type of usage data to delete.</p>
-    #[serde(rename = "DeviceUsageType")]
+    #[serde(rename = "deviceUsageType")]
     pub device_usage_type: String,
 }
 
@@ -980,7 +980,7 @@ pub struct DeleteDeviceUsageDataResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGatewayGroupRequest {
     /// <p>The ARN of the gateway group to delete.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     pub gateway_group_arn: String,
 }
 
@@ -992,7 +992,7 @@ pub struct DeleteGatewayGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteNetworkProfileRequest {
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     pub network_profile_arn: String,
 }
 
@@ -1004,7 +1004,7 @@ pub struct DeleteNetworkProfileResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProfileRequest {
     /// <p>The ARN of the room profile to delete. Required.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
 }
@@ -1017,7 +1017,7 @@ pub struct DeleteProfileResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRoomRequest {
     /// <p>The ARN of the room to delete. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
 }
@@ -1030,14 +1030,14 @@ pub struct DeleteRoomResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRoomSkillParameterRequest {
     /// <p>The room skill parameter key for which to remove details.</p>
-    #[serde(rename = "ParameterKey")]
+    #[serde(rename = "parameterKey")]
     pub parameter_key: String,
     /// <p>The ARN of the room from which to remove the room skill parameter details.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The ID of the skill from which to remove the room skill parameter details.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -1049,11 +1049,11 @@ pub struct DeleteRoomSkillParameterResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSkillAuthorizationRequest {
     /// <p>The room that the skill is authorized for.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The unique identifier of a skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -1065,7 +1065,7 @@ pub struct DeleteSkillAuthorizationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSkillGroupRequest {
     /// <p>The ARN of the skill group to delete. Required.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
 }
@@ -1078,10 +1078,10 @@ pub struct DeleteSkillGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The ARN of the user's enrollment in the organization. Required.</p>
-    #[serde(rename = "EnrollmentId")]
+    #[serde(rename = "enrollmentId")]
     pub enrollment_id: String,
     /// <p>The ARN of the user to delete in the organization. Required.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }
@@ -1095,19 +1095,19 @@ pub struct DeleteUserResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeveloperInfo {
     /// <p>The name of the developer.</p>
-    #[serde(rename = "DeveloperName")]
+    #[serde(rename = "developerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub developer_name: Option<String>,
     /// <p>The email of the developer.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The URL of the privacy policy.</p>
-    #[serde(rename = "PrivacyPolicy")]
+    #[serde(rename = "privacyPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub privacy_policy: Option<String>,
     /// <p>The website of the developer.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -1117,43 +1117,43 @@ pub struct DeveloperInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Device {
     /// <p>The ARN of a device.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
     /// <p>The name of a device.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The serial number of a device.</p>
-    #[serde(rename = "DeviceSerialNumber")]
+    #[serde(rename = "deviceSerialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_serial_number: Option<String>,
     /// <p>The status of a device. If the status is not READY, check the DeviceStatusInfo value for details.</p>
-    #[serde(rename = "DeviceStatus")]
+    #[serde(rename = "deviceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_status: Option<String>,
     /// <p>Detailed information about a device's status.</p>
-    #[serde(rename = "DeviceStatusInfo")]
+    #[serde(rename = "deviceStatusInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_status_info: Option<DeviceStatusInfo>,
     /// <p>The type of a device.</p>
-    #[serde(rename = "DeviceType")]
+    #[serde(rename = "deviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type: Option<String>,
     /// <p>The MAC address of a device.</p>
-    #[serde(rename = "MacAddress")]
+    #[serde(rename = "macAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mac_address: Option<String>,
     /// <p>Detailed information about a device's network profile.</p>
-    #[serde(rename = "NetworkProfileInfo")]
+    #[serde(rename = "networkProfileInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_info: Option<DeviceNetworkProfileInfo>,
     /// <p>The room ARN of a device.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The software version of a device.</p>
-    #[serde(rename = "SoftwareVersion")]
+    #[serde(rename = "softwareVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_version: Option<String>,
 }
@@ -1163,55 +1163,55 @@ pub struct Device {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceData {
     /// <p>The time (in epoch) when the device data was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ARN of a device.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
     /// <p>The name of a device.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The serial number of a device.</p>
-    #[serde(rename = "DeviceSerialNumber")]
+    #[serde(rename = "deviceSerialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_serial_number: Option<String>,
     /// <p>The status of a device.</p>
-    #[serde(rename = "DeviceStatus")]
+    #[serde(rename = "deviceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_status: Option<String>,
     /// <p>Detailed information about a device's status.</p>
-    #[serde(rename = "DeviceStatusInfo")]
+    #[serde(rename = "deviceStatusInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_status_info: Option<DeviceStatusInfo>,
     /// <p>The type of a device.</p>
-    #[serde(rename = "DeviceType")]
+    #[serde(rename = "deviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type: Option<String>,
     /// <p>The MAC address of a device.</p>
-    #[serde(rename = "MacAddress")]
+    #[serde(rename = "macAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mac_address: Option<String>,
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_arn: Option<String>,
     /// <p>The name of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileName")]
+    #[serde(rename = "networkProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_name: Option<String>,
     /// <p>The room ARN associated with a device.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The name of the room associated with a device.</p>
-    #[serde(rename = "RoomName")]
+    #[serde(rename = "roomName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_name: Option<String>,
     /// <p>The software version of a device.</p>
-    #[serde(rename = "SoftwareVersion")]
+    #[serde(rename = "softwareVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_version: Option<String>,
 }
@@ -1221,15 +1221,15 @@ pub struct DeviceData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceEvent {
     /// <p>The time (in epoch) when the event occurred. </p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
     /// <p>The type of device event.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The value of the event.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1239,15 +1239,15 @@ pub struct DeviceEvent {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceNetworkProfileInfo {
     /// <p>The ARN of the certificate associated with a device.</p>
-    #[serde(rename = "CertificateArn")]
+    #[serde(rename = "certificateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_arn: Option<String>,
     /// <p>The time (in epoch) when the certificate expires.</p>
-    #[serde(rename = "CertificateExpirationTime")]
+    #[serde(rename = "certificateExpirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_expiration_time: Option<f64>,
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_arn: Option<String>,
 }
@@ -1257,11 +1257,11 @@ pub struct DeviceNetworkProfileInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceStatusDetail {
     /// <p>The device status detail code.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>The list of available features on the device.</p>
-    #[serde(rename = "Feature")]
+    #[serde(rename = "feature")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feature: Option<String>,
 }
@@ -1271,15 +1271,15 @@ pub struct DeviceStatusDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceStatusInfo {
     /// <p>The latest available information about the connection status of a device. </p>
-    #[serde(rename = "ConnectionStatus")]
+    #[serde(rename = "connectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_status: Option<String>,
     /// <p>The time (in epoch) when the device connection status changed.</p>
-    #[serde(rename = "ConnectionStatusUpdatedTime")]
+    #[serde(rename = "connectionStatusUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_status_updated_time: Option<f64>,
     /// <p>One or more device status detail descriptions.</p>
-    #[serde(rename = "DeviceStatusDetails")]
+    #[serde(rename = "deviceStatusDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_status_details: Option<Vec<DeviceStatusDetail>>,
 }
@@ -1288,10 +1288,10 @@ pub struct DeviceStatusInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateContactFromAddressBookRequest {
     /// <p>The ARN of the address from which to disassociate the contact.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     pub address_book_arn: String,
     /// <p>The ARN of the contact to disassociate from an address book.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     pub contact_arn: String,
 }
 
@@ -1303,7 +1303,7 @@ pub struct DisassociateContactFromAddressBookResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateDeviceFromRoomRequest {
     /// <p>The ARN of the device to disassociate from a room. Required.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
 }
@@ -1316,11 +1316,11 @@ pub struct DisassociateDeviceFromRoomResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateSkillFromSkillGroupRequest {
     /// <p>The unique identifier of a skill. Required.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
     /// <p>The ARN of a skill group to associate to a skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -1332,7 +1332,7 @@ pub struct DisassociateSkillFromSkillGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateSkillFromUsersRequest {
     /// <p> The private skill ID you want to make unavailable for enrolled users.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -1344,11 +1344,11 @@ pub struct DisassociateSkillFromUsersResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateSkillGroupFromRoomRequest {
     /// <p>The ARN of the room from which the skill group is to be disassociated. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The ARN of the skill group to disassociate from a room. Required.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
 }
@@ -1362,15 +1362,15 @@ pub struct DisassociateSkillGroupFromRoomResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EndOfMeetingReminder {
     /// <p>Whether an end of meeting reminder is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>A range of 3 to 15 minutes that determines when the reminder begins.</p>
-    #[serde(rename = "ReminderAtMinutes")]
+    #[serde(rename = "reminderAtMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reminder_at_minutes: Option<Vec<i64>>,
     /// <p>The type of sound that users hear during the end of meeting reminder. </p>
-    #[serde(rename = "ReminderType")]
+    #[serde(rename = "reminderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reminder_type: Option<String>,
 }
@@ -1380,10 +1380,10 @@ pub struct EndOfMeetingReminder {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p>The key of a filter.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The values of a filter.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -1391,7 +1391,7 @@ pub struct Filter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ForgetSmartHomeAppliancesRequest {
     /// <p>The room that the appliances are associated with.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     pub room_arn: String,
 }
 
@@ -1404,23 +1404,23 @@ pub struct ForgetSmartHomeAppliancesResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Gateway {
     /// <p>The ARN of the gateway.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The description of the gateway.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the gateway group that the gateway is associated to.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway_group_arn: Option<String>,
     /// <p>The name of the gateway.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The software version of the gateway. The gateway automatically updates its software version during normal operation.</p>
-    #[serde(rename = "SoftwareVersion")]
+    #[serde(rename = "softwareVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_version: Option<String>,
 }
@@ -1430,15 +1430,15 @@ pub struct Gateway {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GatewayGroup {
     /// <p>The ARN of the gateway group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The description of the gateway group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the gateway group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1448,15 +1448,15 @@ pub struct GatewayGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GatewayGroupSummary {
     /// <p>The ARN of the gateway group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The description of the gateway group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the gateway group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1466,23 +1466,23 @@ pub struct GatewayGroupSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GatewaySummary {
     /// <p>The ARN of the gateway.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The description of the gateway.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the gateway group that the gateway is associated to.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway_group_arn: Option<String>,
     /// <p>The name of the gateway.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The software version of the gateway. The gateway automatically updates its software version during normal operation.</p>
-    #[serde(rename = "SoftwareVersion")]
+    #[serde(rename = "softwareVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_version: Option<String>,
 }
@@ -1491,7 +1491,7 @@ pub struct GatewaySummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAddressBookRequest {
     /// <p>The ARN of the address book for which to request details.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     pub address_book_arn: String,
 }
 
@@ -1499,7 +1499,7 @@ pub struct GetAddressBookRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAddressBookResponse {
     /// <p>The details of the requested address book.</p>
-    #[serde(rename = "AddressBook")]
+    #[serde(rename = "addressBook")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_book: Option<AddressBook>,
 }
@@ -1512,7 +1512,7 @@ pub struct GetConferencePreferenceRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConferencePreferenceResponse {
     /// <p>The conference preference.</p>
-    #[serde(rename = "Preference")]
+    #[serde(rename = "preference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preference: Option<ConferencePreference>,
 }
@@ -1521,7 +1521,7 @@ pub struct GetConferencePreferenceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConferenceProviderRequest {
     /// <p>The ARN of the newly created conference provider.</p>
-    #[serde(rename = "ConferenceProviderArn")]
+    #[serde(rename = "conferenceProviderArn")]
     pub conference_provider_arn: String,
 }
 
@@ -1529,7 +1529,7 @@ pub struct GetConferenceProviderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConferenceProviderResponse {
     /// <p>The conference provider.</p>
-    #[serde(rename = "ConferenceProvider")]
+    #[serde(rename = "conferenceProvider")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conference_provider: Option<ConferenceProvider>,
 }
@@ -1538,7 +1538,7 @@ pub struct GetConferenceProviderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetContactRequest {
     /// <p>The ARN of the contact for which to request details.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     pub contact_arn: String,
 }
 
@@ -1546,7 +1546,7 @@ pub struct GetContactRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetContactResponse {
     /// <p>The details of the requested contact.</p>
-    #[serde(rename = "Contact")]
+    #[serde(rename = "contact")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact: Option<Contact>,
 }
@@ -1555,7 +1555,7 @@ pub struct GetContactResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeviceRequest {
     /// <p>The ARN of the device for which to request details. Required.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
 }
@@ -1564,7 +1564,7 @@ pub struct GetDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeviceResponse {
     /// <p>The details of the device requested. Required.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<Device>,
 }
@@ -1573,14 +1573,14 @@ pub struct GetDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGatewayGroupRequest {
     /// <p>The ARN of the gateway group to get.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     pub gateway_group_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGatewayGroupResponse {
-    #[serde(rename = "GatewayGroup")]
+    #[serde(rename = "gatewayGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway_group: Option<GatewayGroup>,
 }
@@ -1589,7 +1589,7 @@ pub struct GetGatewayGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGatewayRequest {
     /// <p>The ARN of the gateway to get.</p>
-    #[serde(rename = "GatewayArn")]
+    #[serde(rename = "gatewayArn")]
     pub gateway_arn: String,
 }
 
@@ -1597,7 +1597,7 @@ pub struct GetGatewayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGatewayResponse {
     /// <p>The details of the gateway.</p>
-    #[serde(rename = "Gateway")]
+    #[serde(rename = "gateway")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway: Option<Gateway>,
 }
@@ -1610,15 +1610,15 @@ pub struct GetInvitationConfigurationRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInvitationConfigurationResponse {
     /// <p>The email ID of the organization or individual contact that the enrolled user can use. </p>
-    #[serde(rename = "ContactEmail")]
+    #[serde(rename = "contactEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_email: Option<String>,
     /// <p>The name of the organization sending the enrollment invite to a user.</p>
-    #[serde(rename = "OrganizationName")]
+    #[serde(rename = "organizationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_name: Option<String>,
     /// <p>The list of private skill IDs that you want to recommend to the user to enable in the invitation.</p>
-    #[serde(rename = "PrivateSkillIds")]
+    #[serde(rename = "privateSkillIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_skill_ids: Option<Vec<String>>,
 }
@@ -1627,7 +1627,7 @@ pub struct GetInvitationConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetNetworkProfileRequest {
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     pub network_profile_arn: String,
 }
 
@@ -1635,7 +1635,7 @@ pub struct GetNetworkProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetNetworkProfileResponse {
     /// <p>The network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfile")]
+    #[serde(rename = "networkProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile: Option<NetworkProfile>,
 }
@@ -1644,7 +1644,7 @@ pub struct GetNetworkProfileResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProfileRequest {
     /// <p>The ARN of the room profile for which to request details. Required.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
 }
@@ -1653,7 +1653,7 @@ pub struct GetProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProfileResponse {
     /// <p>The details of the room profile requested. Required.</p>
-    #[serde(rename = "Profile")]
+    #[serde(rename = "profile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile: Option<Profile>,
 }
@@ -1662,7 +1662,7 @@ pub struct GetProfileResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRoomRequest {
     /// <p>The ARN of the room for which to request details. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
 }
@@ -1671,7 +1671,7 @@ pub struct GetRoomRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRoomResponse {
     /// <p>The details of the room requested.</p>
-    #[serde(rename = "Room")]
+    #[serde(rename = "room")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room: Option<Room>,
 }
@@ -1680,14 +1680,14 @@ pub struct GetRoomResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRoomSkillParameterRequest {
     /// <p>The room skill parameter key for which to get details. Required.</p>
-    #[serde(rename = "ParameterKey")]
+    #[serde(rename = "parameterKey")]
     pub parameter_key: String,
     /// <p>The ARN of the room from which to get the room skill parameter details. </p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The ARN of the skill from which to get the room skill parameter details. Required.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -1695,7 +1695,7 @@ pub struct GetRoomSkillParameterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRoomSkillParameterResponse {
     /// <p>The details of the room skill parameter requested. Required.</p>
-    #[serde(rename = "RoomSkillParameter")]
+    #[serde(rename = "roomSkillParameter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_skill_parameter: Option<RoomSkillParameter>,
 }
@@ -1704,7 +1704,7 @@ pub struct GetRoomSkillParameterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSkillGroupRequest {
     /// <p>The ARN of the skill group for which to get details. Required.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
 }
@@ -1713,7 +1713,7 @@ pub struct GetSkillGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSkillGroupResponse {
     /// <p>The details of the skill group requested. Required.</p>
-    #[serde(rename = "SkillGroup")]
+    #[serde(rename = "skillGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group: Option<SkillGroup>,
 }
@@ -1722,10 +1722,10 @@ pub struct GetSkillGroupResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct IPDialIn {
     /// <p>The protocol, including SIP, SIPS, and H323.</p>
-    #[serde(rename = "CommsProtocol")]
+    #[serde(rename = "commsProtocol")]
     pub comms_protocol: String,
     /// <p>The IP address.</p>
-    #[serde(rename = "Endpoint")]
+    #[serde(rename = "endpoint")]
     pub endpoint: String,
 }
 
@@ -1734,11 +1734,11 @@ pub struct IPDialIn {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstantBooking {
     /// <p>Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa. </p>
-    #[serde(rename = "DurationInMinutes")]
+    #[serde(rename = "durationInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_in_minutes: Option<i64>,
     /// <p>Whether instant booking is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -1747,11 +1747,11 @@ pub struct InstantBooking {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListBusinessReportSchedulesRequest {
     /// <p>The maximum number of schedules listed in the call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token used to list the remaining schedules from the previous API call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1760,11 +1760,11 @@ pub struct ListBusinessReportSchedulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListBusinessReportSchedulesResponse {
     /// <p>The schedule of the reports.</p>
-    #[serde(rename = "BusinessReportSchedules")]
+    #[serde(rename = "businessReportSchedules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub business_report_schedules: Option<Vec<BusinessReportSchedule>>,
     /// <p>The token used to list the remaining schedules from the previous API call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1773,11 +1773,11 @@ pub struct ListBusinessReportSchedulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConferenceProvidersRequest {
     /// <p>The maximum number of conference providers to be returned, per paginated calls.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1786,11 +1786,11 @@ pub struct ListConferenceProvidersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConferenceProvidersResponse {
     /// <p>The conference providers.</p>
-    #[serde(rename = "ConferenceProviders")]
+    #[serde(rename = "conferenceProviders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conference_providers: Option<Vec<ConferenceProvider>>,
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1799,18 +1799,18 @@ pub struct ListConferenceProvidersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDeviceEventsRequest {
     /// <p>The ARN of a device.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     pub device_arn: String,
     /// <p>The event type to filter device events. If EventType isn't specified, this returns a list of all device events in reverse chronological order. If EventType is specified, this returns a list of device events for that EventType in reverse chronological order. </p>
-    #[serde(rename = "EventType")]
+    #[serde(rename = "eventType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type: Option<String>,
     /// <p>The maximum number of results to include in the response. The default value is 50. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults. When the end of results is reached, the response has a value of null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1819,11 +1819,11 @@ pub struct ListDeviceEventsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDeviceEventsResponse {
     /// <p>The device events requested for the device ARN.</p>
-    #[serde(rename = "DeviceEvents")]
+    #[serde(rename = "deviceEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_events: Option<Vec<DeviceEvent>>,
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1832,11 +1832,11 @@ pub struct ListDeviceEventsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGatewayGroupsRequest {
     /// <p>The maximum number of gateway group summaries to return. The default is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token used to paginate though multiple pages of gateway group summaries.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1845,11 +1845,11 @@ pub struct ListGatewayGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGatewayGroupsResponse {
     /// <p>The gateway groups in the list.</p>
-    #[serde(rename = "GatewayGroups")]
+    #[serde(rename = "gatewayGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway_groups: Option<Vec<GatewayGroupSummary>>,
     /// <p>The token used to paginate though multiple pages of gateway group summaries.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1858,15 +1858,15 @@ pub struct ListGatewayGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGatewaysRequest {
     /// <p>The gateway group ARN for which to list gateways.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateway_group_arn: Option<String>,
     /// <p>The maximum number of gateway summaries to return. The default is 50.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token used to paginate though multiple pages of gateway summaries.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1875,11 +1875,11 @@ pub struct ListGatewaysRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGatewaysResponse {
     /// <p>The gateways in the list.</p>
-    #[serde(rename = "Gateways")]
+    #[serde(rename = "gateways")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gateways: Option<Vec<GatewaySummary>>,
     /// <p>The token used to paginate though multiple pages of gateway summaries.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1888,23 +1888,23 @@ pub struct ListGatewaysResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSkillsRequest {
     /// <p>Whether the skill is enabled under the user's account.</p>
-    #[serde(rename = "EnablementType")]
+    #[serde(rename = "enablementType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enablement_type: Option<String>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARN of the skill group for which to list enabled skills.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
     /// <p>Whether the skill is publicly available or is a private skill.</p>
-    #[serde(rename = "SkillType")]
+    #[serde(rename = "skillType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_type: Option<String>,
 }
@@ -1913,11 +1913,11 @@ pub struct ListSkillsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSkillsResponse {
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of enabled skills requested. Required.</p>
-    #[serde(rename = "SkillSummaries")]
+    #[serde(rename = "skillSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_summaries: Option<Vec<SkillSummary>>,
 }
@@ -1926,11 +1926,11 @@ pub struct ListSkillsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSkillsStoreCategoriesRequest {
     /// <p>The maximum number of categories returned, per paginated calls.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1939,11 +1939,11 @@ pub struct ListSkillsStoreCategoriesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSkillsStoreCategoriesResponse {
     /// <p>The list of categories.</p>
-    #[serde(rename = "CategoryList")]
+    #[serde(rename = "categoryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub category_list: Option<Vec<Category>>,
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1952,14 +1952,14 @@ pub struct ListSkillsStoreCategoriesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSkillsStoreSkillsByCategoryRequest {
     /// <p>The category ID for which the skills are being retrieved from the skill store.</p>
-    #[serde(rename = "CategoryId")]
+    #[serde(rename = "categoryId")]
     pub category_id: i64,
     /// <p>The maximum number of skills returned per paginated calls.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1968,11 +1968,11 @@ pub struct ListSkillsStoreSkillsByCategoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSkillsStoreSkillsByCategoryResponse {
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The skill store skills.</p>
-    #[serde(rename = "SkillsStoreSkills")]
+    #[serde(rename = "skillsStoreSkills")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skills_store_skills: Option<Vec<SkillsStoreSkill>>,
 }
@@ -1981,15 +1981,15 @@ pub struct ListSkillsStoreSkillsByCategoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSmartHomeAppliancesRequest {
     /// <p>The maximum number of appliances to be returned, per paginated calls.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The room that the appliances are associated with.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     pub room_arn: String,
 }
 
@@ -1997,11 +1997,11 @@ pub struct ListSmartHomeAppliancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSmartHomeAppliancesResponse {
     /// <p>The tokens used for pagination.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The smart home appliances.</p>
-    #[serde(rename = "SmartHomeAppliances")]
+    #[serde(rename = "smartHomeAppliances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub smart_home_appliances: Option<Vec<SmartHomeAppliance>>,
 }
@@ -2010,14 +2010,14 @@ pub struct ListSmartHomeAppliancesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>The ARN of the specified resource for which to list tags.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2026,11 +2026,11 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The tags requested for the specified resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2040,19 +2040,19 @@ pub struct ListTagsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MeetingRoomConfiguration {
     /// <p>Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
-    #[serde(rename = "EndOfMeetingReminder")]
+    #[serde(rename = "endOfMeetingReminder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_of_meeting_reminder: Option<EndOfMeetingReminder>,
     /// <p>Settings to automatically book the room if available for a configured duration when joining a meeting with Alexa. </p>
-    #[serde(rename = "InstantBooking")]
+    #[serde(rename = "instantBooking")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instant_booking: Option<InstantBooking>,
     /// <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into. This makes the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.” </p>
-    #[serde(rename = "RequireCheckIn")]
+    #[serde(rename = "requireCheckIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_check_in: Option<RequireCheckIn>,
     /// <p>Whether room utilization metrics are enabled or not.</p>
-    #[serde(rename = "RoomUtilizationMetricsEnabled")]
+    #[serde(rename = "roomUtilizationMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_utilization_metrics_enabled: Option<bool>,
 }
@@ -2061,7 +2061,7 @@ pub struct MeetingRoomConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MeetingSetting {
     /// <p>The values that indicate whether the pin is always required.</p>
-    #[serde(rename = "RequirePin")]
+    #[serde(rename = "requirePin")]
     pub require_pin: String,
 }
 
@@ -2070,43 +2070,43 @@ pub struct MeetingSetting {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkProfile {
     /// <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn: Option<String>,
     /// <p>The current password of the Wi-Fi network.</p>
-    #[serde(rename = "CurrentPassword")]
+    #[serde(rename = "currentPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_password: Option<String>,
     /// <p>Detailed information about a device's network profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported. </p>
-    #[serde(rename = "EapMethod")]
+    #[serde(rename = "eapMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eap_method: Option<String>,
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_arn: Option<String>,
     /// <p>The name of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileName")]
+    #[serde(rename = "networkProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_name: Option<String>,
     /// <p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword. </p>
-    #[serde(rename = "NextPassword")]
+    #[serde(rename = "nextPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_password: Option<String>,
     /// <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.</p>
-    #[serde(rename = "SecurityType")]
+    #[serde(rename = "securityType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_type: Option<String>,
     /// <p>The SSID of the Wi-Fi network.</p>
-    #[serde(rename = "Ssid")]
+    #[serde(rename = "ssid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssid: Option<String>,
     /// <p>The root certificates of your authentication server, which is installed on your devices and used to trust your authentication server during EAP negotiation.</p>
-    #[serde(rename = "TrustAnchors")]
+    #[serde(rename = "trustAnchors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trust_anchors: Option<Vec<String>>,
 }
@@ -2116,31 +2116,31 @@ pub struct NetworkProfile {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkProfileData {
     /// <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.</p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn: Option<String>,
     /// <p>Detailed information about a device's network profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.</p>
-    #[serde(rename = "EapMethod")]
+    #[serde(rename = "eapMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eap_method: Option<String>,
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_arn: Option<String>,
     /// <p>The name of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileName")]
+    #[serde(rename = "networkProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_name: Option<String>,
     /// <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.</p>
-    #[serde(rename = "SecurityType")]
+    #[serde(rename = "securityType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_type: Option<String>,
     /// <p>The SSID of the Wi-Fi network.</p>
-    #[serde(rename = "Ssid")]
+    #[serde(rename = "ssid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssid: Option<String>,
 }
@@ -2149,16 +2149,16 @@ pub struct NetworkProfileData {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PSTNDialIn {
     /// <p>The zip code.</p>
-    #[serde(rename = "CountryCode")]
+    #[serde(rename = "countryCode")]
     pub country_code: String,
     /// <p>The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-    #[serde(rename = "OneClickIdDelay")]
+    #[serde(rename = "oneClickIdDelay")]
     pub one_click_id_delay: String,
     /// <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-    #[serde(rename = "OneClickPinDelay")]
+    #[serde(rename = "oneClickPinDelay")]
     pub one_click_pin_delay: String,
     /// <p>The phone number to call to join the conference.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     pub phone_number: String,
 }
 
@@ -2166,10 +2166,10 @@ pub struct PSTNDialIn {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PhoneNumber {
     /// <p>The raw value of the phone number.</p>
-    #[serde(rename = "Number")]
+    #[serde(rename = "number")]
     pub number: String,
     /// <p>The type of the phone number.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -2178,63 +2178,63 @@ pub struct PhoneNumber {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Profile {
     /// <p>The address of a room profile.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
     /// <p>The ARN of the address book.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_book_arn: Option<String>,
     /// <p>Whether data retention of the profile is enabled.</p>
-    #[serde(rename = "DataRetentionOptIn")]
+    #[serde(rename = "dataRetentionOptIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_retention_opt_in: Option<bool>,
     /// <p>The distance unit of a room profile.</p>
-    #[serde(rename = "DistanceUnit")]
+    #[serde(rename = "distanceUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distance_unit: Option<String>,
     /// <p>Retrieves if the profile is default or not.</p>
-    #[serde(rename = "IsDefault")]
+    #[serde(rename = "isDefault")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_default: Option<bool>,
     /// <p>The locale of a room profile. (This is currently available only to a limited preview audience.)</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
     /// <p>The max volume limit of a room profile.</p>
-    #[serde(rename = "MaxVolumeLimit")]
+    #[serde(rename = "maxVolumeLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_volume_limit: Option<i64>,
     /// <p>Meeting room settings of a room profile.</p>
-    #[serde(rename = "MeetingRoomConfiguration")]
+    #[serde(rename = "meetingRoomConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_room_configuration: Option<MeetingRoomConfiguration>,
     /// <p>The PSTN setting of a room profile.</p>
-    #[serde(rename = "PSTNEnabled")]
+    #[serde(rename = "pSTNEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pstn_enabled: Option<bool>,
     /// <p>The ARN of a room profile.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The name of a room profile.</p>
-    #[serde(rename = "ProfileName")]
+    #[serde(rename = "profileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_name: Option<String>,
     /// <p>The setup mode of a room profile.</p>
-    #[serde(rename = "SetupModeDisabled")]
+    #[serde(rename = "setupModeDisabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub setup_mode_disabled: Option<bool>,
     /// <p>The temperature unit of a room profile.</p>
-    #[serde(rename = "TemperatureUnit")]
+    #[serde(rename = "temperatureUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub temperature_unit: Option<String>,
     /// <p>The time zone of a room profile.</p>
-    #[serde(rename = "Timezone")]
+    #[serde(rename = "timezone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timezone: Option<String>,
     /// <p>The wake word of a room profile.</p>
-    #[serde(rename = "WakeWord")]
+    #[serde(rename = "wakeWord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wake_word: Option<String>,
 }
@@ -2244,39 +2244,39 @@ pub struct Profile {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProfileData {
     /// <p>The address of a room profile.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
     /// <p>The distance unit of a room profile.</p>
-    #[serde(rename = "DistanceUnit")]
+    #[serde(rename = "distanceUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distance_unit: Option<String>,
     /// <p>Retrieves if the profile data is default or not.</p>
-    #[serde(rename = "IsDefault")]
+    #[serde(rename = "isDefault")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_default: Option<bool>,
     /// <p>The locale of a room profile. (This is currently available only to a limited preview audience.)</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
     /// <p>The ARN of a room profile.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The name of a room profile.</p>
-    #[serde(rename = "ProfileName")]
+    #[serde(rename = "profileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_name: Option<String>,
     /// <p>The temperature unit of a room profile.</p>
-    #[serde(rename = "TemperatureUnit")]
+    #[serde(rename = "temperatureUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub temperature_unit: Option<String>,
     /// <p>The time zone of a room profile.</p>
-    #[serde(rename = "Timezone")]
+    #[serde(rename = "timezone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timezone: Option<String>,
     /// <p>The wake word of a room profile.</p>
-    #[serde(rename = "WakeWord")]
+    #[serde(rename = "wakeWord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wake_word: Option<String>,
 }
@@ -2285,7 +2285,7 @@ pub struct ProfileData {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConferencePreferenceRequest {
     /// <p>The conference preference of a specific conference provider.</p>
-    #[serde(rename = "ConferencePreference")]
+    #[serde(rename = "conferencePreference")]
     pub conference_preference: ConferencePreference,
 }
 
@@ -2297,14 +2297,14 @@ pub struct PutConferencePreferenceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutInvitationConfigurationRequest {
     /// <p>The email ID of the organization or individual contact that the enrolled user can use. </p>
-    #[serde(rename = "ContactEmail")]
+    #[serde(rename = "contactEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_email: Option<String>,
     /// <p>The name of the organization sending the enrollment invite to a user.</p>
-    #[serde(rename = "OrganizationName")]
+    #[serde(rename = "organizationName")]
     pub organization_name: String,
     /// <p>The list of private skill IDs that you want to recommend to the user to enable in the invitation.</p>
-    #[serde(rename = "PrivateSkillIds")]
+    #[serde(rename = "privateSkillIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_skill_ids: Option<Vec<String>>,
 }
@@ -2317,14 +2317,14 @@ pub struct PutInvitationConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRoomSkillParameterRequest {
     /// <p>The ARN of the room associated with the room skill parameter. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The updated room skill parameter. Required.</p>
-    #[serde(rename = "RoomSkillParameter")]
+    #[serde(rename = "roomSkillParameter")]
     pub room_skill_parameter: RoomSkillParameter,
     /// <p>The ARN of the skill associated with the room skill parameter. Required.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -2336,14 +2336,14 @@ pub struct PutRoomSkillParameterResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSkillAuthorizationRequest {
     /// <p>The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.</p>
-    #[serde(rename = "AuthorizationResult")]
+    #[serde(rename = "authorizationResult")]
     pub authorization_result: ::std::collections::HashMap<String, String>,
     /// <p>The room that the skill is authorized for.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The unique identifier of a skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -2355,28 +2355,28 @@ pub struct PutSkillAuthorizationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterAVSDeviceRequest {
     /// <p>The device type ID for your AVS device generated by Amazon when the OEM creates a new product on Amazon's Developer Console.</p>
-    #[serde(rename = "AmazonId")]
+    #[serde(rename = "amazonId")]
     pub amazon_id: String,
     /// <p>The client ID of the OEM used for code-based linking authorization on an AVS device.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p>The key generated by the OEM that uniquely identifies a specified instance of your AVS device.</p>
-    #[serde(rename = "DeviceSerialNumber")]
+    #[serde(rename = "deviceSerialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_serial_number: Option<String>,
     /// <p>The product ID used to identify your AVS device during authorization.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The Amazon Resource Name (ARN) of the room with which to associate your AVS device.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The tags to be added to the specified resource. Do not provide system tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The code that is obtained after your AVS device has made a POST request to LWA as a part of the Device Authorization Request component of the OAuth code-based linking specification.</p>
-    #[serde(rename = "UserCode")]
+    #[serde(rename = "userCode")]
     pub user_code: String,
 }
 
@@ -2384,7 +2384,7 @@ pub struct RegisterAVSDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterAVSDeviceResponse {
     /// <p>The ARN of the device.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
 }
@@ -2393,7 +2393,7 @@ pub struct RegisterAVSDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RejectSkillRequest {
     /// <p>The unique identifier of the skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
 }
 
@@ -2406,11 +2406,11 @@ pub struct RejectSkillResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RequireCheckIn {
     /// <p>Whether require check in is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into. </p>
-    #[serde(rename = "ReleaseAfterMinutes")]
+    #[serde(rename = "releaseAfterMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub release_after_minutes: Option<i64>,
 }
@@ -2419,10 +2419,10 @@ pub struct RequireCheckIn {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResolveRoomRequest {
     /// <p>The ARN of the skill that was requested. Required.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     pub skill_id: String,
     /// <p>The ARN of the user. Required.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -2430,15 +2430,15 @@ pub struct ResolveRoomRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolveRoomResponse {
     /// <p>The ARN of the room from which the skill request was invoked.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The name of the room from which the skill request was invoked.</p>
-    #[serde(rename = "RoomName")]
+    #[serde(rename = "roomName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_name: Option<String>,
     /// <p>Response to get the room profile request. Required.</p>
-    #[serde(rename = "RoomSkillParameters")]
+    #[serde(rename = "roomSkillParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_skill_parameters: Option<Vec<RoomSkillParameter>>,
 }
@@ -2447,11 +2447,11 @@ pub struct ResolveRoomResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RevokeInvitationRequest {
     /// <p>The ARN of the enrollment invitation to revoke. Required.</p>
-    #[serde(rename = "EnrollmentId")]
+    #[serde(rename = "enrollmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enrollment_id: Option<String>,
     /// <p>The ARN of the user for whom to revoke an enrollment invitation. Required.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }
@@ -2465,23 +2465,23 @@ pub struct RevokeInvitationResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Room {
     /// <p>The description of a room.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The profile ARN of a room.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The provider calendar ARN of a room.</p>
-    #[serde(rename = "ProviderCalendarId")]
+    #[serde(rename = "providerCalendarId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_calendar_id: Option<String>,
     /// <p>The ARN of a room.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The name of a room.</p>
-    #[serde(rename = "RoomName")]
+    #[serde(rename = "roomName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_name: Option<String>,
 }
@@ -2491,27 +2491,27 @@ pub struct Room {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RoomData {
     /// <p>The description of a room.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The profile ARN of a room.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The profile name of a room.</p>
-    #[serde(rename = "ProfileName")]
+    #[serde(rename = "profileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_name: Option<String>,
     /// <p>The provider calendar ARN of a room.</p>
-    #[serde(rename = "ProviderCalendarId")]
+    #[serde(rename = "providerCalendarId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_calendar_id: Option<String>,
     /// <p>The ARN of a room.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The name of a room.</p>
-    #[serde(rename = "RoomName")]
+    #[serde(rename = "roomName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_name: Option<String>,
 }
@@ -2520,10 +2520,10 @@ pub struct RoomData {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RoomSkillParameter {
     /// <p>The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.</p>
-    #[serde(rename = "ParameterKey")]
+    #[serde(rename = "parameterKey")]
     pub parameter_key: String,
     /// <p>The parameter value of a room skill parameter.</p>
-    #[serde(rename = "ParameterValue")]
+    #[serde(rename = "parameterValue")]
     pub parameter_value: String,
 }
 
@@ -2531,19 +2531,19 @@ pub struct RoomSkillParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchAddressBooksRequest {
     /// <p>The filters to use to list a specified set of address books. The supported filter key is AddressBookName.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2552,15 +2552,15 @@ pub struct SearchAddressBooksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchAddressBooksResponse {
     /// <p>The address books that meet the specified set of filter criteria, in sort order.</p>
-    #[serde(rename = "AddressBooks")]
+    #[serde(rename = "addressBooks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_books: Option<Vec<AddressBookData>>,
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The total number of address books returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2569,19 +2569,19 @@ pub struct SearchAddressBooksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchContactsRequest {
     /// <p>The filters to use to list a specified set of address books. The supported filter keys are DisplayName, FirstName, LastName, and AddressBookArns.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2590,15 +2590,15 @@ pub struct SearchContactsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchContactsResponse {
     /// <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
-    #[serde(rename = "Contacts")]
+    #[serde(rename = "contacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contacts: Option<Vec<ContactData>>,
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The total number of contacts returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2607,19 +2607,19 @@ pub struct SearchContactsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchDevicesRequest {
     /// <p>The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2628,15 +2628,15 @@ pub struct SearchDevicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchDevicesResponse {
     /// <p>The devices that meet the specified set of filter criteria, in sort order.</p>
-    #[serde(rename = "Devices")]
+    #[serde(rename = "devices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub devices: Option<Vec<DeviceData>>,
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The total number of devices returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2645,19 +2645,19 @@ pub struct SearchDevicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchNetworkProfilesRequest {
     /// <p>The filters to use to list a specified set of network profiles. Valid filters are NetworkProfileName, Ssid, and SecurityType.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use to list the specified set of network profiles. Valid sort criteria includes NetworkProfileName, Ssid, and SecurityType.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2666,15 +2666,15 @@ pub struct SearchNetworkProfilesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchNetworkProfilesResponse {
     /// <p>The network profiles that meet the specified set of filter criteria, in sort order. It is a list of NetworkProfileData objects. </p>
-    #[serde(rename = "NetworkProfiles")]
+    #[serde(rename = "networkProfiles")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profiles: Option<Vec<NetworkProfileData>>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The total number of network profiles returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2683,19 +2683,19 @@ pub struct SearchNetworkProfilesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchProfilesRequest {
     /// <p>The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required. </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2704,15 +2704,15 @@ pub struct SearchProfilesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchProfilesResponse {
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The profiles that meet the specified set of filter criteria, in sort order.</p>
-    #[serde(rename = "Profiles")]
+    #[serde(rename = "profiles")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profiles: Option<Vec<ProfileData>>,
     /// <p>The total number of room profiles returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2721,19 +2721,19 @@ pub struct SearchProfilesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchRoomsRequest {
     /// <p>The filters to use to list a specified set of rooms. The supported filter keys are RoomName and ProfileName.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the specified set of rooms. The supported sort keys are RoomName and ProfileName.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2742,15 +2742,15 @@ pub struct SearchRoomsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchRoomsResponse {
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The rooms that meet the specified set of filter criteria, in sort order.</p>
-    #[serde(rename = "Rooms")]
+    #[serde(rename = "rooms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rooms: Option<Vec<RoomData>>,
     /// <p>The total number of rooms returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2759,19 +2759,19 @@ pub struct SearchRoomsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchSkillGroupsRequest {
     /// <p>The filters to use to list a specified set of skill groups. The supported filter key is SkillGroupName. </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. Required.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the specified set of skill groups. The supported sort key is SkillGroupName. </p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2780,15 +2780,15 @@ pub struct SearchSkillGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchSkillGroupsResponse {
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The skill groups that meet the filter criteria, in sort order.</p>
-    #[serde(rename = "SkillGroups")]
+    #[serde(rename = "skillGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_groups: Option<Vec<SkillGroupData>>,
     /// <p>The total number of skill groups returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -2797,19 +2797,19 @@ pub struct SearchSkillGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchUsersRequest {
     /// <p>The filters to use for listing a specific set of users. Required. Supported filter keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. Required.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. Required.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The sort order to use in listing the filtered set of users. Required. Supported sort keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
-    #[serde(rename = "SortCriteria")]
+    #[serde(rename = "sortCriteria")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_criteria: Option<Vec<Sort>>,
 }
@@ -2818,15 +2818,15 @@ pub struct SearchUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchUsersResponse {
     /// <p>The token returned to indicate that there is more data available.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The total number of users returned.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
     /// <p>The users that meet the specified set of filter criteria, in sort order.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<UserData>>,
 }
@@ -2835,16 +2835,16 @@ pub struct SearchUsersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendAnnouncementRequest {
     /// <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     pub client_request_token: String,
     /// <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: Content,
     /// <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
-    #[serde(rename = "RoomFilters")]
+    #[serde(rename = "roomFilters")]
     pub room_filters: Vec<Filter>,
     /// <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.</p>
-    #[serde(rename = "TimeToLiveInSeconds")]
+    #[serde(rename = "timeToLiveInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_to_live_in_seconds: Option<i64>,
 }
@@ -2853,7 +2853,7 @@ pub struct SendAnnouncementRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendAnnouncementResponse {
     /// <p>The identifier of the announcement.</p>
-    #[serde(rename = "AnnouncementArn")]
+    #[serde(rename = "announcementArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub announcement_arn: Option<String>,
 }
@@ -2862,7 +2862,7 @@ pub struct SendAnnouncementResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendInvitationRequest {
     /// <p>The ARN of the user to whom to send an invitation. Required.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }
@@ -2875,10 +2875,10 @@ pub struct SendInvitationResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SipAddress {
     /// <p>The type of the SIP address.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>The URI for the SIP address.</p>
-    #[serde(rename = "Uri")]
+    #[serde(rename = "uri")]
     pub uri: String,
 }
 
@@ -2887,43 +2887,43 @@ pub struct SipAddress {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SkillDetails {
     /// <p>The details about what the skill supports organized as bullet points.</p>
-    #[serde(rename = "BulletPoints")]
+    #[serde(rename = "bulletPoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bullet_points: Option<Vec<String>>,
     /// <p>The details about the developer that published the skill.</p>
-    #[serde(rename = "DeveloperInfo")]
+    #[serde(rename = "developerInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub developer_info: Option<DeveloperInfo>,
     /// <p>The URL of the end user license agreement.</p>
-    #[serde(rename = "EndUserLicenseAgreement")]
+    #[serde(rename = "endUserLicenseAgreement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_user_license_agreement: Option<String>,
     /// <p>The generic keywords associated with the skill that can be used to find a skill.</p>
-    #[serde(rename = "GenericKeywords")]
+    #[serde(rename = "genericKeywords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub generic_keywords: Option<Vec<String>>,
     /// <p>The phrase used to trigger the skill.</p>
-    #[serde(rename = "InvocationPhrase")]
+    #[serde(rename = "invocationPhrase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_phrase: Option<String>,
     /// <p>The updates added in bullet points.</p>
-    #[serde(rename = "NewInThisVersionBulletPoints")]
+    #[serde(rename = "newInThisVersionBulletPoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub new_in_this_version_bullet_points: Option<Vec<String>>,
     /// <p>The description of the product.</p>
-    #[serde(rename = "ProductDescription")]
+    #[serde(rename = "productDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_description: Option<String>,
     /// <p>The date when the skill was released.</p>
-    #[serde(rename = "ReleaseDate")]
+    #[serde(rename = "releaseDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub release_date: Option<String>,
     /// <p> <i>This member has been deprecated.</i> </p> <p>The list of reviews for the skill, including Key and Value pair.</p>
-    #[serde(rename = "Reviews")]
+    #[serde(rename = "reviews")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reviews: Option<::std::collections::HashMap<String, String>>,
     /// <p>The types of skills.</p>
-    #[serde(rename = "SkillTypes")]
+    #[serde(rename = "skillTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_types: Option<Vec<String>>,
 }
@@ -2933,15 +2933,15 @@ pub struct SkillDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SkillGroup {
     /// <p>The description of a skill group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of a skill group.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
     /// <p>The name of a skill group.</p>
-    #[serde(rename = "SkillGroupName")]
+    #[serde(rename = "skillGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_name: Option<String>,
 }
@@ -2951,15 +2951,15 @@ pub struct SkillGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SkillGroupData {
     /// <p>The description of a skill group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The skill group ARN of a skill group.</p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
     /// <p>The skill group name of a skill group.</p>
-    #[serde(rename = "SkillGroupName")]
+    #[serde(rename = "skillGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_name: Option<String>,
 }
@@ -2969,23 +2969,23 @@ pub struct SkillGroupData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SkillSummary {
     /// <p>Whether the skill is enabled under the user's account, or if it requires linking to be used.</p>
-    #[serde(rename = "EnablementType")]
+    #[serde(rename = "enablementType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enablement_type: Option<String>,
     /// <p>The ARN of the skill summary.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_id: Option<String>,
     /// <p>The name of the skill.</p>
-    #[serde(rename = "SkillName")]
+    #[serde(rename = "skillName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_name: Option<String>,
     /// <p>Whether the skill is publicly available or is a private skill.</p>
-    #[serde(rename = "SkillType")]
+    #[serde(rename = "skillType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_type: Option<String>,
     /// <p>Linking support for a skill.</p>
-    #[serde(rename = "SupportsLinking")]
+    #[serde(rename = "supportsLinking")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supports_linking: Option<bool>,
 }
@@ -2995,31 +2995,31 @@ pub struct SkillSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SkillsStoreSkill {
     /// <p>The URL where the skill icon resides.</p>
-    #[serde(rename = "IconUrl")]
+    #[serde(rename = "iconUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub icon_url: Option<String>,
     /// <p>Sample utterances that interact with the skill.</p>
-    #[serde(rename = "SampleUtterances")]
+    #[serde(rename = "sampleUtterances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sample_utterances: Option<Vec<String>>,
     /// <p>Short description about the skill.</p>
-    #[serde(rename = "ShortDescription")]
+    #[serde(rename = "shortDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub short_description: Option<String>,
     /// <p>Information about the skill.</p>
-    #[serde(rename = "SkillDetails")]
+    #[serde(rename = "skillDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_details: Option<SkillDetails>,
     /// <p>The ARN of the skill.</p>
-    #[serde(rename = "SkillId")]
+    #[serde(rename = "skillId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_id: Option<String>,
     /// <p>The name of the skill.</p>
-    #[serde(rename = "SkillName")]
+    #[serde(rename = "skillName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_name: Option<String>,
     /// <p>Linking support for a skill.</p>
-    #[serde(rename = "SupportsLinking")]
+    #[serde(rename = "supportsLinking")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supports_linking: Option<bool>,
 }
@@ -3029,15 +3029,15 @@ pub struct SkillsStoreSkill {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SmartHomeAppliance {
     /// <p>The description of the smart home appliance.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The friendly name of the smart home appliance.</p>
-    #[serde(rename = "FriendlyName")]
+    #[serde(rename = "friendlyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub friendly_name: Option<String>,
     /// <p>The name of the manufacturer of the smart home appliance.</p>
-    #[serde(rename = "ManufacturerName")]
+    #[serde(rename = "manufacturerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manufacturer_name: Option<String>,
 }
@@ -3047,10 +3047,10 @@ pub struct SmartHomeAppliance {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Sort {
     /// <p>The sort key of a sort object.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The sort value of a sort object.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3059,10 +3059,10 @@ pub struct Sort {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Ssml {
     /// <p>The locale of the SSML message. Currently, en-US is supported.</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     pub locale: String,
     /// <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3070,14 +3070,14 @@ pub struct Ssml {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDeviceSyncRequest {
     /// <p>The ARN of the device to sync. Required.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
     /// <p>Request structure to start the device sync. Required.</p>
-    #[serde(rename = "Features")]
+    #[serde(rename = "features")]
     pub features: Vec<String>,
     /// <p>The ARN of the room with which the device to sync is associated. Required.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
 }
@@ -3090,7 +3090,7 @@ pub struct StartDeviceSyncResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSmartHomeApplianceDiscoveryRequest {
     /// <p>The room where smart home appliance discovery was initiated.</p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     pub room_arn: String,
 }
 
@@ -3102,10 +3102,10 @@ pub struct StartSmartHomeApplianceDiscoveryResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of a tag. Tag keys are case-sensitive. </p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of a tag. Tag values are case sensitive and can be null.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3113,10 +3113,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the resource to which to add metadata tags. Required. </p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The tags to be added to the specified resource. Do not provide system tags. Required. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -3129,10 +3129,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Text {
     /// <p>The locale of the text message. Currently, en-US is supported.</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     pub locale: String,
     /// <p>The value of the text message.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3140,10 +3140,10 @@ pub struct Text {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the resource from which to remove metadata tags. Required. </p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The tags to be removed from the specified resource. Do not provide system tags. Required. </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -3155,14 +3155,14 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAddressBookRequest {
     /// <p>The ARN of the room to update.</p>
-    #[serde(rename = "AddressBookArn")]
+    #[serde(rename = "addressBookArn")]
     pub address_book_arn: String,
     /// <p>The updated description of the room.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The updated name of the room.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3175,26 +3175,26 @@ pub struct UpdateAddressBookResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateBusinessReportScheduleRequest {
     /// <p>The format of the generated report (individual CSV files or zipped files of individual files).</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>The recurrence of the reports.</p>
-    #[serde(rename = "Recurrence")]
+    #[serde(rename = "recurrence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recurrence: Option<BusinessReportRecurrence>,
     /// <p>The S3 location of the output reports.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The S3 key where the report is delivered.</p>
-    #[serde(rename = "S3KeyPrefix")]
+    #[serde(rename = "s3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key_prefix: Option<String>,
     /// <p>The ARN of the business report schedule.</p>
-    #[serde(rename = "ScheduleArn")]
+    #[serde(rename = "scheduleArn")]
     pub schedule_arn: String,
     /// <p>The name identifier of the schedule.</p>
-    #[serde(rename = "ScheduleName")]
+    #[serde(rename = "scheduleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_name: Option<String>,
 }
@@ -3207,20 +3207,20 @@ pub struct UpdateBusinessReportScheduleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConferenceProviderRequest {
     /// <p>The ARN of the conference provider.</p>
-    #[serde(rename = "ConferenceProviderArn")]
+    #[serde(rename = "conferenceProviderArn")]
     pub conference_provider_arn: String,
     /// <p>The type of the conference provider.</p>
-    #[serde(rename = "ConferenceProviderType")]
+    #[serde(rename = "conferenceProviderType")]
     pub conference_provider_type: String,
     /// <p>The IP endpoint and protocol for calling.</p>
-    #[serde(rename = "IPDialIn")]
+    #[serde(rename = "iPDialIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_dial_in: Option<IPDialIn>,
     /// <p>The meeting settings for the conference provider.</p>
-    #[serde(rename = "MeetingSetting")]
+    #[serde(rename = "meetingSetting")]
     pub meeting_setting: MeetingSetting,
     /// <p>The information for PSTN conferencing.</p>
-    #[serde(rename = "PSTNDialIn")]
+    #[serde(rename = "pSTNDialIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pstn_dial_in: Option<PSTNDialIn>,
 }
@@ -3233,30 +3233,30 @@ pub struct UpdateConferenceProviderResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateContactRequest {
     /// <p>The ARN of the contact to update.</p>
-    #[serde(rename = "ContactArn")]
+    #[serde(rename = "contactArn")]
     pub contact_arn: String,
     /// <p>The updated display name of the contact.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The updated first name of the contact.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The updated last name of the contact.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p>The updated phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The list of phone numbers for the contact.</p>
-    #[serde(rename = "PhoneNumbers")]
+    #[serde(rename = "phoneNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_numbers: Option<Vec<PhoneNumber>>,
     /// <p>The list of SIP addresses for the contact.</p>
-    #[serde(rename = "SipAddresses")]
+    #[serde(rename = "sipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sip_addresses: Option<Vec<SipAddress>>,
 }
@@ -3269,11 +3269,11 @@ pub struct UpdateContactResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDeviceRequest {
     /// <p>The ARN of the device to update. Required.</p>
-    #[serde(rename = "DeviceArn")]
+    #[serde(rename = "deviceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_arn: Option<String>,
     /// <p>The updated device name. Required.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
 }
@@ -3287,15 +3287,15 @@ pub struct UpdateDeviceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEndOfMeetingReminder {
     /// <p>Whether an end of meeting reminder is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Updates settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
-    #[serde(rename = "ReminderAtMinutes")]
+    #[serde(rename = "reminderAtMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reminder_at_minutes: Option<Vec<i64>>,
     /// <p>The type of sound that users hear during the end of meeting reminder. </p>
-    #[serde(rename = "ReminderType")]
+    #[serde(rename = "reminderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reminder_type: Option<String>,
 }
@@ -3304,14 +3304,14 @@ pub struct UpdateEndOfMeetingReminder {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGatewayGroupRequest {
     /// <p>The updated description of the gateway group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the gateway group to update.</p>
-    #[serde(rename = "GatewayGroupArn")]
+    #[serde(rename = "gatewayGroupArn")]
     pub gateway_group_arn: String,
     /// <p>The updated name of the gateway group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3324,18 +3324,18 @@ pub struct UpdateGatewayGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGatewayRequest {
     /// <p>The updated description of the gateway.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the gateway to update.</p>
-    #[serde(rename = "GatewayArn")]
+    #[serde(rename = "gatewayArn")]
     pub gateway_arn: String,
     /// <p>The updated name of the gateway.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The updated software version of the gateway. The gateway automatically updates its software version during normal operation.</p>
-    #[serde(rename = "SoftwareVersion")]
+    #[serde(rename = "softwareVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_version: Option<String>,
 }
@@ -3349,11 +3349,11 @@ pub struct UpdateGatewayResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateInstantBooking {
     /// <p>Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.</p>
-    #[serde(rename = "DurationInMinutes")]
+    #[serde(rename = "durationInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_in_minutes: Option<i64>,
     /// <p>Whether instant booking is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -3363,19 +3363,19 @@ pub struct UpdateInstantBooking {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateMeetingRoomConfiguration {
     /// <p>Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
-    #[serde(rename = "EndOfMeetingReminder")]
+    #[serde(rename = "endOfMeetingReminder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_of_meeting_reminder: Option<UpdateEndOfMeetingReminder>,
     /// <p>Settings to automatically book an available room available for a configured duration when joining a meeting with Alexa.</p>
-    #[serde(rename = "InstantBooking")]
+    #[serde(rename = "instantBooking")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instant_booking: Option<UpdateInstantBooking>,
     /// <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.” </p>
-    #[serde(rename = "RequireCheckIn")]
+    #[serde(rename = "requireCheckIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_check_in: Option<UpdateRequireCheckIn>,
     /// <p>Whether room utilization metrics are enabled or not.</p>
-    #[serde(rename = "RoomUtilizationMetricsEnabled")]
+    #[serde(rename = "roomUtilizationMetricsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_utilization_metrics_enabled: Option<bool>,
 }
@@ -3384,30 +3384,30 @@ pub struct UpdateMeetingRoomConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateNetworkProfileRequest {
     /// <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn: Option<String>,
     /// <p>The current password of the Wi-Fi network.</p>
-    #[serde(rename = "CurrentPassword")]
+    #[serde(rename = "currentPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_password: Option<String>,
     /// <p>Detailed information about a device's network profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileArn")]
+    #[serde(rename = "networkProfileArn")]
     pub network_profile_arn: String,
     /// <p>The name of the network profile associated with a device.</p>
-    #[serde(rename = "NetworkProfileName")]
+    #[serde(rename = "networkProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_profile_name: Option<String>,
     /// <p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword. </p>
-    #[serde(rename = "NextPassword")]
+    #[serde(rename = "nextPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_password: Option<String>,
     /// <p>The root certificate(s) of your authentication server that will be installed on your devices and used to trust your authentication server during EAP negotiation. </p>
-    #[serde(rename = "TrustAnchors")]
+    #[serde(rename = "trustAnchors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trust_anchors: Option<Vec<String>>,
 }
@@ -3420,59 +3420,59 @@ pub struct UpdateNetworkProfileResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProfileRequest {
     /// <p>The updated address for the room profile.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
     /// <p>Whether data retention of the profile is enabled.</p>
-    #[serde(rename = "DataRetentionOptIn")]
+    #[serde(rename = "dataRetentionOptIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_retention_opt_in: Option<bool>,
     /// <p>The updated distance unit for the room profile.</p>
-    #[serde(rename = "DistanceUnit")]
+    #[serde(rename = "distanceUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distance_unit: Option<String>,
     /// <p>Sets the profile as default if selected. If this is missing, no update is done to the default status.</p>
-    #[serde(rename = "IsDefault")]
+    #[serde(rename = "isDefault")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_default: Option<bool>,
     /// <p>The updated locale for the room profile. (This is currently only available to a limited preview audience.)</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
     /// <p>The updated maximum volume limit for the room profile.</p>
-    #[serde(rename = "MaxVolumeLimit")]
+    #[serde(rename = "maxVolumeLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_volume_limit: Option<i64>,
     /// <p>The updated meeting room settings of a room profile.</p>
-    #[serde(rename = "MeetingRoomConfiguration")]
+    #[serde(rename = "meetingRoomConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub meeting_room_configuration: Option<UpdateMeetingRoomConfiguration>,
     /// <p>Whether the PSTN setting of the room profile is enabled.</p>
-    #[serde(rename = "PSTNEnabled")]
+    #[serde(rename = "pSTNEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pstn_enabled: Option<bool>,
     /// <p>The ARN of the room profile to update. Required.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The updated name for the room profile.</p>
-    #[serde(rename = "ProfileName")]
+    #[serde(rename = "profileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_name: Option<String>,
     /// <p>Whether the setup mode of the profile is enabled.</p>
-    #[serde(rename = "SetupModeDisabled")]
+    #[serde(rename = "setupModeDisabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub setup_mode_disabled: Option<bool>,
     /// <p>The updated temperature unit for the room profile.</p>
-    #[serde(rename = "TemperatureUnit")]
+    #[serde(rename = "temperatureUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub temperature_unit: Option<String>,
     /// <p>The updated timezone for the room profile.</p>
-    #[serde(rename = "Timezone")]
+    #[serde(rename = "timezone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timezone: Option<String>,
     /// <p>The updated wake word for the room profile.</p>
-    #[serde(rename = "WakeWord")]
+    #[serde(rename = "wakeWord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wake_word: Option<String>,
 }
@@ -3486,11 +3486,11 @@ pub struct UpdateProfileResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRequireCheckIn {
     /// <p>Whether require check in is enabled or not.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into. </p>
-    #[serde(rename = "ReleaseAfterMinutes")]
+    #[serde(rename = "releaseAfterMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub release_after_minutes: Option<i64>,
 }
@@ -3499,23 +3499,23 @@ pub struct UpdateRequireCheckIn {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRoomRequest {
     /// <p>The updated description for the room.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The updated profile ARN for the room.</p>
-    #[serde(rename = "ProfileArn")]
+    #[serde(rename = "profileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile_arn: Option<String>,
     /// <p>The updated provider calendar ARN for the room.</p>
-    #[serde(rename = "ProviderCalendarId")]
+    #[serde(rename = "providerCalendarId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_calendar_id: Option<String>,
     /// <p>The ARN of the room to update. </p>
-    #[serde(rename = "RoomArn")]
+    #[serde(rename = "roomArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_arn: Option<String>,
     /// <p>The updated name for the room.</p>
-    #[serde(rename = "RoomName")]
+    #[serde(rename = "roomName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub room_name: Option<String>,
 }
@@ -3528,15 +3528,15 @@ pub struct UpdateRoomResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSkillGroupRequest {
     /// <p>The updated description for the skill group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the skill group to update. </p>
-    #[serde(rename = "SkillGroupArn")]
+    #[serde(rename = "skillGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_arn: Option<String>,
     /// <p>The updated name for the skill group.</p>
-    #[serde(rename = "SkillGroupName")]
+    #[serde(rename = "skillGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skill_group_name: Option<String>,
 }
@@ -3550,27 +3550,27 @@ pub struct UpdateSkillGroupResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserData {
     /// <p>The email of a user.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The enrollment ARN of a user.</p>
-    #[serde(rename = "EnrollmentId")]
+    #[serde(rename = "enrollmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enrollment_id: Option<String>,
     /// <p>The enrollment status of a user.</p>
-    #[serde(rename = "EnrollmentStatus")]
+    #[serde(rename = "enrollmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enrollment_status: Option<String>,
     /// <p>The first name of a user.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name of a user.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p>The ARN of a user.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }

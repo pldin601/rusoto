@@ -240,7 +240,7 @@ pub struct BatchPutMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchPutMessageResponse {
     /// <p>A list of any errors encountered when sending the messages.</p>
-    #[serde(rename = "BatchPutMessageErrorEntries")]
+    #[serde(rename = "batchPutMessageErrorEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_put_message_error_entries: Option<Vec<BatchPutMessageErrorEntry>>,
 }

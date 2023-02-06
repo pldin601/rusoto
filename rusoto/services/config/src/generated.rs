@@ -54,14 +54,14 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountAggregationSource {
     /// <p>The 12-digit account ID of the account being aggregated. </p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>If true, aggregate existing AWS Config regions and future regions.</p>
-    #[serde(rename = "AllAwsRegions")]
+    #[serde(rename = "allAwsRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub all_aws_regions: Option<bool>,
     /// <p>The source regions being aggregated.</p>
-    #[serde(rename = "AwsRegions")]
+    #[serde(rename = "awsRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_regions: Option<Vec<String>>,
 }
@@ -71,19 +71,19 @@ pub struct AccountAggregationSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateComplianceByConfigRule {
     /// <p>The 12-digit account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source region from where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.</p>
-    #[serde(rename = "Compliance")]
+    #[serde(rename = "compliance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance: Option<Compliance>,
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
 }
@@ -93,19 +93,19 @@ pub struct AggregateComplianceByConfigRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateComplianceByConformancePack {
     /// <p>The 12-digit AWS account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source AWS Region from where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The compliance status of the conformance pack.</p>
-    #[serde(rename = "Compliance")]
+    #[serde(rename = "compliance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance: Option<AggregateConformancePackCompliance>,
     /// <p>The name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_name: Option<String>,
 }
@@ -115,11 +115,11 @@ pub struct AggregateComplianceByConformancePack {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateComplianceCount {
     /// <p>The number of compliant and noncompliant AWS Config rules.</p>
-    #[serde(rename = "ComplianceSummary")]
+    #[serde(rename = "complianceSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_summary: Option<ComplianceSummary>,
     /// <p>The 12-digit account ID or region based on the GroupByKey value.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -129,19 +129,19 @@ pub struct AggregateComplianceCount {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateConformancePackCompliance {
     /// <p>The compliance status of the conformance pack.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>The number of compliant AWS Config Rules.</p>
-    #[serde(rename = "CompliantRuleCount")]
+    #[serde(rename = "compliantRuleCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliant_rule_count: Option<i64>,
     /// <p>The number of noncompliant AWS Config Rules.</p>
-    #[serde(rename = "NonCompliantRuleCount")]
+    #[serde(rename = "nonCompliantRuleCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_compliant_rule_count: Option<i64>,
     /// <p>Total number of compliant rules, noncompliant rules, and the rules that do not have any applicable resources to evaluate upon resulting in insufficient data.</p>
-    #[serde(rename = "TotalRuleCount")]
+    #[serde(rename = "totalRuleCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_rule_count: Option<i64>,
 }
@@ -151,11 +151,11 @@ pub struct AggregateConformancePackCompliance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateConformancePackComplianceCount {
     /// <p>Number of compliant conformance packs.</p>
-    #[serde(rename = "CompliantConformancePackCount")]
+    #[serde(rename = "compliantConformancePackCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliant_conformance_pack_count: Option<i64>,
     /// <p>Number of noncompliant conformance packs.</p>
-    #[serde(rename = "NonCompliantConformancePackCount")]
+    #[serde(rename = "nonCompliantConformancePackCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_compliant_conformance_pack_count: Option<i64>,
 }
@@ -165,19 +165,19 @@ pub struct AggregateConformancePackComplianceCount {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AggregateConformancePackComplianceFilters {
     /// <p>The 12-digit AWS account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source AWS Region from where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The compliance status of the conformance pack.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>The name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_name: Option<String>,
 }
@@ -187,11 +187,11 @@ pub struct AggregateConformancePackComplianceFilters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateConformancePackComplianceSummary {
     /// <p>Returns an <code>AggregateConformancePackComplianceCount</code> object. </p>
-    #[serde(rename = "ComplianceSummary")]
+    #[serde(rename = "complianceSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_summary: Option<AggregateConformancePackComplianceCount>,
     /// <p>Groups the result based on AWS Account ID or AWS Region.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -201,11 +201,11 @@ pub struct AggregateConformancePackComplianceSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AggregateConformancePackComplianceSummaryFilters {
     /// <p>The 12-digit AWS account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source AWS Region from where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
 }
@@ -215,31 +215,31 @@ pub struct AggregateConformancePackComplianceSummaryFilters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregateEvaluationResult {
     /// <p>The 12-digit account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>Supplementary information about how the agrregate evaluation determined the compliance.</p>
-    #[serde(rename = "Annotation")]
+    #[serde(rename = "annotation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotation: Option<String>,
     /// <p>The source region from where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The resource compliance status.</p> <p>For the <code>AggregationEvaluationResult</code> data type, AWS Config supports only the <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. AWS Config does not support the <code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code> value.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>The time when the AWS Config rule evaluated the AWS resource.</p>
-    #[serde(rename = "ConfigRuleInvokedTime")]
+    #[serde(rename = "configRuleInvokedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_invoked_time: Option<f64>,
     /// <p>Uniquely identifies the evaluation result.</p>
-    #[serde(rename = "EvaluationResultIdentifier")]
+    #[serde(rename = "evaluationResultIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_result_identifier: Option<EvaluationResultIdentifier>,
     /// <p>The time when AWS Config recorded the aggregate evaluation result.</p>
-    #[serde(rename = "ResultRecordedTime")]
+    #[serde(rename = "resultRecordedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_recorded_time: Option<f64>,
 }
@@ -248,20 +248,20 @@ pub struct AggregateEvaluationResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AggregateResourceIdentifier {
     /// <p>The ID of the AWS resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The name of the AWS resource.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_name: Option<String>,
     /// <p>The type of the AWS resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
     /// <p>The 12-digit account ID of the source account.</p>
-    #[serde(rename = "SourceAccountId")]
+    #[serde(rename = "sourceAccountId")]
     pub source_account_id: String,
     /// <p>The source region where data is aggregated.</p>
-    #[serde(rename = "SourceRegion")]
+    #[serde(rename = "sourceRegion")]
     pub source_region: String,
 }
 
@@ -270,31 +270,31 @@ pub struct AggregateResourceIdentifier {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregatedSourceStatus {
     /// <p>The region authorized to collect aggregated data.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The error code that AWS Config returned when the source account aggregation last failed.</p>
-    #[serde(rename = "LastErrorCode")]
+    #[serde(rename = "lastErrorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_error_code: Option<String>,
     /// <p>The message indicating that the source account aggregation failed due to an error.</p>
-    #[serde(rename = "LastErrorMessage")]
+    #[serde(rename = "lastErrorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_error_message: Option<String>,
     /// <p><p>Filters the last updated status type.</p> <ul> <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> </ul></p>
-    #[serde(rename = "LastUpdateStatus")]
+    #[serde(rename = "lastUpdateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_status: Option<String>,
     /// <p>The time of the last update.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p>The source account ID or an organization.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The source account or an organization.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_type: Option<String>,
 }
@@ -304,19 +304,19 @@ pub struct AggregatedSourceStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AggregationAuthorization {
     /// <p>The Amazon Resource Name (ARN) of the aggregation object.</p>
-    #[serde(rename = "AggregationAuthorizationArn")]
+    #[serde(rename = "aggregationAuthorizationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregation_authorization_arn: Option<String>,
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    #[serde(rename = "AuthorizedAccountId")]
+    #[serde(rename = "authorizedAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorized_account_id: Option<String>,
     /// <p>The region authorized to collect aggregated data.</p>
-    #[serde(rename = "AuthorizedAwsRegion")]
+    #[serde(rename = "authorizedAwsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorized_aws_region: Option<String>,
     /// <p>The time stamp when the aggregation authorization was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
 }
@@ -387,10 +387,10 @@ pub struct BaseConfigurationItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetAggregateResourceConfigRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>A list of aggregate ResourceIdentifiers objects. </p>
-    #[serde(rename = "ResourceIdentifiers")]
+    #[serde(rename = "resourceIdentifiers")]
     pub resource_identifiers: Vec<AggregateResourceIdentifier>,
 }
 
@@ -398,11 +398,11 @@ pub struct BatchGetAggregateResourceConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetAggregateResourceConfigResponse {
     /// <p>A list that contains the current configuration of one or more resources.</p>
-    #[serde(rename = "BaseConfigurationItems")]
+    #[serde(rename = "baseConfigurationItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub base_configuration_items: Option<Vec<BaseConfigurationItem>>,
     /// <p>A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.</p>
-    #[serde(rename = "UnprocessedResourceIdentifiers")]
+    #[serde(rename = "unprocessedResourceIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_resource_identifiers: Option<Vec<AggregateResourceIdentifier>>,
 }
@@ -433,11 +433,11 @@ pub struct BatchGetResourceConfigResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Compliance {
     /// <p>The number of AWS resources or AWS Config rules that cause a result of <code>NON_COMPLIANT</code>, up to a maximum number.</p>
-    #[serde(rename = "ComplianceContributorCount")]
+    #[serde(rename = "complianceContributorCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_contributor_count: Option<ComplianceContributorCount>,
     /// <p>Indicates whether an AWS resource or AWS Config rule is compliant.</p> <p>A resource is compliant if it complies with all of the AWS Config rules that evaluate it. A resource is noncompliant if it does not comply with one or more of these rules.</p> <p>A rule is compliant if all of the resources that the rule evaluates comply with it. A rule is noncompliant if any of these resources do not comply.</p> <p>AWS Config returns the <code>INSUFFICIENT_DATA</code> value when no evaluation results are available for the AWS resource or AWS Config rule.</p> <p>For the <code>Compliance</code> data type, AWS Config supports only <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code> values. AWS Config does not support the <code>NOT_APPLICABLE</code> value for the <code>Compliance</code> data type.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
 }
@@ -447,11 +447,11 @@ pub struct Compliance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceByConfigRule {
     /// <p>Indicates whether the AWS Config rule is compliant.</p>
-    #[serde(rename = "Compliance")]
+    #[serde(rename = "compliance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance: Option<Compliance>,
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
 }
@@ -461,15 +461,15 @@ pub struct ComplianceByConfigRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceByResource {
     /// <p>Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.</p>
-    #[serde(rename = "Compliance")]
+    #[serde(rename = "compliance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance: Option<Compliance>,
     /// <p>The ID of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The type of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -479,11 +479,11 @@ pub struct ComplianceByResource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceContributorCount {
     /// <p>Indicates whether the maximum count is reached.</p>
-    #[serde(rename = "CapExceeded")]
+    #[serde(rename = "capExceeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cap_exceeded: Option<bool>,
     /// <p>The number of AWS resources or AWS Config rules responsible for the current compliance of the item.</p>
-    #[serde(rename = "CappedCount")]
+    #[serde(rename = "cappedCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capped_count: Option<i64>,
 }
@@ -493,15 +493,15 @@ pub struct ComplianceContributorCount {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceSummary {
     /// <p>The time that AWS Config created the compliance summary.</p>
-    #[serde(rename = "ComplianceSummaryTimestamp")]
+    #[serde(rename = "complianceSummaryTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_summary_timestamp: Option<f64>,
     /// <p>The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources.</p>
-    #[serde(rename = "CompliantResourceCount")]
+    #[serde(rename = "compliantResourceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliant_resource_count: Option<ComplianceContributorCount>,
     /// <p>The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.</p>
-    #[serde(rename = "NonCompliantResourceCount")]
+    #[serde(rename = "nonCompliantResourceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_compliant_resource_count: Option<ComplianceContributorCount>,
 }
@@ -511,11 +511,11 @@ pub struct ComplianceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceSummaryByResourceType {
     /// <p>The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.</p>
-    #[serde(rename = "ComplianceSummary")]
+    #[serde(rename = "complianceSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_summary: Option<ComplianceSummary>,
     /// <p>The type of AWS resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -554,43 +554,43 @@ pub struct ConfigExportDeliveryInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConfigRule {
     /// <p>The Amazon Resource Name (ARN) of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleArn")]
+    #[serde(rename = "configRuleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_arn: Option<String>,
     /// <p>The ID of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleId")]
+    #[serde(rename = "configRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_id: Option<String>,
     /// <p>The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
     /// <p>Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the AWS Config rule.</p> <p>AWS Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the AWS Config rule.</p> <p>AWS Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the AWS Config rule.</p> <p>AWS Config temporarily sets the state of a rule to <code>DELETING</code> after you use the <code>DeleteConfigRule</code> request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>
-    #[serde(rename = "ConfigRuleState")]
+    #[serde(rename = "configRuleState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_state: Option<String>,
     /// <p><p>Service principal name of the service that created the rule.</p> <note> <p>The field is populated only if the service linked rule is created by a service. The field is empty if you create your own rule.</p> </note></p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The description that you provide for the AWS Config rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A string, in JSON format, that is passed to the AWS Config rule Lambda function.</p>
-    #[serde(rename = "InputParameters")]
+    #[serde(rename = "inputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_parameters: Option<String>,
     /// <p><p>The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for <code>MaximumExecutionFrequency</code> when:</p> <ul> <li> <p>You are using an AWS managed rule that is triggered at a periodic frequency.</p> </li> <li> <p>Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> </li> </ul> <note> <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p> </note></p>
-    #[serde(rename = "MaximumExecutionFrequency")]
+    #[serde(rename = "maximumExecutionFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_execution_frequency: Option<String>,
     /// <p><p>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.</p> <note> <p>The scope can be empty. </p> </note></p>
-    #[serde(rename = "Scope")]
+    #[serde(rename = "scope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scope: Option<Scope>,
     /// <p>Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     pub source: Source,
 }
 
@@ -599,19 +599,19 @@ pub struct ConfigRule {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfigRuleComplianceFilters {
     /// <p>The 12-digit account ID of the source account. </p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source region where the data is aggregated. </p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The rule compliance status.</p> <p>For the <code>ConfigRuleComplianceFilters</code> data type, AWS Config supports only <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. AWS Config does not support the <code>NOT_APPLICABLE</code> and the <code>INSUFFICIENT_DATA</code> values.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
 }
@@ -621,11 +621,11 @@ pub struct ConfigRuleComplianceFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfigRuleComplianceSummaryFilters {
     /// <p>The 12-digit account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source region where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
 }
@@ -635,51 +635,51 @@ pub struct ConfigRuleComplianceSummaryFilters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigRuleEvaluationStatus {
     /// <p>The Amazon Resource Name (ARN) of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleArn")]
+    #[serde(rename = "configRuleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_arn: Option<String>,
     /// <p>The ID of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleId")]
+    #[serde(rename = "configRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_id: Option<String>,
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
     /// <p>The time that you first activated the AWS Config rule.</p>
-    #[serde(rename = "FirstActivatedTime")]
+    #[serde(rename = "firstActivatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_activated_time: Option<f64>,
     /// <p><p>Indicates whether AWS Config has evaluated your resources against the rule at least once.</p> <ul> <li> <p> <code>true</code> - AWS Config has evaluated your AWS resources against the rule at least once.</p> </li> <li> <p> <code>false</code> - AWS Config has not once finished evaluating your AWS resources against the rule.</p> </li> </ul></p>
-    #[serde(rename = "FirstEvaluationStarted")]
+    #[serde(rename = "firstEvaluationStarted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_evaluation_started: Option<bool>,
     /// <p>The time that you last turned off the AWS Config rule.</p>
-    #[serde(rename = "LastDeactivatedTime")]
+    #[serde(rename = "lastDeactivatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_deactivated_time: Option<f64>,
     /// <p>The error code that AWS Config returned when the rule last failed.</p>
-    #[serde(rename = "LastErrorCode")]
+    #[serde(rename = "lastErrorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_error_code: Option<String>,
     /// <p>The error message that AWS Config returned when the rule last failed.</p>
-    #[serde(rename = "LastErrorMessage")]
+    #[serde(rename = "lastErrorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_error_message: Option<String>,
     /// <p>The time that AWS Config last failed to evaluate your AWS resources against the rule.</p>
-    #[serde(rename = "LastFailedEvaluationTime")]
+    #[serde(rename = "lastFailedEvaluationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_failed_evaluation_time: Option<f64>,
     /// <p>The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.</p>
-    #[serde(rename = "LastFailedInvocationTime")]
+    #[serde(rename = "lastFailedInvocationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_failed_invocation_time: Option<f64>,
     /// <p>The time that AWS Config last successfully evaluated your AWS resources against the rule.</p>
-    #[serde(rename = "LastSuccessfulEvaluationTime")]
+    #[serde(rename = "lastSuccessfulEvaluationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_successful_evaluation_time: Option<f64>,
     /// <p>The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.</p>
-    #[serde(rename = "LastSuccessfulInvocationTime")]
+    #[serde(rename = "lastSuccessfulInvocationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_successful_invocation_time: Option<f64>,
 }
@@ -720,31 +720,31 @@ pub struct ConfigStreamDeliveryInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigurationAggregator {
     /// <p>Provides a list of source accounts and regions to be aggregated.</p>
-    #[serde(rename = "AccountAggregationSources")]
+    #[serde(rename = "accountAggregationSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_aggregation_sources: Option<Vec<AccountAggregationSource>>,
     /// <p>The Amazon Resource Name (ARN) of the aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorArn")]
+    #[serde(rename = "configurationAggregatorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aggregator_arn: Option<String>,
     /// <p>The name of the aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aggregator_name: Option<String>,
     /// <p>AWS service that created the configuration aggregator.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The time stamp when the configuration aggregator was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The time of the last update.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>Provides an organization and list of regions to be aggregated.</p>
-    #[serde(rename = "OrganizationAggregationSource")]
+    #[serde(rename = "organizationAggregationSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_aggregation_source: Option<OrganizationAggregationSource>,
 }
@@ -887,11 +887,11 @@ pub struct ConfigurationRecorderStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConformancePackComplianceFilters {
     /// <p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>Filters the results by AWS Config rule names.</p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_names: Option<Vec<String>>,
 }
@@ -901,10 +901,10 @@ pub struct ConformancePackComplianceFilters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConformancePackComplianceSummary {
     /// <p>The status of the conformance pack. The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code> and <code>INSUFFICIENT_DATA</code>.</p>
-    #[serde(rename = "ConformancePackComplianceStatus")]
+    #[serde(rename = "conformancePackComplianceStatus")]
     pub conformance_pack_compliance_status: String,
     /// <p>The name of the conformance pack name.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
 }
 
@@ -913,32 +913,32 @@ pub struct ConformancePackComplianceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConformancePackDetail {
     /// <p>Amazon Resource Name (ARN) of the conformance pack.</p>
-    #[serde(rename = "ConformancePackArn")]
+    #[serde(rename = "conformancePackArn")]
     pub conformance_pack_arn: String,
     /// <p>ID of the conformance pack.</p>
-    #[serde(rename = "ConformancePackId")]
+    #[serde(rename = "conformancePackId")]
     pub conformance_pack_id: String,
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    #[serde(rename = "ConformancePackInputParameters")]
+    #[serde(rename = "conformancePackInputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_input_parameters: Option<Vec<ConformancePackInputParameter>>,
     /// <p>Name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p>AWS service that created the conformance pack.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p><p>Amazon S3 bucket where AWS Config stores conformance pack templates. </p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3Bucket")]
+    #[serde(rename = "deliveryS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_bucket: Option<String>,
     /// <p><p>The prefix for the Amazon S3 bucket.</p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3KeyPrefix")]
+    #[serde(rename = "deliveryS3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_key_prefix: Option<String>,
     /// <p>Last time when conformation pack update was requested. </p>
-    #[serde(rename = "LastUpdateRequestedTime")]
+    #[serde(rename = "lastUpdateRequestedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_requested_time: Option<f64>,
 }
@@ -948,19 +948,19 @@ pub struct ConformancePackDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConformancePackEvaluationFilters {
     /// <p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>Filters the results by AWS Config rule names.</p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_names: Option<Vec<String>>,
     /// <p><p>Filters the results by resource IDs.</p> <note> <p>This is valid only when you provide resource type. If there is no resource type, you will see an error.</p> </note></p>
-    #[serde(rename = "ResourceIds")]
+    #[serde(rename = "resourceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_ids: Option<Vec<String>>,
     /// <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -970,19 +970,19 @@ pub struct ConformancePackEvaluationFilters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConformancePackEvaluationResult {
     /// <p>Supplementary information about how the evaluation determined the compliance. </p>
-    #[serde(rename = "Annotation")]
+    #[serde(rename = "annotation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotation: Option<String>,
     /// <p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     pub compliance_type: String,
     /// <p>The time when AWS Config rule evaluated AWS resource.</p>
-    #[serde(rename = "ConfigRuleInvokedTime")]
+    #[serde(rename = "configRuleInvokedTime")]
     pub config_rule_invoked_time: f64,
-    #[serde(rename = "EvaluationResultIdentifier")]
+    #[serde(rename = "evaluationResultIdentifier")]
     pub evaluation_result_identifier: EvaluationResultIdentifier,
     /// <p>The time when AWS Config recorded the evaluation result. </p>
-    #[serde(rename = "ResultRecordedTime")]
+    #[serde(rename = "resultRecordedTime")]
     pub result_recorded_time: f64,
 }
 
@@ -990,10 +990,10 @@ pub struct ConformancePackEvaluationResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConformancePackInputParameter {
     /// <p>One part of a key-value pair.</p>
-    #[serde(rename = "ParameterName")]
+    #[serde(rename = "parameterName")]
     pub parameter_name: String,
     /// <p>Another part of the key-value pair. </p>
-    #[serde(rename = "ParameterValue")]
+    #[serde(rename = "parameterValue")]
     pub parameter_value: String,
 }
 
@@ -1002,15 +1002,15 @@ pub struct ConformancePackInputParameter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConformancePackRuleCompliance {
     /// <p>Compliance of the AWS Config rule.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>Name of the config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
     /// <p>Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives. A control can align with a specific compliance regime or map to internal controls defined by an organization.</p>
-    #[serde(rename = "Controls")]
+    #[serde(rename = "controls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub controls: Option<Vec<String>>,
 }
@@ -1020,30 +1020,30 @@ pub struct ConformancePackRuleCompliance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConformancePackStatusDetail {
     /// <p>Amazon Resource Name (ARN) of comformance pack.</p>
-    #[serde(rename = "ConformancePackArn")]
+    #[serde(rename = "conformancePackArn")]
     pub conformance_pack_arn: String,
     /// <p>ID of the conformance pack.</p>
-    #[serde(rename = "ConformancePackId")]
+    #[serde(rename = "conformancePackId")]
     pub conformance_pack_id: String,
     /// <p>Name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p><p>Indicates deployment status of conformance pack.</p> <p>AWS Config sets the state of the conformance pack to:</p> <ul> <li> <p>CREATE<em>IN</em>PROGRESS when a conformance pack creation is in progress for an account.</p> </li> <li> <p>CREATE<em>COMPLETE when a conformance pack has been successfully created in your account.</p> </li> <li> <p>CREATE</em>FAILED when a conformance pack creation failed in your account.</p> </li> <li> <p>DELETE<em>IN</em>PROGRESS when a conformance pack deletion is in progress. </p> </li> <li> <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p> </li> </ul></p>
-    #[serde(rename = "ConformancePackState")]
+    #[serde(rename = "conformancePackState")]
     pub conformance_pack_state: String,
     /// <p>The reason of conformance pack creation failure.</p>
-    #[serde(rename = "ConformancePackStatusReason")]
+    #[serde(rename = "conformancePackStatusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_status_reason: Option<String>,
     /// <p>Last time when conformation pack creation and update was successful.</p>
-    #[serde(rename = "LastUpdateCompletedTime")]
+    #[serde(rename = "lastUpdateCompletedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_completed_time: Option<f64>,
     /// <p>Last time when conformation pack creation and update was requested.</p>
-    #[serde(rename = "LastUpdateRequestedTime")]
+    #[serde(rename = "lastUpdateRequestedTime")]
     pub last_update_requested_time: f64,
     /// <p>Amazon Resource Name (ARN) of AWS CloudFormation stack. </p>
-    #[serde(rename = "StackArn")]
+    #[serde(rename = "stackArn")]
     pub stack_arn: String,
 }
 
@@ -1051,10 +1051,10 @@ pub struct ConformancePackStatusDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAggregationAuthorizationRequest {
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    #[serde(rename = "AuthorizedAccountId")]
+    #[serde(rename = "authorizedAccountId")]
     pub authorized_account_id: String,
     /// <p>The region authorized to collect aggregated data.</p>
-    #[serde(rename = "AuthorizedAwsRegion")]
+    #[serde(rename = "authorizedAwsRegion")]
     pub authorized_aws_region: String,
 }
 
@@ -1063,7 +1063,7 @@ pub struct DeleteAggregationAuthorizationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigRuleRequest {
     /// <p>The name of the AWS Config rule that you want to delete.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
 }
 
@@ -1071,7 +1071,7 @@ pub struct DeleteConfigRuleRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationAggregatorRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
 }
 
@@ -1080,7 +1080,7 @@ pub struct DeleteConfigurationAggregatorRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationRecorderRequest {
     /// <p>The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the <code>DescribeConfigurationRecorders</code> action.</p>
-    #[serde(rename = "ConfigurationRecorderName")]
+    #[serde(rename = "configurationRecorderName")]
     pub configuration_recorder_name: String,
 }
 
@@ -1088,7 +1088,7 @@ pub struct DeleteConfigurationRecorderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConformancePackRequest {
     /// <p>Name of the conformance pack you want to delete.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
 }
 
@@ -1097,7 +1097,7 @@ pub struct DeleteConformancePackRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDeliveryChannelRequest {
     /// <p>The name of the delivery channel to delete.</p>
-    #[serde(rename = "DeliveryChannelName")]
+    #[serde(rename = "deliveryChannelName")]
     pub delivery_channel_name: String,
 }
 
@@ -1106,7 +1106,7 @@ pub struct DeleteDeliveryChannelRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEvaluationResultsRequest {
     /// <p>The name of the AWS Config rule for which you want to delete the evaluation results.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
 }
 
@@ -1119,7 +1119,7 @@ pub struct DeleteEvaluationResultsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteOrganizationConfigRuleRequest {
     /// <p>The name of organization config rule that you want to delete.</p>
-    #[serde(rename = "OrganizationConfigRuleName")]
+    #[serde(rename = "organizationConfigRuleName")]
     pub organization_config_rule_name: String,
 }
 
@@ -1127,7 +1127,7 @@ pub struct DeleteOrganizationConfigRuleRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteOrganizationConformancePackRequest {
     /// <p>The name of organization conformance pack that you want to delete.</p>
-    #[serde(rename = "OrganizationConformancePackName")]
+    #[serde(rename = "organizationConformancePackName")]
     pub organization_conformance_pack_name: String,
 }
 
@@ -1135,10 +1135,10 @@ pub struct DeleteOrganizationConformancePackRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePendingAggregationRequestRequest {
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    #[serde(rename = "RequesterAccountId")]
+    #[serde(rename = "requesterAccountId")]
     pub requester_account_id: String,
     /// <p>The region requesting to aggregate data.</p>
-    #[serde(rename = "RequesterAwsRegion")]
+    #[serde(rename = "requesterAwsRegion")]
     pub requester_aws_region: String,
 }
 
@@ -1146,10 +1146,10 @@ pub struct DeletePendingAggregationRequestRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRemediationConfigurationRequest {
     /// <p>The name of the AWS Config rule for which you want to delete remediation configuration.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The type of a resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1162,10 +1162,10 @@ pub struct DeleteRemediationConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRemediationExceptionsRequest {
     /// <p>The name of the AWS Config rule for which you want to delete remediation exception configuration.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
-    #[serde(rename = "ResourceKeys")]
+    #[serde(rename = "resourceKeys")]
     pub resource_keys: Vec<RemediationExceptionResourceKey>,
 }
 
@@ -1173,7 +1173,7 @@ pub struct DeleteRemediationExceptionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteRemediationExceptionsResponse {
     /// <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    #[serde(rename = "FailedBatches")]
+    #[serde(rename = "failedBatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_batches: Option<Vec<FailedDeleteRemediationExceptionsBatch>>,
 }
@@ -1182,10 +1182,10 @@ pub struct DeleteRemediationExceptionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourceConfigRequest {
     /// <p>Unique identifier of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The type of the resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -1193,7 +1193,7 @@ pub struct DeleteResourceConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRetentionConfigurationRequest {
     /// <p>The name of the retention configuration to delete.</p>
-    #[serde(rename = "RetentionConfigurationName")]
+    #[serde(rename = "retentionConfigurationName")]
     pub retention_configuration_name: String,
 }
 
@@ -1201,7 +1201,7 @@ pub struct DeleteRetentionConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStoredQueryRequest {
     /// <p>The name of the query that you want to delete.</p>
-    #[serde(rename = "QueryName")]
+    #[serde(rename = "queryName")]
     pub query_name: String,
 }
 
@@ -1283,18 +1283,18 @@ pub struct DeliveryChannelStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAggregateComplianceByConfigRulesRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>Filters the results by ConfigRuleComplianceFilters object. </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ConfigRuleComplianceFilters>,
     /// <p>The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1303,11 +1303,11 @@ pub struct DescribeAggregateComplianceByConfigRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAggregateComplianceByConfigRulesResponse {
     /// <p>Returns a list of AggregateComplianceByConfigRule object.</p>
-    #[serde(rename = "AggregateComplianceByConfigRules")]
+    #[serde(rename = "aggregateComplianceByConfigRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregate_compliance_by_config_rules: Option<Vec<AggregateComplianceByConfigRule>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1316,18 +1316,18 @@ pub struct DescribeAggregateComplianceByConfigRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAggregateComplianceByConformancePacksRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>Filters the result by <code>AggregateConformancePackComplianceFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<AggregateConformancePackComplianceFilters>,
     /// <p>The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, AWS Config uses the default. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1336,12 +1336,12 @@ pub struct DescribeAggregateComplianceByConformancePacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAggregateComplianceByConformancePacksResponse {
     /// <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
-    #[serde(rename = "AggregateComplianceByConformancePacks")]
+    #[serde(rename = "aggregateComplianceByConformancePacks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregate_compliance_by_conformance_packs:
         Option<Vec<AggregateComplianceByConformancePack>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1350,11 +1350,11 @@ pub struct DescribeAggregateComplianceByConformancePacksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAggregationAuthorizationsRequest {
     /// <p>The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1363,11 +1363,11 @@ pub struct DescribeAggregationAuthorizationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAggregationAuthorizationsResponse {
     /// <p>Returns a list of authorizations granted to various aggregator accounts and regions.</p>
-    #[serde(rename = "AggregationAuthorizations")]
+    #[serde(rename = "aggregationAuthorizations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregation_authorizations: Option<Vec<AggregationAuthorization>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1377,15 +1377,15 @@ pub struct DescribeAggregationAuthorizationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeComplianceByConfigRuleRequest {
     /// <p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
-    #[serde(rename = "ComplianceTypes")]
+    #[serde(rename = "complianceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_types: Option<Vec<String>>,
     /// <p>Specify one or more AWS Config rule names to filter the results by rule.</p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_names: Option<Vec<String>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1395,11 +1395,11 @@ pub struct DescribeComplianceByConfigRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeComplianceByConfigRuleResponse {
     /// <p>Indicates whether each of the specified AWS Config rules is compliant.</p>
-    #[serde(rename = "ComplianceByConfigRules")]
+    #[serde(rename = "complianceByConfigRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_by_config_rules: Option<Vec<ComplianceByConfigRule>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1409,23 +1409,23 @@ pub struct DescribeComplianceByConfigRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeComplianceByResourceRequest {
     /// <p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>
-    #[serde(rename = "ComplianceTypes")]
+    #[serde(rename = "complianceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_types: Option<Vec<String>>,
     /// <p>The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for <code>ResourceType</code>.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The types of AWS resources for which you want compliance information (for example, <code>AWS::EC2::Instance</code>). For this action, you can specify that the resource type is an AWS account by specifying <code>AWS::::Account</code>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1435,11 +1435,11 @@ pub struct DescribeComplianceByResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeComplianceByResourceResponse {
     /// <p>Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.</p>
-    #[serde(rename = "ComplianceByResources")]
+    #[serde(rename = "complianceByResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_by_resources: Option<Vec<ComplianceByResource>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1449,15 +1449,15 @@ pub struct DescribeComplianceByResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigRuleEvaluationStatusRequest {
     /// <p>The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.</p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_names: Option<Vec<String>>,
     /// <p>The number of rule evaluation results that you want returned.</p> <p>This parameter is required if the rule limit for your account is more than the default of 150 rules.</p> <p>For information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS Config Limits</a> in the <i>AWS General Reference Guide</i>.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1467,11 +1467,11 @@ pub struct DescribeConfigRuleEvaluationStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigRuleEvaluationStatusResponse {
     /// <p>Status information about your AWS managed Config rules.</p>
-    #[serde(rename = "ConfigRulesEvaluationStatus")]
+    #[serde(rename = "configRulesEvaluationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rules_evaluation_status: Option<Vec<ConfigRuleEvaluationStatus>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1481,11 +1481,11 @@ pub struct DescribeConfigRuleEvaluationStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigRulesRequest {
     /// <p>The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.</p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_names: Option<Vec<String>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1495,11 +1495,11 @@ pub struct DescribeConfigRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigRulesResponse {
     /// <p>The details about your AWS Config rules.</p>
-    #[serde(rename = "ConfigRules")]
+    #[serde(rename = "configRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rules: Option<Vec<ConfigRule>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1508,18 +1508,18 @@ pub struct DescribeConfigRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigurationAggregatorSourcesStatusRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>Filters the status type.</p> <ul> <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> </ul></p>
-    #[serde(rename = "UpdateStatus")]
+    #[serde(rename = "updateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_status: Option<Vec<String>>,
 }
@@ -1528,11 +1528,11 @@ pub struct DescribeConfigurationAggregatorSourcesStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigurationAggregatorSourcesStatusResponse {
     /// <p>Returns an AggregatedSourceStatus object. </p>
-    #[serde(rename = "AggregatedSourceStatusList")]
+    #[serde(rename = "aggregatedSourceStatusList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregated_source_status_list: Option<Vec<AggregatedSourceStatus>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1541,15 +1541,15 @@ pub struct DescribeConfigurationAggregatorSourcesStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigurationAggregatorsRequest {
     /// <p>The name of the configuration aggregators.</p>
-    #[serde(rename = "ConfigurationAggregatorNames")]
+    #[serde(rename = "configurationAggregatorNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aggregator_names: Option<Vec<String>>,
     /// <p>The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1558,11 +1558,11 @@ pub struct DescribeConfigurationAggregatorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigurationAggregatorsResponse {
     /// <p>Returns a ConfigurationAggregators object.</p>
-    #[serde(rename = "ConfigurationAggregators")]
+    #[serde(rename = "configurationAggregators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aggregators: Option<Vec<ConfigurationAggregator>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1572,7 +1572,7 @@ pub struct DescribeConfigurationAggregatorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigurationRecorderStatusRequest {
     /// <p>The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.</p>
-    #[serde(rename = "ConfigurationRecorderNames")]
+    #[serde(rename = "configurationRecorderNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_recorder_names: Option<Vec<String>>,
 }
@@ -1582,7 +1582,7 @@ pub struct DescribeConfigurationRecorderStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigurationRecorderStatusResponse {
     /// <p>A list that contains status of the specified recorders.</p>
-    #[serde(rename = "ConfigurationRecordersStatus")]
+    #[serde(rename = "configurationRecordersStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_recorders_status: Option<Vec<ConfigurationRecorderStatus>>,
 }
@@ -1592,7 +1592,7 @@ pub struct DescribeConfigurationRecorderStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConfigurationRecordersRequest {
     /// <p>A list of configuration recorder names.</p>
-    #[serde(rename = "ConfigurationRecorderNames")]
+    #[serde(rename = "configurationRecorderNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_recorder_names: Option<Vec<String>>,
 }
@@ -1602,7 +1602,7 @@ pub struct DescribeConfigurationRecordersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConfigurationRecordersResponse {
     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
-    #[serde(rename = "ConfigurationRecorders")]
+    #[serde(rename = "configurationRecorders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_recorders: Option<Vec<ConfigurationRecorder>>,
 }
@@ -1611,18 +1611,18 @@ pub struct DescribeConfigurationRecordersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConformancePackComplianceRequest {
     /// <p>Name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p>A <code>ConformancePackComplianceFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ConformancePackComplianceFilters>,
     /// <p>The maximum number of AWS Config rules within a conformance pack are returned on each page.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1631,13 +1631,13 @@ pub struct DescribeConformancePackComplianceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConformancePackComplianceResponse {
     /// <p>Name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
-    #[serde(rename = "ConformancePackRuleComplianceList")]
+    #[serde(rename = "conformancePackRuleComplianceList")]
     pub conformance_pack_rule_compliance_list: Vec<ConformancePackRuleCompliance>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1646,15 +1646,15 @@ pub struct DescribeConformancePackComplianceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConformancePackStatusRequest {
     /// <p>Comma-separated list of conformance pack names.</p>
-    #[serde(rename = "ConformancePackNames")]
+    #[serde(rename = "conformancePackNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_names: Option<Vec<String>>,
     /// <p>The maximum number of conformance packs status returned on each page.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1663,11 +1663,11 @@ pub struct DescribeConformancePackStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConformancePackStatusResponse {
     /// <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
-    #[serde(rename = "ConformancePackStatusDetails")]
+    #[serde(rename = "conformancePackStatusDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_status_details: Option<Vec<ConformancePackStatusDetail>>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1676,15 +1676,15 @@ pub struct DescribeConformancePackStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConformancePacksRequest {
     /// <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, AWS Config returns details for all your conformance packs. </p>
-    #[serde(rename = "ConformancePackNames")]
+    #[serde(rename = "conformancePackNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_names: Option<Vec<String>>,
     /// <p>The maximum number of conformance packs returned on each page.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1693,11 +1693,11 @@ pub struct DescribeConformancePacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConformancePacksResponse {
     /// <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
-    #[serde(rename = "ConformancePackDetails")]
+    #[serde(rename = "conformancePackDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_details: Option<Vec<ConformancePackDetail>>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1707,7 +1707,7 @@ pub struct DescribeConformancePacksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDeliveryChannelStatusRequest {
     /// <p>A list of delivery channel names.</p>
-    #[serde(rename = "DeliveryChannelNames")]
+    #[serde(rename = "deliveryChannelNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_channel_names: Option<Vec<String>>,
 }
@@ -1717,7 +1717,7 @@ pub struct DescribeDeliveryChannelStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDeliveryChannelStatusResponse {
     /// <p>A list that contains the status of a specified delivery channel.</p>
-    #[serde(rename = "DeliveryChannelsStatus")]
+    #[serde(rename = "deliveryChannelsStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_channels_status: Option<Vec<DeliveryChannelStatus>>,
 }
@@ -1727,7 +1727,7 @@ pub struct DescribeDeliveryChannelStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDeliveryChannelsRequest {
     /// <p>A list of delivery channel names.</p>
-    #[serde(rename = "DeliveryChannelNames")]
+    #[serde(rename = "deliveryChannelNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_channel_names: Option<Vec<String>>,
 }
@@ -1737,7 +1737,7 @@ pub struct DescribeDeliveryChannelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDeliveryChannelsResponse {
     /// <p>A list that contains the descriptions of the specified delivery channel.</p>
-    #[serde(rename = "DeliveryChannels")]
+    #[serde(rename = "deliveryChannels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_channels: Option<Vec<DeliveryChannel>>,
 }
@@ -1746,15 +1746,15 @@ pub struct DescribeDeliveryChannelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOrganizationConfigRuleStatusesRequest {
     /// <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.</p>
-    #[serde(rename = "OrganizationConfigRuleNames")]
+    #[serde(rename = "organizationConfigRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_config_rule_names: Option<Vec<String>>,
 }
@@ -1763,11 +1763,11 @@ pub struct DescribeOrganizationConfigRuleStatusesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOrganizationConfigRuleStatusesResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
-    #[serde(rename = "OrganizationConfigRuleStatuses")]
+    #[serde(rename = "organizationConfigRuleStatuses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_config_rule_statuses: Option<Vec<OrganizationConfigRuleStatus>>,
 }
@@ -1776,15 +1776,15 @@ pub struct DescribeOrganizationConfigRuleStatusesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOrganizationConfigRulesRequest {
     /// <p>The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
-    #[serde(rename = "OrganizationConfigRuleNames")]
+    #[serde(rename = "organizationConfigRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_config_rule_names: Option<Vec<String>>,
 }
@@ -1793,11 +1793,11 @@ pub struct DescribeOrganizationConfigRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOrganizationConfigRulesResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
-    #[serde(rename = "OrganizationConfigRules")]
+    #[serde(rename = "organizationConfigRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_config_rules: Option<Vec<OrganizationConfigRule>>,
 }
@@ -1806,15 +1806,15 @@ pub struct DescribeOrganizationConfigRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOrganizationConformancePackStatusesRequest {
     /// <p>The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The names of organization conformance packs for which you want status details. If you do not specify any names, AWS Config returns details for all your organization conformance packs. </p>
-    #[serde(rename = "OrganizationConformancePackNames")]
+    #[serde(rename = "organizationConformancePackNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_conformance_pack_names: Option<Vec<String>>,
 }
@@ -1823,11 +1823,11 @@ pub struct DescribeOrganizationConformancePackStatusesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOrganizationConformancePackStatusesResponse {
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
-    #[serde(rename = "OrganizationConformancePackStatuses")]
+    #[serde(rename = "organizationConformancePackStatuses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_conformance_pack_statuses: Option<Vec<OrganizationConformancePackStatus>>,
 }
@@ -1836,15 +1836,15 @@ pub struct DescribeOrganizationConformancePackStatusesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOrganizationConformancePacksRequest {
     /// <p>The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name that you assign to an organization conformance pack.</p>
-    #[serde(rename = "OrganizationConformancePackNames")]
+    #[serde(rename = "organizationConformancePackNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_conformance_pack_names: Option<Vec<String>>,
 }
@@ -1853,11 +1853,11 @@ pub struct DescribeOrganizationConformancePacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOrganizationConformancePacksResponse {
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a list of OrganizationConformancePacks objects.</p>
-    #[serde(rename = "OrganizationConformancePacks")]
+    #[serde(rename = "organizationConformancePacks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_conformance_packs: Option<Vec<OrganizationConformancePack>>,
 }
@@ -1866,11 +1866,11 @@ pub struct DescribeOrganizationConformancePacksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePendingAggregationRequestsRequest {
     /// <p>The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1879,11 +1879,11 @@ pub struct DescribePendingAggregationRequestsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePendingAggregationRequestsResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a PendingAggregationRequests object.</p>
-    #[serde(rename = "PendingAggregationRequests")]
+    #[serde(rename = "pendingAggregationRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending_aggregation_requests: Option<Vec<PendingAggregationRequest>>,
 }
@@ -1892,7 +1892,7 @@ pub struct DescribePendingAggregationRequestsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRemediationConfigurationsRequest {
     /// <p>A list of AWS Config rule names of remediation configurations for which you want details. </p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     pub config_rule_names: Vec<String>,
 }
 
@@ -1900,7 +1900,7 @@ pub struct DescribeRemediationConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRemediationConfigurationsResponse {
     /// <p>Returns a remediation configuration object.</p>
-    #[serde(rename = "RemediationConfigurations")]
+    #[serde(rename = "remediationConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remediation_configurations: Option<Vec<RemediationConfiguration>>,
 }
@@ -1909,18 +1909,18 @@ pub struct DescribeRemediationConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRemediationExceptionsRequest {
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
-    #[serde(rename = "ResourceKeys")]
+    #[serde(rename = "resourceKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_keys: Option<Vec<RemediationExceptionResourceKey>>,
 }
@@ -1929,11 +1929,11 @@ pub struct DescribeRemediationExceptionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRemediationExceptionsResponse {
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a list of remediation exception objects.</p>
-    #[serde(rename = "RemediationExceptions")]
+    #[serde(rename = "remediationExceptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remediation_exceptions: Option<Vec<RemediationException>>,
 }
@@ -1942,18 +1942,18 @@ pub struct DescribeRemediationExceptionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRemediationExecutionStatusRequest {
     /// <p>A list of AWS Config rule names.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
-    #[serde(rename = "ResourceKeys")]
+    #[serde(rename = "resourceKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_keys: Option<Vec<ResourceKey>>,
 }
@@ -1962,11 +1962,11 @@ pub struct DescribeRemediationExecutionStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRemediationExecutionStatusResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a list of remediation execution statuses objects.</p>
-    #[serde(rename = "RemediationExecutionStatuses")]
+    #[serde(rename = "remediationExecutionStatuses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remediation_execution_statuses: Option<Vec<RemediationExecutionStatus>>,
 }
@@ -1975,11 +1975,11 @@ pub struct DescribeRemediationExecutionStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRetentionConfigurationsRequest {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.</p> <note> <p>Currently, AWS Config supports only one retention configuration per region in your account.</p> </note></p>
-    #[serde(rename = "RetentionConfigurationNames")]
+    #[serde(rename = "retentionConfigurationNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_configuration_names: Option<Vec<String>>,
 }
@@ -1988,11 +1988,11 @@ pub struct DescribeRetentionConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRetentionConfigurationsResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a retention configuration object.</p>
-    #[serde(rename = "RetentionConfigurations")]
+    #[serde(rename = "retentionConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_configurations: Option<Vec<RetentionConfiguration>>,
 }
@@ -2001,20 +2001,20 @@ pub struct DescribeRetentionConfigurationsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Evaluation {
     /// <p>Supplementary information about how the evaluation determined the compliance.</p>
-    #[serde(rename = "Annotation")]
+    #[serde(rename = "annotation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotation: Option<String>,
     /// <p>The ID of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ComplianceResourceId")]
+    #[serde(rename = "complianceResourceId")]
     pub compliance_resource_id: String,
     /// <p>The type of AWS resource that was evaluated.</p>
-    #[serde(rename = "ComplianceResourceType")]
+    #[serde(rename = "complianceResourceType")]
     pub compliance_resource_type: String,
     /// <p>Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.</p> <p>For the <code>Evaluation</code> data type, AWS Config supports only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values. AWS Config does not support the <code>INSUFFICIENT_DATA</code> value for this data type.</p> <p>Similarly, AWS Config does not accept <code>INSUFFICIENT_DATA</code> as the value for <code>ComplianceType</code> from a <code>PutEvaluations</code> request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an <code>INSUFFICIENT_DATA</code> value to AWS Config.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     pub compliance_type: String,
     /// <p>The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).</p>
-    #[serde(rename = "OrderingTimestamp")]
+    #[serde(rename = "orderingTimestamp")]
     pub ordering_timestamp: f64,
 }
 
@@ -2023,27 +2023,27 @@ pub struct Evaluation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationResult {
     /// <p>Supplementary information about how the evaluation determined the compliance.</p>
-    #[serde(rename = "Annotation")]
+    #[serde(rename = "annotation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotation: Option<String>,
     /// <p>Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.</p> <p>For the <code>EvaluationResult</code> data type, AWS Config supports only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values. AWS Config does not support the <code>INSUFFICIENT_DATA</code> value for the <code>EvaluationResult</code> data type.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>The time when the AWS Config rule evaluated the AWS resource.</p>
-    #[serde(rename = "ConfigRuleInvokedTime")]
+    #[serde(rename = "configRuleInvokedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_invoked_time: Option<f64>,
     /// <p>Uniquely identifies the evaluation result.</p>
-    #[serde(rename = "EvaluationResultIdentifier")]
+    #[serde(rename = "evaluationResultIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_result_identifier: Option<EvaluationResultIdentifier>,
     /// <p>The time when AWS Config recorded the evaluation result.</p>
-    #[serde(rename = "ResultRecordedTime")]
+    #[serde(rename = "resultRecordedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_recorded_time: Option<f64>,
     /// <p>An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.</p>
-    #[serde(rename = "ResultToken")]
+    #[serde(rename = "resultToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result_token: Option<String>,
 }
@@ -2053,11 +2053,11 @@ pub struct EvaluationResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationResultIdentifier {
     /// <p>Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.</p>
-    #[serde(rename = "EvaluationResultQualifier")]
+    #[serde(rename = "evaluationResultQualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_result_qualifier: Option<EvaluationResultQualifier>,
     /// <p>The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation.</p>
-    #[serde(rename = "OrderingTimestamp")]
+    #[serde(rename = "orderingTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ordering_timestamp: Option<f64>,
 }
@@ -2067,15 +2067,15 @@ pub struct EvaluationResultIdentifier {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationResultQualifier {
     /// <p>The name of the AWS Config rule that was used in the evaluation.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_name: Option<String>,
     /// <p>The ID of the evaluated AWS resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The type of AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -2084,7 +2084,7 @@ pub struct EvaluationResultQualifier {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ExecutionControls {
     /// <p>A SsmControls object.</p>
-    #[serde(rename = "SsmControls")]
+    #[serde(rename = "ssmControls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssm_controls: Option<SsmControls>,
 }
@@ -2094,20 +2094,20 @@ pub struct ExecutionControls {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExternalEvaluation {
     /// <p>Supplementary information about the reason of compliance. For example, this task was completed on a specific date.</p>
-    #[serde(rename = "Annotation")]
+    #[serde(rename = "annotation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotation: Option<String>,
     /// <p>The evaluated compliance resource ID. AWS Config accepts only AWS account ID.</p>
-    #[serde(rename = "ComplianceResourceId")]
+    #[serde(rename = "complianceResourceId")]
     pub compliance_resource_id: String,
     /// <p>The evaluated compliance resource type. AWS Config accepts <code>AWS::::Account</code> resource type.</p>
-    #[serde(rename = "ComplianceResourceType")]
+    #[serde(rename = "complianceResourceType")]
     pub compliance_resource_type: String,
     /// <p>The compliance of the AWS resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     pub compliance_type: String,
     /// <p>The time when the compliance was recorded. </p>
-    #[serde(rename = "OrderingTimestamp")]
+    #[serde(rename = "orderingTimestamp")]
     pub ordering_timestamp: f64,
 }
 
@@ -2116,11 +2116,11 @@ pub struct ExternalEvaluation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedDeleteRemediationExceptionsBatch {
     /// <p>Returns remediation exception resource key object of the failed items.</p>
-    #[serde(rename = "FailedItems")]
+    #[serde(rename = "failedItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_items: Option<Vec<RemediationExceptionResourceKey>>,
     /// <p>Returns a failure message for delete remediation exception. For example, AWS Config creates an exception due to an internal error.</p>
-    #[serde(rename = "FailureMessage")]
+    #[serde(rename = "failureMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_message: Option<String>,
 }
@@ -2130,11 +2130,11 @@ pub struct FailedDeleteRemediationExceptionsBatch {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedRemediationBatch {
     /// <p>Returns remediation configurations of the failed items.</p>
-    #[serde(rename = "FailedItems")]
+    #[serde(rename = "failedItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_items: Option<Vec<RemediationConfiguration>>,
     /// <p>Returns a failure message. For example, the resource is already compliant.</p>
-    #[serde(rename = "FailureMessage")]
+    #[serde(rename = "failureMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_message: Option<String>,
 }
@@ -2144,11 +2144,11 @@ pub struct FailedRemediationBatch {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedRemediationExceptionBatch {
     /// <p>Returns remediation exception resource key object of the failed items.</p>
-    #[serde(rename = "FailedItems")]
+    #[serde(rename = "failedItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_items: Option<Vec<RemediationException>>,
     /// <p>Returns a failure message. For example, the auto-remediation has failed.</p>
-    #[serde(rename = "FailureMessage")]
+    #[serde(rename = "failureMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_message: Option<String>,
 }
@@ -2158,7 +2158,7 @@ pub struct FailedRemediationExceptionBatch {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FieldInfo {
     /// <p>Name of the field.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2167,27 +2167,27 @@ pub struct FieldInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAggregateComplianceDetailsByConfigRuleRequest {
     /// <p>The 12-digit account ID of the source account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The source region from where the data is aggregated.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     pub aws_region: String,
     /// <p><p>The resource compliance status.</p> <note> <p>For the <code>GetAggregateComplianceDetailsByConfigRuleRequest</code> data type, AWS Config supports only the <code>COMPLIANT</code> and <code>NON<em>COMPLIANT</code>. AWS Config does not support the <code>NOT</em>APPLICABLE</code> and <code>INSUFFICIENT_DATA</code> values.</p> </note></p>
-    #[serde(rename = "ComplianceType")]
+    #[serde(rename = "complianceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_type: Option<String>,
     /// <p>The name of the AWS Config rule for which you want compliance information.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2196,11 +2196,11 @@ pub struct GetAggregateComplianceDetailsByConfigRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAggregateComplianceDetailsByConfigRuleResponse {
     /// <p>Returns an AggregateEvaluationResults object.</p>
-    #[serde(rename = "AggregateEvaluationResults")]
+    #[serde(rename = "aggregateEvaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregate_evaluation_results: Option<Vec<AggregateEvaluationResult>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2209,22 +2209,22 @@ pub struct GetAggregateComplianceDetailsByConfigRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAggregateConfigRuleComplianceSummaryRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ConfigRuleComplianceSummaryFilters>,
     /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
-    #[serde(rename = "GroupByKey")]
+    #[serde(rename = "groupByKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by_key: Option<String>,
     /// <p>The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2233,15 +2233,15 @@ pub struct GetAggregateConfigRuleComplianceSummaryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAggregateConfigRuleComplianceSummaryResponse {
     /// <p>Returns a list of AggregateComplianceCounts object.</p>
-    #[serde(rename = "AggregateComplianceCounts")]
+    #[serde(rename = "aggregateComplianceCounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregate_compliance_counts: Option<Vec<AggregateComplianceCount>>,
     /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
-    #[serde(rename = "GroupByKey")]
+    #[serde(rename = "groupByKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by_key: Option<String>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2250,22 +2250,22 @@ pub struct GetAggregateConfigRuleComplianceSummaryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAggregateConformancePackComplianceSummaryRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<AggregateConformancePackComplianceSummaryFilters>,
     /// <p>Groups the result based on AWS Account ID or AWS Region.</p>
-    #[serde(rename = "GroupByKey")]
+    #[serde(rename = "groupByKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by_key: Option<String>,
     /// <p>The maximum number of results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2274,16 +2274,16 @@ pub struct GetAggregateConformancePackComplianceSummaryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAggregateConformancePackComplianceSummaryResponse {
     /// <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
-    #[serde(rename = "AggregateConformancePackComplianceSummaries")]
+    #[serde(rename = "aggregateConformancePackComplianceSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregate_conformance_pack_compliance_summaries:
         Option<Vec<AggregateConformancePackComplianceSummary>>,
     /// <p>Groups the result based on AWS Account ID or AWS Region.</p>
-    #[serde(rename = "GroupByKey")]
+    #[serde(rename = "groupByKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by_key: Option<String>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2292,22 +2292,22 @@ pub struct GetAggregateConformancePackComplianceSummaryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAggregateDiscoveredResourceCountsRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ResourceCountFilters>,
     /// <p>The key to group the resource counts.</p>
-    #[serde(rename = "GroupByKey")]
+    #[serde(rename = "groupByKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by_key: Option<String>,
     /// <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2316,19 +2316,19 @@ pub struct GetAggregateDiscoveredResourceCountsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAggregateDiscoveredResourceCountsResponse {
     /// <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
-    #[serde(rename = "GroupByKey")]
+    #[serde(rename = "groupByKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by_key: Option<String>,
     /// <p>Returns a list of GroupedResourceCount objects.</p>
-    #[serde(rename = "GroupedResourceCounts")]
+    #[serde(rename = "groupedResourceCounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grouped_resource_counts: Option<Vec<GroupedResourceCount>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The total number of resources that are present in an aggregator with the filters that you provide.</p>
-    #[serde(rename = "TotalDiscoveredResources")]
+    #[serde(rename = "totalDiscoveredResources")]
     pub total_discovered_resources: i64,
 }
 
@@ -2336,10 +2336,10 @@ pub struct GetAggregateDiscoveredResourceCountsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAggregateResourceConfigRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>An object that identifies aggregate resource.</p>
-    #[serde(rename = "ResourceIdentifier")]
+    #[serde(rename = "resourceIdentifier")]
     pub resource_identifier: AggregateResourceIdentifier,
 }
 
@@ -2347,7 +2347,7 @@ pub struct GetAggregateResourceConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAggregateResourceConfigResponse {
     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
-    #[serde(rename = "ConfigurationItem")]
+    #[serde(rename = "configurationItem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_item: Option<ConfigurationItem>,
 }
@@ -2357,18 +2357,18 @@ pub struct GetAggregateResourceConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetComplianceDetailsByConfigRuleRequest {
     /// <p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code>.</p>
-    #[serde(rename = "ComplianceTypes")]
+    #[serde(rename = "complianceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_types: Option<Vec<String>>,
     /// <p>The name of the AWS Config rule for which you want compliance information.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2378,11 +2378,11 @@ pub struct GetComplianceDetailsByConfigRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetComplianceDetailsByConfigRuleResponse {
     /// <p>Indicates whether the AWS resource complies with the specified AWS Config rule.</p>
-    #[serde(rename = "EvaluationResults")]
+    #[serde(rename = "evaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_results: Option<Vec<EvaluationResult>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2392,18 +2392,18 @@ pub struct GetComplianceDetailsByConfigRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetComplianceDetailsByResourceRequest {
     /// <p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code>.</p>
-    #[serde(rename = "ComplianceTypes")]
+    #[serde(rename = "complianceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_types: Option<Vec<String>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the AWS resource for which you want compliance information.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The type of the AWS resource for which you want compliance information.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -2412,11 +2412,11 @@ pub struct GetComplianceDetailsByResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetComplianceDetailsByResourceResponse {
     /// <p>Indicates whether the specified AWS resource complies each AWS Config rule.</p>
-    #[serde(rename = "EvaluationResults")]
+    #[serde(rename = "evaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_results: Option<Vec<EvaluationResult>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2426,7 +2426,7 @@ pub struct GetComplianceDetailsByResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetComplianceSummaryByConfigRuleResponse {
     /// <p>The number of AWS Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each.</p>
-    #[serde(rename = "ComplianceSummary")]
+    #[serde(rename = "complianceSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_summary: Option<ComplianceSummary>,
 }
@@ -2436,7 +2436,7 @@ pub struct GetComplianceSummaryByConfigRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetComplianceSummaryByResourceTypeRequest {
     /// <p>Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.</p> <p>For this request, you can specify an AWS resource type such as <code>AWS::EC2::Instance</code>. You can specify that the resource type is an AWS account by specifying <code>AWS::::Account</code>.</p>
-    #[serde(rename = "ResourceTypes")]
+    #[serde(rename = "resourceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_types: Option<Vec<String>>,
 }
@@ -2446,7 +2446,7 @@ pub struct GetComplianceSummaryByResourceTypeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetComplianceSummaryByResourceTypeResponse {
     /// <p>The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.</p>
-    #[serde(rename = "ComplianceSummariesByResourceType")]
+    #[serde(rename = "complianceSummariesByResourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_summaries_by_resource_type: Option<Vec<ComplianceSummaryByResourceType>>,
 }
@@ -2455,18 +2455,18 @@ pub struct GetComplianceSummaryByResourceTypeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConformancePackComplianceDetailsRequest {
     /// <p>Name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ConformancePackEvaluationFilters>,
     /// <p>The maximum number of evaluation results returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2475,14 +2475,14 @@ pub struct GetConformancePackComplianceDetailsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConformancePackComplianceDetailsResponse {
     /// <p>Name of the conformance pack.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p>Returns a list of <code>ConformancePackEvaluationResult</code> objects.</p>
-    #[serde(rename = "ConformancePackRuleEvaluationResults")]
+    #[serde(rename = "conformancePackRuleEvaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_rule_evaluation_results: Option<Vec<ConformancePackEvaluationResult>>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2491,14 +2491,14 @@ pub struct GetConformancePackComplianceDetailsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConformancePackComplianceSummaryRequest {
     /// <p>Names of conformance packs.</p>
-    #[serde(rename = "ConformancePackNames")]
+    #[serde(rename = "conformancePackNames")]
     pub conformance_pack_names: Vec<String>,
     /// <p>The maximum number of conformance packs returned on each page.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2507,11 +2507,11 @@ pub struct GetConformancePackComplianceSummaryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConformancePackComplianceSummaryResponse {
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
-    #[serde(rename = "ConformancePackComplianceSummaryList")]
+    #[serde(rename = "conformancePackComplianceSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_compliance_summary_list: Option<Vec<ConformancePackComplianceSummary>>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2554,19 +2554,19 @@ pub struct GetDiscoveredResourceCountsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetOrganizationConfigRuleDetailedStatusRequest {
     /// <p>A <code>StatusDetailFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<StatusDetailFilters>,
     /// <p>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of organization config rule for which you want status details for member accounts.</p>
-    #[serde(rename = "OrganizationConfigRuleName")]
+    #[serde(rename = "organizationConfigRuleName")]
     pub organization_config_rule_name: String,
 }
 
@@ -2574,11 +2574,11 @@ pub struct GetOrganizationConfigRuleDetailedStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetOrganizationConfigRuleDetailedStatusResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>MemberAccountStatus</code> objects.</p>
-    #[serde(rename = "OrganizationConfigRuleDetailedStatus")]
+    #[serde(rename = "organizationConfigRuleDetailedStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_config_rule_detailed_status: Option<Vec<MemberAccountStatus>>,
 }
@@ -2587,19 +2587,19 @@ pub struct GetOrganizationConfigRuleDetailedStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetOrganizationConformancePackDetailedStatusRequest {
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<OrganizationResourceDetailedStatusFilters>,
     /// <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
-    #[serde(rename = "OrganizationConformancePackName")]
+    #[serde(rename = "organizationConformancePackName")]
     pub organization_conformance_pack_name: String,
 }
 
@@ -2607,11 +2607,11 @@ pub struct GetOrganizationConformancePackDetailedStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetOrganizationConformancePackDetailedStatusResponse {
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects. </p>
-    #[serde(rename = "OrganizationConformancePackDetailedStatuses")]
+    #[serde(rename = "organizationConformancePackDetailedStatuses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_conformance_pack_detailed_statuses:
         Option<Vec<OrganizationConformancePackDetailedStatus>>,
@@ -2667,7 +2667,7 @@ pub struct GetResourceConfigHistoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetStoredQueryRequest {
     /// <p>The name of the query.</p>
-    #[serde(rename = "QueryName")]
+    #[serde(rename = "queryName")]
     pub query_name: String,
 }
 
@@ -2675,7 +2675,7 @@ pub struct GetStoredQueryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetStoredQueryResponse {
     /// <p>Returns a <code>StoredQuery</code> object.</p>
-    #[serde(rename = "StoredQuery")]
+    #[serde(rename = "storedQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stored_query: Option<StoredQuery>,
 }
@@ -2685,10 +2685,10 @@ pub struct GetStoredQueryResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupedResourceCount {
     /// <p>The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as <code>GroupByKey</code>.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The number of resources in the group.</p>
-    #[serde(rename = "ResourceCount")]
+    #[serde(rename = "resourceCount")]
     pub resource_count: i64,
 }
 
@@ -2696,22 +2696,22 @@ pub struct GroupedResourceCount {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAggregateDiscoveredResourcesRequest {
     /// <p>The name of the configuration aggregator. </p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ResourceFilters>,
     /// <p>The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The type of resources that you want AWS Config to list in the response.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -2719,11 +2719,11 @@ pub struct ListAggregateDiscoveredResourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAggregateDiscoveredResourcesResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns a list of <code>ResourceIdentifiers</code> objects.</p>
-    #[serde(rename = "ResourceIdentifiers")]
+    #[serde(rename = "resourceIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_identifiers: Option<Vec<AggregateResourceIdentifier>>,
 }
@@ -2775,11 +2775,11 @@ pub struct ListDiscoveredResourcesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListStoredQueriesRequest {
     /// <p>The maximum number of results to be returned with a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2788,11 +2788,11 @@ pub struct ListStoredQueriesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListStoredQueriesResponse {
     /// <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>StoredQueryMetadata</code> objects.</p>
-    #[serde(rename = "StoredQueryMetadata")]
+    #[serde(rename = "storedQueryMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stored_query_metadata: Option<Vec<StoredQueryMetadata>>,
 }
@@ -2801,15 +2801,15 @@ pub struct ListStoredQueriesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2817,11 +2817,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The tags for the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2831,25 +2831,25 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MemberAccountStatus {
     /// <p>The 12-digit account ID of a member account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The name of config rule deployed in the member account.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>An error code that is returned when config rule creation or deletion failed in the member account.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>An error message indicating that config rule account creation or deletion has failed due to an error in the member account.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The timestamp of the last status update.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p><p>Indicates deployment status for config rule in the member account. When master account calls <code>PutOrganizationConfigRule</code> action for the first time, config rule status is created in the member account. When master account calls <code>PutOrganizationConfigRule</code> action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>. </p> <p> AWS Config sets the state of the rule to:</p> <ul> <li> <p> <code>CREATE<em>SUCCESSFUL</code> when config rule has been created in the member account. </p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> when config rule is being created in the member account.</p> </li> <li> <p> <code>CREATE</em>FAILED</code> when config rule creation has failed in the member account.</p> </li> <li> <p> <code>DELETE<em>FAILED</code> when config rule deletion has failed in the member account.</p> </li> <li> <p> <code>DELETE</em>IN<em>PROGRESS</code> when config rule is being deleted in the member account.</p> </li> <li> <p> <code>DELETE</em>SUCCESSFUL</code> when config rule has been deleted in the member account. </p> </li> <li> <p> <code>UPDATE<em>SUCCESSFUL</code> when config rule has been updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>IN<em>PROGRESS</code> when config rule is being updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>FAILED</code> when config rule deletion has failed in the member account.</p> </li> </ul></p>
-    #[serde(rename = "MemberAccountRuleStatus")]
+    #[serde(rename = "memberAccountRuleStatus")]
     pub member_account_rule_status: String,
 }
 
@@ -2857,15 +2857,15 @@ pub struct MemberAccountStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OrganizationAggregationSource {
     /// <p>If true, aggregate existing AWS Config regions and future regions.</p>
-    #[serde(rename = "AllAwsRegions")]
+    #[serde(rename = "allAwsRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub all_aws_regions: Option<bool>,
     /// <p>The source regions being aggregated.</p>
-    #[serde(rename = "AwsRegions")]
+    #[serde(rename = "awsRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_regions: Option<Vec<String>>,
     /// <p>ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
 }
 
@@ -2874,25 +2874,25 @@ pub struct OrganizationAggregationSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationConfigRule {
     /// <p>A comma-separated list of accounts excluded from organization config rule.</p>
-    #[serde(rename = "ExcludedAccounts")]
+    #[serde(rename = "excludedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excluded_accounts: Option<Vec<String>>,
     /// <p>The timestamp of the last update.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p>Amazon Resource Name (ARN) of organization config rule.</p>
-    #[serde(rename = "OrganizationConfigRuleArn")]
+    #[serde(rename = "organizationConfigRuleArn")]
     pub organization_config_rule_arn: String,
     /// <p>The name that you assign to organization config rule.</p>
-    #[serde(rename = "OrganizationConfigRuleName")]
+    #[serde(rename = "organizationConfigRuleName")]
     pub organization_config_rule_name: String,
     /// <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
-    #[serde(rename = "OrganizationCustomRuleMetadata")]
+    #[serde(rename = "organizationCustomRuleMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_custom_rule_metadata: Option<OrganizationCustomRuleMetadata>,
     /// <p>An <code>OrganizationManagedRuleMetadata</code> object.</p>
-    #[serde(rename = "OrganizationManagedRuleMetadata")]
+    #[serde(rename = "organizationManagedRuleMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_managed_rule_metadata: Option<OrganizationManagedRuleMetadata>,
 }
@@ -2902,22 +2902,22 @@ pub struct OrganizationConfigRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationConfigRuleStatus {
     /// <p>An error code that is returned when organization config rule creation or deletion has failed.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>An error message indicating that organization config rule creation or deletion failed due to an error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The timestamp of the last update.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p>The name that you assign to organization config rule.</p>
-    #[serde(rename = "OrganizationConfigRuleName")]
+    #[serde(rename = "organizationConfigRuleName")]
     pub organization_config_rule_name: String,
     /// <p><p>Indicates deployment status of an organization config rule. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p> <p>AWS Config sets the state of the rule to:</p> <ul> <li> <p> <code>CREATE<em>SUCCESSFUL</code> when an organization config rule has been successfully created in all the member accounts. </p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> when an organization config rule creation is in progress.</p> </li> <li> <p> <code>CREATE</em>FAILED</code> when an organization config rule creation failed in one or more member accounts within that organization.</p> </li> <li> <p> <code>DELETE<em>FAILED</code> when an organization config rule deletion failed in one or more member accounts within that organization.</p> </li> <li> <p> <code>DELETE</em>IN<em>PROGRESS</code> when an organization config rule deletion is in progress.</p> </li> <li> <p> <code>DELETE</em>SUCCESSFUL</code> when an organization config rule has been successfully deleted from all the member accounts.</p> </li> <li> <p> <code>UPDATE<em>SUCCESSFUL</code> when an organization config rule has been successfully updated in all the member accounts.</p> </li> <li> <p> <code>UPDATE</em>IN<em>PROGRESS</code> when an organization config rule update is in progress.</p> </li> <li> <p> <code>UPDATE</em>FAILED</code> when an organization config rule update failed in one or more member accounts within that organization.</p> </li> </ul></p>
-    #[serde(rename = "OrganizationRuleStatus")]
+    #[serde(rename = "organizationRuleStatus")]
     pub organization_rule_status: String,
 }
 
@@ -2926,29 +2926,29 @@ pub struct OrganizationConfigRuleStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationConformancePack {
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    #[serde(rename = "ConformancePackInputParameters")]
+    #[serde(rename = "conformancePackInputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_input_parameters: Option<Vec<ConformancePackInputParameter>>,
     /// <p><p>Amazon S3 bucket where AWS Config stores conformance pack templates. </p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3Bucket")]
+    #[serde(rename = "deliveryS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_bucket: Option<String>,
     /// <p><p>Any folder structure you want to add to an Amazon S3 bucket.</p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3KeyPrefix")]
+    #[serde(rename = "deliveryS3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_key_prefix: Option<String>,
     /// <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
-    #[serde(rename = "ExcludedAccounts")]
+    #[serde(rename = "excludedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excluded_accounts: Option<Vec<String>>,
     /// <p>Last time when organization conformation pack was updated.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     pub last_update_time: f64,
     /// <p>Amazon Resource Name (ARN) of organization conformance pack.</p>
-    #[serde(rename = "OrganizationConformancePackArn")]
+    #[serde(rename = "organizationConformancePackArn")]
     pub organization_conformance_pack_arn: String,
     /// <p>The name you assign to an organization conformance pack.</p>
-    #[serde(rename = "OrganizationConformancePackName")]
+    #[serde(rename = "organizationConformancePackName")]
     pub organization_conformance_pack_name: String,
 }
 
@@ -2957,25 +2957,25 @@ pub struct OrganizationConformancePack {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationConformancePackDetailedStatus {
     /// <p>The 12-digit account ID of a member account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The name of conformance pack deployed in the member account.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p>An error code that is returned when conformance pack creation or deletion failed in the member account. </p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account. </p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The timestamp of the last status update.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p><p>Indicates deployment status for conformance pack in a member account. When master account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account. When master account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>. </p> <p> AWS Config sets the state of the conformance pack to:</p> <ul> <li> <p> <code>CREATE<em>SUCCESSFUL</code> when conformance pack has been created in the member account. </p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> when conformance pack is being created in the member account.</p> </li> <li> <p> <code>CREATE</em>FAILED</code> when conformance pack creation has failed in the member account.</p> </li> <li> <p> <code>DELETE<em>FAILED</code> when conformance pack deletion has failed in the member account.</p> </li> <li> <p> <code>DELETE</em>IN<em>PROGRESS</code> when conformance pack is being deleted in the member account.</p> </li> <li> <p> <code>DELETE</em>SUCCESSFUL</code> when conformance pack has been deleted in the member account. </p> </li> <li> <p> <code>UPDATE<em>SUCCESSFUL</code> when conformance pack has been updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>IN<em>PROGRESS</code> when conformance pack is being updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>FAILED</code> when conformance pack deletion has failed in the member account.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -2984,22 +2984,22 @@ pub struct OrganizationConformancePackDetailedStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationConformancePackStatus {
     /// <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The timestamp of the last update.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p>The name that you assign to organization conformance pack.</p>
-    #[serde(rename = "OrganizationConformancePackName")]
+    #[serde(rename = "organizationConformancePackName")]
     pub organization_conformance_pack_name: String,
     /// <p><p>Indicates deployment status of an organization conformance pack. When master account calls PutOrganizationConformancePack for the first time, conformance pack status is created in all the member accounts. When master account calls PutOrganizationConformancePack for the second time, conformance pack status is updated in all the member accounts. Additionally, conformance pack status is updated when one or more member accounts join or leave an organization. Conformance pack status is deleted when the master account deletes OrganizationConformancePack in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p> <p>AWS Config sets the state of the conformance pack to:</p> <ul> <li> <p> <code>CREATE<em>SUCCESSFUL</code> when an organization conformance pack has been successfully created in all the member accounts. </p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> when an organization conformance pack creation is in progress.</p> </li> <li> <p> <code>CREATE</em>FAILED</code> when an organization conformance pack creation failed in one or more member accounts within that organization.</p> </li> <li> <p> <code>DELETE<em>FAILED</code> when an organization conformance pack deletion failed in one or more member accounts within that organization.</p> </li> <li> <p> <code>DELETE</em>IN<em>PROGRESS</code> when an organization conformance pack deletion is in progress.</p> </li> <li> <p> <code>DELETE</em>SUCCESSFUL</code> when an organization conformance pack has been successfully deleted from all the member accounts.</p> </li> <li> <p> <code>UPDATE<em>SUCCESSFUL</code> when an organization conformance pack has been successfully updated in all the member accounts.</p> </li> <li> <p> <code>UPDATE</em>IN<em>PROGRESS</code> when an organization conformance pack update is in progress.</p> </li> <li> <p> <code>UPDATE</em>FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -3007,37 +3007,37 @@ pub struct OrganizationConformancePackStatus {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OrganizationCustomRuleMetadata {
     /// <p>The description that you provide for organization config rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
-    #[serde(rename = "InputParameters")]
+    #[serde(rename = "inputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_parameters: Option<String>,
     /// <p>The lambda function ARN.</p>
-    #[serde(rename = "LambdaFunctionArn")]
+    #[serde(rename = "lambdaFunctionArn")]
     pub lambda_function_arn: String,
     /// <p><p>The maximum frequency with which AWS Config runs evaluations for a rule. Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> <note> <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p> </note></p>
-    #[serde(rename = "MaximumExecutionFrequency")]
+    #[serde(rename = "maximumExecutionFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_execution_frequency: Option<String>,
     /// <p><p>The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:</p> <ul> <li> <p> <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.</p> </li> <li> <p> <code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p> </li> <li> <p> <code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p> </li> </ul></p>
-    #[serde(rename = "OrganizationConfigRuleTriggerTypes")]
+    #[serde(rename = "organizationConfigRuleTriggerTypes")]
     pub organization_config_rule_trigger_types: Vec<String>,
     /// <p>The ID of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceIdScope")]
+    #[serde(rename = "resourceIdScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id_scope: Option<String>,
     /// <p>The type of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceTypesScope")]
+    #[serde(rename = "resourceTypesScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_types_scope: Option<Vec<String>>,
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values. </p>
-    #[serde(rename = "TagKeyScope")]
+    #[serde(rename = "tagKeyScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_key_scope: Option<String>,
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). </p>
-    #[serde(rename = "TagValueScope")]
+    #[serde(rename = "tagValueScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_value_scope: Option<String>,
 }
@@ -3046,34 +3046,34 @@ pub struct OrganizationCustomRuleMetadata {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OrganizationManagedRuleMetadata {
     /// <p>The description that you provide for organization config rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
-    #[serde(rename = "InputParameters")]
+    #[serde(rename = "inputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_parameters: Option<String>,
     /// <p><p>The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS managed rule that is triggered at a periodic frequency.</p> <note> <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p> </note></p>
-    #[serde(rename = "MaximumExecutionFrequency")]
+    #[serde(rename = "maximumExecutionFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_execution_frequency: Option<String>,
     /// <p>The ID of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceIdScope")]
+    #[serde(rename = "resourceIdScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id_scope: Option<String>,
     /// <p>The type of the AWS resource that was evaluated.</p>
-    #[serde(rename = "ResourceTypesScope")]
+    #[serde(rename = "resourceTypesScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_types_scope: Option<Vec<String>>,
     /// <p>For organization config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using AWS Managed Config Rules</a>.</p>
-    #[serde(rename = "RuleIdentifier")]
+    #[serde(rename = "ruleIdentifier")]
     pub rule_identifier: String,
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values. </p>
-    #[serde(rename = "TagKeyScope")]
+    #[serde(rename = "tagKeyScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_key_scope: Option<String>,
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-    #[serde(rename = "TagValueScope")]
+    #[serde(rename = "tagValueScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_value_scope: Option<String>,
 }
@@ -3083,11 +3083,11 @@ pub struct OrganizationManagedRuleMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct OrganizationResourceDetailedStatusFilters {
     /// <p>The 12-digit account ID of the member account within an organization.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p><p>Indicates deployment status for conformance pack in a member account. When master account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account. When master account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>. </p> <p> AWS Config sets the state of the conformance pack to:</p> <ul> <li> <p> <code>CREATE<em>SUCCESSFUL</code> when conformance pack has been created in the member account. </p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> when conformance pack is being created in the member account.</p> </li> <li> <p> <code>CREATE</em>FAILED</code> when conformance pack creation has failed in the member account.</p> </li> <li> <p> <code>DELETE<em>FAILED</code> when conformance pack deletion has failed in the member account.</p> </li> <li> <p> <code>DELETE</em>IN<em>PROGRESS</code> when conformance pack is being deleted in the member account.</p> </li> <li> <p> <code>DELETE</em>SUCCESSFUL</code> when conformance pack has been deleted in the member account. </p> </li> <li> <p> <code>UPDATE<em>SUCCESSFUL</code> when conformance pack has been updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>IN<em>PROGRESS</code> when conformance pack is being updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>FAILED</code> when conformance pack deletion has failed in the member account.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3097,11 +3097,11 @@ pub struct OrganizationResourceDetailedStatusFilters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PendingAggregationRequest {
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    #[serde(rename = "RequesterAccountId")]
+    #[serde(rename = "requesterAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requester_account_id: Option<String>,
     /// <p>The region requesting to aggregate data. </p>
-    #[serde(rename = "RequesterAwsRegion")]
+    #[serde(rename = "requesterAwsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requester_aws_region: Option<String>,
 }
@@ -3110,13 +3110,13 @@ pub struct PendingAggregationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAggregationAuthorizationRequest {
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    #[serde(rename = "AuthorizedAccountId")]
+    #[serde(rename = "authorizedAccountId")]
     pub authorized_account_id: String,
     /// <p>The region authorized to collect aggregated data.</p>
-    #[serde(rename = "AuthorizedAwsRegion")]
+    #[serde(rename = "authorizedAwsRegion")]
     pub authorized_aws_region: String,
     /// <p>An array of tag object.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3125,7 +3125,7 @@ pub struct PutAggregationAuthorizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutAggregationAuthorizationResponse {
     /// <p>Returns an AggregationAuthorization object. </p>
-    #[serde(rename = "AggregationAuthorization")]
+    #[serde(rename = "aggregationAuthorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aggregation_authorization: Option<AggregationAuthorization>,
 }
@@ -3134,10 +3134,10 @@ pub struct PutAggregationAuthorizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigRuleRequest {
     /// <p>The rule that you want to add to your account.</p>
-    #[serde(rename = "ConfigRule")]
+    #[serde(rename = "configRule")]
     pub config_rule: ConfigRule,
     /// <p>An array of tag object.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3146,18 +3146,18 @@ pub struct PutConfigRuleRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationAggregatorRequest {
     /// <p>A list of AccountAggregationSource object. </p>
-    #[serde(rename = "AccountAggregationSources")]
+    #[serde(rename = "accountAggregationSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_aggregation_sources: Option<Vec<AccountAggregationSource>>,
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>An OrganizationAggregationSource object.</p>
-    #[serde(rename = "OrganizationAggregationSource")]
+    #[serde(rename = "organizationAggregationSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_aggregation_source: Option<OrganizationAggregationSource>,
     /// <p>An array of tag object.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3166,7 +3166,7 @@ pub struct PutConfigurationAggregatorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutConfigurationAggregatorResponse {
     /// <p>Returns a ConfigurationAggregator object.</p>
-    #[serde(rename = "ConfigurationAggregator")]
+    #[serde(rename = "configurationAggregator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aggregator: Option<ConfigurationAggregator>,
 }
@@ -3176,7 +3176,7 @@ pub struct PutConfigurationAggregatorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConfigurationRecorderRequest {
     /// <p>The configuration recorder object that records each configuration change made to the resources.</p>
-    #[serde(rename = "ConfigurationRecorder")]
+    #[serde(rename = "configurationRecorder")]
     pub configuration_recorder: ConfigurationRecorder,
 }
 
@@ -3184,26 +3184,26 @@ pub struct PutConfigurationRecorderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutConformancePackRequest {
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    #[serde(rename = "ConformancePackInputParameters")]
+    #[serde(rename = "conformancePackInputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_input_parameters: Option<Vec<ConformancePackInputParameter>>,
     /// <p>Name of the conformance pack you want to create.</p>
-    #[serde(rename = "ConformancePackName")]
+    #[serde(rename = "conformancePackName")]
     pub conformance_pack_name: String,
     /// <p><p>Amazon S3 bucket where AWS Config stores conformance pack templates.</p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3Bucket")]
+    #[serde(rename = "deliveryS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_bucket: Option<String>,
     /// <p><p>The prefix for the Amazon S3 bucket. </p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3KeyPrefix")]
+    #[serde(rename = "deliveryS3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_key_prefix: Option<String>,
     /// <p><p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p> <note> <p>You can only use a YAML template with one resource type, that is, config rule and a remediation action. </p> </note></p>
-    #[serde(rename = "TemplateBody")]
+    #[serde(rename = "templateBody")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_body: Option<String>,
     /// <p><p>Location of file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack. </p> <note> <p>You must have access to read Amazon S3 bucket.</p> </note></p>
-    #[serde(rename = "TemplateS3Uri")]
+    #[serde(rename = "templateS3Uri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_s3_uri: Option<String>,
 }
@@ -3212,7 +3212,7 @@ pub struct PutConformancePackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutConformancePackResponse {
     /// <p>ARN of the conformance pack.</p>
-    #[serde(rename = "ConformancePackArn")]
+    #[serde(rename = "conformancePackArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_arn: Option<String>,
 }
@@ -3222,7 +3222,7 @@ pub struct PutConformancePackResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutDeliveryChannelRequest {
     /// <p>The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.</p>
-    #[serde(rename = "DeliveryChannel")]
+    #[serde(rename = "deliveryChannel")]
     pub delivery_channel: DeliveryChannel,
 }
 
@@ -3231,14 +3231,14 @@ pub struct PutDeliveryChannelRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEvaluationsRequest {
     /// <p>The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.</p>
-    #[serde(rename = "Evaluations")]
+    #[serde(rename = "evaluations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluations: Option<Vec<Evaluation>>,
     /// <p>An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.</p>
-    #[serde(rename = "ResultToken")]
+    #[serde(rename = "resultToken")]
     pub result_token: String,
     /// <p><p>Use this parameter to specify a test run for <code>PutEvaluations</code>. You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.</p> <note> <p>When <code>TestMode</code> is <code>true</code>, <code>PutEvaluations</code> doesn&#39;t require a valid value for the <code>ResultToken</code> parameter, but the value cannot be null.</p> </note></p>
-    #[serde(rename = "TestMode")]
+    #[serde(rename = "testMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_mode: Option<bool>,
 }
@@ -3248,7 +3248,7 @@ pub struct PutEvaluationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEvaluationsResponse {
     /// <p>Requests that failed because of a client or server error.</p>
-    #[serde(rename = "FailedEvaluations")]
+    #[serde(rename = "failedEvaluations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_evaluations: Option<Vec<Evaluation>>,
 }
@@ -3257,10 +3257,10 @@ pub struct PutEvaluationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutExternalEvaluationRequest {
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
-    #[serde(rename = "ExternalEvaluation")]
+    #[serde(rename = "externalEvaluation")]
     pub external_evaluation: ExternalEvaluation,
 }
 
@@ -3272,18 +3272,18 @@ pub struct PutExternalEvaluationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutOrganizationConfigRuleRequest {
     /// <p>A comma-separated list of accounts that you want to exclude from an organization config rule.</p>
-    #[serde(rename = "ExcludedAccounts")]
+    #[serde(rename = "excludedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excluded_accounts: Option<Vec<String>>,
     /// <p>The name that you assign to an organization config rule.</p>
-    #[serde(rename = "OrganizationConfigRuleName")]
+    #[serde(rename = "organizationConfigRuleName")]
     pub organization_config_rule_name: String,
     /// <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
-    #[serde(rename = "OrganizationCustomRuleMetadata")]
+    #[serde(rename = "organizationCustomRuleMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_custom_rule_metadata: Option<OrganizationCustomRuleMetadata>,
     /// <p>An <code>OrganizationManagedRuleMetadata</code> object. </p>
-    #[serde(rename = "OrganizationManagedRuleMetadata")]
+    #[serde(rename = "organizationManagedRuleMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_managed_rule_metadata: Option<OrganizationManagedRuleMetadata>,
 }
@@ -3292,7 +3292,7 @@ pub struct PutOrganizationConfigRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutOrganizationConfigRuleResponse {
     /// <p>The Amazon Resource Name (ARN) of an organization config rule.</p>
-    #[serde(rename = "OrganizationConfigRuleArn")]
+    #[serde(rename = "organizationConfigRuleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_config_rule_arn: Option<String>,
 }
@@ -3301,30 +3301,30 @@ pub struct PutOrganizationConfigRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutOrganizationConformancePackRequest {
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    #[serde(rename = "ConformancePackInputParameters")]
+    #[serde(rename = "conformancePackInputParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conformance_pack_input_parameters: Option<Vec<ConformancePackInputParameter>>,
     /// <p><p>Amazon S3 bucket where AWS Config stores conformance pack templates.</p> <note> <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p> </note></p>
-    #[serde(rename = "DeliveryS3Bucket")]
+    #[serde(rename = "deliveryS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_bucket: Option<String>,
     /// <p><p>The prefix for the Amazon S3 bucket.</p> <note> <p>This field is optional.</p> </note></p>
-    #[serde(rename = "DeliveryS3KeyPrefix")]
+    #[serde(rename = "deliveryS3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_s3_key_prefix: Option<String>,
     /// <p>A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
-    #[serde(rename = "ExcludedAccounts")]
+    #[serde(rename = "excludedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excluded_accounts: Option<Vec<String>>,
     /// <p>Name of the organization conformance pack you want to create.</p>
-    #[serde(rename = "OrganizationConformancePackName")]
+    #[serde(rename = "organizationConformancePackName")]
     pub organization_conformance_pack_name: String,
     /// <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-    #[serde(rename = "TemplateBody")]
+    #[serde(rename = "templateBody")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_body: Option<String>,
     /// <p><p>Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).</p> <note> <p>You must have access to read Amazon S3 bucket.</p> </note></p>
-    #[serde(rename = "TemplateS3Uri")]
+    #[serde(rename = "templateS3Uri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_s3_uri: Option<String>,
 }
@@ -3333,7 +3333,7 @@ pub struct PutOrganizationConformancePackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutOrganizationConformancePackResponse {
     /// <p>ARN of the organization conformance pack.</p>
-    #[serde(rename = "OrganizationConformancePackArn")]
+    #[serde(rename = "organizationConformancePackArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_conformance_pack_arn: Option<String>,
 }
@@ -3342,7 +3342,7 @@ pub struct PutOrganizationConformancePackResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRemediationConfigurationsRequest {
     /// <p>A list of remediation configuration objects.</p>
-    #[serde(rename = "RemediationConfigurations")]
+    #[serde(rename = "remediationConfigurations")]
     pub remediation_configurations: Vec<RemediationConfiguration>,
 }
 
@@ -3350,7 +3350,7 @@ pub struct PutRemediationConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRemediationConfigurationsResponse {
     /// <p>Returns a list of failed remediation batch objects.</p>
-    #[serde(rename = "FailedBatches")]
+    #[serde(rename = "failedBatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_batches: Option<Vec<FailedRemediationBatch>>,
 }
@@ -3359,18 +3359,18 @@ pub struct PutRemediationConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRemediationExceptionsRequest {
     /// <p>The name of the AWS Config rule for which you want to create remediation exception.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The exception is automatically deleted after the expiration date.</p>
-    #[serde(rename = "ExpirationTime")]
+    #[serde(rename = "expirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_time: Option<f64>,
     /// <p>The message contains an explanation of the exception.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
-    #[serde(rename = "ResourceKeys")]
+    #[serde(rename = "resourceKeys")]
     pub resource_keys: Vec<RemediationExceptionResourceKey>,
 }
 
@@ -3378,7 +3378,7 @@ pub struct PutRemediationExceptionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRemediationExceptionsResponse {
     /// <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    #[serde(rename = "FailedBatches")]
+    #[serde(rename = "failedBatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_batches: Option<Vec<FailedRemediationExceptionBatch>>,
 }
@@ -3387,23 +3387,23 @@ pub struct PutRemediationExceptionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResourceConfigRequest {
     /// <p><p>The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.</p> <note> <p>The configuration JSON must not exceed 64 KB.</p> </note></p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     pub configuration: String,
     /// <p>Unique identifier of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>Name of the resource.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_name: Option<String>,
     /// <p><p>The type of the resource. The custom resource type must be registered with AWS CloudFormation. </p> <note> <p>You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p> </note></p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
     /// <p>Version of the schema registered for the ResourceType in AWS CloudFormation.</p>
-    #[serde(rename = "SchemaVersionId")]
+    #[serde(rename = "schemaVersionId")]
     pub schema_version_id: String,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -3412,7 +3412,7 @@ pub struct PutResourceConfigRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRetentionConfigurationRequest {
     /// <p><p>Number of days AWS Config stores your historical information.</p> <note> <p>Currently, only applicable to the configuration item history.</p> </note></p>
-    #[serde(rename = "RetentionPeriodInDays")]
+    #[serde(rename = "retentionPeriodInDays")]
     pub retention_period_in_days: i64,
 }
 
@@ -3420,7 +3420,7 @@ pub struct PutRetentionConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRetentionConfigurationResponse {
     /// <p>Returns a retention configuration object.</p>
-    #[serde(rename = "RetentionConfiguration")]
+    #[serde(rename = "retentionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_configuration: Option<RetentionConfiguration>,
 }
@@ -3429,10 +3429,10 @@ pub struct PutRetentionConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutStoredQueryRequest {
     /// <p><p>A list of <code>StoredQuery</code> objects. The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p> <note> <p>When you are creating a query, you must provide a query name and an expression. When you are updating a query, you must provide a query name but updating the description is optional.</p> </note></p>
-    #[serde(rename = "StoredQuery")]
+    #[serde(rename = "storedQuery")]
     pub stored_query: StoredQuery,
     /// <p>A list of <code>Tags</code> object.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3441,7 +3441,7 @@ pub struct PutStoredQueryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutStoredQueryResponse {
     /// <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
-    #[serde(rename = "QueryArn")]
+    #[serde(rename = "queryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_arn: Option<String>,
 }
@@ -3451,7 +3451,7 @@ pub struct PutStoredQueryResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueryInfo {
     /// <p>Returns a <code>FieldInfo</code> object.</p>
-    #[serde(rename = "SelectFields")]
+    #[serde(rename = "selectFields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub select_fields: Option<Vec<FieldInfo>>,
 }
@@ -3499,48 +3499,48 @@ pub struct Relationship {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RemediationConfiguration {
     /// <p>Amazon Resource Name (ARN) of remediation configuration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The remediation is triggered automatically.</p>
-    #[serde(rename = "Automatic")]
+    #[serde(rename = "automatic")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic: Option<bool>,
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>Name of the service that owns the service linked rule, if applicable.</p>
-    #[serde(rename = "CreatedByService")]
+    #[serde(rename = "createdByService")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by_service: Option<String>,
     /// <p>An ExecutionControls object.</p>
-    #[serde(rename = "ExecutionControls")]
+    #[serde(rename = "executionControls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_controls: Option<ExecutionControls>,
     /// <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p> <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
-    #[serde(rename = "MaximumAutomaticAttempts")]
+    #[serde(rename = "maximumAutomaticAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_automatic_attempts: Option<i64>,
     /// <p>An object of the RemediationParameterValue.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, RemediationParameterValue>>,
     /// <p>The type of a resource. </p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds. </p> <p>For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.</p>
-    #[serde(rename = "RetryAttemptSeconds")]
+    #[serde(rename = "retryAttemptSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retry_attempt_seconds: Option<i64>,
     /// <p>Target ID is the name of the public document.</p>
-    #[serde(rename = "TargetId")]
+    #[serde(rename = "targetId")]
     pub target_id: String,
     /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
-    #[serde(rename = "TargetType")]
+    #[serde(rename = "targetType")]
     pub target_type: String,
     /// <p><p>Version of the target. For example, version of the SSM document.</p> <note> <p>If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.</p> </note></p>
-    #[serde(rename = "TargetVersion")]
+    #[serde(rename = "targetVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_version: Option<String>,
 }
@@ -3550,21 +3550,21 @@ pub struct RemediationConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemediationException {
     /// <p>The name of the AWS Config rule.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>The time when the remediation exception will be deleted.</p>
-    #[serde(rename = "ExpirationTime")]
+    #[serde(rename = "expirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_time: Option<f64>,
     /// <p>An explanation of an remediation exception.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The ID of the resource (for example., sg-xxxxxx).</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The type of a resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -3572,11 +3572,11 @@ pub struct RemediationException {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RemediationExceptionResourceKey {
     /// <p>The ID of the resource (for example., sg-xxxxxx).</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The type of a resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -3586,22 +3586,22 @@ pub struct RemediationExceptionResourceKey {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemediationExecutionStatus {
     /// <p>Start time when the remediation was executed.</p>
-    #[serde(rename = "InvocationTime")]
+    #[serde(rename = "invocationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_time: Option<f64>,
     /// <p>The time when the remediation execution was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
-    #[serde(rename = "ResourceKey")]
+    #[serde(rename = "resourceKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_key: Option<ResourceKey>,
     /// <p>ENUM of the values.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Details of every step.</p>
-    #[serde(rename = "StepDetails")]
+    #[serde(rename = "stepDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub step_details: Option<Vec<RemediationExecutionStep>>,
 }
@@ -3611,23 +3611,23 @@ pub struct RemediationExecutionStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemediationExecutionStep {
     /// <p>An error message if the step was interrupted during execution.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The details of the step.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The time when the step started.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The valid status of the step.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The time when the step stopped.</p>
-    #[serde(rename = "StopTime")]
+    #[serde(rename = "stopTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stop_time: Option<f64>,
 }
@@ -3636,11 +3636,11 @@ pub struct RemediationExecutionStep {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RemediationParameterValue {
     /// <p>The value is dynamic and changes at run-time.</p>
-    #[serde(rename = "ResourceValue")]
+    #[serde(rename = "resourceValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_value: Option<ResourceValue>,
     /// <p>The value is static and does not change at run-time.</p>
-    #[serde(rename = "StaticValue")]
+    #[serde(rename = "staticValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub static_value: Option<StaticValue>,
 }
@@ -3664,15 +3664,15 @@ pub struct ResourceCount {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResourceCountFilters {
     /// <p>The 12-digit ID of the account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The region where the account is located.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The type of the AWS resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -3682,19 +3682,19 @@ pub struct ResourceCountFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResourceFilters {
     /// <p>The 12-digit source account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The source region.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The name of the resource.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_name: Option<String>,
 }
@@ -3736,7 +3736,7 @@ pub struct ResourceKey {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourceValue {
     /// <p>The value is a resource ID.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3745,10 +3745,10 @@ pub struct ResourceValue {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RetentionConfiguration {
     /// <p>The name of the retention configuration object.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>Number of days AWS Config stores your historical information.</p> <note> <p>Currently, only applicable to the configuration item history.</p> </note></p>
-    #[serde(rename = "RetentionPeriodInDays")]
+    #[serde(rename = "retentionPeriodInDays")]
     pub retention_period_in_days: i64,
 }
 
@@ -3756,19 +3756,19 @@ pub struct RetentionConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Scope {
     /// <p>The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>.</p>
-    #[serde(rename = "ComplianceResourceId")]
+    #[serde(rename = "complianceResourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_resource_id: Option<String>,
     /// <p>The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for <code>ComplianceResourceId</code>.</p>
-    #[serde(rename = "ComplianceResourceTypes")]
+    #[serde(rename = "complianceResourceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_resource_types: Option<Vec<String>>,
     /// <p>The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.</p>
-    #[serde(rename = "TagKey")]
+    #[serde(rename = "tagKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_key: Option<String>,
     /// <p>The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for <code>TagValue</code>, you must also specify a value for <code>TagKey</code>.</p>
-    #[serde(rename = "TagValue")]
+    #[serde(rename = "tagValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_value: Option<String>,
 }
@@ -3777,21 +3777,21 @@ pub struct Scope {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SelectAggregateResourceConfigRequest {
     /// <p>The name of the configuration aggregator.</p>
-    #[serde(rename = "ConfigurationAggregatorName")]
+    #[serde(rename = "configurationAggregatorName")]
     pub configuration_aggregator_name: String,
     /// <p>The SQL query SELECT command. </p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     pub expression: String,
     /// <p>The maximum number of query results returned on each page. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3800,14 +3800,14 @@ pub struct SelectAggregateResourceConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SelectAggregateResourceConfigResponse {
     /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "QueryInfo")]
+    #[serde(rename = "queryInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_info: Option<QueryInfo>,
     /// <p>Returns the results for the SQL query.</p>
-    #[serde(rename = "Results")]
+    #[serde(rename = "results")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub results: Option<Vec<String>>,
 }
@@ -3816,14 +3816,14 @@ pub struct SelectAggregateResourceConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SelectResourceConfigRequest {
     /// <p>The SQL query <code>SELECT</code> command.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     pub expression: String,
     /// <p>The maximum number of query results returned on each page. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3832,15 +3832,15 @@ pub struct SelectResourceConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SelectResourceConfigResponse {
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns the <code>QueryInfo</code> object.</p>
-    #[serde(rename = "QueryInfo")]
+    #[serde(rename = "queryInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_info: Option<QueryInfo>,
     /// <p>Returns the results for the SQL query.</p>
-    #[serde(rename = "Results")]
+    #[serde(rename = "results")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub results: Option<Vec<String>>,
 }
@@ -3849,14 +3849,14 @@ pub struct SelectResourceConfigResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Source {
     /// <p>Indicates whether AWS or the customer owns and manages the AWS Config rule.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     pub owner: String,
     /// <p>Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.</p>
-    #[serde(rename = "SourceDetails")]
+    #[serde(rename = "sourceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_details: Option<Vec<SourceDetail>>,
     /// <p>For AWS Config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using AWS Managed Config Rules</a>.</p> <p>For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
-    #[serde(rename = "SourceIdentifier")]
+    #[serde(rename = "sourceIdentifier")]
     pub source_identifier: String,
 }
 
@@ -3864,15 +3864,15 @@ pub struct Source {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SourceDetail {
     /// <p>The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.</p>
-    #[serde(rename = "EventSource")]
+    #[serde(rename = "eventSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source: Option<String>,
     /// <p><p>The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for <code>MaximumExecutionFrequency</code>, then <code>MessageType</code> must use the <code>ScheduledNotification</code> value.</p> <note> <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p> <p>Based on the valid value you choose, AWS Config runs evaluations once for each valid value. For example, if you choose <code>Three<em>Hours</code>, AWS Config runs evaluations once every three hours. In this case, <code>Three</em>Hours</code> is the frequency of this rule. </p> </note></p>
-    #[serde(rename = "MaximumExecutionFrequency")]
+    #[serde(rename = "maximumExecutionFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_execution_frequency: Option<String>,
     /// <p>The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:</p> <ul> <li> <p> <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.</p> </li> <li> <p> <code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p> </li> <li> <p> <code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p> </li> <li> <p> <code>ConfigurationSnapshotDeliveryCompleted</code> - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.</p> </li> </ul> <p>If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for <code>ConfigurationItemChangeNotification</code> and one for <code>OversizedConfigurationItemChangeNotification</code>.</p>
-    #[serde(rename = "MessageType")]
+    #[serde(rename = "messageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_type: Option<String>,
 }
@@ -3881,11 +3881,11 @@ pub struct SourceDetail {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SsmControls {
     /// <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
-    #[serde(rename = "ConcurrentExecutionRatePercentage")]
+    #[serde(rename = "concurrentExecutionRatePercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub concurrent_execution_rate_percentage: Option<i64>,
     /// <p>The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received. </p>
-    #[serde(rename = "ErrorPercentage")]
+    #[serde(rename = "errorPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_percentage: Option<i64>,
 }
@@ -3895,7 +3895,7 @@ pub struct SsmControls {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartConfigRulesEvaluationRequest {
     /// <p>The list of names of AWS Config rules that you want to run evaluations for.</p>
-    #[serde(rename = "ConfigRuleNames")]
+    #[serde(rename = "configRuleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub config_rule_names: Option<Vec<String>>,
 }
@@ -3910,7 +3910,7 @@ pub struct StartConfigRulesEvaluationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartConfigurationRecorderRequest {
     /// <p>The name of the recorder object that records each configuration change made to the resources.</p>
-    #[serde(rename = "ConfigurationRecorderName")]
+    #[serde(rename = "configurationRecorderName")]
     pub configuration_recorder_name: String,
 }
 
@@ -3918,10 +3918,10 @@ pub struct StartConfigurationRecorderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartRemediationExecutionRequest {
     /// <p>The list of names of AWS Config rules that you want to run remediation execution for.</p>
-    #[serde(rename = "ConfigRuleName")]
+    #[serde(rename = "configRuleName")]
     pub config_rule_name: String,
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
-    #[serde(rename = "ResourceKeys")]
+    #[serde(rename = "resourceKeys")]
     pub resource_keys: Vec<ResourceKey>,
 }
 
@@ -3929,11 +3929,11 @@ pub struct StartRemediationExecutionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartRemediationExecutionResponse {
     /// <p>For resources that have failed to start execution, the API returns a resource key object.</p>
-    #[serde(rename = "FailedItems")]
+    #[serde(rename = "failedItems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_items: Option<Vec<ResourceKey>>,
     /// <p>Returns a failure message. For example, the resource is already compliant.</p>
-    #[serde(rename = "FailureMessage")]
+    #[serde(rename = "failureMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_message: Option<String>,
 }
@@ -3942,7 +3942,7 @@ pub struct StartRemediationExecutionResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StaticValue {
     /// <p>A list of values. For example, the ARN of the assumed role. </p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -3951,11 +3951,11 @@ pub struct StaticValue {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StatusDetailFilters {
     /// <p>The 12-digit account ID of the member account within an organization.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p><p>Indicates deployment status for config rule in the member account. When master account calls <code>PutOrganizationConfigRule</code> action for the first time, config rule status is created in the member account. When master account calls <code>PutOrganizationConfigRule</code> action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>. </p> <p>AWS Config sets the state of the rule to:</p> <ul> <li> <p> <code>CREATE<em>SUCCESSFUL</code> when config rule has been created in the member account.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> when config rule is being created in the member account.</p> </li> <li> <p> <code>CREATE</em>FAILED</code> when config rule creation has failed in the member account.</p> </li> <li> <p> <code>DELETE<em>FAILED</code> when config rule deletion has failed in the member account.</p> </li> <li> <p> <code>DELETE</em>IN<em>PROGRESS</code> when config rule is being deleted in the member account.</p> </li> <li> <p> <code>DELETE</em>SUCCESSFUL</code> when config rule has been deleted in the member account.</p> </li> <li> <p> <code>UPDATE<em>SUCCESSFUL</code> when config rule has been updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>IN<em>PROGRESS</code> when config rule is being updated in the member account.</p> </li> <li> <p> <code>UPDATE</em>FAILED</code> when config rule deletion has failed in the member account.</p> </li> </ul></p>
-    #[serde(rename = "MemberAccountRuleStatus")]
+    #[serde(rename = "memberAccountRuleStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_account_rule_status: Option<String>,
 }
@@ -3965,7 +3965,7 @@ pub struct StatusDetailFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopConfigurationRecorderRequest {
     /// <p>The name of the recorder object that records each configuration change made to the resources.</p>
-    #[serde(rename = "ConfigurationRecorderName")]
+    #[serde(rename = "configurationRecorderName")]
     pub configuration_recorder_name: String,
 }
 
@@ -3973,23 +3973,23 @@ pub struct StopConfigurationRecorderRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StoredQuery {
     /// <p>A unique description for the query.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The expression of the query. For example, <code>SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.</code> </p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expression: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
-    #[serde(rename = "QueryArn")]
+    #[serde(rename = "queryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_arn: Option<String>,
     /// <p>The ID of the query.</p>
-    #[serde(rename = "QueryId")]
+    #[serde(rename = "queryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_id: Option<String>,
     /// <p>The name of the query.</p>
-    #[serde(rename = "QueryName")]
+    #[serde(rename = "queryName")]
     pub query_name: String,
 }
 
@@ -3998,17 +3998,17 @@ pub struct StoredQuery {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StoredQueryMetadata {
     /// <p>A unique description for the query.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
-    #[serde(rename = "QueryArn")]
+    #[serde(rename = "queryArn")]
     pub query_arn: String,
     /// <p>The ID of the query. </p>
-    #[serde(rename = "QueryId")]
+    #[serde(rename = "queryId")]
     pub query_id: String,
     /// <p>The name of the query.</p>
-    #[serde(rename = "QueryName")]
+    #[serde(rename = "queryName")]
     pub query_name: String,
 }
 
@@ -4016,11 +4016,11 @@ pub struct StoredQueryMetadata {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -4029,10 +4029,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>An array of tag object.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -4040,10 +4040,10 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The keys of the tags to be removed.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 

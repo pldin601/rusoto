@@ -60,27 +60,27 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Connection {
     /// <p><p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection reference when the connection is shared between AWS services.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note></p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The name of the connection. Connection names must be unique in an AWS user account.</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_name: Option<String>,
     /// <p>The current status of the connection. </p>
-    #[serde(rename = "ConnectionStatus")]
+    #[serde(rename = "connectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_status: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_arn: Option<String>,
     /// <p>The identifier of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.</p>
-    #[serde(rename = "OwnerAccountId")]
+    #[serde(rename = "ownerAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_account_id: Option<String>,
     /// <p>The name of the external provider where your third-party code repository is configured.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
 }
@@ -89,18 +89,18 @@ pub struct Connection {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionInput {
     /// <p>The name of the connection to be created. The name must be unique in the calling AWS account.</p>
-    #[serde(rename = "ConnectionName")]
+    #[serde(rename = "connectionName")]
     pub connection_name: String,
     /// <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_arn: Option<String>,
     /// <p>The name of the external provider where your third-party code repository is configured.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p>The key-value pair to use when tagging the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -109,10 +109,10 @@ pub struct CreateConnectionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConnectionOutput {
     /// <p><p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the connection reference when the connection is shared between AWS services.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note></p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     pub connection_arn: String,
     /// <p>Specifies the tags applied to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -121,19 +121,19 @@ pub struct CreateConnectionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateHostInput {
     /// <p>The name of the host to be created. The name must be unique in the calling AWS account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The endpoint of the infrastructure to be represented by the host after it is created.</p>
-    #[serde(rename = "ProviderEndpoint")]
+    #[serde(rename = "providerEndpoint")]
     pub provider_endpoint: String,
     /// <p>The name of the installed provider to be associated with your connection. The host resource represents the infrastructure where your provider type is installed. The valid provider type is GitHub Enterprise Server.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     pub provider_type: String,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The VPC configuration to be provisioned for the host. A VPC must be configured and the infrastructure to be represented by the host must already be connected to the VPC.</p>
-    #[serde(rename = "VpcConfiguration")]
+    #[serde(rename = "vpcConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_configuration: Option<VpcConfiguration>,
 }
@@ -142,10 +142,10 @@ pub struct CreateHostInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateHostOutput {
     /// <p>The Amazon Resource Name (ARN) of the host to be created.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_arn: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -154,7 +154,7 @@ pub struct CreateHostOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConnectionInput {
     /// <p><p>The Amazon Resource Name (ARN) of the connection to be deleted.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note></p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     pub connection_arn: String,
 }
 
@@ -166,7 +166,7 @@ pub struct DeleteConnectionOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteHostInput {
     /// <p>The Amazon Resource Name (ARN) of the host to be deleted.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     pub host_arn: String,
 }
 
@@ -178,7 +178,7 @@ pub struct DeleteHostOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConnectionInput {
     /// <p>The Amazon Resource Name (ARN) of a connection.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     pub connection_arn: String,
 }
 
@@ -186,7 +186,7 @@ pub struct GetConnectionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetConnectionOutput {
     /// <p>The connection details, such as status, owner, and provider type.</p>
-    #[serde(rename = "Connection")]
+    #[serde(rename = "connection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection: Option<Connection>,
 }
@@ -195,7 +195,7 @@ pub struct GetConnectionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetHostInput {
     /// <p>The Amazon Resource Name (ARN) of the requested host.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     pub host_arn: String,
 }
 
@@ -203,23 +203,23 @@ pub struct GetHostInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetHostOutput {
     /// <p>The name of the requested host.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The endpoint of the infrastructure represented by the requested host.</p>
-    #[serde(rename = "ProviderEndpoint")]
+    #[serde(rename = "providerEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_endpoint: Option<String>,
     /// <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p>The status of the requested host.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The VPC configuration of the requested host.</p>
-    #[serde(rename = "VpcConfiguration")]
+    #[serde(rename = "vpcConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_configuration: Option<VpcConfiguration>,
 }
@@ -229,31 +229,31 @@ pub struct GetHostOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Host {
     /// <p>The Amazon Resource Name (ARN) of the host.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_arn: Option<String>,
     /// <p>The name of the host.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The endpoint of the infrastructure where your provider type is installed.</p>
-    #[serde(rename = "ProviderEndpoint")]
+    #[serde(rename = "providerEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_endpoint: Option<String>,
     /// <p>The name of the installed provider to be associated with your connection. The host resource represents the infrastructure where your provider type is installed. The valid provider type is GitHub Enterprise Server.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p>The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING, VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The status description for the host.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The VPC configuration provisioned for the host.</p>
-    #[serde(rename = "VpcConfiguration")]
+    #[serde(rename = "vpcConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_configuration: Option<VpcConfiguration>,
 }
@@ -262,19 +262,19 @@ pub struct Host {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConnectionsInput {
     /// <p>Filters the list of connections to those associated with a specified host.</p>
-    #[serde(rename = "HostArnFilter")]
+    #[serde(rename = "hostArnFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_arn_filter: Option<String>,
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that was returned from the previous <code>ListConnections</code> call, which can be used to return the next set of connections in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Filters the list of connections to those associated with a specified provider, such as Bitbucket.</p>
-    #[serde(rename = "ProviderTypeFilter")]
+    #[serde(rename = "providerTypeFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type_filter: Option<String>,
 }
@@ -283,11 +283,11 @@ pub struct ListConnectionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConnectionsOutput {
     /// <p>A list of connections and the details for each connection, such as status, owner, and provider type.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<Vec<Connection>>,
     /// <p>A token that can be used in the next <code>ListConnections</code> call. To view all items in the list, continue to call this operation with each subsequent token until no more <code>nextToken</code> values are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -296,11 +296,11 @@ pub struct ListConnectionsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListHostsInput {
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that was returned from the previous <code>ListHosts</code> call, which can be used to return the next set of hosts in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -309,11 +309,11 @@ pub struct ListHostsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListHostsOutput {
     /// <p>A list of hosts and the details for each host, such as status, endpoint, and provider type.</p>
-    #[serde(rename = "Hosts")]
+    #[serde(rename = "hosts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hosts: Option<Vec<Host>>,
     /// <p>A token that can be used in the next <code>ListHosts</code> call. To view all items in the list, continue to call this operation with each subsequent token until no more <code>nextToken</code> values are returned.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -322,7 +322,7 @@ pub struct ListHostsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceInput {
     /// <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -330,7 +330,7 @@ pub struct ListTagsForResourceInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceOutput {
     /// <p>A list of tag key and value pairs associated with the specified resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -339,10 +339,10 @@ pub struct ListTagsForResourceOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The tag's key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The tag's value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -350,10 +350,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceInput {
     /// <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags you want to modify or add to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -365,10 +365,10 @@ pub struct TagResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceInput {
     /// <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The list of keys for the tags to be removed from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -380,14 +380,14 @@ pub struct UntagResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateHostInput {
     /// <p>The Amazon Resource Name (ARN) of the host to be updated.</p>
-    #[serde(rename = "HostArn")]
+    #[serde(rename = "hostArn")]
     pub host_arn: String,
     /// <p>The URL or endpoint of the host to be updated.</p>
-    #[serde(rename = "ProviderEndpoint")]
+    #[serde(rename = "providerEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_endpoint: Option<String>,
     /// <p>The VPC configuration of the host to be updated. A VPC must be configured and the infrastructure to be represented by the host must already be connected to the VPC.</p>
-    #[serde(rename = "VpcConfiguration")]
+    #[serde(rename = "vpcConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_configuration: Option<VpcConfiguration>,
 }
@@ -400,17 +400,17 @@ pub struct UpdateHostOutput {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VpcConfiguration {
     /// <p>The ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     pub security_group_ids: Vec<String>,
     /// <p>The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
     /// <p>The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.</p>
-    #[serde(rename = "TlsCertificate")]
+    #[serde(rename = "tlsCertificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_certificate: Option<String>,
     /// <p>The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     pub vpc_id: String,
 }
 

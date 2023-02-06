@@ -55,13 +55,13 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddApplicationCloudWatchLoggingOptionRequest {
     /// <p>The Kinesis Analytics application name.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Provides the CloudWatch log stream Amazon Resource Name (ARN) and the IAM role ARN. Note: To write application messages to CloudWatch, the IAM role that is used must have the <code>PutLogEvents</code> policy action enabled.</p>
-    #[serde(rename = "CloudWatchLoggingOption")]
+    #[serde(rename = "cloudWatchLoggingOption")]
     pub cloud_watch_logging_option: CloudWatchLoggingOption,
     /// <p>The version ID of the Kinesis Analytics application.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
 }
 
@@ -73,16 +73,16 @@ pub struct AddApplicationCloudWatchLoggingOptionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddApplicationInputProcessingConfigurationRequest {
     /// <p>Name of the application to which you want to add the input processing configuration.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Version of the application to which you want to add the input processing configuration. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>The ID of the input configuration to add the input processing configuration to. You can get a list of the input IDs for an application using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation.</p>
-    #[serde(rename = "InputId")]
+    #[serde(rename = "inputId")]
     pub input_id: String,
     /// <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to add to the application.</p>
-    #[serde(rename = "InputProcessingConfiguration")]
+    #[serde(rename = "inputProcessingConfiguration")]
     pub input_processing_configuration: InputProcessingConfiguration,
 }
 
@@ -95,13 +95,13 @@ pub struct AddApplicationInputProcessingConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddApplicationInputRequest {
     /// <p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Current version of your Amazon Kinesis Analytics application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to find the current application version.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html">Input</a> to add.</p>
-    #[serde(rename = "Input")]
+    #[serde(rename = "input")]
     pub input: Input,
 }
 
@@ -115,13 +115,13 @@ pub struct AddApplicationInputResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddApplicationOutputRequest {
     /// <p>Name of the application to which you want to add the output configuration.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Version of the application to which you want to add the output configuration. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda function), and record the formation to use when writing to the destination.</p>
-    #[serde(rename = "Output")]
+    #[serde(rename = "output")]
     pub output: Output,
 }
 
@@ -135,13 +135,13 @@ pub struct AddApplicationOutputResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddApplicationReferenceDataSourceRequest {
     /// <p>Name of an existing application.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Version of the application for which you are adding the reference data source. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>
-    #[serde(rename = "ReferenceDataSource")]
+    #[serde(rename = "referenceDataSource")]
     pub reference_data_source: ReferenceDataSource,
 }
 
@@ -155,47 +155,47 @@ pub struct AddApplicationReferenceDataSourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplicationDetail {
     /// <p>ARN of the application.</p>
-    #[serde(rename = "ApplicationARN")]
+    #[serde(rename = "applicationARN")]
     pub application_arn: String,
     /// <p>Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.</p>
-    #[serde(rename = "ApplicationCode")]
+    #[serde(rename = "applicationCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_code: Option<String>,
     /// <p>Description of the application.</p>
-    #[serde(rename = "ApplicationDescription")]
+    #[serde(rename = "applicationDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_description: Option<String>,
     /// <p>Name of the application.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Status of the application.</p>
-    #[serde(rename = "ApplicationStatus")]
+    #[serde(rename = "applicationStatus")]
     pub application_status: String,
     /// <p>Provides the current application version.</p>
-    #[serde(rename = "ApplicationVersionId")]
+    #[serde(rename = "applicationVersionId")]
     pub application_version_id: i64,
     /// <p>Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon CloudWatch Logs</a>. </p>
-    #[serde(rename = "CloudWatchLoggingOptionDescriptions")]
+    #[serde(rename = "cloudWatchLoggingOptionDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logging_option_descriptions: Option<Vec<CloudWatchLoggingOptionDescription>>,
     /// <p>Time stamp when the application version was created.</p>
-    #[serde(rename = "CreateTimestamp")]
+    #[serde(rename = "createTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_timestamp: Option<f64>,
     /// <p>Describes the application input configuration. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>. </p>
-    #[serde(rename = "InputDescriptions")]
+    #[serde(rename = "inputDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_descriptions: Option<Vec<InputDescription>>,
     /// <p>Time stamp when the application was last updated.</p>
-    #[serde(rename = "LastUpdateTimestamp")]
+    #[serde(rename = "lastUpdateTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_timestamp: Option<f64>,
     /// <p>Describes the application output configuration. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>. </p>
-    #[serde(rename = "OutputDescriptions")]
+    #[serde(rename = "outputDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_descriptions: Option<Vec<OutputDescription>>,
     /// <p>Describes reference data sources configured for the application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>. </p>
-    #[serde(rename = "ReferenceDataSourceDescriptions")]
+    #[serde(rename = "referenceDataSourceDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_data_source_descriptions: Option<Vec<ReferenceDataSourceDescription>>,
 }
@@ -205,13 +205,13 @@ pub struct ApplicationDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplicationSummary {
     /// <p>ARN of the application.</p>
-    #[serde(rename = "ApplicationARN")]
+    #[serde(rename = "applicationARN")]
     pub application_arn: String,
     /// <p>Name of the application.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Status of the application.</p>
-    #[serde(rename = "ApplicationStatus")]
+    #[serde(rename = "applicationStatus")]
     pub application_status: String,
 }
 
@@ -220,23 +220,23 @@ pub struct ApplicationSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ApplicationUpdate {
     /// <p>Describes application code updates.</p>
-    #[serde(rename = "ApplicationCodeUpdate")]
+    #[serde(rename = "applicationCodeUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_code_update: Option<String>,
     /// <p>Describes application CloudWatch logging option updates.</p>
-    #[serde(rename = "CloudWatchLoggingOptionUpdates")]
+    #[serde(rename = "cloudWatchLoggingOptionUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logging_option_updates: Option<Vec<CloudWatchLoggingOptionUpdate>>,
     /// <p>Describes application input configuration updates.</p>
-    #[serde(rename = "InputUpdates")]
+    #[serde(rename = "inputUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_updates: Option<Vec<InputUpdate>>,
     /// <p>Describes application output configuration updates.</p>
-    #[serde(rename = "OutputUpdates")]
+    #[serde(rename = "outputUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_updates: Option<Vec<OutputUpdate>>,
     /// <p>Describes application reference data source updates.</p>
-    #[serde(rename = "ReferenceDataSourceUpdates")]
+    #[serde(rename = "referenceDataSourceUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_data_source_updates: Option<Vec<ReferenceDataSourceUpdate>>,
 }
@@ -245,10 +245,10 @@ pub struct ApplicationUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CSVMappingParameters {
     /// <p>Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.</p>
-    #[serde(rename = "RecordColumnDelimiter")]
+    #[serde(rename = "recordColumnDelimiter")]
     pub record_column_delimiter: String,
     /// <p>Row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>
-    #[serde(rename = "RecordRowDelimiter")]
+    #[serde(rename = "recordRowDelimiter")]
     pub record_row_delimiter: String,
 }
 
@@ -257,10 +257,10 @@ pub struct CSVMappingParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CloudWatchLoggingOption {
     /// <p>ARN of the CloudWatch log to receive application messages.</p>
-    #[serde(rename = "LogStreamARN")]
+    #[serde(rename = "logStreamARN")]
     pub log_stream_arn: String,
     /// <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the <code>PutLogEvents</code> policy action enabled.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -269,14 +269,14 @@ pub struct CloudWatchLoggingOption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CloudWatchLoggingOptionDescription {
     /// <p>ID of the CloudWatch logging option description.</p>
-    #[serde(rename = "CloudWatchLoggingOptionId")]
+    #[serde(rename = "cloudWatchLoggingOptionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logging_option_id: Option<String>,
     /// <p>ARN of the CloudWatch log to receive application messages.</p>
-    #[serde(rename = "LogStreamARN")]
+    #[serde(rename = "logStreamARN")]
     pub log_stream_arn: String,
     /// <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -285,14 +285,14 @@ pub struct CloudWatchLoggingOptionDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CloudWatchLoggingOptionUpdate {
     /// <p>ID of the CloudWatch logging option to update</p>
-    #[serde(rename = "CloudWatchLoggingOptionId")]
+    #[serde(rename = "cloudWatchLoggingOptionId")]
     pub cloud_watch_logging_option_id: String,
     /// <p>ARN of the CloudWatch log to receive application messages.</p>
-    #[serde(rename = "LogStreamARNUpdate")]
+    #[serde(rename = "logStreamARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_stream_arn_update: Option<String>,
     /// <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -302,30 +302,30 @@ pub struct CloudWatchLoggingOptionUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateApplicationRequest {
     /// <p>One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more information about the typical pattern, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html">Application Code</a>. </p> <p>You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps.</p> <p>Note that the application code must create the streams with names specified in the <code>Outputs</code>. For example, if your <code>Outputs</code> defines output streams named <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>, then your application code must create these streams. </p>
-    #[serde(rename = "ApplicationCode")]
+    #[serde(rename = "applicationCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_code: Option<String>,
     /// <p>Summary description of the application.</p>
-    #[serde(rename = "ApplicationDescription")]
+    #[serde(rename = "applicationDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_description: Option<String>,
     /// <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon CloudWatch Logs</a>.</p>
-    #[serde(rename = "CloudWatchLoggingOptions")]
+    #[serde(rename = "cloudWatchLoggingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logging_options: Option<Vec<CloudWatchLoggingOption>>,
     /// <p>Use this parameter to configure the application input.</p> <p>You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).</p> <p>For the streaming source, you provide its Amazon Resource Name (ARN) and format of data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p> <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p>
-    #[serde(rename = "Inputs")]
+    #[serde(rename = "inputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inputs: Option<Vec<Input>>,
     /// <p>You can configure application output to write data from any of the in-application streams to up to three destinations.</p> <p>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery streams, AWS Lambda destinations, or any combination of the three.</p> <p>In the configuration, you specify the in-application stream name, the destination stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the destination stream or Lambda function on your behalf.</p> <p>In the output configuration, you also provide the output stream or Lambda function ARN. For stream destinations, you provide the format of data in the stream (for example, JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<Output>>,
     /// <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -335,7 +335,7 @@ pub struct CreateApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateApplicationResponse {
     /// <p>In response to your <code>CreateApplication</code> request, Amazon Kinesis Analytics returns a response with a summary of the application it created, including the application Amazon Resource Name (ARN), name, and status.</p>
-    #[serde(rename = "ApplicationSummary")]
+    #[serde(rename = "applicationSummary")]
     pub application_summary: ApplicationSummary,
 }
 
@@ -343,13 +343,13 @@ pub struct CreateApplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationCloudWatchLoggingOptionRequest {
     /// <p>The Kinesis Analytics application name.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation. </p>
-    #[serde(rename = "CloudWatchLoggingOptionId")]
+    #[serde(rename = "cloudWatchLoggingOptionId")]
     pub cloud_watch_logging_option_id: String,
     /// <p>The version ID of the Kinesis Analytics application.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
 }
 
@@ -361,13 +361,13 @@ pub struct DeleteApplicationCloudWatchLoggingOptionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationInputProcessingConfigurationRequest {
     /// <p>The Kinesis Analytics application name.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>The version ID of the Kinesis Analytics application.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation.</p>
-    #[serde(rename = "InputId")]
+    #[serde(rename = "inputId")]
     pub input_id: String,
 }
 
@@ -380,13 +380,13 @@ pub struct DeleteApplicationInputProcessingConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationOutputRequest {
     /// <p>Amazon Kinesis Analytics application name.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Amazon Kinesis Analytics application version. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html">AddApplicationOutput</a> operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the specific <code>OutputId</code>. </p>
-    #[serde(rename = "OutputId")]
+    #[serde(rename = "outputId")]
     pub output_id: String,
 }
 
@@ -399,13 +399,13 @@ pub struct DeleteApplicationOutputResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationReferenceDataSourceRequest {
     /// <p>Name of an existing application.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Version of the application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
     /// <p>ID of the reference data source. When you add a reference data source to your application using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html">AddApplicationReferenceDataSource</a>, Amazon Kinesis Analytics assigns an ID. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the reference ID. </p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     pub reference_id: String,
 }
 
@@ -418,10 +418,10 @@ pub struct DeleteApplicationReferenceDataSourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationRequest {
     /// <p>Name of the Amazon Kinesis Analytics application to delete.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p> You can use the <code>DescribeApplication</code> operation to get this value. </p>
-    #[serde(rename = "CreateTimestamp")]
+    #[serde(rename = "createTimestamp")]
     pub create_timestamp: f64,
 }
 
@@ -435,7 +435,7 @@ pub struct DeleteApplicationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeApplicationRequest {
     /// <p>Name of the application.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
 }
 
@@ -444,7 +444,7 @@ pub struct DescribeApplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeApplicationResponse {
     /// <p>Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.</p>
-    #[serde(rename = "ApplicationDetail")]
+    #[serde(rename = "applicationDetail")]
     pub application_detail: ApplicationDetail,
 }
 
@@ -452,7 +452,7 @@ pub struct DescribeApplicationResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DestinationSchema {
     /// <p>Specifies the format of the records on the output stream.</p>
-    #[serde(rename = "RecordFormatType")]
+    #[serde(rename = "recordFormatType")]
     pub record_format_type: String,
 }
 
@@ -460,23 +460,23 @@ pub struct DestinationSchema {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DiscoverInputSchemaRequest {
     /// <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
-    #[serde(rename = "InputProcessingConfiguration")]
+    #[serde(rename = "inputProcessingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_processing_configuration: Option<InputProcessingConfiguration>,
     /// <p>Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.</p>
-    #[serde(rename = "InputStartingPositionConfiguration")]
+    #[serde(rename = "inputStartingPositionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_starting_position_configuration: Option<InputStartingPositionConfiguration>,
     /// <p>Amazon Resource Name (ARN) of the streaming source.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>Specify this parameter to discover a schema from data in an Amazon S3 object.</p>
-    #[serde(rename = "S3Configuration")]
+    #[serde(rename = "s3Configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_configuration: Option<S3Configuration>,
 }
@@ -486,19 +486,19 @@ pub struct DiscoverInputSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DiscoverInputSchemaResponse {
     /// <p>Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.</p>
-    #[serde(rename = "InputSchema")]
+    #[serde(rename = "inputSchema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_schema: Option<SourceSchema>,
     /// <p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>
-    #[serde(rename = "ParsedInputRecords")]
+    #[serde(rename = "parsedInputRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parsed_input_records: Option<Vec<Vec<String>>>,
     /// <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter.</p>
-    #[serde(rename = "ProcessedInputRecords")]
+    #[serde(rename = "processedInputRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub processed_input_records: Option<Vec<String>>,
     /// <p>Raw stream data that was sampled to infer the schema.</p>
-    #[serde(rename = "RawInputRecords")]
+    #[serde(rename = "rawInputRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raw_input_records: Option<Vec<String>>,
 }
@@ -508,26 +508,26 @@ pub struct DiscoverInputSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Input {
     /// <p>Describes the number of in-application streams to create. </p> <p>Data from your source is routed to these in-application input streams.</p> <p> (see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.</p>
-    #[serde(rename = "InputParallelism")]
+    #[serde(rename = "inputParallelism")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_parallelism: Option<InputParallelism>,
     /// <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a>.</p>
-    #[serde(rename = "InputProcessingConfiguration")]
+    #[serde(rename = "inputProcessingConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_processing_configuration: Option<InputProcessingConfiguration>,
     /// <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.</p> <p>Also used to describe the format of the reference data source.</p>
-    #[serde(rename = "InputSchema")]
+    #[serde(rename = "inputSchema")]
     pub input_schema: SourceSchema,
     /// <p>If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.</p> <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>
-    #[serde(rename = "KinesisFirehoseInput")]
+    #[serde(rename = "kinesisFirehoseInput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_input: Option<KinesisFirehoseInput>,
     /// <p>If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.</p> <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>
-    #[serde(rename = "KinesisStreamsInput")]
+    #[serde(rename = "kinesisStreamsInput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_streams_input: Option<KinesisStreamsInput>,
     /// <p>Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the <code>InputParallelism</code> count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. </p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     pub name_prefix: String,
 }
 
@@ -536,10 +536,10 @@ pub struct Input {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputConfiguration {
     /// <p>Input source ID. You can get this ID by calling the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>Point at which you want the application to start processing records from the streaming source.</p>
-    #[serde(rename = "InputStartingPositionConfiguration")]
+    #[serde(rename = "inputStartingPositionConfiguration")]
     pub input_starting_position_configuration: InputStartingPositionConfiguration,
 }
 
@@ -548,39 +548,39 @@ pub struct InputConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InputDescription {
     /// <p>Returns the in-application stream names that are mapped to the stream source.</p>
-    #[serde(rename = "InAppStreamNames")]
+    #[serde(rename = "inAppStreamNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub in_app_stream_names: Option<Vec<String>>,
     /// <p>Input ID associated with the application input. This is the ID that Amazon Kinesis Analytics assigns to each input configuration you add to your application. </p>
-    #[serde(rename = "InputId")]
+    #[serde(rename = "inputId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_id: Option<String>,
     /// <p>Describes the configured parallelism (number of in-application streams mapped to the streaming source).</p>
-    #[serde(rename = "InputParallelism")]
+    #[serde(rename = "inputParallelism")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_parallelism: Option<InputParallelism>,
     /// <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
-    #[serde(rename = "InputProcessingConfigurationDescription")]
+    #[serde(rename = "inputProcessingConfigurationDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_processing_configuration_description: Option<InputProcessingConfigurationDescription>,
     /// <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. </p>
-    #[serde(rename = "InputSchema")]
+    #[serde(rename = "inputSchema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_schema: Option<SourceSchema>,
     /// <p>Point at which the application is configured to read from the input stream.</p>
-    #[serde(rename = "InputStartingPositionConfiguration")]
+    #[serde(rename = "inputStartingPositionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_starting_position_configuration: Option<InputStartingPositionConfiguration>,
     /// <p>If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.</p>
-    #[serde(rename = "KinesisFirehoseInputDescription")]
+    #[serde(rename = "kinesisFirehoseInputDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_input_description: Option<KinesisFirehoseInputDescription>,
     /// <p>If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.</p>
-    #[serde(rename = "KinesisStreamsInputDescription")]
+    #[serde(rename = "kinesisStreamsInputDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_streams_input_description: Option<KinesisStreamsInputDescription>,
     /// <p>In-application name prefix.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
 }
@@ -590,10 +590,10 @@ pub struct InputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputLambdaProcessor {
     /// <p><p>The ARN of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that operates on records in the stream.</p> <note> <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a> </p> </note></p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -602,11 +602,11 @@ pub struct InputLambdaProcessor {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InputLambdaProcessorDescription {
     /// <p>The ARN of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -616,11 +616,11 @@ pub struct InputLambdaProcessorDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputLambdaProcessorUpdate {
     /// <p><p>The Amazon Resource Name (ARN) of the new <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that is used to preprocess the records in the stream.</p> <note> <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a> </p> </note></p>
-    #[serde(rename = "ResourceARNUpdate")]
+    #[serde(rename = "resourceARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_update: Option<String>,
     /// <p>The ARN of the new IAM role that is used to access the AWS Lambda function.</p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -629,7 +629,7 @@ pub struct InputLambdaProcessorUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputParallelism {
     /// <p>Number of in-application streams to create. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>. </p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
 }
@@ -639,7 +639,7 @@ pub struct InputParallelism {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputParallelismUpdate {
     /// <p>Number of in-application streams to create for the specified streaming source.</p>
-    #[serde(rename = "CountUpdate")]
+    #[serde(rename = "countUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_update: Option<i64>,
 }
@@ -649,7 +649,7 @@ pub struct InputParallelismUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputProcessingConfiguration {
     /// <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a> that is used to preprocess the records in the stream before being processed by your application code.</p>
-    #[serde(rename = "InputLambdaProcessor")]
+    #[serde(rename = "inputLambdaProcessor")]
     pub input_lambda_processor: InputLambdaProcessor,
 }
 
@@ -658,7 +658,7 @@ pub struct InputProcessingConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InputProcessingConfigurationDescription {
     /// <p>Provides configuration information about the associated <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html">InputLambdaProcessorDescription</a>.</p>
-    #[serde(rename = "InputLambdaProcessorDescription")]
+    #[serde(rename = "inputLambdaProcessorDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_lambda_processor_description: Option<InputLambdaProcessorDescription>,
 }
@@ -668,7 +668,7 @@ pub struct InputProcessingConfigurationDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputProcessingConfigurationUpdate {
     /// <p>Provides update information for an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a>.</p>
-    #[serde(rename = "InputLambdaProcessorUpdate")]
+    #[serde(rename = "inputLambdaProcessorUpdate")]
     pub input_lambda_processor_update: InputLambdaProcessorUpdate,
 }
 
@@ -677,15 +677,15 @@ pub struct InputProcessingConfigurationUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputSchemaUpdate {
     /// <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream. </p>
-    #[serde(rename = "RecordColumnUpdates")]
+    #[serde(rename = "recordColumnUpdates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_column_updates: Option<Vec<RecordColumn>>,
     /// <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
-    #[serde(rename = "RecordEncodingUpdate")]
+    #[serde(rename = "recordEncodingUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_encoding_update: Option<String>,
     /// <p>Specifies the format of the records on the streaming source.</p>
-    #[serde(rename = "RecordFormatUpdate")]
+    #[serde(rename = "recordFormatUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_format_update: Option<RecordFormat>,
 }
@@ -694,7 +694,7 @@ pub struct InputSchemaUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputStartingPositionConfiguration {
     /// <p><p>The starting position on the stream.</p> <ul> <li> <p> <code>NOW</code> - Start reading just after the most recent record in the stream, start at the request time stamp that the customer issued.</p> </li> <li> <p> <code>TRIM<em>HORIZON</code> - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.</p> </li> <li> <p> <code>LAST</em>STOPPED_POINT</code> - Resume reading from where the application last stopped reading.</p> </li> </ul></p>
-    #[serde(rename = "InputStartingPosition")]
+    #[serde(rename = "inputStartingPosition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_starting_position: Option<String>,
 }
@@ -704,30 +704,30 @@ pub struct InputStartingPositionConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputUpdate {
     /// <p>Input ID of the application input to be updated.</p>
-    #[serde(rename = "InputId")]
+    #[serde(rename = "inputId")]
     pub input_id: String,
     /// <p>Describes the parallelism updates (the number in-application streams Amazon Kinesis Analytics creates for the specific streaming source).</p>
-    #[serde(rename = "InputParallelismUpdate")]
+    #[serde(rename = "inputParallelismUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_parallelism_update: Option<InputParallelismUpdate>,
     /// <p>Describes updates for an input processing configuration.</p>
-    #[serde(rename = "InputProcessingConfigurationUpdate")]
+    #[serde(rename = "inputProcessingConfigurationUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_processing_configuration_update: Option<InputProcessingConfigurationUpdate>,
     /// <p>Describes the data format on the streaming source, and how record elements on the streaming source map to columns of the in-application stream that is created.</p>
-    #[serde(rename = "InputSchemaUpdate")]
+    #[serde(rename = "inputSchemaUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_schema_update: Option<InputSchemaUpdate>,
     /// <p>If an Amazon Kinesis Firehose delivery stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN.</p>
-    #[serde(rename = "KinesisFirehoseInputUpdate")]
+    #[serde(rename = "kinesisFirehoseInputUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_input_update: Option<KinesisFirehoseInputUpdate>,
     /// <p>If an Amazon Kinesis stream is the streaming source to be updated, provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.</p>
-    #[serde(rename = "KinesisStreamsInputUpdate")]
+    #[serde(rename = "kinesisStreamsInputUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_streams_input_update: Option<KinesisStreamsInputUpdate>,
     /// <p>Name prefix for in-application streams that Amazon Kinesis Analytics creates for the specific streaming source.</p>
-    #[serde(rename = "NamePrefixUpdate")]
+    #[serde(rename = "namePrefixUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix_update: Option<String>,
 }
@@ -736,7 +736,7 @@ pub struct InputUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JSONMappingParameters {
     /// <p>Path to the top-level parent that contains the records.</p>
-    #[serde(rename = "RecordRowPath")]
+    #[serde(rename = "recordRowPath")]
     pub record_row_path: String,
 }
 
@@ -745,10 +745,10 @@ pub struct JSONMappingParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisFirehoseInput {
     /// <p>ARN of the input delivery stream.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure that the role has the necessary permissions to access the stream.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -757,11 +757,11 @@ pub struct KinesisFirehoseInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KinesisFirehoseInputDescription {
     /// <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -771,11 +771,11 @@ pub struct KinesisFirehoseInputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisFirehoseInputUpdate {
     /// <p>Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.</p>
-    #[serde(rename = "ResourceARNUpdate")]
+    #[serde(rename = "resourceARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_update: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -785,10 +785,10 @@ pub struct KinesisFirehoseInputUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisFirehoseOutput {
     /// <p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -797,11 +797,11 @@ pub struct KinesisFirehoseOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KinesisFirehoseOutputDescription {
     /// <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -811,11 +811,11 @@ pub struct KinesisFirehoseOutputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisFirehoseOutputUpdate {
     /// <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to write to.</p>
-    #[serde(rename = "ResourceARNUpdate")]
+    #[serde(rename = "resourceARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_update: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -825,10 +825,10 @@ pub struct KinesisFirehoseOutputUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisStreamsInput {
     /// <p>ARN of the input Amazon Kinesis stream to read.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -837,11 +837,11 @@ pub struct KinesisStreamsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KinesisStreamsInputDescription {
     /// <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -851,11 +851,11 @@ pub struct KinesisStreamsInputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisStreamsInputUpdate {
     /// <p>Amazon Resource Name (ARN) of the input Amazon Kinesis stream to read.</p>
-    #[serde(rename = "ResourceARNUpdate")]
+    #[serde(rename = "resourceARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_update: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -865,10 +865,10 @@ pub struct KinesisStreamsInputUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisStreamsOutput {
     /// <p>ARN of the destination Amazon Kinesis stream to write to.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -877,11 +877,11 @@ pub struct KinesisStreamsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KinesisStreamsOutputDescription {
     /// <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -891,11 +891,11 @@ pub struct KinesisStreamsOutputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KinesisStreamsOutputUpdate {
     /// <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream where you want to write the output.</p>
-    #[serde(rename = "ResourceARNUpdate")]
+    #[serde(rename = "resourceARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_update: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -905,10 +905,10 @@ pub struct KinesisStreamsOutputUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LambdaOutput {
     /// <p><p>Amazon Resource Name (ARN) of the destination Lambda function to write to.</p> <note> <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a> </p> </note></p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -917,11 +917,11 @@ pub struct LambdaOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LambdaOutputDescription {
     /// <p>Amazon Resource Name (ARN) of the destination Lambda function.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -931,11 +931,11 @@ pub struct LambdaOutputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LambdaOutputUpdate {
     /// <p><p>Amazon Resource Name (ARN) of the destination Lambda function.</p> <note> <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a> </p> </note></p>
-    #[serde(rename = "ResourceARNUpdate")]
+    #[serde(rename = "resourceARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_update: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
-    #[serde(rename = "RoleARNUpdate")]
+    #[serde(rename = "roleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn_update: Option<String>,
 }
@@ -945,11 +945,11 @@ pub struct LambdaOutputUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListApplicationsRequest {
     /// <p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>
-    #[serde(rename = "ExclusiveStartApplicationName")]
+    #[serde(rename = "exclusiveStartApplicationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusive_start_application_name: Option<String>,
     /// <p>Maximum number of applications to list.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
 }
@@ -959,10 +959,10 @@ pub struct ListApplicationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListApplicationsResponse {
     /// <p>List of <code>ApplicationSummary</code> objects. </p>
-    #[serde(rename = "ApplicationSummaries")]
+    #[serde(rename = "applicationSummaries")]
     pub application_summaries: Vec<ApplicationSummary>,
     /// <p>Returns true if there are more applications to retrieve.</p>
-    #[serde(rename = "HasMoreApplications")]
+    #[serde(rename = "hasMoreApplications")]
     pub has_more_applications: bool,
 }
 
@@ -970,7 +970,7 @@ pub struct ListApplicationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The ARN of the application for which to retrieve tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -978,7 +978,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The key-value tags assigned to the application.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -987,11 +987,11 @@ pub struct ListTagsForResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MappingParameters {
     /// <p>Provides additional mapping information when the record format uses delimiters (for example, CSV).</p>
-    #[serde(rename = "CSVMappingParameters")]
+    #[serde(rename = "cSVMappingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csv_mapping_parameters: Option<CSVMappingParameters>,
     /// <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
-    #[serde(rename = "JSONMappingParameters")]
+    #[serde(rename = "jSONMappingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub json_mapping_parameters: Option<JSONMappingParameters>,
 }
@@ -1001,22 +1001,22 @@ pub struct MappingParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Output {
     /// <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
-    #[serde(rename = "DestinationSchema")]
+    #[serde(rename = "destinationSchema")]
     pub destination_schema: DestinationSchema,
     /// <p>Identifies an Amazon Kinesis Firehose delivery stream as the destination.</p>
-    #[serde(rename = "KinesisFirehoseOutput")]
+    #[serde(rename = "kinesisFirehoseOutput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_output: Option<KinesisFirehoseOutput>,
     /// <p>Identifies an Amazon Kinesis stream as the destination.</p>
-    #[serde(rename = "KinesisStreamsOutput")]
+    #[serde(rename = "kinesisStreamsOutput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_streams_output: Option<KinesisStreamsOutput>,
     /// <p>Identifies an AWS Lambda function as the destination.</p>
-    #[serde(rename = "LambdaOutput")]
+    #[serde(rename = "lambdaOutput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_output: Option<LambdaOutput>,
     /// <p>Name of the in-application stream.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1025,27 +1025,27 @@ pub struct Output {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OutputDescription {
     /// <p>Data format used for writing data to the destination.</p>
-    #[serde(rename = "DestinationSchema")]
+    #[serde(rename = "destinationSchema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_schema: Option<DestinationSchema>,
     /// <p>Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written.</p>
-    #[serde(rename = "KinesisFirehoseOutputDescription")]
+    #[serde(rename = "kinesisFirehoseOutputDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_output_description: Option<KinesisFirehoseOutputDescription>,
     /// <p>Describes Amazon Kinesis stream configured as the destination where output is written.</p>
-    #[serde(rename = "KinesisStreamsOutputDescription")]
+    #[serde(rename = "kinesisStreamsOutputDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_streams_output_description: Option<KinesisStreamsOutputDescription>,
     /// <p>Describes the AWS Lambda function configured as the destination where output is written.</p>
-    #[serde(rename = "LambdaOutputDescription")]
+    #[serde(rename = "lambdaOutputDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_output_description: Option<LambdaOutputDescription>,
     /// <p>Name of the in-application stream configured as output.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A unique identifier for the output configuration.</p>
-    #[serde(rename = "OutputId")]
+    #[serde(rename = "outputId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_id: Option<String>,
 }
@@ -1055,27 +1055,27 @@ pub struct OutputDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct OutputUpdate {
     /// <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
-    #[serde(rename = "DestinationSchemaUpdate")]
+    #[serde(rename = "destinationSchemaUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_schema_update: Option<DestinationSchema>,
     /// <p>Describes an Amazon Kinesis Firehose delivery stream as the destination for the output.</p>
-    #[serde(rename = "KinesisFirehoseOutputUpdate")]
+    #[serde(rename = "kinesisFirehoseOutputUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_firehose_output_update: Option<KinesisFirehoseOutputUpdate>,
     /// <p>Describes an Amazon Kinesis stream as the destination for the output.</p>
-    #[serde(rename = "KinesisStreamsOutputUpdate")]
+    #[serde(rename = "kinesisStreamsOutputUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_streams_output_update: Option<KinesisStreamsOutputUpdate>,
     /// <p>Describes an AWS Lambda function as the destination for the output.</p>
-    #[serde(rename = "LambdaOutputUpdate")]
+    #[serde(rename = "lambdaOutputUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_output_update: Option<LambdaOutputUpdate>,
     /// <p>If you want to specify a different in-application stream for this output configuration, use this field to specify the new in-application stream name.</p>
-    #[serde(rename = "NameUpdate")]
+    #[serde(rename = "nameUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_update: Option<String>,
     /// <p>Identifies the specific output configuration that you want to update.</p>
-    #[serde(rename = "OutputId")]
+    #[serde(rename = "outputId")]
     pub output_id: String,
 }
 
@@ -1083,14 +1083,14 @@ pub struct OutputUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RecordColumn {
     /// <p>Reference to the data element in the streaming input or the reference data source. This element is required if the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a> is <code>JSON</code>.</p>
-    #[serde(rename = "Mapping")]
+    #[serde(rename = "mapping")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mapping: Option<String>,
     /// <p>Name of the column created in the in-application input stream or reference table.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Type of column created in the in-application input stream or reference table.</p>
-    #[serde(rename = "SqlType")]
+    #[serde(rename = "sqlType")]
     pub sql_type: String,
 }
 
@@ -1098,11 +1098,11 @@ pub struct RecordColumn {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RecordFormat {
     /// <p>When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.</p>
-    #[serde(rename = "MappingParameters")]
+    #[serde(rename = "mappingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mapping_parameters: Option<MappingParameters>,
     /// <p>The type of record format.</p>
-    #[serde(rename = "RecordFormatType")]
+    #[serde(rename = "recordFormatType")]
     pub record_format_type: String,
 }
 
@@ -1111,14 +1111,14 @@ pub struct RecordFormat {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReferenceDataSource {
     /// <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
-    #[serde(rename = "ReferenceSchema")]
+    #[serde(rename = "referenceSchema")]
     pub reference_schema: SourceSchema,
     /// <p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf. An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the <code>UpdateApplication</code> operation to trigger reloading of data into your application. </p>
-    #[serde(rename = "S3ReferenceDataSource")]
+    #[serde(rename = "s3ReferenceDataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_reference_data_source: Option<S3ReferenceDataSource>,
     /// <p>Name of the in-application table to create.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -1127,17 +1127,17 @@ pub struct ReferenceDataSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReferenceDataSourceDescription {
     /// <p>ID of the reference data source. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html">AddApplicationReferenceDataSource</a> operation.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     pub reference_id: String,
     /// <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
-    #[serde(rename = "ReferenceSchema")]
+    #[serde(rename = "referenceSchema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_schema: Option<SourceSchema>,
     /// <p>Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.</p>
-    #[serde(rename = "S3ReferenceDataSourceDescription")]
+    #[serde(rename = "s3ReferenceDataSourceDescription")]
     pub s3_reference_data_source_description: S3ReferenceDataSourceDescription,
     /// <p>The in-application table name created by the specific reference data source configuration.</p>
-    #[serde(rename = "TableName")]
+    #[serde(rename = "tableName")]
     pub table_name: String,
 }
 
@@ -1146,18 +1146,18 @@ pub struct ReferenceDataSourceDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReferenceDataSourceUpdate {
     /// <p>ID of the reference data source being updated. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get this value.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     pub reference_id: String,
     /// <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
-    #[serde(rename = "ReferenceSchemaUpdate")]
+    #[serde(rename = "referenceSchemaUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_schema_update: Option<SourceSchema>,
     /// <p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>
-    #[serde(rename = "S3ReferenceDataSourceUpdate")]
+    #[serde(rename = "s3ReferenceDataSourceUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_reference_data_source_update: Option<S3ReferenceDataSourceUpdate>,
     /// <p>In-application table name that is created by this update.</p>
-    #[serde(rename = "TableNameUpdate")]
+    #[serde(rename = "tableNameUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub table_name_update: Option<String>,
 }
@@ -1167,13 +1167,13 @@ pub struct ReferenceDataSourceUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct S3Configuration {
     /// <p>ARN of the S3 bucket that contains the data.</p>
-    #[serde(rename = "BucketARN")]
+    #[serde(rename = "bucketARN")]
     pub bucket_arn: String,
     /// <p>The name of the object that contains the data.</p>
-    #[serde(rename = "FileKey")]
+    #[serde(rename = "fileKey")]
     pub file_key: String,
     /// <p>IAM ARN of the role used to access the data.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
 }
 
@@ -1182,13 +1182,13 @@ pub struct S3Configuration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct S3ReferenceDataSource {
     /// <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
-    #[serde(rename = "BucketARN")]
+    #[serde(rename = "bucketARN")]
     pub bucket_arn: String,
     /// <p>Object key name containing reference data.</p>
-    #[serde(rename = "FileKey")]
+    #[serde(rename = "fileKey")]
     pub file_key: String,
     /// <p>ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the <code>s3:GetObject</code> action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.</p>
-    #[serde(rename = "ReferenceRoleARN")]
+    #[serde(rename = "referenceRoleARN")]
     pub reference_role_arn: String,
 }
 
@@ -1197,13 +1197,13 @@ pub struct S3ReferenceDataSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct S3ReferenceDataSourceDescription {
     /// <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
-    #[serde(rename = "BucketARN")]
+    #[serde(rename = "bucketARN")]
     pub bucket_arn: String,
     /// <p>Amazon S3 object key name.</p>
-    #[serde(rename = "FileKey")]
+    #[serde(rename = "fileKey")]
     pub file_key: String,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.</p>
-    #[serde(rename = "ReferenceRoleARN")]
+    #[serde(rename = "referenceRoleARN")]
     pub reference_role_arn: String,
 }
 
@@ -1212,15 +1212,15 @@ pub struct S3ReferenceDataSourceDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct S3ReferenceDataSourceUpdate {
     /// <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
-    #[serde(rename = "BucketARNUpdate")]
+    #[serde(rename = "bucketARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_arn_update: Option<String>,
     /// <p>Object key name.</p>
-    #[serde(rename = "FileKeyUpdate")]
+    #[serde(rename = "fileKeyUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_key_update: Option<String>,
     /// <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.</p>
-    #[serde(rename = "ReferenceRoleARNUpdate")]
+    #[serde(rename = "referenceRoleARNUpdate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_role_arn_update: Option<String>,
 }
@@ -1229,14 +1229,14 @@ pub struct S3ReferenceDataSourceUpdate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SourceSchema {
     /// <p>A list of <code>RecordColumn</code> objects.</p>
-    #[serde(rename = "RecordColumns")]
+    #[serde(rename = "recordColumns")]
     pub record_columns: Vec<RecordColumn>,
     /// <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
-    #[serde(rename = "RecordEncoding")]
+    #[serde(rename = "recordEncoding")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_encoding: Option<String>,
     /// <p>Specifies the format of the records on the streaming source.</p>
-    #[serde(rename = "RecordFormat")]
+    #[serde(rename = "recordFormat")]
     pub record_format: RecordFormat,
 }
 
@@ -1245,10 +1245,10 @@ pub struct SourceSchema {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartApplicationRequest {
     /// <p>Name of the application.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.</p>
-    #[serde(rename = "InputConfigurations")]
+    #[serde(rename = "inputConfigurations")]
     pub input_configurations: Vec<InputConfiguration>,
 }
 
@@ -1262,7 +1262,7 @@ pub struct StartApplicationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopApplicationRequest {
     /// <p>Name of the running application to stop.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
 }
 
@@ -1275,10 +1275,10 @@ pub struct StopApplicationResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of the key-value tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of the key-value tag. The value is optional.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1287,10 +1287,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the application to assign the tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The key-value tags to assign to the application.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1302,10 +1302,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A list of keys of tags to remove from the specified application.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1317,13 +1317,13 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateApplicationRequest {
     /// <p>Name of the Amazon Kinesis Analytics application to update.</p>
-    #[serde(rename = "ApplicationName")]
+    #[serde(rename = "applicationName")]
     pub application_name: String,
     /// <p>Describes application updates.</p>
-    #[serde(rename = "ApplicationUpdate")]
+    #[serde(rename = "applicationUpdate")]
     pub application_update: ApplicationUpdate,
     /// <p>The current application version ID. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get this value.</p>
-    #[serde(rename = "CurrentApplicationVersionId")]
+    #[serde(rename = "currentApplicationVersionId")]
     pub current_application_version_id: i64,
 }
 

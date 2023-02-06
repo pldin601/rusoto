@@ -32,11 +32,11 @@ use serde_json;
 pub struct BatchAssociateScramSecretRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster to be updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;List of AWS Secrets Manager secret ARNs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SecretArnList")]
+    #[serde(rename = "secretArnList")]
     pub secret_arn_list: Vec<String>,
 }
 
@@ -45,12 +45,12 @@ pub struct BatchAssociateScramSecretRequest {
 pub struct BatchAssociateScramSecretResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;List of errors when associating secrets to cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "UnprocessedScramSecrets")]
+    #[serde(rename = "unprocessedScramSecrets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_scram_secrets: Option<Vec<UnprocessedScramSecret>>,
 }
@@ -62,11 +62,11 @@ pub struct BatchAssociateScramSecretResponse {
 pub struct BatchDisassociateScramSecretRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster to be updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;List of AWS Secrets Manager secret ARNs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SecretArnList")]
+    #[serde(rename = "secretArnList")]
     pub secret_arn_list: Vec<String>,
 }
 
@@ -75,12 +75,12 @@ pub struct BatchDisassociateScramSecretRequest {
 pub struct BatchDisassociateScramSecretResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;List of errors when disassociating secrets to cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "UnprocessedScramSecrets")]
+    #[serde(rename = "unprocessedScramSecrets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_scram_secrets: Option<Vec<UnprocessedScramSecret>>,
 }
@@ -91,23 +91,23 @@ pub struct BatchDisassociateScramSecretResponse {
 pub struct BrokerEBSVolumeInfo {
     /// <pre><code>        &lt;p&gt;The ID of the broker to update.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaBrokerNodeId")]
+    #[serde(rename = "kafkaBrokerNodeId")]
     pub kafka_broker_node_id: String,
     /// <pre><code>        &lt;p&gt;Size of the EBS volume to update.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "VolumeSizeGB")]
+    #[serde(rename = "volumeSizeGB")]
     pub volume_size_gb: i64,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BrokerLogs {
-    #[serde(rename = "CloudWatchLogs")]
+    #[serde(rename = "cloudWatchLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs: Option<CloudWatchLogs>,
-    #[serde(rename = "Firehose")]
+    #[serde(rename = "firehose")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firehose: Option<Firehose>,
-    #[serde(rename = "S3")]
+    #[serde(rename = "s3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3: Option<S3>,
 }
@@ -119,27 +119,27 @@ pub struct BrokerNodeGroupInfo {
     /// <pre><code>        &lt;p&gt;The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don&#39;t specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.&lt;/p&gt;
     /// &lt;p&gt;Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerAZDistribution")]
+    #[serde(rename = "brokerAZDistribution")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_az_distribution: Option<String>,
     /// <pre><code>        &lt;p&gt;The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can&#39;t be in Availability Zone us-east-1e.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientSubnets")]
+    #[serde(rename = "clientSubnets")]
     pub client_subnets: Vec<String>,
     /// <pre><code>        &lt;p&gt;The type of Amazon EC2 instances to use for Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
     /// </code></pre>
     ///
     /// <p>kafka.m5.4xlarge, kafka.m5.12xlarge, and kafka.m5.24xlarge.</p></p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     pub instance_type: String,
     /// <pre><code>        &lt;p&gt;The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don&#39;t specify a security group, Amazon MSK uses the default security group associated with the VPC.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<String>>,
     /// <pre><code>        &lt;p&gt;Contains information about storage volumes attached to MSK broker nodes.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "StorageInfo")]
+    #[serde(rename = "storageInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_info: Option<StorageInfo>,
 }
@@ -151,32 +151,32 @@ pub struct BrokerNodeGroupInfo {
 pub struct BrokerNodeInfo {
     /// <pre><code>        &lt;p&gt;The attached elastic network interface of the broker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "AttachedENIId")]
+    #[serde(rename = "attachedENIId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_eni_id: Option<String>,
     /// <pre><code>        &lt;p&gt;The ID of the broker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerId")]
+    #[serde(rename = "brokerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_id: Option<f64>,
     /// <pre><code>        &lt;p&gt;The client subnet to which this broker node belongs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientSubnet")]
+    #[serde(rename = "clientSubnet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_subnet: Option<String>,
     /// <pre><code>        &lt;p&gt;The virtual private cloud (VPC) of the client.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientVpcIpAddress")]
+    #[serde(rename = "clientVpcIpAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_vpc_ip_address: Option<String>,
     /// <pre><code>        &lt;p&gt;Information about the version of software currently deployed on the Kafka brokers in the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentBrokerSoftwareInfo")]
+    #[serde(rename = "currentBrokerSoftwareInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_broker_software_info: Option<BrokerSoftwareInfo>,
     /// <pre><code>        &lt;p&gt;Endpoints for accessing the broker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<Vec<String>>,
 }
@@ -188,17 +188,17 @@ pub struct BrokerNodeInfo {
 pub struct BrokerSoftwareInfo {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn&#39;t visible in this preview release.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ConfigurationArn")]
+    #[serde(rename = "configurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The revision of the configuration to use. This field isn&#39;t visible in this preview release.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ConfigurationRevision")]
+    #[serde(rename = "configurationRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_revision: Option<i64>,
     /// <pre><code>        &lt;p&gt;The version of Apache Kafka.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaVersion")]
+    #[serde(rename = "kafkaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kafka_version: Option<String>,
 }
@@ -209,21 +209,21 @@ pub struct BrokerSoftwareInfo {
 pub struct ClientAuthentication {
     /// <pre><code>        &lt;p&gt;Details for ClientAuthentication using SASL.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Sasl")]
+    #[serde(rename = "sasl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sasl: Option<Sasl>,
     /// <pre><code>        &lt;p&gt;Details for ClientAuthentication using TLS.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Tls")]
+    #[serde(rename = "tls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls: Option<Tls>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchLogs {
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
-    #[serde(rename = "LogGroup")]
+    #[serde(rename = "logGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group: Option<String>,
 }
@@ -235,88 +235,88 @@ pub struct CloudWatchLogs {
 pub struct ClusterInfo {
     /// <pre><code>        &lt;p&gt;Arn of active cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ActiveOperationArn")]
+    #[serde(rename = "activeOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_operation_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;Information about the broker nodes.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerNodeGroupInfo")]
+    #[serde(rename = "brokerNodeGroupInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_node_group_info: Option<BrokerNodeGroupInfo>,
     /// <pre><code>        &lt;p&gt;Includes all client authentication information.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientAuthentication")]
+    #[serde(rename = "clientAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_authentication: Option<ClientAuthentication>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The name of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_name: Option<String>,
     /// <pre><code>        &lt;p&gt;The time when the cluster was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <pre><code>        &lt;p&gt;Information about the version of software currently deployed on the Kafka brokers in the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentBrokerSoftwareInfo")]
+    #[serde(rename = "currentBrokerSoftwareInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_broker_software_info: Option<BrokerSoftwareInfo>,
     /// <pre><code>        &lt;p&gt;The current version of the MSK cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_version: Option<String>,
     /// <pre><code>        &lt;p&gt;Includes all encryption-related information.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EncryptionInfo")]
+    #[serde(rename = "encryptionInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_info: Option<EncryptionInfo>,
     /// <pre><code>        &lt;p&gt;Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see &lt;a href=&quot;https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html&quot;&gt;Monitoring&lt;/a&gt;.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnhancedMonitoring")]
+    #[serde(rename = "enhancedMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enhanced_monitoring: Option<String>,
-    #[serde(rename = "LoggingInfo")]
+    #[serde(rename = "loggingInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_info: Option<LoggingInfo>,
     /// <pre><code>        &lt;p&gt;The number of broker nodes in the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NumberOfBrokerNodes")]
+    #[serde(rename = "numberOfBrokerNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_broker_nodes: Option<i64>,
     /// <pre><code>        &lt;p&gt;Settings for open monitoring using Prometheus.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OpenMonitoring")]
+    #[serde(rename = "openMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub open_monitoring: Option<OpenMonitoring>,
     /// <pre><code>        &lt;p&gt;The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
-    #[serde(rename = "StateInfo")]
+    #[serde(rename = "stateInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_info: Option<StateInfo>,
     /// <pre><code>        &lt;p&gt;Tags attached to the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <pre><code>        &lt;p&gt;The connection string to use to connect to the Apache ZooKeeper cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ZookeeperConnectString")]
+    #[serde(rename = "zookeeperConnectString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zookeeper_connect_string: Option<String>,
     /// <pre><code>        &lt;p&gt;The connection string to use to connect to zookeeper cluster on Tls port.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ZookeeperConnectStringTls")]
+    #[serde(rename = "zookeeperConnectStringTls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zookeeper_connect_string_tls: Option<String>,
 }
@@ -328,57 +328,57 @@ pub struct ClusterInfo {
 pub struct ClusterOperationInfo {
     /// <pre><code>        &lt;p&gt;The ID of the API request that triggered this operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientRequestId")]
+    #[serde(rename = "clientRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_id: Option<String>,
     /// <pre><code>        &lt;p&gt;ARN of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The time that the operation was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <pre><code>        &lt;p&gt;The time at which the operation finished.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <pre><code>        &lt;p&gt;Describes the error if the operation fails.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ErrorInfo")]
+    #[serde(rename = "errorInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_info: Option<ErrorInfo>,
     /// <pre><code>        &lt;p&gt;ARN of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OperationArn")]
+    #[serde(rename = "operationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;State of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OperationState")]
+    #[serde(rename = "operationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_state: Option<String>,
     /// <pre><code>        &lt;p&gt;Steps completed during the operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OperationSteps")]
+    #[serde(rename = "operationSteps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_steps: Option<Vec<ClusterOperationStep>>,
     /// <pre><code>        &lt;p&gt;Type of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OperationType")]
+    #[serde(rename = "operationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_type: Option<String>,
     /// <pre><code>        &lt;p&gt;Information about cluster attributes before a cluster is updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SourceClusterInfo")]
+    #[serde(rename = "sourceClusterInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_cluster_info: Option<MutableClusterInfo>,
     /// <pre><code>        &lt;p&gt;Information about cluster attributes after a cluster is updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "TargetClusterInfo")]
+    #[serde(rename = "targetClusterInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_cluster_info: Option<MutableClusterInfo>,
 }
@@ -390,12 +390,12 @@ pub struct ClusterOperationInfo {
 pub struct ClusterOperationStep {
     /// <pre><code>        &lt;p&gt;Information about the step and its status.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "StepInfo")]
+    #[serde(rename = "stepInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub step_info: Option<ClusterOperationStepInfo>,
     /// <pre><code>        &lt;p&gt;The name of the step.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "StepName")]
+    #[serde(rename = "stepName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub step_name: Option<String>,
 }
@@ -407,7 +407,7 @@ pub struct ClusterOperationStep {
 pub struct ClusterOperationStepInfo {
     /// <pre><code>        &lt;p&gt;The steps current status.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "StepStatus")]
+    #[serde(rename = "stepStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub step_status: Option<String>,
 }
@@ -419,12 +419,12 @@ pub struct ClusterOperationStepInfo {
 pub struct CompatibleKafkaVersion {
     /// <pre><code>        &lt;p&gt;A Kafka version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SourceVersion")]
+    #[serde(rename = "sourceVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_version: Option<String>,
     /// <pre><code>        &lt;p&gt;A list of Kafka versions.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "TargetVersions")]
+    #[serde(rename = "targetVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_versions: Option<Vec<String>>,
 }
@@ -436,31 +436,31 @@ pub struct CompatibleKafkaVersion {
 pub struct Configuration {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <pre><code>        &lt;p&gt;The time when the configuration was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     pub creation_time: f64,
     /// <pre><code>        &lt;p&gt;The description of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <pre><code>        &lt;p&gt;An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaVersions")]
+    #[serde(rename = "kafkaVersions")]
     pub kafka_versions: Vec<String>,
     /// <pre><code>        &lt;p&gt;Latest revision of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     pub latest_revision: ConfigurationRevision,
     /// <pre><code>        &lt;p&gt;The name of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <pre><code>        &lt;p&gt;The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. &lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
 }
 
@@ -470,11 +470,11 @@ pub struct Configuration {
 pub struct ConfigurationInfo {
     /// <pre><code>        &lt;p&gt;ARN of the configuration to use.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <pre><code>        &lt;p&gt;The revision of the configuration to use.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     pub revision: i64,
 }
 
@@ -485,16 +485,16 @@ pub struct ConfigurationInfo {
 pub struct ConfigurationRevision {
     /// <pre><code>        &lt;p&gt;The time when the configuration revision was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     pub creation_time: f64,
     /// <pre><code>        &lt;p&gt;The description of the configuration revision.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <pre><code>        &lt;p&gt;The revision number.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     pub revision: i64,
 }
 
@@ -503,51 +503,51 @@ pub struct ConfigurationRevision {
 pub struct CreateClusterRequest {
     /// <pre><code>        &lt;p&gt;Information about the broker nodes in the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerNodeGroupInfo")]
+    #[serde(rename = "brokerNodeGroupInfo")]
     pub broker_node_group_info: BrokerNodeGroupInfo,
     /// <pre><code>        &lt;p&gt;Includes all client authentication related information.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientAuthentication")]
+    #[serde(rename = "clientAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_authentication: Option<ClientAuthentication>,
     /// <pre><code>        &lt;p&gt;The name of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
     /// <pre><code>        &lt;p&gt;Represents the configuration that you want MSK to use for the brokers in a cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ConfigurationInfo")]
+    #[serde(rename = "configurationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_info: Option<ConfigurationInfo>,
     /// <pre><code>        &lt;p&gt;Includes all encryption-related information.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EncryptionInfo")]
+    #[serde(rename = "encryptionInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_info: Option<EncryptionInfo>,
     /// <pre><code>        &lt;p&gt;Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnhancedMonitoring")]
+    #[serde(rename = "enhancedMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enhanced_monitoring: Option<String>,
     /// <pre><code>        &lt;p&gt;The version of Apache Kafka.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaVersion")]
+    #[serde(rename = "kafkaVersion")]
     pub kafka_version: String,
-    #[serde(rename = "LoggingInfo")]
+    #[serde(rename = "loggingInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_info: Option<LoggingInfo>,
     /// <pre><code>        &lt;p&gt;The number of broker nodes in the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NumberOfBrokerNodes")]
+    #[serde(rename = "numberOfBrokerNodes")]
     pub number_of_broker_nodes: i64,
     /// <pre><code>        &lt;p&gt;The settings for open monitoring.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OpenMonitoring")]
+    #[serde(rename = "openMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub open_monitoring: Option<OpenMonitoringInfo>,
     /// <pre><code>        &lt;p&gt;Create tags when creating the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -557,17 +557,17 @@ pub struct CreateClusterRequest {
 pub struct CreateClusterResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The name of the MSK cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_name: Option<String>,
     /// <pre><code>        &lt;p&gt;The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -577,22 +577,22 @@ pub struct CreateClusterResponse {
 pub struct CreateConfigurationRequest {
     /// <pre><code>        &lt;p&gt;The description of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <pre><code>        &lt;p&gt;The versions of Apache Kafka with which you can use this MSK configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaVersions")]
+    #[serde(rename = "kafkaVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kafka_versions: Option<Vec<String>>,
     /// <pre><code>        &lt;p&gt;The name of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <pre><code>        &lt;p&gt;Contents of the &lt;filename&gt;server.properties&lt;/filename&gt; file. When using the API, you must ensure that the contents of the file are base64 encoded.
     /// When using the AWS Management Console, the SDK, or the AWS CLI, the contents of &lt;filename&gt;server.properties&lt;/filename&gt; can be in plaintext.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ServerProperties")]
+    #[serde(rename = "serverProperties")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -606,27 +606,27 @@ pub struct CreateConfigurationRequest {
 pub struct CreateConfigurationResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The time when the configuration was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <pre><code>        &lt;p&gt;Latest revision of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
     /// <pre><code>        &lt;p&gt;The name of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <pre><code>        &lt;p&gt;The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. &lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -636,11 +636,11 @@ pub struct CreateConfigurationResponse {
 pub struct DeleteClusterRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The current version of the MSK cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_version: Option<String>,
 }
@@ -650,12 +650,12 @@ pub struct DeleteClusterRequest {
 pub struct DeleteClusterResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -665,7 +665,7 @@ pub struct DeleteClusterResponse {
 pub struct DeleteConfigurationRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -674,12 +674,12 @@ pub struct DeleteConfigurationRequest {
 pub struct DeleteConfigurationResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. &lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -689,7 +689,7 @@ pub struct DeleteConfigurationResponse {
 pub struct DescribeClusterOperationRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     pub cluster_operation_arn: String,
 }
 
@@ -698,7 +698,7 @@ pub struct DescribeClusterOperationRequest {
 pub struct DescribeClusterOperationResponse {
     /// <pre><code>        &lt;p&gt;Cluster operation information&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationInfo")]
+    #[serde(rename = "clusterOperationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_info: Option<ClusterOperationInfo>,
 }
@@ -708,7 +708,7 @@ pub struct DescribeClusterOperationResponse {
 pub struct DescribeClusterRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
 }
 
@@ -717,7 +717,7 @@ pub struct DescribeClusterRequest {
 pub struct DescribeClusterResponse {
     /// <pre><code>        &lt;p&gt;The cluster information.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterInfo")]
+    #[serde(rename = "clusterInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_info: Option<ClusterInfo>,
 }
@@ -727,7 +727,7 @@ pub struct DescribeClusterResponse {
 pub struct DescribeConfigurationRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -736,37 +736,37 @@ pub struct DescribeConfigurationRequest {
 pub struct DescribeConfigurationResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The time when the configuration was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <pre><code>        &lt;p&gt;The description of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <pre><code>        &lt;p&gt;The versions of Apache Kafka with which you can use this MSK configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaVersions")]
+    #[serde(rename = "kafkaVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kafka_versions: Option<Vec<String>>,
     /// <pre><code>        &lt;p&gt;Latest revision of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
     /// <pre><code>        &lt;p&gt;The name of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <pre><code>        &lt;p&gt;The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. &lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -776,11 +776,11 @@ pub struct DescribeConfigurationResponse {
 pub struct DescribeConfigurationRevisionRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <pre><code>        &lt;p&gt;A string that uniquely identifies a revision of an MSK configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     pub revision: i64,
 }
 
@@ -789,28 +789,28 @@ pub struct DescribeConfigurationRevisionRequest {
 pub struct DescribeConfigurationRevisionResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The time when the configuration was created.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <pre><code>        &lt;p&gt;The description of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <pre><code>        &lt;p&gt;The revision number.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision: Option<i64>,
     /// <pre><code>        &lt;p&gt;Contents of the &lt;filename&gt;server.properties&lt;/filename&gt; file. When using the API, you must ensure that the contents of the file are base64 encoded.
     /// When using the AWS Management Console, the SDK, or the AWS CLI, the contents of &lt;filename&gt;server.properties&lt;/filename&gt; can be in plaintext.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ServerProperties")]
+    #[serde(rename = "serverProperties")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -826,7 +826,7 @@ pub struct DescribeConfigurationRevisionResponse {
 pub struct EBSStorageInfo {
     /// <pre><code>        &lt;p&gt;The size in GiB of the EBS volume for the data drive on each broker node.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_size: Option<i64>,
 }
@@ -837,7 +837,7 @@ pub struct EBSStorageInfo {
 pub struct EncryptionAtRest {
     /// <pre><code>        &lt;p&gt;The ARN of the AWS KMS key for encrypting data at rest. If you don&#39;t specify a KMS key, MSK creates one for you and uses it.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "DataVolumeKMSKeyId")]
+    #[serde(rename = "dataVolumeKMSKeyId")]
     pub data_volume_kms_key_id: String,
 }
 
@@ -854,13 +854,13 @@ pub struct EncryptionInTransit {
     /// PLAINTEXT means that client-broker communication is enabled in plaintext only.&lt;/p&gt;
     /// &lt;p&gt;The default value is TLS_PLAINTEXT.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientBroker")]
+    #[serde(rename = "clientBroker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_broker: Option<String>,
     /// <pre><code>        &lt;p&gt;When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.&lt;/p&gt;
     /// &lt;p&gt;The default value is true.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "InCluster")]
+    #[serde(rename = "inCluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub in_cluster: Option<bool>,
 }
@@ -871,12 +871,12 @@ pub struct EncryptionInTransit {
 pub struct EncryptionInfo {
     /// <pre><code>        &lt;p&gt;The data-volume encryption details.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EncryptionAtRest")]
+    #[serde(rename = "encryptionAtRest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_at_rest: Option<EncryptionAtRest>,
     /// <pre><code>        &lt;p&gt;The details for encryption in transit.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EncryptionInTransit")]
+    #[serde(rename = "encryptionInTransit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_in_transit: Option<EncryptionInTransit>,
 }
@@ -888,22 +888,22 @@ pub struct EncryptionInfo {
 pub struct ErrorInfo {
     /// <pre><code>        &lt;p&gt;A number describing the error programmatically.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <pre><code>        &lt;p&gt;An optional field to provide more details about the error.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ErrorString")]
+    #[serde(rename = "errorString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_string: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Firehose {
-    #[serde(rename = "DeliveryStream")]
+    #[serde(rename = "deliveryStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_stream: Option<String>,
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
 }
 
@@ -912,7 +912,7 @@ pub struct Firehose {
 pub struct GetBootstrapBrokersRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
 }
 
@@ -921,22 +921,22 @@ pub struct GetBootstrapBrokersRequest {
 pub struct GetBootstrapBrokersResponse {
     /// <pre><code>        &lt;p&gt;A string containing one or more hostname:port pairs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BootstrapBrokerString")]
+    #[serde(rename = "bootstrapBrokerString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bootstrap_broker_string: Option<String>,
     /// <pre><code>        &lt;p&gt;A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BootstrapBrokerStringSaslIam")]
+    #[serde(rename = "bootstrapBrokerStringSaslIam")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bootstrap_broker_string_sasl_iam: Option<String>,
     /// <pre><code>        &lt;p&gt;A string containing one or more DNS names (or IP) and Sasl Scram port pairs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BootstrapBrokerStringSaslScram")]
+    #[serde(rename = "bootstrapBrokerStringSaslScram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bootstrap_broker_string_sasl_scram: Option<String>,
     /// <pre><code>        &lt;p&gt;A string containing one or more DNS names (or IP) and TLS port pairs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BootstrapBrokerStringTls")]
+    #[serde(rename = "bootstrapBrokerStringTls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bootstrap_broker_string_tls: Option<String>,
 }
@@ -946,7 +946,7 @@ pub struct GetBootstrapBrokersResponse {
 pub struct GetCompatibleKafkaVersionsRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster check.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
 }
@@ -956,7 +956,7 @@ pub struct GetCompatibleKafkaVersionsRequest {
 pub struct GetCompatibleKafkaVersionsResponse {
     /// <pre><code>        &lt;p&gt;A list of CompatibleKafkaVersion objects.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CompatibleKafkaVersions")]
+    #[serde(rename = "compatibleKafkaVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_kafka_versions: Option<Vec<CompatibleKafkaVersion>>,
 }
@@ -967,7 +967,7 @@ pub struct GetCompatibleKafkaVersionsResponse {
 pub struct Iam {
     /// <pre><code>        &lt;p&gt;Indicates whether IAM access control is enabled.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -979,7 +979,7 @@ pub struct Iam {
 pub struct JmxExporter {
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the JMX Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnabledInBroker")]
+    #[serde(rename = "enabledInBroker")]
     pub enabled_in_broker: bool,
 }
 
@@ -990,17 +990,17 @@ pub struct JmxExporter {
 pub struct JmxExporterInfo {
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the JMX Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnabledInBroker")]
+    #[serde(rename = "enabledInBroker")]
     pub enabled_in_broker: bool,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KafkaVersion {
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1010,17 +1010,17 @@ pub struct KafkaVersion {
 pub struct ListClusterOperationsRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
     /// To get the next batch, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1030,12 +1030,12 @@ pub struct ListClusterOperationsRequest {
 pub struct ListClusterOperationsResponse {
     /// <pre><code>        &lt;p&gt;An array of cluster operation information objects.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationInfoList")]
+    #[serde(rename = "clusterOperationInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_info_list: Option<Vec<ClusterOperationInfo>>,
     /// <pre><code>        &lt;p&gt;If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1045,18 +1045,18 @@ pub struct ListClusterOperationsResponse {
 pub struct ListClustersRequest {
     /// <pre><code>        &lt;p&gt;Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterNameFilter")]
+    #[serde(rename = "clusterNameFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_name_filter: Option<String>,
     /// <pre><code>        &lt;p&gt;The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
     /// To get the next batch, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1066,13 +1066,13 @@ pub struct ListClustersRequest {
 pub struct ListClustersResponse {
     /// <pre><code>        &lt;p&gt;Information on each of the MSK clusters in the response.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterInfoList")]
+    #[serde(rename = "clusterInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_info_list: Option<Vec<ClusterInfo>>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response.
     /// To get another batch of clusters, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1082,17 +1082,17 @@ pub struct ListClustersResponse {
 pub struct ListConfigurationRevisionsRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <pre><code>        &lt;p&gt;The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
     /// To get the next batch, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1102,12 +1102,12 @@ pub struct ListConfigurationRevisionsRequest {
 pub struct ListConfigurationRevisionsResponse {
     /// <pre><code>        &lt;p&gt;Paginated results marker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <pre><code>        &lt;p&gt;List of ConfigurationRevision objects.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Revisions")]
+    #[serde(rename = "revisions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revisions: Option<Vec<ConfigurationRevision>>,
 }
@@ -1117,13 +1117,13 @@ pub struct ListConfigurationRevisionsResponse {
 pub struct ListConfigurationsRequest {
     /// <pre><code>        &lt;p&gt;The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
     /// To get the next batch, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1133,13 +1133,13 @@ pub struct ListConfigurationsRequest {
 pub struct ListConfigurationsResponse {
     /// <pre><code>        &lt;p&gt;An array of MSK configurations.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Configurations")]
+    #[serde(rename = "configurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configurations: Option<Vec<Configuration>>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response.
     /// To get another batch of configurations, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1149,12 +1149,12 @@ pub struct ListConfigurationsResponse {
 pub struct ListKafkaVersionsRequest {
     /// <pre><code>        &lt;p&gt;The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1162,10 +1162,10 @@ pub struct ListKafkaVersionsRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListKafkaVersionsResponse {
-    #[serde(rename = "KafkaVersions")]
+    #[serde(rename = "kafkaVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kafka_versions: Option<Vec<KafkaVersion>>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1175,17 +1175,17 @@ pub struct ListKafkaVersionsResponse {
 pub struct ListNodesRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
     /// To get the next batch, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1196,12 +1196,12 @@ pub struct ListNodesResponse {
     /// <pre><code>        &lt;p&gt;The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
     /// To get another batch of nodes, provide this token in your next request.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <pre><code>        &lt;p&gt;List containing a NodeInfo object.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NodeInfoList")]
+    #[serde(rename = "nodeInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_info_list: Option<Vec<NodeInfo>>,
 }
@@ -1211,16 +1211,16 @@ pub struct ListNodesResponse {
 pub struct ListScramSecretsRequest {
     /// <pre><code>        &lt;p&gt;The arn of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The maxResults of the query.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <pre><code>        &lt;p&gt;The nextToken of the query.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1230,12 +1230,12 @@ pub struct ListScramSecretsRequest {
 pub struct ListScramSecretsResponse {
     /// <pre><code>        &lt;p&gt;Paginated results marker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <pre><code>        &lt;p&gt;The list of scram secrets associated with the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SecretArnList")]
+    #[serde(rename = "secretArnList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_arn_list: Option<Vec<String>>,
 }
@@ -1245,7 +1245,7 @@ pub struct ListScramSecretsResponse {
 pub struct ListTagsForResourceRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the resource that&#39;s associated with the tags.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1254,14 +1254,14 @@ pub struct ListTagsForResourceRequest {
 pub struct ListTagsForResourceResponse {
     /// <pre><code>        &lt;p&gt;The key-value pair for the resource tag.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LoggingInfo {
-    #[serde(rename = "BrokerLogs")]
+    #[serde(rename = "brokerLogs")]
     pub broker_logs: BrokerLogs,
 }
 
@@ -1272,40 +1272,40 @@ pub struct LoggingInfo {
 pub struct MutableClusterInfo {
     /// <pre><code>        &lt;p&gt;Specifies the size of the EBS volume and the ID of the associated broker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerEBSVolumeInfo")]
+    #[serde(rename = "brokerEBSVolumeInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_ebs_volume_info: Option<Vec<BrokerEBSVolumeInfo>>,
     /// <pre><code>        &lt;p&gt;Information about the changes in the configuration of the brokers.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ConfigurationInfo")]
+    #[serde(rename = "configurationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_info: Option<ConfigurationInfo>,
     /// <pre><code>        &lt;p&gt;Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnhancedMonitoring")]
+    #[serde(rename = "enhancedMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enhanced_monitoring: Option<String>,
     /// <pre><code>        &lt;p&gt;Information about the Amazon MSK broker type.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <pre><code>        &lt;p&gt;The Kafka version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "KafkaVersion")]
+    #[serde(rename = "kafkaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kafka_version: Option<String>,
-    #[serde(rename = "LoggingInfo")]
+    #[serde(rename = "loggingInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_info: Option<LoggingInfo>,
     /// <pre><code>        &lt;p&gt;The number of broker nodes in the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NumberOfBrokerNodes")]
+    #[serde(rename = "numberOfBrokerNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_broker_nodes: Option<i64>,
     /// <pre><code>        &lt;p&gt;The settings for open monitoring.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OpenMonitoring")]
+    #[serde(rename = "openMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub open_monitoring: Option<OpenMonitoring>,
 }
@@ -1317,7 +1317,7 @@ pub struct MutableClusterInfo {
 pub struct NodeExporter {
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the Node Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnabledInBroker")]
+    #[serde(rename = "enabledInBroker")]
     pub enabled_in_broker: bool,
 }
 
@@ -1328,7 +1328,7 @@ pub struct NodeExporter {
 pub struct NodeExporterInfo {
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the Node Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnabledInBroker")]
+    #[serde(rename = "enabledInBroker")]
     pub enabled_in_broker: bool,
 }
 
@@ -1339,32 +1339,32 @@ pub struct NodeExporterInfo {
 pub struct NodeInfo {
     /// <pre><code>        &lt;p&gt;The start time.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "AddedToClusterTime")]
+    #[serde(rename = "addedToClusterTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub added_to_cluster_time: Option<String>,
     /// <pre><code>        &lt;p&gt;The broker node info.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerNodeInfo")]
+    #[serde(rename = "brokerNodeInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub broker_node_info: Option<BrokerNodeInfo>,
     /// <pre><code>        &lt;p&gt;The instance type.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the node.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NodeARN")]
+    #[serde(rename = "nodeARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The node type.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NodeType")]
+    #[serde(rename = "nodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_type: Option<String>,
     /// <pre><code>        &lt;p&gt;The ZookeeperNodeInfo.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ZookeeperNodeInfo")]
+    #[serde(rename = "zookeeperNodeInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zookeeper_node_info: Option<ZookeeperNodeInfo>,
 }
@@ -1376,7 +1376,7 @@ pub struct NodeInfo {
 pub struct OpenMonitoring {
     /// <pre><code>        &lt;p&gt;Prometheus settings.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Prometheus")]
+    #[serde(rename = "prometheus")]
     pub prometheus: Prometheus,
 }
 
@@ -1387,7 +1387,7 @@ pub struct OpenMonitoring {
 pub struct OpenMonitoringInfo {
     /// <pre><code>        &lt;p&gt;Prometheus settings.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Prometheus")]
+    #[serde(rename = "prometheus")]
     pub prometheus: PrometheusInfo,
 }
 
@@ -1398,12 +1398,12 @@ pub struct OpenMonitoringInfo {
 pub struct Prometheus {
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the JMX Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "JmxExporter")]
+    #[serde(rename = "jmxExporter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jmx_exporter: Option<JmxExporter>,
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the Node Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NodeExporter")]
+    #[serde(rename = "nodeExporter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_exporter: Option<NodeExporter>,
 }
@@ -1415,12 +1415,12 @@ pub struct Prometheus {
 pub struct PrometheusInfo {
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the JMX Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "JmxExporter")]
+    #[serde(rename = "jmxExporter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jmx_exporter: Option<JmxExporterInfo>,
     /// <pre><code>        &lt;p&gt;Indicates whether you want to enable or disable the Node Exporter.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "NodeExporter")]
+    #[serde(rename = "nodeExporter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_exporter: Option<NodeExporterInfo>,
 }
@@ -1431,11 +1431,11 @@ pub struct PrometheusInfo {
 pub struct RebootBrokerRequest {
     /// <pre><code>        &lt;p&gt;The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting one broker at a time.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "BrokerIds")]
+    #[serde(rename = "brokerIds")]
     pub broker_ids: Vec<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster to be updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
 }
 
@@ -1444,24 +1444,24 @@ pub struct RebootBrokerRequest {
 pub struct RebootBrokerResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3 {
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket: Option<String>,
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
-    #[serde(rename = "Prefix")]
+    #[serde(rename = "prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prefix: Option<String>,
 }
@@ -1472,12 +1472,12 @@ pub struct S3 {
 pub struct Sasl {
     /// <pre><code>        &lt;p&gt;Indicates whether IAM access control is enabled.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Iam")]
+    #[serde(rename = "iam")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam: Option<Iam>,
     /// <pre><code>        &lt;p&gt;Details for SASL/SCRAM client authentication.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Scram")]
+    #[serde(rename = "scram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scram: Option<Scram>,
 }
@@ -1488,7 +1488,7 @@ pub struct Sasl {
 pub struct Scram {
     /// <pre><code>        &lt;p&gt;SASL/SCRAM authentication is enabled or not.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -1496,10 +1496,10 @@ pub struct Scram {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StateInfo {
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1510,7 +1510,7 @@ pub struct StateInfo {
 pub struct StorageInfo {
     /// <pre><code>        &lt;p&gt;EBS volume information.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EbsStorageInfo")]
+    #[serde(rename = "ebsStorageInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_storage_info: Option<EBSStorageInfo>,
 }
@@ -1520,11 +1520,11 @@ pub struct StorageInfo {
 pub struct TagResourceRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the resource that&#39;s associated with the tags.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <pre><code>        &lt;p&gt;The key-value pair for the resource tag.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -1534,7 +1534,7 @@ pub struct TagResourceRequest {
 pub struct Tls {
     /// <pre><code>        &lt;p&gt;List of ACM Certificate Authority ARNs.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CertificateAuthorityArnList")]
+    #[serde(rename = "certificateAuthorityArnList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn_list: Option<Vec<String>>,
 }
@@ -1546,17 +1546,17 @@ pub struct Tls {
 pub struct UnprocessedScramSecret {
     /// <pre><code>        &lt;p&gt;Error code for associate/disassociate failure.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <pre><code>        &lt;p&gt;Error message for associate/disassociate failure.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <pre><code>        &lt;p&gt;AWS Secrets Manager secret ARN.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "SecretArn")]
+    #[serde(rename = "secretArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_arn: Option<String>,
 }
@@ -1566,7 +1566,7 @@ pub struct UnprocessedScramSecret {
 pub struct UntagResourceRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the resource that&#39;s associated with the tags.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <pre><code>        &lt;p&gt;Tag keys must be unique for a given cluster. In addition, the following restrictions apply:&lt;/p&gt;
     /// &lt;ul&gt;
@@ -1589,7 +1589,7 @@ pub struct UntagResourceRequest {
     /// &lt;/li&gt;
     /// &lt;/ul&gt;
     /// </code></pre>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1598,15 +1598,15 @@ pub struct UntagResourceRequest {
 pub struct UpdateBrokerCountRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The version of cluster to update from. A successful operation will then generate a new version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <pre><code>        &lt;p&gt;The number of broker nodes that you want the cluster to have after this operation completes successfully.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "TargetNumberOfBrokerNodes")]
+    #[serde(rename = "targetNumberOfBrokerNodes")]
     pub target_number_of_broker_nodes: i64,
 }
 
@@ -1615,12 +1615,12 @@ pub struct UpdateBrokerCountRequest {
 pub struct UpdateBrokerCountResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
@@ -1630,15 +1630,15 @@ pub struct UpdateBrokerCountResponse {
 pub struct UpdateBrokerStorageRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The version of cluster to update from. A successful operation will then generate a new version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <pre><code>        &lt;p&gt;Describes the target volume size and the ID of the broker to apply the update to.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "TargetBrokerEBSVolumeInfo")]
+    #[serde(rename = "targetBrokerEBSVolumeInfo")]
     pub target_broker_ebs_volume_info: Vec<BrokerEBSVolumeInfo>,
 }
 
@@ -1647,12 +1647,12 @@ pub struct UpdateBrokerStorageRequest {
 pub struct UpdateBrokerStorageResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
@@ -1662,15 +1662,15 @@ pub struct UpdateBrokerStorageResponse {
 pub struct UpdateBrokerTypeRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <pre><code>        &lt;p&gt;The Amazon MSK broker type that you want all of the brokers in this cluster to be.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "TargetInstanceType")]
+    #[serde(rename = "targetInstanceType")]
     pub target_instance_type: String,
 }
 
@@ -1679,12 +1679,12 @@ pub struct UpdateBrokerTypeRequest {
 pub struct UpdateBrokerTypeResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
@@ -1694,15 +1694,15 @@ pub struct UpdateBrokerTypeResponse {
 pub struct UpdateClusterConfigurationRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;Represents the configuration that you want MSK to use for the brokers in a cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ConfigurationInfo")]
+    #[serde(rename = "configurationInfo")]
     pub configuration_info: ConfigurationInfo,
     /// <pre><code>        &lt;p&gt;The version of the cluster that needs to be updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
 }
 
@@ -1711,12 +1711,12 @@ pub struct UpdateClusterConfigurationRequest {
 pub struct UpdateClusterConfigurationResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
@@ -1726,20 +1726,20 @@ pub struct UpdateClusterConfigurationResponse {
 pub struct UpdateClusterKafkaVersionRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster to be updated.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The custom configuration that should be applied on the new version of cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ConfigurationInfo")]
+    #[serde(rename = "configurationInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_info: Option<ConfigurationInfo>,
     /// <pre><code>        &lt;p&gt;Current cluster version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <pre><code>        &lt;p&gt;Target Kafka version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "TargetKafkaVersion")]
+    #[serde(rename = "targetKafkaVersion")]
     pub target_kafka_version: String,
 }
 
@@ -1748,12 +1748,12 @@ pub struct UpdateClusterKafkaVersionRequest {
 pub struct UpdateClusterKafkaVersionResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
@@ -1763,17 +1763,17 @@ pub struct UpdateClusterKafkaVersionResponse {
 pub struct UpdateConfigurationRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <pre><code>        &lt;p&gt;The description of the configuration revision.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <pre><code>        &lt;p&gt;Contents of the &lt;filename&gt;server.properties&lt;/filename&gt; file. When using the API, you must ensure that the contents of the file are base64 encoded.
     /// When using the AWS Management Console, the SDK, or the AWS CLI, the contents of &lt;filename&gt;server.properties&lt;/filename&gt; can be in plaintext.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ServerProperties")]
+    #[serde(rename = "serverProperties")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -1787,12 +1787,12 @@ pub struct UpdateConfigurationRequest {
 pub struct UpdateConfigurationResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <pre><code>        &lt;p&gt;Latest revision of the configuration.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "LatestRevision")]
+    #[serde(rename = "latestRevision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_revision: Option<ConfigurationRevision>,
 }
@@ -1803,23 +1803,23 @@ pub struct UpdateConfigurationResponse {
 pub struct UpdateMonitoringRequest {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) that uniquely identifies the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     pub cluster_arn: String,
     /// <pre><code>        &lt;p&gt;The version of the MSK cluster to update. Cluster versions aren&#39;t simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <pre><code>        &lt;p&gt;Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "EnhancedMonitoring")]
+    #[serde(rename = "enhancedMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enhanced_monitoring: Option<String>,
-    #[serde(rename = "LoggingInfo")]
+    #[serde(rename = "loggingInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_info: Option<LoggingInfo>,
     /// <pre><code>        &lt;p&gt;The settings for open monitoring.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "OpenMonitoring")]
+    #[serde(rename = "openMonitoring")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub open_monitoring: Option<OpenMonitoringInfo>,
 }
@@ -1829,12 +1829,12 @@ pub struct UpdateMonitoringRequest {
 pub struct UpdateMonitoringResponse {
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <pre><code>        &lt;p&gt;The Amazon Resource Name (ARN) of the cluster operation.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClusterOperationArn")]
+    #[serde(rename = "clusterOperationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_operation_arn: Option<String>,
 }
@@ -1846,27 +1846,27 @@ pub struct UpdateMonitoringResponse {
 pub struct ZookeeperNodeInfo {
     /// <pre><code>        &lt;p&gt;The attached elastic network interface of the broker.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "AttachedENIId")]
+    #[serde(rename = "attachedENIId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attached_eni_id: Option<String>,
     /// <pre><code>        &lt;p&gt;The virtual private cloud (VPC) IP address of the client.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ClientVpcIpAddress")]
+    #[serde(rename = "clientVpcIpAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_vpc_ip_address: Option<String>,
     /// <pre><code>        &lt;p&gt;Endpoints for accessing the ZooKeeper.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "Endpoints")]
+    #[serde(rename = "endpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoints: Option<Vec<String>>,
     /// <pre><code>        &lt;p&gt;The role-specific ID for Zookeeper.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ZookeeperId")]
+    #[serde(rename = "zookeeperId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zookeeper_id: Option<f64>,
     /// <pre><code>        &lt;p&gt;The version of Zookeeper.&lt;/p&gt;
     /// </code></pre>
-    #[serde(rename = "ZookeeperVersion")]
+    #[serde(rename = "zookeeperVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub zookeeper_version: Option<String>,
 }

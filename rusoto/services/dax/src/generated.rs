@@ -55,75 +55,75 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Cluster {
     /// <p>The number of nodes in the cluster that are active (i.e., capable of serving requests).</p>
-    #[serde(rename = "ActiveNodes")]
+    #[serde(rename = "activeNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_nodes: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster. </p>
-    #[serde(rename = "ClusterArn")]
+    #[serde(rename = "clusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_arn: Option<String>,
     /// <p>The endpoint for this DAX cluster, consisting of a DNS name, a port number, and a URL. Applications should use the URL to configure the DAX client to find their cluster.</p>
-    #[serde(rename = "ClusterDiscoveryEndpoint")]
+    #[serde(rename = "clusterDiscoveryEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_discovery_endpoint: Option<Endpoint>,
     /// <p><p>The type of encryption supported by the cluster&#39;s endpoint. Values are:</p> <ul> <li> <p> <code>NONE</code> for no encryption</p> <p> <code>TLS</code> for Transport Layer Security</p> </li> </ul></p>
-    #[serde(rename = "ClusterEndpointEncryptionType")]
+    #[serde(rename = "clusterEndpointEncryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_endpoint_encryption_type: Option<String>,
     /// <p>The name of the DAX cluster.</p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_name: Option<String>,
     /// <p>The description of the cluster.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p>A list of nodes to be removed from the cluster.</p>
-    #[serde(rename = "NodeIdsToRemove")]
+    #[serde(rename = "nodeIdsToRemove")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_ids_to_remove: Option<Vec<String>>,
     /// <p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)</p>
-    #[serde(rename = "NodeType")]
+    #[serde(rename = "nodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_type: Option<String>,
     /// <p>A list of nodes that are currently in the cluster.</p>
-    #[serde(rename = "Nodes")]
+    #[serde(rename = "nodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nodes: Option<Vec<Node>>,
     /// <p>Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).</p>
-    #[serde(rename = "NotificationConfiguration")]
+    #[serde(rename = "notificationConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_configuration: Option<NotificationConfiguration>,
     /// <p>The parameter group being used by nodes in the cluster.</p>
-    #[serde(rename = "ParameterGroup")]
+    #[serde(rename = "parameterGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group: Option<ParameterGroupStatus>,
     /// <p>A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.</p>
-    #[serde(rename = "PreferredMaintenanceWindow")]
+    #[serde(rename = "preferredMaintenanceWindow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_maintenance_window: Option<String>,
     /// <p>The description of the server-side encryption status on the specified DAX cluster.</p>
-    #[serde(rename = "SSEDescription")]
+    #[serde(rename = "sSEDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sse_description: Option<SSEDescription>,
     /// <p>A list of security groups, and the status of each, for the nodes in the cluster.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<SecurityGroupMembership>>,
     /// <p>The current status of the cluster.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The subnet group where the DAX cluster is running.</p>
-    #[serde(rename = "SubnetGroup")]
+    #[serde(rename = "subnetGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_group: Option<String>,
     /// <p>The total number of nodes in the cluster.</p>
-    #[serde(rename = "TotalNodes")]
+    #[serde(rename = "totalNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_nodes: Option<i64>,
 }
@@ -132,55 +132,55 @@ pub struct Cluster {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateClusterRequest {
     /// <p>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<String>>,
     /// <p><p>The type of encryption the cluster&#39;s endpoint should support. Values are:</p> <ul> <li> <p> <code>NONE</code> for no encryption</p> </li> <li> <p> <code>TLS</code> for Transport Layer Security</p> </li> </ul></p>
-    #[serde(rename = "ClusterEndpointEncryptionType")]
+    #[serde(rename = "clusterEndpointEncryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_endpoint_encryption_type: Option<String>,
     /// <p><p>The cluster identifier. This parameter is stored as a lowercase string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1 to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul></p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
     /// <p>A description of the cluster.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     pub iam_role_arn: String,
     /// <p>The compute and memory capacity of the nodes in the cluster.</p>
-    #[serde(rename = "NodeType")]
+    #[serde(rename = "nodeType")]
     pub node_type: String,
     /// <p><p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.</p> <note> <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p> </note></p>
-    #[serde(rename = "NotificationTopicArn")]
+    #[serde(rename = "notificationTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_topic_arn: Option<String>,
     /// <p>The parameter group to be associated with the DAX cluster.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group_name: Option<String>,
     /// <p><p>Specifies the weekly time range during which maintenance on the DAX cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code> are:</p> <ul> <li> <p> <code>sun</code> </p> </li> <li> <p> <code>mon</code> </p> </li> <li> <p> <code>tue</code> </p> </li> <li> <p> <code>wed</code> </p> </li> <li> <p> <code>thu</code> </p> </li> <li> <p> <code>fri</code> </p> </li> <li> <p> <code>sat</code> </p> </li> </ul> <p>Example: <code>sun:05:00-sun:09:00</code> </p> <note> <p>If you don&#39;t specify a preferred maintenance window when you create or modify a cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of the week.</p> </note></p>
-    #[serde(rename = "PreferredMaintenanceWindow")]
+    #[serde(rename = "preferredMaintenanceWindow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_maintenance_window: Option<String>,
     /// <p><p>The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set <code>ReplicationFactor</code> to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). <code>If the AvailabilityZones</code> parameter is provided, its length must equal the <code>ReplicationFactor</code>.</p> <note> <p>AWS recommends that you have at least two read replicas per cluster.</p> </note></p>
-    #[serde(rename = "ReplicationFactor")]
+    #[serde(rename = "replicationFactor")]
     pub replication_factor: i64,
     /// <p>Represents the settings used to enable server-side encryption on the cluster.</p>
-    #[serde(rename = "SSESpecification")]
+    #[serde(rename = "sSESpecification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sse_specification: Option<SSESpecification>,
     /// <p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)</p> <p>If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p><p>The name of the subnet group to be used for the replication group.</p> <important> <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.</p> </important></p>
-    #[serde(rename = "SubnetGroupName")]
+    #[serde(rename = "subnetGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_group_name: Option<String>,
     /// <p>A set of tags to associate with the DAX cluster. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -189,7 +189,7 @@ pub struct CreateClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateClusterResponse {
     /// <p>A description of the DAX cluster that you have created.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -198,11 +198,11 @@ pub struct CreateClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateParameterGroupRequest {
     /// <p>A description of the parameter group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the parameter group to apply to all of the clusters in this replication group.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     pub parameter_group_name: String,
 }
 
@@ -210,7 +210,7 @@ pub struct CreateParameterGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateParameterGroupResponse {
     /// <p>Represents the output of a <i>CreateParameterGroup</i> action.</p>
-    #[serde(rename = "ParameterGroup")]
+    #[serde(rename = "parameterGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group: Option<ParameterGroup>,
 }
@@ -219,14 +219,14 @@ pub struct CreateParameterGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSubnetGroupRequest {
     /// <p>A description for the subnet group</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A name for the subnet group. This value is stored as a lowercase string. </p>
-    #[serde(rename = "SubnetGroupName")]
+    #[serde(rename = "subnetGroupName")]
     pub subnet_group_name: String,
     /// <p>A list of VPC subnet IDs for the subnet group.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
 }
 
@@ -234,7 +234,7 @@ pub struct CreateSubnetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSubnetGroupResponse {
     /// <p>Represents the output of a <i>CreateSubnetGroup</i> operation.</p>
-    #[serde(rename = "SubnetGroup")]
+    #[serde(rename = "subnetGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_group: Option<SubnetGroup>,
 }
@@ -243,17 +243,17 @@ pub struct CreateSubnetGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DecreaseReplicationFactorRequest {
     /// <p>The Availability Zone(s) from which to remove nodes.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<String>>,
     /// <p>The name of the DAX cluster from which you want to remove nodes.</p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
     /// <p>The new number of nodes for the DAX cluster.</p>
-    #[serde(rename = "NewReplicationFactor")]
+    #[serde(rename = "newReplicationFactor")]
     pub new_replication_factor: i64,
     /// <p>The unique identifiers of the nodes to be removed from the cluster.</p>
-    #[serde(rename = "NodeIdsToRemove")]
+    #[serde(rename = "nodeIdsToRemove")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_ids_to_remove: Option<Vec<String>>,
 }
@@ -262,7 +262,7 @@ pub struct DecreaseReplicationFactorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DecreaseReplicationFactorResponse {
     /// <p>A description of the DAX cluster, after you have decreased its replication factor.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -271,7 +271,7 @@ pub struct DecreaseReplicationFactorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteClusterRequest {
     /// <p>The name of the cluster to be deleted.</p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
 }
 
@@ -279,7 +279,7 @@ pub struct DeleteClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteClusterResponse {
     /// <p>A description of the DAX cluster that is being deleted.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -288,7 +288,7 @@ pub struct DeleteClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteParameterGroupRequest {
     /// <p>The name of the parameter group to delete.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     pub parameter_group_name: String,
 }
 
@@ -296,7 +296,7 @@ pub struct DeleteParameterGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteParameterGroupResponse {
     /// <p>A user-specified message for this action (i.e., a reason for deleting the parameter group).</p>
-    #[serde(rename = "DeletionMessage")]
+    #[serde(rename = "deletionMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_message: Option<String>,
 }
@@ -305,7 +305,7 @@ pub struct DeleteParameterGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSubnetGroupRequest {
     /// <p>The name of the subnet group to delete.</p>
-    #[serde(rename = "SubnetGroupName")]
+    #[serde(rename = "subnetGroupName")]
     pub subnet_group_name: String,
 }
 
@@ -313,7 +313,7 @@ pub struct DeleteSubnetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSubnetGroupResponse {
     /// <p>A user-specified message for this action (i.e., a reason for deleting the subnet group).</p>
-    #[serde(rename = "DeletionMessage")]
+    #[serde(rename = "deletionMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_message: Option<String>,
 }
@@ -322,15 +322,15 @@ pub struct DeleteSubnetGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeClustersRequest {
     /// <p>The names of the DAX clusters being described.</p>
-    #[serde(rename = "ClusterNames")]
+    #[serde(rename = "clusterNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_names: Option<Vec<String>>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -339,11 +339,11 @@ pub struct DescribeClustersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeClustersResponse {
     /// <p>The descriptions of your DAX clusters, in response to a <i>DescribeClusters</i> request.</p>
-    #[serde(rename = "Clusters")]
+    #[serde(rename = "clusters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clusters: Option<Vec<Cluster>>,
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -352,11 +352,11 @@ pub struct DescribeClustersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDefaultParametersRequest {
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -365,11 +365,11 @@ pub struct DescribeDefaultParametersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDefaultParametersResponse {
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of parameters. Each element in the list represents one parameter.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Vec<Parameter>>,
 }
@@ -378,31 +378,31 @@ pub struct DescribeDefaultParametersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEventsRequest {
     /// <p>The number of minutes' worth of events to retrieve.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<i64>,
     /// <p>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.</p>
-    #[serde(rename = "SourceName")]
+    #[serde(rename = "sourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_name: Option<String>,
     /// <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_type: Option<String>,
     /// <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -411,11 +411,11 @@ pub struct DescribeEventsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEventsResponse {
     /// <p>An array of events. Each element in the array represents one event.</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events: Option<Vec<Event>>,
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -424,15 +424,15 @@ pub struct DescribeEventsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeParameterGroupsRequest {
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The names of the parameter groups.</p>
-    #[serde(rename = "ParameterGroupNames")]
+    #[serde(rename = "parameterGroupNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group_names: Option<Vec<String>>,
 }
@@ -441,11 +441,11 @@ pub struct DescribeParameterGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeParameterGroupsResponse {
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of parameter groups. Each element in the array represents one parameter group.</p>
-    #[serde(rename = "ParameterGroups")]
+    #[serde(rename = "parameterGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_groups: Option<Vec<ParameterGroup>>,
 }
@@ -454,18 +454,18 @@ pub struct DescribeParameterGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeParametersRequest {
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the parameter group.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     pub parameter_group_name: String,
     /// <p>How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<String>,
 }
@@ -474,11 +474,11 @@ pub struct DescribeParametersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeParametersResponse {
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of parameters within a parameter group. Each element in the list represents one parameter.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Vec<Parameter>>,
 }
@@ -487,15 +487,15 @@ pub struct DescribeParametersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSubnetGroupsRequest {
     /// <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the subnet group.</p>
-    #[serde(rename = "SubnetGroupNames")]
+    #[serde(rename = "subnetGroupNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_group_names: Option<Vec<String>>,
 }
@@ -504,11 +504,11 @@ pub struct DescribeSubnetGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSubnetGroupsResponse {
     /// <p>Provides an identifier to allow retrieval of paginated results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of subnet groups. Each element in the array represents a single subnet group.</p>
-    #[serde(rename = "SubnetGroups")]
+    #[serde(rename = "subnetGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_groups: Option<Vec<SubnetGroup>>,
 }
@@ -518,15 +518,15 @@ pub struct DescribeSubnetGroupsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Endpoint {
     /// <p>The DNS hostname of the endpoint.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
     /// <p>The port number that applications should use to connect to the endpoint.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>The URL that applications should use to connect to the endpoint. The default ports are 8111 for the "dax" protocol and 9111 for the "daxs" protocol.</p>
-    #[serde(rename = "URL")]
+    #[serde(rename = "uRL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -536,19 +536,19 @@ pub struct Endpoint {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Event {
     /// <p>The date and time when the event occurred.</p>
-    #[serde(rename = "Date")]
+    #[serde(rename = "date")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date: Option<f64>,
     /// <p>A user-defined message associated with the event.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The source of the event. For example, if the event occurred at the node level, the source would be the node ID.</p>
-    #[serde(rename = "SourceName")]
+    #[serde(rename = "sourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_name: Option<String>,
     /// <p>Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_type: Option<String>,
 }
@@ -557,14 +557,14 @@ pub struct Event {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IncreaseReplicationFactorRequest {
     /// <p>The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<String>>,
     /// <p>The name of the DAX cluster that will receive additional nodes.</p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
     /// <p>The new number of nodes for the DAX cluster.</p>
-    #[serde(rename = "NewReplicationFactor")]
+    #[serde(rename = "newReplicationFactor")]
     pub new_replication_factor: i64,
 }
 
@@ -572,7 +572,7 @@ pub struct IncreaseReplicationFactorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IncreaseReplicationFactorResponse {
     /// <p>A description of the DAX cluster. with its new replication factor.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -581,11 +581,11 @@ pub struct IncreaseReplicationFactorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the DAX resource to which the tags belong.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     pub resource_name: String,
 }
 
@@ -593,11 +593,11 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>If this value is present, there are additional results to be displayed. To retrieve them, call <code>ListTags</code> again, with <code>NextToken</code> set to this value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of tags currently associated with the DAX cluster.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -607,27 +607,27 @@ pub struct ListTagsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Node {
     /// <p>The Availability Zone (AZ) in which the node has been deployed.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.</p>
-    #[serde(rename = "Endpoint")]
+    #[serde(rename = "endpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint: Option<Endpoint>,
     /// <p>The date and time (in UNIX epoch format) when the node was launched.</p>
-    #[serde(rename = "NodeCreateTime")]
+    #[serde(rename = "nodeCreateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_create_time: Option<f64>,
     /// <p>A system-generated identifier for the node.</p>
-    #[serde(rename = "NodeId")]
+    #[serde(rename = "nodeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_id: Option<String>,
     /// <p>The current status of the node. For example: <code>available</code>.</p>
-    #[serde(rename = "NodeStatus")]
+    #[serde(rename = "nodeStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_status: Option<String>,
     /// <p>The status of the parameter group associated with this node. For example, <code>in-sync</code>.</p>
-    #[serde(rename = "ParameterGroupStatus")]
+    #[serde(rename = "parameterGroupStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group_status: Option<String>,
 }
@@ -637,11 +637,11 @@ pub struct Node {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NodeTypeSpecificValue {
     /// <p>A node type to which the parameter value applies.</p>
-    #[serde(rename = "NodeType")]
+    #[serde(rename = "nodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_type: Option<String>,
     /// <p>The parameter value for this node type.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -651,11 +651,11 @@ pub struct NodeTypeSpecificValue {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NotificationConfiguration {
     /// <p>The Amazon Resource Name (ARN) that identifies the topic. </p>
-    #[serde(rename = "TopicArn")]
+    #[serde(rename = "topicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_arn: Option<String>,
     /// <p>The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.</p>
-    #[serde(rename = "TopicStatus")]
+    #[serde(rename = "topicStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topic_status: Option<String>,
 }
@@ -665,43 +665,43 @@ pub struct NotificationConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Parameter {
     /// <p>A range of values within which the parameter can be set.</p>
-    #[serde(rename = "AllowedValues")]
+    #[serde(rename = "allowedValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_values: Option<String>,
     /// <p>The conditions under which changes to this parameter can be applied. For example, <code>requires-reboot</code> indicates that a new value for this parameter will only take effect if a node is rebooted.</p>
-    #[serde(rename = "ChangeType")]
+    #[serde(rename = "changeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub change_type: Option<String>,
     /// <p>The data type of the parameter. For example, <code>integer</code>:</p>
-    #[serde(rename = "DataType")]
+    #[serde(rename = "dataType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_type: Option<String>,
     /// <p>A description of the parameter</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Whether the customer is allowed to modify the parameter.</p>
-    #[serde(rename = "IsModifiable")]
+    #[serde(rename = "isModifiable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_modifiable: Option<String>,
     /// <p>A list of node types, and specific parameter values for each node.</p>
-    #[serde(rename = "NodeTypeSpecificValues")]
+    #[serde(rename = "nodeTypeSpecificValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_type_specific_values: Option<Vec<NodeTypeSpecificValue>>,
     /// <p>The name of the parameter.</p>
-    #[serde(rename = "ParameterName")]
+    #[serde(rename = "parameterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_name: Option<String>,
     /// <p>Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.</p>
-    #[serde(rename = "ParameterType")]
+    #[serde(rename = "parameterType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_type: Option<String>,
     /// <p>The value for the parameter.</p>
-    #[serde(rename = "ParameterValue")]
+    #[serde(rename = "parameterValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_value: Option<String>,
     /// <p>How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<String>,
 }
@@ -711,11 +711,11 @@ pub struct Parameter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ParameterGroup {
     /// <p>A description of the parameter group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the parameter group.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group_name: Option<String>,
 }
@@ -725,15 +725,15 @@ pub struct ParameterGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ParameterGroupStatus {
     /// <p>The node IDs of one or more nodes to be rebooted.</p>
-    #[serde(rename = "NodeIdsToReboot")]
+    #[serde(rename = "nodeIdsToReboot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_ids_to_reboot: Option<Vec<String>>,
     /// <p>The status of parameter updates. </p>
-    #[serde(rename = "ParameterApplyStatus")]
+    #[serde(rename = "parameterApplyStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_apply_status: Option<String>,
     /// <p>The name of the parameter group.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group_name: Option<String>,
 }
@@ -743,11 +743,11 @@ pub struct ParameterGroupStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ParameterNameValue {
     /// <p>The name of the parameter.</p>
-    #[serde(rename = "ParameterName")]
+    #[serde(rename = "parameterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_name: Option<String>,
     /// <p>The value of the parameter.</p>
-    #[serde(rename = "ParameterValue")]
+    #[serde(rename = "parameterValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_value: Option<String>,
 }
@@ -756,10 +756,10 @@ pub struct ParameterNameValue {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebootNodeRequest {
     /// <p>The name of the DAX cluster containing the node to be rebooted.</p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
     /// <p>The system-assigned ID of the node to be rebooted.</p>
-    #[serde(rename = "NodeId")]
+    #[serde(rename = "nodeId")]
     pub node_id: String,
 }
 
@@ -767,7 +767,7 @@ pub struct RebootNodeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RebootNodeResponse {
     /// <p>A description of the DAX cluster after a node has been rebooted.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -777,7 +777,7 @@ pub struct RebootNodeResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SSEDescription {
     /// <p><p>The current state of server-side encryption:</p> <ul> <li> <p> <code>ENABLING</code> - Server-side encryption is being enabled.</p> </li> <li> <p> <code>ENABLED</code> - Server-side encryption is enabled.</p> </li> <li> <p> <code>DISABLING</code> - Server-side encryption is being disabled.</p> </li> <li> <p> <code>DISABLED</code> - Server-side encryption is disabled.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -787,7 +787,7 @@ pub struct SSEDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SSESpecification {
     /// <p>Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
 }
 
@@ -796,11 +796,11 @@ pub struct SSESpecification {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityGroupMembership {
     /// <p>The unique ID for this security group.</p>
-    #[serde(rename = "SecurityGroupIdentifier")]
+    #[serde(rename = "securityGroupIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_identifier: Option<String>,
     /// <p>The status of this security group.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -810,11 +810,11 @@ pub struct SecurityGroupMembership {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Subnet {
     /// <p>The Availability Zone (AZ) for the subnet.</p>
-    #[serde(rename = "SubnetAvailabilityZone")]
+    #[serde(rename = "subnetAvailabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_availability_zone: Option<String>,
     /// <p>The system-assigned identifier for the subnet.</p>
-    #[serde(rename = "SubnetIdentifier")]
+    #[serde(rename = "subnetIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_identifier: Option<String>,
 }
@@ -824,19 +824,19 @@ pub struct Subnet {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SubnetGroup {
     /// <p>The description of the subnet group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the subnet group.</p>
-    #[serde(rename = "SubnetGroupName")]
+    #[serde(rename = "subnetGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_group_name: Option<String>,
     /// <p>A list of subnets associated with the subnet group. </p>
-    #[serde(rename = "Subnets")]
+    #[serde(rename = "subnets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnets: Option<Vec<Subnet>>,
     /// <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -845,11 +845,11 @@ pub struct SubnetGroup {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key for the tag. Tag keys are case sensitive. Every DAX cluster can only have one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value of the tag. Tag values are case-sensitive and can be null. </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -858,10 +858,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The name of the DAX resource to which tags should be added.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     pub resource_name: String,
     /// <p>The tags to be assigned to the DAX resource. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -869,7 +869,7 @@ pub struct TagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagResourceResponse {
     /// <p>The list of tags that are associated with the DAX resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -878,10 +878,10 @@ pub struct TagResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The name of the DAX resource from which the tags should be removed.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     pub resource_name: String,
     /// <p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -889,7 +889,7 @@ pub struct UntagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UntagResourceResponse {
     /// <p>The tag keys that have been removed from the cluster.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -898,30 +898,30 @@ pub struct UntagResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateClusterRequest {
     /// <p>The name of the DAX cluster to be modified.</p>
-    #[serde(rename = "ClusterName")]
+    #[serde(rename = "clusterName")]
     pub cluster_name: String,
     /// <p>A description of the changes being made to the cluster.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that identifies the topic.</p>
-    #[serde(rename = "NotificationTopicArn")]
+    #[serde(rename = "notificationTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_topic_arn: Option<String>,
     /// <p>The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.</p>
-    #[serde(rename = "NotificationTopicStatus")]
+    #[serde(rename = "notificationTopicStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_topic_status: Option<String>,
     /// <p>The name of a parameter group for this cluster.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group_name: Option<String>,
     /// <p>A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.</p>
-    #[serde(rename = "PreferredMaintenanceWindow")]
+    #[serde(rename = "preferredMaintenanceWindow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_maintenance_window: Option<String>,
     /// <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
 }
@@ -930,7 +930,7 @@ pub struct UpdateClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateClusterResponse {
     /// <p>A description of the DAX cluster, after it has been modified.</p>
-    #[serde(rename = "Cluster")]
+    #[serde(rename = "cluster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster: Option<Cluster>,
 }
@@ -939,10 +939,10 @@ pub struct UpdateClusterResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateParameterGroupRequest {
     /// <p>The name of the parameter group.</p>
-    #[serde(rename = "ParameterGroupName")]
+    #[serde(rename = "parameterGroupName")]
     pub parameter_group_name: String,
     /// <p><p>An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.</p> <note> <p> <code>record-ttl-millis</code> and <code>query-ttl-millis</code> are the only supported parameter names. For more details, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl">Configuring TTL Settings</a>.</p> </note></p>
-    #[serde(rename = "ParameterNameValues")]
+    #[serde(rename = "parameterNameValues")]
     pub parameter_name_values: Vec<ParameterNameValue>,
 }
 
@@ -950,7 +950,7 @@ pub struct UpdateParameterGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateParameterGroupResponse {
     /// <p>The parameter group that has been modified.</p>
-    #[serde(rename = "ParameterGroup")]
+    #[serde(rename = "parameterGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_group: Option<ParameterGroup>,
 }
@@ -959,14 +959,14 @@ pub struct UpdateParameterGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSubnetGroupRequest {
     /// <p>A description of the subnet group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the subnet group.</p>
-    #[serde(rename = "SubnetGroupName")]
+    #[serde(rename = "subnetGroupName")]
     pub subnet_group_name: String,
     /// <p>A list of subnet IDs in the subnet group.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
 }
@@ -975,7 +975,7 @@ pub struct UpdateSubnetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSubnetGroupResponse {
     /// <p>The subnet group that has been modified.</p>
-    #[serde(rename = "SubnetGroup")]
+    #[serde(rename = "subnetGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_group: Option<SubnetGroup>,
 }

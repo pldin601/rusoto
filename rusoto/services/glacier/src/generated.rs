@@ -57,7 +57,7 @@ pub struct AbortVaultLockInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddTagsToVaultInput {
     /// <p>The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
@@ -90,27 +90,27 @@ pub struct ArchiveCreationOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CSVInput {
     /// <p>A single character used to indicate that a row should be ignored when the character is present at the start of that row.</p>
-    #[serde(rename = "Comments")]
+    #[serde(rename = "comments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comments: Option<String>,
     /// <p>A value used to separate individual fields from each other within a record.</p>
-    #[serde(rename = "FieldDelimiter")]
+    #[serde(rename = "fieldDelimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_delimiter: Option<String>,
     /// <p>Describes the first line of input. Valid values are <code>None</code>, <code>Ignore</code>, and <code>Use</code>.</p>
-    #[serde(rename = "FileHeaderInfo")]
+    #[serde(rename = "fileHeaderInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_header_info: Option<String>,
     /// <p>A value used as an escape character where the field delimiter is part of the value.</p>
-    #[serde(rename = "QuoteCharacter")]
+    #[serde(rename = "quoteCharacter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_character: Option<String>,
     /// <p>A single character used for escaping the quotation-mark character inside an already escaped value.</p>
-    #[serde(rename = "QuoteEscapeCharacter")]
+    #[serde(rename = "quoteEscapeCharacter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_escape_character: Option<String>,
     /// <p>A value used to separate individual records from each other.</p>
-    #[serde(rename = "RecordDelimiter")]
+    #[serde(rename = "recordDelimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_delimiter: Option<String>,
 }
@@ -119,23 +119,23 @@ pub struct CSVInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CSVOutput {
     /// <p>A value used to separate individual fields from each other within a record.</p>
-    #[serde(rename = "FieldDelimiter")]
+    #[serde(rename = "fieldDelimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_delimiter: Option<String>,
     /// <p>A value used as an escape character where the field delimiter is part of the value.</p>
-    #[serde(rename = "QuoteCharacter")]
+    #[serde(rename = "quoteCharacter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_character: Option<String>,
     /// <p>A single character used for escaping the quotation-mark character inside an already escaped value.</p>
-    #[serde(rename = "QuoteEscapeCharacter")]
+    #[serde(rename = "quoteEscapeCharacter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_escape_character: Option<String>,
     /// <p>A value that indicates whether all output fields should be contained within quotation marks.</p>
-    #[serde(rename = "QuoteFields")]
+    #[serde(rename = "quoteFields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quote_fields: Option<String>,
     /// <p>A value used to separate individual records from each other.</p>
-    #[serde(rename = "RecordDelimiter")]
+    #[serde(rename = "recordDelimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_delimiter: Option<String>,
 }
@@ -204,7 +204,7 @@ pub struct CreateVaultOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataRetrievalPolicy {
     /// <p>The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.</p>
-    #[serde(rename = "Rules")]
+    #[serde(rename = "rules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rules: Option<Vec<DataRetrievalRule>>,
 }
@@ -213,11 +213,11 @@ pub struct DataRetrievalPolicy {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataRetrievalRule {
     /// <p>The maximum number of bytes that can be retrieved in an hour.</p> <p>This field is required only if the value of the Strategy field is <code>BytesPerHour</code>. Your PUT operation will be rejected if the Strategy field is not set to <code>BytesPerHour</code> and you set this field.</p>
-    #[serde(rename = "BytesPerHour")]
+    #[serde(rename = "bytesPerHour")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_per_hour: Option<i64>,
     /// <p>The type of data retrieval policy to set.</p> <p>Valid values: BytesPerHour|FreeTier|None</p>
-    #[serde(rename = "Strategy")]
+    #[serde(rename = "strategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub strategy: Option<String>,
 }
@@ -305,27 +305,27 @@ pub struct DescribeVaultInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeVaultOutput {
     /// <p>The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<String>,
     /// <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
-    #[serde(rename = "LastInventoryDate")]
+    #[serde(rename = "lastInventoryDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_inventory_date: Option<String>,
     /// <p>The number of archives in the vault as of the last inventory date. This field will return <code>null</code> if an inventory has not yet run on the vault, for example if you just created the vault.</p>
-    #[serde(rename = "NumberOfArchives")]
+    #[serde(rename = "numberOfArchives")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_archives: Option<i64>,
     /// <p>Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.</p>
-    #[serde(rename = "SizeInBytes")]
+    #[serde(rename = "sizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size_in_bytes: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the vault.</p>
-    #[serde(rename = "VaultARN")]
+    #[serde(rename = "vaultARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vault_arn: Option<String>,
     /// <p>The name of the vault.</p>
-    #[serde(rename = "VaultName")]
+    #[serde(rename = "vaultName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vault_name: Option<String>,
 }
@@ -334,15 +334,15 @@ pub struct DescribeVaultOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Encryption {
     /// <p>The server-side encryption algorithm used when storing job results in Amazon S3, for example <code>AES256</code> or <code>aws:kms</code>.</p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to specify the encryption context for the job results.</p>
-    #[serde(rename = "KMSContext")]
+    #[serde(rename = "kMSContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_context: Option<String>,
     /// <p>The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4. </p>
-    #[serde(rename = "KMSKeyId")]
+    #[serde(rename = "kMSKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
 }
@@ -361,7 +361,7 @@ pub struct GetDataRetrievalPolicyInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataRetrievalPolicyOutput {
     /// <p>Contains the returned data retrieval policy in JSON format.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<DataRetrievalPolicy>,
 }
@@ -443,19 +443,19 @@ pub struct GetVaultLockInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetVaultLockOutput {
     /// <p>The UTC date and time at which the vault lock was put into the <code>InProgress</code> state.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<String>,
     /// <p>The UTC date and time at which the lock ID expires. This value can be <code>null</code> if the vault lock is in a <code>Locked</code> state.</p>
-    #[serde(rename = "ExpirationDate")]
+    #[serde(rename = "expirationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_date: Option<String>,
     /// <p>The vault lock policy as a JSON string, which uses "\" as an escape character.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>The state of the vault lock. <code>InProgress</code> or <code>Locked</code>.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -487,87 +487,87 @@ pub struct GetVaultNotificationsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GlacierJobDescription {
     /// <p>The job type. This value is either <code>ArchiveRetrieval</code>, <code>InventoryRetrieval</code>, or <code>Select</code>. </p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.</p>
-    #[serde(rename = "ArchiveId")]
+    #[serde(rename = "archiveId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_id: Option<String>,
     /// <p>The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.</p>
-    #[serde(rename = "ArchiveSHA256TreeHash")]
+    #[serde(rename = "archiveSHA256TreeHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_sha256_tree_hash: Option<String>,
     /// <p>For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.</p>
-    #[serde(rename = "ArchiveSizeInBytes")]
+    #[serde(rename = "archiveSizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_size_in_bytes: Option<i64>,
     /// <p>The job status. When a job is completed, you get the job's output using Get Job Output (GET output).</p>
-    #[serde(rename = "Completed")]
+    #[serde(rename = "completed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed: Option<bool>,
     /// <p>The UTC time that the job request completed. While the job is in progress, the value is null.</p>
-    #[serde(rename = "CompletionDate")]
+    #[serde(rename = "completionDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completion_date: Option<String>,
     /// <p>The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<String>,
     /// <p>Parameters used for range inventory retrieval.</p>
-    #[serde(rename = "InventoryRetrievalParameters")]
+    #[serde(rename = "inventoryRetrievalParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inventory_retrieval_parameters: Option<InventoryRetrievalJobDescription>,
     /// <p>For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.</p>
-    #[serde(rename = "InventorySizeInBytes")]
+    #[serde(rename = "inventorySizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inventory_size_in_bytes: Option<i64>,
     /// <p>The job description provided when initiating the job.</p>
-    #[serde(rename = "JobDescription")]
+    #[serde(rename = "jobDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_description: Option<String>,
     /// <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>Contains the job output location.</p>
-    #[serde(rename = "JobOutputPath")]
+    #[serde(rename = "jobOutputPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_output_path: Option<String>,
     /// <p>Contains the location where the data from the select job is stored.</p>
-    #[serde(rename = "OutputLocation")]
+    #[serde(rename = "outputLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_location: Option<OutputLocation>,
     /// <p>The retrieved byte range for archive retrieval jobs in the form <i>StartByteValue</i>-<i>EndByteValue</i>. If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i> equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null. </p>
-    #[serde(rename = "RetrievalByteRange")]
+    #[serde(rename = "retrievalByteRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retrieval_byte_range: Option<String>,
     /// <p><p>For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null.</p> <p>The SHA256 tree hash value for the requested range of an archive. If the <b>InitiateJob</b> request for an archive specified a tree-hash aligned range, then this field returns a value.</p> <p>If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.</p> <p>This field is null for the following:</p> <ul> <li> <p>Archive retrieval jobs that specify a range that is not tree-hash aligned</p> </li> </ul> <ul> <li> <p>Archival jobs that specify a range that is equal to the whole archive, when the job status is <code>InProgress</code> </p> </li> </ul> <ul> <li> <p>Inventory jobs</p> </li> <li> <p>Select jobs</p> </li> </ul></p>
-    #[serde(rename = "SHA256TreeHash")]
+    #[serde(rename = "sHA256TreeHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sha256_tree_hash: Option<String>,
     /// <p>An Amazon SNS topic that receives notification.</p>
-    #[serde(rename = "SNSTopic")]
+    #[serde(rename = "sNSTopic")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic: Option<String>,
     /// <p>Contains the parameters used for a select.</p>
-    #[serde(rename = "SelectParameters")]
+    #[serde(rename = "selectParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub select_parameters: Option<SelectParameters>,
     /// <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code>, and indicates the status of the job.</p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_code: Option<String>,
     /// <p>A friendly message that describes the job status.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The tier to use for a select or an archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</p>
-    #[serde(rename = "Tier")]
+    #[serde(rename = "tier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tier: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.</p>
-    #[serde(rename = "VaultARN")]
+    #[serde(rename = "vaultARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vault_arn: Option<String>,
 }
@@ -576,11 +576,11 @@ pub struct GlacierJobDescription {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Grant {
     /// <p>The grantee.</p>
-    #[serde(rename = "Grantee")]
+    #[serde(rename = "grantee")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grantee: Option<Grantee>,
     /// <p>Specifies the permission given to the grantee. </p>
-    #[serde(rename = "Permission")]
+    #[serde(rename = "permission")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permission: Option<String>,
 }
@@ -589,22 +589,22 @@ pub struct Grant {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Grantee {
     /// <p>Screen name of the grantee.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>Email address of the grantee.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>The canonical user ID of the grantee.</p>
-    #[serde(rename = "ID")]
+    #[serde(rename = "iD")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>Type of grantee</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>URI of the grantee group.</p>
-    #[serde(rename = "URI")]
+    #[serde(rename = "uRI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uri: Option<String>,
 }
@@ -717,23 +717,23 @@ pub struct InputSerialization {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InventoryRetrievalJobDescription {
     /// <p>The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>.</p>
-    #[serde(rename = "EndDate")]
+    #[serde(rename = "endDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_date: Option<String>,
     /// <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>The maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a <b>InitiateJob</b> request. </p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<String>,
     /// <p>An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new <b>InitiateJob</b> request to obtain additional inventory items. If there are no more inventory items, this value is <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering"> Range Inventory Retrieval</a>.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
 }
@@ -743,19 +743,19 @@ pub struct InventoryRetrievalJobDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InventoryRetrievalJobInput {
     /// <p>The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>.</p>
-    #[serde(rename = "EndDate")]
+    #[serde(rename = "endDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_date: Option<String>,
     /// <p>Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<String>,
     /// <p>An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new <b>InitiateJob</b> request to obtain additional inventory items. If there are no more inventory items, this value is <code>null</code>.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
 }
@@ -765,43 +765,43 @@ pub struct InventoryRetrievalJobInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct JobParameters {
     /// <p>The ID of the archive that you want to retrieve. This field is required only if <code>Type</code> is set to <code>select</code> or <code>archive-retrieval</code>code&gt;. An error occurs if you specify this request parameter for an inventory retrieval job request. </p>
-    #[serde(rename = "ArchiveId")]
+    #[serde(rename = "archiveId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_id: Option<String>,
     /// <p>The optional description for the job. The description must be less than or equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are "CSV" and "JSON".</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>Input parameters used for range inventory retrieval.</p>
-    #[serde(rename = "InventoryRetrievalParameters")]
+    #[serde(rename = "inventoryRetrievalParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inventory_retrieval_parameters: Option<InventoryRetrievalJobInput>,
     /// <p>Contains information about the location where the select job results are stored.</p>
-    #[serde(rename = "OutputLocation")]
+    #[serde(rename = "outputLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_location: Option<OutputLocation>,
     /// <p>The byte range to retrieve for an archive retrieval. in the form "<i>StartByteValue</i>-<i>EndByteValue</i>" If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that <i>StartByteValue</i> must be divisible by 1 MB and <i>EndByteValue</i> plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response. </p> <p>An error occurs if you specify this field for an inventory retrieval job request.</p>
-    #[serde(rename = "RetrievalByteRange")]
+    #[serde(rename = "retrievalByteRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retrieval_byte_range: Option<String>,
     /// <p>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is completed and the output is ready for you to download. The specified topic publishes the notification to its subscribers. The SNS topic must exist.</p>
-    #[serde(rename = "SNSTopic")]
+    #[serde(rename = "sNSTopic")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic: Option<String>,
     /// <p>Contains the parameters that define a job.</p>
-    #[serde(rename = "SelectParameters")]
+    #[serde(rename = "selectParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub select_parameters: Option<SelectParameters>,
     /// <p>The tier to use for a select or an archive retrieval job. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</p>
-    #[serde(rename = "Tier")]
+    #[serde(rename = "tier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tier: Option<String>,
     /// <p>The job type. You can initiate a job to perform a select query on an archive, retrieve an archive, or get an inventory of a vault. Valid values are "select", "archive-retrieval" and "inventory-retrieval".</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -839,11 +839,11 @@ pub struct ListJobsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListJobsOutput {
     /// <p>A list of job objects. Each job object contains metadata describing the job.</p>
-    #[serde(rename = "JobList")]
+    #[serde(rename = "jobList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_list: Option<Vec<GlacierJobDescription>>,
     /// <p> An opaque string used for pagination that specifies the job at which the listing of jobs should begin. You get the <code>marker</code> value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of the results started in a previous List Jobs request. </p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -873,11 +873,11 @@ pub struct ListMultipartUploadsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMultipartUploadsOutput {
     /// <p>An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is <code>null</code>.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>A list of in-progress multipart uploads.</p>
-    #[serde(rename = "UploadsList")]
+    #[serde(rename = "uploadsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uploads_list: Option<Vec<UploadListElement>>,
 }
@@ -910,31 +910,31 @@ pub struct ListPartsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPartsOutput {
     /// <p>The description of the archive that was specified in the Initiate Multipart Upload request.</p>
-    #[serde(rename = "ArchiveDescription")]
+    #[serde(rename = "archiveDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_description: Option<String>,
     /// <p>The UTC time at which the multipart upload was initiated.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<String>,
     /// <p>An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is <code>null</code>.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The ID of the upload to which the parts are associated.</p>
-    #[serde(rename = "MultipartUploadId")]
+    #[serde(rename = "multipartUploadId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub multipart_upload_id: Option<String>,
     /// <p>The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.</p>
-    #[serde(rename = "PartSizeInBytes")]
+    #[serde(rename = "partSizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub part_size_in_bytes: Option<i64>,
     /// <p>A list of the part sizes of the multipart upload. Each object in the array contains a <code>RangeBytes</code> and <code>sha256-tree-hash</code> name/value pair.</p>
-    #[serde(rename = "Parts")]
+    #[serde(rename = "parts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parts: Option<Vec<PartListElement>>,
     /// <p>The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.</p>
-    #[serde(rename = "VaultARN")]
+    #[serde(rename = "vaultARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vault_arn: Option<String>,
 }
@@ -951,7 +951,7 @@ pub struct ListProvisionedCapacityInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProvisionedCapacityOutput {
     /// <p>The response body contains the following JSON fields.</p>
-    #[serde(rename = "ProvisionedCapacityList")]
+    #[serde(rename = "provisionedCapacityList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_capacity_list: Option<Vec<ProvisionedCapacityDescription>>,
 }
@@ -973,7 +973,7 @@ pub struct ListTagsForVaultInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForVaultOutput {
     /// <p>The tags attached to the vault. Each tag is composed of a key and a value.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1000,11 +1000,11 @@ pub struct ListVaultsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListVaultsOutput {
     /// <p>The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>List of vaults.</p>
-    #[serde(rename = "VaultList")]
+    #[serde(rename = "vaultList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vault_list: Option<Vec<DescribeVaultOutput>>,
 }
@@ -1013,7 +1013,7 @@ pub struct ListVaultsOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OutputLocation {
     /// <p>Describes an S3 location that will receive the results of the job request.</p>
-    #[serde(rename = "S3")]
+    #[serde(rename = "s3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3: Option<S3Location>,
 }
@@ -1032,11 +1032,11 @@ pub struct OutputSerialization {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartListElement {
     /// <p>The byte range of a part, inclusive of the upper value of the range.</p>
-    #[serde(rename = "RangeInBytes")]
+    #[serde(rename = "rangeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub range_in_bytes: Option<String>,
     /// <p>The SHA256 tree hash value that Amazon S3 Glacier calculated for the part. This field is never <code>null</code>.</p>
-    #[serde(rename = "SHA256TreeHash")]
+    #[serde(rename = "sHA256TreeHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sha256_tree_hash: Option<String>,
 }
@@ -1046,15 +1046,15 @@ pub struct PartListElement {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionedCapacityDescription {
     /// <p>The ID that identifies the provisioned capacity unit.</p>
-    #[serde(rename = "CapacityId")]
+    #[serde(rename = "capacityId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capacity_id: Option<String>,
     /// <p>The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).</p>
-    #[serde(rename = "ExpirationDate")]
+    #[serde(rename = "expirationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_date: Option<String>,
     /// <p>The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
 }
@@ -1081,7 +1081,7 @@ pub struct PurchaseProvisionedCapacityOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveTagsFromVaultInput {
     /// <p>A list of tag keys. Each corresponding tag is removed from the vault.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_keys: Option<Vec<String>>,
     /// <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
@@ -1096,35 +1096,35 @@ pub struct RemoveTagsFromVaultInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Location {
     /// <p>A list of grants that control access to the staged results.</p>
-    #[serde(rename = "AccessControlList")]
+    #[serde(rename = "accessControlList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_control_list: Option<Vec<Grant>>,
     /// <p>The name of the Amazon S3 bucket where the job results are stored.</p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_name: Option<String>,
     /// <p>The canned access control list (ACL) to apply to the job results.</p>
-    #[serde(rename = "CannedACL")]
+    #[serde(rename = "cannedACL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub canned_acl: Option<String>,
     /// <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<Encryption>,
     /// <p>The prefix that is prepended to the results for this request.</p>
-    #[serde(rename = "Prefix")]
+    #[serde(rename = "prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prefix: Option<String>,
     /// <p>The storage class used to store the job results.</p>
-    #[serde(rename = "StorageClass")]
+    #[serde(rename = "storageClass")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_class: Option<String>,
     /// <p>The tag-set that is applied to the job results.</p>
-    #[serde(rename = "Tagging")]
+    #[serde(rename = "tagging")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tagging: Option<::std::collections::HashMap<String, String>>,
     /// <p>A map of metadata to store with the job results in Amazon S3.</p>
-    #[serde(rename = "UserMetadata")]
+    #[serde(rename = "userMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_metadata: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1133,19 +1133,19 @@ pub struct S3Location {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SelectParameters {
     /// <p>The expression that is used to select the object.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expression: Option<String>,
     /// <p>The type of the provided expression, for example <code>SQL</code>.</p>
-    #[serde(rename = "ExpressionType")]
+    #[serde(rename = "expressionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expression_type: Option<String>,
     /// <p>Describes the serialization format of the object.</p>
-    #[serde(rename = "InputSerialization")]
+    #[serde(rename = "inputSerialization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_serialization: Option<InputSerialization>,
     /// <p>Describes how the results of the select job are serialized.</p>
-    #[serde(rename = "OutputSerialization")]
+    #[serde(rename = "outputSerialization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_serialization: Option<OutputSerialization>,
 }
@@ -1155,7 +1155,7 @@ pub struct SelectParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetDataRetrievalPolicyInput {
     /// <p>The data retrieval policy in JSON format.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<DataRetrievalPolicy>,
     /// <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
@@ -1229,23 +1229,23 @@ pub struct UploadArchiveInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UploadListElement {
     /// <p>The description of the archive that was specified in the Initiate Multipart Upload request.</p>
-    #[serde(rename = "ArchiveDescription")]
+    #[serde(rename = "archiveDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_description: Option<String>,
     /// <p>The UTC time at which the multipart upload was initiated.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<String>,
     /// <p>The ID of a multipart upload.</p>
-    #[serde(rename = "MultipartUploadId")]
+    #[serde(rename = "multipartUploadId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub multipart_upload_id: Option<String>,
     /// <p>The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.</p>
-    #[serde(rename = "PartSizeInBytes")]
+    #[serde(rename = "partSizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub part_size_in_bytes: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the vault that contains the archive.</p>
-    #[serde(rename = "VaultARN")]
+    #[serde(rename = "vaultARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vault_arn: Option<String>,
 }
@@ -1296,7 +1296,7 @@ pub struct UploadMultipartPartOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VaultAccessPolicy {
     /// <p>The vault access policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
 }
@@ -1306,7 +1306,7 @@ pub struct VaultAccessPolicy {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VaultLockPolicy {
     /// <p>The vault lock policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
 }
@@ -1315,11 +1315,11 @@ pub struct VaultLockPolicy {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VaultNotificationConfig {
     /// <p>A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events: Option<Vec<String>>,
     /// <p>The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).</p>
-    #[serde(rename = "SNSTopic")]
+    #[serde(rename = "sNSTopic")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic: Option<String>,
 }

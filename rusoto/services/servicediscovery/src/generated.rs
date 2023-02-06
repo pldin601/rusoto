@@ -55,18 +55,18 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateHttpNamespaceRequest {
     /// <p>A unique string that identifies the request and that allows failed <code>CreateHttpNamespace</code> requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string (for example, a date/time stamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>A description for the namespace.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name that you want to assign to this namespace.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to add to the namespace. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -75,7 +75,7 @@ pub struct CreateHttpNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateHttpNamespaceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }
@@ -84,22 +84,22 @@ pub struct CreateHttpNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePrivateDnsNamespaceRequest {
     /// <p>A unique string that identifies the request and that allows failed <code>CreatePrivateDnsNamespace</code> requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string (for example, a date/timestamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>A description for the namespace.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to add to the namespace. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The ID of the Amazon VPC that you want to associate the namespace with.</p>
-    #[serde(rename = "Vpc")]
+    #[serde(rename = "vpc")]
     pub vpc: String,
 }
 
@@ -107,7 +107,7 @@ pub struct CreatePrivateDnsNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePrivateDnsNamespaceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }
@@ -116,18 +116,18 @@ pub struct CreatePrivateDnsNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePublicDnsNamespaceRequest {
     /// <p>A unique string that identifies the request and that allows failed <code>CreatePublicDnsNamespace</code> requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string (for example, a date/timestamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>A description for the namespace.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name that you want to assign to this namespace.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to add to the namespace. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -136,7 +136,7 @@ pub struct CreatePublicDnsNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePublicDnsNamespaceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }
@@ -145,38 +145,38 @@ pub struct CreatePublicDnsNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateServiceRequest {
     /// <p>A unique string that identifies the request and that allows failed <code>CreateService</code> requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string (for example, a date/timestamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>A description for the service.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you register an instance. </p>
-    #[serde(rename = "DnsConfig")]
+    #[serde(rename = "dnsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_config: Option<DnsConfig>,
     /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route 53 health check. If you specify settings for a health check, AWS Cloud Map associates the health check with all the Route 53 DNS records that you specify in <code>DnsConfig</code>.</p> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/cloud-map/pricing/">AWS Cloud Map Pricing</a>.</p>
-    #[serde(rename = "HealthCheckConfig")]
+    #[serde(rename = "healthCheckConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_config: Option<HealthCheckConfig>,
     /// <p>A complex type that contains information about an optional custom health check.</p> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration from an existing service.</p>
-    #[serde(rename = "HealthCheckCustomConfig")]
+    #[serde(rename = "healthCheckCustomConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_custom_config: Option<HealthCheckCustomConfig>,
     /// <p><p>The name that you want to assign to the service.</p> <p>If you want AWS Cloud Map to create an <code>SRV</code> record when you register an instance and you&#39;re using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p> <ul> <li> <p>Start the name with an underscore (<em>), such as <code></em>exampleservice</code>.</p> </li> <li> <p>End the name with <i>.<em>protocol</i>, such as <code>.</em>tcp</code>.</p> </li> </ul> <p>When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p> <p> <code><em>exampleservice.</em>tcp.example.com</code>).</p> <note> <p>For services that are accessible by DNS queries, you can&#39;t create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can&#39;t be distinguished. However, if you use a namespace that&#39;s only accessible by API calls, then you can create services that with names that differ only by case.</p> </note></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ID of the namespace that you want to use to create the service. The namespace ID must be specified, but it can be specified either here or in the <code>DnsConfig</code> object.</p>
-    #[serde(rename = "NamespaceId")]
+    #[serde(rename = "namespaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace_id: Option<String>,
     /// <p>The tags to add to the service. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code> API operation. No DNS records is registered for the service instances. The only valid value is <code>HTTP</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -185,7 +185,7 @@ pub struct CreateServiceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateServiceResponse {
     /// <p>A complex type that contains information about the new service.</p>
-    #[serde(rename = "Service")]
+    #[serde(rename = "service")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service: Option<Service>,
 }
@@ -194,7 +194,7 @@ pub struct CreateServiceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteNamespaceRequest {
     /// <p>The ID of the namespace that you want to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -202,7 +202,7 @@ pub struct DeleteNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteNamespaceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }
@@ -211,7 +211,7 @@ pub struct DeleteNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteServiceRequest {
     /// <p>The ID of the service that you want to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -223,10 +223,10 @@ pub struct DeleteServiceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterInstanceRequest {
     /// <p>The value that you specified for <code>Id</code> in the <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The ID of the service that the instance is associated with.</p>
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     pub service_id: String,
 }
 
@@ -234,7 +234,7 @@ pub struct DeregisterInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeregisterInstanceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }
@@ -243,26 +243,26 @@ pub struct DeregisterInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DiscoverInstancesRequest {
     /// <p><p>The health status of the instances that you want to discover. This parameter is ignored for services that don&#39;t have a health check configured, and all instances are returned.</p> <dl> <dt>HEALTHY</dt> <dd> <p>Returns healthy instances.</p> </dd> <dt>UNHEALTHY</dt> <dd> <p>Returns unhealthy instances.</p> </dd> <dt>ALL</dt> <dd> <p>Returns all instances.</p> </dd> <dt>HEALTHY<em>OR</em>ELSE_ALL</dt> <dd> <p>Returns healthy instances, unless none are reporting a healthy state. In that case, return all instances. This is also called failing open.</p> </dd> </dl></p>
-    #[serde(rename = "HealthStatus")]
+    #[serde(rename = "healthStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_status: Option<String>,
     /// <p>The maximum number of instances that you want AWS Cloud Map to return in the response to a <code>DiscoverInstances</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 instances.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The <code>HttpName</code> name of the namespace. It's found in the <code>HttpProperties</code> member of the <code>Properties</code> member of the namespace.</p>
-    #[serde(rename = "NamespaceName")]
+    #[serde(rename = "namespaceName")]
     pub namespace_name: String,
     /// <p>Opportunistic filters to scope the results based on custom attributes. If there are instances that match both the filters specified in both the <code>QueryParameters</code> parameter and this parameter, all of these instances are returned. Otherwise, the filters are ignored, and only instances that match the filters that are specified in the <code>QueryParameters</code> parameter are returned.</p>
-    #[serde(rename = "OptionalParameters")]
+    #[serde(rename = "optionalParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub optional_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>Filters to scope the results based on custom attributes for the instance (for example, <code>{version=v1, az=1a}</code>). Only instances that match all the specified key-value pairs are returned.</p>
-    #[serde(rename = "QueryParameters")]
+    #[serde(rename = "queryParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the service that you specified when you registered the instance.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     pub service_name: String,
 }
 
@@ -270,7 +270,7 @@ pub struct DiscoverInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DiscoverInstancesResponse {
     /// <p>A complex type that contains one <code>HttpInstanceSummary</code> for each registered instance.</p>
-    #[serde(rename = "Instances")]
+    #[serde(rename = "instances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instances: Option<Vec<HttpInstanceSummary>>,
 }
@@ -279,10 +279,10 @@ pub struct DiscoverInstancesResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DnsConfig {
     /// <p>An array that contains one <code>DnsRecord</code> object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.</p>
-    #[serde(rename = "DnsRecords")]
+    #[serde(rename = "dnsRecords")]
     pub dns_records: Vec<DnsRecord>,
     /// <p><p>The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.</p> <note> <p>If you want to use this service to register instances that create alias records, specify <code>WEIGHTED</code> for the routing policy.</p> </note> <p>You can specify the following values:</p> <dl> <dt>MULTIVALUE</dt> <dd> <p>If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances.</p> <p>For example, suppose that the service includes configurations for one <code>A</code> record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.</p> <p>If you don&#39;t define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.</p> <p>For more information about the multivalue routing policy, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue">Multivalue Answer Routing</a> in the <i>Route 53 Developer Guide</i>.</p> </dd> <dt>WEIGHTED</dt> <dd> <p>Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can&#39;t route more or less traffic to any instances.</p> <p>For example, suppose that the service includes configurations for one <code>A</code> record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.</p> <p>If you don&#39;t define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.</p> <p>For more information about the weighted routing policy, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted">Weighted Routing</a> in the <i>Route 53 Developer Guide</i>.</p> </dd> </dl></p>
-    #[serde(rename = "RoutingPolicy")]
+    #[serde(rename = "routingPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub routing_policy: Option<String>,
 }
@@ -292,7 +292,7 @@ pub struct DnsConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DnsConfigChange {
     /// <p>An array that contains one <code>DnsRecord</code> object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.</p>
-    #[serde(rename = "DnsRecords")]
+    #[serde(rename = "dnsRecords")]
     pub dns_records: Vec<DnsRecord>,
 }
 
@@ -301,7 +301,7 @@ pub struct DnsConfigChange {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DnsProperties {
     /// <p>The ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.</p>
-    #[serde(rename = "HostedZoneId")]
+    #[serde(rename = "hostedZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hosted_zone_id: Option<String>,
 }
@@ -310,10 +310,10 @@ pub struct DnsProperties {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DnsRecord {
     /// <p><p>The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.</p> <note> <p>Alias records don&#39;t include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the <code>AWS<em>ALIAS</em>DNS<em>NAME</code> attribute when you submit a &lt;a href=&quot;https://docs.aws.amazon.com/cloud-map/latest/api/API</em>RegisterInstance.html&quot;&gt;RegisterInstance</a> request, the <code>TTL</code> value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.</p> </note></p>
-    #[serde(rename = "TTL")]
+    #[serde(rename = "tTL")]
     pub ttl: i64,
     /// <p><p>The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. You can specify values for <code>Type</code> in the following combinations:</p> <ul> <li> <p> <b> <code>A</code> </b> </p> </li> <li> <p> <b> <code>AAAA</code> </b> </p> </li> <li> <p> <b> <code>A</code> </b> and <b> <code>AAAA</code> </b> </p> </li> <li> <p> <b> <code>SRV</code> </b> </p> </li> <li> <p> <b> <code>CNAME</code> </b> </p> </li> </ul> <p>If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify <code>A</code> or <code>AAAA</code> for <code>Type</code>.</p> <p>You specify other settings, such as the IP address for <code>A</code> and <code>AAAA</code> records, when you register an instance. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>.</p> <p>The following values are supported:</p> <dl> <dt>A</dt> <dd> <p>Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.</p> </dd> <dt>AAAA</dt> <dd> <p>Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.</p> </dd> <dt>CNAME</dt> <dd> <p>Route 53 returns the domain name of the resource, such as www.example.com. Note the following:</p> <ul> <li> <p>You specify the domain name that you want to route traffic to when you register an instance. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes">Attributes</a> in the topic <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>.</p> </li> <li> <p>You must specify <code>WEIGHTED</code> for the value of <code>RoutingPolicy</code>.</p> </li> <li> <p>You can&#39;t specify both <code>CNAME</code> for <code>Type</code> and settings for <code>HealthCheckConfig</code>. If you do, the request will fail with an <code>InvalidInput</code> error.</p> </li> </ul> </dd> <dt>SRV</dt> <dd> <p>Route 53 returns the value for an <code>SRV</code> record. The value for an <code>SRV</code> record uses the following values:</p> <p> <code>priority weight port service-hostname</code> </p> <p>Note the following about the values:</p> <ul> <li> <p>The values of <code>priority</code> and <code>weight</code> are both set to <code>1</code> and can&#39;t be changed. </p> </li> <li> <p>The value of <code>port</code> comes from the value that you specify for the <code>AWS<em>INSTANCE</em>PORT</code> attribute when you submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request. </p> </li> <li> <p>The value of <code>service-hostname</code> is a concatenation of the following values:</p> <ul> <li> <p>The value that you specify for <code>InstanceId</code> when you register an instance.</p> </li> <li> <p>The name of the service.</p> </li> <li> <p>The name of the namespace. </p> </li> </ul> <p>For example, if the value of <code>InstanceId</code> is <code>test</code>, the name of the service is <code>backend</code>, and the name of the namespace is <code>example.com</code>, the value of <code>service-hostname</code> is the following:</p> <p> <code>test.backend.example.com</code> </p> </li> </ul> <p>If you specify settings for an <code>SRV</code> record, note the following:</p> <ul> <li> <p>If you specify values for <code>AWS<em>INSTANCE</em>IPV4</code>, <code>AWS<em>INSTANCE</em>IPV6</code>, or both in the <code>RegisterInstance</code> request, AWS Cloud Map automatically creates <code>A</code> and/or <code>AAAA</code> records that have the same name as the value of <code>service-hostname</code> in the <code>SRV</code> record. You can ignore these records.</p> </li> <li> <p>If you&#39;re using a system that requires a specific <code>SRV</code> format, such as HAProxy, see the <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name">Name</a> element in the documentation about <code>CreateService</code> for information about how to specify the correct name format.</p> </li> </ul> </dd> </dl></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -321,10 +321,10 @@ pub struct DnsRecord {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInstanceRequest {
     /// <p>The ID of the instance that you want to get information about.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The ID of the service that the instance is associated with.</p>
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     pub service_id: String,
 }
 
@@ -332,7 +332,7 @@ pub struct GetInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInstanceResponse {
     /// <p>A complex type that contains information about a specified instance.</p>
-    #[serde(rename = "Instance")]
+    #[serde(rename = "instance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance: Option<Instance>,
 }
@@ -341,19 +341,19 @@ pub struct GetInstanceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInstancesHealthStatusRequest {
     /// <p><p>An array that contains the IDs of all the instances that you want to get the health status for.</p> <p>If you omit <code>Instances</code>, AWS Cloud Map returns the health status for all the instances that are associated with the specified service.</p> <note> <p>To get the IDs for the instances that you&#39;ve registered by using a specified service, submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html">ListInstances</a> request.</p> </note></p>
-    #[serde(rename = "Instances")]
+    #[serde(rename = "instances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instances: Option<Vec<String>>,
     /// <p>The maximum number of instances that you want AWS Cloud Map to return in the response to a <code>GetInstancesHealthStatus</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 instances.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>GetInstancesHealthStatus</code> request, omit this value.</p> <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>GetInstancesHealthStatus</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the service that the instance is associated with.</p>
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     pub service_id: String,
 }
 
@@ -361,11 +361,11 @@ pub struct GetInstancesHealthStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInstancesHealthStatusResponse {
     /// <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>GetInstancesHealthStatus</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A complex type that contains the IDs and the health status of the instances that you specified in the <code>GetInstancesHealthStatus</code> request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<::std::collections::HashMap<String, String>>,
 }
@@ -374,7 +374,7 @@ pub struct GetInstancesHealthStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetNamespaceRequest {
     /// <p>The ID of the namespace that you want to get information about.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -382,7 +382,7 @@ pub struct GetNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetNamespaceResponse {
     /// <p>A complex type that contains information about the specified namespace.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<Namespace>,
 }
@@ -391,7 +391,7 @@ pub struct GetNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetOperationRequest {
     /// <p>The ID of the operation that you want to get more information about.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     pub operation_id: String,
 }
 
@@ -399,7 +399,7 @@ pub struct GetOperationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetOperationResponse {
     /// <p>A complex type that contains information about the operation.</p>
-    #[serde(rename = "Operation")]
+    #[serde(rename = "operation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation: Option<Operation>,
 }
@@ -408,7 +408,7 @@ pub struct GetOperationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetServiceRequest {
     /// <p>The ID of the service that you want to get settings for.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -416,7 +416,7 @@ pub struct GetServiceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetServiceResponse {
     /// <p>A complex type that contains information about the service.</p>
-    #[serde(rename = "Service")]
+    #[serde(rename = "service")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service: Option<Service>,
 }
@@ -425,15 +425,15 @@ pub struct GetServiceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HealthCheckConfig {
     /// <p>The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer Guide</i>.</p>
-    #[serde(rename = "FailureThreshold")]
+    #[serde(rename = "failureThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_threshold: Option<i64>,
     /// <p>The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is <code>/docs/route53-health-check.html</code>. Route 53 automatically adds the DNS name for the service. If you don't specify a value for <code>ResourcePath</code>, the default value is <code>/</code>.</p> <p>If you specify <code>TCP</code> for <code>Type</code>, you must <i>not</i> specify a value for <code>ResourcePath</code>.</p>
-    #[serde(rename = "ResourcePath")]
+    #[serde(rename = "resourcePath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_path: Option<String>,
     /// <p>The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.</p> <important> <p>You can't change the value of <code>Type</code> after you create a health check.</p> </important> <p>You can create the following types of health checks:</p> <ul> <li> <p> <b>HTTP</b>: Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.</p> </li> <li> <p> <b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.</p> <important> <p>If you specify HTTPS for the value of <code>Type</code>, the endpoint must support TLS v1.0 or later.</p> </important> </li> <li> <p> <b>TCP</b>: Route 53 tries to establish a TCP connection.</p> <p>If you specify <code>TCP</code> for <code>Type</code>, don't specify a value for <code>ResourcePath</code>.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer Guide</i>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -446,23 +446,23 @@ pub struct HealthCheckCustomConfig {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HttpInstanceSummary {
     /// <p>If you included any attributes when you registered the instance, the values of those attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>If you configured health checking in the service, the current health status of the service instance.</p>
-    #[serde(rename = "HealthStatus")]
+    #[serde(rename = "healthStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_status: Option<String>,
     /// <p>The ID of an instance that matches the values that you specified in the request.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p> <code/> <code/> <code/> </p> <p>The <code>HttpName</code> name of the namespace. It's found in the <code>HttpProperties</code> member of the <code>Properties</code> member of the namespace.</p>
-    #[serde(rename = "NamespaceName")]
+    #[serde(rename = "namespaceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace_name: Option<String>,
     /// <p>The name of the service that you specified when you registered the instance.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
 }
@@ -472,7 +472,7 @@ pub struct HttpInstanceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HttpProperties {
     /// <p>The name of an HTTP namespace.</p>
-    #[serde(rename = "HttpName")]
+    #[serde(rename = "httpName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_name: Option<String>,
 }
@@ -482,15 +482,15 @@ pub struct HttpProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Instance {
     /// <p><p>A string map that contains the following information for the service that you specify in <code>ServiceId</code>:</p> <ul> <li> <p>The attributes that apply to the records that are defined in the service. </p> </li> <li> <p>For each attribute, the applicable value.</p> </li> </ul> <p>Supported attribute keys include the following:</p> <dl> <dt>AWS<em>ALIAS</em>DNS<em>NAME</dt> <dd> <p>If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that&#39;s associated with the load balancer. For information about how to get the DNS name, see &lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API</em>AliasTarget.html#Route53-Type-AliasTarget-DNSName&quot;&gt;AliasTarget-&gt;DNSName</a> in the <i>Route 53 API Reference</i>.</p> <p>Note the following:</p> <ul> <li> <p>The configuration for the service that&#39;s specified by <code>ServiceId</code> must include settings for an <code>A</code> record, an <code>AAAA</code> record, or both.</p> </li> <li> <p>In the service that&#39;s specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be <code>WEIGHTED</code>.</p> </li> <li> <p>If the service that&#39;s specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS Cloud Map creates the health check, but it won&#39;t associate the health check with the alias record.</p> </li> <li> <p>Auto naming currently doesn&#39;t support creating alias records that route traffic to AWS resources other than ELB load balancers.</p> </li> <li> <p>If you specify a value for <code>AWS<em>ALIAS</em>DNS<em>NAME</code>, don&#39;t specify values for any of the <code>AWS</em>INSTANCE</code> attributes.</p> </li> </ul> </dd> <dt>AWS<em>EC2</em>INSTANCE<em>ID</dt> <dd> <p> <i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. The <code>AWS</em>INSTANCE<em>IPV4</code> attribute contains the primary private IPv4 address.</p> </dd> <dt>AWS</em>INIT<em>HEALTH</em>STATUS</dt> <dd> <p>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use <code>AWS<em>INIT</em>HEALTH<em>STATUS</code> to specify the initial status of the custom health check, <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don&#39;t specify a value for <code>AWS</em>INIT<em>HEALTH</em>STATUS</code>, the initial status is <code>HEALTHY</code>.</p> </dd> <dt>AWS<em>INSTANCE</em>CNAME</dt> <dd> <p>If the service configuration includes a <code>CNAME</code> record, the domain name that you want Route 53 to return in response to DNS queries (for example, <code>example.com</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>CNAME</code> record.</p> </dd> <dt>AWS<em>INSTANCE</em>IPV4</dt> <dd> <p>If the service configuration includes an <code>A</code> record, the IPv4 address that you want Route 53 to return in response to DNS queries (for example, <code>192.0.2.44</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>A</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value for <code>AWS<em>INSTANCE</em>IPV4</code>, <code>AWS<em>INSTANCE</em>IPV6</code>, or both.</p> </dd> <dt>AWS<em>INSTANCE</em>IPV6</dt> <dd> <p>If the service configuration includes an <code>AAAA</code> record, the IPv6 address that you want Route 53 to return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>AAAA</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value for <code>AWS<em>INSTANCE</em>IPV4</code>, <code>AWS<em>INSTANCE</em>IPV6</code>, or both.</p> </dd> <dt>AWS<em>INSTANCE</em>PORT</dt> <dd> <p>If the service includes an <code>SRV</code> record, the value that you want Route 53 to return for the port.</p> <p>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that you want Route 53 to send requests to. </p> <p>This value is required if you specified settings for an <code>SRV</code> record or a Route 53 health check when you created the service.</p> </dd> </dl></p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same namespace and service. <code>CreatorRequestId</code> can be any unique string (for example, a date/time stamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p><p>An identifier that you want to associate with the instance. Note the following:</p> <ul> <li> <p>If the service that&#39;s specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record, the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code> record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord &gt; Type</a>.</p> </li> <li> <p>You can use this value to update an existing instance.</p> </li> <li> <p>To register a new instance, you must specify a value that&#39;s unique among instances that you register by using the same service. </p> </li> <li> <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing DNS records. If there&#39;s also an existing health check, AWS Cloud Map deletes the old health check and creates a new one. </p> <note> <p>The health check isn&#39;t deleted immediately, so it will still appear for a while if you submit a <code>ListHealthChecks</code> request, for example.</p> </note> </li> </ul></p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -499,11 +499,11 @@ pub struct Instance {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceSummary {
     /// <p><p>A string map that contains the following information:</p> <ul> <li> <p>The attributes that are associated with the instance. </p> </li> <li> <p>For each attribute, the applicable value.</p> </li> </ul> <p>Supported attribute keys include the following:</p> <dl> <dt>AWS<em>ALIAS</em>DNS<em>NAME</dt> <dd> <p>For an alias record that routes traffic to an Elastic Load Balancing load balancer, the DNS name that&#39;s associated with the load balancer. </p> </dd> <dt>AWS</em>EC2<em>INSTANCE</em>ID (HTTP namespaces only)</dt> <dd> <p>The Amazon EC2 instance ID for the instance. When the <code>AWS<em>EC2</em>INSTANCE<em>ID</code> attribute is specified, then the <code>AWS</em>INSTANCE<em>IPV4</code> attribute contains the primary private IPv4 address.</p> </dd> <dt>AWS</em>INIT<em>HEALTH</em>STATUS</dt> <dd> <p>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use <code>AWS<em>INIT</em>HEALTH<em>STATUS</code> to specify the initial status of the custom health check, <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don&#39;t specify a value for <code>AWS</em>INIT<em>HEALTH</em>STATUS</code>, the initial status is <code>HEALTHY</code>.</p> </dd> <dt>AWS<em>INSTANCE</em>CNAME</dt> <dd> <p>For a <code>CNAME</code> record, the domain name that Route 53 returns in response to DNS queries (for example, <code>example.com</code>).</p> </dd> <dt>AWS<em>INSTANCE</em>IPV4</dt> <dd> <p>For an <code>A</code> record, the IPv4 address that Route 53 returns in response to DNS queries (for example, <code>192.0.2.44</code>).</p> </dd> <dt>AWS<em>INSTANCE</em>IPV6</dt> <dd> <p>For an <code>AAAA</code> record, the IPv6 address that Route 53 returns in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p> </dd> <dt>AWS<em>INSTANCE</em>PORT</dt> <dd> <p>For an <code>SRV</code> record, the value that Route 53 returns for the port. In addition, if the service includes <code>HealthCheckConfig</code>, the port on the endpoint that Route 53 sends requests to.</p> </dd> </dl></p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>The ID for an instance that you created by using a specified service.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -512,15 +512,15 @@ pub struct InstanceSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListInstancesRequest {
     /// <p>The maximum number of instances that you want AWS Cloud Map to return in the response to a <code>ListInstances</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 instances.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListInstances</code> request, omit this value.</p> <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>ListInstances</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the service that you want to list instances for.</p>
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     pub service_id: String,
 }
 
@@ -528,11 +528,11 @@ pub struct ListInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListInstancesResponse {
     /// <p>Summary information about the instances that are associated with the specified service.</p>
-    #[serde(rename = "Instances")]
+    #[serde(rename = "instances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instances: Option<Vec<InstanceSummary>>,
     /// <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>ListInstances</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -541,15 +541,15 @@ pub struct ListInstancesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListNamespacesRequest {
     /// <p>A complex type that contains specifications for the namespaces that you want to list.</p> <p>If you specify more than one filter, a namespace must match all filters to be returned by <code>ListNamespaces</code>.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<NamespaceFilter>>,
     /// <p>The maximum number of namespaces that you want AWS Cloud Map to return in the response to a <code>ListNamespaces</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 namespaces.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p><p>For the first <code>ListNamespaces</code> request, omit this value.</p> <p>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>AWS Cloud Map gets <code>MaxResults</code> namespaces and then filters them based on the specified criteria. It&#39;s possible that no namespaces in the first <code>MaxResults</code> namespaces matched the specified criteria but that subsequent groups of <code>MaxResults</code> namespaces do contain namespaces that match the criteria.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -558,11 +558,11 @@ pub struct ListNamespacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListNamespacesResponse {
     /// <p>An array that contains one <code>NamespaceSummary</code> object for each namespace that matches the specified filter criteria.</p>
-    #[serde(rename = "Namespaces")]
+    #[serde(rename = "namespaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespaces: Option<Vec<NamespaceSummary>>,
     /// <p><p>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>AWS Cloud Map gets <code>MaxResults</code> namespaces and then filters them based on the specified criteria. It&#39;s possible that no namespaces in the first <code>MaxResults</code> namespaces matched the specified criteria but that subsequent groups of <code>MaxResults</code> namespaces do contain namespaces that match the criteria.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -571,15 +571,15 @@ pub struct ListNamespacesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOperationsRequest {
     /// <p>A complex type that contains specifications for the operations that you want to list, for example, operations that you started between a specified start date and end date.</p> <p>If you specify more than one filter, an operation must match all filters to be returned by <code>ListOperations</code>.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<OperationFilter>>,
     /// <p>The maximum number of items that you want AWS Cloud Map to return in the response to a <code>ListOperations</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 operations.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p><p>For the first <code>ListOperations</code> request, omit this value.</p> <p>If the response contains <code>NextToken</code>, submit another <code>ListOperations</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>AWS Cloud Map gets <code>MaxResults</code> operations and then filters them based on the specified criteria. It&#39;s possible that no operations in the first <code>MaxResults</code> operations matched the specified criteria but that subsequent groups of <code>MaxResults</code> operations do contain operations that match the criteria.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -588,11 +588,11 @@ pub struct ListOperationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOperationsResponse {
     /// <p><p>If the response contains <code>NextToken</code>, submit another <code>ListOperations</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>AWS Cloud Map gets <code>MaxResults</code> operations and then filters them based on the specified criteria. It&#39;s possible that no operations in the first <code>MaxResults</code> operations matched the specified criteria but that subsequent groups of <code>MaxResults</code> operations do contain operations that match the criteria.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Summary information about the operations that match the specified criteria.</p>
-    #[serde(rename = "Operations")]
+    #[serde(rename = "operations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operations: Option<Vec<OperationSummary>>,
 }
@@ -601,15 +601,15 @@ pub struct ListOperationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServicesRequest {
     /// <p>A complex type that contains specifications for the namespaces that you want to list services for. </p> <p>If you specify more than one filter, an operation must match all filters to be returned by <code>ListServices</code>.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<ServiceFilter>>,
     /// <p>The maximum number of services that you want AWS Cloud Map to return in the response to a <code>ListServices</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 services.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p><p>For the first <code>ListServices</code> request, omit this value.</p> <p>If the response contains <code>NextToken</code>, submit another <code>ListServices</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria. It&#39;s possible that no services in the first <code>MaxResults</code> services matched the specified criteria but that subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -618,11 +618,11 @@ pub struct ListServicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServicesResponse {
     /// <p><p>If the response contains <code>NextToken</code>, submit another <code>ListServices</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria. It&#39;s possible that no services in the first <code>MaxResults</code> services matched the specified criteria but that subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array that contains one <code>ServiceSummary</code> object for each service that matches the specified filter criteria.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<ServiceSummary>>,
 }
@@ -631,7 +631,7 @@ pub struct ListServicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -639,7 +639,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The tags that are assigned to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -649,39 +649,39 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Namespace {
     /// <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code> represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-    #[serde(rename = "CreateDate")]
+    #[serde(rename = "createDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_date: Option<f64>,
     /// <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running an operation twice. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The description that you specify for the namespace when you create it.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of a namespace.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the namespace, such as <code>example.com</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A complex type that contains information that's specific to the type of the namespace.</p>
-    #[serde(rename = "Properties")]
+    #[serde(rename = "properties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub properties: Option<NamespaceProperties>,
     /// <p>The number of services that are associated with the namespace.</p>
-    #[serde(rename = "ServiceCount")]
+    #[serde(rename = "serviceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_count: Option<i64>,
     /// <p><p>The type of the namespace. The methods for discovering instances depends on the value that you specify:</p> <dl> <dt>HTTP</dt> <dd> <p>Instances can be discovered only programmatically, using the AWS Cloud Map <code>DiscoverInstances</code> API.</p> </dd> <dt>DNS<em>PUBLIC</dt> <dd> <p>Instances can be discovered using public DNS queries and using the <code>DiscoverInstances</code> API.</p> </dd> <dt>DNS</em>PRIVATE</dt> <dd> <p>Instances can be discovered using DNS queries in VPCs and using the <code>DiscoverInstances</code> API.</p> </dd> </dl></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -691,14 +691,14 @@ pub struct Namespace {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct NamespaceFilter {
     /// <p><p>The operator that you want to use to determine whether <code>ListNamespaces</code> returns a namespace. Valid values for <code>condition</code> include:</p> <dl> <dt>EQ</dt> <dd> <p>When you specify <code>EQ</code> for the condition, you can choose to list only public namespaces or private namespaces, but not both. <code>EQ</code> is the default condition and can be omitted.</p> </dd> <dt>IN</dt> <dd> <p>When you specify <code>IN</code> for the condition, you can choose to list public namespaces, private namespaces, or both. </p> </dd> <dt>BETWEEN</dt> <dd> <p> Not applicable</p> </dd> </dl></p>
-    #[serde(rename = "Condition")]
+    #[serde(rename = "condition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
     /// <p>Specify <code>TYPE</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>If you specify <code>EQ</code> for <code>Condition</code>, specify either <code>DNS_PUBLIC</code> or <code>DNS_PRIVATE</code>.</p> <p>If you specify <code>IN</code> for <code>Condition</code>, you can specify <code>DNS_PUBLIC</code>, <code>DNS_PRIVATE</code>, or both.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -707,11 +707,11 @@ pub struct NamespaceFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NamespaceProperties {
     /// <p>A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.</p>
-    #[serde(rename = "DnsProperties")]
+    #[serde(rename = "dnsProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_properties: Option<DnsProperties>,
     /// <p>A complex type that contains the name of an HTTP namespace.</p>
-    #[serde(rename = "HttpProperties")]
+    #[serde(rename = "httpProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_properties: Option<HttpProperties>,
 }
@@ -721,35 +721,35 @@ pub struct NamespaceProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NamespaceSummary {
     /// <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the namespace was created.</p>
-    #[serde(rename = "CreateDate")]
+    #[serde(rename = "createDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_date: Option<f64>,
     /// <p>A description for the namespace.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the namespace.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone that has the same name as the namespace.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The properties of the namespace.</p>
-    #[serde(rename = "Properties")]
+    #[serde(rename = "properties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub properties: Option<NamespaceProperties>,
     /// <p>The number of services that were created using the namespace.</p>
-    #[serde(rename = "ServiceCount")]
+    #[serde(rename = "serviceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_count: Option<i64>,
     /// <p>The type of the namespace, either public or private.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -759,35 +759,35 @@ pub struct NamespaceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Operation {
     /// <p>The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code> represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-    #[serde(rename = "CreateDate")]
+    #[serde(rename = "createDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_date: Option<f64>,
     /// <p><p>The code associated with <code>ErrorMessage</code>. Values for <code>ErrorCode</code> include the following:</p> <ul> <li> <p> <code>ACCESS<em>DENIED</code> </p> </li> <li> <p> <code>CANNOT</em>CREATE<em>HOSTED</em>ZONE</code> </p> </li> <li> <p> <code>EXPIRED<em>TOKEN</code> </p> </li> <li> <p> <code>HOSTED</em>ZONE<em>NOT</em>FOUND</code> </p> </li> <li> <p> <code>INTERNAL<em>FAILURE</code> </p> </li> <li> <p> <code>INVALID</em>CHANGE<em>BATCH</code> </p> </li> <li> <p> <code>THROTTLED</em>REQUEST</code> </p> </li> </ul></p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>If the value of <code>Status</code> is <code>FAIL</code>, the reason that the operation failed.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ID of the operation that you want to get information about.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p><p>The status of the operation. Values include the following:</p> <dl> <dt>SUBMITTED</dt> <dd> <p>This is the initial state that occurs immediately after you submit a request.</p> </dd> <dt>PENDING</dt> <dd> <p>AWS Cloud Map is performing the operation.</p> </dd> <dt>SUCCESS</dt> <dd> <p>The operation succeeded.</p> </dd> <dt>FAIL</dt> <dd> <p>The operation failed. For the failure reason, see <code>ErrorMessage</code>.</p> </dd> </dl></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p><p>The name of the target entity that&#39;s associated with the operation:</p> <dl> <dt>NAMESPACE</dt> <dd> <p>The namespace ID is returned in the <code>ResourceId</code> property.</p> </dd> <dt>SERVICE</dt> <dd> <p>The service ID is returned in the <code>ResourceId</code> property.</p> </dd> <dt>INSTANCE</dt> <dd> <p>The instance ID is returned in the <code>ResourceId</code> property.</p> </dd> </dl></p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the operation that's associated with the specified ID.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The date and time that the value of <code>Status</code> changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of <code>UpdateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code> represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-    #[serde(rename = "UpdateDate")]
+    #[serde(rename = "updateDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_date: Option<f64>,
 }
@@ -797,14 +797,14 @@ pub struct Operation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct OperationFilter {
     /// <p><p>The operator that you want to use to determine whether an operation matches the specified value. Valid values for condition include:</p> <ul> <li> <p> <code>EQ</code>: When you specify <code>EQ</code> for the condition, you can specify only one value. <code>EQ</code> is supported for <code>NAMESPACE<em>ID</code>, <code>SERVICE</em>ID</code>, <code>STATUS</code>, and <code>TYPE</code>. <code>EQ</code> is the default condition and can be omitted.</p> </li> <li> <p> <code>IN</code>: When you specify <code>IN</code> for the condition, you can specify a list of one or more values. <code>IN</code> is supported for <code>STATUS</code> and <code>TYPE</code>. An operation must match one of the specified values to be returned in the response.</p> </li> <li> <p> <code>BETWEEN</code>: Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value. <code>BETWEEN</code> is supported for <code>UPDATE_DATE</code>. </p> </li> </ul></p>
-    #[serde(rename = "Condition")]
+    #[serde(rename = "condition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
     /// <p><p>Specify the operations that you want to get:</p> <ul> <li> <p> <b>NAMESPACE<em>ID</b>: Gets operations related to specified namespaces.</p> </li> <li> <p> <b>SERVICE</em>ID</b>: Gets operations related to specified services.</p> </li> <li> <p> <b>STATUS</b>: Gets operations based on the status of the operations: <code>SUBMITTED</code>, <code>PENDING</code>, <code>SUCCEED</code>, or <code>FAIL</code>.</p> </li> <li> <p> <b>TYPE</b>: Gets specified types of operation.</p> </li> <li> <p> <b>UPDATE_DATE</b>: Gets operations that changed status during a specified date/time range. </p> </li> </ul></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>Specify values that are applicable to the value that you specify for <code>Name</code>: </p> <ul> <li> <p> <b>NAMESPACE<em>ID</b>: Specify one namespace ID.</p> </li> <li> <p> <b>SERVICE</em>ID</b>: Specify one service ID.</p> </li> <li> <p> <b>STATUS</b>: Specify one or more statuses: <code>SUBMITTED</code>, <code>PENDING</code>, <code>SUCCEED</code>, or <code>FAIL</code>.</p> </li> <li> <p> <b>TYPE</b>: Specify one or more of the following types: <code>CREATE<em>NAMESPACE</code>, <code>DELETE</em>NAMESPACE</code>, <code>UPDATE<em>SERVICE</code>, <code>REGISTER</em>INSTANCE</code>, or <code>DEREGISTER<em>INSTANCE</code>.</p> </li> <li> <p> <b>UPDATE</em>DATE</b>: Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value.</p> </li> </ul></p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -813,11 +813,11 @@ pub struct OperationFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OperationSummary {
     /// <p>The ID for an operation.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p><p>The status of the operation. Values include the following:</p> <ul> <li> <p> <b>SUBMITTED</b>: This is the initial state immediately after you submit a request.</p> </li> <li> <p> <b>PENDING</b>: AWS Cloud Map is performing the operation.</p> </li> <li> <p> <b>SUCCESS</b>: The operation succeeded.</p> </li> <li> <p> <b>FAIL</b>: The operation failed. For the failure reason, see <code>ErrorMessage</code>.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -826,17 +826,17 @@ pub struct OperationSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterInstanceRequest {
     /// <p><p>A string map that contains the following information for the service that you specify in <code>ServiceId</code>:</p> <ul> <li> <p>The attributes that apply to the records that are defined in the service. </p> </li> <li> <p>For each attribute, the applicable value.</p> </li> </ul> <p>Supported attribute keys include the following:</p> <dl> <dt>AWS<em>ALIAS</em>DNS<em>NAME</dt> <dd> <p>If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that&#39;s associated with the load balancer. For information about how to get the DNS name, see &quot;DNSName&quot; in the topic &lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API</em>AliasTarget.html&quot;&gt;AliasTarget</a> in the <i>Route 53 API Reference</i>.</p> <p>Note the following:</p> <ul> <li> <p>The configuration for the service that&#39;s specified by <code>ServiceId</code> must include settings for an <code>A</code> record, an <code>AAAA</code> record, or both.</p> </li> <li> <p>In the service that&#39;s specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be <code>WEIGHTED</code>.</p> </li> <li> <p>If the service that&#39;s specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS Cloud Map will create the Route 53 health check, but it doesn&#39;t associate the health check with the alias record.</p> </li> <li> <p>Auto naming currently doesn&#39;t support creating alias records that route traffic to AWS resources other than Elastic Load Balancing load balancers.</p> </li> <li> <p>If you specify a value for <code>AWS<em>ALIAS</em>DNS<em>NAME</code>, don&#39;t specify values for any of the <code>AWS</em>INSTANCE</code> attributes.</p> </li> </ul> </dd> <dt>AWS<em>EC2</em>INSTANCE<em>ID</dt> <dd> <p> <i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. If the <code>AWS</em>EC2<em>INSTANCE</em>ID</code> attribute is specified, then the only other attribute that can be specified is <code>AWS<em>INIT</em>HEALTH<em>STATUS</code>. When the <code>AWS</em>EC2<em>INSTANCE</em>ID</code> attribute is specified, then the <code>AWS<em>INSTANCE</em>IPV4</code> attribute will be filled out with the primary private IPv4 address.</p> </dd> <dt>AWS<em>INIT</em>HEALTH<em>STATUS</dt> <dd> <p>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use <code>AWS</em>INIT<em>HEALTH</em>STATUS</code> to specify the initial status of the custom health check, <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don&#39;t specify a value for <code>AWS<em>INIT</em>HEALTH<em>STATUS</code>, the initial status is <code>HEALTHY</code>.</p> </dd> <dt>AWS</em>INSTANCE<em>CNAME</dt> <dd> <p>If the service configuration includes a <code>CNAME</code> record, the domain name that you want Route 53 to return in response to DNS queries (for example, <code>example.com</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>CNAME</code> record.</p> </dd> <dt>AWS</em>INSTANCE<em>IPV4</dt> <dd> <p>If the service configuration includes an <code>A</code> record, the IPv4 address that you want Route 53 to return in response to DNS queries (for example, <code>192.0.2.44</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>A</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value for <code>AWS</em>INSTANCE<em>IPV4</code>, <code>AWS</em>INSTANCE<em>IPV6</code>, or both.</p> </dd> <dt>AWS</em>INSTANCE<em>IPV6</dt> <dd> <p>If the service configuration includes an <code>AAAA</code> record, the IPv6 address that you want Route 53 to return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>AAAA</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value for <code>AWS</em>INSTANCE<em>IPV4</code>, <code>AWS</em>INSTANCE<em>IPV6</code>, or both.</p> </dd> <dt>AWS</em>INSTANCE_PORT</dt> <dd> <p>If the service includes an <code>SRV</code> record, the value that you want Route 53 to return for the port.</p> <p>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that you want Route 53 to send requests to. </p> <p>This value is required if you specified settings for an <code>SRV</code> record or a Route 53 health check when you created the service.</p> </dd> <dt>Custom attributes</dt> <dd> <p>You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name is 255 characters, and the maximum length of the attribute value is 1,024 characters. The total size of all provided attributes (sum of all keys and values) must not exceed 5,000 characters.</p> </dd> </dl></p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     pub attributes: ::std::collections::HashMap<String, String>,
     /// <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same namespace and service. <code>CreatorRequestId</code> can be any unique string (for example, a date/time stamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p><p>An identifier that you want to associate with the instance. Note the following:</p> <ul> <li> <p>If the service that&#39;s specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record, the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code> record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord &gt; Type</a>.</p> </li> <li> <p>You can use this value to update an existing instance.</p> </li> <li> <p>To register a new instance, you must specify a value that&#39;s unique among instances that you register by using the same service. </p> </li> <li> <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing DNS records, if any. If there&#39;s also an existing health check, AWS Cloud Map deletes the old health check and creates a new one. </p> <note> <p>The health check isn&#39;t deleted immediately, so it will still appear for a while if you submit a <code>ListHealthChecks</code> request, for example.</p> </note> </li> </ul></p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The ID of the service that you want to use for settings for the instance.</p>
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     pub service_id: String,
 }
 
@@ -844,7 +844,7 @@ pub struct RegisterInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterInstanceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }
@@ -854,51 +854,51 @@ pub struct RegisterInstanceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Service {
     /// <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code> represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-    #[serde(rename = "CreateDate")]
+    #[serde(rename = "createDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_date: Option<f64>,
     /// <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string (for example, a date/timestamp).</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The description of the service.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.</p>
-    #[serde(rename = "DnsConfig")]
+    #[serde(rename = "dnsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_config: Option<DnsConfig>,
     /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in <code>DnsConfig</code>.</p> <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
-    #[serde(rename = "HealthCheckConfig")]
+    #[serde(rename = "healthCheckConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_config: Option<HealthCheckConfig>,
     /// <p><p>A complex type that contains information about an optional custom health check.</p> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important></p>
-    #[serde(rename = "HealthCheckCustomConfig")]
+    #[serde(rename = "healthCheckCustomConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_custom_config: Option<HealthCheckCustomConfig>,
     /// <p>The ID that AWS Cloud Map assigned to the service when you created it.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The number of instances that are currently associated with the service. Instances that were previously associated with the service but that are deleted aren't included in the count. The count might not reflect pending registrations and deregistrations.</p>
-    #[serde(rename = "InstanceCount")]
+    #[serde(rename = "instanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_count: Option<i64>,
     /// <p>The name of the service.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the namespace that was used to create the service.</p>
-    #[serde(rename = "NamespaceId")]
+    #[serde(rename = "namespaceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace_id: Option<String>,
     /// <p><p>Describes the systems that can be used to discover the service instances.</p> <dl> <dt>DNS_HTTP</dt> <dd> <p>The service instances can be discovered using either DNS queries or the <code>DiscoverInstances</code> API operation.</p> </dd> <dt>HTTP</dt> <dd> <p>The service instances can only be discovered using the <code>DiscoverInstances</code> API operation.</p> </dd> <dt>DNS</dt> <dd> <p>Reserved.</p> </dd> </dl></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -908,15 +908,15 @@ pub struct Service {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ServiceChange {
     /// <p>A description for the service.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.</p>
-    #[serde(rename = "DnsConfig")]
+    #[serde(rename = "dnsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_config: Option<DnsConfigChange>,
     /// <p> <i>Public DNS and HTTP namespaces only.</i> Settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in <code>DnsConfig</code>.</p>
-    #[serde(rename = "HealthCheckConfig")]
+    #[serde(rename = "healthCheckConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_config: Option<HealthCheckConfig>,
 }
@@ -926,14 +926,14 @@ pub struct ServiceChange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ServiceFilter {
     /// <p><p>The operator that you want to use to determine whether a service is returned by <code>ListServices</code>. Valid values for <code>Condition</code> include the following:</p> <ul> <li> <p> <code>EQ</code>: When you specify <code>EQ</code>, specify one namespace ID for <code>Values</code>. <code>EQ</code> is the default condition and can be omitted.</p> </li> <li> <p> <code>IN</code>: When you specify <code>IN</code>, specify a list of the IDs for the namespaces that you want <code>ListServices</code> to return a list of services for.</p> </li> <li> <p> <code>BETWEEN</code>: Not applicable.</p> </li> </ul></p>
-    #[serde(rename = "Condition")]
+    #[serde(rename = "condition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
     /// <p>Specify <code>NAMESPACE_ID</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The values that are applicable to the value that you specify for <code>Condition</code> to filter the list of services.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -942,43 +942,43 @@ pub struct ServiceFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceSummary {
     /// <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the service was created.</p>
-    #[serde(rename = "CreateDate")]
+    #[serde(rename = "createDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_date: Option<f64>,
     /// <p>The description that you specify when you create the service.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.</p>
-    #[serde(rename = "DnsConfig")]
+    #[serde(rename = "dnsConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_config: Option<DnsConfig>,
     /// <p> <i>Public DNS and HTTP namespaces only.</i> Settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in <code>DnsConfig</code>.</p>
-    #[serde(rename = "HealthCheckConfig")]
+    #[serde(rename = "healthCheckConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_config: Option<HealthCheckConfig>,
     /// <p><p>Information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:</p> <ul> <li> <p>You can&#39;t use a health check that&#39;s defined by <code>HealthCheckConfig</code> because the resource isn&#39;t available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC. (To check the health of resources in a VPC, the health checker must also be in the VPC.)</p> </li> <li> <p>You want to use a third-party health checker regardless of where your resources are located.</p> </li> </ul> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important></p>
-    #[serde(rename = "HealthCheckCustomConfig")]
+    #[serde(rename = "healthCheckCustomConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_custom_config: Option<HealthCheckCustomConfig>,
     /// <p>The ID that AWS Cloud Map assigned to the service when you created it.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The number of instances that are currently associated with the service. Instances that were previously associated with the service but that are deleted aren't included in the count. The count might not reflect pending registrations and deregistrations.</p>
-    #[serde(rename = "InstanceCount")]
+    #[serde(rename = "instanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_count: Option<i64>,
     /// <p>The name of the service.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p><p>Describes the systems that can be used to discover the service instances.</p> <dl> <dt>DNS_HTTP</dt> <dd> <p>The service instances can be discovered using either DNS queries or the <code>DiscoverInstances</code> API operation.</p> </dd> <dt>HTTP</dt> <dd> <p>The service instances can only be discovered using the <code>DiscoverInstances</code> API operation.</p> </dd> <dt>DNS</dt> <dd> <p>Reserved.</p> </dd> </dl></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -987,10 +987,10 @@ pub struct ServiceSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key identifier, or name, of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -998,10 +998,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tags to add to the specified resource. Specifying the tag key is required. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1013,10 +1013,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tag keys to remove from the specified resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1028,13 +1028,13 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateInstanceCustomHealthStatusRequest {
     /// <p>The ID of the instance that you want to change the health status for.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The ID of the service that includes the configuration for the custom health check that you want to change the status for.</p>
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     pub service_id: String,
     /// <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -1042,10 +1042,10 @@ pub struct UpdateInstanceCustomHealthStatusRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateServiceRequest {
     /// <p>The ID of the service that you want to update.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>A complex type that contains the new settings for the service.</p>
-    #[serde(rename = "Service")]
+    #[serde(rename = "service")]
     pub service: ServiceChange,
 }
 
@@ -1053,7 +1053,7 @@ pub struct UpdateServiceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateServiceResponse {
     /// <p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
-    #[serde(rename = "OperationId")]
+    #[serde(rename = "operationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_id: Option<String>,
 }

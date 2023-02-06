@@ -55,47 +55,47 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccessControlRule {
     /// <p>Access protocol actions to include in the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub actions: Option<Vec<String>>,
     /// <p>The date that the rule was created.</p>
-    #[serde(rename = "DateCreated")]
+    #[serde(rename = "dateCreated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_created: Option<f64>,
     /// <p>The date that the rule was modified.</p>
-    #[serde(rename = "DateModified")]
+    #[serde(rename = "dateModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_modified: Option<f64>,
     /// <p>The rule description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The rule effect.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub effect: Option<String>,
     /// <p>IPv4 CIDR ranges to include in the rule.</p>
-    #[serde(rename = "IpRanges")]
+    #[serde(rename = "ipRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_ranges: Option<Vec<String>>,
     /// <p>The rule name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Access protocol actions to exclude from the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
-    #[serde(rename = "NotActions")]
+    #[serde(rename = "notActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_actions: Option<Vec<String>>,
     /// <p>IPv4 CIDR ranges to exclude from the rule.</p>
-    #[serde(rename = "NotIpRanges")]
+    #[serde(rename = "notIpRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_ip_ranges: Option<Vec<String>>,
     /// <p>User IDs to exclude from the rule.</p>
-    #[serde(rename = "NotUserIds")]
+    #[serde(rename = "notUserIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_user_ids: Option<Vec<String>>,
     /// <p>User IDs to include in the rule.</p>
-    #[serde(rename = "UserIds")]
+    #[serde(rename = "userIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_ids: Option<Vec<String>>,
 }
@@ -104,13 +104,13 @@ pub struct AccessControlRule {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateDelegateToResourceRequest {
     /// <p>The member (user or group) to associate to the resource.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The organization under which the resource exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The resource for which members (users or groups) are associated.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -122,13 +122,13 @@ pub struct AssociateDelegateToResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateMemberToGroupRequest {
     /// <p>The group to which the member (user or group) is associated.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The member (user or group) to associate to the group.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The organization under which the group exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -140,15 +140,15 @@ pub struct AssociateMemberToGroupResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BookingOptions {
     /// <p>The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.</p>
-    #[serde(rename = "AutoAcceptRequests")]
+    #[serde(rename = "autoAcceptRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_accept_requests: Option<bool>,
     /// <p>The resource's ability to automatically decline any conflicting requests.</p>
-    #[serde(rename = "AutoDeclineConflictingRequests")]
+    #[serde(rename = "autoDeclineConflictingRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_decline_conflicting_requests: Option<bool>,
     /// <p>The resource's ability to automatically decline any recurring requests.</p>
-    #[serde(rename = "AutoDeclineRecurringRequests")]
+    #[serde(rename = "autoDeclineRecurringRequests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_decline_recurring_requests: Option<bool>,
 }
@@ -157,13 +157,13 @@ pub struct BookingOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelMailboxExportJobRequest {
     /// <p>The idempotency token for the client request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>The job ID.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -175,13 +175,13 @@ pub struct CancelMailboxExportJobResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAliasRequest {
     /// <p>The alias to add to the member set.</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     pub alias: String,
     /// <p>The member (user or group) to which this alias is added.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The organization under which the member (user or group) exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -193,10 +193,10 @@ pub struct CreateAliasResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGroupRequest {
     /// <p>The name of the group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The organization under which the group is to be created.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -204,7 +204,7 @@ pub struct CreateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGroupResponse {
     /// <p>The identifier of the group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_id: Option<String>,
 }
@@ -213,53 +213,53 @@ pub struct CreateGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMobileDeviceAccessRuleRequest {
     /// <p>The idempotency token for the client request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The rule description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Device models that the rule will match.</p>
-    #[serde(rename = "DeviceModels")]
+    #[serde(rename = "deviceModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_models: Option<Vec<String>>,
     /// <p>Device operating systems that the rule will match.</p>
-    #[serde(rename = "DeviceOperatingSystems")]
+    #[serde(rename = "deviceOperatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_operating_systems: Option<Vec<String>>,
     /// <p>Device types that the rule will match.</p>
-    #[serde(rename = "DeviceTypes")]
+    #[serde(rename = "deviceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_types: Option<Vec<String>>,
     /// <p>Device user agents that the rule will match.</p>
-    #[serde(rename = "DeviceUserAgents")]
+    #[serde(rename = "deviceUserAgents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_user_agents: Option<Vec<String>>,
     /// <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     pub effect: String,
     /// <p>The rule name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Device models that the rule <b>will not</b> match. All other device models will match.</p>
-    #[serde(rename = "NotDeviceModels")]
+    #[serde(rename = "notDeviceModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_models: Option<Vec<String>>,
     /// <p>Device operating systems that the rule <b>will not</b> match. All other device operating systems will match.</p>
-    #[serde(rename = "NotDeviceOperatingSystems")]
+    #[serde(rename = "notDeviceOperatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_operating_systems: Option<Vec<String>>,
     /// <p>Device types that the rule <b>will not</b> match. All other device types will match.</p>
-    #[serde(rename = "NotDeviceTypes")]
+    #[serde(rename = "notDeviceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_types: Option<Vec<String>>,
     /// <p>Device user agents that the rule <b>will not</b> match. All other device user agents will match.</p>
-    #[serde(rename = "NotDeviceUserAgents")]
+    #[serde(rename = "notDeviceUserAgents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_user_agents: Option<Vec<String>>,
     /// <p>The Amazon WorkMail organization under which the rule will be created.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -267,7 +267,7 @@ pub struct CreateMobileDeviceAccessRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMobileDeviceAccessRuleResponse {
     /// <p>The identifier for the newly created mobile device access rule.</p>
-    #[serde(rename = "MobileDeviceAccessRuleId")]
+    #[serde(rename = "mobileDeviceAccessRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mobile_device_access_rule_id: Option<String>,
 }
@@ -276,26 +276,26 @@ pub struct CreateMobileDeviceAccessRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateOrganizationRequest {
     /// <p>The organization alias.</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     pub alias: String,
     /// <p>The idempotency token associated with the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The AWS Directory Service directory ID.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>The email domains to associate with the organization.</p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domains: Option<Vec<Domain>>,
     /// <p>When <code>true</code>, allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to <code>true</code> if an AD Connector directory ID is included in the request.</p>
-    #[serde(rename = "EnableInteroperability")]
+    #[serde(rename = "enableInteroperability")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_interoperability: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
 }
@@ -304,7 +304,7 @@ pub struct CreateOrganizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateOrganizationResponse {
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
 }
@@ -313,13 +313,13 @@ pub struct CreateOrganizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateResourceRequest {
     /// <p>The name of the new resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The identifier associated with the organization for which the resource is created.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The type of the new resource. The available types are <code>equipment</code> and <code>room</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -327,7 +327,7 @@ pub struct CreateResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateResourceResponse {
     /// <p>The identifier of the new resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
 }
@@ -336,16 +336,16 @@ pub struct CreateResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>The display name for the new user.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     pub display_name: String,
     /// <p>The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The identifier of the organization for which the user is created.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The password for the new user.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
 }
 
@@ -353,7 +353,7 @@ pub struct CreateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserResponse {
     /// <p>The identifier for the new user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -363,10 +363,10 @@ pub struct CreateUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Delegate {
     /// <p>The identifier for the user or group associated as the resource's delegate.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The type of the delegate: user or group.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -374,10 +374,10 @@ pub struct Delegate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAccessControlRuleRequest {
     /// <p>The name of the access control rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The identifier for the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -389,13 +389,13 @@ pub struct DeleteAccessControlRuleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAliasRequest {
     /// <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     pub alias: String,
     /// <p>The identifier for the member (user or group) from which to have the aliases removed.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The identifier for the organization under which the user exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -407,10 +407,10 @@ pub struct DeleteAliasResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGroupRequest {
     /// <p>The identifier of the group to be deleted.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The organization that contains the group.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -422,13 +422,13 @@ pub struct DeleteGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteMailboxPermissionsRequest {
     /// <p>The identifier of the member (user or group) that owns the mailbox.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The identifier of the member (user or group) for which to delete granted permissions.</p>
-    #[serde(rename = "GranteeId")]
+    #[serde(rename = "granteeId")]
     pub grantee_id: String,
     /// <p>The identifier of the organization under which the member (user or group) exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -440,10 +440,10 @@ pub struct DeleteMailboxPermissionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteMobileDeviceAccessRuleRequest {
     /// <p>The identifier of the rule to be deleted.</p>
-    #[serde(rename = "MobileDeviceAccessRuleId")]
+    #[serde(rename = "mobileDeviceAccessRuleId")]
     pub mobile_device_access_rule_id: String,
     /// <p>The Amazon WorkMail organization under which the rule will be deleted.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -455,14 +455,14 @@ pub struct DeleteMobileDeviceAccessRuleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteOrganizationRequest {
     /// <p>The idempotency token associated with the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>If true, deletes the AWS Directory Service directory associated with the organization.</p>
-    #[serde(rename = "DeleteDirectory")]
+    #[serde(rename = "deleteDirectory")]
     pub delete_directory: bool,
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -470,11 +470,11 @@ pub struct DeleteOrganizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteOrganizationResponse {
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The state of the organization.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -483,10 +483,10 @@ pub struct DeleteOrganizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourceRequest {
     /// <p>The identifier associated with the organization from which the resource is deleted.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier of the resource to be deleted.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -498,10 +498,10 @@ pub struct DeleteResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRetentionPolicyRequest {
     /// <p>The retention policy ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -513,10 +513,10 @@ pub struct DeleteRetentionPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The organization that contains the user to be deleted.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier of the user to be deleted.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -528,10 +528,10 @@ pub struct DeleteUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterFromWorkMailRequest {
     /// <p>The identifier for the member (user or group) to be updated.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The identifier for the organization under which the Amazon WorkMail entity exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -543,10 +543,10 @@ pub struct DeregisterFromWorkMailResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeGroupRequest {
     /// <p>The identifier for the group to be described.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The identifier for the organization under which the group exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -554,27 +554,27 @@ pub struct DescribeGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeGroupResponse {
     /// <p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The email of the described group.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The date and time when a user was registered to WorkMail, in UNIX epoch time format.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The identifier of the described group.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_id: Option<String>,
     /// <p>The name of the described group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -583,10 +583,10 @@ pub struct DescribeGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeMailboxExportJobRequest {
     /// <p>The mailbox export job ID.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -594,51 +594,51 @@ pub struct DescribeMailboxExportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeMailboxExportJobResponse {
     /// <p>The mailbox export job description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The mailbox export job end timestamp.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The identifier of the user or resource associated with the mailbox.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_id: Option<String>,
     /// <p>Error information for failed mailbox export jobs.</p>
-    #[serde(rename = "ErrorInfo")]
+    #[serde(rename = "errorInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_info: Option<String>,
     /// <p>The estimated progress of the mailbox export job, in percentage points.</p>
-    #[serde(rename = "EstimatedProgress")]
+    #[serde(rename = "estimatedProgress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_progress: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The name of the S3 bucket.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The path to the S3 bucket and file that the mailbox export job is exporting to.</p>
-    #[serde(rename = "S3Path")]
+    #[serde(rename = "s3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_path: Option<String>,
     /// <p>The S3 bucket prefix.</p>
-    #[serde(rename = "S3Prefix")]
+    #[serde(rename = "s3Prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_prefix: Option<String>,
     /// <p>The mailbox export job start timestamp.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The state of the mailbox export job.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -647,7 +647,7 @@ pub struct DescribeMailboxExportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOrganizationRequest {
     /// <p>The identifier for the organization to be described.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -655,39 +655,39 @@ pub struct DescribeOrganizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOrganizationResponse {
     /// <p>The Amazon Resource Name (ARN) of the organization.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The alias for an organization.</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias: Option<String>,
     /// <p>The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.</p>
-    #[serde(rename = "CompletedDate")]
+    #[serde(rename = "completedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_date: Option<f64>,
     /// <p>The default mail domain associated with the organization.</p>
-    #[serde(rename = "DefaultMailDomain")]
+    #[serde(rename = "defaultMailDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_mail_domain: Option<String>,
     /// <p>The identifier for the directory associated with an Amazon WorkMail organization.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>The type of directory associated with the WorkMail organization.</p>
-    #[serde(rename = "DirectoryType")]
+    #[serde(rename = "directoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_type: Option<String>,
     /// <p>(Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The identifier of an organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The state of an organization.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -696,10 +696,10 @@ pub struct DescribeOrganizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeResourceRequest {
     /// <p>The identifier associated with the organization for which the resource is described.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier of the resource to be described.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -707,35 +707,35 @@ pub struct DescribeResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeResourceResponse {
     /// <p>The booking options for the described resource.</p>
-    #[serde(rename = "BookingOptions")]
+    #[serde(rename = "bookingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub booking_options: Option<BookingOptions>,
     /// <p>The date and time when a resource was disabled from WorkMail, in UNIX epoch time format.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The email of the described resource.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time format.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The name of the described resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The identifier of the described resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The state of the resource: enabled (registered to Amazon WorkMail), disabled (deregistered or never registered to WorkMail), or deleted.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The type of the described resource.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -744,10 +744,10 @@ pub struct DescribeResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserRequest {
     /// <p>The identifier for the organization under which the user exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier for the user to be described.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -755,35 +755,35 @@ pub struct DescribeUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserResponse {
     /// <p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The display name of the user.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The email of the user.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The name for the user.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The identifier for the described user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
     /// <p>In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
-    #[serde(rename = "UserRole")]
+    #[serde(rename = "userRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_role: Option<String>,
 }
@@ -792,13 +792,13 @@ pub struct DescribeUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateDelegateFromResourceRequest {
     /// <p>The identifier for the member (user, group) to be removed from the resource's delegates.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The identifier for the organization under which the resource exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier of the resource from which delegates' set members are removed. </p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -810,13 +810,13 @@ pub struct DisassociateDelegateFromResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateMemberFromGroupRequest {
     /// <p>The identifier for the group from which members are removed.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The identifier for the member to be removed to the group.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The identifier for the organization under which the group exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -829,11 +829,11 @@ pub struct DisassociateMemberFromGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Domain {
     /// <p>The fully qualified domain name.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.</p>
-    #[serde(rename = "HostedZoneId")]
+    #[serde(rename = "hostedZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hosted_zone_id: Option<String>,
 }
@@ -842,13 +842,13 @@ pub struct Domain {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FolderConfiguration {
     /// <p>The action to take on the folder contents at the end of the folder configuration period.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>The folder name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The period of time at which the folder configuration action is applied.</p>
-    #[serde(rename = "Period")]
+    #[serde(rename = "period")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period: Option<i64>,
 }
@@ -857,16 +857,16 @@ pub struct FolderConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAccessControlEffectRequest {
     /// <p>The access protocol action. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>The IPv4 address.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     pub ip_address: String,
     /// <p>The identifier for the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The user ID.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -874,11 +874,11 @@ pub struct GetAccessControlEffectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccessControlEffectResponse {
     /// <p>The rule effect.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub effect: Option<String>,
     /// <p>The rules that match the given parameters, resulting in an effect.</p>
-    #[serde(rename = "MatchedRules")]
+    #[serde(rename = "matchedRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub matched_rules: Option<Vec<String>>,
 }
@@ -887,7 +887,7 @@ pub struct GetAccessControlEffectResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDefaultRetentionPolicyRequest {
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -895,19 +895,19 @@ pub struct GetDefaultRetentionPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDefaultRetentionPolicyResponse {
     /// <p>The retention policy description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The retention policy folder configurations.</p>
-    #[serde(rename = "FolderConfigurations")]
+    #[serde(rename = "folderConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_configurations: Option<Vec<FolderConfiguration>>,
     /// <p>The retention policy ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The retention policy name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -916,10 +916,10 @@ pub struct GetDefaultRetentionPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMailboxDetailsRequest {
     /// <p>The identifier for the organization that contains the user whose mailbox details are being requested.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier for the user whose mailbox details are being requested.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -927,11 +927,11 @@ pub struct GetMailboxDetailsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMailboxDetailsResponse {
     /// <p>The maximum allowed mailbox size, in MB, for the specified user.</p>
-    #[serde(rename = "MailboxQuota")]
+    #[serde(rename = "mailboxQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mailbox_quota: Option<i64>,
     /// <p>The current mailbox size, in MB, for the specified user.</p>
-    #[serde(rename = "MailboxSize")]
+    #[serde(rename = "mailboxSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mailbox_size: Option<f64>,
 }
@@ -940,23 +940,23 @@ pub struct GetMailboxDetailsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMobileDeviceAccessEffectRequest {
     /// <p>Device model the simulated user will report.</p>
-    #[serde(rename = "DeviceModel")]
+    #[serde(rename = "deviceModel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_model: Option<String>,
     /// <p>Device operating system the simulated user will report.</p>
-    #[serde(rename = "DeviceOperatingSystem")]
+    #[serde(rename = "deviceOperatingSystem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_operating_system: Option<String>,
     /// <p>Device type the simulated user will report.</p>
-    #[serde(rename = "DeviceType")]
+    #[serde(rename = "deviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type: Option<String>,
     /// <p>Device user agent the simulated user will report.</p>
-    #[serde(rename = "DeviceUserAgent")]
+    #[serde(rename = "deviceUserAgent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_user_agent: Option<String>,
     /// <p>The Amazon WorkMail organization to simulate the access effect for.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -964,11 +964,11 @@ pub struct GetMobileDeviceAccessEffectRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMobileDeviceAccessEffectResponse {
     /// <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the Amazon WorkMail organization for the simulated user parameters.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub effect: Option<String>,
     /// <p>A list of the rules which matched the simulated user input and produced the effect.</p>
-    #[serde(rename = "MatchedRules")]
+    #[serde(rename = "matchedRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub matched_rules: Option<Vec<MobileDeviceAccessMatchedRule>>,
 }
@@ -978,27 +978,27 @@ pub struct GetMobileDeviceAccessEffectResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Group {
     /// <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The email of the group.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The date indicating when the group was enabled for Amazon WorkMail use.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The identifier of the group.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1007,7 +1007,7 @@ pub struct Group {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAccessControlRulesRequest {
     /// <p>The identifier for the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1015,7 +1015,7 @@ pub struct ListAccessControlRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAccessControlRulesResponse {
     /// <p>The access control rules.</p>
-    #[serde(rename = "Rules")]
+    #[serde(rename = "rules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rules: Option<Vec<AccessControlRule>>,
 }
@@ -1024,18 +1024,18 @@ pub struct ListAccessControlRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAliasesRequest {
     /// <p>The identifier for the entity for which to list the aliases.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the organization under which the entity exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1043,11 +1043,11 @@ pub struct ListAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAliasesResponse {
     /// <p>The entity's paginated aliases.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<String>>,
     /// <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1056,18 +1056,18 @@ pub struct ListAliasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupMembersRequest {
     /// <p>The identifier for the group to which the members (users or groups) are associated.</p>
-    #[serde(rename = "GroupId")]
+    #[serde(rename = "groupId")]
     pub group_id: String,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p> The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the organization under which the group exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1075,11 +1075,11 @@ pub struct ListGroupMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupMembersResponse {
     /// <p>The members associated to the group.</p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub members: Option<Vec<Member>>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1088,15 +1088,15 @@ pub struct ListGroupMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the organization under which the groups exist.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1104,11 +1104,11 @@ pub struct ListGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupsResponse {
     /// <p>The overview of groups for an organization.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<Group>>,
     /// <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1117,15 +1117,15 @@ pub struct ListGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMailboxExportJobsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1133,11 +1133,11 @@ pub struct ListMailboxExportJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMailboxExportJobsResponse {
     /// <p>The mailbox export job details.</p>
-    #[serde(rename = "Jobs")]
+    #[serde(rename = "jobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jobs: Option<Vec<MailboxExportJob>>,
     /// <p>The token to use to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1146,18 +1146,18 @@ pub struct ListMailboxExportJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMailboxPermissionsRequest {
     /// <p>The identifier of the user, group, or resource for which to list mailbox permissions.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier of the organization under which the user, group, or resource exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1165,11 +1165,11 @@ pub struct ListMailboxPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMailboxPermissionsResponse {
     /// <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>One page of the user, group, or resource mailbox permissions.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<Permission>>,
 }
@@ -1178,7 +1178,7 @@ pub struct ListMailboxPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMobileDeviceAccessRulesRequest {
     /// <p>The Amazon WorkMail organization for which to list the rules.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1186,7 +1186,7 @@ pub struct ListMobileDeviceAccessRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMobileDeviceAccessRulesResponse {
     /// <p>The list of mobile device access rules that exist under the specified Amazon WorkMail organization.</p>
-    #[serde(rename = "Rules")]
+    #[serde(rename = "rules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rules: Option<Vec<MobileDeviceAccessRule>>,
 }
@@ -1195,11 +1195,11 @@ pub struct ListMobileDeviceAccessRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOrganizationsRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1208,11 +1208,11 @@ pub struct ListOrganizationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOrganizationsResponse {
     /// <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The overview of owned organizations presented as a list of organization summaries.</p>
-    #[serde(rename = "OrganizationSummaries")]
+    #[serde(rename = "organizationSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_summaries: Option<Vec<OrganizationSummary>>,
 }
@@ -1221,18 +1221,18 @@ pub struct ListOrganizationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourceDelegatesRequest {
     /// <p>The number of maximum results in a page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token used to paginate through the delegates associated with a resource.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the organization that contains the resource for which delegates are listed.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier for the resource whose delegates are listed.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1240,11 +1240,11 @@ pub struct ListResourceDelegatesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourceDelegatesResponse {
     /// <p>One page of the resource's delegates.</p>
-    #[serde(rename = "Delegates")]
+    #[serde(rename = "delegates")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delegates: Option<Vec<Delegate>>,
     /// <p>The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1253,15 +1253,15 @@ pub struct ListResourceDelegatesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourcesRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the organization under which the resources exist.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1269,11 +1269,11 @@ pub struct ListResourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourcesResponse {
     /// <p> The token used to paginate through all the organization's resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>One page of the organization's resource representation.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<Vec<Resource>>,
 }
@@ -1282,7 +1282,7 @@ pub struct ListResourcesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -1290,7 +1290,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A list of tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1299,15 +1299,15 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>The maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the organization under which the users exist.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1315,11 +1315,11 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p> The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The overview of users for an organization.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<User>>,
 }
@@ -1329,39 +1329,39 @@ pub struct ListUsersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MailboxExportJob {
     /// <p>The mailbox export job description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The mailbox export job end timestamp.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The identifier of the user or resource associated with the mailbox.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_id: Option<String>,
     /// <p>The estimated progress of the mailbox export job, in percentage points.</p>
-    #[serde(rename = "EstimatedProgress")]
+    #[serde(rename = "estimatedProgress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_progress: Option<i64>,
     /// <p>The identifier of the mailbox export job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name of the S3 bucket.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The path to the S3 bucket and file that the mailbox export job exports to.</p>
-    #[serde(rename = "S3Path")]
+    #[serde(rename = "s3Path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_path: Option<String>,
     /// <p>The mailbox export job start timestamp.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The state of the mailbox export job.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1371,27 +1371,27 @@ pub struct MailboxExportJob {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Member {
     /// <p>The date indicating when the member was disabled from Amazon WorkMail use.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The date indicating when the member was enabled for Amazon WorkMail use.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The identifier of the member.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the member.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A member can be a user or group.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1401,11 +1401,11 @@ pub struct Member {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MobileDeviceAccessMatchedRule {
     /// <p>Identifier of the rule that a simulated user matches.</p>
-    #[serde(rename = "MobileDeviceAccessRuleId")]
+    #[serde(rename = "mobileDeviceAccessRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mobile_device_access_rule_id: Option<String>,
     /// <p>Name of a rule that a simulated user matches.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1415,59 +1415,59 @@ pub struct MobileDeviceAccessMatchedRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MobileDeviceAccessRule {
     /// <p>The date and time at which an access rule was created.</p>
-    #[serde(rename = "DateCreated")]
+    #[serde(rename = "dateCreated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_created: Option<f64>,
     /// <p>The date and time at which an access rule was modified.</p>
-    #[serde(rename = "DateModified")]
+    #[serde(rename = "dateModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_modified: Option<f64>,
     /// <p>The description of a mobile access rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Device models that a rule will match.</p>
-    #[serde(rename = "DeviceModels")]
+    #[serde(rename = "deviceModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_models: Option<Vec<String>>,
     /// <p>Device operating systems that a rule will match.</p>
-    #[serde(rename = "DeviceOperatingSystems")]
+    #[serde(rename = "deviceOperatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_operating_systems: Option<Vec<String>>,
     /// <p>Device types that a rule will match. </p>
-    #[serde(rename = "DeviceTypes")]
+    #[serde(rename = "deviceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_types: Option<Vec<String>>,
     /// <p>Device user agents that a rule will match.</p>
-    #[serde(rename = "DeviceUserAgents")]
+    #[serde(rename = "deviceUserAgents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_user_agents: Option<Vec<String>>,
     /// <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub effect: Option<String>,
     /// <p>The ID assigned to a mobile access rule. </p>
-    #[serde(rename = "MobileDeviceAccessRuleId")]
+    #[serde(rename = "mobileDeviceAccessRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mobile_device_access_rule_id: Option<String>,
     /// <p>The name of a mobile access rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Device models that a rule <b>will not</b> match. All other device models will match.</p>
-    #[serde(rename = "NotDeviceModels")]
+    #[serde(rename = "notDeviceModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_models: Option<Vec<String>>,
     /// <p>Device operating systems that a rule <b>will not</b> match. All other device types will match.</p>
-    #[serde(rename = "NotDeviceOperatingSystems")]
+    #[serde(rename = "notDeviceOperatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_operating_systems: Option<Vec<String>>,
     /// <p>Device types that a rule <b>will not</b> match. All other device types will match.</p>
-    #[serde(rename = "NotDeviceTypes")]
+    #[serde(rename = "notDeviceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_types: Option<Vec<String>>,
     /// <p>Device user agents that a rule <b>will not</b> match. All other device user agents will match.</p>
-    #[serde(rename = "NotDeviceUserAgents")]
+    #[serde(rename = "notDeviceUserAgents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_user_agents: Option<Vec<String>>,
 }
@@ -1477,23 +1477,23 @@ pub struct MobileDeviceAccessRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OrganizationSummary {
     /// <p>The alias associated with the organization.</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias: Option<String>,
     /// <p>The default email domain associated with the organization.</p>
-    #[serde(rename = "DefaultMailDomain")]
+    #[serde(rename = "defaultMailDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_mail_domain: Option<String>,
     /// <p>The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The identifier associated with the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The state associated with the organization.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1503,13 +1503,13 @@ pub struct OrganizationSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Permission {
     /// <p>The identifier of the user, group, or resource to which the permissions are granted.</p>
-    #[serde(rename = "GranteeId")]
+    #[serde(rename = "granteeId")]
     pub grantee_id: String,
     /// <p>The type of user, group, or resource referred to in GranteeId.</p>
-    #[serde(rename = "GranteeType")]
+    #[serde(rename = "granteeType")]
     pub grantee_type: String,
     /// <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
-    #[serde(rename = "PermissionValues")]
+    #[serde(rename = "permissionValues")]
     pub permission_values: Vec<String>,
 }
 
@@ -1517,39 +1517,39 @@ pub struct Permission {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAccessControlRuleRequest {
     /// <p>Access protocol actions to include in the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub actions: Option<Vec<String>>,
     /// <p>The rule description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>The rule effect.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     pub effect: String,
     /// <p>IPv4 CIDR ranges to include in the rule.</p>
-    #[serde(rename = "IpRanges")]
+    #[serde(rename = "ipRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_ranges: Option<Vec<String>>,
     /// <p>The rule name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Access protocol actions to exclude from the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
-    #[serde(rename = "NotActions")]
+    #[serde(rename = "notActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_actions: Option<Vec<String>>,
     /// <p>IPv4 CIDR ranges to exclude from the rule.</p>
-    #[serde(rename = "NotIpRanges")]
+    #[serde(rename = "notIpRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_ip_ranges: Option<Vec<String>>,
     /// <p>User IDs to exclude from the rule.</p>
-    #[serde(rename = "NotUserIds")]
+    #[serde(rename = "notUserIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_user_ids: Option<Vec<String>>,
     /// <p>The identifier of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>User IDs to include in the rule.</p>
-    #[serde(rename = "UserIds")]
+    #[serde(rename = "userIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_ids: Option<Vec<String>>,
 }
@@ -1562,16 +1562,16 @@ pub struct PutAccessControlRuleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutMailboxPermissionsRequest {
     /// <p>The identifier of the user, group, or resource for which to update mailbox permissions.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The identifier of the user, group, or resource to which to grant the permissions.</p>
-    #[serde(rename = "GranteeId")]
+    #[serde(rename = "granteeId")]
     pub grantee_id: String,
     /// <p>The identifier of the organization under which the user, group, or resource exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
-    #[serde(rename = "PermissionValues")]
+    #[serde(rename = "permissionValues")]
     pub permission_values: Vec<String>,
 }
 
@@ -1583,21 +1583,21 @@ pub struct PutMailboxPermissionsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRetentionPolicyRequest {
     /// <p>The retention policy description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The retention policy folder configurations.</p>
-    #[serde(rename = "FolderConfigurations")]
+    #[serde(rename = "folderConfigurations")]
     pub folder_configurations: Vec<FolderConfiguration>,
     /// <p>The retention policy ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The retention policy name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The organization ID.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1609,13 +1609,13 @@ pub struct PutRetentionPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterToWorkMailRequest {
     /// <p>The email for the user, group, or resource to be updated.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     pub email: String,
     /// <p>The identifier for the user, group, or resource to be updated.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The identifier for the organization under which the user, group, or resource exists.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1627,13 +1627,13 @@ pub struct RegisterToWorkMailResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResetPasswordRequest {
     /// <p>The identifier of the organization that contains the user for which the password is reset.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The new password for the user.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>The identifier of the user for whom the password is reset.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -1646,31 +1646,31 @@ pub struct ResetPasswordResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Resource {
     /// <p>The date indicating when the resource was disabled from Amazon WorkMail use.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The email of the resource.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The date indicating when the resource was enabled for Amazon WorkMail use.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The identifier of the resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The type of the resource: equipment or room.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1679,29 +1679,29 @@ pub struct Resource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartMailboxExportJobRequest {
     /// <p>The idempotency token for the client request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>The mailbox export job description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the user or resource associated with the mailbox.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     pub kms_key_arn: String,
     /// <p>The identifier associated with the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The name of the S3 bucket.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     pub s3_bucket_name: String,
     /// <p>The S3 bucket prefix.</p>
-    #[serde(rename = "S3Prefix")]
+    #[serde(rename = "s3Prefix")]
     pub s3_prefix: String,
 }
 
@@ -1709,7 +1709,7 @@ pub struct StartMailboxExportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartMailboxExportJobResponse {
     /// <p>The job ID.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -1718,10 +1718,10 @@ pub struct StartMailboxExportJobResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1729,10 +1729,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tag key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1744,10 +1744,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1759,13 +1759,13 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateMailboxQuotaRequest {
     /// <p>The updated mailbox quota, in MB, for the specified user.</p>
-    #[serde(rename = "MailboxQuota")]
+    #[serde(rename = "mailboxQuota")]
     pub mailbox_quota: i64,
     /// <p>The identifier for the organization that contains the user for whom to update the mailbox quota.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifer for the user for whom to update the mailbox quota.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -1777,52 +1777,52 @@ pub struct UpdateMailboxQuotaResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateMobileDeviceAccessRuleRequest {
     /// <p>The updated rule description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Device models that the updated rule will match.</p>
-    #[serde(rename = "DeviceModels")]
+    #[serde(rename = "deviceModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_models: Option<Vec<String>>,
     /// <p>Device operating systems that the updated rule will match.</p>
-    #[serde(rename = "DeviceOperatingSystems")]
+    #[serde(rename = "deviceOperatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_operating_systems: Option<Vec<String>>,
     /// <p>Device types that the updated rule will match.</p>
-    #[serde(rename = "DeviceTypes")]
+    #[serde(rename = "deviceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_types: Option<Vec<String>>,
     /// <p>User agents that the updated rule will match.</p>
-    #[serde(rename = "DeviceUserAgents")]
+    #[serde(rename = "deviceUserAgents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_user_agents: Option<Vec<String>>,
     /// <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
-    #[serde(rename = "Effect")]
+    #[serde(rename = "effect")]
     pub effect: String,
     /// <p>The identifier of the rule to be updated.</p>
-    #[serde(rename = "MobileDeviceAccessRuleId")]
+    #[serde(rename = "mobileDeviceAccessRuleId")]
     pub mobile_device_access_rule_id: String,
     /// <p>The updated rule name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Device models that the updated rule <b>will not</b> match. All other device models will match.</p>
-    #[serde(rename = "NotDeviceModels")]
+    #[serde(rename = "notDeviceModels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_models: Option<Vec<String>>,
     /// <p>Device operating systems that the updated rule <b>will not</b> match. All other device operating systems will match.</p>
-    #[serde(rename = "NotDeviceOperatingSystems")]
+    #[serde(rename = "notDeviceOperatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_operating_systems: Option<Vec<String>>,
     /// <p>Device types that the updated rule <b>will not</b> match. All other device types will match.</p>
-    #[serde(rename = "NotDeviceTypes")]
+    #[serde(rename = "notDeviceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_types: Option<Vec<String>>,
     /// <p>User agents that the updated rule <b>will not</b> match. All other user agents will match.</p>
-    #[serde(rename = "NotDeviceUserAgents")]
+    #[serde(rename = "notDeviceUserAgents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_device_user_agents: Option<Vec<String>>,
     /// <p>The Amazon WorkMail organization under which the rule will be updated.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1834,13 +1834,13 @@ pub struct UpdateMobileDeviceAccessRuleResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePrimaryEmailAddressRequest {
     /// <p>The value of the email to be updated as primary.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     pub email: String,
     /// <p>The user, group, or resource to update.</p>
-    #[serde(rename = "EntityId")]
+    #[serde(rename = "entityId")]
     pub entity_id: String,
     /// <p>The organization that contains the user, group, or resource to update.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -1852,18 +1852,18 @@ pub struct UpdatePrimaryEmailAddressResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateResourceRequest {
     /// <p>The resource's booking options to be updated.</p>
-    #[serde(rename = "BookingOptions")]
+    #[serde(rename = "bookingOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub booking_options: Option<BookingOptions>,
     /// <p>The name of the resource to be updated.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The identifier associated with the organization for which the resource is updated.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The identifier of the resource to be updated.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1876,35 +1876,35 @@ pub struct UpdateResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct User {
     /// <p>The date indicating when the user was disabled from Amazon WorkMail use.</p>
-    #[serde(rename = "DisabledDate")]
+    #[serde(rename = "disabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_date: Option<f64>,
     /// <p>The display name of the user.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The email of the user.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p>The date indicating when the user was enabled for Amazon WorkMail use.</p>
-    #[serde(rename = "EnabledDate")]
+    #[serde(rename = "enabledDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled_date: Option<f64>,
     /// <p>The identifier of the user.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the user.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The role of the user.</p>
-    #[serde(rename = "UserRole")]
+    #[serde(rename = "userRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_role: Option<String>,
 }

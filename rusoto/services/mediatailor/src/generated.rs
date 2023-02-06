@@ -29,11 +29,11 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccessConfiguration {
     /// <p>The type of authentication used to access content from HttpConfiguration::BaseUrl on your source location. Accepted value: S3_SIGV4.</p> <p>S3_SIGV4 - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</p> <p>Before you can use S3_SIGV4, you must meet these requirements:</p> <p>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.</p> <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p> <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p>
-    #[serde(rename = "AccessType")]
+    #[serde(rename = "accessType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_type: Option<String>,
     /// <p>AWS Secrets Manager access token configuration parameters.</p>
-    #[serde(rename = "SecretsManagerAccessTokenConfiguration")]
+    #[serde(rename = "secretsManagerAccessTokenConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secrets_manager_access_token_configuration: Option<SecretsManagerAccessTokenConfiguration>,
 }
@@ -42,19 +42,19 @@ pub struct AccessConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AdBreak {
     /// <p>The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.</p>
-    #[serde(rename = "MessageType")]
+    #[serde(rename = "messageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_type: Option<String>,
     /// <p>How long (in milliseconds) after the beginning of the program that an ad starts. This value must fall within 100ms of a segment boundary, otherwise the ad break will be skipped.</p>
-    #[serde(rename = "OffsetMillis")]
+    #[serde(rename = "offsetMillis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub offset_millis: Option<i64>,
     /// <p>Ad break slate configuration.</p>
-    #[serde(rename = "Slate")]
+    #[serde(rename = "slate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub slate: Option<SlateSource>,
     /// <p>This defines the SCTE-35 splice_insert() message inserted around the ad. For information about using splice_insert(), see the SCTE-35 specficiaiton, section 9.7.3.1.</p>
-    #[serde(rename = "SpliceInsertMessage")]
+    #[serde(rename = "spliceInsertMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub splice_insert_message: Option<SpliceInsertMessage>,
 }
@@ -63,7 +63,7 @@ pub struct AdBreak {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AdMarkerPassthrough {
     /// <p>Enables ad marker passthrough for your configuration.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -72,11 +72,11 @@ pub struct AdMarkerPassthrough {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AvailSuppression {
     /// <p>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p>A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -85,11 +85,11 @@ pub struct AvailSuppression {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Bumper {
     /// <p>The URL for the end bumper asset.</p>
-    #[serde(rename = "EndUrl")]
+    #[serde(rename = "endUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_url: Option<String>,
     /// <p>The URL for the start bumper asset.</p>
-    #[serde(rename = "StartUrl")]
+    #[serde(rename = "startUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_url: Option<String>,
 }
@@ -98,11 +98,11 @@ pub struct Bumper {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CdnConfiguration {
     /// <p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&amp;lt;region&gt;.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>
-    #[serde(rename = "AdSegmentUrlPrefix")]
+    #[serde(rename = "adSegmentUrlPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_segment_url_prefix: Option<String>,
     /// <p>A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.</p>
-    #[serde(rename = "ContentSegmentUrlPrefix")]
+    #[serde(rename = "contentSegmentUrlPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_segment_url_prefix: Option<String>,
 }
@@ -112,30 +112,30 @@ pub struct CdnConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Channel {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>Returns the state whether the channel is running or not.</p>
-    #[serde(rename = "ChannelState")]
+    #[serde(rename = "channelState")]
     pub channel_state: String,
     /// <p>The timestamp of when the channel was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The timestamp of when the channel was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The channel's output properties.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     pub outputs: Vec<ResponseOutputItem>,
     /// <p>The type of playback mode for this channel. Possible values: ONCE or LOOP.</p>
-    #[serde(rename = "PlaybackMode")]
+    #[serde(rename = "playbackMode")]
     pub playback_mode: String,
     /// <p>The tags to assign to the channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -144,16 +144,16 @@ pub struct Channel {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateChannelRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The channel's output properties.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     pub outputs: Vec<RequestOutputItem>,
     /// <p>The type of playback mode for this channel. The only supported value is LOOP.</p>
-    #[serde(rename = "PlaybackMode")]
+    #[serde(rename = "playbackMode")]
     pub playback_mode: String,
     /// <p>The tags to assign to the channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -162,35 +162,35 @@ pub struct CreateChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateChannelResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
     /// <p>Indicates whether the channel is in a running state or not.</p>
-    #[serde(rename = "ChannelState")]
+    #[serde(rename = "channelState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_state: Option<String>,
     /// <p>The timestamp of when the channel was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The timestamp of when the channel was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The channel's output properties.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<ResponseOutputItem>>,
     /// <p>The type of playback for this channel. The only supported value is LOOP.</p>
-    #[serde(rename = "PlaybackMode")]
+    #[serde(rename = "playbackMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_mode: Option<String>,
     /// <p>The tags assigned to the channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -199,23 +199,23 @@ pub struct CreateChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProgramRequest {
     /// <p>The ad break configuration settings.</p>
-    #[serde(rename = "AdBreaks")]
+    #[serde(rename = "adBreaks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_breaks: Option<Vec<AdBreak>>,
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The identifier for the program you are working on.</p>
-    #[serde(rename = "ProgramName")]
+    #[serde(rename = "programName")]
     pub program_name: String,
     /// <p>The schedule configuration settings.</p>
-    #[serde(rename = "ScheduleConfiguration")]
+    #[serde(rename = "scheduleConfiguration")]
     pub schedule_configuration: ScheduleConfiguration,
     /// <p>The name of the source location.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The name that's used to refer to a VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 
@@ -223,31 +223,31 @@ pub struct CreateProgramRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProgramResponse {
     /// <p>The ad break configuration settings.</p>
-    #[serde(rename = "AdBreaks")]
+    #[serde(rename = "adBreaks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_breaks: Option<Vec<AdBreak>>,
     /// <p>The ARN of the program.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the channel that the program belongs to.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
     /// <p>The timestamp of when the program was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The name of the program.</p>
-    #[serde(rename = "ProgramName")]
+    #[serde(rename = "programName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub program_name: Option<String>,
     /// <p>The source location name.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The name that's used to refer to a VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -256,21 +256,21 @@ pub struct CreateProgramResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSourceLocationRequest {
     /// <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
-    #[serde(rename = "AccessConfiguration")]
+    #[serde(rename = "accessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_configuration: Option<AccessConfiguration>,
     /// <p>The optional configuration for the server that serves segments.</p>
-    #[serde(rename = "DefaultSegmentDeliveryConfiguration")]
+    #[serde(rename = "defaultSegmentDeliveryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_segment_delivery_configuration: Option<DefaultSegmentDeliveryConfiguration>,
     /// <p>The source's HTTP package configurations.</p>
-    #[serde(rename = "HttpConfiguration")]
+    #[serde(rename = "httpConfiguration")]
     pub http_configuration: HttpConfiguration,
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The tags to assign to the source location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -279,35 +279,35 @@ pub struct CreateSourceLocationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSourceLocationResponse {
     /// <p>The access configuration for the source location.</p>
-    #[serde(rename = "AccessConfiguration")]
+    #[serde(rename = "accessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_configuration: Option<AccessConfiguration>,
     /// <p>The ARN of the source location.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The timestamp that indicates when the source location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The default segment delivery configuration settings.</p>
-    #[serde(rename = "DefaultSegmentDeliveryConfiguration")]
+    #[serde(rename = "defaultSegmentDeliveryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_segment_delivery_configuration: Option<DefaultSegmentDeliveryConfiguration>,
     /// <p>The HTTP package configuration settings for the source location.</p>
-    #[serde(rename = "HttpConfiguration")]
+    #[serde(rename = "httpConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_configuration: Option<HttpConfiguration>,
     /// <p>The timestamp that indicates when the source location was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The tags assigned to the source location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -316,17 +316,17 @@ pub struct CreateSourceLocationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateVodSourceRequest {
     /// <p>An array of HTTP package configuration parameters for this VOD source.</p>
-    #[serde(rename = "HttpPackageConfigurations")]
+    #[serde(rename = "httpPackageConfigurations")]
     pub http_package_configurations: Vec<HttpPackageConfiguration>,
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The tags to assign to the VOD source.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The identifier for the VOD source you are working on.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 
@@ -334,31 +334,31 @@ pub struct CreateVodSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateVodSourceResponse {
     /// <p>The ARN of the VOD source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The timestamp that indicates when the VOD source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The HTTP package configurations.</p>
-    #[serde(rename = "HttpPackageConfigurations")]
+    #[serde(rename = "httpPackageConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_package_configurations: Option<Vec<HttpPackageConfiguration>>,
     /// <p>The ARN for the VOD source.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location associated with the VOD source.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The tags assigned to the VOD source.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -368,15 +368,15 @@ pub struct CreateVodSourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DashConfiguration {
     /// <p>The URL generated by MediaTailor to initiate a playback session. The session uses server-side reporting. This setting is ignored in PUT operations.</p>
-    #[serde(rename = "ManifestEndpointPrefix")]
+    #[serde(rename = "manifestEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_endpoint_prefix: Option<String>,
     /// <p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.</p>
-    #[serde(rename = "MpdLocation")]
+    #[serde(rename = "mpdLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mpd_location: Option<String>,
     /// <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.</p>
-    #[serde(rename = "OriginManifestType")]
+    #[serde(rename = "originManifestType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_manifest_type: Option<String>,
 }
@@ -386,11 +386,11 @@ pub struct DashConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DashConfigurationForPut {
     /// <p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.</p>
-    #[serde(rename = "MpdLocation")]
+    #[serde(rename = "mpdLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mpd_location: Option<String>,
     /// <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.</p>
-    #[serde(rename = "OriginManifestType")]
+    #[serde(rename = "originManifestType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_manifest_type: Option<String>,
 }
@@ -399,19 +399,19 @@ pub struct DashConfigurationForPut {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DashPlaylistSettings {
     /// <p>The total duration (in seconds) of each manifest. Minimum value: 30 seconds. Maximum value: 3600 seconds.</p>
-    #[serde(rename = "ManifestWindowSeconds")]
+    #[serde(rename = "manifestWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_window_seconds: Option<i64>,
     /// <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: 2 seconds. Maximum value: 60 seconds.</p>
-    #[serde(rename = "MinBufferTimeSeconds")]
+    #[serde(rename = "minBufferTimeSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_buffer_time_seconds: Option<i64>,
     /// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: 2 seconds. Maximum value: 60 seconds.</p>
-    #[serde(rename = "MinUpdatePeriodSeconds")]
+    #[serde(rename = "minUpdatePeriodSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_update_period_seconds: Option<i64>,
     /// <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: 2 seconds. Maximum value: 60 seconds.</p>
-    #[serde(rename = "SuggestedPresentationDelaySeconds")]
+    #[serde(rename = "suggestedPresentationDelaySeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub suggested_presentation_delay_seconds: Option<i64>,
 }
@@ -420,7 +420,7 @@ pub struct DashPlaylistSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DefaultSegmentDeliveryConfiguration {
     /// <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
-    #[serde(rename = "BaseUrl")]
+    #[serde(rename = "baseUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub base_url: Option<String>,
 }
@@ -429,7 +429,7 @@ pub struct DefaultSegmentDeliveryConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelPolicyRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
 }
 
@@ -441,7 +441,7 @@ pub struct DeleteChannelPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteChannelRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
 }
 
@@ -453,7 +453,7 @@ pub struct DeleteChannelResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePlaybackConfigurationRequest {
     /// <p>The identifier for the playback configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -465,10 +465,10 @@ pub struct DeletePlaybackConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProgramRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The identifier for the program you are working on.</p>
-    #[serde(rename = "ProgramName")]
+    #[serde(rename = "programName")]
     pub program_name: String,
 }
 
@@ -480,7 +480,7 @@ pub struct DeleteProgramResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSourceLocationRequest {
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
 }
 
@@ -492,10 +492,10 @@ pub struct DeleteSourceLocationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteVodSourceRequest {
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The identifier for the VOD source you are working on.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 
@@ -507,7 +507,7 @@ pub struct DeleteVodSourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeChannelRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
 }
 
@@ -515,35 +515,35 @@ pub struct DescribeChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeChannelResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
     /// <p>Indicates whether the channel is in a running state or not.</p>
-    #[serde(rename = "ChannelState")]
+    #[serde(rename = "channelState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_state: Option<String>,
     /// <p>The timestamp of when the channel was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The timestamp of when the channel was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The channel's output properties.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<ResponseOutputItem>>,
     /// <p>The type of playback for this channel. The only supported value is LOOP.</p>
-    #[serde(rename = "PlaybackMode")]
+    #[serde(rename = "playbackMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_mode: Option<String>,
     /// <p>The tags assigned to the channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -552,10 +552,10 @@ pub struct DescribeChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProgramRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The identifier for the program you are working on.</p>
-    #[serde(rename = "ProgramName")]
+    #[serde(rename = "programName")]
     pub program_name: String,
 }
 
@@ -563,31 +563,31 @@ pub struct DescribeProgramRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProgramResponse {
     /// <p>The ad break configuration settings.</p>
-    #[serde(rename = "AdBreaks")]
+    #[serde(rename = "adBreaks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_breaks: Option<Vec<AdBreak>>,
     /// <p>The ARN of the program.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the channel that the program belongs to.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
     /// <p>The timestamp of when the program was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The name of the program.</p>
-    #[serde(rename = "ProgramName")]
+    #[serde(rename = "programName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub program_name: Option<String>,
     /// <p>The source location name.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The name that's used to refer to a VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -596,7 +596,7 @@ pub struct DescribeProgramResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSourceLocationRequest {
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
 }
 
@@ -604,35 +604,35 @@ pub struct DescribeSourceLocationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSourceLocationResponse {
     /// <p>The access configuration for the source location.</p>
-    #[serde(rename = "AccessConfiguration")]
+    #[serde(rename = "accessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_configuration: Option<AccessConfiguration>,
     /// <p>The ARN of the source location.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The timestamp that indicates when the source location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The default segment delivery configuration settings.</p>
-    #[serde(rename = "DefaultSegmentDeliveryConfiguration")]
+    #[serde(rename = "defaultSegmentDeliveryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_segment_delivery_configuration: Option<DefaultSegmentDeliveryConfiguration>,
     /// <p>The HTTP package configuration settings for the source location.</p>
-    #[serde(rename = "HttpConfiguration")]
+    #[serde(rename = "httpConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_configuration: Option<HttpConfiguration>,
     /// <p>The timestamp that indicates when the source location was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The tags assigned to the source location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -641,10 +641,10 @@ pub struct DescribeSourceLocationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeVodSourceRequest {
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The identifier for the VOD source you are working on.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 
@@ -652,31 +652,31 @@ pub struct DescribeVodSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeVodSourceResponse {
     /// <p>The ARN of the VOD source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The timestamp that indicates when the VOD source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The HTTP package configurations.</p>
-    #[serde(rename = "HttpPackageConfigurations")]
+    #[serde(rename = "httpPackageConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_package_configurations: Option<Vec<HttpPackageConfiguration>>,
     /// <p>The ARN for the VOD source.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location associated with the VOD source.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The tags assigned to the VOD source.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -685,7 +685,7 @@ pub struct DescribeVodSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetChannelPolicyRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
 }
 
@@ -693,7 +693,7 @@ pub struct GetChannelPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetChannelPolicyResponse {
     /// <p>The IAM policy for the channel.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
 }
@@ -702,18 +702,18 @@ pub struct GetChannelPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetChannelScheduleRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The schedule duration in minutes. The maximum duration is 4320 minutes (three days).</p>
-    #[serde(rename = "DurationMinutes")]
+    #[serde(rename = "durationMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_minutes: Option<String>,
     /// <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -722,11 +722,11 @@ pub struct GetChannelScheduleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetChannelScheduleResponse {
     /// <p>An array of schedule entries for the channel.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<ScheduleEntry>>,
     /// <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -735,7 +735,7 @@ pub struct GetChannelScheduleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPlaybackConfigurationRequest {
     /// <p>The identifier for the playback configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -743,76 +743,76 @@ pub struct GetPlaybackConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPlaybackConfigurationResponse {
     /// <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
-    #[serde(rename = "AdDecisionServerUrl")]
+    #[serde(rename = "adDecisionServerUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_decision_server_url: Option<String>,
     /// <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
-    #[serde(rename = "AvailSuppression")]
+    #[serde(rename = "availSuppression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avail_suppression: Option<AvailSuppression>,
     /// <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
-    #[serde(rename = "Bumper")]
+    #[serde(rename = "bumper")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bumper: Option<Bumper>,
     /// <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
-    #[serde(rename = "CdnConfiguration")]
+    #[serde(rename = "cdnConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cdn_configuration: Option<CdnConfiguration>,
     /// <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
-    #[serde(rename = "ConfigurationAliases")]
+    #[serde(rename = "configurationAliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aliases:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The configuration for DASH content.</p>
-    #[serde(rename = "DashConfiguration")]
+    #[serde(rename = "dashConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_configuration: Option<DashConfiguration>,
     /// <p>The configuration for HLS content.</p>
-    #[serde(rename = "HlsConfiguration")]
+    #[serde(rename = "hlsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_configuration: Option<HlsConfiguration>,
     /// <p>The configuration for pre-roll ad insertion.</p>
-    #[serde(rename = "LivePreRollConfiguration")]
+    #[serde(rename = "livePreRollConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub live_pre_roll_configuration: Option<LivePreRollConfiguration>,
     /// <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
-    #[serde(rename = "ManifestProcessingRules")]
+    #[serde(rename = "manifestProcessingRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_processing_rules: Option<ManifestProcessingRules>,
     /// <p>The identifier for the playback configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
-    #[serde(rename = "PersonalizationThresholdSeconds")]
+    #[serde(rename = "personalizationThresholdSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub personalization_threshold_seconds: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) for the playback configuration.</p>
-    #[serde(rename = "PlaybackConfigurationArn")]
+    #[serde(rename = "playbackConfigurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_configuration_arn: Option<String>,
     /// <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting.</p>
-    #[serde(rename = "PlaybackEndpointPrefix")]
+    #[serde(rename = "playbackEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_endpoint_prefix: Option<String>,
     /// <p>The URL that the player uses to initialize a session that uses client-side reporting.</p>
-    #[serde(rename = "SessionInitializationEndpointPrefix")]
+    #[serde(rename = "sessionInitializationEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_initialization_endpoint_prefix: Option<String>,
     /// <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
-    #[serde(rename = "SlateAdUrl")]
+    #[serde(rename = "slateAdUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub slate_ad_url: Option<String>,
     /// <p>The tags assigned to the playback configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
-    #[serde(rename = "TranscodeProfileName")]
+    #[serde(rename = "transcodeProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transcode_profile_name: Option<String>,
     /// <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
-    #[serde(rename = "VideoContentSourceUrl")]
+    #[serde(rename = "videoContentSourceUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_content_source_url: Option<String>,
 }
@@ -822,7 +822,7 @@ pub struct GetPlaybackConfigurationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HlsConfiguration {
     /// <p>The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.</p>
-    #[serde(rename = "ManifestEndpointPrefix")]
+    #[serde(rename = "manifestEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_endpoint_prefix: Option<String>,
 }
@@ -831,7 +831,7 @@ pub struct HlsConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HlsPlaylistSettings {
     /// <p>The total duration (in seconds) of each manifest. Minimum value: 30 seconds. Maximum value: 3600 seconds.</p>
-    #[serde(rename = "ManifestWindowSeconds")]
+    #[serde(rename = "manifestWindowSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_window_seconds: Option<i64>,
 }
@@ -840,7 +840,7 @@ pub struct HlsPlaylistSettings {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HttpConfiguration {
     /// <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
-    #[serde(rename = "BaseUrl")]
+    #[serde(rename = "baseUrl")]
     pub base_url: String,
 }
 
@@ -848,13 +848,13 @@ pub struct HttpConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HttpPackageConfiguration {
     /// <p>The relative path to the URL for this VOD source. This is combined with SourceLocation::HttpConfiguration::BaseUrl to form a valid URL.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     pub path: String,
     /// <p>The name of the source group. This has to match one of the Channel::Outputs::SourceGroup.</p>
-    #[serde(rename = "SourceGroup")]
+    #[serde(rename = "sourceGroup")]
     pub source_group: String,
     /// <p>The streaming protocol for this package configuration. Supported values are HLS and DASH.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -862,11 +862,11 @@ pub struct HttpPackageConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListChannelsRequest {
     /// <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -875,11 +875,11 @@ pub struct ListChannelsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListChannelsResponse {
     /// <p>An array of channels that are associated with this account.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Channel>>,
     /// <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -888,11 +888,11 @@ pub struct ListChannelsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPlaybackConfigurationsRequest {
     /// <p>Maximum number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -901,11 +901,11 @@ pub struct ListPlaybackConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPlaybackConfigurationsResponse {
     /// <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<PlaybackConfiguration>>,
     /// <p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -914,11 +914,11 @@ pub struct ListPlaybackConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSourceLocationsRequest {
     /// <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -927,11 +927,11 @@ pub struct ListSourceLocationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSourceLocationsResponse {
     /// <p>An array of source locations.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<SourceLocation>>,
     /// <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -940,7 +940,7 @@ pub struct ListSourceLocationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -948,7 +948,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A comma-separated list of tag key:value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -957,15 +957,15 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListVodSourcesRequest {
     /// <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
 }
 
@@ -973,11 +973,11 @@ pub struct ListVodSourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListVodSourcesResponse {
     /// <p>Lists the VOD sources.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<VodSource>>,
     /// <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -986,11 +986,11 @@ pub struct ListVodSourcesResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LivePreRollConfiguration {
     /// <p>The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
-    #[serde(rename = "AdDecisionServerUrl")]
+    #[serde(rename = "adDecisionServerUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_decision_server_url: Option<String>,
     /// <p>The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won&#39;t play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.</p>
-    #[serde(rename = "MaxDurationSeconds")]
+    #[serde(rename = "maxDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_duration_seconds: Option<i64>,
 }
@@ -999,7 +999,7 @@ pub struct LivePreRollConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ManifestProcessingRules {
     /// <p>For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.</p>
-    #[serde(rename = "AdMarkerPassthrough")]
+    #[serde(rename = "adMarkerPassthrough")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_marker_passthrough: Option<AdMarkerPassthrough>,
 }
@@ -1009,76 +1009,76 @@ pub struct ManifestProcessingRules {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PlaybackConfiguration {
     /// <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
-    #[serde(rename = "AdDecisionServerUrl")]
+    #[serde(rename = "adDecisionServerUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_decision_server_url: Option<String>,
     /// <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
-    #[serde(rename = "AvailSuppression")]
+    #[serde(rename = "availSuppression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avail_suppression: Option<AvailSuppression>,
     /// <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
-    #[serde(rename = "Bumper")]
+    #[serde(rename = "bumper")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bumper: Option<Bumper>,
     /// <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
-    #[serde(rename = "CdnConfiguration")]
+    #[serde(rename = "cdnConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cdn_configuration: Option<CdnConfiguration>,
     /// <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
-    #[serde(rename = "ConfigurationAliases")]
+    #[serde(rename = "configurationAliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aliases:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The configuration for a DASH source.</p>
-    #[serde(rename = "DashConfiguration")]
+    #[serde(rename = "dashConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_configuration: Option<DashConfiguration>,
     /// <p>The configuration for HLS content.</p>
-    #[serde(rename = "HlsConfiguration")]
+    #[serde(rename = "hlsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_configuration: Option<HlsConfiguration>,
     /// <p>The configuration for pre-roll ad insertion.</p>
-    #[serde(rename = "LivePreRollConfiguration")]
+    #[serde(rename = "livePreRollConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub live_pre_roll_configuration: Option<LivePreRollConfiguration>,
     /// <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
-    #[serde(rename = "ManifestProcessingRules")]
+    #[serde(rename = "manifestProcessingRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_processing_rules: Option<ManifestProcessingRules>,
     /// <p>The identifier for the playback configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
-    #[serde(rename = "PersonalizationThresholdSeconds")]
+    #[serde(rename = "personalizationThresholdSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub personalization_threshold_seconds: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) for the playback configuration.</p>
-    #[serde(rename = "PlaybackConfigurationArn")]
+    #[serde(rename = "playbackConfigurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_configuration_arn: Option<String>,
     /// <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor.</p>
-    #[serde(rename = "PlaybackEndpointPrefix")]
+    #[serde(rename = "playbackEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_endpoint_prefix: Option<String>,
     /// <p>The URL that the player uses to initialize a session that uses client-side reporting.</p>
-    #[serde(rename = "SessionInitializationEndpointPrefix")]
+    #[serde(rename = "sessionInitializationEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_initialization_endpoint_prefix: Option<String>,
     /// <p>The URL for a video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
-    #[serde(rename = "SlateAdUrl")]
+    #[serde(rename = "slateAdUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub slate_ad_url: Option<String>,
     /// <p>The tags to assign to the playback configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
-    #[serde(rename = "TranscodeProfileName")]
+    #[serde(rename = "transcodeProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transcode_profile_name: Option<String>,
     /// <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
-    #[serde(rename = "VideoContentSourceUrl")]
+    #[serde(rename = "videoContentSourceUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_content_source_url: Option<String>,
 }
@@ -1087,10 +1087,10 @@ pub struct PlaybackConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutChannelPolicyRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>Adds an IAM role that determines the permissions of your channel.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     pub policy: String,
 }
 
@@ -1102,60 +1102,60 @@ pub struct PutChannelPolicyResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutPlaybackConfigurationRequest {
     /// <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
-    #[serde(rename = "AdDecisionServerUrl")]
+    #[serde(rename = "adDecisionServerUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_decision_server_url: Option<String>,
     /// <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
-    #[serde(rename = "AvailSuppression")]
+    #[serde(rename = "availSuppression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avail_suppression: Option<AvailSuppression>,
     /// <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
-    #[serde(rename = "Bumper")]
+    #[serde(rename = "bumper")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bumper: Option<Bumper>,
     /// <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
-    #[serde(rename = "CdnConfiguration")]
+    #[serde(rename = "cdnConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cdn_configuration: Option<CdnConfiguration>,
     /// <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
-    #[serde(rename = "ConfigurationAliases")]
+    #[serde(rename = "configurationAliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aliases:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The configuration for DASH content.</p>
-    #[serde(rename = "DashConfiguration")]
+    #[serde(rename = "dashConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_configuration: Option<DashConfigurationForPut>,
     /// <p>The configuration for pre-roll ad insertion.</p>
-    #[serde(rename = "LivePreRollConfiguration")]
+    #[serde(rename = "livePreRollConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub live_pre_roll_configuration: Option<LivePreRollConfiguration>,
     /// <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
-    #[serde(rename = "ManifestProcessingRules")]
+    #[serde(rename = "manifestProcessingRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_processing_rules: Option<ManifestProcessingRules>,
     /// <p>The identifier for the playback configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
-    #[serde(rename = "PersonalizationThresholdSeconds")]
+    #[serde(rename = "personalizationThresholdSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub personalization_threshold_seconds: Option<i64>,
     /// <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
-    #[serde(rename = "SlateAdUrl")]
+    #[serde(rename = "slateAdUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub slate_ad_url: Option<String>,
     /// <p>The tags to assign to the playback configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
-    #[serde(rename = "TranscodeProfileName")]
+    #[serde(rename = "transcodeProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transcode_profile_name: Option<String>,
     /// <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
-    #[serde(rename = "VideoContentSourceUrl")]
+    #[serde(rename = "videoContentSourceUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_content_source_url: Option<String>,
 }
@@ -1164,76 +1164,76 @@ pub struct PutPlaybackConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutPlaybackConfigurationResponse {
     /// <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
-    #[serde(rename = "AdDecisionServerUrl")]
+    #[serde(rename = "adDecisionServerUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_decision_server_url: Option<String>,
     /// <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
-    #[serde(rename = "AvailSuppression")]
+    #[serde(rename = "availSuppression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avail_suppression: Option<AvailSuppression>,
     /// <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
-    #[serde(rename = "Bumper")]
+    #[serde(rename = "bumper")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bumper: Option<Bumper>,
     /// <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
-    #[serde(rename = "CdnConfiguration")]
+    #[serde(rename = "cdnConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cdn_configuration: Option<CdnConfiguration>,
     /// <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
-    #[serde(rename = "ConfigurationAliases")]
+    #[serde(rename = "configurationAliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_aliases:
         Option<::std::collections::HashMap<String, ::std::collections::HashMap<String, String>>>,
     /// <p>The configuration for DASH content.</p>
-    #[serde(rename = "DashConfiguration")]
+    #[serde(rename = "dashConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_configuration: Option<DashConfiguration>,
     /// <p>The configuration for HLS content.</p>
-    #[serde(rename = "HlsConfiguration")]
+    #[serde(rename = "hlsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_configuration: Option<HlsConfiguration>,
     /// <p>The configuration for pre-roll ad insertion.</p>
-    #[serde(rename = "LivePreRollConfiguration")]
+    #[serde(rename = "livePreRollConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub live_pre_roll_configuration: Option<LivePreRollConfiguration>,
     /// <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
-    #[serde(rename = "ManifestProcessingRules")]
+    #[serde(rename = "manifestProcessingRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_processing_rules: Option<ManifestProcessingRules>,
     /// <p>The identifier for the playback configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
-    #[serde(rename = "PersonalizationThresholdSeconds")]
+    #[serde(rename = "personalizationThresholdSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub personalization_threshold_seconds: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) for the playback configuration.</p>
-    #[serde(rename = "PlaybackConfigurationArn")]
+    #[serde(rename = "playbackConfigurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_configuration_arn: Option<String>,
     /// <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting.</p>
-    #[serde(rename = "PlaybackEndpointPrefix")]
+    #[serde(rename = "playbackEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_endpoint_prefix: Option<String>,
     /// <p>The URL that the player uses to initialize a session that uses client-side reporting.</p>
-    #[serde(rename = "SessionInitializationEndpointPrefix")]
+    #[serde(rename = "sessionInitializationEndpointPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_initialization_endpoint_prefix: Option<String>,
     /// <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
-    #[serde(rename = "SlateAdUrl")]
+    #[serde(rename = "slateAdUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub slate_ad_url: Option<String>,
     /// <p>The tags assigned to the playback configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
-    #[serde(rename = "TranscodeProfileName")]
+    #[serde(rename = "transcodeProfileName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transcode_profile_name: Option<String>,
     /// <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
-    #[serde(rename = "VideoContentSourceUrl")]
+    #[serde(rename = "videoContentSourceUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_content_source_url: Option<String>,
 }
@@ -1243,18 +1243,18 @@ pub struct PutPlaybackConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RequestOutputItem {
     /// <p>DASH manifest configuration parameters.</p>
-    #[serde(rename = "DashPlaylistSettings")]
+    #[serde(rename = "dashPlaylistSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_playlist_settings: Option<DashPlaylistSettings>,
     /// <p>HLS playlist configuration parameters.</p>
-    #[serde(rename = "HlsPlaylistSettings")]
+    #[serde(rename = "hlsPlaylistSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_playlist_settings: Option<HlsPlaylistSettings>,
     /// <p>The name of the manifest for the channel. The name appears in the PlaybackUrl.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     pub manifest_name: String,
     /// <p>A string used to match which HttpPackageConfiguration is used for each VodSource.</p>
-    #[serde(rename = "SourceGroup")]
+    #[serde(rename = "sourceGroup")]
     pub source_group: String,
 }
 
@@ -1263,21 +1263,21 @@ pub struct RequestOutputItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResponseOutputItem {
     /// <p>DASH manifest configuration settings.</p>
-    #[serde(rename = "DashPlaylistSettings")]
+    #[serde(rename = "dashPlaylistSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_playlist_settings: Option<DashPlaylistSettings>,
     /// <p>HLS manifest configuration settings.</p>
-    #[serde(rename = "HlsPlaylistSettings")]
+    #[serde(rename = "hlsPlaylistSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_playlist_settings: Option<HlsPlaylistSettings>,
     /// <p>The name of the manifest for the channel that will appear in the channel output's playback URL.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     pub manifest_name: String,
     /// <p>The URL used for playback by content players.</p>
-    #[serde(rename = "PlaybackUrl")]
+    #[serde(rename = "playbackUrl")]
     pub playback_url: String,
     /// <p>A string used to associate a package configuration source group with a channel output.</p>
-    #[serde(rename = "SourceGroup")]
+    #[serde(rename = "sourceGroup")]
     pub source_group: String,
 }
 
@@ -1286,19 +1286,19 @@ pub struct ResponseOutputItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ScheduleAdBreak {
     /// <p>The approximate duration of the ad break, in seconds.</p>
-    #[serde(rename = "ApproximateDurationSeconds")]
+    #[serde(rename = "approximateDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_duration_seconds: Option<i64>,
     /// <p>The approximate time that the ad will start playing.</p>
-    #[serde(rename = "ApproximateStartTime")]
+    #[serde(rename = "approximateStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_start_time: Option<f64>,
     /// <p>The name of the source location containing the VOD source used for the ad break.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The name of the VOD source used for the ad break.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -1308,7 +1308,7 @@ pub struct ScheduleAdBreak {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ScheduleConfiguration {
     /// <p>Program transition configurations.</p>
-    #[serde(rename = "Transition")]
+    #[serde(rename = "transition")]
     pub transition: Transition,
 }
 
@@ -1317,31 +1317,31 @@ pub struct ScheduleConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ScheduleEntry {
     /// <p>The approximate duration of this program, in seconds.</p>
-    #[serde(rename = "ApproximateDurationSeconds")]
+    #[serde(rename = "approximateDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_duration_seconds: Option<i64>,
     /// <p>The approximate time that the program will start playing.</p>
-    #[serde(rename = "ApproximateStartTime")]
+    #[serde(rename = "approximateStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_start_time: Option<f64>,
     /// <p>The ARN of the program.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The name of the channel that uses this schedule.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The name of the program.</p>
-    #[serde(rename = "ProgramName")]
+    #[serde(rename = "programName")]
     pub program_name: String,
     /// <p>The schedule's ad break properties.</p>
-    #[serde(rename = "ScheduleAdBreaks")]
+    #[serde(rename = "scheduleAdBreaks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_ad_breaks: Option<Vec<ScheduleAdBreak>>,
     /// <p>The name of the source location.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The name of the VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 
@@ -1349,15 +1349,15 @@ pub struct ScheduleEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SecretsManagerAccessTokenConfiguration {
     /// <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
-    #[serde(rename = "HeaderName")]
+    #[serde(rename = "headerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
-    #[serde(rename = "SecretArn")]
+    #[serde(rename = "secretArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_arn: Option<String>,
     /// <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
-    #[serde(rename = "SecretStringKey")]
+    #[serde(rename = "secretStringKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_string_key: Option<String>,
 }
@@ -1366,11 +1366,11 @@ pub struct SecretsManagerAccessTokenConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SlateSource {
     /// <p>The name of the source location where the slate VOD source is stored.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -1380,32 +1380,32 @@ pub struct SlateSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SourceLocation {
     /// <p>The access configuration for the source location.</p>
-    #[serde(rename = "AccessConfiguration")]
+    #[serde(rename = "accessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_configuration: Option<AccessConfiguration>,
     /// <p>The ARN of the SourceLocation.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The timestamp that indicates when the source location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The default segment delivery configuration.</p>
-    #[serde(rename = "DefaultSegmentDeliveryConfiguration")]
+    #[serde(rename = "defaultSegmentDeliveryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_segment_delivery_configuration: Option<DefaultSegmentDeliveryConfiguration>,
     /// <p>The HTTP configuration for the source location.</p>
-    #[serde(rename = "HttpConfiguration")]
+    #[serde(rename = "httpConfiguration")]
     pub http_configuration: HttpConfiguration,
     /// <p>The timestamp that indicates when the source location was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The tags assigned to the source location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1414,19 +1414,19 @@ pub struct SourceLocation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SpliceInsertMessage {
     /// <p>This is written to splice_insert.avail_num, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values must be between 0 and 256, inclusive.</p>
-    #[serde(rename = "AvailNum")]
+    #[serde(rename = "availNum")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avail_num: Option<i64>,
     /// <p>This is written to splice_insert.avails_expected, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values must be between 0 and 256, inclusive.</p>
-    #[serde(rename = "AvailsExpected")]
+    #[serde(rename = "availsExpected")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avails_expected: Option<i64>,
     /// <p>This is written to splice_insert.splice_event_id, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is 1.</p>
-    #[serde(rename = "SpliceEventId")]
+    #[serde(rename = "spliceEventId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub splice_event_id: Option<i64>,
     /// <p>This is written to splice_insert.unique_program_id, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values must be between 0 and 256, inclusive.</p>
-    #[serde(rename = "UniqueProgramId")]
+    #[serde(rename = "uniqueProgramId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unique_program_id: Option<i64>,
 }
@@ -1435,7 +1435,7 @@ pub struct SpliceInsertMessage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartChannelRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
 }
 
@@ -1447,7 +1447,7 @@ pub struct StartChannelResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopChannelRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
 }
 
@@ -1459,10 +1459,10 @@ pub struct StopChannelResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A comma-separated list of tag key:value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -1471,14 +1471,14 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Transition {
     /// <p>The position where this program will be inserted relative to the RelativeProgram. Possible values are: AFTER_PROGRAM, and BEFORE_PROGRAM.</p>
-    #[serde(rename = "RelativePosition")]
+    #[serde(rename = "relativePosition")]
     pub relative_position: String,
     /// <p>The name of the program that this program will be inserted next to, as defined by RelativePosition.</p>
-    #[serde(rename = "RelativeProgram")]
+    #[serde(rename = "relativeProgram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub relative_program: Option<String>,
     /// <p>When the program should be played. RELATIVE means that programs will be played back-to-back.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1486,10 +1486,10 @@ pub struct Transition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A comma-separated list of the tag keys to remove from the playback configuration.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1497,10 +1497,10 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateChannelRequest {
     /// <p>The identifier for the channel you are working on.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>The channel's output properties.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     pub outputs: Vec<RequestOutputItem>,
 }
 
@@ -1508,35 +1508,35 @@ pub struct UpdateChannelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateChannelResponse {
     /// <p>The ARN of the channel.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the channel.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
     /// <p>Indicates whether the channel is in a running state or not.</p>
-    #[serde(rename = "ChannelState")]
+    #[serde(rename = "channelState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_state: Option<String>,
     /// <p>The timestamp of when the channel was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The timestamp of when the channel was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The channel's output properties.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<ResponseOutputItem>>,
     /// <p>The type of playback for this channel. The only supported value is LOOP.</p>
-    #[serde(rename = "PlaybackMode")]
+    #[serde(rename = "playbackMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub playback_mode: Option<String>,
     /// <p>The tags assigned to the channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1545,18 +1545,18 @@ pub struct UpdateChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSourceLocationRequest {
     /// <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
-    #[serde(rename = "AccessConfiguration")]
+    #[serde(rename = "accessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_configuration: Option<AccessConfiguration>,
     /// <p>The optional configuration for the host server that serves segments.</p>
-    #[serde(rename = "DefaultSegmentDeliveryConfiguration")]
+    #[serde(rename = "defaultSegmentDeliveryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_segment_delivery_configuration: Option<DefaultSegmentDeliveryConfiguration>,
     /// <p>The HTTP configuration for the source location.</p>
-    #[serde(rename = "HttpConfiguration")]
+    #[serde(rename = "httpConfiguration")]
     pub http_configuration: HttpConfiguration,
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
 }
 
@@ -1564,35 +1564,35 @@ pub struct UpdateSourceLocationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSourceLocationResponse {
     /// <p>The access configuration for the source location.</p>
-    #[serde(rename = "AccessConfiguration")]
+    #[serde(rename = "accessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_configuration: Option<AccessConfiguration>,
     /// <p>The ARN of the source location.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The timestamp that indicates when the source location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The default segment delivery configuration settings.</p>
-    #[serde(rename = "DefaultSegmentDeliveryConfiguration")]
+    #[serde(rename = "defaultSegmentDeliveryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_segment_delivery_configuration: Option<DefaultSegmentDeliveryConfiguration>,
     /// <p>The HTTP package configuration settings for the source location.</p>
-    #[serde(rename = "HttpConfiguration")]
+    #[serde(rename = "httpConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_configuration: Option<HttpConfiguration>,
     /// <p>The timestamp that indicates when the source location was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The tags assigned to the source location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1601,13 +1601,13 @@ pub struct UpdateSourceLocationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateVodSourceRequest {
     /// <p>An array of HTTP package configurations for the VOD source on this account.</p>
-    #[serde(rename = "HttpPackageConfigurations")]
+    #[serde(rename = "httpPackageConfigurations")]
     pub http_package_configurations: Vec<HttpPackageConfiguration>,
     /// <p>The identifier for the source location you are working on.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The identifier for the VOD source you are working on.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 
@@ -1615,31 +1615,31 @@ pub struct UpdateVodSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateVodSourceResponse {
     /// <p>The ARN of the VOD source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The timestamp that indicates when the VOD source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The HTTP package configurations.</p>
-    #[serde(rename = "HttpPackageConfigurations")]
+    #[serde(rename = "httpPackageConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_package_configurations: Option<Vec<HttpPackageConfiguration>>,
     /// <p>The ARN for the VOD source.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location associated with the VOD source.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_name: Option<String>,
     /// <p>The tags assigned to the VOD source.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vod_source_name: Option<String>,
 }
@@ -1649,28 +1649,28 @@ pub struct UpdateVodSourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VodSource {
     /// <p>The ARN for the VOD source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The timestamp that indicates when the VOD source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The HTTP package configurations for the VOD source.</p>
-    #[serde(rename = "HttpPackageConfigurations")]
+    #[serde(rename = "httpPackageConfigurations")]
     pub http_package_configurations: Vec<HttpPackageConfiguration>,
     /// <p>The timestamp that indicates when the VOD source was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the source location that the VOD source is associated with.</p>
-    #[serde(rename = "SourceLocationName")]
+    #[serde(rename = "sourceLocationName")]
     pub source_location_name: String,
     /// <p>The tags assigned to the VOD source.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the VOD source.</p>
-    #[serde(rename = "VodSourceName")]
+    #[serde(rename = "vodSourceName")]
     pub vod_source_name: String,
 }
 

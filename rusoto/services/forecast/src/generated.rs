@@ -54,10 +54,10 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CategoricalParameterRange {
     /// <p>The name of the categorical hyperparameter to tune.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of the tunable categories for the hyperparameter.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -65,16 +65,16 @@ pub struct CategoricalParameterRange {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ContinuousParameterRange {
     /// <p>The maximum tunable value of the hyperparameter.</p>
-    #[serde(rename = "MaxValue")]
+    #[serde(rename = "maxValue")]
     pub max_value: f64,
     /// <p>The minimum tunable value of the hyperparameter.</p>
-    #[serde(rename = "MinValue")]
+    #[serde(rename = "minValue")]
     pub min_value: f64,
     /// <p>The name of the hyperparameter to tune.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The scale that hyperparameter tuning uses to search the hyperparameter range. Valid values:</p> <dl> <dt>Auto</dt> <dd> <p>Amazon Forecast hyperparameter tuning chooses the best scale for the hyperparameter.</p> </dd> <dt>Linear</dt> <dd> <p>Hyperparameter tuning searches the values in the hyperparameter range by using a linear scale.</p> </dd> <dt>Logarithmic</dt> <dd> <p>Hyperparameter tuning searches the values in the hyperparameter range by using a logarithmic scale.</p> <p>Logarithmic scaling works only for ranges that have values greater than 0.</p> </dd> <dt>ReverseLogarithmic</dt> <dd> <p>hyperparameter tuning searches the values in the hyperparameter range by using a reverse logarithmic scale.</p> <p>Reverse logarithmic scaling works only for ranges that are entirely within the range 0 &lt;= x &lt; 1.0.</p> </dd> </dl> <p>For information about choosing a hyperparameter scale, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
-    #[serde(rename = "ScalingType")]
+    #[serde(rename = "scalingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scaling_type: Option<String>,
 }
@@ -83,17 +83,17 @@ pub struct ContinuousParameterRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDatasetGroupRequest {
     /// <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.</p>
-    #[serde(rename = "DatasetArns")]
+    #[serde(rename = "datasetArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_arns: Option<Vec<String>>,
     /// <p>A name for the dataset group.</p>
-    #[serde(rename = "DatasetGroupName")]
+    #[serde(rename = "datasetGroupName")]
     pub dataset_group_name: String,
     /// <p>The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the <code>Domain</code> parameter of the <a>CreateDataset</a> operation must match.</p> <p>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the fields that must be present in training data that you import to a dataset. For example, if you choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code> as the <code>DatasetType</code>, Amazon Forecast requires that <code>item_id</code>, <code>timestamp</code>, and <code>demand</code> fields are present in your data. For more information, see <a>howitworks-datasets-groups</a>.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
     /// <p><p>The optional metadata that you apply to the dataset group to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -102,7 +102,7 @@ pub struct CreateDatasetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDatasetGroupResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_arn: Option<String>,
 }
@@ -111,32 +111,32 @@ pub struct CreateDatasetGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDatasetImportJobRequest {
     /// <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p> <p>If encryption is used, <code>DataSource</code> must include an AWS Key Management Service (KMS) key and the IAM role must allow Amazon Forecast permission to access the key. The KMS key and IAM role must match those specified in the <code>EncryptionConfig</code> parameter of the <a>CreateDataset</a> operation.</p>
-    #[serde(rename = "DataSource")]
+    #[serde(rename = "dataSource")]
     pub data_source: DataSource,
     /// <p>The Amazon Resource Name (ARN) of the Amazon Forecast dataset that you want to import data to.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     pub dataset_arn: String,
     /// <p>The name for the dataset import job. We recommend including the current timestamp in the name, for example, <code>20190721DatasetImport</code>. This can help you avoid getting a <code>ResourceAlreadyExistsException</code> exception.</p>
-    #[serde(rename = "DatasetImportJobName")]
+    #[serde(rename = "datasetImportJobName")]
     pub dataset_import_job_name: String,
     /// <p><p>The format of the geolocation attribute. The geolocation attribute can be formatted in one of two ways:</p> <ul> <li> <p> <code>LAT<em>LONG</code> - the latitude and longitude in decimal format (Example: 47.61</em>-122.33).</p> </li> <li> <p> <code>CC<em>POSTALCODE</code> (US Only) - the country code (US), followed by the 5-digit ZIP code (Example: US</em>98121).</p> </li> </ul></p>
-    #[serde(rename = "GeolocationFormat")]
+    #[serde(rename = "geolocationFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geolocation_format: Option<String>,
     /// <p><p>The optional metadata that you apply to the dataset import job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>A single time zone for every item in your dataset. This option is ideal for datasets with all timestamps within a single time zone, or if all timestamps are normalized to a single time zone. </p> <p>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time API</a> for a complete list of valid time zone names.</p>
-    #[serde(rename = "TimeZone")]
+    #[serde(rename = "timeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone: Option<String>,
     /// <p>The format of timestamps in the dataset. The format that you specify depends on the <code>DataFrequency</code> specified when the dataset was created. The following formats are supported</p> <ul> <li> <p>"yyyy-MM-dd"</p> <p>For the following data frequencies: Y, M, W, and D</p> </li> <li> <p>"yyyy-MM-dd HH:mm:ss"</p> <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y, M, W, and D</p> </li> </ul> <p>If the format isn't specified, Amazon Forecast expects the format to be "yyyy-MM-dd HH:mm:ss".</p>
-    #[serde(rename = "TimestampFormat")]
+    #[serde(rename = "timestampFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp_format: Option<String>,
     /// <p>Automatically derive time zone information from the geolocation attribute. This option is ideal for datasets that contain timestamps in multiple time zones and those timestamps are expressed in local time.</p>
-    #[serde(rename = "UseGeolocationForTimeZone")]
+    #[serde(rename = "useGeolocationForTimeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_geolocation_for_time_zone: Option<bool>,
 }
@@ -145,7 +145,7 @@ pub struct CreateDatasetImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDatasetImportJobResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
-    #[serde(rename = "DatasetImportJobArn")]
+    #[serde(rename = "datasetImportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_job_arn: Option<String>,
 }
@@ -154,27 +154,27 @@ pub struct CreateDatasetImportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDatasetRequest {
     /// <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.</p> <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "D" indicates every day and "15min" indicates every 15 minutes.</p>
-    #[serde(rename = "DataFrequency")]
+    #[serde(rename = "dataFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_frequency: Option<String>,
     /// <p>A name for the dataset.</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
-    #[serde(rename = "DatasetType")]
+    #[serde(rename = "datasetType")]
     pub dataset_type: String,
     /// <p>The domain associated with the dataset. When you add a dataset to a dataset group, this value and the value specified for the <code>Domain</code> parameter of the <a>CreateDatasetGroup</a> operation must match.</p> <p>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the fields that must be present in the training data that you import to the dataset. For example, if you choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code> as the <code>DatasetType</code>, Amazon Forecast requires <code>item_id</code>, <code>timestamp</code>, and <code>demand</code> fields to be present in your data. For more information, see <a>howitworks-datasets-groups</a>.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
     /// <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
     /// <p>The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset <code>Domain</code> and <code>DatasetType</code> that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see <a>howitworks-domains-ds-types</a>.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     pub schema: Schema,
     /// <p><p>The optional metadata that you apply to the dataset to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -183,7 +183,7 @@ pub struct CreateDatasetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDatasetResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_arn: Option<String>,
 }
@@ -192,16 +192,16 @@ pub struct CreateDatasetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateForecastExportJobRequest {
     /// <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3 bucket.</p> <p>If encryption is used, <code>Destination</code> must include an AWS Key Management Service (KMS) key. The IAM role must allow Amazon Forecast permission to access the key.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     pub destination: DataDestination,
     /// <p>The Amazon Resource Name (ARN) of the forecast that you want to export.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     pub forecast_arn: String,
     /// <p>The name for the forecast export job.</p>
-    #[serde(rename = "ForecastExportJobName")]
+    #[serde(rename = "forecastExportJobName")]
     pub forecast_export_job_name: String,
     /// <p><p>The optional metadata that you apply to the forecast export job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -210,7 +210,7 @@ pub struct CreateForecastExportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateForecastExportJobResponse {
     /// <p>The Amazon Resource Name (ARN) of the export job.</p>
-    #[serde(rename = "ForecastExportJobArn")]
+    #[serde(rename = "forecastExportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_export_job_arn: Option<String>,
 }
@@ -219,17 +219,17 @@ pub struct CreateForecastExportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateForecastRequest {
     /// <p>A name for the forecast.</p>
-    #[serde(rename = "ForecastName")]
+    #[serde(rename = "forecastName")]
     pub forecast_name: String,
     /// <p>The quantiles at which probabilistic forecasts are generated. <b>You can currently specify up to 5 quantiles per forecast</b>. Accepted values include <code>0.01 to 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast is different from the median (0.50) when the distribution is not symmetric (for example, Beta and Negative Binomial). The default value is <code>["0.1", "0.5", "0.9"]</code>.</p>
-    #[serde(rename = "ForecastTypes")]
+    #[serde(rename = "forecastTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_types: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) of the predictor to use to generate the forecast.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     pub predictor_arn: String,
     /// <p><p>The optional metadata that you apply to the forecast to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -238,7 +238,7 @@ pub struct CreateForecastRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateForecastResponse {
     /// <p>The Amazon Resource Name (ARN) of the forecast.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_arn: Option<String>,
 }
@@ -246,16 +246,16 @@ pub struct CreateForecastResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePredictorBacktestExportJobRequest {
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     pub destination: DataDestination,
     /// <p>The Amazon Resource Name (ARN) of the predictor that you want to export.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     pub predictor_arn: String,
     /// <p>The name for the backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobName")]
+    #[serde(rename = "predictorBacktestExportJobName")]
     pub predictor_backtest_export_job_name: String,
     /// <p><p>Optional metadata to help you categorize and organize your backtests. Each tag consists of a key and an optional value, both of which you define. Tag keys and values are case sensitive.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>For each resource, each tag key must be unique and each tag key must have one value.</p> </li> <li> <p>Maximum number of tags per resource: 50.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and + - = . _ : / @. If your tagging schema is used across other services and resources, the character restrictions of those services also apply. </p> </li> <li> <p>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit. You cannot edit or delete tag keys with this prefix.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -264,7 +264,7 @@ pub struct CreatePredictorBacktestExportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePredictorBacktestExportJobResponse {
     /// <p>The Amazon Resource Name (ARN) of the predictor backtest export job that you want to export.</p>
-    #[serde(rename = "PredictorBacktestExportJobArn")]
+    #[serde(rename = "predictorBacktestExportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_backtest_export_job_arn: Option<String>,
 }
@@ -273,55 +273,55 @@ pub struct CreatePredictorBacktestExportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePredictorRequest {
     /// <p><p>The Amazon Resource Name (ARN) of the algorithm to use for model training. Required if <code>PerformAutoML</code> is not set to <code>true</code>.</p> <p class="title"> <b>Supported algorithms:</b> </p> <ul> <li> <p> <code>arn:aws:forecast:::algorithm/ARIMA</code> </p> </li> <li> <p> <code>arn:aws:forecast:::algorithm/CNN-QR</code> </p> </li> <li> <p> <code>arn:aws:forecast:::algorithm/Deep<em>AR</em>Plus</code> </p> </li> <li> <p> <code>arn:aws:forecast:::algorithm/ETS</code> </p> </li> <li> <p> <code>arn:aws:forecast:::algorithm/NPTS</code> </p> </li> <li> <p> <code>arn:aws:forecast:::algorithm/Prophet</code> </p> </li> </ul></p>
-    #[serde(rename = "AlgorithmArn")]
+    #[serde(rename = "algorithmArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub algorithm_arn: Option<String>,
     /// <p>Used to overide the default AutoML strategy, which is to optimize predictor accuracy. To apply an AutoML strategy that minimizes training time, use <code>LatencyOptimized</code>.</p> <p>This parameter is only valid for predictors trained using AutoML.</p>
-    #[serde(rename = "AutoMLOverrideStrategy")]
+    #[serde(rename = "autoMLOverrideStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_ml_override_strategy: Option<String>,
     /// <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
-    #[serde(rename = "EvaluationParameters")]
+    #[serde(rename = "evaluationParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_parameters: Option<EvaluationParameters>,
     /// <p>The featurization configuration.</p>
-    #[serde(rename = "FeaturizationConfig")]
+    #[serde(rename = "featurizationConfig")]
     pub featurization_config: FeaturizationConfig,
     /// <p>Specifies the number of time-steps that the model is trained to predict. The forecast horizon is also called the prediction length.</p> <p>For example, if you configure a dataset for daily data collection (using the <code>DataFrequency</code> parameter of the <a>CreateDataset</a> operation) and set the forecast horizon to 10, the model returns predictions for 10 days.</p> <p>The maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the TARGET_TIME_SERIES dataset length.</p>
-    #[serde(rename = "ForecastHorizon")]
+    #[serde(rename = "forecastHorizon")]
     pub forecast_horizon: i64,
     /// <p>Specifies the forecast types used to train a predictor. You can specify up to five forecast types. Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or higher. You can also specify the mean forecast with <code>mean</code>. </p> <p>The default value is <code>["0.10", "0.50", "0.9"]</code>.</p>
-    #[serde(rename = "ForecastTypes")]
+    #[serde(rename = "forecastTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_types: Option<Vec<String>>,
     /// <p>Provides hyperparameter override values for the algorithm. If you don't provide this parameter, Amazon Forecast uses default values. The individual algorithms specify which hyperparameters support hyperparameter optimization (HPO). For more information, see <a>aws-forecast-choosing-recipes</a>.</p> <p>If you included the <code>HPOConfig</code> object, you must set <code>PerformHPO</code> to true.</p>
-    #[serde(rename = "HPOConfig")]
+    #[serde(rename = "hPOConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hpo_config: Option<HyperParameterTuningJobConfig>,
     /// <p>Describes the dataset group that contains the data to use to train the predictor.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>Whether to perform AutoML. When Amazon Forecast performs AutoML, it evaluates the algorithms it provides and chooses the best algorithm and configuration for your training dataset.</p> <p>The default value is <code>false</code>. In this case, you are required to specify an algorithm.</p> <p>Set <code>PerformAutoML</code> to <code>true</code> to have Amazon Forecast perform AutoML. This is a good option if you aren't sure which algorithm is suitable for your training data. In this case, <code>PerformHPO</code> must be false.</p>
-    #[serde(rename = "PerformAutoML")]
+    #[serde(rename = "performAutoML")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub perform_auto_ml: Option<bool>,
     /// <p><p>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter values for your training data. The process of performing HPO is known as running a hyperparameter tuning job.</p> <p>The default value is <code>false</code>. In this case, Amazon Forecast uses default hyperparameter values from the chosen algorithm.</p> <p>To override the default values, set <code>PerformHPO</code> to <code>true</code> and, optionally, supply the <a>HyperParameterTuningJobConfig</a> object. The tuning job specifies a metric to optimize, which hyperparameters participate in tuning, and the valid range for each tunable hyperparameter. In this case, you are required to specify an algorithm and <code>PerformAutoML</code> must be false.</p> <p>The following algorithms support HPO:</p> <ul> <li> <p>DeepAR+</p> </li> <li> <p>CNN-QR</p> </li> </ul></p>
-    #[serde(rename = "PerformHPO")]
+    #[serde(rename = "performHPO")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub perform_hpo: Option<bool>,
     /// <p>A name for the predictor.</p>
-    #[serde(rename = "PredictorName")]
+    #[serde(rename = "predictorName")]
     pub predictor_name: String,
     /// <p><p>The optional metadata that you apply to the predictor to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The hyperparameters to override for model training. The hyperparameters that you can override are listed in the individual algorithms. For the list of supported algorithms, see <a>aws-forecast-choosing-recipes</a>.</p>
-    #[serde(rename = "TrainingParameters")]
+    #[serde(rename = "trainingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_parameters: Option<::std::collections::HashMap<String, String>>,
 }
@@ -330,7 +330,7 @@ pub struct CreatePredictorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePredictorResponse {
     /// <p>The Amazon Resource Name (ARN) of the predictor.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_arn: Option<String>,
 }
@@ -339,7 +339,7 @@ pub struct CreatePredictorResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataDestination {
     /// <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket along with the credentials to access the bucket.</p>
-    #[serde(rename = "S3Config")]
+    #[serde(rename = "s3Config")]
     pub s3_config: S3Config,
 }
 
@@ -347,7 +347,7 @@ pub struct DataDestination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataSource {
     /// <p>The path to the training data stored in an Amazon Simple Storage Service (Amazon S3) bucket along with the credentials to access the data.</p>
-    #[serde(rename = "S3Config")]
+    #[serde(rename = "s3Config")]
     pub s3_config: S3Config,
 }
 
@@ -356,19 +356,19 @@ pub struct DataSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DatasetGroupSummary {
     /// <p>When the dataset group was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_arn: Option<String>,
     /// <p>The name of the dataset group.</p>
-    #[serde(rename = "DatasetGroupName")]
+    #[serde(rename = "datasetGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_name: Option<String>,
     /// <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated, <code>LastModificationTime</code> is the current time of the <code>ListDatasetGroups</code> call.</p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
 }
@@ -378,31 +378,31 @@ pub struct DatasetGroupSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DatasetImportJobSummary {
     /// <p>When the dataset import job was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p> <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
-    #[serde(rename = "DataSource")]
+    #[serde(rename = "dataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source: Option<DataSource>,
     /// <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
-    #[serde(rename = "DatasetImportJobArn")]
+    #[serde(rename = "datasetImportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_job_arn: Option<String>,
     /// <p>The name of the dataset import job.</p>
-    #[serde(rename = "DatasetImportJobName")]
+    #[serde(rename = "datasetImportJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_job_name: Option<String>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The status of the dataset import job. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -412,27 +412,27 @@ pub struct DatasetImportJobSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DatasetSummary {
     /// <p>When the dataset was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_arn: Option<String>,
     /// <p>The name of the dataset.</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_name: Option<String>,
     /// <p>The dataset type.</p>
-    #[serde(rename = "DatasetType")]
+    #[serde(rename = "datasetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_type: Option<String>,
     /// <p>The domain associated with the dataset.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>When you create a dataset, <code>LastModificationTime</code> is the same as <code>CreationTime</code>. While data is being imported to the dataset, <code>LastModificationTime</code> is the current time of the <code>ListDatasets</code> call. After a <a>CreateDatasetImportJob</a> operation has finished, <code>LastModificationTime</code> is when the import job completed or failed.</p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
 }
@@ -441,7 +441,7 @@ pub struct DatasetSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDatasetGroupRequest {
     /// <p>The Amazon Resource Name (ARN) of the dataset group to delete.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     pub dataset_group_arn: String,
 }
 
@@ -449,7 +449,7 @@ pub struct DeleteDatasetGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDatasetImportJobRequest {
     /// <p>The Amazon Resource Name (ARN) of the dataset import job to delete.</p>
-    #[serde(rename = "DatasetImportJobArn")]
+    #[serde(rename = "datasetImportJobArn")]
     pub dataset_import_job_arn: String,
 }
 
@@ -457,7 +457,7 @@ pub struct DeleteDatasetImportJobRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDatasetRequest {
     /// <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     pub dataset_arn: String,
 }
 
@@ -465,7 +465,7 @@ pub struct DeleteDatasetRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteForecastExportJobRequest {
     /// <p>The Amazon Resource Name (ARN) of the forecast export job to delete.</p>
-    #[serde(rename = "ForecastExportJobArn")]
+    #[serde(rename = "forecastExportJobArn")]
     pub forecast_export_job_arn: String,
 }
 
@@ -473,7 +473,7 @@ pub struct DeleteForecastExportJobRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteForecastRequest {
     /// <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     pub forecast_arn: String,
 }
 
@@ -481,7 +481,7 @@ pub struct DeleteForecastRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePredictorBacktestExportJobRequest {
     /// <p>The Amazon Resource Name (ARN) of the predictor backtest export job to delete.</p>
-    #[serde(rename = "PredictorBacktestExportJobArn")]
+    #[serde(rename = "predictorBacktestExportJobArn")]
     pub predictor_backtest_export_job_arn: String,
 }
 
@@ -489,7 +489,7 @@ pub struct DeletePredictorBacktestExportJobRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePredictorRequest {
     /// <p>The Amazon Resource Name (ARN) of the predictor to delete.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     pub predictor_arn: String,
 }
 
@@ -497,7 +497,7 @@ pub struct DeletePredictorRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourceTreeRequest {
     /// <p>The Amazon Resource Name (ARN) of the parent resource to delete. All child resources of the parent resource will also be deleted.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -505,7 +505,7 @@ pub struct DeleteResourceTreeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDatasetGroupRequest {
     /// <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     pub dataset_group_arn: String,
 }
 
@@ -513,31 +513,31 @@ pub struct DescribeDatasetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDatasetGroupResponse {
     /// <p>When the dataset group was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>An array of Amazon Resource Names (ARNs) of the datasets contained in the dataset group.</p>
-    #[serde(rename = "DatasetArns")]
+    #[serde(rename = "datasetArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_arns: Option<Vec<String>>,
     /// <p>The ARN of the dataset group.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_arn: Option<String>,
     /// <p>The name of the dataset group.</p>
-    #[serde(rename = "DatasetGroupName")]
+    #[serde(rename = "datasetGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_name: Option<String>,
     /// <p>The domain associated with the dataset group.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated, <code>LastModificationTime</code> is the current time of the <code>DescribeDatasetGroup</code> call.</p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p><p>The status of the dataset group. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> <li> <p> <code>UPDATE<em>PENDING</code>, <code>UPDATE</em>IN<em>PROGRESS</code>, <code>UPDATE</em>FAILED</code> </p> </li> </ul> <p>The <code>UPDATE</code> states apply when you call the <a>UpdateDatasetGroup</a> operation.</p> <note> <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can use the dataset group to create a predictor.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -546,7 +546,7 @@ pub struct DescribeDatasetGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDatasetImportJobRequest {
     /// <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
-    #[serde(rename = "DatasetImportJobArn")]
+    #[serde(rename = "datasetImportJobArn")]
     pub dataset_import_job_arn: String,
 }
 
@@ -554,63 +554,63 @@ pub struct DescribeDatasetImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDatasetImportJobResponse {
     /// <p>When the dataset import job was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
-    #[serde(rename = "DataSize")]
+    #[serde(rename = "dataSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_size: Option<f64>,
     /// <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data.</p> <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
-    #[serde(rename = "DataSource")]
+    #[serde(rename = "dataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source: Option<DataSource>,
     /// <p>The Amazon Resource Name (ARN) of the dataset that the training data was imported to.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_arn: Option<String>,
     /// <p>The ARN of the dataset import job.</p>
-    #[serde(rename = "DatasetImportJobArn")]
+    #[serde(rename = "datasetImportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_job_arn: Option<String>,
     /// <p>The name of the dataset import job.</p>
-    #[serde(rename = "DatasetImportJobName")]
+    #[serde(rename = "datasetImportJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_job_name: Option<String>,
     /// <p>The estimated time remaining in minutes for the dataset import job to complete.</p>
-    #[serde(rename = "EstimatedTimeRemainingInMinutes")]
+    #[serde(rename = "estimatedTimeRemainingInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_time_remaining_in_minutes: Option<i64>,
     /// <p>Statistical information about each field in the input data.</p>
-    #[serde(rename = "FieldStatistics")]
+    #[serde(rename = "fieldStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_statistics: Option<::std::collections::HashMap<String, Statistics>>,
     /// <p>The format of the geolocation attribute. Valid Values:<code>"LAT_LONG"</code> and <code>"CC_POSTALCODE"</code>.</p>
-    #[serde(rename = "GeolocationFormat")]
+    #[serde(rename = "geolocationFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geolocation_format: Option<String>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The status of the dataset import job. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The single time zone applied to every item in the dataset</p>
-    #[serde(rename = "TimeZone")]
+    #[serde(rename = "timeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone: Option<String>,
     /// <p><p>The format of timestamps in the dataset. The format that you specify depends on the <code>DataFrequency</code> specified when the dataset was created. The following formats are supported</p> <ul> <li> <p>&quot;yyyy-MM-dd&quot;</p> <p>For the following data frequencies: Y, M, W, and D</p> </li> <li> <p>&quot;yyyy-MM-dd HH:mm:ss&quot;</p> <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y, M, W, and D</p> </li> </ul></p>
-    #[serde(rename = "TimestampFormat")]
+    #[serde(rename = "timestampFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp_format: Option<String>,
     /// <p>Whether <code>TimeZone</code> is automatically derived from the geolocation attribute.</p>
-    #[serde(rename = "UseGeolocationForTimeZone")]
+    #[serde(rename = "useGeolocationForTimeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_geolocation_for_time_zone: Option<bool>,
 }
@@ -619,7 +619,7 @@ pub struct DescribeDatasetImportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDatasetRequest {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     pub dataset_arn: String,
 }
 
@@ -627,43 +627,43 @@ pub struct DescribeDatasetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDatasetResponse {
     /// <p>When the dataset was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The frequency of data collection.</p> <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "M" indicates every month and "30min" indicates every 30 minutes.</p>
-    #[serde(rename = "DataFrequency")]
+    #[serde(rename = "dataFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_frequency: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "DatasetArn")]
+    #[serde(rename = "datasetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_arn: Option<String>,
     /// <p>The name of the dataset.</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_name: Option<String>,
     /// <p>The dataset type.</p>
-    #[serde(rename = "DatasetType")]
+    #[serde(rename = "datasetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_type: Option<String>,
     /// <p>The domain associated with the dataset.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
     /// <p>When you create a dataset, <code>LastModificationTime</code> is the same as <code>CreationTime</code>. While data is being imported to the dataset, <code>LastModificationTime</code> is the current time of the <code>DescribeDataset</code> call. After a <a>CreateDatasetImportJob</a> operation has finished, <code>LastModificationTime</code> is when the import job completed or failed.</p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>An array of <code>SchemaAttribute</code> objects that specify the dataset fields. Each <code>SchemaAttribute</code> specifies the name and data type of a field.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<Schema>,
     /// <p><p>The status of the dataset. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> <li> <p> <code>UPDATE<em>PENDING</code>, <code>UPDATE</em>IN<em>PROGRESS</code>, <code>UPDATE</em>FAILED</code> </p> </li> </ul> <p>The <code>UPDATE</code> states apply while data is imported to the dataset from a call to the <a>CreateDatasetImportJob</a> operation and reflect the status of the dataset import job. For example, when the import job status is <code>CREATE<em>IN</em>PROGRESS</code>, the status of the dataset is <code>UPDATE<em>IN</em>PROGRESS</code>.</p> <note> <p>The <code>Status</code> of the dataset must be <code>ACTIVE</code> before you can import training data.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -672,7 +672,7 @@ pub struct DescribeDatasetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeForecastExportJobRequest {
     /// <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
-    #[serde(rename = "ForecastExportJobArn")]
+    #[serde(rename = "forecastExportJobArn")]
     pub forecast_export_job_arn: String,
 }
 
@@ -680,35 +680,35 @@ pub struct DescribeForecastExportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeForecastExportJobResponse {
     /// <p>When the forecast export job was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<DataDestination>,
     /// <p>The Amazon Resource Name (ARN) of the exported forecast.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_arn: Option<String>,
     /// <p>The ARN of the forecast export job.</p>
-    #[serde(rename = "ForecastExportJobArn")]
+    #[serde(rename = "forecastExportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_export_job_arn: Option<String>,
     /// <p>The name of the forecast export job.</p>
-    #[serde(rename = "ForecastExportJobName")]
+    #[serde(rename = "forecastExportJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_export_job_name: Option<String>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The status of the forecast export job. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> </ul> <note> <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before you can access the forecast in your S3 bucket.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -717,7 +717,7 @@ pub struct DescribeForecastExportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeForecastRequest {
     /// <p>The Amazon Resource Name (ARN) of the forecast.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     pub forecast_arn: String,
 }
 
@@ -725,43 +725,43 @@ pub struct DescribeForecastRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeForecastResponse {
     /// <p>When the forecast creation task was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_arn: Option<String>,
     /// <p>The estimated time remaining in minutes for the forecast job to complete.</p>
-    #[serde(rename = "EstimatedTimeRemainingInMinutes")]
+    #[serde(rename = "estimatedTimeRemainingInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_time_remaining_in_minutes: Option<i64>,
     /// <p>The forecast ARN as specified in the request.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_arn: Option<String>,
     /// <p>The name of the forecast.</p>
-    #[serde(rename = "ForecastName")]
+    #[serde(rename = "forecastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_name: Option<String>,
     /// <p>The quantiles at which probabilistic forecasts were generated.</p>
-    #[serde(rename = "ForecastTypes")]
+    #[serde(rename = "forecastTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_types: Option<Vec<String>>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The ARN of the predictor used to generate the forecast.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_arn: Option<String>,
     /// <p><p>The status of the forecast. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> </ul> <note> <p>The <code>Status</code> of the forecast must be <code>ACTIVE</code> before you can query or export the forecast.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -770,7 +770,7 @@ pub struct DescribeForecastResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePredictorBacktestExportJobRequest {
     /// <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobArn")]
+    #[serde(rename = "predictorBacktestExportJobArn")]
     pub predictor_backtest_export_job_arn: String,
 }
 
@@ -778,34 +778,34 @@ pub struct DescribePredictorBacktestExportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePredictorBacktestExportJobResponse {
     /// <p>When the predictor backtest export job was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<DataDestination>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>Information about any errors that may have occurred during the backtest export.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the predictor.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobArn")]
+    #[serde(rename = "predictorBacktestExportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_backtest_export_job_arn: Option<String>,
     /// <p>The name of the predictor backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobName")]
+    #[serde(rename = "predictorBacktestExportJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_backtest_export_job_name: Option<String>,
     /// <p><p>The status of the predictor backtest export job. States include: </p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -814,7 +814,7 @@ pub struct DescribePredictorBacktestExportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePredictorRequest {
     /// <p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     pub predictor_arn: String,
 }
 
@@ -822,91 +822,91 @@ pub struct DescribePredictorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePredictorResponse {
     /// <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
-    #[serde(rename = "AlgorithmArn")]
+    #[serde(rename = "algorithmArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub algorithm_arn: Option<String>,
     /// <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-    #[serde(rename = "AutoMLAlgorithmArns")]
+    #[serde(rename = "autoMLAlgorithmArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_ml_algorithm_arns: Option<Vec<String>>,
     /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> <p>This parameter is only valid for predictors trained using AutoML.</p>
-    #[serde(rename = "AutoMLOverrideStrategy")]
+    #[serde(rename = "autoMLOverrideStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_ml_override_strategy: Option<String>,
     /// <p>When the model training task was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    #[serde(rename = "DatasetImportJobArns")]
+    #[serde(rename = "datasetImportJobArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_job_arns: Option<Vec<String>>,
     /// <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
-    #[serde(rename = "EstimatedTimeRemainingInMinutes")]
+    #[serde(rename = "estimatedTimeRemainingInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_time_remaining_in_minutes: Option<i64>,
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
-    #[serde(rename = "EvaluationParameters")]
+    #[serde(rename = "evaluationParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_parameters: Option<EvaluationParameters>,
     /// <p>The featurization configuration.</p>
-    #[serde(rename = "FeaturizationConfig")]
+    #[serde(rename = "featurizationConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub featurization_config: Option<FeaturizationConfig>,
     /// <p>The number of time-steps of the forecast. The forecast horizon is also called the prediction length.</p>
-    #[serde(rename = "ForecastHorizon")]
+    #[serde(rename = "forecastHorizon")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_horizon: Option<i64>,
     /// <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code> </p>
-    #[serde(rename = "ForecastTypes")]
+    #[serde(rename = "forecastTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_types: Option<Vec<String>>,
     /// <p>The hyperparameter override values for the algorithm.</p>
-    #[serde(rename = "HPOConfig")]
+    #[serde(rename = "hPOConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hpo_config: Option<HyperParameterTuningJobConfig>,
     /// <p>Describes the dataset group that contains the data to use to train the predictor.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Whether the predictor is set to perform AutoML.</p>
-    #[serde(rename = "PerformAutoML")]
+    #[serde(rename = "performAutoML")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub perform_auto_ml: Option<bool>,
     /// <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
-    #[serde(rename = "PerformHPO")]
+    #[serde(rename = "performHPO")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub perform_hpo: Option<bool>,
     /// <p>The ARN of the predictor.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_arn: Option<String>,
     /// <p>Details on the the status and results of the backtests performed to evaluate the accuracy of the predictor. You specify the number of backtests to perform when you call the operation.</p>
-    #[serde(rename = "PredictorExecutionDetails")]
+    #[serde(rename = "predictorExecutionDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_execution_details: Option<PredictorExecutionDetails>,
     /// <p>The name of the predictor.</p>
-    #[serde(rename = "PredictorName")]
+    #[serde(rename = "predictorName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_name: Option<String>,
     /// <p><p>The status of the predictor. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> </ul> <note> <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The default training parameters or overrides selected during model training. When running AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen hyperparameters are returned. For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
-    #[serde(rename = "TrainingParameters")]
+    #[serde(rename = "trainingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_parameters: Option<::std::collections::HashMap<String, String>>,
 }
@@ -915,10 +915,10 @@ pub struct DescribePredictorResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionConfig {
     /// <p>The Amazon Resource Name (ARN) of the KMS key.</p>
-    #[serde(rename = "KMSKeyArn")]
+    #[serde(rename = "kMSKeyArn")]
     pub kms_key_arn: String,
     /// <p>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</p> <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>InvalidInputException</code> error.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
 }
 
@@ -927,15 +927,15 @@ pub struct EncryptionConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorMetric {
     /// <p> The Forecast type used to compute WAPE and RMSE. </p>
-    #[serde(rename = "ForecastType")]
+    #[serde(rename = "forecastType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_type: Option<String>,
     /// <p> The root-mean-square error (RMSE). </p>
-    #[serde(rename = "RMSE")]
+    #[serde(rename = "rMSE")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rmse: Option<f64>,
     /// <p> The weighted absolute percentage error (WAPE). </p>
-    #[serde(rename = "WAPE")]
+    #[serde(rename = "wAPE")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wape: Option<f64>,
 }
@@ -944,11 +944,11 @@ pub struct ErrorMetric {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EvaluationParameters {
     /// <p>The point from the end of the dataset where you want to split the data for model training and testing (evaluation). Specify the value as the number of data points. The default is the value of the forecast horizon. <code>BackTestWindowOffset</code> can be used to mimic a past virtual forecast start date. This value must be greater than or equal to the forecast horizon and less than half of the TARGET_TIME_SERIES dataset length.</p> <p> <code>ForecastHorizon</code> &lt;= <code>BackTestWindowOffset</code> &lt; 1/2 * TARGET_TIME_SERIES dataset length</p>
-    #[serde(rename = "BackTestWindowOffset")]
+    #[serde(rename = "backTestWindowOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub back_test_window_offset: Option<i64>,
     /// <p>The number of times to split the input data. The default is 1. Valid values are 1 through 5.</p>
-    #[serde(rename = "NumberOfBacktestWindows")]
+    #[serde(rename = "numberOfBacktestWindows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_backtest_windows: Option<i64>,
 }
@@ -958,11 +958,11 @@ pub struct EvaluationParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationResult {
     /// <p>The Amazon Resource Name (ARN) of the algorithm that was evaluated.</p>
-    #[serde(rename = "AlgorithmArn")]
+    #[serde(rename = "algorithmArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub algorithm_arn: Option<String>,
     /// <p>The array of test windows used for evaluating the algorithm. The <code>NumberOfBacktestWindows</code> from the <a>EvaluationParameters</a> object determines the number of windows in the array.</p>
-    #[serde(rename = "TestWindows")]
+    #[serde(rename = "testWindows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_windows: Option<Vec<WindowSummary>>,
 }
@@ -971,10 +971,10 @@ pub struct EvaluationResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Featurization {
     /// <p>The name of the schema attribute that specifies the data field to be featurized. Amazon Forecast supports the target field of the <code>TARGET_TIME_SERIES</code> and the <code>RELATED_TIME_SERIES</code> datasets. For example, for the <code>RETAIL</code> domain, the target is <code>demand</code>, and for the <code>CUSTOM</code> domain, the target is <code>target_value</code>. For more information, see <a>howitworks-missing-values</a>.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     pub attribute_name: String,
     /// <p>An array of one <code>FeaturizationMethod</code> object that specifies the feature transformation method.</p>
-    #[serde(rename = "FeaturizationPipeline")]
+    #[serde(rename = "featurizationPipeline")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub featurization_pipeline: Option<Vec<FeaturizationMethod>>,
 }
@@ -983,15 +983,15 @@ pub struct Featurization {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FeaturizationConfig {
     /// <p>An array of featurization (transformation) information for the fields of a dataset.</p>
-    #[serde(rename = "Featurizations")]
+    #[serde(rename = "featurizations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub featurizations: Option<Vec<Featurization>>,
     /// <p>An array of dimension (field) names that specify how to group the generated forecast.</p> <p>For example, suppose that you are generating a forecast for item sales across all of your stores, and your dataset contains a <code>store_id</code> field. If you want the sales forecast for each item by store, you would specify <code>store_id</code> as the dimension.</p> <p>All forecast dimensions specified in the <code>TARGET_TIME_SERIES</code> dataset don't need to be specified in the <code>CreatePredictor</code> request. All forecast dimensions specified in the <code>RELATED_TIME_SERIES</code> dataset must be specified in the <code>CreatePredictor</code> request.</p>
-    #[serde(rename = "ForecastDimensions")]
+    #[serde(rename = "forecastDimensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_dimensions: Option<Vec<String>>,
     /// <p>The frequency of predictions in a forecast.</p> <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "Y" indicates every year and "5min" indicates every five minutes.</p> <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset frequency.</p> <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the RELATED_TIME_SERIES dataset frequency.</p>
-    #[serde(rename = "ForecastFrequency")]
+    #[serde(rename = "forecastFrequency")]
     pub forecast_frequency: String,
 }
 
@@ -999,10 +999,10 @@ pub struct FeaturizationConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FeaturizationMethod {
     /// <p>The name of the method. The "filling" method is the only supported method.</p>
-    #[serde(rename = "FeaturizationMethodName")]
+    #[serde(rename = "featurizationMethodName")]
     pub featurization_method_name: String,
     /// <p>The method parameters (key-value pairs), which are a map of override parameters. Specify these parameters to override the default values. Related Time Series attributes do not accept aggregation parameters.</p> <p>The following list shows the parameters and their valid values for the "filling" featurization method for a <b>Target Time Series</b> dataset. Bold signifies the default value.</p> <ul> <li> <p> <code>aggregation</code>: <b>sum</b>, <code>avg</code>, <code>first</code>, <code>min</code>, <code>max</code> </p> </li> <li> <p> <code>frontfill</code>: <b>none</b> </p> </li> <li> <p> <code>middlefill</code>: <b>zero</b>, <code>nan</code> (not a number), <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code> </p> </li> <li> <p> <code>backfill</code>: <b>zero</b>, <code>nan</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code> </p> </li> </ul> <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no defaults):</p> <ul> <li> <p> <code>middlefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code> </p> </li> <li> <p> <code>backfill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code> </p> </li> <li> <p> <code>futurefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code> </p> </li> </ul> <p>To set a filling method to a specific value, set the fill parameter to <code>value</code> and define the value in a corresponding <code>_value</code> parameter. For example, to set backfilling to a value of 2, include the following: <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>. </p>
-    #[serde(rename = "FeaturizationMethodParameters")]
+    #[serde(rename = "featurizationMethodParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub featurization_method_parameters: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1012,13 +1012,13 @@ pub struct FeaturizationMethod {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p>The condition to apply. To include the objects that match the statement, specify <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
-    #[serde(rename = "Condition")]
+    #[serde(rename = "condition")]
     pub condition: String,
     /// <p>The name of the parameter to filter on.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value to match.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1027,31 +1027,31 @@ pub struct Filter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ForecastExportJobSummary {
     /// <p>When the forecast export job was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<DataDestination>,
     /// <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
-    #[serde(rename = "ForecastExportJobArn")]
+    #[serde(rename = "forecastExportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_export_job_arn: Option<String>,
     /// <p>The name of the forecast export job.</p>
-    #[serde(rename = "ForecastExportJobName")]
+    #[serde(rename = "forecastExportJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_export_job_name: Option<String>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The status of the forecast export job. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> </ul> <note> <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before you can access the forecast in your S3 bucket.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1061,35 +1061,35 @@ pub struct ForecastExportJobSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ForecastSummary {
     /// <p>When the forecast creation task was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train the predictor.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_arn: Option<String>,
     /// <p>The ARN of the forecast.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_arn: Option<String>,
     /// <p>The name of the forecast.</p>
-    #[serde(rename = "ForecastName")]
+    #[serde(rename = "forecastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_name: Option<String>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The ARN of the predictor used to generate the forecast.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_arn: Option<String>,
     /// <p><p>The status of the forecast. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> </ul> <note> <p>The <code>Status</code> of the forecast must be <code>ACTIVE</code> before you can query or export the forecast.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1098,7 +1098,7 @@ pub struct ForecastSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAccuracyMetricsRequest {
     /// <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     pub predictor_arn: String,
 }
 
@@ -1106,11 +1106,11 @@ pub struct GetAccuracyMetricsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccuracyMetricsResponse {
     /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> <p>This parameter is only valid for predictors trained using AutoML.</p>
-    #[serde(rename = "AutoMLOverrideStrategy")]
+    #[serde(rename = "autoMLOverrideStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_ml_override_strategy: Option<String>,
     /// <p>An array of results from evaluating the predictor.</p>
-    #[serde(rename = "PredictorEvaluationResults")]
+    #[serde(rename = "predictorEvaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_evaluation_results: Option<Vec<EvaluationResult>>,
 }
@@ -1119,7 +1119,7 @@ pub struct GetAccuracyMetricsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HyperParameterTuningJobConfig {
     /// <p>Specifies the ranges of valid values for the hyperparameters.</p>
-    #[serde(rename = "ParameterRanges")]
+    #[serde(rename = "parameterRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_ranges: Option<ParameterRanges>,
 }
@@ -1128,10 +1128,10 @@ pub struct HyperParameterTuningJobConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputDataConfig {
     /// <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     pub dataset_group_arn: String,
     /// <p>An array of supplementary features. The only supported feature is a holiday calendar.</p>
-    #[serde(rename = "SupplementaryFeatures")]
+    #[serde(rename = "supplementaryFeatures")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supplementary_features: Option<Vec<SupplementaryFeature>>,
 }
@@ -1140,16 +1140,16 @@ pub struct InputDataConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct IntegerParameterRange {
     /// <p>The maximum tunable value of the hyperparameter.</p>
-    #[serde(rename = "MaxValue")]
+    #[serde(rename = "maxValue")]
     pub max_value: i64,
     /// <p>The minimum tunable value of the hyperparameter.</p>
-    #[serde(rename = "MinValue")]
+    #[serde(rename = "minValue")]
     pub min_value: i64,
     /// <p>The name of the hyperparameter to tune.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The scale that hyperparameter tuning uses to search the hyperparameter range. Valid values:</p> <dl> <dt>Auto</dt> <dd> <p>Amazon Forecast hyperparameter tuning chooses the best scale for the hyperparameter.</p> </dd> <dt>Linear</dt> <dd> <p>Hyperparameter tuning searches the values in the hyperparameter range by using a linear scale.</p> </dd> <dt>Logarithmic</dt> <dd> <p>Hyperparameter tuning searches the values in the hyperparameter range by using a logarithmic scale.</p> <p>Logarithmic scaling works only for ranges that have values greater than 0.</p> </dd> <dt>ReverseLogarithmic</dt> <dd> <p>Not supported for <code>IntegerParameterRange</code>.</p> <p>Reverse logarithmic scaling works only for ranges that are entirely within the range 0 &lt;= x &lt; 1.0.</p> </dd> </dl> <p>For information about choosing a hyperparameter scale, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
-    #[serde(rename = "ScalingType")]
+    #[serde(rename = "scalingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scaling_type: Option<String>,
 }
@@ -1158,11 +1158,11 @@ pub struct IntegerParameterRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDatasetGroupsRequest {
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1171,11 +1171,11 @@ pub struct ListDatasetGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDatasetGroupsResponse {
     /// <p>An array of objects that summarize each dataset group's properties.</p>
-    #[serde(rename = "DatasetGroups")]
+    #[serde(rename = "datasetGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_groups: Option<Vec<DatasetGroupSummary>>,
     /// <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1184,15 +1184,15 @@ pub struct ListDatasetGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDatasetImportJobsRequest {
     /// <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the datasets that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the datasets that match the statement, specify <code>IS</code>. To exclude matching datasets, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all dataset import jobs whose status is ACTIVE, you specify the following filter:</p> <p> <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1201,11 +1201,11 @@ pub struct ListDatasetImportJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDatasetImportJobsResponse {
     /// <p>An array of objects that summarize each dataset import job's properties.</p>
-    #[serde(rename = "DatasetImportJobs")]
+    #[serde(rename = "datasetImportJobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_import_jobs: Option<Vec<DatasetImportJobSummary>>,
     /// <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1214,11 +1214,11 @@ pub struct ListDatasetImportJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDatasetsRequest {
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1227,11 +1227,11 @@ pub struct ListDatasetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDatasetsResponse {
     /// <p>An array of objects that summarize each dataset's properties.</p>
-    #[serde(rename = "Datasets")]
+    #[serde(rename = "datasets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub datasets: Option<Vec<DatasetSummary>>,
     /// <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1240,15 +1240,15 @@ pub struct ListDatasetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListForecastExportJobsRequest {
     /// <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the forecast export jobs that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the forecast export jobs that match the statement, specify <code>IS</code>. To exclude matching forecast export jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>ForecastArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all jobs that export a forecast named <i>electricityforecast</i>, specify the following filter:</p> <p> <code>"Filters": [ { "Condition": "IS", "Key": "ForecastArn", "Value": "arn:aws:forecast:us-west-2:&lt;acct-id&gt;:forecast/electricityforecast" } ]</code> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1257,11 +1257,11 @@ pub struct ListForecastExportJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListForecastExportJobsResponse {
     /// <p>An array of objects that summarize each export job's properties.</p>
-    #[serde(rename = "ForecastExportJobs")]
+    #[serde(rename = "forecastExportJobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_export_jobs: Option<Vec<ForecastExportJobSummary>>,
     /// <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1270,15 +1270,15 @@ pub struct ListForecastExportJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListForecastsRequest {
     /// <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the forecasts that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the forecasts that match the statement, specify <code>IS</code>. To exclude matching forecasts, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetGroupArn</code>, <code>PredictorArn</code>, and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all forecasts whose status is not ACTIVE, you would specify:</p> <p> <code>"Filters": [ { "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" } ]</code> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1287,11 +1287,11 @@ pub struct ListForecastsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListForecastsResponse {
     /// <p>An array of objects that summarize each forecast's properties.</p>
-    #[serde(rename = "Forecasts")]
+    #[serde(rename = "forecasts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecasts: Option<Vec<ForecastSummary>>,
     /// <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1300,15 +1300,15 @@ pub struct ListForecastsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPredictorBacktestExportJobsRequest {
     /// <p><p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS<em>NOT</code>, which specifies whether to include or exclude the predictor backtest export jobs that match the statement from the list. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS</em>NOT</code>. To include the predictor backtest export jobs that match the statement, specify <code>IS</code>. To exclude matching predictor backtest export jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>PredictorArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1317,11 +1317,11 @@ pub struct ListPredictorBacktestExportJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPredictorBacktestExportJobsResponse {
     /// <p>Returns this token if the response is truncated. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of objects that summarize the properties of each predictor backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobs")]
+    #[serde(rename = "predictorBacktestExportJobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_backtest_export_jobs: Option<Vec<PredictorBacktestExportJobSummary>>,
 }
@@ -1330,15 +1330,15 @@ pub struct ListPredictorBacktestExportJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPredictorsRequest {
     /// <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the predictors that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the predictors that match the statement, specify <code>IS</code>. To exclude matching predictors, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetGroupArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all predictors whose status is ACTIVE, you would specify:</p> <p> <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The number of items to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1347,11 +1347,11 @@ pub struct ListPredictorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPredictorsResponse {
     /// <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of objects that summarize each predictor's properties.</p>
-    #[serde(rename = "Predictors")]
+    #[serde(rename = "predictors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictors: Option<Vec<PredictorSummary>>,
 }
@@ -1360,7 +1360,7 @@ pub struct ListPredictorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1368,7 +1368,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The tags for the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1378,11 +1378,11 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Metrics {
     /// <p> Provides detailed error metrics on forecast type, root-mean square-error (RMSE), and weighted average percentage error (WAPE). </p>
-    #[serde(rename = "ErrorMetrics")]
+    #[serde(rename = "errorMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_metrics: Option<Vec<ErrorMetric>>,
     /// <p>An array of weighted quantile losses. Quantiles divide a probability distribution into regions of equal probability. The distribution in this case is the loss function.</p>
-    #[serde(rename = "WeightedQuantileLosses")]
+    #[serde(rename = "weightedQuantileLosses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weighted_quantile_losses: Option<Vec<WeightedQuantileLoss>>,
 }
@@ -1391,15 +1391,15 @@ pub struct Metrics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ParameterRanges {
     /// <p>Specifies the tunable range for each categorical hyperparameter.</p>
-    #[serde(rename = "CategoricalParameterRanges")]
+    #[serde(rename = "categoricalParameterRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub categorical_parameter_ranges: Option<Vec<CategoricalParameterRange>>,
     /// <p>Specifies the tunable range for each continuous hyperparameter.</p>
-    #[serde(rename = "ContinuousParameterRanges")]
+    #[serde(rename = "continuousParameterRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub continuous_parameter_ranges: Option<Vec<ContinuousParameterRange>>,
     /// <p>Specifies the tunable range for each integer hyperparameter.</p>
-    #[serde(rename = "IntegerParameterRanges")]
+    #[serde(rename = "integerParameterRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integer_parameter_ranges: Option<Vec<IntegerParameterRange>>,
 }
@@ -1409,30 +1409,30 @@ pub struct ParameterRanges {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PredictorBacktestExportJobSummary {
     /// <p>When the predictor backtest export job was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<DataDestination>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>Information about any errors that may have occurred during the backtest export.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobArn")]
+    #[serde(rename = "predictorBacktestExportJobArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_backtest_export_job_arn: Option<String>,
     /// <p>The name of the predictor backtest export job.</p>
-    #[serde(rename = "PredictorBacktestExportJobName")]
+    #[serde(rename = "predictorBacktestExportJobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_backtest_export_job_name: Option<String>,
     /// <p><p>The status of the predictor backtest export job. States include: </p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1442,11 +1442,11 @@ pub struct PredictorBacktestExportJobSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PredictorExecution {
     /// <p>The ARN of the algorithm used to test the predictor.</p>
-    #[serde(rename = "AlgorithmArn")]
+    #[serde(rename = "algorithmArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub algorithm_arn: Option<String>,
     /// <p>An array of test windows used to evaluate the algorithm. The <code>NumberOfBacktestWindows</code> from the object determines the number of windows in the array.</p>
-    #[serde(rename = "TestWindows")]
+    #[serde(rename = "testWindows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_windows: Option<Vec<TestWindowSummary>>,
 }
@@ -1456,7 +1456,7 @@ pub struct PredictorExecution {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PredictorExecutionDetails {
     /// <p>An array of the backtests performed to evaluate the accuracy of the predictor against a particular algorithm. The <code>NumberOfBacktestWindows</code> from the object determines the number of windows in the array.</p>
-    #[serde(rename = "PredictorExecutions")]
+    #[serde(rename = "predictorExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_executions: Option<Vec<PredictorExecution>>,
 }
@@ -1466,31 +1466,31 @@ pub struct PredictorExecutionDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PredictorSummary {
     /// <p>When the model training task was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the dataset group that contains the data used to train the predictor.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_group_arn: Option<String>,
     /// <p><p>The last time the resource was modified. The timestamp depends on the status of the job:</p> <ul> <li> <p> <code>CREATE<em>PENDING</code> - The <code>CreationTime</code>.</p> </li> <li> <p> <code>CREATE</em>IN<em>PROGRESS</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE</em>STOPPING</code> - The current timestamp.</p> </li> <li> <p> <code>CREATE<em>STOPPED</code> - When the job stopped.</p> </li> <li> <p> <code>ACTIVE</code> or <code>CREATE</em>FAILED</code> - When the job finished or failed.</p> </li> </ul></p>
-    #[serde(rename = "LastModificationTime")]
+    #[serde(rename = "lastModificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modification_time: Option<f64>,
     /// <p>If an error occurred, an informational message about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The ARN of the predictor.</p>
-    #[serde(rename = "PredictorArn")]
+    #[serde(rename = "predictorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_arn: Option<String>,
     /// <p>The name of the predictor.</p>
-    #[serde(rename = "PredictorName")]
+    #[serde(rename = "predictorName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictor_name: Option<String>,
     /// <p><p>The status of the predictor. States include:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>PENDING</code>, <code>CREATE</em>IN<em>PROGRESS</code>, <code>CREATE</em>FAILED</code> </p> </li> <li> <p> <code>DELETE<em>PENDING</code>, <code>DELETE</em>IN<em>PROGRESS</code>, <code>DELETE</em>FAILED</code> </p> </li> <li> <p> <code>CREATE<em>STOPPING</code>, <code>CREATE</em>STOPPED</code> </p> </li> </ul> <note> <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1499,14 +1499,14 @@ pub struct PredictorSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Config {
     /// <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</p>
-    #[serde(rename = "KMSKeyArn")]
+    #[serde(rename = "kMSKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket or file(s) in an Amazon S3 bucket.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     pub path: String,
     /// <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code> key, the role must allow access to the key.</p> <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>InvalidInputException</code> error.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
 }
 
@@ -1514,7 +1514,7 @@ pub struct S3Config {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Schema {
     /// <p>An array of attributes specifying the name and type of each field in a dataset.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<SchemaAttribute>>,
 }
@@ -1523,11 +1523,11 @@ pub struct Schema {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaAttribute {
     /// <p>The name of the dataset field.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_name: Option<String>,
     /// <p>The data type of the field.</p>
-    #[serde(rename = "AttributeType")]
+    #[serde(rename = "attributeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_type: Option<String>,
 }
@@ -1537,51 +1537,51 @@ pub struct SchemaAttribute {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Statistics {
     /// <p>For a numeric field, the average value in the field.</p>
-    #[serde(rename = "Avg")]
+    #[serde(rename = "avg")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub avg: Option<f64>,
     /// <p>The number of values in the field. If the response value is -1, refer to <code>CountLong</code>.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>The number of distinct values in the field. If the response value is -1, refer to <code>CountDistinctLong</code>.</p>
-    #[serde(rename = "CountDistinct")]
+    #[serde(rename = "countDistinct")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_distinct: Option<i64>,
     /// <p>The number of distinct values in the field. <code>CountDistinctLong</code> is used instead of <code>CountDistinct</code> if the value is greater than 2,147,483,647.</p>
-    #[serde(rename = "CountDistinctLong")]
+    #[serde(rename = "countDistinctLong")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_distinct_long: Option<i64>,
     /// <p>The number of values in the field. <code>CountLong</code> is used instead of <code>Count</code> if the value is greater than 2,147,483,647.</p>
-    #[serde(rename = "CountLong")]
+    #[serde(rename = "countLong")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_long: Option<i64>,
     /// <p>The number of NAN (not a number) values in the field. If the response value is -1, refer to <code>CountNanLong</code>.</p>
-    #[serde(rename = "CountNan")]
+    #[serde(rename = "countNan")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_nan: Option<i64>,
     /// <p>The number of NAN (not a number) values in the field. <code>CountNanLong</code> is used instead of <code>CountNan</code> if the value is greater than 2,147,483,647.</p>
-    #[serde(rename = "CountNanLong")]
+    #[serde(rename = "countNanLong")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_nan_long: Option<i64>,
     /// <p>The number of null values in the field. If the response value is -1, refer to <code>CountNullLong</code>.</p>
-    #[serde(rename = "CountNull")]
+    #[serde(rename = "countNull")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_null: Option<i64>,
     /// <p>The number of null values in the field. <code>CountNullLong</code> is used instead of <code>CountNull</code> if the value is greater than 2,147,483,647.</p>
-    #[serde(rename = "CountNullLong")]
+    #[serde(rename = "countNullLong")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count_null_long: Option<i64>,
     /// <p>For a numeric field, the maximum value in the field.</p>
-    #[serde(rename = "Max")]
+    #[serde(rename = "max")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max: Option<String>,
     /// <p>For a numeric field, the minimum value in the field.</p>
-    #[serde(rename = "Min")]
+    #[serde(rename = "min")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min: Option<String>,
     /// <p>For a numeric field, the standard deviation.</p>
-    #[serde(rename = "Stddev")]
+    #[serde(rename = "stddev")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stddev: Option<f64>,
 }
@@ -1590,7 +1590,7 @@ pub struct Statistics {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs are <code>DatasetImportJobArn</code>, <code>PredictorArn</code>, <code>PredictorBacktestExportJobArn</code>, <code>ForecastArn</code>, and <code>ForecastExportJobArn</code>. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1598,10 +1598,10 @@ pub struct StopResourceRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SupplementaryFeature {
     /// <p>The name of the feature. Valid values: <code>"holiday"</code> and <code>"weather"</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p> <b>Weather Index</b> </p> <p>To enable the Weather Index, set the value to <code>&quot;true&quot;</code> </p> <p> <b>Holidays</b> </p> <p>To enable Holidays, specify a country with one of the following two-letter country codes:</p> <ul> <li> <p>&quot;AL&quot; - ALBANIA</p> </li> <li> <p>&quot;AR&quot; - ARGENTINA</p> </li> <li> <p>&quot;AT&quot; - AUSTRIA</p> </li> <li> <p>&quot;AU&quot; - AUSTRALIA</p> </li> <li> <p>&quot;BA&quot; - BOSNIA HERZEGOVINA</p> </li> <li> <p>&quot;BE&quot; - BELGIUM</p> </li> <li> <p>&quot;BG&quot; - BULGARIA</p> </li> <li> <p>&quot;BO&quot; - BOLIVIA</p> </li> <li> <p>&quot;BR&quot; - BRAZIL</p> </li> <li> <p>&quot;BY&quot; - BELARUS</p> </li> <li> <p>&quot;CA&quot; - CANADA</p> </li> <li> <p>&quot;CL&quot; - CHILE</p> </li> <li> <p>&quot;CO&quot; - COLOMBIA</p> </li> <li> <p>&quot;CR&quot; - COSTA RICA</p> </li> <li> <p>&quot;HR&quot; - CROATIA</p> </li> <li> <p>&quot;CZ&quot; - CZECH REPUBLIC</p> </li> <li> <p>&quot;DK&quot; - DENMARK</p> </li> <li> <p>&quot;EC&quot; - ECUADOR</p> </li> <li> <p>&quot;EE&quot; - ESTONIA</p> </li> <li> <p>&quot;ET&quot; - ETHIOPIA</p> </li> <li> <p>&quot;FI&quot; - FINLAND</p> </li> <li> <p>&quot;FR&quot; - FRANCE</p> </li> <li> <p>&quot;DE&quot; - GERMANY</p> </li> <li> <p>&quot;GR&quot; - GREECE</p> </li> <li> <p>&quot;HU&quot; - HUNGARY</p> </li> <li> <p>&quot;IS&quot; - ICELAND</p> </li> <li> <p>&quot;IN&quot; - INDIA</p> </li> <li> <p>&quot;IE&quot; - IRELAND</p> </li> <li> <p>&quot;IT&quot; - ITALY</p> </li> <li> <p>&quot;JP&quot; - JAPAN</p> </li> <li> <p>&quot;KZ&quot; - KAZAKHSTAN</p> </li> <li> <p>&quot;KR&quot; - KOREA</p> </li> <li> <p>&quot;LV&quot; - LATVIA</p> </li> <li> <p>&quot;LI&quot; - LIECHTENSTEIN</p> </li> <li> <p>&quot;LT&quot; - LITHUANIA</p> </li> <li> <p>&quot;LU&quot; - LUXEMBOURG</p> </li> <li> <p>&quot;MK&quot; - MACEDONIA</p> </li> <li> <p>&quot;MT&quot; - MALTA</p> </li> <li> <p>&quot;MX&quot; - MEXICO</p> </li> <li> <p>&quot;MD&quot; - MOLDOVA</p> </li> <li> <p>&quot;ME&quot; - MONTENEGRO</p> </li> <li> <p>&quot;NL&quot; - NETHERLANDS</p> </li> <li> <p>&quot;NZ&quot; - NEW ZEALAND</p> </li> <li> <p>&quot;NI&quot; - NICARAGUA</p> </li> <li> <p>&quot;NG&quot; - NIGERIA</p> </li> <li> <p>&quot;NO&quot; - NORWAY</p> </li> <li> <p>&quot;PA&quot; - PANAMA</p> </li> <li> <p>&quot;PY&quot; - PARAGUAY</p> </li> <li> <p>&quot;PE&quot; - PERU</p> </li> <li> <p>&quot;PL&quot; - POLAND</p> </li> <li> <p>&quot;PT&quot; - PORTUGAL</p> </li> <li> <p>&quot;RO&quot; - ROMANIA</p> </li> <li> <p>&quot;RU&quot; - RUSSIA</p> </li> <li> <p>&quot;RS&quot; - SERBIA</p> </li> <li> <p>&quot;SK&quot; - SLOVAKIA</p> </li> <li> <p>&quot;SI&quot; - SLOVENIA</p> </li> <li> <p>&quot;ZA&quot; - SOUTH AFRICA</p> </li> <li> <p>&quot;ES&quot; - SPAIN</p> </li> <li> <p>&quot;SE&quot; - SWEDEN</p> </li> <li> <p>&quot;CH&quot; - SWITZERLAND</p> </li> <li> <p>&quot;UA&quot; - UKRAINE</p> </li> <li> <p>&quot;AE&quot; - UNITED ARAB EMIRATES</p> </li> <li> <p>&quot;US&quot; - UNITED STATES</p> </li> <li> <p>&quot;UK&quot; - UNITED KINGDOM</p> </li> <li> <p>&quot;UY&quot; - URUGUAY</p> </li> <li> <p>&quot;VE&quot; - VENEZUELA</p> </li> </ul></p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1609,10 +1609,10 @@ pub struct SupplementaryFeature {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a category for more specific tag values.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor within a tag category (key).</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1620,10 +1620,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p><p>The tags to add to the resource. A tag is an array of key-value pairs.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1636,19 +1636,19 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TestWindowSummary {
     /// <p>If the test failed, the reason why it failed.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>The status of the test. Possible status values are:</p> <ul> <li> <p> <code>ACTIVE</code> </p> </li> <li> <p> <code>CREATE<em>IN</em>PROGRESS</code> </p> </li> <li> <p> <code>CREATE_FAILED</code> </p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The time at which the test ended.</p>
-    #[serde(rename = "TestWindowEnd")]
+    #[serde(rename = "testWindowEnd")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_window_end: Option<f64>,
     /// <p>The time at which the test began.</p>
-    #[serde(rename = "TestWindowStart")]
+    #[serde(rename = "testWindowStart")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_window_start: Option<f64>,
 }
@@ -1657,10 +1657,10 @@ pub struct TestWindowSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast exports.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The keys of the tags to be removed.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1672,10 +1672,10 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDatasetGroupRequest {
     /// <p>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset group.</p>
-    #[serde(rename = "DatasetArns")]
+    #[serde(rename = "datasetArns")]
     pub dataset_arns: Vec<String>,
     /// <p>The ARN of the dataset group.</p>
-    #[serde(rename = "DatasetGroupArn")]
+    #[serde(rename = "datasetGroupArn")]
     pub dataset_group_arn: String,
 }
 
@@ -1688,11 +1688,11 @@ pub struct UpdateDatasetGroupResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WeightedQuantileLoss {
     /// <p>The difference between the predicted value and the actual value over the quantile, weighted (normalized) by dividing by the sum over all quantiles.</p>
-    #[serde(rename = "LossValue")]
+    #[serde(rename = "lossValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub loss_value: Option<f64>,
     /// <p>The quantile. Quantiles divide a probability distribution into regions of equal probability. For example, if the distribution was divided into 5 regions of equal probability, the quantiles would be 0.2, 0.4, 0.6, and 0.8.</p>
-    #[serde(rename = "Quantile")]
+    #[serde(rename = "quantile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quantile: Option<f64>,
 }
@@ -1702,23 +1702,23 @@ pub struct WeightedQuantileLoss {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WindowSummary {
     /// <p><p>The type of evaluation.</p> <ul> <li> <p> <code>SUMMARY</code> - The average metrics across all windows.</p> </li> <li> <p> <code>COMPUTED</code> - The metrics for the specified window.</p> </li> </ul></p>
-    #[serde(rename = "EvaluationType")]
+    #[serde(rename = "evaluationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_type: Option<String>,
     /// <p>The number of data points within the window.</p>
-    #[serde(rename = "ItemCount")]
+    #[serde(rename = "itemCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub item_count: Option<i64>,
     /// <p>Provides metrics used to evaluate the performance of a predictor.</p>
-    #[serde(rename = "Metrics")]
+    #[serde(rename = "metrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metrics: Option<Metrics>,
     /// <p>The timestamp that defines the end of the window.</p>
-    #[serde(rename = "TestWindowEnd")]
+    #[serde(rename = "testWindowEnd")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_window_end: Option<f64>,
     /// <p>The timestamp that defines the start of the window.</p>
-    #[serde(rename = "TestWindowStart")]
+    #[serde(rename = "testWindowStart")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub test_window_start: Option<f64>,
 }

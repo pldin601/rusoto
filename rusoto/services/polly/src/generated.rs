@@ -29,7 +29,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLexiconInput {
     /// <p>The name of the lexicon to delete. Must be an existing lexicon in the region.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -41,19 +41,19 @@ pub struct DeleteLexiconOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeVoicesInput {
     /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) used by Amazon Polly when processing input text for speech synthesis. </p>
-    #[serde(rename = "Engine")]
+    #[serde(rename = "engine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine: Option<String>,
     /// <p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>
-    #[serde(rename = "IncludeAdditionalLanguageCodes")]
+    #[serde(rename = "includeAdditionalLanguageCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_additional_language_codes: Option<bool>,
     /// <p> The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned. </p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>An opaque pagination token returned from the previous <code>DescribeVoices</code> operation. If present, this indicates where to continue the listing.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -62,11 +62,11 @@ pub struct DescribeVoicesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeVoicesOutput {
     /// <p>The pagination token to use in the next request to continue the listing of voices. <code>NextToken</code> is returned only if the response is truncated.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of voices with their properties.</p>
-    #[serde(rename = "Voices")]
+    #[serde(rename = "voices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voices: Option<Vec<Voice>>,
 }
@@ -75,7 +75,7 @@ pub struct DescribeVoicesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLexiconInput {
     /// <p>Name of the lexicon.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -83,11 +83,11 @@ pub struct GetLexiconInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLexiconOutput {
     /// <p>Lexicon object that provides name and the string content of the lexicon. </p>
-    #[serde(rename = "Lexicon")]
+    #[serde(rename = "lexicon")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicon: Option<Lexicon>,
     /// <p>Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>
-    #[serde(rename = "LexiconAttributes")]
+    #[serde(rename = "lexiconAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicon_attributes: Option<LexiconAttributes>,
 }
@@ -96,7 +96,7 @@ pub struct GetLexiconOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSpeechSynthesisTaskInput {
     /// <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
-    #[serde(rename = "TaskId")]
+    #[serde(rename = "taskId")]
     pub task_id: String,
 }
 
@@ -104,7 +104,7 @@ pub struct GetSpeechSynthesisTaskInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSpeechSynthesisTaskOutput {
     /// <p>SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.</p>
-    #[serde(rename = "SynthesisTask")]
+    #[serde(rename = "synthesisTask")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub synthesis_task: Option<SynthesisTask>,
 }
@@ -114,11 +114,11 @@ pub struct GetSpeechSynthesisTaskOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Lexicon {
     /// <p>Lexicon content in string format. The content of a lexicon must be in PLS format.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>Name of the lexicon.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -128,27 +128,27 @@ pub struct Lexicon {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LexiconAttributes {
     /// <p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>
-    #[serde(rename = "Alphabet")]
+    #[serde(rename = "alphabet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alphabet: Option<String>,
     /// <p>Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>Date lexicon was last modified (a timestamp value).</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>Number of lexemes in the lexicon.</p>
-    #[serde(rename = "LexemesCount")]
+    #[serde(rename = "lexemesCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexemes_count: Option<i64>,
     /// <p>Amazon Resource Name (ARN) of the lexicon.</p>
-    #[serde(rename = "LexiconArn")]
+    #[serde(rename = "lexiconArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicon_arn: Option<String>,
     /// <p>Total size of the lexicon, in characters.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size: Option<i64>,
 }
@@ -158,11 +158,11 @@ pub struct LexiconAttributes {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LexiconDescription {
     /// <p>Provides lexicon metadata.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<LexiconAttributes>,
     /// <p>Name of the lexicon.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -171,7 +171,7 @@ pub struct LexiconDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLexiconsInput {
     /// <p>An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -180,11 +180,11 @@ pub struct ListLexiconsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLexiconsOutput {
     /// <p>A list of lexicon names and attributes.</p>
-    #[serde(rename = "Lexicons")]
+    #[serde(rename = "lexicons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicons: Option<Vec<LexiconDescription>>,
     /// <p>The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -193,15 +193,15 @@ pub struct ListLexiconsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSpeechSynthesisTasksInput {
     /// <p>Maximum number of speech synthesis tasks returned in a List operation.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token to use in the next request to continue the listing of speech synthesis tasks. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Status of the speech synthesis tasks returned in a List operation</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -210,11 +210,11 @@ pub struct ListSpeechSynthesisTasksInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSpeechSynthesisTasksOutput {
     /// <p>An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.</p>
-    #[serde(rename = "SynthesisTasks")]
+    #[serde(rename = "synthesisTasks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub synthesis_tasks: Option<Vec<SynthesisTask>>,
 }
@@ -223,10 +223,10 @@ pub struct ListSpeechSynthesisTasksOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutLexiconInput {
     /// <p>Content of the PLS lexicon as string data.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -238,48 +238,48 @@ pub struct PutLexiconOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSpeechSynthesisTaskInput {
     /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
-    #[serde(rename = "Engine")]
+    #[serde(rename = "engine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine: Option<String>,
     /// <p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>
-    #[serde(rename = "LexiconNames")]
+    #[serde(rename = "lexiconNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicon_names: Option<Vec<String>>,
     /// <p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
-    #[serde(rename = "OutputFormat")]
+    #[serde(rename = "outputFormat")]
     pub output_format: String,
     /// <p>Amazon S3 bucket name to which the output file will be saved.</p>
-    #[serde(rename = "OutputS3BucketName")]
+    #[serde(rename = "outputS3BucketName")]
     pub output_s3_bucket_name: String,
     /// <p>The Amazon S3 key prefix for the output speech file.</p>
-    #[serde(rename = "OutputS3KeyPrefix")]
+    #[serde(rename = "outputS3KeyPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_s3_key_prefix: Option<String>,
     /// <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
-    #[serde(rename = "SampleRate")]
+    #[serde(rename = "sampleRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sample_rate: Option<String>,
     /// <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
     /// <p>The type of speech marks returned for the input text.</p>
-    #[serde(rename = "SpeechMarkTypes")]
+    #[serde(rename = "speechMarkTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub speech_mark_types: Option<Vec<String>>,
     /// <p>The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. </p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
     /// <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
-    #[serde(rename = "TextType")]
+    #[serde(rename = "textType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_type: Option<String>,
     /// <p>Voice ID to use for the synthesis. </p>
-    #[serde(rename = "VoiceId")]
+    #[serde(rename = "voiceId")]
     pub voice_id: String,
 }
 
@@ -287,7 +287,7 @@ pub struct StartSpeechSynthesisTaskInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartSpeechSynthesisTaskOutput {
     /// <p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>
-    #[serde(rename = "SynthesisTask")]
+    #[serde(rename = "synthesisTask")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub synthesis_task: Option<SynthesisTask>,
 }
@@ -297,63 +297,63 @@ pub struct StartSpeechSynthesisTaskOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SynthesisTask {
     /// <p>Timestamp for the time the synthesis task was started.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
-    #[serde(rename = "Engine")]
+    #[serde(rename = "engine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine: Option<String>,
     /// <p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>
-    #[serde(rename = "LexiconNames")]
+    #[serde(rename = "lexiconNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicon_names: Option<Vec<String>>,
     /// <p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
-    #[serde(rename = "OutputFormat")]
+    #[serde(rename = "outputFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_format: Option<String>,
     /// <p>Pathway for the output speech file.</p>
-    #[serde(rename = "OutputUri")]
+    #[serde(rename = "outputUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_uri: Option<String>,
     /// <p>Number of billable characters synthesized.</p>
-    #[serde(rename = "RequestCharacters")]
+    #[serde(rename = "requestCharacters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_characters: Option<i64>,
     /// <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
-    #[serde(rename = "SampleRate")]
+    #[serde(rename = "sampleRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sample_rate: Option<String>,
     /// <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
     /// <p>The type of speech marks returned for the input text.</p>
-    #[serde(rename = "SpeechMarkTypes")]
+    #[serde(rename = "speechMarkTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub speech_mark_types: Option<Vec<String>>,
     /// <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
-    #[serde(rename = "TaskId")]
+    #[serde(rename = "taskId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_id: Option<String>,
     /// <p>Current status of the individual speech synthesis task.</p>
-    #[serde(rename = "TaskStatus")]
+    #[serde(rename = "taskStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_status: Option<String>,
     /// <p>Reason for the current status of a specific speech synthesis task, including errors if the task has failed.</p>
-    #[serde(rename = "TaskStatusReason")]
+    #[serde(rename = "taskStatusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_status_reason: Option<String>,
     /// <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
-    #[serde(rename = "TextType")]
+    #[serde(rename = "textType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_type: Option<String>,
     /// <p>Voice ID to use for the synthesis. </p>
-    #[serde(rename = "VoiceId")]
+    #[serde(rename = "voiceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub voice_id: Option<String>,
 }
@@ -362,37 +362,37 @@ pub struct SynthesisTask {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SynthesizeSpeechInput {
     /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p> <p> <b>NTTS-only voices</b> </p> <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p> <p>Type: String</p> <p>Valid Values: <code>standard</code> | <code>neural</code> </p> <p>Required: Yes</p> <p> <b>Standard voices</b> </p> <p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
-    #[serde(rename = "Engine")]
+    #[serde(rename = "engine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine: Option<String>,
     /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.</p>
-    #[serde(rename = "LexiconNames")]
+    #[serde(rename = "lexiconNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lexicon_names: Option<Vec<String>>,
     /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>
-    #[serde(rename = "OutputFormat")]
+    #[serde(rename = "outputFormat")]
     pub output_format: String,
     /// <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
-    #[serde(rename = "SampleRate")]
+    #[serde(rename = "sampleRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sample_rate: Option<String>,
     /// <p>The type of speech marks returned for the input text.</p>
-    #[serde(rename = "SpeechMarkTypes")]
+    #[serde(rename = "speechMarkTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub speech_mark_types: Option<Vec<String>>,
     /// <p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
     /// <p> Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/ssml.html">Using SSML</a>.</p>
-    #[serde(rename = "TextType")]
+    #[serde(rename = "textType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_type: Option<String>,
     /// <p> Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. </p>
-    #[serde(rename = "VoiceId")]
+    #[serde(rename = "voiceId")]
     pub voice_id: String,
 }
 
@@ -411,31 +411,31 @@ pub struct SynthesizeSpeechOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Voice {
     /// <p>Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>
-    #[serde(rename = "AdditionalLanguageCodes")]
+    #[serde(rename = "additionalLanguageCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_language_codes: Option<Vec<String>>,
     /// <p>Gender of the voice.</p>
-    #[serde(rename = "Gender")]
+    #[serde(rename = "gender")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gender: Option<String>,
     /// <p>Amazon Polly assigned voice ID. This is the ID that you specify when calling the <code>SynthesizeSpeech</code> operation.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>Language code of the voice.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>Human readable name of the language in English.</p>
-    #[serde(rename = "LanguageName")]
+    #[serde(rename = "languageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_name: Option<String>,
     /// <p>Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that are supported by a given voice.</p>
-    #[serde(rename = "SupportedEngines")]
+    #[serde(rename = "supportedEngines")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_engines: Option<Vec<String>>,
 }

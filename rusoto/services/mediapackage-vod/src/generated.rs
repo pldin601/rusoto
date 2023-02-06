@@ -30,34 +30,34 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssetShallow {
     /// <p>The ARN of the Asset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time the Asset was initially submitted for Ingest.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The unique identifier for the Asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the PackagingGroup for the Asset.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
     /// <p>The resource ID to include in SPEKE key requests.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>ARN of the source object in S3.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The IAM role ARN used to access the source S3 bucket.</p>
-    #[serde(rename = "SourceRoleArn")]
+    #[serde(rename = "sourceRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_role_arn: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -66,36 +66,36 @@ pub struct AssetShallow {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Authorization {
     /// <p>The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.</p>
-    #[serde(rename = "CdnIdentifierSecret")]
+    #[serde(rename = "cdnIdentifierSecret")]
     pub cdn_identifier_secret: String,
     /// <p>The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.</p>
-    #[serde(rename = "SecretsRoleArn")]
+    #[serde(rename = "secretsRoleArn")]
     pub secrets_role_arn: String,
 }
 
 /// <p>A CMAF encryption configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CmafEncryption {
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
 /// <p>A CMAF packaging configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CmafPackage {
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<CmafEncryption>,
     /// <p>A list of HLS manifest configurations.</p>
-    #[serde(rename = "HlsManifests")]
+    #[serde(rename = "hlsManifests")]
     pub hls_manifests: Vec<HlsManifest>,
     /// <p>When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder&#39;s Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.</p>
-    #[serde(rename = "IncludeEncoderConfigurationInSegments")]
+    #[serde(rename = "includeEncoderConfigurationInSegments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_encoder_configuration_in_segments: Option<bool>,
     /// <p>Duration (in seconds) of each fragment. Actual fragments will be
     /// rounded to the nearest multiple of the source fragment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
 }
@@ -104,11 +104,11 @@ pub struct CmafPackage {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfigureLogsRequest {
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of a MediaPackage VOD PackagingGroup resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -116,24 +116,24 @@ pub struct ConfigureLogsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigureLogsResponse {
     /// <p>The ARN of the PackagingGroup.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The fully qualified domain name for Assets in the PackagingGroup.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the PackagingGroup.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -143,22 +143,22 @@ pub struct ConfigureLogsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAssetRequest {
     /// <p>The unique identifier for the Asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The ID of the PackagingGroup for the Asset.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     pub packaging_group_id: String,
     /// <p>The resource ID to include in SPEKE key requests.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>ARN of the source object in S3.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     pub source_arn: String,
     /// <p>The IAM role ARN used to access the source S3 bucket.</p>
-    #[serde(rename = "SourceRoleArn")]
+    #[serde(rename = "sourceRoleArn")]
     pub source_role_arn: String,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -167,38 +167,38 @@ pub struct CreateAssetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAssetResponse {
     /// <p>The ARN of the Asset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time the Asset was initially submitted for Ingest.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The list of egress endpoints available for the Asset.</p>
-    #[serde(rename = "EgressEndpoints")]
+    #[serde(rename = "egressEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_endpoints: Option<Vec<EgressEndpoint>>,
     /// <p>The unique identifier for the Asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the PackagingGroup for the Asset.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
     /// <p>The resource ID to include in SPEKE key requests.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>ARN of the source object in S3.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The IAM role_arn used to access the source S3 bucket.</p>
-    #[serde(rename = "SourceRoleArn")]
+    #[serde(rename = "sourceRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_role_arn: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -207,25 +207,25 @@ pub struct CreateAssetResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePackagingConfigurationRequest {
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the PackagingConfiguration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>The ID of a PackagingGroup.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     pub packaging_group_id: String,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -234,30 +234,30 @@ pub struct CreatePackagingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePackagingConfigurationResponse {
     /// <p>The ARN of the PackagingConfiguration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the PackagingConfiguration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>The ID of a PackagingGroup.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -266,16 +266,16 @@ pub struct CreatePackagingConfigurationResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePackagingGroupRequest {
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the PackagingGroup.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -284,24 +284,24 @@ pub struct CreatePackagingGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePackagingGroupResponse {
     /// <p>The ARN of the PackagingGroup.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The fully qualified domain name for Assets in the PackagingGroup.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the PackagingGroup.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -309,7 +309,7 @@ pub struct CreatePackagingGroupResponse {
 /// <p>A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DashEncryption {
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
@@ -317,22 +317,22 @@ pub struct DashEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DashManifest {
     /// <p>Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.</p>
-    #[serde(rename = "ManifestLayout")]
+    #[serde(rename = "manifestLayout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_layout: Option<String>,
     /// <p>An optional string to include in the name of the manifest.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
     /// <p>Minimum duration (in seconds) that a player will buffer media before starting the presentation.</p>
-    #[serde(rename = "MinBufferTimeSeconds")]
+    #[serde(rename = "minBufferTimeSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_buffer_time_seconds: Option<i64>,
     /// <p>The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to &quot;HBBTV<em>1</em>5&quot;, HbbTV 1.5 compliant output is enabled.</p>
-    #[serde(rename = "Profile")]
+    #[serde(rename = "profile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub profile: Option<String>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
 }
@@ -341,29 +341,29 @@ pub struct DashManifest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DashPackage {
     /// <p>A list of DASH manifest configurations.</p>
-    #[serde(rename = "DashManifests")]
+    #[serde(rename = "dashManifests")]
     pub dash_manifests: Vec<DashManifest>,
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<DashEncryption>,
     /// <p>When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder&#39;s Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.</p>
-    #[serde(rename = "IncludeEncoderConfigurationInSegments")]
+    #[serde(rename = "includeEncoderConfigurationInSegments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_encoder_configuration_in_segments: Option<bool>,
     /// <p>A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
     /// Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
     /// be partitioned into more than one period. If the list contains &quot;ADS&quot;, new periods will be created where
     /// the Asset contains SCTE-35 ad markers.</p>
-    #[serde(rename = "PeriodTriggers")]
+    #[serde(rename = "periodTriggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period_triggers: Option<Vec<String>>,
     /// <p>Duration (in seconds) of each segment. Actual segments will be
     /// rounded to the nearest multiple of the source segment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
     /// <p>Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER<em>WITH</em>TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME<em>WITH</em>TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER<em>WITH</em>DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.</p>
-    #[serde(rename = "SegmentTemplateFormat")]
+    #[serde(rename = "segmentTemplateFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_template_format: Option<String>,
 }
@@ -372,7 +372,7 @@ pub struct DashPackage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAssetRequest {
     /// <p>The ID of the MediaPackage VOD Asset resource to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -384,7 +384,7 @@ pub struct DeleteAssetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePackagingConfigurationRequest {
     /// <p>The ID of the MediaPackage VOD PackagingConfiguration resource to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -396,7 +396,7 @@ pub struct DeletePackagingConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePackagingGroupRequest {
     /// <p>The ID of the MediaPackage VOD PackagingGroup resource to delete.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -408,7 +408,7 @@ pub struct DeletePackagingGroupResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAssetRequest {
     /// <p>The ID of an MediaPackage VOD Asset resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -416,38 +416,38 @@ pub struct DescribeAssetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAssetResponse {
     /// <p>The ARN of the Asset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time the Asset was initially submitted for Ingest.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The list of egress endpoints available for the Asset.</p>
-    #[serde(rename = "EgressEndpoints")]
+    #[serde(rename = "egressEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_endpoints: Option<Vec<EgressEndpoint>>,
     /// <p>The unique identifier for the Asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the PackagingGroup for the Asset.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
     /// <p>The resource ID to include in SPEKE key requests.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>ARN of the source object in S3.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The IAM role_arn used to access the source S3 bucket.</p>
-    #[serde(rename = "SourceRoleArn")]
+    #[serde(rename = "sourceRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_role_arn: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -456,7 +456,7 @@ pub struct DescribeAssetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePackagingConfigurationRequest {
     /// <p>The ID of a MediaPackage VOD PackagingConfiguration resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -464,30 +464,30 @@ pub struct DescribePackagingConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePackagingConfigurationResponse {
     /// <p>The ARN of the PackagingConfiguration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the PackagingConfiguration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>The ID of a PackagingGroup.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -496,7 +496,7 @@ pub struct DescribePackagingConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePackagingGroupRequest {
     /// <p>The ID of a MediaPackage VOD PackagingGroup resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -504,24 +504,24 @@ pub struct DescribePackagingGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePackagingGroupResponse {
     /// <p>The ARN of the PackagingGroup.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The fully qualified domain name for Assets in the PackagingGroup.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the PackagingGroup.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -530,7 +530,7 @@ pub struct DescribePackagingGroupResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EgressAccessLogs {
     /// <p>Customize the log group name.</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
 }
@@ -540,11 +540,11 @@ pub struct EgressAccessLogs {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EgressEndpoint {
     /// <p>The ID of the PackagingConfiguration being applied to the Asset.</p>
-    #[serde(rename = "PackagingConfigurationId")]
+    #[serde(rename = "packagingConfigurationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_configuration_id: Option<String>,
     /// <p>The URL of the parent manifest for the repackaged Asset.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -554,14 +554,14 @@ pub struct EgressEndpoint {
 pub struct HlsEncryption {
     /// <p>A constant initialization vector for encryption (optional).
     /// When not specified the initialization vector will be periodically rotated.</p>
-    #[serde(rename = "ConstantInitializationVector")]
+    #[serde(rename = "constantInitializationVector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constant_initialization_vector: Option<String>,
     /// <p>The encryption method to use.</p>
-    #[serde(rename = "EncryptionMethod")]
+    #[serde(rename = "encryptionMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_method: Option<String>,
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
@@ -574,15 +574,15 @@ pub struct HlsManifest {
     /// markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
     /// &quot;SCTE35_ENHANCED&quot; generates ad markers and blackout tags based on SCTE-35
     /// messages in the input source.</p>
-    #[serde(rename = "AdMarkers")]
+    #[serde(rename = "adMarkers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_markers: Option<String>,
     /// <p>When enabled, an I-Frame only stream will be included in the output.</p>
-    #[serde(rename = "IncludeIframeOnlyStream")]
+    #[serde(rename = "includeIframeOnlyStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_iframe_only_stream: Option<bool>,
     /// <p>An optional string to include in the name of the manifest.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
     /// <p>The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -594,14 +594,14 @@ pub struct HlsManifest {
     /// ID3Timed Metadata messages will be generated. Note that irrespective
     /// of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
     /// it will be passed through to HLS output.</p>
-    #[serde(rename = "ProgramDateTimeIntervalSeconds")]
+    #[serde(rename = "programDateTimeIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub program_date_time_interval_seconds: Option<i64>,
     /// <p>When enabled, the EXT-X-KEY tag will be repeated in output manifests.</p>
-    #[serde(rename = "RepeatExtXKey")]
+    #[serde(rename = "repeatExtXKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repeat_ext_x_key: Option<bool>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
 }
@@ -609,19 +609,19 @@ pub struct HlsManifest {
 /// <p>An HTTP Live Streaming (HLS) packaging configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HlsPackage {
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<HlsEncryption>,
     /// <p>A list of HLS manifest configurations.</p>
-    #[serde(rename = "HlsManifests")]
+    #[serde(rename = "hlsManifests")]
     pub hls_manifests: Vec<HlsManifest>,
     /// <p>Duration (in seconds) of each fragment. Actual fragments will be
     /// rounded to the nearest multiple of the source fragment duration.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
     /// <p>When enabled, audio streams will be placed in rendition groups in the output.</p>
-    #[serde(rename = "UseAudioRenditionGroup")]
+    #[serde(rename = "useAudioRenditionGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_audio_rendition_group: Option<bool>,
 }
@@ -630,15 +630,15 @@ pub struct HlsPackage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAssetsRequest {
     /// <p>Upper bound on number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token used to resume pagination from the end of a previous request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns Assets associated with the specified PackagingGroup.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
 }
@@ -647,11 +647,11 @@ pub struct ListAssetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAssetsResponse {
     /// <p>A list of MediaPackage VOD Asset resources.</p>
-    #[serde(rename = "Assets")]
+    #[serde(rename = "assets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assets: Option<Vec<AssetShallow>>,
     /// <p>A token that can be used to resume pagination from the end of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -660,15 +660,15 @@ pub struct ListAssetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPackagingConfigurationsRequest {
     /// <p>Upper bound on number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token used to resume pagination from the end of a previous request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
 }
@@ -677,11 +677,11 @@ pub struct ListPackagingConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPackagingConfigurationsResponse {
     /// <p>A token that can be used to resume pagination from the end of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of MediaPackage VOD PackagingConfiguration resources.</p>
-    #[serde(rename = "PackagingConfigurations")]
+    #[serde(rename = "packagingConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_configurations: Option<Vec<PackagingConfiguration>>,
 }
@@ -690,11 +690,11 @@ pub struct ListPackagingConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPackagingGroupsRequest {
     /// <p>Upper bound on number of records to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token used to resume pagination from the end of a previous request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -703,11 +703,11 @@ pub struct ListPackagingGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPackagingGroupsResponse {
     /// <p>A token that can be used to resume pagination from the end of the collection.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of MediaPackage VOD PackagingGroup resources.</p>
-    #[serde(rename = "PackagingGroups")]
+    #[serde(rename = "packagingGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_groups: Option<Vec<PackagingGroup>>,
 }
@@ -716,7 +716,7 @@ pub struct ListPackagingGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -724,7 +724,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A collection of tags associated with a resource</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -732,7 +732,7 @@ pub struct ListTagsForResourceResponse {
 /// <p>A Microsoft Smooth Streaming (MSS) encryption configuration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MssEncryption {
-    #[serde(rename = "SpekeKeyProvider")]
+    #[serde(rename = "spekeKeyProvider")]
     pub speke_key_provider: SpekeKeyProvider,
 }
 
@@ -740,10 +740,10 @@ pub struct MssEncryption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MssManifest {
     /// <p>An optional string to include in the name of the manifest.</p>
-    #[serde(rename = "ManifestName")]
+    #[serde(rename = "manifestName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_name: Option<String>,
-    #[serde(rename = "StreamSelection")]
+    #[serde(rename = "streamSelection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_selection: Option<StreamSelection>,
 }
@@ -751,14 +751,14 @@ pub struct MssManifest {
 /// <p>A Microsoft Smooth Streaming (MSS) PackagingConfiguration.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MssPackage {
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<MssEncryption>,
     /// <p>A list of MSS manifest configurations.</p>
-    #[serde(rename = "MssManifests")]
+    #[serde(rename = "mssManifests")]
     pub mss_manifests: Vec<MssManifest>,
     /// <p>The duration (in seconds) of each segment.</p>
-    #[serde(rename = "SegmentDurationSeconds")]
+    #[serde(rename = "segmentDurationSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segment_duration_seconds: Option<i64>,
 }
@@ -768,30 +768,30 @@ pub struct MssPackage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PackagingConfiguration {
     /// <p>The ARN of the PackagingConfiguration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "CmafPackage")]
+    #[serde(rename = "cmafPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmaf_package: Option<CmafPackage>,
-    #[serde(rename = "DashPackage")]
+    #[serde(rename = "dashPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dash_package: Option<DashPackage>,
-    #[serde(rename = "HlsPackage")]
+    #[serde(rename = "hlsPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hls_package: Option<HlsPackage>,
     /// <p>The ID of the PackagingConfiguration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "MssPackage")]
+    #[serde(rename = "mssPackage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mss_package: Option<MssPackage>,
     /// <p>The ID of a PackagingGroup.</p>
-    #[serde(rename = "PackagingGroupId")]
+    #[serde(rename = "packagingGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packaging_group_id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -801,24 +801,24 @@ pub struct PackagingConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PackagingGroup {
     /// <p>The ARN of the PackagingGroup.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The fully qualified domain name for Assets in the PackagingGroup.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the PackagingGroup.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -828,13 +828,13 @@ pub struct PackagingGroup {
 pub struct SpekeKeyProvider {
     /// <p>An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
     /// MediaPackage will assume when accessing the key provider service.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The system IDs to include in key requests.</p>
-    #[serde(rename = "SystemIds")]
+    #[serde(rename = "systemIds")]
     pub system_ids: Vec<String>,
     /// <p>The URL of the external key provider service.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     pub url: String,
 }
 
@@ -842,15 +842,15 @@ pub struct SpekeKeyProvider {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StreamSelection {
     /// <p>The maximum video bitrate (bps) to include in output.</p>
-    #[serde(rename = "MaxVideoBitsPerSecond")]
+    #[serde(rename = "maxVideoBitsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_video_bits_per_second: Option<i64>,
     /// <p>The minimum video bitrate (bps) to include in output.</p>
-    #[serde(rename = "MinVideoBitsPerSecond")]
+    #[serde(rename = "minVideoBitsPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_video_bits_per_second: Option<i64>,
     /// <p>A directive that determines the order of streams in the output.</p>
-    #[serde(rename = "StreamOrder")]
+    #[serde(rename = "streamOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_order: Option<String>,
 }
@@ -859,10 +859,10 @@ pub struct StreamSelection {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A collection of tags associated with a resource</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -870,10 +870,10 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A comma-separated list of the tag keys to remove from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -881,11 +881,11 @@ pub struct UntagResourceRequest {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePackagingGroupRequest {
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The ID of a MediaPackage VOD PackagingGroup resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -893,24 +893,24 @@ pub struct UpdatePackagingGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdatePackagingGroupResponse {
     /// <p>The ARN of the PackagingGroup.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
-    #[serde(rename = "Authorization")]
+    #[serde(rename = "authorization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization: Option<Authorization>,
     /// <p>The fully qualified domain name for Assets in the PackagingGroup.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
-    #[serde(rename = "EgressAccessLogs")]
+    #[serde(rename = "egressAccessLogs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_access_logs: Option<EgressAccessLogs>,
     /// <p>The ID of the PackagingGroup.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }

@@ -1916,7 +1916,7 @@ pub struct ListFiltersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFiltersResponse {
     /// <p>A list of returned filters.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<FilterSummary>>,
     /// <p>A token for getting the next set of filters (if they exist).</p>

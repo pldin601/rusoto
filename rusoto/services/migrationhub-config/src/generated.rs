@@ -55,14 +55,14 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateHomeRegionControlRequest {
     /// <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The name of the home region of the calling account.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     pub home_region: String,
     /// <p>The account for which this command sets up a home region control. The <code>Target</code> is always of type <code>ACCOUNT</code>.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     pub target: Target,
 }
 
@@ -70,7 +70,7 @@ pub struct CreateHomeRegionControlRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateHomeRegionControlResult {
     /// <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful call to <code>CreateHomeRegionControl</code>.</p>
-    #[serde(rename = "HomeRegionControl")]
+    #[serde(rename = "homeRegionControl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region_control: Option<HomeRegionControl>,
 }
@@ -79,23 +79,23 @@ pub struct CreateHomeRegionControlResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeHomeRegionControlsRequest {
     /// <p>The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code> object.</p>
-    #[serde(rename = "ControlId")]
+    #[serde(rename = "controlId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub control_id: Option<String>,
     /// <p>The name of the home region you'd like to view.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
     /// <p>The maximum number of filtering results to display per page. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The target parameter specifies the identifier to which the home region is applied, which is always of type <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<Target>,
 }
@@ -104,11 +104,11 @@ pub struct DescribeHomeRegionControlsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeHomeRegionControlsResult {
     /// <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
-    #[serde(rename = "HomeRegionControls")]
+    #[serde(rename = "homeRegionControls")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region_controls: Option<Vec<HomeRegionControl>>,
     /// <p>If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -121,7 +121,7 @@ pub struct GetHomeRegionRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetHomeRegionResult {
     /// <p>The name of the home region of the calling account.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
 }
@@ -131,19 +131,19 @@ pub struct GetHomeRegionResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HomeRegionControl {
     /// <p>A unique identifier that's generated for each home region control. It's always a string that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
-    #[serde(rename = "ControlId")]
+    #[serde(rename = "controlId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub control_id: Option<String>,
     /// <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1" are valid home regions.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
     /// <p>A timestamp representing the time when the customer called <code>CreateHomeregionControl</code> and set the home region for the account.</p>
-    #[serde(rename = "RequestedTime")]
+    #[serde(rename = "requestedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_time: Option<f64>,
     /// <p>The target parameter specifies the identifier to which the home region is applied, which is always an <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<Target>,
 }
@@ -152,11 +152,11 @@ pub struct HomeRegionControl {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Target {
     /// <p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for which the control was created. (This must be the current account.) </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The target type is always an <code>ACCOUNT</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 

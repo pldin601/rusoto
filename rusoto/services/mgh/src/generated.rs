@@ -55,15 +55,15 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplicationState {
     /// <p>The configurationId from the Application Discovery Service that uniquely identifies an application.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The current status of an application.</p>
-    #[serde(rename = "ApplicationStatus")]
+    #[serde(rename = "applicationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_status: Option<String>,
     /// <p>The timestamp when the application status was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
 }
@@ -72,17 +72,17 @@ pub struct ApplicationState {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateCreatedArtifactRequest {
     /// <p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) </p>
-    #[serde(rename = "CreatedArtifact")]
+    #[serde(rename = "createdArtifact")]
     pub created_artifact: CreatedArtifact,
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream. </p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -94,17 +94,17 @@ pub struct AssociateCreatedArtifactResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateDiscoveredResourceRequest {
     /// <p>Object representing a Resource.</p>
-    #[serde(rename = "DiscoveredResource")]
+    #[serde(rename = "discoveredResource")]
     pub discovered_resource: DiscoveredResource,
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream.</p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -116,11 +116,11 @@ pub struct AssociateDiscoveredResourceResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProgressUpdateStreamRequest {
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "ProgressUpdateStreamName")]
+    #[serde(rename = "progressUpdateStreamName")]
     pub progress_update_stream_name: String,
 }
 
@@ -132,11 +132,11 @@ pub struct CreateProgressUpdateStreamResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CreatedArtifact {
     /// <p>A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An ARN that uniquely identifies the result of a migration task.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -144,11 +144,11 @@ pub struct CreatedArtifact {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProgressUpdateStreamRequest {
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "ProgressUpdateStreamName")]
+    #[serde(rename = "progressUpdateStreamName")]
     pub progress_update_stream_name: String,
 }
 
@@ -160,7 +160,7 @@ pub struct DeleteProgressUpdateStreamResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeApplicationStateRequest {
     /// <p>The configurationId in Application Discovery Service that uniquely identifies the grouped application.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
 }
 
@@ -168,11 +168,11 @@ pub struct DescribeApplicationStateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeApplicationStateResult {
     /// <p>Status of the application - Not Started, In-Progress, Complete.</p>
-    #[serde(rename = "ApplicationStatus")]
+    #[serde(rename = "applicationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_status: Option<String>,
     /// <p>The timestamp when the application status was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
 }
@@ -181,10 +181,10 @@ pub struct DescribeApplicationStateResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeMigrationTaskRequest {
     /// <p>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream. </p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -192,7 +192,7 @@ pub struct DescribeMigrationTaskRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeMigrationTaskResult {
     /// <p>Object encapsulating information about the migration task.</p>
-    #[serde(rename = "MigrationTask")]
+    #[serde(rename = "migrationTask")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub migration_task: Option<MigrationTask>,
 }
@@ -201,17 +201,17 @@ pub struct DescribeMigrationTaskResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateCreatedArtifactRequest {
     /// <p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)</p>
-    #[serde(rename = "CreatedArtifactName")]
+    #[serde(rename = "createdArtifactName")]
     pub created_artifact_name: String,
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Unique identifier that references the migration task to be disassociated with the artifact. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream. </p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -223,17 +223,17 @@ pub struct DisassociateCreatedArtifactResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateDiscoveredResourceRequest {
     /// <p>ConfigurationId of the Application Discovery Service resource to be disassociated.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     pub configuration_id: String,
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream.</p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -245,10 +245,10 @@ pub struct DisassociateDiscoveredResourceResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DiscoveredResource {
     /// <p>The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.</p>
-    #[serde(rename = "ConfigurationId")]
+    #[serde(rename = "configurationId")]
     pub configuration_id: String,
     /// <p>A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -257,14 +257,14 @@ pub struct DiscoveredResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportMigrationTaskRequest {
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream. &gt;</p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -276,15 +276,15 @@ pub struct ImportMigrationTaskResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListApplicationStatesRequest {
     /// <p>The configurationIds from the Application Discovery Service that uniquely identifies your applications.</p>
-    #[serde(rename = "ApplicationIds")]
+    #[serde(rename = "applicationIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_ids: Option<Vec<String>>,
     /// <p>Maximum number of results to be returned per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -293,11 +293,11 @@ pub struct ListApplicationStatesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListApplicationStatesResult {
     /// <p>A list of Applications that exist in Application Discovery Service.</p>
-    #[serde(rename = "ApplicationStateList")]
+    #[serde(rename = "applicationStateList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_state_list: Option<Vec<ApplicationState>>,
     /// <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -306,18 +306,18 @@ pub struct ListApplicationStatesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCreatedArtifactsRequest {
     /// <p>Maximum number of results to be returned per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the ProgressUpdateStream. </p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -325,11 +325,11 @@ pub struct ListCreatedArtifactsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCreatedArtifactsResult {
     /// <p>List of created artifacts up to the maximum number of results specified in the request.</p>
-    #[serde(rename = "CreatedArtifactList")]
+    #[serde(rename = "createdArtifactList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_artifact_list: Option<Vec<CreatedArtifact>>,
     /// <p>If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -338,18 +338,18 @@ pub struct ListCreatedArtifactsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDiscoveredResourcesRequest {
     /// <p>The maximum number of results returned per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The name of the MigrationTask. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the ProgressUpdateStream.</p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
 }
 
@@ -357,11 +357,11 @@ pub struct ListDiscoveredResourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDiscoveredResourcesResult {
     /// <p>Returned list of discovered resources associated with the given MigrationTask.</p>
-    #[serde(rename = "DiscoveredResourceList")]
+    #[serde(rename = "discoveredResourceList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discovered_resource_list: Option<Vec<DiscoveredResource>>,
     /// <p>If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -370,15 +370,15 @@ pub struct ListDiscoveredResourcesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMigrationTasksRequest {
     /// <p>Value to specify how many results are returned per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Filter migration tasks by discovered resource name.</p>
-    #[serde(rename = "ResourceName")]
+    #[serde(rename = "resourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_name: Option<String>,
 }
@@ -387,11 +387,11 @@ pub struct ListMigrationTasksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMigrationTasksResult {
     /// <p>Lists the migration task's summary which includes: <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and the <code>UpdateDateTime</code> for each task.</p>
-    #[serde(rename = "MigrationTaskSummaryList")]
+    #[serde(rename = "migrationTaskSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub migration_task_summary_list: Option<Vec<MigrationTaskSummary>>,
     /// <p>If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -400,11 +400,11 @@ pub struct ListMigrationTasksResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProgressUpdateStreamsRequest {
     /// <p>Filter to limit the maximum number of results to list per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -413,11 +413,11 @@ pub struct ListProgressUpdateStreamsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProgressUpdateStreamsResult {
     /// <p>If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of progress update streams up to the max number of results passed in the input.</p>
-    #[serde(rename = "ProgressUpdateStreamSummaryList")]
+    #[serde(rename = "progressUpdateStreamSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_update_stream_summary_list: Option<Vec<ProgressUpdateStreamSummary>>,
 }
@@ -427,23 +427,23 @@ pub struct ListProgressUpdateStreamsResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MigrationTask {
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub migration_task_name: Option<String>,
     /// <p>A name that identifies the vendor of the migration tool being used.</p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_update_stream: Option<String>,
     /// <p>Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.</p>
-    #[serde(rename = "ResourceAttributeList")]
+    #[serde(rename = "resourceAttributeList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_attribute_list: Option<Vec<ResourceAttribute>>,
     /// <p>Task object encapsulating task information.</p>
-    #[serde(rename = "Task")]
+    #[serde(rename = "task")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task: Option<Task>,
     /// <p>The timestamp when the task was gathered.</p>
-    #[serde(rename = "UpdateDateTime")]
+    #[serde(rename = "updateDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_date_time: Option<f64>,
 }
@@ -453,27 +453,27 @@ pub struct MigrationTask {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MigrationTaskSummary {
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub migration_task_name: Option<String>,
     /// <p>Indication of the percentage completion of the task.</p>
-    #[serde(rename = "ProgressPercent")]
+    #[serde(rename = "progressPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_percent: Option<i64>,
     /// <p>An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.</p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_update_stream: Option<String>,
     /// <p>Status of the task.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Detail information of what is being done within the overall status state.</p>
-    #[serde(rename = "StatusDetail")]
+    #[serde(rename = "statusDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_detail: Option<String>,
     /// <p>The timestamp when the task was gathered.</p>
-    #[serde(rename = "UpdateDateTime")]
+    #[serde(rename = "updateDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_date_time: Option<f64>,
 }
@@ -482,17 +482,17 @@ pub struct MigrationTaskSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct NotifyApplicationStateRequest {
     /// <p>The configurationId in Application Discovery Service that uniquely identifies the grouped application.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Status of the application - Not Started, In-Progress, Complete.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>The timestamp when the application state changed.</p>
-    #[serde(rename = "UpdateDateTime")]
+    #[serde(rename = "updateDateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_date_time: Option<f64>,
 }
@@ -505,23 +505,23 @@ pub struct NotifyApplicationStateResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct NotifyMigrationTaskStateRequest {
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.</p>
-    #[serde(rename = "NextUpdateSeconds")]
+    #[serde(rename = "nextUpdateSeconds")]
     pub next_update_seconds: i64,
     /// <p>The name of the ProgressUpdateStream. </p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
     /// <p>Information about the task's progress and status.</p>
-    #[serde(rename = "Task")]
+    #[serde(rename = "task")]
     pub task: Task,
     /// <p>The timestamp when the task was gathered.</p>
-    #[serde(rename = "UpdateDateTime")]
+    #[serde(rename = "updateDateTime")]
     pub update_date_time: f64,
 }
 
@@ -534,7 +534,7 @@ pub struct NotifyMigrationTaskStateResult {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProgressUpdateStreamSummary {
     /// <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "ProgressUpdateStreamName")]
+    #[serde(rename = "progressUpdateStreamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_update_stream_name: Option<String>,
 }
@@ -543,17 +543,17 @@ pub struct ProgressUpdateStreamSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResourceAttributesRequest {
     /// <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
-    #[serde(rename = "MigrationTaskName")]
+    #[serde(rename = "migrationTaskName")]
     pub migration_task_name: String,
     /// <p>The name of the ProgressUpdateStream. </p>
-    #[serde(rename = "ProgressUpdateStream")]
+    #[serde(rename = "progressUpdateStream")]
     pub progress_update_stream: String,
     /// <p><p>Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.</p> <note> <p>Takes the object array of <code>ResourceAttribute</code> where the <code>Type</code> field is reserved for the following values: <code>IPV4<em>ADDRESS | IPV6</em>ADDRESS | MAC<em>ADDRESS | FQDN | VM</em>MANAGER<em>ID | VM</em>MANAGED<em>OBJECT</em>REFERENCE | VM<em>NAME | VM</em>PATH | BIOS<em>ID | MOTHERBOARD</em>SERIAL<em>NUMBER</code> where the identifying value can be a string up to 256 characters.</p> </note> <important> <ul> <li> <p>If any &quot;VM&quot; related value is set for a <code>ResourceAttribute</code> object, it is required that <code>VM</em>MANAGER<em>ID</code>, as a minimum, is always set. If <code>VM</em>MANAGER<em>ID</code> is not set, then all &quot;VM&quot; fields will be discarded and &quot;VM&quot; fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the &lt;a href=&quot;https://docs.aws.amazon.com/migrationhub/latest/ug/API</em>PutResourceAttributes.html#API<em>PutResourceAttributes</em>Examples&quot;&gt;Example</a> section below for a use case of specifying &quot;VM&quot; related values.</p> </li> <li> <p> If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the <code>ResourceAttributeList</code> parameter to maximize the chances of matching.</p> </li> </ul> </important></p>
-    #[serde(rename = "ResourceAttributeList")]
+    #[serde(rename = "resourceAttributeList")]
     pub resource_attribute_list: Vec<ResourceAttribute>,
 }
 
@@ -565,10 +565,10 @@ pub struct PutResourceAttributesResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourceAttribute {
     /// <p>Type of resource.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>Value of the resource type.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -576,14 +576,14 @@ pub struct ResourceAttribute {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Task {
     /// <p>Indication of the percentage completion of the task.</p>
-    #[serde(rename = "ProgressPercent")]
+    #[serde(rename = "progressPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_percent: Option<i64>,
     /// <p>Status of the task - Not Started, In-Progress, Complete.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state.</p>
-    #[serde(rename = "StatusDetail")]
+    #[serde(rename = "statusDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_detail: Option<String>,
 }

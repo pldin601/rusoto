@@ -29,22 +29,22 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGroupInput {
     /// <p><p>A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements. For details about the syntax of service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource groups</a>.</p> <note> <p>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>, but not both.</p> </note></p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<Vec<GroupConfigurationItem>>,
     /// <p>The description of the resource group. Descriptions can consist of letters, numbers, hyphens, underscores, periods, and spaces.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>The resource query that determines which AWS resources are members of this group. For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. </p> <note> <p>A resource group can contain either a <code>ResourceQuery</code> or a <code>Configuration</code>, but not both.</p> </note></p>
-    #[serde(rename = "ResourceQuery")]
+    #[serde(rename = "resourceQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_query: Option<ResourceQuery>,
     /// <p>The tags to add to the group. A tag is key-value pair string.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -53,19 +53,19 @@ pub struct CreateGroupInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGroupOutput {
     /// <p>The description of the resource group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
     /// <p>The service configuration associated with the resource group. For details about the syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource groups</a>.</p>
-    #[serde(rename = "GroupConfiguration")]
+    #[serde(rename = "groupConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_configuration: Option<GroupConfiguration>,
     /// <p>The resource query associated with the group. For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. </p>
-    #[serde(rename = "ResourceQuery")]
+    #[serde(rename = "resourceQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_query: Option<ResourceQuery>,
     /// <p>The tags associated with the group.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -74,7 +74,7 @@ pub struct CreateGroupOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGroupInput {
     /// <p>The name or the ARN of the resource group to delete.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
 }
@@ -83,7 +83,7 @@ pub struct DeleteGroupInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteGroupOutput {
     /// <p>A full description of the deleted resource group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 }
@@ -93,15 +93,15 @@ pub struct DeleteGroupOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedResource {
     /// <p>The error code associated with the failure.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message text associated with the failure.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ARN of the resource that failed to be added or removed.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -110,7 +110,7 @@ pub struct FailedResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGroupConfigurationInput {
     /// <p>The name or the ARN of the resource group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
 }
@@ -119,7 +119,7 @@ pub struct GetGroupConfigurationInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGroupConfigurationOutput {
     /// <p>The service configuration associated with the specified group. For details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource groups</a>.</p>
-    #[serde(rename = "GroupConfiguration")]
+    #[serde(rename = "groupConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_configuration: Option<GroupConfiguration>,
 }
@@ -128,7 +128,7 @@ pub struct GetGroupConfigurationOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGroupInput {
     /// <p>The name or the ARN of the resource group to retrieve.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
 }
@@ -137,7 +137,7 @@ pub struct GetGroupInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGroupOutput {
     /// <p>A full description of the resource group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 }
@@ -146,7 +146,7 @@ pub struct GetGroupOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGroupQueryInput {
     /// <p>The name or the ARN of the resource group to query.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
 }
@@ -155,7 +155,7 @@ pub struct GetGroupQueryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGroupQueryOutput {
     /// <p>The resource query associated with the specified group. For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>.</p>
-    #[serde(rename = "GroupQuery")]
+    #[serde(rename = "groupQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_query: Option<GroupQuery>,
 }
@@ -164,7 +164,7 @@ pub struct GetGroupQueryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTagsInput {
     /// <p>The ARN of the resource group whose tags you want to retrieve.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -172,11 +172,11 @@ pub struct GetTagsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTagsOutput {
     /// <p>The ARN of the tagged resource group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The tags associated with the specified resource group.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -186,14 +186,14 @@ pub struct GetTagsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Group {
     /// <p>The description of the resource group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the resource group.</p>
-    #[serde(rename = "GroupArn")]
+    #[serde(rename = "groupArn")]
     pub group_arn: String,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -202,19 +202,19 @@ pub struct Group {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupConfiguration {
     /// <p>The configuration currently associated with the group and in effect.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<Vec<GroupConfigurationItem>>,
     /// <p>If present, the reason why a request to update the group configuration failed.</p>
-    #[serde(rename = "FailureReason")]
+    #[serde(rename = "failureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_reason: Option<String>,
     /// <p>If present, the new configuration that is in the process of being applied to the group.</p>
-    #[serde(rename = "ProposedConfiguration")]
+    #[serde(rename = "proposedConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub proposed_configuration: Option<Vec<GroupConfigurationItem>>,
     /// <p>The current status of an attempt to update the group configuration.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -223,11 +223,11 @@ pub struct GroupConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GroupConfigurationItem {
     /// <p>A collection of parameters for this group configuration item. For the list of parameters that you can use with each configuration item type, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and parameters</a>.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Vec<GroupConfigurationParameter>>,
     /// <p>Specifies the type of group configuration item. Each item must have a unique value for <code>type</code>. For the list of types that you can specify for a configuration item, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and parameters</a>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -235,10 +235,10 @@ pub struct GroupConfigurationItem {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GroupConfigurationParameter {
     /// <p>The name of the group configuration parameter. For the list of parameters that you can use with each configuration item type, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and parameters</a>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The value or values to be used for the specified parameter. For the list of values you can use with each parameter, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and parameters</a>.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -248,10 +248,10 @@ pub struct GroupConfigurationParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GroupFilter {
     /// <p>The name of the filter. Filter names are case-sensitive.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -260,11 +260,11 @@ pub struct GroupFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupIdentifier {
     /// <p>The ARN of the resource group.</p>
-    #[serde(rename = "GroupArn")]
+    #[serde(rename = "groupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The name of the resource group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -274,10 +274,10 @@ pub struct GroupIdentifier {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupQuery {
     /// <p>The name of the resource group that is associated with the specified resource query.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The resource query that determines which AWS resources are members of the associated resource group.</p>
-    #[serde(rename = "ResourceQuery")]
+    #[serde(rename = "resourceQuery")]
     pub resource_query: ResourceQuery,
 }
 
@@ -285,10 +285,10 @@ pub struct GroupQuery {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GroupResourcesInput {
     /// <p>The name or the ARN of the resource group to add resources to.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     pub group: String,
     /// <p>The list of ARNs for resources to be added to the group. </p>
-    #[serde(rename = "ResourceArns")]
+    #[serde(rename = "resourceArns")]
     pub resource_arns: Vec<String>,
 }
 
@@ -296,15 +296,15 @@ pub struct GroupResourcesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupResourcesOutput {
     /// <p>A list of ARNs of any resources that failed to be added to the group by this operation.</p>
-    #[serde(rename = "Failed")]
+    #[serde(rename = "failed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed: Option<Vec<FailedResource>>,
     /// <p>A list of ARNs of any resources that are still in the process of being added to the group by this operation. These pending additions continue asynchronously. You can check the status of pending additions by using the <code> <a>ListGroupResources</a> </code> operation, and checking the <code>Resources</code> array in the response and the <code>Status</code> field of each object in that array. </p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<Vec<PendingResource>>,
     /// <p>A list of ARNs of resources that were successfully added to the group by this operation.</p>
-    #[serde(rename = "Succeeded")]
+    #[serde(rename = "succeeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub succeeded: Option<Vec<String>>,
 }
@@ -313,19 +313,19 @@ pub struct GroupResourcesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupResourcesInput {
     /// <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <code>ListGroupResources</code> operation. Filters the results to include only those of the specified resource types.</p> <ul> <li> <p> <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>. </p> </li> </ul> <p>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code> error with a message similar to the following:</p> <p> <code>The resource types specified as filters in the request are not valid.</code> </p> <p>The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies <code>AWS::AllSupported</code>, because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or AWS CloudFormation stack-based queries).</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<ResourceFilter>>,
     /// <p>The name or the ARN of the resource group</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
     /// <p>The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -334,11 +334,11 @@ pub struct ListGroupResourcesInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupResourcesItem {
-    #[serde(rename = "Identifier")]
+    #[serde(rename = "identifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identifier: Option<ResourceIdentifier>,
     /// <p><p>A structure that contains the status of this resource&#39;s membership in the group.</p> <note> <p>This field is present in the response only if the group is of type <code>AWS::EC2::HostManagement</code>.</p> </note></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<ResourceStatus>,
 }
@@ -347,15 +347,15 @@ pub struct ListGroupResourcesItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupResourcesOutput {
     /// <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>QueryError</code> objects. Each error is an object that contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-    #[serde(rename = "QueryErrors")]
+    #[serde(rename = "queryErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_errors: Option<Vec<QueryError>>,
     /// <p>An array of resources from which you can determine each resource's identity, type, and group membership status.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<Vec<ListGroupResourcesItem>>,
 }
@@ -364,15 +364,15 @@ pub struct ListGroupResourcesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupsInput {
     /// <p><p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to a <code>ListGroups</code> operation.</p> <ul> <li> <p> <code>resource-type</code> - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i> </code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.</p> </li> <li> <p> <code>configuration-type</code> - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:</p> <ul> <li> <p> <code>AWS:EC2::CapacityReservationPool</code> </p> </li> <li> <p> <code>AWS:EC2::HostManagement</code> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<GroupFilter>>,
     /// <p>The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -381,11 +381,11 @@ pub struct ListGroupsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupsOutput {
     /// <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
-    #[serde(rename = "GroupIdentifiers")]
+    #[serde(rename = "groupIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_identifiers: Option<Vec<GroupIdentifier>>,
     /// <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -395,7 +395,7 @@ pub struct ListGroupsOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PendingResource {
     /// <p>The Amazon resource name (ARN) of the resource that's in a pending state.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -404,11 +404,11 @@ pub struct PendingResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutGroupConfigurationInput {
     /// <p><p>The new configuration to associate with the specified group. A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p> <p>For information about the syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource groups</a>.</p> <note> <p>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>, but not both.</p> </note></p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<Vec<GroupConfigurationItem>>,
     /// <p>The name or ARN of the resource group with the configuration that you want to update.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
 }
@@ -422,11 +422,11 @@ pub struct PutGroupConfigurationOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueryError {
     /// <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>A message that explains the <code>ErrorCode</code> value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as <code>CREATE_FAILED</code>.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -436,10 +436,10 @@ pub struct QueryError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResourceFilter {
     /// <p>The name of the filter. Filter names are case-sensitive.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -448,11 +448,11 @@ pub struct ResourceFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceIdentifier {
     /// <p>The ARN of a resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -461,10 +461,10 @@ pub struct ResourceIdentifier {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourceQuery {
     /// <p>The query that defines a group or a search.</p>
-    #[serde(rename = "Query")]
+    #[serde(rename = "query")]
     pub query: String,
     /// <p><p>The type of the query. You can use the following values:</p> <ul> <li> <p> <i> <code>CLOUDFORMATION<em>STACK</em>1<em>0:</code> </i>Specifies that the <code>Query</code> contains an ARN for a CloudFormation stack.</p> </li> <li> <p> <i> <code>TAG</em>FILTERS<em>1</em>0:</code> </i>Specifies that the <code>Query</code> parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the <code> <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html">GetResources</a> </code> operation, but uses only the <code> <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters"> ResourceTypeFilters</a> </code> and <code> <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters">TagFilters</a> </code> fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p> <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each:</p> <p> <code>[{&quot;Stage&quot;:[&quot;Test&quot;,&quot;Deploy&quot;]},{&quot;Version&quot;:[&quot;1&quot;,&quot;2&quot;]}]</code> </p> <p>The results of this query could include the following.</p> <ul> <li> <p>An EC2 instance that has the following two tags: <code>{&quot;Stage&quot;:&quot;Deploy&quot;}</code>, and <code>{&quot;Version&quot;:&quot;2&quot;}</code> </p> </li> <li> <p>An S3 bucket that has the following two tags: <code>{&quot;Stage&quot;:&quot;Test&quot;}</code>, and <code>{&quot;Version&quot;:&quot;1&quot;}</code> </p> </li> </ul> <p>The query would not include the following items in the results, however. </p> <ul> <li> <p>An EC2 instance that has only the following tag: <code>{&quot;Stage&quot;:&quot;Deploy&quot;}</code>.</p> <p>The instance does not have <b>all</b> of the tag keys specified in the filter, so it is excluded from the results.</p> </li> <li> <p>An RDS database that has the following two tags: <code>{&quot;Stage&quot;:&quot;Archived&quot;}</code> and <code>{&quot;Version&quot;:&quot;4&quot;}</code> </p> <p>The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.</p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -473,7 +473,7 @@ pub struct ResourceQuery {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceStatus {
     /// <p>The current status.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -482,15 +482,15 @@ pub struct ResourceStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchResourcesInput {
     /// <p>The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The search query, using the same formats that are supported for resource group definition. For more information, see <a>CreateGroup</a>.</p>
-    #[serde(rename = "ResourceQuery")]
+    #[serde(rename = "resourceQuery")]
     pub resource_query: ResourceQuery,
 }
 
@@ -498,15 +498,15 @@ pub struct SearchResourcesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchResourcesOutput {
     /// <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of <code>QueryError</code> objects. Each error is an object that contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-    #[serde(rename = "QueryErrors")]
+    #[serde(rename = "queryErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_errors: Option<Vec<QueryError>>,
     /// <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
-    #[serde(rename = "ResourceIdentifiers")]
+    #[serde(rename = "resourceIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_identifiers: Option<Vec<ResourceIdentifier>>,
 }
@@ -515,10 +515,10 @@ pub struct SearchResourcesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagInput {
     /// <p>The ARN of the resource group to which to add tags.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -526,11 +526,11 @@ pub struct TagInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagOutput {
     /// <p>The ARN of the tagged resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The tags that have been added to the specified resource group.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -539,10 +539,10 @@ pub struct TagOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UngroupResourcesInput {
     /// <p>The name or the ARN of the resource group from which to remove the resources.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     pub group: String,
     /// <p>The ARNs of the resources to be removed from the group.</p>
-    #[serde(rename = "ResourceArns")]
+    #[serde(rename = "resourceArns")]
     pub resource_arns: Vec<String>,
 }
 
@@ -550,15 +550,15 @@ pub struct UngroupResourcesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UngroupResourcesOutput {
     /// <p>A list of any resources that failed to be removed from the group by this operation.</p>
-    #[serde(rename = "Failed")]
+    #[serde(rename = "failed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed: Option<Vec<FailedResource>>,
     /// <p>A list of any resources that are still in the process of being removed from the group by this operation. These pending removals continue asynchronously. You can check the status of pending removals by using the <code> <a>ListGroupResources</a> </code> operation. After the resource is successfully removed, it no longer appears in the response.</p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<Vec<PendingResource>>,
     /// <p>A list of resources that were successfully removed from the group by this operation.</p>
-    #[serde(rename = "Succeeded")]
+    #[serde(rename = "succeeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub succeeded: Option<Vec<String>>,
 }
@@ -567,10 +567,10 @@ pub struct UngroupResourcesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagInput {
     /// <p>The ARN of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The keys of the tags to be removed.</p>
-    #[serde(rename = "Keys")]
+    #[serde(rename = "keys")]
     pub keys: Vec<String>,
 }
 
@@ -578,11 +578,11 @@ pub struct UntagInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UntagOutput {
     /// <p>The ARN of the resource group from which tags have been removed.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The keys of the tags that were removed.</p>
-    #[serde(rename = "Keys")]
+    #[serde(rename = "keys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub keys: Option<Vec<String>>,
 }
@@ -591,11 +591,11 @@ pub struct UntagOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGroupInput {
     /// <p>The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name or the ARN of the resource group to modify.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
 }
@@ -604,7 +604,7 @@ pub struct UpdateGroupInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateGroupOutput {
     /// <p>The update description of the resource group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 }
@@ -613,11 +613,11 @@ pub struct UpdateGroupOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGroupQueryInput {
     /// <p>The name or the ARN of the resource group to query.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
     /// <p><p>The resource query to determine which AWS resources are members of this resource group.</p> <note> <p>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>, but not both.</p> </note></p>
-    #[serde(rename = "ResourceQuery")]
+    #[serde(rename = "resourceQuery")]
     pub resource_query: ResourceQuery,
 }
 
@@ -625,7 +625,7 @@ pub struct UpdateGroupQueryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateGroupQueryOutput {
     /// <p>The updated resource query associated with the resource group after the update.</p>
-    #[serde(rename = "GroupQuery")]
+    #[serde(rename = "groupQuery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_query: Option<GroupQuery>,
 }

@@ -56,7 +56,7 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttributeValue {
     /// <p>The specific value of an <code>attributeName</code>.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -65,19 +65,19 @@ pub struct AttributeValue {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeServicesRequest {
     /// <p>The format version that you want the response to be in.</p> <p>Valid values are: <code>aws_v1</code> </p>
-    #[serde(rename = "FormatVersion")]
+    #[serde(rename = "formatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format_version: Option<String>,
     /// <p>The maximum number of results that you want returned in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>. You can use the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call. To retrieve a list of all services, leave this blank.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
 }
@@ -86,15 +86,15 @@ pub struct DescribeServicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeServicesResponse {
     /// <p>The format version of the response. For example, <code>aws_v1</code>.</p>
-    #[serde(rename = "FormatVersion")]
+    #[serde(rename = "formatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format_version: Option<String>,
     /// <p>The pagination token for the next set of retreivable results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service metadata for the service or services in the response.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<Service>>,
 }
@@ -104,13 +104,13 @@ pub struct DescribeServicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p>The product metadata field that you want to filter on. You can filter by just the service code to see all products for a specific service, filter by just the attribute name to see a specific attribute for multiple services, or use both a service code and an attribute name to retrieve only products that match both fields.</p> <p>Valid values include: <code>ServiceCode</code>, and all attribute names</p> <p>For example, you can filter by the <code>AmazonEC2</code> service code and the <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>
-    #[serde(rename = "Field")]
+    #[serde(rename = "field")]
     pub field: String,
     /// <p>The type of filter that you want to use.</p> <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only products that match both the given filter field and the given value.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>The service code or attribute value that you want to filter by. If you are filtering by service code this is the actual service code, such as <code>AmazonEC2</code>. If you are filtering by attribute name, this is the attribute value that you want the returned products to match, such as a <code>Provisioned IOPS</code> volume.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -118,18 +118,18 @@ pub struct Filter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAttributeValuesRequest {
     /// <p>The name of the attribute that you want to retrieve the values for, such as <code>volumeType</code>.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     pub attribute_name: String,
     /// <p>The maximum number of results to return in response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -137,11 +137,11 @@ pub struct GetAttributeValuesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAttributeValuesResponse {
     /// <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code> <code>volumeType</code>.</p>
-    #[serde(rename = "AttributeValues")]
+    #[serde(rename = "attributeValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_values: Option<Vec<AttributeValue>>,
     /// <p>The pagination token that indicates the next set of results to retrieve.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -150,23 +150,23 @@ pub struct GetAttributeValuesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProductsRequest {
     /// <p>The list of filters that limit the returned products. only products that match all filters are returned.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The format version that you want the response to be in.</p> <p>Valid values are: <code>aws_v1</code> </p>
-    #[serde(rename = "FormatVersion")]
+    #[serde(rename = "formatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format_version: Option<String>,
     /// <p>The maximum number of results to return in the response.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The code for the service whose products you want to retrieve. </p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
 }
@@ -175,15 +175,15 @@ pub struct GetProductsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProductsResponse {
     /// <p>The format version of the response. For example, aws_v1.</p>
-    #[serde(rename = "FormatVersion")]
+    #[serde(rename = "formatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format_version: Option<String>,
     /// <p>The pagination token that indicates the next set of results to retrieve.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of products that match your filters. The list contains both the product metadata and the price information.</p>
-    #[serde(rename = "PriceList")]
+    #[serde(rename = "priceList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub price_list: Option<Vec<String>>,
 }
@@ -193,11 +193,11 @@ pub struct GetProductsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Service {
     /// <p>The attributes that are available for this service.</p>
-    #[serde(rename = "AttributeNames")]
+    #[serde(rename = "attributeNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_names: Option<Vec<String>>,
     /// <p>The code for the AWS service.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
 }

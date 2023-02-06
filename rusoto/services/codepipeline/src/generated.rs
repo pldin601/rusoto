@@ -1443,11 +1443,11 @@ pub struct ListWebhookItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListWebhooksInput {
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1456,7 +1456,7 @@ pub struct ListWebhooksInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListWebhooksOutput {
     /// <p>If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListWebhooks call to return the next set of webhooks in the list. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The JSON detail returned for each webhook in the list output for the ListWebhooks call.</p>
@@ -2214,11 +2214,11 @@ pub struct UpdatePipelineOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WebhookAuthConfiguration {
     /// <p>The property used to configure acceptance of webhooks in an IP address range. For IP, only the <code>AllowedIPRange</code> property must be set. This property must be set to a valid CIDR range.</p>
-    #[serde(rename = "AllowedIPRange")]
+    #[serde(rename = "allowedIPRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_ip_range: Option<String>,
     /// <p>The property used to configure GitHub authentication. For GITHUB_HMAC, only the <code>SecretToken</code> property must be set.</p>
-    #[serde(rename = "SecretToken")]
+    #[serde(rename = "secretToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_token: Option<String>,
 }

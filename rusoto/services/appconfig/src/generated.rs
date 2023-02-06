@@ -29,15 +29,15 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Application {
     /// <p>The description of the application.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The application ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The application name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -46,11 +46,11 @@ pub struct Application {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Applications {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Application>>,
     /// <p>The token for the next set of items to return. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -69,31 +69,31 @@ pub struct Configuration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigurationProfile {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The configuration profile description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The URI location of the configuration.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The name of the configuration profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ARN of an IAM role with permission to access the configuration at the specified LocationUri.</p>
-    #[serde(rename = "RetrievalRoleArn")]
+    #[serde(rename = "retrievalRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retrieval_role_arn: Option<String>,
     /// <p>A list of methods for validating the configuration.</p>
-    #[serde(rename = "Validators")]
+    #[serde(rename = "validators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validators: Option<Vec<Validator>>,
 }
@@ -103,23 +103,23 @@ pub struct ConfigurationProfile {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigurationProfileSummary {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The ID of the configuration profile.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The URI location of the configuration.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The name of the configuration profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The types of validators in the configuration profile.</p>
-    #[serde(rename = "ValidatorTypes")]
+    #[serde(rename = "validatorTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validator_types: Option<Vec<String>>,
 }
@@ -128,11 +128,11 @@ pub struct ConfigurationProfileSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfigurationProfiles {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<ConfigurationProfileSummary>>,
     /// <p>The token for the next set of items to return. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -141,14 +141,14 @@ pub struct ConfigurationProfiles {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateApplicationRequest {
     /// <p>A description of the application.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A name for the application.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -157,28 +157,28 @@ pub struct CreateApplicationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConfigurationProfileRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>A description of the configuration profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A URI to locate the configuration. You can specify a Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify either the document name in the format <code>ssm-document://&lt;Document_name&gt;</code> or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format <code>ssm-parameter://&lt;Parameter_name&gt;</code> or the ARN. For an Amazon S3 object, specify the URI in the following format: <code>s3://&lt;bucket&gt;/&lt;objectKey&gt; </code>. Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     pub location_uri: String,
     /// <p>A name for the configuration profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ARN of an IAM role with permission to access the configuration at the specified LocationUri.</p>
-    #[serde(rename = "RetrievalRoleArn")]
+    #[serde(rename = "retrievalRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retrieval_role_arn: Option<String>,
     /// <p>Metadata to assign to the configuration profile. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of methods for validating the configuration.</p>
-    #[serde(rename = "Validators")]
+    #[serde(rename = "validators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validators: Option<Vec<Validator>>,
 }
@@ -187,31 +187,31 @@ pub struct CreateConfigurationProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDeploymentStrategyRequest {
     /// <p>Total amount of time for a deployment to last.</p>
-    #[serde(rename = "DeploymentDurationInMinutes")]
+    #[serde(rename = "deploymentDurationInMinutes")]
     pub deployment_duration_in_minutes: i64,
     /// <p>A description of the deployment strategy.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The amount of time AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.</p>
-    #[serde(rename = "FinalBakeTimeInMinutes")]
+    #[serde(rename = "finalBakeTimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_bake_time_in_minutes: Option<i64>,
     /// <p>The percentage of targets to receive a deployed configuration during each interval.</p>
-    #[serde(rename = "GrowthFactor")]
+    #[serde(rename = "growthFactor")]
     pub growth_factor: f32,
     /// <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:</p> <p> <b>Linear</b>: For this type, AppConfig processes the deployment by dividing the total number of targets by the value specified for <code>Step percentage</code>. For example, a linear deployment that uses a <code>Step percentage</code> of 10 deploys the configuration to 10 percent of the hosts. After those deployments are complete, the system deploys the configuration to the next 10 percent. This continues until 100% of the targets have successfully received the configuration.</p> <p> <b>Exponential</b>: For this type, AppConfig processes the deployment exponentially using the following formula: <code>G*(2^N)</code>. In this formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is the number of steps until the configuration is deployed to all targets. For example, if you specify a growth factor of 2, then the system rolls out the configuration as follows:</p> <p> <code>2*(2^0)</code> </p> <p> <code>2*(2^1)</code> </p> <p> <code>2*(2^2)</code> </p> <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.</p>
-    #[serde(rename = "GrowthType")]
+    #[serde(rename = "growthType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_type: Option<String>,
     /// <p>A name for the deployment strategy.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
-    #[serde(rename = "ReplicateTo")]
+    #[serde(rename = "replicateTo")]
     pub replicate_to: String,
     /// <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -220,21 +220,21 @@ pub struct CreateDeploymentStrategyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEnvironmentRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>A description of the environment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
-    #[serde(rename = "Monitors")]
+    #[serde(rename = "monitors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitors: Option<Vec<Monitor>>,
     /// <p>A name for the environment.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -243,13 +243,13 @@ pub struct CreateEnvironmentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateHostedConfigurationVersionRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>The content of the configuration or the configuration data.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -257,14 +257,14 @@ pub struct CreateHostedConfigurationVersionRequest {
     )]
     pub content: bytes::Bytes,
     /// <p>A standard MIME type describing the format of the configuration content. For more information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     pub content_type: String,
     /// <p>A description of the configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version of the latest hosted configuration version.</p>
-    #[serde(rename = "LatestVersionNumber")]
+    #[serde(rename = "latestVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version_number: Option<i64>,
 }
@@ -273,7 +273,7 @@ pub struct CreateHostedConfigurationVersionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApplicationRequest {
     /// <p>The ID of the application to delete.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
 }
 
@@ -281,10 +281,10 @@ pub struct DeleteApplicationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConfigurationProfileRequest {
     /// <p>The application ID that includes the configuration profile you want to delete.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The ID of the configuration profile you want to delete.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
 }
 
@@ -292,7 +292,7 @@ pub struct DeleteConfigurationProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDeploymentStrategyRequest {
     /// <p>The ID of the deployment strategy you want to delete.</p>
-    #[serde(rename = "DeploymentStrategyId")]
+    #[serde(rename = "deploymentStrategyId")]
     pub deployment_strategy_id: String,
 }
 
@@ -300,10 +300,10 @@ pub struct DeleteDeploymentStrategyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEnvironmentRequest {
     /// <p>The application ID that includes the environment you want to delete.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The ID of the environment you want to delete.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
 }
 
@@ -311,13 +311,13 @@ pub struct DeleteEnvironmentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteHostedConfigurationVersionRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>The versions number to delete.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -325,75 +325,75 @@ pub struct DeleteHostedConfigurationVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Deployment {
     /// <p>The ID of the application that was deployed.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The time the deployment completed. </p>
-    #[serde(rename = "CompletedAt")]
+    #[serde(rename = "completedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_at: Option<f64>,
     /// <p>Information about the source location of the configuration.</p>
-    #[serde(rename = "ConfigurationLocationUri")]
+    #[serde(rename = "configurationLocationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_location_uri: Option<String>,
     /// <p>The name of the configuration.</p>
-    #[serde(rename = "ConfigurationName")]
+    #[serde(rename = "configurationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_name: Option<String>,
     /// <p>The ID of the configuration profile that was deployed.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_profile_id: Option<String>,
     /// <p>The configuration version that was deployed.</p>
-    #[serde(rename = "ConfigurationVersion")]
+    #[serde(rename = "configurationVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_version: Option<String>,
     /// <p>Total amount of time the deployment lasted.</p>
-    #[serde(rename = "DeploymentDurationInMinutes")]
+    #[serde(rename = "deploymentDurationInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_duration_in_minutes: Option<i64>,
     /// <p>The sequence number of the deployment.</p>
-    #[serde(rename = "DeploymentNumber")]
+    #[serde(rename = "deploymentNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_number: Option<i64>,
     /// <p>The ID of the deployment strategy that was deployed.</p>
-    #[serde(rename = "DeploymentStrategyId")]
+    #[serde(rename = "deploymentStrategyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_strategy_id: Option<String>,
     /// <p>The description of the deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the environment that was deployed.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment_id: Option<String>,
     /// <p>A list containing all events related to a deployment. The most recent events are displayed first.</p>
-    #[serde(rename = "EventLog")]
+    #[serde(rename = "eventLog")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_log: Option<Vec<DeploymentEvent>>,
     /// <p>The amount of time AppConfig monitored for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.</p>
-    #[serde(rename = "FinalBakeTimeInMinutes")]
+    #[serde(rename = "finalBakeTimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_bake_time_in_minutes: Option<i64>,
     /// <p>The percentage of targets to receive a deployed configuration during each interval.</p>
-    #[serde(rename = "GrowthFactor")]
+    #[serde(rename = "growthFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_factor: Option<f32>,
     /// <p>The algorithm used to define how percentage grew over time.</p>
-    #[serde(rename = "GrowthType")]
+    #[serde(rename = "growthType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_type: Option<String>,
     /// <p>The percentage of targets for which the deployment is available.</p>
-    #[serde(rename = "PercentageComplete")]
+    #[serde(rename = "percentageComplete")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub percentage_complete: Option<f32>,
     /// <p>The time the deployment started.</p>
-    #[serde(rename = "StartedAt")]
+    #[serde(rename = "startedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_at: Option<f64>,
     /// <p>The state of the deployment.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -403,19 +403,19 @@ pub struct Deployment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeploymentEvent {
     /// <p>A description of the deployment event. Descriptions include, but are not limited to, the user account or the CloudWatch alarm ARN that initiated a rollback, the percentage of hosts that received the deployment, or in the case of an internal error, a recommendation to attempt a new deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The type of deployment event. Deployment event types include the start, stop, or completion of a deployment; a percentage update; the start or stop of a bake period; the start or completion of a rollback.</p>
-    #[serde(rename = "EventType")]
+    #[serde(rename = "eventType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type: Option<String>,
     /// <p>The date and time the event occurred.</p>
-    #[serde(rename = "OccurredAt")]
+    #[serde(rename = "occurredAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub occurred_at: Option<f64>,
     /// <p>The entity that triggered the deployment event. Events can be triggered by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
-    #[serde(rename = "TriggeredBy")]
+    #[serde(rename = "triggeredBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub triggered_by: Option<String>,
 }
@@ -424,11 +424,11 @@ pub struct DeploymentEvent {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeploymentStrategies {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<DeploymentStrategy>>,
     /// <p>The token for the next set of items to return. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -437,35 +437,35 @@ pub struct DeploymentStrategies {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeploymentStrategy {
     /// <p>Total amount of time the deployment lasted.</p>
-    #[serde(rename = "DeploymentDurationInMinutes")]
+    #[serde(rename = "deploymentDurationInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_duration_in_minutes: Option<i64>,
     /// <p>The description of the deployment strategy.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The amount of time AppConfig monitored for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.</p>
-    #[serde(rename = "FinalBakeTimeInMinutes")]
+    #[serde(rename = "finalBakeTimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_bake_time_in_minutes: Option<i64>,
     /// <p>The percentage of targets that received a deployed configuration during each interval.</p>
-    #[serde(rename = "GrowthFactor")]
+    #[serde(rename = "growthFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_factor: Option<f32>,
     /// <p>The algorithm used to define how percentage grew over time.</p>
-    #[serde(rename = "GrowthType")]
+    #[serde(rename = "growthType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_type: Option<String>,
     /// <p>The deployment strategy ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the deployment strategy.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
-    #[serde(rename = "ReplicateTo")]
+    #[serde(rename = "replicateTo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replicate_to: Option<String>,
 }
@@ -475,47 +475,47 @@ pub struct DeploymentStrategy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeploymentSummary {
     /// <p>Time the deployment completed.</p>
-    #[serde(rename = "CompletedAt")]
+    #[serde(rename = "completedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_at: Option<f64>,
     /// <p>The name of the configuration.</p>
-    #[serde(rename = "ConfigurationName")]
+    #[serde(rename = "configurationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_name: Option<String>,
     /// <p>The version of the configuration.</p>
-    #[serde(rename = "ConfigurationVersion")]
+    #[serde(rename = "configurationVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_version: Option<String>,
     /// <p>Total amount of time the deployment lasted.</p>
-    #[serde(rename = "DeploymentDurationInMinutes")]
+    #[serde(rename = "deploymentDurationInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_duration_in_minutes: Option<i64>,
     /// <p>The sequence number of the deployment.</p>
-    #[serde(rename = "DeploymentNumber")]
+    #[serde(rename = "deploymentNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_number: Option<i64>,
     /// <p>The amount of time AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.</p>
-    #[serde(rename = "FinalBakeTimeInMinutes")]
+    #[serde(rename = "finalBakeTimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_bake_time_in_minutes: Option<i64>,
     /// <p>The percentage of targets to receive a deployed configuration during each interval.</p>
-    #[serde(rename = "GrowthFactor")]
+    #[serde(rename = "growthFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_factor: Option<f32>,
     /// <p>The algorithm used to define how percentage grows over time.</p>
-    #[serde(rename = "GrowthType")]
+    #[serde(rename = "growthType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_type: Option<String>,
     /// <p>The percentage of targets for which the deployment is available.</p>
-    #[serde(rename = "PercentageComplete")]
+    #[serde(rename = "percentageComplete")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub percentage_complete: Option<f32>,
     /// <p>Time the deployment started.</p>
-    #[serde(rename = "StartedAt")]
+    #[serde(rename = "startedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub started_at: Option<f64>,
     /// <p>The state of the deployment.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -524,11 +524,11 @@ pub struct DeploymentSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Deployments {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<DeploymentSummary>>,
     /// <p>The token for the next set of items to return. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -537,27 +537,27 @@ pub struct Deployments {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Environment {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The description of the environment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The environment ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>Amazon CloudWatch alarms monitored during the deployment.</p>
-    #[serde(rename = "Monitors")]
+    #[serde(rename = "monitors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitors: Option<Vec<Monitor>>,
     /// <p>The name of the environment.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the environment. An environment can be in one of the following states: <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or <code>ROLLED_BACK</code> </p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -566,11 +566,11 @@ pub struct Environment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Environments {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<Environment>>,
     /// <p>The token for the next set of items to return. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -579,7 +579,7 @@ pub struct Environments {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetApplicationRequest {
     /// <p>The ID of the application you want to get.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
 }
 
@@ -587,10 +587,10 @@ pub struct GetApplicationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConfigurationProfileRequest {
     /// <p>The ID of the application that includes the configuration profile you want to get.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The ID of the configuration profile you want to get.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
 }
 
@@ -598,20 +598,20 @@ pub struct GetConfigurationProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetConfigurationRequest {
     /// <p>The application to get. Specify either the application name or the application ID.</p>
-    #[serde(rename = "Application")]
+    #[serde(rename = "application")]
     pub application: String,
     /// <p>The configuration version returned in the most recent <code>GetConfiguration</code> response.</p> <important> <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to identify the configuration version on your clients. If you don’t send <code>ClientConfigurationVersion</code> with each call to <code>GetConfiguration</code>, your clients receive the current configuration. You are charged each time your clients receive a configuration.</p> <p>To avoid excess charges, we recommend that you include the <code>ClientConfigurationVersion</code> value with every call to <code>GetConfiguration</code>. This value must be saved on your client. Subsequent calls to <code>GetConfiguration</code> must pass this value by using the <code>ClientConfigurationVersion</code> parameter. </p> </important> <p>For more information about working with configurations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the Configuration</a> in the <i>AWS AppConfig User Guide</i>.</p>
-    #[serde(rename = "ClientConfigurationVersion")]
+    #[serde(rename = "clientConfigurationVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_configuration_version: Option<String>,
     /// <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to deploy the configuration in intervals, as defined in the deployment strategy.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p>The configuration to get. Specify either the configuration name or the configuration ID.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     pub configuration: String,
     /// <p>The environment to get. Specify either the environment name or the environment ID.</p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     pub environment: String,
 }
 
@@ -619,13 +619,13 @@ pub struct GetConfigurationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeploymentRequest {
     /// <p>The ID of the application that includes the deployment you want to get. </p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The sequence number of the deployment.</p>
-    #[serde(rename = "DeploymentNumber")]
+    #[serde(rename = "deploymentNumber")]
     pub deployment_number: i64,
     /// <p>The ID of the environment that includes the deployment you want to get. </p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
 }
 
@@ -633,7 +633,7 @@ pub struct GetDeploymentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeploymentStrategyRequest {
     /// <p>The ID of the deployment strategy to get.</p>
-    #[serde(rename = "DeploymentStrategyId")]
+    #[serde(rename = "deploymentStrategyId")]
     pub deployment_strategy_id: String,
 }
 
@@ -641,10 +641,10 @@ pub struct GetDeploymentStrategyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEnvironmentRequest {
     /// <p>The ID of the application that includes the environment you want to get.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The ID of the environment you wnat to get.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
 }
 
@@ -652,13 +652,13 @@ pub struct GetEnvironmentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetHostedConfigurationVersionRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>The version.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -683,23 +683,23 @@ pub struct HostedConfigurationVersion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HostedConfigurationVersionSummary {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_profile_id: Option<String>,
     /// <p>A standard MIME type describing the format of the configuration content. For more information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>A description of the configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The configuration version.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -708,11 +708,11 @@ pub struct HostedConfigurationVersionSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HostedConfigurationVersions {
     /// <p>The elements from this collection.</p>
-    #[serde(rename = "Items")]
+    #[serde(rename = "items")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<HostedConfigurationVersionSummary>>,
     /// <p>The token for the next set of items to return. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -721,11 +721,11 @@ pub struct HostedConfigurationVersions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListApplicationsRequest {
     /// <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to start the list. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -734,14 +734,14 @@ pub struct ListApplicationsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConfigurationProfilesRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to start the list. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -750,11 +750,11 @@ pub struct ListConfigurationProfilesRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDeploymentStrategiesRequest {
     /// <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to start the list. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -763,17 +763,17 @@ pub struct ListDeploymentStrategiesRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDeploymentsRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The environment ID.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
     /// <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to start the list. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -782,14 +782,14 @@ pub struct ListDeploymentsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEnvironmentsRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to start the list. Use this token to get the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -798,17 +798,17 @@ pub struct ListEnvironmentsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListHostedConfigurationVersionsRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A token to start the list. Use this token to get the next set of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -817,7 +817,7 @@ pub struct ListHostedConfigurationVersionsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The resource ARN.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -825,11 +825,11 @@ pub struct ListTagsForResourceRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Monitor {
     /// <p>ARN of the Amazon CloudWatch alarm.</p>
-    #[serde(rename = "AlarmArn")]
+    #[serde(rename = "alarmArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alarm_arn: Option<String>,
     /// <p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>
-    #[serde(rename = "AlarmRoleArn")]
+    #[serde(rename = "alarmRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alarm_role_arn: Option<String>,
 }
@@ -838,7 +838,7 @@ pub struct Monitor {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceTags {
     /// <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -847,26 +847,26 @@ pub struct ResourceTags {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDeploymentRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>The configuration version to deploy.</p>
-    #[serde(rename = "ConfigurationVersion")]
+    #[serde(rename = "configurationVersion")]
     pub configuration_version: String,
     /// <p>The deployment strategy ID.</p>
-    #[serde(rename = "DeploymentStrategyId")]
+    #[serde(rename = "deploymentStrategyId")]
     pub deployment_strategy_id: String,
     /// <p>A description of the deployment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The environment ID.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
     /// <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -875,13 +875,13 @@ pub struct StartDeploymentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopDeploymentRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The sequence number of the deployment.</p>
-    #[serde(rename = "DeploymentNumber")]
+    #[serde(rename = "deploymentNumber")]
     pub deployment_number: i64,
     /// <p>The environment ID.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
 }
 
@@ -889,10 +889,10 @@ pub struct StopDeploymentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the resource for which to retrieve tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The key-value string map. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -900,10 +900,10 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the resource for which to remove tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys to delete.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -911,14 +911,14 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateApplicationRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>A description of the application.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the application.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -927,25 +927,25 @@ pub struct UpdateApplicationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConfigurationProfileRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The ID of the configuration profile.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>A description of the configuration profile.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the configuration profile.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ARN of an IAM role with permission to access the configuration at the specified LocationUri.</p>
-    #[serde(rename = "RetrievalRoleArn")]
+    #[serde(rename = "retrievalRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retrieval_role_arn: Option<String>,
     /// <p>A list of methods for validating the configuration.</p>
-    #[serde(rename = "Validators")]
+    #[serde(rename = "validators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validators: Option<Vec<Validator>>,
 }
@@ -954,26 +954,26 @@ pub struct UpdateConfigurationProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDeploymentStrategyRequest {
     /// <p>Total amount of time for a deployment to last.</p>
-    #[serde(rename = "DeploymentDurationInMinutes")]
+    #[serde(rename = "deploymentDurationInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_duration_in_minutes: Option<i64>,
     /// <p>The deployment strategy ID.</p>
-    #[serde(rename = "DeploymentStrategyId")]
+    #[serde(rename = "deploymentStrategyId")]
     pub deployment_strategy_id: String,
     /// <p>A description of the deployment strategy.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The amount of time AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.</p>
-    #[serde(rename = "FinalBakeTimeInMinutes")]
+    #[serde(rename = "finalBakeTimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_bake_time_in_minutes: Option<i64>,
     /// <p>The percentage of targets to receive a deployed configuration during each interval.</p>
-    #[serde(rename = "GrowthFactor")]
+    #[serde(rename = "growthFactor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_factor: Option<f32>,
     /// <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:</p> <p> <b>Linear</b>: For this type, AppConfig processes the deployment by increments of the growth factor evenly distributed over the deployment time. For example, a linear deployment that uses a growth factor of 20 initially makes the configuration available to 20 percent of the targets. After 1/5th of the deployment time has passed, the system updates the percentage to 40 percent. This continues until 100% of the targets are set to receive the deployed configuration.</p> <p> <b>Exponential</b>: For this type, AppConfig processes the deployment exponentially using the following formula: <code>G*(2^N)</code>. In this formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is the number of steps until the configuration is deployed to all targets. For example, if you specify a growth factor of 2, then the system rolls out the configuration as follows:</p> <p> <code>2*(2^0)</code> </p> <p> <code>2*(2^1)</code> </p> <p> <code>2*(2^2)</code> </p> <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.</p>
-    #[serde(rename = "GrowthType")]
+    #[serde(rename = "growthType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub growth_type: Option<String>,
 }
@@ -982,21 +982,21 @@ pub struct UpdateDeploymentStrategyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEnvironmentRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>A description of the environment.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The environment ID.</p>
-    #[serde(rename = "EnvironmentId")]
+    #[serde(rename = "environmentId")]
     pub environment_id: String,
     /// <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
-    #[serde(rename = "Monitors")]
+    #[serde(rename = "monitors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monitors: Option<Vec<Monitor>>,
     /// <p>The name of the environment.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1005,13 +1005,13 @@ pub struct UpdateEnvironmentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ValidateConfigurationRequest {
     /// <p>The application ID.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     pub application_id: String,
     /// <p>The configuration profile ID.</p>
-    #[serde(rename = "ConfigurationProfileId")]
+    #[serde(rename = "configurationProfileId")]
     pub configuration_profile_id: String,
     /// <p>The version of the configuration to validate.</p>
-    #[serde(rename = "ConfigurationVersion")]
+    #[serde(rename = "configurationVersion")]
     pub configuration_version: String,
 }
 
@@ -1019,10 +1019,10 @@ pub struct ValidateConfigurationRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Validator {
     /// <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and <code>LAMBDA</code> </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 

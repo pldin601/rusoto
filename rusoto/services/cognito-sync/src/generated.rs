@@ -30,7 +30,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BulkPublishRequest {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -39,7 +39,7 @@ pub struct BulkPublishRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BulkPublishResponse {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
 }
@@ -48,15 +48,15 @@ pub struct BulkPublishResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CognitoStreams {
     /// <p>The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
     /// <p>Status of the Cognito streams. Valid values are: <p>ENABLED - Streaming of updates to identity pool is enabled.</p> <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p></p>
-    #[serde(rename = "StreamingStatus")]
+    #[serde(rename = "streamingStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub streaming_status: Option<String>,
 }
@@ -66,31 +66,31 @@ pub struct CognitoStreams {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Dataset {
     /// <p>Date on which the dataset was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>Total size in bytes of the records in this dataset.</p>
-    #[serde(rename = "DataStorage")]
+    #[serde(rename = "dataStorage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_storage: Option<i64>,
     /// <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (dash), and &#39;.&#39; (dot).</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_name: Option<String>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_id: Option<String>,
     /// <p>The device that made the last change to this dataset.</p>
-    #[serde(rename = "LastModifiedBy")]
+    #[serde(rename = "lastModifiedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_by: Option<String>,
     /// <p>Date when the dataset was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>Number of records in this dataset.</p>
-    #[serde(rename = "NumRecords")]
+    #[serde(rename = "numRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub num_records: Option<i64>,
 }
@@ -100,13 +100,13 @@ pub struct Dataset {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDatasetRequest {
     /// <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (dash), and &#39;.&#39; (dot).</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -115,7 +115,7 @@ pub struct DeleteDatasetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteDatasetResponse {
     /// <p>A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don&#39;t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>
-    #[serde(rename = "Dataset")]
+    #[serde(rename = "dataset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset: Option<Dataset>,
 }
@@ -125,13 +125,13 @@ pub struct DeleteDatasetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDatasetRequest {
     /// <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (dash), and &#39;.&#39; (dot).</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -140,7 +140,7 @@ pub struct DescribeDatasetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDatasetResponse {
     /// <p>Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don&#39;t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>
-    #[serde(rename = "Dataset")]
+    #[serde(rename = "dataset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset: Option<Dataset>,
 }
@@ -150,7 +150,7 @@ pub struct DescribeDatasetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeIdentityPoolUsageRequest {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -159,7 +159,7 @@ pub struct DescribeIdentityPoolUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeIdentityPoolUsageResponse {
     /// <p>Information about the usage of the identity pool.</p>
-    #[serde(rename = "IdentityPoolUsage")]
+    #[serde(rename = "identityPoolUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_usage: Option<IdentityPoolUsage>,
 }
@@ -169,10 +169,10 @@ pub struct DescribeIdentityPoolUsageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeIdentityUsageRequest {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -181,7 +181,7 @@ pub struct DescribeIdentityUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeIdentityUsageResponse {
     /// <p>Usage information for the identity.</p>
-    #[serde(rename = "IdentityUsage")]
+    #[serde(rename = "identityUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_usage: Option<IdentityUsage>,
 }
@@ -191,7 +191,7 @@ pub struct DescribeIdentityUsageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetBulkPublishDetailsRequest {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -200,23 +200,23 @@ pub struct GetBulkPublishDetailsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetBulkPublishDetailsResponse {
     /// <p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>
-    #[serde(rename = "BulkPublishCompleteTime")]
+    #[serde(rename = "bulkPublishCompleteTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bulk_publish_complete_time: Option<f64>,
     /// <p>The date/time at which the last bulk publish was initiated.</p>
-    #[serde(rename = "BulkPublishStartTime")]
+    #[serde(rename = "bulkPublishStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bulk_publish_start_time: Option<f64>,
     /// <p>Status of the last bulk publish operation, valid values are: <p>NOT<em>STARTED - No bulk publish has been requested for this identity pool</p> <p>IN</em>PROGRESS - Data is being published to the configured stream</p> <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p> <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p></p>
-    #[serde(rename = "BulkPublishStatus")]
+    #[serde(rename = "bulkPublishStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bulk_publish_status: Option<String>,
     /// <p>If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</p>
-    #[serde(rename = "FailureMessage")]
+    #[serde(rename = "failureMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_message: Option<String>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
 }
@@ -226,7 +226,7 @@ pub struct GetBulkPublishDetailsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCognitoEventsRequest {
     /// <p>The Cognito Identity Pool ID for the request</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -235,7 +235,7 @@ pub struct GetCognitoEventsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCognitoEventsResponse {
     /// <p>The Cognito Events returned from the GetCognitoEvents request</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events: Option<::std::collections::HashMap<String, String>>,
 }
@@ -245,7 +245,7 @@ pub struct GetCognitoEventsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIdentityPoolConfigurationRequest {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -254,15 +254,15 @@ pub struct GetIdentityPoolConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIdentityPoolConfigurationResponse {
     /// <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
-    #[serde(rename = "CognitoStreams")]
+    #[serde(rename = "cognitoStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_streams: Option<CognitoStreams>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
     /// <p>Options to apply to this identity pool for push synchronization.</p>
-    #[serde(rename = "PushSync")]
+    #[serde(rename = "pushSync")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub push_sync: Option<PushSync>,
 }
@@ -272,19 +272,19 @@ pub struct GetIdentityPoolConfigurationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IdentityPoolUsage {
     /// <p>Data storage information for the identity pool.</p>
-    #[serde(rename = "DataStorage")]
+    #[serde(rename = "dataStorage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_storage: Option<i64>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
     /// <p>Date on which the identity pool was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>Number of sync sessions for the identity pool.</p>
-    #[serde(rename = "SyncSessionsCount")]
+    #[serde(rename = "syncSessionsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sync_sessions_count: Option<i64>,
 }
@@ -294,23 +294,23 @@ pub struct IdentityPoolUsage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IdentityUsage {
     /// <p>Total data storage for this identity.</p>
-    #[serde(rename = "DataStorage")]
+    #[serde(rename = "dataStorage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_storage: Option<i64>,
     /// <p>Number of datasets for the identity.</p>
-    #[serde(rename = "DatasetCount")]
+    #[serde(rename = "datasetCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_count: Option<i64>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_id: Option<String>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
     /// <p>Date on which the identity was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
 }
@@ -320,17 +320,17 @@ pub struct IdentityUsage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDatasetsRequest {
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
     /// <p>The maximum number of results to be returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token for obtaining the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -340,15 +340,15 @@ pub struct ListDatasetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDatasetsResponse {
     /// <p>Number of datasets returned.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>A set of datasets.</p>
-    #[serde(rename = "Datasets")]
+    #[serde(rename = "datasets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub datasets: Option<Vec<Dataset>>,
     /// <p>A pagination token for obtaining the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -358,11 +358,11 @@ pub struct ListDatasetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIdentityPoolUsageRequest {
     /// <p>The maximum number of results to be returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token for obtaining the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -372,19 +372,19 @@ pub struct ListIdentityPoolUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIdentityPoolUsageResponse {
     /// <p>Total number of identities for the identity pool.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>Usage information for the identity pools.</p>
-    #[serde(rename = "IdentityPoolUsages")]
+    #[serde(rename = "identityPoolUsages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_usages: Option<Vec<IdentityPoolUsage>>,
     /// <p>The maximum number of results to be returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token for obtaining the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -394,28 +394,28 @@ pub struct ListIdentityPoolUsageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRecordsRequest {
     /// <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (dash), and &#39;.&#39; (dot).</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
     /// <p>The last server sync count for this record.</p>
-    #[serde(rename = "LastSyncCount")]
+    #[serde(rename = "lastSyncCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_sync_count: Option<i64>,
     /// <p>The maximum number of results to be returned.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token for obtaining the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A token containing a session ID, identity ID, and expiration.</p>
-    #[serde(rename = "SyncSessionToken")]
+    #[serde(rename = "syncSessionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sync_session_token: Option<String>,
 }
@@ -425,39 +425,39 @@ pub struct ListRecordsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRecordsResponse {
     /// <p>Total number of records.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>A boolean value specifying whether to delete the dataset locally.</p>
-    #[serde(rename = "DatasetDeletedAfterRequestedSyncCount")]
+    #[serde(rename = "datasetDeletedAfterRequestedSyncCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_deleted_after_requested_sync_count: Option<bool>,
     /// <p>Indicates whether the dataset exists.</p>
-    #[serde(rename = "DatasetExists")]
+    #[serde(rename = "datasetExists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_exists: Option<bool>,
     /// <p>Server sync count for this dataset.</p>
-    #[serde(rename = "DatasetSyncCount")]
+    #[serde(rename = "datasetSyncCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dataset_sync_count: Option<i64>,
     /// <p>The user/device that made the last change to this record.</p>
-    #[serde(rename = "LastModifiedBy")]
+    #[serde(rename = "lastModifiedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_by: Option<String>,
     /// <p>Names of merged datasets.</p>
-    #[serde(rename = "MergedDatasetNames")]
+    #[serde(rename = "mergedDatasetNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub merged_dataset_names: Option<Vec<String>>,
     /// <p>A pagination token for obtaining the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of all records.</p>
-    #[serde(rename = "Records")]
+    #[serde(rename = "records")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub records: Option<Vec<Record>>,
     /// <p>A token containing a session ID, identity ID, and expiration.</p>
-    #[serde(rename = "SyncSessionToken")]
+    #[serde(rename = "syncSessionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sync_session_token: Option<String>,
 }
@@ -466,11 +466,11 @@ pub struct ListRecordsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PushSync {
     /// <p>List of SNS platform application ARNs that could be used by clients.</p>
-    #[serde(rename = "ApplicationArns")]
+    #[serde(rename = "applicationArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_arns: Option<Vec<String>>,
     /// <p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
 }
@@ -480,27 +480,27 @@ pub struct PushSync {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Record {
     /// <p>The last modified date of the client device.</p>
-    #[serde(rename = "DeviceLastModifiedDate")]
+    #[serde(rename = "deviceLastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_last_modified_date: Option<f64>,
     /// <p>The key for the record.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The user/device that made the last change to this record.</p>
-    #[serde(rename = "LastModifiedBy")]
+    #[serde(rename = "lastModifiedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_by: Option<String>,
     /// <p>The date on which the record was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>The server sync count for this record.</p>
-    #[serde(rename = "SyncCount")]
+    #[serde(rename = "syncCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sync_count: Option<i64>,
     /// <p>The value for the record.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -510,20 +510,20 @@ pub struct Record {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RecordPatch {
     /// <p>The last modified date of the client device.</p>
-    #[serde(rename = "DeviceLastModifiedDate")]
+    #[serde(rename = "deviceLastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_last_modified_date: Option<f64>,
     /// <p>The key associated with the record patch.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>An operation, either replace or remove.</p>
-    #[serde(rename = "Op")]
+    #[serde(rename = "op")]
     pub op: String,
     /// <p>Last known server sync count for this record. Set to 0 if unknown.</p>
-    #[serde(rename = "SyncCount")]
+    #[serde(rename = "syncCount")]
     pub sync_count: i64,
     /// <p>The value associated with the record patch.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -533,16 +533,16 @@ pub struct RecordPatch {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterDeviceRequest {
     /// <p>The unique ID for this identity.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
     /// <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
-    #[serde(rename = "Platform")]
+    #[serde(rename = "platform")]
     pub platform: String,
     /// <p>The push token.</p>
-    #[serde(rename = "Token")]
+    #[serde(rename = "token")]
     pub token: String,
 }
 
@@ -551,7 +551,7 @@ pub struct RegisterDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterDeviceResponse {
     /// <p>The unique ID generated for this device by Cognito.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
 }
@@ -561,10 +561,10 @@ pub struct RegisterDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetCognitoEventsRequest {
     /// <p>The events to configure</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     pub events: ::std::collections::HashMap<String, String>,
     /// <p>The Cognito Identity Pool to use when configuring Cognito Events</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -573,14 +573,14 @@ pub struct SetCognitoEventsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetIdentityPoolConfigurationRequest {
     /// <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
-    #[serde(rename = "CognitoStreams")]
+    #[serde(rename = "cognitoStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_streams: Option<CognitoStreams>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
     /// <p>Options to apply to this identity pool for push synchronization.</p>
-    #[serde(rename = "PushSync")]
+    #[serde(rename = "pushSync")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub push_sync: Option<PushSync>,
 }
@@ -590,15 +590,15 @@ pub struct SetIdentityPoolConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SetIdentityPoolConfigurationResponse {
     /// <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
-    #[serde(rename = "CognitoStreams")]
+    #[serde(rename = "cognitoStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cognito_streams: Option<CognitoStreams>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_pool_id: Option<String>,
     /// <p>Options to apply to this identity pool for push synchronization.</p>
-    #[serde(rename = "PushSync")]
+    #[serde(rename = "pushSync")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub push_sync: Option<PushSync>,
 }
@@ -608,16 +608,16 @@ pub struct SetIdentityPoolConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SubscribeToDatasetRequest {
     /// <p>The name of the dataset to subcribe to.</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>The unique ID generated for this device by Cognito.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>Unique ID for this identity.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -631,16 +631,16 @@ pub struct SubscribeToDatasetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UnsubscribeFromDatasetRequest {
     /// <p>The name of the dataset from which to unsubcribe.</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>The unique ID generated for this device by Cognito.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>Unique ID for this identity.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
 }
 
@@ -654,28 +654,28 @@ pub struct UnsubscribeFromDatasetResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRecordsRequest {
     /// <p>Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.</p>
-    #[serde(rename = "ClientContext")]
+    #[serde(rename = "clientContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_context: Option<String>,
     /// <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (dash), and &#39;.&#39; (dot).</p>
-    #[serde(rename = "DatasetName")]
+    #[serde(rename = "datasetName")]
     pub dataset_name: String,
     /// <p>The unique ID generated for this device by Cognito.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityId")]
+    #[serde(rename = "identityId")]
     pub identity_id: String,
     /// <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-    #[serde(rename = "IdentityPoolId")]
+    #[serde(rename = "identityPoolId")]
     pub identity_pool_id: String,
     /// <p>A list of patch operations.</p>
-    #[serde(rename = "RecordPatches")]
+    #[serde(rename = "recordPatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_patches: Option<Vec<RecordPatch>>,
     /// <p>The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.</p>
-    #[serde(rename = "SyncSessionToken")]
+    #[serde(rename = "syncSessionToken")]
     pub sync_session_token: String,
 }
 
@@ -684,7 +684,7 @@ pub struct UpdateRecordsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRecordsResponse {
     /// <p>A list of records that have been updated.</p>
-    #[serde(rename = "Records")]
+    #[serde(rename = "records")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub records: Option<Vec<Record>>,
 }

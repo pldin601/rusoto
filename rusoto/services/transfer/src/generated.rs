@@ -54,32 +54,32 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAccessRequest {
     /// <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regex used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     pub external_id: String,
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p><p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity and Access Management (IAM) role provides access to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p> <p> <code>[ { &quot;Entry&quot;: &quot;your-personal-report.pdf&quot;, &quot;Target&quot;: &quot;/bucket3/customized-reports/${transfer:UserName}.pdf&quot; } ]</code> </p> <p>In most cases, you can use this value instead of the scope-down policy to lock down your user to the designated home directory (&quot;<code>chroot</code>&quot;). To do this, you can set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the <code>HomeDirectory</code> parameter value.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p> <p> <code>[ { &quot;Entry:&quot;: &quot;/&quot;, &quot;Target&quot;: &quot;/bucket_name/home/mydirectory&quot; } ]</code> </p> <note> <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p> </note></p>
-    #[serde(rename = "HomeDirectoryMappings")]
+    #[serde(rename = "homeDirectoryMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_mappings: Option<Vec<HomeDirectoryMapEntry>>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p><p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p> <note> <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope-down policies.</p> <p>For scope-down policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p> <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example scope-down policy</a>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services Security Token Service API Reference</i>.</p> </note></p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
-    #[serde(rename = "PosixProfile")]
+    #[serde(rename = "posixProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_profile: Option<PosixProfile>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -87,10 +87,10 @@ pub struct CreateAccessRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAccessResponse {
     /// <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family.</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     pub external_id: String,
     /// <p>The ID of the server that the user is attached to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -98,47 +98,47 @@ pub struct CreateAccessResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateServerRequest {
     /// <p><p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager (ACM) certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</p> <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a> in the <i> Amazon Web Services Certificate Manager User Guide</i>.</p> <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a> in the <i> Amazon Web Services Certificate Manager User Guide</i>.</p> <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a private certificate</a> in the <i> Amazon Web Services Certificate Manager User Guide</i>.</p> <p>Certificates with the following cryptographic algorithms and key sizes are supported:</p> <ul> <li> <p>2048-bit RSA (RSA<em>2048)</p> </li> <li> <p>4096-bit RSA (RSA</em>4096)</p> </li> <li> <p>Elliptic Prime Curve 256 bit (EC<em>prime256v1)</p> </li> <li> <p>Elliptic Prime Curve 384 bit (EC</em>secp384r1)</p> </li> <li> <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p> </li> </ul> <note> <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.</p> </note></p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
     /// <p><p>The domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.</p> <note> <p>After the server is created, the domain cannot be changed.</p> </note></p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make it accessible only to resources within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.</p>
-    #[serde(rename = "EndpointDetails")]
+    #[serde(rename = "endpointDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_details: Option<EndpointDetails>,
     /// <p><p>The type of endpoint that you want your server to use. You can choose to make your server&#39;s endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p> <note> <p> After May 19, 2021, you won&#39;t be able to create a server using <code>EndpointType=VPC<em>ENDPOINT</code> in your Amazon Web Services account if your account hasn&#39;t already done so before May 19, 2021. If you have already created servers with <code>EndpointType=VPC</em>ENDPOINT</code> in your Amazon Web Services account on or before May 19, 2021, you will not be affected. After this date, use <code>EndpointType</code>=<code>VPC</code>.</p> <p>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p> <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses (BYO IP included) with your server&#39;s endpoint and use VPC security groups to restrict traffic by the client&#39;s public IP address. This is not possible with <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p> </note></p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_type: Option<String>,
     /// <p>The RSA private key as generated by the <code>ssh-keygen -N "" -m PEM -f my-new-server-key</code> command.</p> <important> <p>If you aren't planning to migrate existing users from an existing SFTP-enabled server to a new server, don't update the host key. Accidentally changing a server's host key can be disruptive.</p> </important> <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Amazon Web Services Transfer Family User Guide</i>.</p>
-    #[serde(rename = "HostKey")]
+    #[serde(rename = "hostKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_key: Option<String>,
     /// <p>Required when <code>IdentityProviderType</code> is set to <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>. Accepts an array containing all of the information required to use a directory in <code>AWS_DIRECTORY_SERVICE</code> or invoke a customer-supplied authentication API, including the API Gateway URL. Not required when <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
-    #[serde(rename = "IdentityProviderDetails")]
+    #[serde(rename = "identityProviderDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_provider_details: Option<IdentityProviderDetails>,
     /// <p>Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within the Amazon Web Services Transfer Family service.</p> <p>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your on-premises environment or in Amazon Web Services using AD Connectors. This option also requires you to provide a Directory ID using the <code>IdentityProviderDetails</code> parameter.</p> <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
-    #[serde(rename = "IdentityProviderType")]
+    #[serde(rename = "identityProviderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_provider_type: Option<String>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch logs.</p>
-    #[serde(rename = "LoggingRole")]
+    #[serde(rename = "loggingRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_role: Option<String>,
     /// <p><p>Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. The available protocols are:</p> <ul> <li> <p> <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH</p> </li> <li> <p> <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</p> </li> <li> <p> <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p> </li> </ul> <note> <p>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web Services Certificate Manager (ACM) which is used to identify your server when clients connect to it over FTPS.</p> <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code> must be <code>AWS<em>DIRECTORY</em>SERVICE</code> or <code>API<em>GATEWAY</code>.</p> <p>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code> cannot be associated.</p> <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code> can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to <code>SERVICE</em>MANAGED</code>.</p> </note></p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols: Option<Vec<String>>,
     /// <p>Specifies the name of the security policy that is attached to the server.</p>
-    #[serde(rename = "SecurityPolicyName")]
+    #[serde(rename = "securityPolicyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_policy_name: Option<String>,
     /// <p>Key-value pairs that can be used to group and search for servers.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -147,7 +147,7 @@ pub struct CreateServerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateServerResponse {
     /// <p>The service-assigned ID of the server that is created.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -155,41 +155,41 @@ pub struct CreateServerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p><p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity and Access Management (IAM) role provides access to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p> <p> <code>[ { &quot;Entry&quot;: &quot;your-personal-report.pdf&quot;, &quot;Target&quot;: &quot;/bucket3/customized-reports/${transfer:UserName}.pdf&quot; } ]</code> </p> <p>In most cases, you can use this value instead of the scope-down policy to lock your user down to the designated home directory (&quot;<code>chroot</code>&quot;). To do this, you can set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory parameter value.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p> <p> <code>[ { &quot;Entry:&quot;: &quot;/&quot;, &quot;Target&quot;: &quot;/bucket_name/home/mydirectory&quot; } ]</code> </p> <note> <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p> </note></p>
-    #[serde(rename = "HomeDirectoryMappings")]
+    #[serde(rename = "homeDirectoryMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_mappings: Option<Vec<HomeDirectoryMapEntry>>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p><p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p> <note> <p>This only applies when domain of ServerId is S3. EFS does not use scope down policy.</p> <p>For scope-down policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p> <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example scope-down policy</a>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services Security Token Service API Reference</i>.</p> </note></p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>Specifies the full POSIX identity, including user ID (<code>Uid</code>), group ID (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls your users' access to your Amazon EFS file systems. The POSIX permissions that are set on files and directories in Amazon EFS determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.</p>
-    #[serde(rename = "PosixProfile")]
+    #[serde(rename = "posixProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_profile: Option<PosixProfile>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the server.</p>
-    #[serde(rename = "SshPublicKeyBody")]
+    #[serde(rename = "sshPublicKeyBody")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key_body: Option<String>,
     /// <p>Key-value pairs that can be used to group and search for users. Tags are metadata attached to users for any purpose.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>A unique string that identifies a user and is associated with a as specified by the <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -197,10 +197,10 @@ pub struct CreateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserResponse {
     /// <p>The ID of the server that the user is attached to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>A unique string that identifies a user account associated with a server.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -208,10 +208,10 @@ pub struct CreateUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAccessRequest {
     /// <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regex used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     pub external_id: String,
     /// <p>A system-assigned unique identifier for a server that has this user assigned.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -219,7 +219,7 @@ pub struct DeleteAccessRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteServerRequest {
     /// <p>A unique system-assigned identifier for a server instance.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -227,13 +227,13 @@ pub struct DeleteServerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSshPublicKeyRequest {
     /// <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance that has the user assigned to it.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>A unique identifier used to reference your user's specific SSH key.</p>
-    #[serde(rename = "SshPublicKeyId")]
+    #[serde(rename = "sshPublicKeyId")]
     pub ssh_public_key_id: String,
     /// <p>A unique string that identifies a user whose public key is being deleted.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -241,10 +241,10 @@ pub struct DeleteSshPublicKeyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>A system-assigned unique identifier for a server instance that has the user assigned to it.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>A unique string that identifies a user that is being deleted from a server.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -252,10 +252,10 @@ pub struct DeleteUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAccessRequest {
     /// <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regex used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     pub external_id: String,
     /// <p>A system-assigned unique identifier for a server that has this access assigned.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -263,10 +263,10 @@ pub struct DescribeAccessRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAccessResponse {
     /// <p>The external ID of the server that the access is attached to.</p>
-    #[serde(rename = "Access")]
+    #[serde(rename = "access")]
     pub access: DescribedAccess,
     /// <p>A system-assigned unique identifier for a server that has this access assigned.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -274,7 +274,7 @@ pub struct DescribeAccessResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSecurityPolicyRequest {
     /// <p>Specifies the name of the security policy that is attached to the server.</p>
-    #[serde(rename = "SecurityPolicyName")]
+    #[serde(rename = "securityPolicyName")]
     pub security_policy_name: String,
 }
 
@@ -282,7 +282,7 @@ pub struct DescribeSecurityPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSecurityPolicyResponse {
     /// <p>An array containing the properties of the security policy.</p>
-    #[serde(rename = "SecurityPolicy")]
+    #[serde(rename = "securityPolicy")]
     pub security_policy: DescribedSecurityPolicy,
 }
 
@@ -290,7 +290,7 @@ pub struct DescribeSecurityPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeServerRequest {
     /// <p>A system-assigned unique identifier for a server.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -298,7 +298,7 @@ pub struct DescribeServerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeServerResponse {
     /// <p>An array containing the properties of a server with the <code>ServerID</code> you specified.</p>
-    #[serde(rename = "Server")]
+    #[serde(rename = "server")]
     pub server: DescribedServer,
 }
 
@@ -306,10 +306,10 @@ pub struct DescribeServerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserRequest {
     /// <p>A system-assigned unique identifier for a server that has this user assigned.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>The name of the user assigned to one or more servers. User names are part of the sign-in credentials to use the Amazon Web Services Transfer Family service and perform file transfer tasks.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -317,10 +317,10 @@ pub struct DescribeUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserResponse {
     /// <p>A system-assigned unique identifier for a server that has this user assigned.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>An array containing the properties of the user account for the <code>ServerID</code> value that you specified.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     pub user: DescribedUser,
 }
 
@@ -329,30 +329,30 @@ pub struct DescribeUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribedAccess {
     /// <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regex used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_id: Option<String>,
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity and Access Management (IAM) role provides access to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</p> <p>In most cases, you can use this value instead of the scope-down policy to lock down the associated access to the designated home directory ("<code>chroot</code>"). To do this, you can set <code>Entry</code> to '/' and set <code>Target</code> to the <code>HomeDirectory</code> parameter value.</p>
-    #[serde(rename = "HomeDirectoryMappings")]
+    #[serde(rename = "homeDirectoryMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_mappings: Option<Vec<HomeDirectoryMapEntry>>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
-    #[serde(rename = "PosixProfile")]
+    #[serde(rename = "posixProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_profile: Option<PosixProfile>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
 }
@@ -362,26 +362,26 @@ pub struct DescribedAccess {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribedSecurityPolicy {
     /// <p>Specifies whether this policy enables Federal Information Processing Standards (FIPS).</p>
-    #[serde(rename = "Fips")]
+    #[serde(rename = "fips")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fips: Option<bool>,
     /// <p>Specifies the name of the security policy that is attached to the server.</p>
-    #[serde(rename = "SecurityPolicyName")]
+    #[serde(rename = "securityPolicyName")]
     pub security_policy_name: String,
     /// <p>Specifies the enabled Secure Shell (SSH) cipher encryption algorithms in the security policy that is attached to the server.</p>
-    #[serde(rename = "SshCiphers")]
+    #[serde(rename = "sshCiphers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_ciphers: Option<Vec<String>>,
     /// <p>Specifies the enabled SSH key exchange (KEX) encryption algorithms in the security policy that is attached to the server.</p>
-    #[serde(rename = "SshKexs")]
+    #[serde(rename = "sshKexs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_kexs: Option<Vec<String>>,
     /// <p>Specifies the enabled SSH message authentication code (MAC) encryption algorithms in the security policy that is attached to the server.</p>
-    #[serde(rename = "SshMacs")]
+    #[serde(rename = "sshMacs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_macs: Option<Vec<String>>,
     /// <p>Specifies the enabled Transport Layer Security (TLS) cipher encryption algorithms in the security policy that is attached to the server.</p>
-    #[serde(rename = "TlsCiphers")]
+    #[serde(rename = "tlsCiphers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tls_ciphers: Option<Vec<String>>,
 }
@@ -391,66 +391,66 @@ pub struct DescribedSecurityPolicy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribedServer {
     /// <p>Specifies the unique Amazon Resource Name (ARN) of the server.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
     /// <p>Specifies the domain of the storage system that is used for file transfers.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make it accessible only to resources within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.</p>
-    #[serde(rename = "EndpointDetails")]
+    #[serde(rename = "endpointDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_details: Option<EndpointDetails>,
     /// <p>Defines the type of endpoint that your server is connected to. If your server is connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_type: Option<String>,
     /// <p>Specifies the Base64-encoded SHA256 fingerprint of the server's host key. This value is equivalent to the output of the <code>ssh-keygen -l -f my-new-server-key</code> command.</p>
-    #[serde(rename = "HostKeyFingerprint")]
+    #[serde(rename = "hostKeyFingerprint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_key_fingerprint: Option<String>,
     /// <p>Specifies information to call a customer-supplied authentication API. This field is not populated when the <code>IdentityProviderType</code> of a server is <code>AWS_DIRECTORY_SERVICE</code> or <code>SERVICE_MANAGED</code>.</p>
-    #[serde(rename = "IdentityProviderDetails")]
+    #[serde(rename = "identityProviderDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_provider_details: Option<IdentityProviderDetails>,
     /// <p>Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within the Amazon Web Services Transfer Family service.</p> <p>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your on-premises environment or in Amazon Web Services using AD Connectors. This option also requires you to provide a Directory ID using the <code>IdentityProviderDetails</code> parameter.</p> <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
-    #[serde(rename = "IdentityProviderType")]
+    #[serde(rename = "identityProviderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_provider_type: Option<String>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch logs.</p>
-    #[serde(rename = "LoggingRole")]
+    #[serde(rename = "loggingRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_role: Option<String>,
     /// <p> The protocol settings that are configured for your server. </p> <p> Use the <code>PassiveIp</code> parameter to indicate passive mode. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p>
-    #[serde(rename = "ProtocolDetails")]
+    #[serde(rename = "protocolDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_details: Option<ProtocolDetails>,
     /// <p><p>Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. The available protocols are:</p> <ul> <li> <p> <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH</p> </li> <li> <p> <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</p> </li> <li> <p> <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p> </li> </ul></p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols: Option<Vec<String>>,
     /// <p>Specifies the name of the security policy that is attached to the server.</p>
-    #[serde(rename = "SecurityPolicyName")]
+    #[serde(rename = "securityPolicyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_policy_name: Option<String>,
     /// <p>Specifies the unique system-assigned identifier for a server that you instantiate.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_id: Option<String>,
     /// <p>Specifies the condition of a server for the server that was described. A value of <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file transfer operations.</p> <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error condition.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Specifies the key-value pairs that you can use to search for and group servers that were assigned to the server that was described.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>Specifies the number of users that are assigned to a server you specified with the <code>ServerId</code>.</p>
-    #[serde(rename = "UserCount")]
+    #[serde(rename = "userCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_count: Option<i64>,
 }
@@ -460,42 +460,42 @@ pub struct DescribedServer {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribedUser {
     /// <p>Specifies the unique Amazon Resource Name (ARN) for the user that was requested to be described.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity and Access Management (IAM) role provides access to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</p> <p>In most cases, you can use this value instead of the scope-down policy to lock your user down to the designated home directory ("<code>chroot</code>"). To do this, you can set <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
-    #[serde(rename = "HomeDirectoryMappings")]
+    #[serde(rename = "homeDirectoryMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_mappings: Option<Vec<HomeDirectoryMapEntry>>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>Specifies the full POSIX identity, including user ID (<code>Uid</code>), group ID (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.</p>
-    #[serde(rename = "PosixProfile")]
+    #[serde(rename = "posixProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_profile: Option<PosixProfile>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>Specifies the public key portion of the Secure Shell (SSH) keys stored for the described user.</p>
-    #[serde(rename = "SshPublicKeys")]
+    #[serde(rename = "sshPublicKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_keys: Option<Vec<SshPublicKey>>,
     /// <p>Specifies the key-value pairs for the user requested. Tag can be used to search for and group users for a variety of purposes.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>Specifies the name of the user that was requested to be described. User names are used for authentication purposes. This is the string that will be used by your user when they log in to your server.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -504,23 +504,23 @@ pub struct DescribedUser {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EndpointDetails {
     /// <p><p>A list of address allocation IDs that are required to attach an Elastic IP address to your server&#39;s endpoint.</p> <note> <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code> and it is only valid in the <code>UpdateServer</code> API.</p> </note></p>
-    #[serde(rename = "AddressAllocationIds")]
+    #[serde(rename = "addressAllocationIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_allocation_ids: Option<Vec<String>>,
     /// <p><p>A list of security groups IDs that are available to attach to your server&#39;s endpoint.</p> <note> <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</p> <p>You can edit the <code>SecurityGroupIds</code> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a> API only if you are changing the <code>EndpointType</code> from <code>PUBLIC</code> or <code>VPC<em>ENDPOINT</code> to <code>VPC</code>. To change security groups associated with your server&#39;s VPC endpoint after creation, use the Amazon EC2 &lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API</em>ModifyVpcEndpoint.html&quot;&gt;ModifyVpcEndpoint</a> API.</p> </note></p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p><p>A list of subnet IDs that are required to host your server endpoint in your VPC.</p> <note> <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</p> </note></p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p><p>The ID of the VPC endpoint.</p> <note> <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</p> <p>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p> </note></p>
-    #[serde(rename = "VpcEndpointId")]
+    #[serde(rename = "vpcEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_endpoint_id: Option<String>,
     /// <p><p>The VPC ID of the VPC in which a server&#39;s endpoint will be hosted.</p> <note> <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</p> </note></p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -529,10 +529,10 @@ pub struct EndpointDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HomeDirectoryMapEntry {
     /// <p>Represents an entry for <code>HomeDirectoryMappings</code>.</p>
-    #[serde(rename = "Entry")]
+    #[serde(rename = "entry")]
     pub entry: String,
     /// <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     pub target: String,
 }
 
@@ -540,15 +540,15 @@ pub struct HomeDirectoryMapEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct IdentityProviderDetails {
     /// <p>The identifier of the Amazon Web ServicesDirectory Service directory that you want to stop sharing.</p>
-    #[serde(rename = "DirectoryId")]
+    #[serde(rename = "directoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_id: Option<String>,
     /// <p>Provides the type of <code>InvocationRole</code> used to authenticate the user account.</p>
-    #[serde(rename = "InvocationRole")]
+    #[serde(rename = "invocationRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_role: Option<String>,
     /// <p>Provides the location of the service endpoint used to authenticate users.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -557,13 +557,13 @@ pub struct IdentityProviderDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportSshPublicKeyRequest {
     /// <p>A system-assigned unique identifier for a server.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>The public key portion of an SSH key pair.</p>
-    #[serde(rename = "SshPublicKeyBody")]
+    #[serde(rename = "sshPublicKeyBody")]
     pub ssh_public_key_body: String,
     /// <p>The name of the user account that is assigned to one or more servers.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -572,13 +572,13 @@ pub struct ImportSshPublicKeyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportSshPublicKeyResponse {
     /// <p>A system-assigned unique identifier for a server.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>The name given to a public key by the system that was imported.</p>
-    #[serde(rename = "SshPublicKeyId")]
+    #[serde(rename = "sshPublicKeyId")]
     pub ssh_public_key_id: String,
     /// <p>A user name assigned to the <code>ServerID</code> value that you specified.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -586,15 +586,15 @@ pub struct ImportSshPublicKeyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAccessesRequest {
     /// <p>Specifies the maximum number of access SIDs to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>When you can get additional results from the <code>ListAccesses</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional accesses.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -602,14 +602,14 @@ pub struct ListAccessesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAccessesResponse {
     /// <p>Returns the accesses and their properties for the <code>ServerId</code> value that you specify.</p>
-    #[serde(rename = "Accesses")]
+    #[serde(rename = "accesses")]
     pub accesses: Vec<ListedAccess>,
     /// <p>When you can get additional results from the <code>ListAccesses</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional accesses.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -617,11 +617,11 @@ pub struct ListAccessesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSecurityPoliciesRequest {
     /// <p>Specifies the number of security policies to return as a response to the <code>ListSecurityPolicies</code> query.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>When additional results are obtained from the <code>ListSecurityPolicies</code> command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional security policies.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -630,11 +630,11 @@ pub struct ListSecurityPoliciesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSecurityPoliciesResponse {
     /// <p>When you can get additional results from the <code>ListSecurityPolicies</code> operation, a <code>NextToken</code> parameter is returned in the output. In a following command, you can pass in the <code>NextToken</code> parameter to continue listing security policies.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of security policies that were listed.</p>
-    #[serde(rename = "SecurityPolicyNames")]
+    #[serde(rename = "securityPolicyNames")]
     pub security_policy_names: Vec<String>,
 }
 
@@ -642,11 +642,11 @@ pub struct ListSecurityPoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServersRequest {
     /// <p>Specifies the number of servers to return as a response to the <code>ListServers</code> query.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>When additional results are obtained from the <code>ListServers</code> command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional servers.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -655,11 +655,11 @@ pub struct ListServersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServersResponse {
     /// <p>When you can get additional results from the <code>ListServers</code> operation, a <code>NextToken</code> parameter is returned in the output. In a following command, you can pass in the <code>NextToken</code> parameter to continue listing additional servers.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of servers that were listed.</p>
-    #[serde(rename = "Servers")]
+    #[serde(rename = "servers")]
     pub servers: Vec<ListedServer>,
 }
 
@@ -667,14 +667,14 @@ pub struct ListServersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an identifier for a specific Amazon Web Services resource, such as a server, user, or role.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>Specifies the number of tags to return as a response to the <code>ListTagsForResource</code> request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>When you request additional results from the <code>ListTagsForResource</code> operation, a <code>NextToken</code> parameter is returned in the input. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -683,15 +683,15 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The ARN you specified to list the tags of.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>When you can get additional results from the <code>ListTagsForResource</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Key-value pairs that are assigned to a resource, usually for the purpose of grouping and searching for items. Tags are metadata that you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -700,15 +700,15 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>Specifies the number of users to return as a response to the <code>ListUsers</code> request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>When you can get additional results from the <code>ListUsers</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional users.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -716,14 +716,14 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p>When you can get additional results from the <code>ListUsers</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional users.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A system-assigned unique identifier for a server that the users are assigned to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>Returns the user accounts and their properties for the <code>ServerId</code> value that you specify.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     pub users: Vec<ListedUser>,
 }
 
@@ -732,19 +732,19 @@ pub struct ListUsersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListedAccess {
     /// <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regex used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_id: Option<String>,
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
 }
@@ -754,34 +754,34 @@ pub struct ListedAccess {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListedServer {
     /// <p>Specifies the unique Amazon Resource Name (ARN) for a server to be listed.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>Specifies the domain of the storage system that is used for file transfers.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>Specifies the type of VPC endpoint that your server is connected to. If your server is connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_type: Option<String>,
     /// <p>Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within the Amazon Web Services Transfer Family service.</p> <p>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your on-premises environment or in Amazon Web Services using AD Connectors. This option also requires you to provide a Directory ID using the <code>IdentityProviderDetails</code> parameter.</p> <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
-    #[serde(rename = "IdentityProviderType")]
+    #[serde(rename = "identityProviderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_provider_type: Option<String>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch logs.</p>
-    #[serde(rename = "LoggingRole")]
+    #[serde(rename = "loggingRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_role: Option<String>,
     /// <p>Specifies the unique system assigned identifier for the servers that were listed.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_id: Option<String>,
     /// <p>Specifies the condition of a server for the server that was described. A value of <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file transfer operations.</p> <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error condition.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Specifies the number of users that are assigned to a server you specified with the <code>ServerId</code>.</p>
-    #[serde(rename = "UserCount")]
+    #[serde(rename = "userCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_count: Option<i64>,
 }
@@ -791,26 +791,26 @@ pub struct ListedServer {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListedUser {
     /// <p>Provides the unique Amazon Resource Name (ARN) for the user that you want to learn about.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p><p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users&#39; access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users&#39; transfer requests.</p> <note> <p>The IAM role that controls your users&#39; access to your Amazon S3 bucket for servers with <code>Domain=S3</code>, or your EFS file system for servers with <code>Domain=EFS</code>. </p> <p>The policies attached to this role determine the level of access you want to provide your users when transferring files into and out of your S3 buckets or EFS file systems.</p> </note></p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>Specifies the number of SSH public keys stored for the user you specified.</p>
-    #[serde(rename = "SshPublicKeyCount")]
+    #[serde(rename = "sshPublicKeyCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key_count: Option<i64>,
     /// <p>Specifies the name of the user whose ARN was specified. User names are used for authentication purposes.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -819,14 +819,14 @@ pub struct ListedUser {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PosixProfile {
     /// <p>The POSIX group ID used for all EFS operations by this user.</p>
-    #[serde(rename = "Gid")]
+    #[serde(rename = "gid")]
     pub gid: i64,
     /// <p>The secondary POSIX group IDs used for all EFS operations by this user.</p>
-    #[serde(rename = "SecondaryGids")]
+    #[serde(rename = "secondaryGids")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secondary_gids: Option<Vec<i64>>,
     /// <p>The POSIX user ID used for all EFS operations by this user.</p>
-    #[serde(rename = "Uid")]
+    #[serde(rename = "uid")]
     pub uid: i64,
 }
 
@@ -834,7 +834,7 @@ pub struct PosixProfile {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ProtocolDetails {
     /// <p> Indicates passive mode, for FTP and FTPS protocols. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. For example: </p> <p> <code> aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i> </code> </p> <p>Replace <code> <i>0.0.0.0</i> </code> in the example above with the actual IP address you want to use.</p>
-    #[serde(rename = "PassiveIp")]
+    #[serde(rename = "passiveIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub passive_ip: Option<String>,
 }
@@ -844,13 +844,13 @@ pub struct ProtocolDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SshPublicKey {
     /// <p>Specifies the date that the public key was added to the user account.</p>
-    #[serde(rename = "DateImported")]
+    #[serde(rename = "dateImported")]
     pub date_imported: f64,
     /// <p>Specifies the content of the SSH public key as specified by the <code>PublicKeyId</code>.</p>
-    #[serde(rename = "SshPublicKeyBody")]
+    #[serde(rename = "sshPublicKeyBody")]
     pub ssh_public_key_body: String,
     /// <p>Specifies the <code>SshPublicKeyId</code> parameter contains the identifier of the public key.</p>
-    #[serde(rename = "SshPublicKeyId")]
+    #[serde(rename = "sshPublicKeyId")]
     pub ssh_public_key_id: String,
 }
 
@@ -858,7 +858,7 @@ pub struct SshPublicKey {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartServerRequest {
     /// <p>A system-assigned unique identifier for a server that you start.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -866,7 +866,7 @@ pub struct StartServerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopServerRequest {
     /// <p>A system-assigned unique identifier for a server that you stopped.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -874,10 +874,10 @@ pub struct StopServerRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The name assigned to the tag that you create.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Contains one or more values that you assigned to the key name you create.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -885,10 +885,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>An Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a server, user, or role.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to user accounts for any purpose.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -896,21 +896,21 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TestIdentityProviderRequest {
     /// <p>A system-assigned identifier for a specific server. That server's user authentication method is tested with a user name and password.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p><p>The type of file transfer protocol to be tested.</p> <p>The available protocols are:</p> <ul> <li> <p>Secure Shell (SSH) File Transfer Protocol (SFTP)</p> </li> <li> <p>File Transfer Protocol Secure (FTPS)</p> </li> <li> <p>File Transfer Protocol (FTP)</p> </li> </ul></p>
-    #[serde(rename = "ServerProtocol")]
+    #[serde(rename = "serverProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_protocol: Option<String>,
     /// <p>The source IP address of the user account to be tested.</p>
-    #[serde(rename = "SourceIp")]
+    #[serde(rename = "sourceIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_ip: Option<String>,
     /// <p>The name of the user account to be tested.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
     /// <p>The password of the user account to be tested.</p>
-    #[serde(rename = "UserPassword")]
+    #[serde(rename = "userPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_password: Option<String>,
 }
@@ -919,18 +919,18 @@ pub struct TestIdentityProviderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TestIdentityProviderResponse {
     /// <p>A message that indicates whether the test was successful or not.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The response that is returned from your API Gateway.</p>
-    #[serde(rename = "Response")]
+    #[serde(rename = "response")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response: Option<String>,
     /// <p>The HTTP status code that is the response from your API Gateway.</p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     pub status_code: i64,
     /// <p>The endpoint of the service used to authenticate a user.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     pub url: String,
 }
 
@@ -938,10 +938,10 @@ pub struct TestIdentityProviderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific Amazon Web Services resource, such as a server, user, or role.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and search for resources by type. This metadata can be attached to resources for any purpose.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -949,33 +949,33 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAccessRequest {
     /// <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regex used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     pub external_id: String,
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p><p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity and Access Management (IAM) role provides access to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p> <p> <code>[ { &quot;Entry&quot;: &quot;your-personal-report.pdf&quot;, &quot;Target&quot;: &quot;/bucket3/customized-reports/${transfer:UserName}.pdf&quot; } ]</code> </p> <p>In most cases, you can use this value instead of the scope-down policy to lock down your user to the designated home directory (&quot;<code>chroot</code>&quot;). To do this, you can set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the <code>HomeDirectory</code> parameter value.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p> <p> <code>[ { &quot;Entry:&quot;: &quot;/&quot;, &quot;Target&quot;: &quot;/bucket_name/home/mydirectory&quot; } ]</code> </p> <note> <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p> </note></p>
-    #[serde(rename = "HomeDirectoryMappings")]
+    #[serde(rename = "homeDirectoryMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_mappings: Option<Vec<HomeDirectoryMapEntry>>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p><p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p> <note> <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope down policy.</p> <p>For scope-down policies, Amazon Web ServicesTransfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p> <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example scope-down policy</a>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web ServicesSecurity Token Service API Reference</i>.</p> </note></p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
-    #[serde(rename = "PosixProfile")]
+    #[serde(rename = "posixProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_profile: Option<PosixProfile>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -983,10 +983,10 @@ pub struct UpdateAccessRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAccessResponse {
     /// <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Amazon Web ServicesTransfer Family.</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     pub external_id: String,
     /// <p>The ID of the server that the user is attached to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -994,43 +994,43 @@ pub struct UpdateAccessResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateServerRequest {
     /// <p><p>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</p> <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p> <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p> <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p> <p>Certificates with the following cryptographic algorithms and key sizes are supported:</p> <ul> <li> <p>2048-bit RSA (RSA<em>2048)</p> </li> <li> <p>4096-bit RSA (RSA</em>4096)</p> </li> <li> <p>Elliptic Prime Curve 256 bit (EC<em>prime256v1)</p> </li> <li> <p>Elliptic Prime Curve 384 bit (EC</em>secp384r1)</p> </li> <li> <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p> </li> </ul> <note> <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.</p> </note></p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
     /// <p>The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make it accessible only to resources within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.</p>
-    #[serde(rename = "EndpointDetails")]
+    #[serde(rename = "endpointDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_details: Option<EndpointDetails>,
     /// <p><p>The type of endpoint that you want your server to use. You can choose to make your server&#39;s endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p> <note> <p> After May 19, 2021, you won&#39;t be able to create a server using <code>EndpointType=VPC<em>ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn&#39;t already done so before May 19, 2021. If you have already created servers with <code>EndpointType=VPC</em>ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021, you will not be affected. After this date, use <code>EndpointType</code>=<code>VPC</code>.</p> <p>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p> <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses (BYO IP included) with your server&#39;s endpoint and use VPC security groups to restrict traffic by the client&#39;s public IP address. This is not possible with <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p> </note></p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_type: Option<String>,
     /// <p>The RSA private key as generated by <code>ssh-keygen -N "" -m PEM -f my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate existing users from an existing server to a new server, don't update the host key. Accidentally changing a server's host key can be disruptive.</p> </important> <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Amazon Web ServicesTransfer Family User Guide</i>.</p>
-    #[serde(rename = "HostKey")]
+    #[serde(rename = "hostKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_key: Option<String>,
     /// <p>An array containing all of the information required to call a customer's authentication API method.</p>
-    #[serde(rename = "IdentityProviderDetails")]
+    #[serde(rename = "identityProviderDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_provider_details: Option<IdentityProviderDetails>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch logs.</p>
-    #[serde(rename = "LoggingRole")]
+    #[serde(rename = "loggingRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logging_role: Option<String>,
     /// <p> The protocol settings that are configured for your server. </p> <p> Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols). Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p>
-    #[serde(rename = "ProtocolDetails")]
+    #[serde(rename = "protocolDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol_details: Option<ProtocolDetails>,
     /// <p><p>Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. The available protocols are:</p> <ul> <li> <p>Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH</p> </li> <li> <p>File Transfer Protocol Secure (FTPS): File transfer with TLS encryption</p> </li> <li> <p>File Transfer Protocol (FTP): Unencrypted file transfer</p> </li> </ul> <note> <p>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web ServicesCertificate Manager (ACM) which will be used to identify your server when clients connect to it over FTPS.</p> <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code> must be <code>AWS<em>DIRECTORY</em>SERVICE</code> or <code>API<em>GATEWAY</code>.</p> <p>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code> cannot be associated.</p> <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code> can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to <code>SERVICE</em>MANAGED</code>.</p> </note></p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols: Option<Vec<String>>,
     /// <p>Specifies the name of the security policy that is attached to the server.</p>
-    #[serde(rename = "SecurityPolicyName")]
+    #[serde(rename = "securityPolicyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_policy_name: Option<String>,
     /// <p>A system-assigned unique identifier for a server instance that the user account is assigned to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -1038,7 +1038,7 @@ pub struct UpdateServerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateServerResponse {
     /// <p>A system-assigned unique identifier for a server that the user account is assigned to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
 }
 
@@ -1046,34 +1046,34 @@ pub struct UpdateServerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRequest {
     /// <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
-    #[serde(rename = "HomeDirectory")]
+    #[serde(rename = "homeDirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory: Option<String>,
     /// <p><p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity and Access Management (IAM) role provides access to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p> <p> <code>[ { &quot;Entry&quot;: &quot;your-personal-report.pdf&quot;, &quot;Target&quot;: &quot;/bucket3/customized-reports/${transfer:UserName}.pdf&quot; } ]</code> </p> <p>In most cases, you can use this value instead of the scope-down policy to lock down your user to the designated home directory (&quot;<code>chroot</code>&quot;). To do this, you can set <code>Entry</code> to &#39;/&#39; and set <code>Target</code> to the HomeDirectory parameter value.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p> <p> <code>[ { &quot;Entry:&quot;: &quot;/&quot;, &quot;Target&quot;: &quot;/bucket_name/home/mydirectory&quot; } ]</code> </p> <note> <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p> </note></p>
-    #[serde(rename = "HomeDirectoryMappings")]
+    #[serde(rename = "homeDirectoryMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_mappings: Option<Vec<HomeDirectoryMapEntry>>,
     /// <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your users.</p>
-    #[serde(rename = "HomeDirectoryType")]
+    #[serde(rename = "homeDirectoryType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_directory_type: Option<String>,
     /// <p><p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p> <note> <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope-down policies.</p> <p>For scope-down policies, Amazon Web ServicesTransfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p> <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down">Creating a scope-down policy</a>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services Security Token Service API Reference</i>.</p> </note></p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>Specifies the full POSIX identity, including user ID (<code>Uid</code>), group ID (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls your users' access to your Amazon Elastic File Systems (Amazon EFS). The POSIX permissions that are set on files and directories in your file system determines the level of access your users get when transferring files into and out of your Amazon EFS file systems.</p>
-    #[serde(rename = "PosixProfile")]
+    #[serde(rename = "posixProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_profile: Option<PosixProfile>,
     /// <p>Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>A system-assigned unique identifier for a server instance that the user account is assigned to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>A unique string that identifies a user and is associated with a server as specified by the <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -1082,10 +1082,10 @@ pub struct UpdateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserResponse {
     /// <p>A system-assigned unique identifier for a server instance that the user account is assigned to.</p>
-    #[serde(rename = "ServerId")]
+    #[serde(rename = "serverId")]
     pub server_id: String,
     /// <p>The unique identifier for a user that is assigned to a server instance that was specified in the request.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 

@@ -917,27 +917,27 @@ pub struct DeploymentInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeploymentOverview {
     /// <p>The number of instances in the deployment in a failed state.</p>
-    #[serde(rename = "Failed")]
+    #[serde(rename = "failed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed: Option<i64>,
     /// <p>The number of instances in which the deployment is in progress.</p>
-    #[serde(rename = "InProgress")]
+    #[serde(rename = "inProgress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub in_progress: Option<i64>,
     /// <p>The number of instances in the deployment in a pending state.</p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<i64>,
     /// <p>The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.</p>
-    #[serde(rename = "Ready")]
+    #[serde(rename = "ready")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ready: Option<i64>,
     /// <p>The number of instances in the deployment in a skipped state.</p>
-    #[serde(rename = "Skipped")]
+    #[serde(rename = "skipped")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skipped: Option<i64>,
     /// <p>The number of instances in the deployment to which revisions have been successfully deployed.</p>
-    #[serde(rename = "Succeeded")]
+    #[serde(rename = "succeeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub succeeded: Option<i64>,
 }
@@ -1028,15 +1028,15 @@ pub struct Diagnostics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EC2TagFilter {
     /// <p>The tag filter key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p><p>The tag filter type:</p> <ul> <li> <p> <code>KEY<em>ONLY</code>: Key only.</p> </li> <li> <p> <code>VALUE</em>ONLY</code>: Value only.</p> </li> <li> <p> <code>KEY<em>AND</em>VALUE</code>: Key and value.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The tag filter value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1879,11 +1879,11 @@ pub struct ListOnPremisesInstancesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceInput {
     /// <p>An identifier returned from the previous <code>ListTagsForResource</code> call. It can be used to return the next set of applications in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the tags associated with the resource that is identified by the <code>ResourceArn</code>. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1891,11 +1891,11 @@ pub struct ListTagsForResourceInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceOutput {
     /// <p>If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> A list of tags returned by <code>ListTagsForResource</code>. The tags are associated with the resource identified by the input <code>ResourceArn</code> parameter. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2159,11 +2159,11 @@ pub struct StopDeploymentOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The tag's key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The tag's value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2172,15 +2172,15 @@ pub struct Tag {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TagFilter {
     /// <p>The on-premises instance tag filter key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p><p>The on-premises instance tag filter type:</p> <ul> <li> <p>KEY<em>ONLY: Key only.</p> </li> <li> <p>VALUE</em>ONLY: Value only.</p> </li> <li> <p>KEY<em>AND</em>VALUE: Key and value.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The on-premises instance tag filter value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2189,10 +2189,10 @@ pub struct TagFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceInput {
     /// <p> The ARN of a resource, such as a CodeDeploy application or deployment group. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p> A list of tags that <code>TagResource</code> associates with a resource. The resource is identified by the <code>ResourceArn</code> input parameter. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2330,10 +2330,10 @@ pub struct TriggerConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceInput {
     /// <p> The Amazon Resource Name (ARN) that specifies from which resource to disassociate the tags with the keys in the <code>TagKeys</code> input parameter. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p> A list of keys of <code>Tag</code> objects. The <code>Tag</code> objects identified by the keys are disassociated from the resource specified by the <code>ResourceArn</code> input parameter. </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 

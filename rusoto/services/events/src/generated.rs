@@ -54,7 +54,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ActivateEventSourceRequest {
     /// <p>The name of the partner event source to activate.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -63,39 +63,39 @@ pub struct ActivateEventSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApiDestination {
     /// <p>The ARN of the API destination.</p>
-    #[serde(rename = "ApiDestinationArn")]
+    #[serde(rename = "apiDestinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_arn: Option<String>,
     /// <p>The state of the API destination.</p>
-    #[serde(rename = "ApiDestinationState")]
+    #[serde(rename = "apiDestinationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_state: Option<String>,
     /// <p>The ARN of the connection specified for the API destination.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>A time stamp for the time that the API destination was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The method to use to connect to the HTTP endpoint.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>The URL to the endpoint for the API destination.</p>
-    #[serde(rename = "InvocationEndpoint")]
+    #[serde(rename = "invocationEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_endpoint: Option<String>,
     /// <p>The maximum number of invocations per second to send to the HTTP endpoint.</p>
-    #[serde(rename = "InvocationRateLimitPerSecond")]
+    #[serde(rename = "invocationRateLimitPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_rate_limit_per_second: Option<i64>,
     /// <p>A time stamp for the time that the API destination was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the API destination.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -105,35 +105,35 @@ pub struct ApiDestination {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Archive {
     /// <p>The name of the archive.</p>
-    #[serde(rename = "ArchiveName")]
+    #[serde(rename = "archiveName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_name: Option<String>,
     /// <p>The time stamp for the time that the archive was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The number of events in the archive.</p>
-    #[serde(rename = "EventCount")]
+    #[serde(rename = "eventCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_count: Option<i64>,
     /// <p>The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The number of days to retain events in the archive before they are deleted.</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
     /// <p>The size of the archive, in bytes.</p>
-    #[serde(rename = "SizeBytes")]
+    #[serde(rename = "sizeBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size_bytes: Option<i64>,
     /// <p>The current state of the archive.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A description for the reason that the archive is in the current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -142,15 +142,15 @@ pub struct Archive {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AwsVpcConfiguration {
     /// <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
-    #[serde(rename = "AssignPublicIp")]
+    #[serde(rename = "assignPublicIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assign_public_ip: Option<String>,
     /// <p>Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.</p>
-    #[serde(rename = "SecurityGroups")]
+    #[serde(rename = "securityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_groups: Option<Vec<String>>,
     /// <p>Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.</p>
-    #[serde(rename = "Subnets")]
+    #[serde(rename = "subnets")]
     pub subnets: Vec<String>,
 }
 
@@ -158,7 +158,7 @@ pub struct AwsVpcConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BatchArrayProperties {
     /// <p>The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size: Option<i64>,
 }
@@ -167,17 +167,17 @@ pub struct BatchArrayProperties {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BatchParameters {
     /// <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.</p>
-    #[serde(rename = "ArrayProperties")]
+    #[serde(rename = "arrayProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub array_properties: Option<BatchArrayProperties>,
     /// <p>The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.</p>
-    #[serde(rename = "JobDefinition")]
+    #[serde(rename = "jobDefinition")]
     pub job_definition: String,
     /// <p>The name to use for this execution of the job, if the target is an AWS Batch job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.</p>
-    #[serde(rename = "RetryStrategy")]
+    #[serde(rename = "retryStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retry_strategy: Option<BatchRetryStrategy>,
 }
@@ -186,7 +186,7 @@ pub struct BatchParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BatchRetryStrategy {
     /// <p>The number of times to attempt to retry, if the job fails. Valid values are 1–10.</p>
-    #[serde(rename = "Attempts")]
+    #[serde(rename = "attempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attempts: Option<i64>,
 }
@@ -195,7 +195,7 @@ pub struct BatchRetryStrategy {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelReplayRequest {
     /// <p>The name of the replay to cancel.</p>
-    #[serde(rename = "ReplayName")]
+    #[serde(rename = "replayName")]
     pub replay_name: String,
 }
 
@@ -203,15 +203,15 @@ pub struct CancelReplayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CancelReplayResponse {
     /// <p>The ARN of the replay to cancel.</p>
-    #[serde(rename = "ReplayArn")]
+    #[serde(rename = "replayArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_arn: Option<String>,
     /// <p>The current state of the replay.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason that the replay is in the current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -237,13 +237,13 @@ pub struct CapacityProviderStrategyItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Condition {
     /// <p>Specifies the key for the condition. Currently the only supported key is <code>aws:PrincipalOrgID</code>.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Specifies the type of condition. Currently the only supported value is <code>StringEquals</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>Specifies the value for the key. Currently, this must be the ID of the organization.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -252,35 +252,35 @@ pub struct Condition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Connection {
     /// <p>The authorization type specified for the connection.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The ARN of the connection.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The state of the connection.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>A time stamp for the time that the connection was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last authorized.</p>
-    #[serde(rename = "LastAuthorizedTime")]
+    #[serde(rename = "lastAuthorizedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_authorized_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the connection.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The reason that the connection is in the connection state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -290,7 +290,7 @@ pub struct Connection {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionApiKeyAuthResponseParameters {
     /// <p>The name of the header to use for the <code>APIKeyValue</code> used for authorization.</p>
-    #[serde(rename = "ApiKeyName")]
+    #[serde(rename = "apiKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_name: Option<String>,
 }
@@ -300,19 +300,19 @@ pub struct ConnectionApiKeyAuthResponseParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionAuthResponseParameters {
     /// <p>The API Key parameters to use for authorization.</p>
-    #[serde(rename = "ApiKeyAuthParameters")]
+    #[serde(rename = "apiKeyAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_auth_parameters: Option<ConnectionApiKeyAuthResponseParameters>,
     /// <p>The authorization parameters for Basic authorization.</p>
-    #[serde(rename = "BasicAuthParameters")]
+    #[serde(rename = "basicAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub basic_auth_parameters: Option<ConnectionBasicAuthResponseParameters>,
     /// <p>Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.</p>
-    #[serde(rename = "InvocationHttpParameters")]
+    #[serde(rename = "invocationHttpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_http_parameters: Option<ConnectionHttpParameters>,
     /// <p>The OAuth parameters to use for authorization.</p>
-    #[serde(rename = "OAuthParameters")]
+    #[serde(rename = "oAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub o_auth_parameters: Option<ConnectionOAuthResponseParameters>,
 }
@@ -322,7 +322,7 @@ pub struct ConnectionAuthResponseParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionBasicAuthResponseParameters {
     /// <p>The user name to use for Basic authorization.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -331,15 +331,15 @@ pub struct ConnectionBasicAuthResponseParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionBodyParameter {
     /// <p>Specified whether the value is secret.</p>
-    #[serde(rename = "IsValueSecret")]
+    #[serde(rename = "isValueSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_value_secret: Option<bool>,
     /// <p>The key for the parameter.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value associated with the key.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -348,15 +348,15 @@ pub struct ConnectionBodyParameter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionHeaderParameter {
     /// <p>Specified whether the value is a secret.</p>
-    #[serde(rename = "IsValueSecret")]
+    #[serde(rename = "isValueSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_value_secret: Option<bool>,
     /// <p>The key for the parameter.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value associated with the key.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -365,15 +365,15 @@ pub struct ConnectionHeaderParameter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionHttpParameters {
     /// <p>Contains additional body string parameters for the connection.</p>
-    #[serde(rename = "BodyParameters")]
+    #[serde(rename = "bodyParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub body_parameters: Option<Vec<ConnectionBodyParameter>>,
     /// <p>Contains additional header parameters for the connection.</p>
-    #[serde(rename = "HeaderParameters")]
+    #[serde(rename = "headerParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header_parameters: Option<Vec<ConnectionHeaderParameter>>,
     /// <p>Contains additional query string parameters for the connection.</p>
-    #[serde(rename = "QueryStringParameters")]
+    #[serde(rename = "queryStringParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_string_parameters: Option<Vec<ConnectionQueryStringParameter>>,
 }
@@ -383,7 +383,7 @@ pub struct ConnectionHttpParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionOAuthClientResponseParameters {
     /// <p>The client ID associated with the response to the connection request.</p>
-    #[serde(rename = "ClientID")]
+    #[serde(rename = "clientID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
 }
@@ -393,19 +393,19 @@ pub struct ConnectionOAuthClientResponseParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionOAuthResponseParameters {
     /// <p>The URL to the HTTP endpoint that authorized the request.</p>
-    #[serde(rename = "AuthorizationEndpoint")]
+    #[serde(rename = "authorizationEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_endpoint: Option<String>,
     /// <p>A <code>ConnectionOAuthClientResponseParameters</code> object that contains details about the client parameters returned when OAuth is specified as the authorization type.</p>
-    #[serde(rename = "ClientParameters")]
+    #[serde(rename = "clientParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_parameters: Option<ConnectionOAuthClientResponseParameters>,
     /// <p>The method used to connect to the HTTP endpoint.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>The additional HTTP parameters used for the OAuth authorization request.</p>
-    #[serde(rename = "OAuthHttpParameters")]
+    #[serde(rename = "oAuthHttpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub o_auth_http_parameters: Option<ConnectionHttpParameters>,
 }
@@ -414,15 +414,15 @@ pub struct ConnectionOAuthResponseParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConnectionQueryStringParameter {
     /// <p>Specifies whether the value is secret.</p>
-    #[serde(rename = "IsValueSecret")]
+    #[serde(rename = "isValueSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_value_secret: Option<bool>,
     /// <p>The key for a query string parameter.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value associated with the key for the query string parameter.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -431,24 +431,24 @@ pub struct ConnectionQueryStringParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateApiDestinationRequest {
     /// <p>The ARN of the connection to use for the API destination. The destination endpoint must support the authorization type specified for the connection.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     pub connection_arn: String,
     /// <p>A description for the API destination to create.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The method to use for the request to the HTTP invocation endpoint.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     pub http_method: String,
     /// <p>The URL to the HTTP invocation endpoint for the API destination.</p>
-    #[serde(rename = "InvocationEndpoint")]
+    #[serde(rename = "invocationEndpoint")]
     pub invocation_endpoint: String,
     /// <p>The maximum number of requests per second to send to the HTTP invocation endpoint.</p>
-    #[serde(rename = "InvocationRateLimitPerSecond")]
+    #[serde(rename = "invocationRateLimitPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_rate_limit_per_second: Option<i64>,
     /// <p>The name for the API destination to create.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -456,19 +456,19 @@ pub struct CreateApiDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateApiDestinationResponse {
     /// <p>The ARN of the API destination that was created by the request.</p>
-    #[serde(rename = "ApiDestinationArn")]
+    #[serde(rename = "apiDestinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_arn: Option<String>,
     /// <p>The state of the API destination that was created by the request.</p>
-    #[serde(rename = "ApiDestinationState")]
+    #[serde(rename = "apiDestinationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_state: Option<String>,
     /// <p>A time stamp indicating the time that the API destination was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp indicating the time that the API destination was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
 }
@@ -477,21 +477,21 @@ pub struct CreateApiDestinationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateArchiveRequest {
     /// <p>The name for the archive to create.</p>
-    #[serde(rename = "ArchiveName")]
+    #[serde(rename = "archiveName")]
     pub archive_name: String,
     /// <p>A description for the archive.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>An event pattern to use to filter events sent to the archive.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_pattern: Option<String>,
     /// <p>The ARN of the event source associated with the archive.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     pub event_source_arn: String,
     /// <p>The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
 }
@@ -500,19 +500,19 @@ pub struct CreateArchiveRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateArchiveResponse {
     /// <p>The ARN of the archive that was created.</p>
-    #[serde(rename = "ArchiveArn")]
+    #[serde(rename = "archiveArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_arn: Option<String>,
     /// <p>The time at which the archive was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The state of the archive that was created.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason that the archive is in the state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -522,10 +522,10 @@ pub struct CreateArchiveResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionApiKeyAuthRequestParameters {
     /// <p>The name of the API key to use for authorization.</p>
-    #[serde(rename = "ApiKeyName")]
+    #[serde(rename = "apiKeyName")]
     pub api_key_name: String,
     /// <p>The value for the API key to use for authorization.</p>
-    #[serde(rename = "ApiKeyValue")]
+    #[serde(rename = "apiKeyValue")]
     pub api_key_value: String,
 }
 
@@ -534,19 +534,19 @@ pub struct CreateConnectionApiKeyAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionAuthRequestParameters {
     /// <p>A <code>CreateConnectionApiKeyAuthRequestParameters</code> object that contains the API key authorization parameters to use for the connection.</p>
-    #[serde(rename = "ApiKeyAuthParameters")]
+    #[serde(rename = "apiKeyAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_auth_parameters: Option<CreateConnectionApiKeyAuthRequestParameters>,
     /// <p>A <code>CreateConnectionBasicAuthRequestParameters</code> object that contains the Basic authorization parameters to use for the connection.</p>
-    #[serde(rename = "BasicAuthParameters")]
+    #[serde(rename = "basicAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub basic_auth_parameters: Option<CreateConnectionBasicAuthRequestParameters>,
     /// <p>A <code>ConnectionHttpParameters</code> object that contains the API key authorization parameters to use for the connection. Note that if you include additional parameters for the target of a rule via <code>HttpParameters</code>, including query strings, the parameters added for the connection take precedence.</p>
-    #[serde(rename = "InvocationHttpParameters")]
+    #[serde(rename = "invocationHttpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_http_parameters: Option<ConnectionHttpParameters>,
     /// <p>A <code>CreateConnectionOAuthRequestParameters</code> object that contains the OAuth authorization parameters to use for the connection.</p>
-    #[serde(rename = "OAuthParameters")]
+    #[serde(rename = "oAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub o_auth_parameters: Option<CreateConnectionOAuthRequestParameters>,
 }
@@ -556,10 +556,10 @@ pub struct CreateConnectionAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionBasicAuthRequestParameters {
     /// <p>The password associated with the user name to use for Basic authorization.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>The user name to use for Basic authorization.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -568,10 +568,10 @@ pub struct CreateConnectionBasicAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionOAuthClientRequestParameters {
     /// <p>The client ID to use for OAuth authorization for the connection.</p>
-    #[serde(rename = "ClientID")]
+    #[serde(rename = "clientID")]
     pub client_id: String,
     /// <p>The client secret associated with the client ID to use for OAuth authorization for the connection.</p>
-    #[serde(rename = "ClientSecret")]
+    #[serde(rename = "clientSecret")]
     pub client_secret: String,
 }
 
@@ -580,16 +580,16 @@ pub struct CreateConnectionOAuthClientRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionOAuthRequestParameters {
     /// <p>The URL to the authorization endpoint when OAuth is specified as the authorization type.</p>
-    #[serde(rename = "AuthorizationEndpoint")]
+    #[serde(rename = "authorizationEndpoint")]
     pub authorization_endpoint: String,
     /// <p>A <code>CreateConnectionOAuthClientRequestParameters</code> object that contains the client parameters for OAuth authorization.</p>
-    #[serde(rename = "ClientParameters")]
+    #[serde(rename = "clientParameters")]
     pub client_parameters: CreateConnectionOAuthClientRequestParameters,
     /// <p>The method to use for the authorization request.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     pub http_method: String,
     /// <p>A <code>ConnectionHttpParameters</code> object that contains details about the additional parameters to use for the connection.</p>
-    #[serde(rename = "OAuthHttpParameters")]
+    #[serde(rename = "oAuthHttpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub o_auth_http_parameters: Option<ConnectionHttpParameters>,
 }
@@ -598,17 +598,17 @@ pub struct CreateConnectionOAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConnectionRequest {
     /// <p>A <code>CreateConnectionAuthRequestParameters</code> object that contains the authorization parameters to use to authorize with the endpoint. </p>
-    #[serde(rename = "AuthParameters")]
+    #[serde(rename = "authParameters")]
     pub auth_parameters: CreateConnectionAuthRequestParameters,
     /// <p>The type of authorization to use for the connection.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     pub authorization_type: String,
     /// <p>A description for the connection to create.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name for the connection to create.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -616,19 +616,19 @@ pub struct CreateConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConnectionResponse {
     /// <p>The ARN of the connection that was created by the request.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The state of the connection that was created by the request.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>A time stamp for the time that the connection was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last updated.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
 }
@@ -637,14 +637,14 @@ pub struct CreateConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEventBusRequest {
     /// <p>If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.</p>
-    #[serde(rename = "EventSourceName")]
+    #[serde(rename = "eventSourceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_name: Option<String>,
     /// <p>The name of the new event bus. </p> <p>Event bus names cannot contain the / character. You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's default event bus.</p> <p>If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Tags to associate with the event bus.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -653,7 +653,7 @@ pub struct CreateEventBusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateEventBusResponse {
     /// <p>The ARN of the new event bus.</p>
-    #[serde(rename = "EventBusArn")]
+    #[serde(rename = "eventBusArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_arn: Option<String>,
 }
@@ -662,10 +662,10 @@ pub struct CreateEventBusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePartnerEventSourceRequest {
     /// <p>The AWS account ID that is permitted to create a matching partner event bus for this partner event source.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     pub account: String,
     /// <p>The name of the partner event source. This name must be unique and must be in the format <code> <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i> </code>. The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -673,7 +673,7 @@ pub struct CreatePartnerEventSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePartnerEventSourceResponse {
     /// <p>The ARN of the partner event source.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
 }
@@ -682,7 +682,7 @@ pub struct CreatePartnerEventSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeactivateEventSourceRequest {
     /// <p>The name of the partner event source to deactivate.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -690,7 +690,7 @@ pub struct DeactivateEventSourceRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeadLetterConfig {
     /// <p>The ARN of the SQS queue specified as the target for the dead-letter queue.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -699,7 +699,7 @@ pub struct DeadLetterConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeauthorizeConnectionRequest {
     /// <p>The name of the connection to remove authorization from.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -707,23 +707,23 @@ pub struct DeauthorizeConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeauthorizeConnectionResponse {
     /// <p>The ARN of the connection that authorization was removed from.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The state of the connection.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>A time stamp for the time that the connection was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last authorized.</p>
-    #[serde(rename = "LastAuthorizedTime")]
+    #[serde(rename = "lastAuthorizedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_authorized_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last updated.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
 }
@@ -732,7 +732,7 @@ pub struct DeauthorizeConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteApiDestinationRequest {
     /// <p>The name of the destination to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -744,7 +744,7 @@ pub struct DeleteApiDestinationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteArchiveRequest {
     /// <p>The name of the archive to delete.</p>
-    #[serde(rename = "ArchiveName")]
+    #[serde(rename = "archiveName")]
     pub archive_name: String,
 }
 
@@ -756,7 +756,7 @@ pub struct DeleteArchiveResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConnectionRequest {
     /// <p>The name of the connection to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -764,23 +764,23 @@ pub struct DeleteConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteConnectionResponse {
     /// <p>The ARN of the connection that was deleted.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The state of the connection before it was deleted.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>A time stamp for the time that the connection was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last authorized before it wa deleted.</p>
-    #[serde(rename = "LastAuthorizedTime")]
+    #[serde(rename = "lastAuthorizedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_authorized_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last modified before it was deleted.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
 }
@@ -789,7 +789,7 @@ pub struct DeleteConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEventBusRequest {
     /// <p>The name of the event bus to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -797,10 +797,10 @@ pub struct DeleteEventBusRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePartnerEventSourceRequest {
     /// <p>The AWS account ID of the AWS customer that the event source was created for.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     pub account: String,
     /// <p>The name of the event source to delete.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -808,15 +808,15 @@ pub struct DeletePartnerEventSourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRuleRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>If this is a managed rule, created by an AWS service on your behalf, you must specify <code>Force</code> as <code>True</code> to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code> field of the response.</p>
-    #[serde(rename = "Force")]
+    #[serde(rename = "force")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force: Option<bool>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -824,7 +824,7 @@ pub struct DeleteRuleRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeApiDestinationRequest {
     /// <p>The name of the API destination to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -832,43 +832,43 @@ pub struct DescribeApiDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeApiDestinationResponse {
     /// <p>The ARN of the API destination retrieved.</p>
-    #[serde(rename = "ApiDestinationArn")]
+    #[serde(rename = "apiDestinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_arn: Option<String>,
     /// <p>The state of the API destination retrieved.</p>
-    #[serde(rename = "ApiDestinationState")]
+    #[serde(rename = "apiDestinationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_state: Option<String>,
     /// <p>The ARN of the connection specified for the API destination retrieved.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>A time stamp for the time that the API destination was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The description for the API destination retrieved.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The method to use to connect to the HTTP endpoint.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>The URL to use to connect to the HTTP endpoint.</p>
-    #[serde(rename = "InvocationEndpoint")]
+    #[serde(rename = "invocationEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_endpoint: Option<String>,
     /// <p>The maximum number of invocations per second to specified for the API destination. Note that if you set the invocation rate maximum to a value lower the rate necessary to send all events received on to the destination HTTP endpoint, some events may not be delivered within the 24-hour retry window. If you plan to set the rate lower than the rate necessary to deliver all events, consider using a dead-letter queue to catch events that are not delivered within 24 hours.</p>
-    #[serde(rename = "InvocationRateLimitPerSecond")]
+    #[serde(rename = "invocationRateLimitPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_rate_limit_per_second: Option<i64>,
     /// <p>A time stamp for the time that the API destination was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the API destination retrieved.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -877,7 +877,7 @@ pub struct DescribeApiDestinationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeArchiveRequest {
     /// <p>The name of the archive to retrieve.</p>
-    #[serde(rename = "ArchiveName")]
+    #[serde(rename = "archiveName")]
     pub archive_name: String,
 }
 
@@ -885,47 +885,47 @@ pub struct DescribeArchiveRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeArchiveResponse {
     /// <p>The ARN of the archive.</p>
-    #[serde(rename = "ArchiveArn")]
+    #[serde(rename = "archiveArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_arn: Option<String>,
     /// <p>The name of the archive.</p>
-    #[serde(rename = "ArchiveName")]
+    #[serde(rename = "archiveName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_name: Option<String>,
     /// <p>The time at which the archive was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The description of the archive.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The number of events in the archive.</p>
-    #[serde(rename = "EventCount")]
+    #[serde(rename = "eventCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_count: Option<i64>,
     /// <p>The event pattern used to filter events sent to the archive.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_pattern: Option<String>,
     /// <p>The ARN of the event source associated with the archive.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The number of days to retain events for in the archive.</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
     /// <p>The size of the archive in bytes.</p>
-    #[serde(rename = "SizeBytes")]
+    #[serde(rename = "sizeBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size_bytes: Option<i64>,
     /// <p>The state of the archive.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason that the archive is in the state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -934,7 +934,7 @@ pub struct DescribeArchiveResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConnectionRequest {
     /// <p>The name of the connection to retrieve.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -942,47 +942,47 @@ pub struct DescribeConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConnectionResponse {
     /// <p>The parameters to use for authorization for the connection.</p>
-    #[serde(rename = "AuthParameters")]
+    #[serde(rename = "authParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auth_parameters: Option<ConnectionAuthResponseParameters>,
     /// <p>The type of authorization specified for the connection.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>The ARN of the connection retrieved.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The state of the connection retrieved.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>A time stamp for the time that the connection was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The description for the connection retrieved.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A time stamp for the time that the connection was last authorized.</p>
-    #[serde(rename = "LastAuthorizedTime")]
+    #[serde(rename = "lastAuthorizedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_authorized_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the connection retrieved.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ARN of the secret created from the authorization parameters specified for the connection.</p>
-    #[serde(rename = "SecretArn")]
+    #[serde(rename = "secretArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_arn: Option<String>,
     /// <p>The reason that the connection is in the current connection state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -991,7 +991,7 @@ pub struct DescribeConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEventBusRequest {
     /// <p>The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1000,15 +1000,15 @@ pub struct DescribeEventBusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEventBusResponse {
     /// <p>The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the event bus. Currently, this is always <code>default</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The policy that enables the external account to send events to your account.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
 }
@@ -1017,7 +1017,7 @@ pub struct DescribeEventBusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEventSourceRequest {
     /// <p>The name of the partner event source to display the details of.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1025,27 +1025,27 @@ pub struct DescribeEventSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEventSourceResponse {
     /// <p>The ARN of the partner event source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the SaaS partner that created the event source.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The date and time that the event source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The date and time that the event source will expire if you do not create a matching event bus.</p>
-    #[serde(rename = "ExpirationTime")]
+    #[serde(rename = "expirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_time: Option<f64>,
     /// <p>The name of the partner event source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1054,7 +1054,7 @@ pub struct DescribeEventSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePartnerEventSourceRequest {
     /// <p>The name of the event source to display.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1062,11 +1062,11 @@ pub struct DescribePartnerEventSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePartnerEventSourceResponse {
     /// <p>The ARN of the event source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the event source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1075,7 +1075,7 @@ pub struct DescribePartnerEventSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeReplayRequest {
     /// <p>The name of the replay to retrieve.</p>
-    #[serde(rename = "ReplayName")]
+    #[serde(rename = "replayName")]
     pub replay_name: String,
 }
 
@@ -1083,51 +1083,51 @@ pub struct DescribeReplayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReplayResponse {
     /// <p>The description of the replay.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A <code>ReplayDestination</code> object that contains details about the replay.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<ReplayDestination>,
     /// <p>The time stamp for the last event that was replayed from the archive.</p>
-    #[serde(rename = "EventEndTime")]
+    #[serde(rename = "eventEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_end_time: Option<f64>,
     /// <p>The time that the event was last replayed.</p>
-    #[serde(rename = "EventLastReplayedTime")]
+    #[serde(rename = "eventLastReplayedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_last_replayed_time: Option<f64>,
     /// <p>The ARN of the archive events were replayed from.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The time stamp of the first event that was last replayed from the archive.</p>
-    #[serde(rename = "EventStartTime")]
+    #[serde(rename = "eventStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_start_time: Option<f64>,
     /// <p>The ARN of the replay.</p>
-    #[serde(rename = "ReplayArn")]
+    #[serde(rename = "replayArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_arn: Option<String>,
     /// <p>A time stamp for the time that the replay stopped.</p>
-    #[serde(rename = "ReplayEndTime")]
+    #[serde(rename = "replayEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_end_time: Option<f64>,
     /// <p>The name of the replay.</p>
-    #[serde(rename = "ReplayName")]
+    #[serde(rename = "replayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_name: Option<String>,
     /// <p>A time stamp for the time that the replay started.</p>
-    #[serde(rename = "ReplayStartTime")]
+    #[serde(rename = "replayStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_start_time: Option<f64>,
     /// <p>The current state of the replay.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason that the replay is in the current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -1136,11 +1136,11 @@ pub struct DescribeReplayResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRuleRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1148,43 +1148,43 @@ pub struct DescribeRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRuleResponse {
     /// <p>The Amazon Resource Name (ARN) of the rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The account ID of the user that created the rule. If you use <code>PutRule</code> to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account. However, the value for <code>CreatedBy</code> is the account ID as the account that created the rule in the other account.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The description of the rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the event bus associated with the rule.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_pattern: Option<String>,
     /// <p>If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.</p>
-    #[serde(rename = "ManagedBy")]
+    #[serde(rename = "managedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_by: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".</p>
-    #[serde(rename = "ScheduleExpression")]
+    #[serde(rename = "scheduleExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_expression: Option<String>,
     /// <p>Specifies whether the rule is enabled or disabled.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1193,11 +1193,11 @@ pub struct DescribeRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisableRuleRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1205,59 +1205,59 @@ pub struct DisableRuleRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EcsParameters {
     /// <p>The capacity provider strategy to use for the task.</p> <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code> parameter must be omitted. If no <code>capacityProviderStrategy</code> or launchType is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is used. </p>
-    #[serde(rename = "CapacityProviderStrategy")]
+    #[serde(rename = "capacityProviderStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capacity_provider_strategy: Option<Vec<CapacityProviderStrategyItem>>,
     /// <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a> in the Amazon Elastic Container Service Developer Guide. </p>
-    #[serde(rename = "EnableECSManagedTags")]
+    #[serde(rename = "enableECSManagedTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_ecs_managed_tags: Option<bool>,
     /// <p>Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.</p>
-    #[serde(rename = "EnableExecuteCommand")]
+    #[serde(rename = "enableExecuteCommand")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_execute_command: Option<bool>,
     /// <p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<String>,
     /// <p>Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The <code>FARGATE</code> value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">AWS Fargate on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-    #[serde(rename = "LaunchType")]
+    #[serde(rename = "launchType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_type: Option<String>,
     /// <p>Use this structure if the ECS task uses the <code>awsvpc</code> network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if <code>LaunchType</code> is <code>FARGATE</code> because the <code>awsvpc</code> mode is required for Fargate tasks.</p> <p>If you specify <code>NetworkConfiguration</code> when the target ECS task does not use the <code>awsvpc</code> network mode, the task fails.</p>
-    #[serde(rename = "NetworkConfiguration")]
+    #[serde(rename = "networkConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_configuration: Option<NetworkConfiguration>,
     /// <p>An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).</p>
-    #[serde(rename = "PlacementConstraints")]
+    #[serde(rename = "placementConstraints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub placement_constraints: Option<Vec<PlacementConstraint>>,
     /// <p>The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. </p>
-    #[serde(rename = "PlacementStrategy")]
+    #[serde(rename = "placementStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub placement_strategy: Option<Vec<PlacementStrategy>>,
     /// <p>Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as <code>1.1.0</code>.</p> <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For more information about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-    #[serde(rename = "PlatformVersion")]
+    #[serde(rename = "platformVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform_version: Option<String>,
     /// <p>Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. </p>
-    #[serde(rename = "PropagateTags")]
+    #[serde(rename = "propagateTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub propagate_tags: Option<String>,
     /// <p>The reference ID to use for the task.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_id: Option<String>,
     /// <p>The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags">RunTask</a> in the Amazon ECS API Reference.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The number of tasks to create based on <code>TaskDefinition</code>. The default is 1.</p>
-    #[serde(rename = "TaskCount")]
+    #[serde(rename = "taskCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_count: Option<i64>,
     /// <p>The ARN of the task definition to use if the event target is an Amazon ECS task. </p>
-    #[serde(rename = "TaskDefinitionArn")]
+    #[serde(rename = "taskDefinitionArn")]
     pub task_definition_arn: String,
 }
 
@@ -1265,11 +1265,11 @@ pub struct EcsParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EnableRuleRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1278,15 +1278,15 @@ pub struct EnableRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventBus {
     /// <p>The ARN of the event bus.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the event bus.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
 }
@@ -1296,27 +1296,27 @@ pub struct EventBus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventSource {
     /// <p>The ARN of the event source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the partner that created the event source.</p>
-    #[serde(rename = "CreatedBy")]
+    #[serde(rename = "createdBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_by: Option<String>,
     /// <p>The date and time the event source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The date and time that the event source will expire, if the AWS account doesn't create a matching event bus for it.</p>
-    #[serde(rename = "ExpirationTime")]
+    #[serde(rename = "expirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_time: Option<f64>,
     /// <p>The name of the event source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1325,15 +1325,15 @@ pub struct EventSource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct HttpParameters {
     /// <p>The headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.</p>
-    #[serde(rename = "HeaderParameters")]
+    #[serde(rename = "headerParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").</p>
-    #[serde(rename = "PathParameterValues")]
+    #[serde(rename = "pathParameterValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_parameter_values: Option<Vec<String>>,
     /// <p>The query string keys/values that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.</p>
-    #[serde(rename = "QueryStringParameters")]
+    #[serde(rename = "queryStringParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query_string_parameters: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1342,11 +1342,11 @@ pub struct HttpParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputTransformer {
     /// <p>Map of JSON paths to be extracted from the event. You can then insert these in the template in <code>InputTemplate</code> to produce the output you want to be sent to the target.</p> <p> <code>InputPathsMap</code> is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.</p> <p>The keys cannot start with "AWS." </p>
-    #[serde(rename = "InputPathsMap")]
+    #[serde(rename = "inputPathsMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_paths_map: Option<::std::collections::HashMap<String, String>>,
     /// <p>Input template where you specify placeholders that will be filled with the values of the keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each <code>InputPathsMaps</code> value in brackets: &lt;<i>value</i>&gt; The InputTemplate must be valid JSON.</p> <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following restrictions apply:</p> <ul> <li> <p>The placeholder cannot be used as an object key.</p> </li> </ul> <p>The following example shows the syntax for using <code>InputPathsMap</code> and <code>InputTemplate</code>.</p> <p> <code> "InputTransformer":</code> </p> <p> <code>{</code> </p> <p> <code>"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},</code> </p> <p> <code>"InputTemplate": "&lt;instance&gt; is in state &lt;status&gt;"</code> </p> <p> <code>}</code> </p> <p>To have the <code>InputTemplate</code> include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:</p> <p> <code> "InputTransformer":</code> </p> <p> <code>{</code> </p> <p> <code>"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},</code> </p> <p> <code>"InputTemplate": "&lt;instance&gt; is in state \"&lt;status&gt;\""</code> </p> <p> <code>}</code> </p> <p>The <code>InputTemplate</code> can also be valid JSON with varibles in quotes or out, as in the following example:</p> <p> <code> "InputTransformer":</code> </p> <p> <code>{</code> </p> <p> <code>"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},</code> </p> <p> <code>"InputTemplate": '{"myInstance": &lt;instance&gt;,"myStatus": "&lt;instance&gt; is in state \"&lt;status&gt;\""}'</code> </p> <p> <code>}</code> </p>
-    #[serde(rename = "InputTemplate")]
+    #[serde(rename = "inputTemplate")]
     pub input_template: String,
 }
 
@@ -1354,7 +1354,7 @@ pub struct InputTransformer {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KinesisParameters {
     /// <p>The JSON path to be extracted from the event and used as the partition key. For more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>
-    #[serde(rename = "PartitionKeyPath")]
+    #[serde(rename = "partitionKeyPath")]
     pub partition_key_path: String,
 }
 
@@ -1362,19 +1362,19 @@ pub struct KinesisParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListApiDestinationsRequest {
     /// <p>The ARN of the connection specified for the API destination.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The maximum number of API destinations to include in the response.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>A name prefix to filter results returned. Only API destinations with a name that starts with the prefix are returned.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1383,11 +1383,11 @@ pub struct ListApiDestinationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListApiDestinationsResponse {
     /// <p>An array of <code>ApiDestination</code> objects that include information about an API destination.</p>
-    #[serde(rename = "ApiDestinations")]
+    #[serde(rename = "apiDestinations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destinations: Option<Vec<ApiDestination>>,
     /// <p>A token you can use in a subsequent request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1396,23 +1396,23 @@ pub struct ListApiDestinationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListArchivesRequest {
     /// <p>The ARN of the event source associated with the archive.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The state of the archive.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1421,11 +1421,11 @@ pub struct ListArchivesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListArchivesResponse {
     /// <p>An array of <code>Archive</code> objects that include details about an archive.</p>
-    #[serde(rename = "Archives")]
+    #[serde(rename = "archives")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archives: Option<Vec<Archive>>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1434,19 +1434,19 @@ pub struct ListArchivesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConnectionsRequest {
     /// <p>The state of the connection.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>The maximum number of connections to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>A name prefix to filter results returned. Only connections with a name that starts with the prefix are returned.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1455,11 +1455,11 @@ pub struct ListConnectionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConnectionsResponse {
     /// <p>An array of connections objects that include details about the connections.</p>
-    #[serde(rename = "Connections")]
+    #[serde(rename = "connections")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connections: Option<Vec<Connection>>,
     /// <p>A token you can use in a subsequent request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1468,15 +1468,15 @@ pub struct ListConnectionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEventBusesRequest {
     /// <p>Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>Specifying this limits the results to only those event buses with names that start with the specified prefix.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1485,11 +1485,11 @@ pub struct ListEventBusesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEventBusesResponse {
     /// <p>This list of event buses.</p>
-    #[serde(rename = "EventBuses")]
+    #[serde(rename = "eventBuses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_buses: Option<Vec<EventBus>>,
     /// <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1498,15 +1498,15 @@ pub struct ListEventBusesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEventSourcesRequest {
     /// <p>Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>Specifying this limits the results to only those partner event sources with names that start with the specified prefix.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1515,11 +1515,11 @@ pub struct ListEventSourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEventSourcesResponse {
     /// <p>The list of event sources.</p>
-    #[serde(rename = "EventSources")]
+    #[serde(rename = "eventSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_sources: Option<Vec<EventSource>>,
     /// <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1528,14 +1528,14 @@ pub struct ListEventSourcesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPartnerEventSourceAccountsRequest {
     /// <p>The name of the partner event source to display account information about.</p>
-    #[serde(rename = "EventSourceName")]
+    #[serde(rename = "eventSourceName")]
     pub event_source_name: String,
     /// <p>Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token returned by a previous call to this operation. Specifying this retrieves the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1544,11 +1544,11 @@ pub struct ListPartnerEventSourceAccountsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPartnerEventSourceAccountsResponse {
     /// <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of partner event sources returned by the operation.</p>
-    #[serde(rename = "PartnerEventSourceAccounts")]
+    #[serde(rename = "partnerEventSourceAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partner_event_source_accounts: Option<Vec<PartnerEventSourceAccount>>,
 }
@@ -1557,14 +1557,14 @@ pub struct ListPartnerEventSourceAccountsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPartnerEventSourcesRequest {
     /// <p>pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>If you specify this, the results are limited to only those partner event sources that start with the string you specify.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     pub name_prefix: String,
     /// <p>The token returned by a previous call to this operation. Specifying this retrieves the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1573,11 +1573,11 @@ pub struct ListPartnerEventSourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPartnerEventSourcesResponse {
     /// <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of partner event sources returned by the operation.</p>
-    #[serde(rename = "PartnerEventSources")]
+    #[serde(rename = "partnerEventSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partner_event_sources: Option<Vec<PartnerEventSource>>,
 }
@@ -1586,23 +1586,23 @@ pub struct ListPartnerEventSourcesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListReplaysRequest {
     /// <p>The ARN of the event source associated with the replay.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>The maximum number of replays to retrieve.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>A name prefix to filter the replays returned. Only replays with name that match the prefix are returned.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The state of the replay.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1611,11 +1611,11 @@ pub struct ListReplaysRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListReplaysResponse {
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>Replay</code> objects that contain information about the replay.</p>
-    #[serde(rename = "Replays")]
+    #[serde(rename = "replays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replays: Option<Vec<Replay>>,
 }
@@ -1624,19 +1624,19 @@ pub struct ListReplaysResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRuleNamesByTargetRequest {
     /// <p>The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the target resource.</p>
-    #[serde(rename = "TargetArn")]
+    #[serde(rename = "targetArn")]
     pub target_arn: String,
 }
 
@@ -1644,11 +1644,11 @@ pub struct ListRuleNamesByTargetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRuleNamesByTargetResponse {
     /// <p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The names of the rules that can invoke the given target.</p>
-    #[serde(rename = "RuleNames")]
+    #[serde(rename = "ruleNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_names: Option<Vec<String>>,
 }
@@ -1657,19 +1657,19 @@ pub struct ListRuleNamesByTargetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRulesRequest {
     /// <p>The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The prefix matching the rule name.</p>
-    #[serde(rename = "NamePrefix")]
+    #[serde(rename = "namePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_prefix: Option<String>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1678,11 +1678,11 @@ pub struct ListRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRulesResponse {
     /// <p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The rules that match the specified criteria.</p>
-    #[serde(rename = "Rules")]
+    #[serde(rename = "rules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rules: Option<Vec<Rule>>,
 }
@@ -1691,7 +1691,7 @@ pub struct ListRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The ARN of the EventBridge resource for which you want to view tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -1699,7 +1699,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The list of tag keys and values associated with the resource you specified</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1708,19 +1708,19 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTargetsByRuleRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token returned by a previous call to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Rule")]
+    #[serde(rename = "rule")]
     pub rule: String,
 }
 
@@ -1728,11 +1728,11 @@ pub struct ListTargetsByRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTargetsByRuleResponse {
     /// <p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The targets assigned to the rule.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub targets: Option<Vec<Target>>,
 }
@@ -1751,11 +1751,11 @@ pub struct NetworkConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartnerEventSource {
     /// <p>The ARN of the partner event source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the partner event source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1765,19 +1765,19 @@ pub struct PartnerEventSource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartnerEventSourceAccount {
     /// <p>The AWS account ID that the partner event source was offered to.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account: Option<String>,
     /// <p>The date and time the event source was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The date and time that the event source will expire, if the AWS account doesn't create a matching event bus for it.</p>
-    #[serde(rename = "ExpirationTime")]
+    #[serde(rename = "expirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_time: Option<f64>,
     /// <p>The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1812,7 +1812,7 @@ pub struct PlacementStrategy {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEventsRequest {
     /// <p>The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     pub entries: Vec<PutEventsRequestEntry>,
 }
 
@@ -1821,31 +1821,31 @@ pub struct PutEventsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEventsRequestEntry {
     /// <p>A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.</p>
-    #[serde(rename = "Detail")]
+    #[serde(rename = "detail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detail: Option<String>,
     /// <p>Free-form string used to decide what fields to expect in the event detail.</p>
-    #[serde(rename = "DetailType")]
+    #[serde(rename = "detailType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detail_type: Option<String>,
     /// <p>The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<Vec<String>>,
     /// <p>The source of the event.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<String>,
     /// <p>The time stamp of the event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>. If no time stamp is provided, the time stamp of the <a>PutEvents</a> call is used.</p>
-    #[serde(rename = "Time")]
+    #[serde(rename = "time")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time: Option<f64>,
     /// <p>An AWS X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the trace-id associated with the event.</p> <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the AWS X-Ray Developer Guide.</p>
-    #[serde(rename = "TraceHeader")]
+    #[serde(rename = "traceHeader")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trace_header: Option<String>,
 }
@@ -1854,11 +1854,11 @@ pub struct PutEventsRequestEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEventsResponse {
     /// <p>The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entries: Option<Vec<PutEventsResultEntry>>,
     /// <p>The number of failed entries.</p>
-    #[serde(rename = "FailedEntryCount")]
+    #[serde(rename = "failedEntryCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_entry_count: Option<i64>,
 }
@@ -1868,15 +1868,15 @@ pub struct PutEventsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEventsResultEntry {
     /// <p>The error code that indicates why the event submission failed.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message that explains why the event submission failed.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ID of the event.</p>
-    #[serde(rename = "EventId")]
+    #[serde(rename = "eventId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_id: Option<String>,
 }
@@ -1885,7 +1885,7 @@ pub struct PutEventsResultEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutPartnerEventsRequest {
     /// <p>The list of events to write to the event bus.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     pub entries: Vec<PutPartnerEventsRequestEntry>,
 }
 
@@ -1894,23 +1894,23 @@ pub struct PutPartnerEventsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutPartnerEventsRequestEntry {
     /// <p>A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.</p>
-    #[serde(rename = "Detail")]
+    #[serde(rename = "detail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detail: Option<String>,
     /// <p>A free-form string used to decide what fields to expect in the event detail.</p>
-    #[serde(rename = "DetailType")]
+    #[serde(rename = "detailType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detail_type: Option<String>,
     /// <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<Vec<String>>,
     /// <p>The event source that is generating the evntry.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<String>,
     /// <p>The date and time of the event.</p>
-    #[serde(rename = "Time")]
+    #[serde(rename = "time")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time: Option<f64>,
 }
@@ -1919,11 +1919,11 @@ pub struct PutPartnerEventsRequestEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutPartnerEventsResponse {
     /// <p>The list of events from this operation that were successfully written to the partner event bus.</p>
-    #[serde(rename = "Entries")]
+    #[serde(rename = "entries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entries: Option<Vec<PutPartnerEventsResultEntry>>,
     /// <p>The number of events from this operation that could not be written to the partner event bus.</p>
-    #[serde(rename = "FailedEntryCount")]
+    #[serde(rename = "failedEntryCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_entry_count: Option<i64>,
 }
@@ -1933,15 +1933,15 @@ pub struct PutPartnerEventsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutPartnerEventsResultEntry {
     /// <p>The error code that indicates why the event submission failed.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message that explains why the event submission failed.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ID of the event.</p>
-    #[serde(rename = "EventId")]
+    #[serde(rename = "eventId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_id: Option<String>,
 }
@@ -1950,27 +1950,27 @@ pub struct PutPartnerEventsResultEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutPermissionRequest {
     /// <p>The action that you are enabling the other account to perform. Currently, this must be <code>events:PutEvents</code>.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is AWS Organizations</a> in the <i>AWS Organizations User Guide</i>.</p> <p>If you specify <code>Condition</code> with an AWS organization ID, and specify "*" as the value for <code>Principal</code>, you grant permission to all the accounts in the named organization.</p> <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>, <code>Key</code>, and <code>Value</code> fields.</p>
-    #[serde(rename = "Condition")]
+    #[serde(rename = "condition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<Condition>,
     /// <p>The name of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>A JSON string that describes the permission policy statement. You can include a <code>Policy</code> parameter in the request instead of using the <code>StatementId</code>, <code>Action</code>, <code>Principal</code>, or <code>Condition</code> parameters.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.</p> <p>If you specify "*" without specifying <code>Condition</code>, avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an <code>account</code> field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<String>,
     /// <p>An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this <code>StatementId</code> when you run <a>RemovePermission</a>.</p>
-    #[serde(rename = "StatementId")]
+    #[serde(rename = "statementId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement_id: Option<String>,
 }
@@ -1979,34 +1979,34 @@ pub struct PutPermissionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRuleRequest {
     /// <p>A description of the rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_pattern: Option<String>,
     /// <p>The name of the rule that you are creating or updating.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".</p>
-    #[serde(rename = "ScheduleExpression")]
+    #[serde(rename = "scheduleExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_expression: Option<String>,
     /// <p>Indicates whether the rule is enabled or disabled.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The list of key-value pairs to associate with the rule.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2015,7 +2015,7 @@ pub struct PutRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRuleResponse {
     /// <p>The Amazon Resource Name (ARN) of the rule.</p>
-    #[serde(rename = "RuleArn")]
+    #[serde(rename = "ruleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_arn: Option<String>,
 }
@@ -2024,14 +2024,14 @@ pub struct PutRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutTargetsRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Rule")]
+    #[serde(rename = "rule")]
     pub rule: String,
     /// <p>The targets to update or add to the rule.</p>
-    #[serde(rename = "Targets")]
+    #[serde(rename = "targets")]
     pub targets: Vec<Target>,
 }
 
@@ -2039,11 +2039,11 @@ pub struct PutTargetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutTargetsResponse {
     /// <p>The failed target entries.</p>
-    #[serde(rename = "FailedEntries")]
+    #[serde(rename = "failedEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_entries: Option<Vec<PutTargetsResultEntry>>,
     /// <p>The number of failed entries.</p>
-    #[serde(rename = "FailedEntryCount")]
+    #[serde(rename = "failedEntryCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_entry_count: Option<i64>,
 }
@@ -2053,15 +2053,15 @@ pub struct PutTargetsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutTargetsResultEntry {
     /// <p>The error code that indicates why the target addition failed. If the value is <code>ConcurrentModificationException</code>, too many requests were made at the same time.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message that explains why the target addition failed.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ID of the target.</p>
-    #[serde(rename = "TargetId")]
+    #[serde(rename = "targetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_id: Option<String>,
 }
@@ -2070,25 +2070,25 @@ pub struct PutTargetsResultEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RedshiftDataParameters {
     /// <p>The name of the database. Required when authenticating using temporary credentials.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>The database user name. Required when authenticating using temporary credentials.</p>
-    #[serde(rename = "DbUser")]
+    #[serde(rename = "dbUser")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub db_user: Option<String>,
     /// <p>The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.</p>
-    #[serde(rename = "SecretManagerArn")]
+    #[serde(rename = "secretManagerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_manager_arn: Option<String>,
     /// <p>The SQL statement text to run.</p>
-    #[serde(rename = "Sql")]
+    #[serde(rename = "sql")]
     pub sql: String,
     /// <p>The name of the SQL statement. You can name the SQL statement when you create it to identify the query.</p>
-    #[serde(rename = "StatementName")]
+    #[serde(rename = "statementName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement_name: Option<String>,
     /// <p>Indicates whether to send an event back to EventBridge after the SQL statement runs.</p>
-    #[serde(rename = "WithEvent")]
+    #[serde(rename = "withEvent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub with_event: Option<bool>,
 }
@@ -2097,15 +2097,15 @@ pub struct RedshiftDataParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemovePermissionRequest {
     /// <p>The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>Specifies whether to remove all permissions.</p>
-    #[serde(rename = "RemoveAllPermissions")]
+    #[serde(rename = "removeAllPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_all_permissions: Option<bool>,
     /// <p>The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.</p>
-    #[serde(rename = "StatementId")]
+    #[serde(rename = "statementId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub statement_id: Option<String>,
 }
@@ -2114,18 +2114,18 @@ pub struct RemovePermissionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveTargetsRequest {
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>If this is a managed rule, created by an AWS service on your behalf, you must specify <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code> field of the response.</p>
-    #[serde(rename = "Force")]
+    #[serde(rename = "force")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force: Option<bool>,
     /// <p>The IDs of the targets to remove from the rule.</p>
-    #[serde(rename = "Ids")]
+    #[serde(rename = "ids")]
     pub ids: Vec<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Rule")]
+    #[serde(rename = "rule")]
     pub rule: String,
 }
 
@@ -2133,11 +2133,11 @@ pub struct RemoveTargetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveTargetsResponse {
     /// <p>The failed target entries.</p>
-    #[serde(rename = "FailedEntries")]
+    #[serde(rename = "failedEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_entries: Option<Vec<RemoveTargetsResultEntry>>,
     /// <p>The number of failed entries.</p>
-    #[serde(rename = "FailedEntryCount")]
+    #[serde(rename = "failedEntryCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_entry_count: Option<i64>,
 }
@@ -2147,15 +2147,15 @@ pub struct RemoveTargetsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveTargetsResultEntry {
     /// <p>The error code that indicates why the target removal failed. If the value is <code>ConcurrentModificationException</code>, too many requests were made at the same time.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message that explains why the target removal failed.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ID of the target.</p>
-    #[serde(rename = "TargetId")]
+    #[serde(rename = "targetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_id: Option<String>,
 }
@@ -2165,39 +2165,39 @@ pub struct RemoveTargetsResultEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Replay {
     /// <p>A time stamp for the time to start replaying events. Any event with a creation time prior to the <code>EventEndTime</code> specified is replayed.</p>
-    #[serde(rename = "EventEndTime")]
+    #[serde(rename = "eventEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_end_time: Option<f64>,
     /// <p>A time stamp for the time that the last event was replayed.</p>
-    #[serde(rename = "EventLastReplayedTime")]
+    #[serde(rename = "eventLastReplayedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_last_replayed_time: Option<f64>,
     /// <p>The ARN of the archive to replay event from.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source_arn: Option<String>,
     /// <p>A time stamp for the time to start replaying events. This is determined by the time in the event as described in <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time">Time</a>.</p>
-    #[serde(rename = "EventStartTime")]
+    #[serde(rename = "eventStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_start_time: Option<f64>,
     /// <p>A time stamp for the time that the replay completed.</p>
-    #[serde(rename = "ReplayEndTime")]
+    #[serde(rename = "replayEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_end_time: Option<f64>,
     /// <p>The name of the replay.</p>
-    #[serde(rename = "ReplayName")]
+    #[serde(rename = "replayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_name: Option<String>,
     /// <p>A time stamp for the time that the replay started.</p>
-    #[serde(rename = "ReplayStartTime")]
+    #[serde(rename = "replayStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_start_time: Option<f64>,
     /// <p>The current state of the replay.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A description of why the replay is in the current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -2206,10 +2206,10 @@ pub struct Replay {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ReplayDestination {
     /// <p>The ARN of the event bus to replay event to. You can replay events only to the event bus specified to create the archive.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>A list of ARNs for rules to replay events to.</p>
-    #[serde(rename = "FilterArns")]
+    #[serde(rename = "filterArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_arns: Option<Vec<String>>,
 }
@@ -2218,11 +2218,11 @@ pub struct ReplayDestination {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RetryPolicy {
     /// <p>The maximum amount of time, in seconds, to continue to make retry attempts.</p>
-    #[serde(rename = "MaximumEventAgeInSeconds")]
+    #[serde(rename = "maximumEventAgeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_event_age_in_seconds: Option<i64>,
     /// <p>The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the <code>MaximumEventAgeInSeconds</code> is met.</p>
-    #[serde(rename = "MaximumRetryAttempts")]
+    #[serde(rename = "maximumRetryAttempts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum_retry_attempts: Option<i64>,
 }
@@ -2232,39 +2232,39 @@ pub struct RetryPolicy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Rule {
     /// <p>The Amazon Resource Name (ARN) of the rule.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The description of the rule.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
-    #[serde(rename = "EventBusName")]
+    #[serde(rename = "eventBusName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_bus_name: Option<String>,
     /// <p>The event pattern of the rule. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_pattern: Option<String>,
     /// <p>If the rule was created on behalf of your account by an AWS service, this field displays the principal name of the service that created the rule.</p>
-    #[serde(rename = "ManagedBy")]
+    #[serde(rename = "managedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_by: Option<String>,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the role that is used for target invocation.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".</p>
-    #[serde(rename = "ScheduleExpression")]
+    #[serde(rename = "scheduleExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule_expression: Option<String>,
     /// <p>The state of the rule.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -2273,7 +2273,7 @@ pub struct Rule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RunCommandParameters {
     /// <p>Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.</p>
-    #[serde(rename = "RunCommandTargets")]
+    #[serde(rename = "runCommandTargets")]
     pub run_command_targets: Vec<RunCommandTarget>,
 }
 
@@ -2281,10 +2281,10 @@ pub struct RunCommandParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RunCommandTarget {
     /// <p>Can be either <code>tag:</code> <i>tag-key</i> or <code>InstanceIds</code>.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>If <code>Key</code> is <code>tag:</code> <i>tag-key</i>, <code>Values</code> is a list of tag values. If <code>Key</code> is <code>InstanceIds</code>, <code>Values</code> is a list of Amazon EC2 instance IDs.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -2292,10 +2292,10 @@ pub struct RunCommandTarget {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SageMakerPipelineParameter {
     /// <p>Name of parameter to start execution of a SageMaker Model Building Pipeline.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Value of parameter to start execution of a SageMaker Model Building Pipeline.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -2303,7 +2303,7 @@ pub struct SageMakerPipelineParameter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SageMakerPipelineParameters {
     /// <p>List of Parameter names and values for SageMaker Model Building Pipeline execution.</p>
-    #[serde(rename = "PipelineParameterList")]
+    #[serde(rename = "pipelineParameterList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pipeline_parameter_list: Option<Vec<SageMakerPipelineParameter>>,
 }
@@ -2312,7 +2312,7 @@ pub struct SageMakerPipelineParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SqsParameters {
     /// <p>The FIFO message group ID to use as the target.</p>
-    #[serde(rename = "MessageGroupId")]
+    #[serde(rename = "messageGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_group_id: Option<String>,
 }
@@ -2321,23 +2321,23 @@ pub struct SqsParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartReplayRequest {
     /// <p>A description for the replay to start.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A <code>ReplayDestination</code> object that includes details about the destination for the replay.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     pub destination: ReplayDestination,
     /// <p>A time stamp for the time to stop replaying events. Only events that occurred between the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>
-    #[serde(rename = "EventEndTime")]
+    #[serde(rename = "eventEndTime")]
     pub event_end_time: f64,
     /// <p>The ARN of the archive to replay events from.</p>
-    #[serde(rename = "EventSourceArn")]
+    #[serde(rename = "eventSourceArn")]
     pub event_source_arn: String,
     /// <p>A time stamp for the time to start replaying events. Only events that occurred between the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>
-    #[serde(rename = "EventStartTime")]
+    #[serde(rename = "eventStartTime")]
     pub event_start_time: f64,
     /// <p>The name of the replay to start.</p>
-    #[serde(rename = "ReplayName")]
+    #[serde(rename = "replayName")]
     pub replay_name: String,
 }
 
@@ -2345,19 +2345,19 @@ pub struct StartReplayRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartReplayResponse {
     /// <p>The ARN of the replay.</p>
-    #[serde(rename = "ReplayArn")]
+    #[serde(rename = "replayArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_arn: Option<String>,
     /// <p>The time at which the replay started.</p>
-    #[serde(rename = "ReplayStartTime")]
+    #[serde(rename = "replayStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replay_start_time: Option<f64>,
     /// <p>The state of the replay.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason that the replay is in the state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -2366,10 +2366,10 @@ pub struct StartReplayResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value for the specified tag key.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -2377,10 +2377,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the EventBridge resource that you're adding tags to.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The list of key-value pairs to associate with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2392,65 +2392,65 @@ pub struct TagResourceResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Target {
     /// <p>The Amazon Resource Name (ARN) of the target.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>AWS Batch User Guide</i>.</p>
-    #[serde(rename = "BatchParameters")]
+    #[serde(rename = "batchParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_parameters: Option<BatchParameters>,
     /// <p>The <code>DeadLetterConfig</code> that defines the target queue to send dead-letter queue events to.</p>
-    #[serde(rename = "DeadLetterConfig")]
+    #[serde(rename = "deadLetterConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dead_letter_config: Option<DeadLetterConfig>,
     /// <p>Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in the <i>Amazon EC2 Container Service Developer Guide</i>.</p>
-    #[serde(rename = "EcsParameters")]
+    #[serde(rename = "ecsParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_parameters: Option<EcsParameters>,
     /// <p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.</p> <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.</p>
-    #[serde(rename = "HttpParameters")]
+    #[serde(rename = "httpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_parameters: Option<HttpParameters>,
     /// <p>The ID of the target.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <a href="http://www.rfc-editor.org/rfc/rfc7159.txt">The JavaScript Object Notation (JSON) Data Interchange Format</a>.</p>
-    #[serde(rename = "Input")]
+    #[serde(rename = "input")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input: Option<String>,
     /// <p>The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <a href="http://goessner.net/articles/JsonPath/">JSONPath</a>.</p>
-    #[serde(rename = "InputPath")]
+    #[serde(rename = "inputPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_path: Option<String>,
     /// <p>Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.</p>
-    #[serde(rename = "InputTransformer")]
+    #[serde(rename = "inputTransformer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_transformer: Option<InputTransformer>,
     /// <p>The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the <code>eventId</code> as the partition key.</p>
-    #[serde(rename = "KinesisParameters")]
+    #[serde(rename = "kinesisParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kinesis_parameters: Option<KinesisParameters>,
     /// <p>Contains the Redshift Data API parameters to use when the target is a Redshift cluster.</p> <p>If you specify a Redshift Cluster as a Target, you can use this to specify parameters to invoke the Redshift Data API ExecuteStatement based on EventBridge events.</p>
-    #[serde(rename = "RedshiftDataParameters")]
+    #[serde(rename = "redshiftDataParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redshift_data_parameters: Option<RedshiftDataParameters>,
     /// <p>The <code>RetryPolicy</code> object that contains the retry policy configuration to use for the dead-letter queue.</p>
-    #[serde(rename = "RetryPolicy")]
+    #[serde(rename = "retryPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retry_policy: Option<RetryPolicy>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>Parameters used when you are using the rule to invoke Amazon EC2 Run Command.</p>
-    #[serde(rename = "RunCommandParameters")]
+    #[serde(rename = "runCommandParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub run_command_parameters: Option<RunCommandParameters>,
     /// <p>Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.</p> <p>If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.</p>
-    #[serde(rename = "SageMakerPipelineParameters")]
+    #[serde(rename = "sageMakerPipelineParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sage_maker_pipeline_parameters: Option<SageMakerPipelineParameters>,
     /// <p>Contains the message group ID to use when the target is a FIFO queue.</p> <p>If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.</p>
-    #[serde(rename = "SqsParameters")]
+    #[serde(rename = "sqsParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sqs_parameters: Option<SqsParameters>,
 }
@@ -2459,10 +2459,10 @@ pub struct Target {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TestEventPatternRequest {
     /// <p><p>The event, in JSON format, to test against the event pattern. The JSON must follow the format specified in <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html">AWS Events</a>, and the following fields are mandatory:</p> <ul> <li> <p> <code>id</code> </p> </li> <li> <p> <code>account</code> </p> </li> <li> <p> <code>source</code> </p> </li> <li> <p> <code>time</code> </p> </li> <li> <p> <code>region</code> </p> </li> <li> <p> <code>resources</code> </p> </li> <li> <p> <code>detail-type</code> </p> </li> </ul></p>
-    #[serde(rename = "Event")]
+    #[serde(rename = "event")]
     pub event: String,
     /// <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     pub event_pattern: String,
 }
 
@@ -2470,7 +2470,7 @@ pub struct TestEventPatternRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TestEventPatternResponse {
     /// <p>Indicates whether the event matches the event pattern.</p>
-    #[serde(rename = "Result")]
+    #[serde(rename = "result")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result: Option<bool>,
 }
@@ -2479,10 +2479,10 @@ pub struct TestEventPatternResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the EventBridge resource from which you are removing tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The list of tag keys to remove from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2494,27 +2494,27 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateApiDestinationRequest {
     /// <p>The ARN of the connection to use for the API destination.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The name of the API destination to update.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The method to use for the API destination.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>The URL to the endpoint to use for the API destination.</p>
-    #[serde(rename = "InvocationEndpoint")]
+    #[serde(rename = "invocationEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_endpoint: Option<String>,
     /// <p>The maximum number of invocations per second to send to the API destination.</p>
-    #[serde(rename = "InvocationRateLimitPerSecond")]
+    #[serde(rename = "invocationRateLimitPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_rate_limit_per_second: Option<i64>,
     /// <p>The name of the API destination to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2522,19 +2522,19 @@ pub struct UpdateApiDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateApiDestinationResponse {
     /// <p>The ARN of the API destination that was updated.</p>
-    #[serde(rename = "ApiDestinationArn")]
+    #[serde(rename = "apiDestinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_arn: Option<String>,
     /// <p>The state of the API destination that was updated.</p>
-    #[serde(rename = "ApiDestinationState")]
+    #[serde(rename = "apiDestinationState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_destination_state: Option<String>,
     /// <p>A time stamp for the time that the API destination was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp for the time that the API destination was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
 }
@@ -2543,18 +2543,18 @@ pub struct UpdateApiDestinationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateArchiveRequest {
     /// <p>The name of the archive to update.</p>
-    #[serde(rename = "ArchiveName")]
+    #[serde(rename = "archiveName")]
     pub archive_name: String,
     /// <p>The description for the archive.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The event pattern to use to filter events sent to the archive.</p>
-    #[serde(rename = "EventPattern")]
+    #[serde(rename = "eventPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_pattern: Option<String>,
     /// <p>The number of days to retain events in the archive.</p>
-    #[serde(rename = "RetentionDays")]
+    #[serde(rename = "retentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retention_days: Option<i64>,
 }
@@ -2563,19 +2563,19 @@ pub struct UpdateArchiveRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateArchiveResponse {
     /// <p>The ARN of the archive.</p>
-    #[serde(rename = "ArchiveArn")]
+    #[serde(rename = "archiveArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub archive_arn: Option<String>,
     /// <p>The time at which the archive was updated.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The state of the archive.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason that the archive is in the current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -2585,11 +2585,11 @@ pub struct UpdateArchiveResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionApiKeyAuthRequestParameters {
     /// <p>The name of the API key to use for authorization.</p>
-    #[serde(rename = "ApiKeyName")]
+    #[serde(rename = "apiKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_name: Option<String>,
     /// <p>The value associated with teh API key to use for authorization.</p>
-    #[serde(rename = "ApiKeyValue")]
+    #[serde(rename = "apiKeyValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_value: Option<String>,
 }
@@ -2599,19 +2599,19 @@ pub struct UpdateConnectionApiKeyAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionAuthRequestParameters {
     /// <p>A <code>UpdateConnectionApiKeyAuthRequestParameters</code> object that contains the authorization parameters for API key authorization.</p>
-    #[serde(rename = "ApiKeyAuthParameters")]
+    #[serde(rename = "apiKeyAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key_auth_parameters: Option<UpdateConnectionApiKeyAuthRequestParameters>,
     /// <p>A <code>UpdateConnectionBasicAuthRequestParameters</code> object that contains the authorization parameters for Basic authorization.</p>
-    #[serde(rename = "BasicAuthParameters")]
+    #[serde(rename = "basicAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub basic_auth_parameters: Option<UpdateConnectionBasicAuthRequestParameters>,
     /// <p>A <code>ConnectionHttpParameters</code> object that contains the additional parameters to use for the connection.</p>
-    #[serde(rename = "InvocationHttpParameters")]
+    #[serde(rename = "invocationHttpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invocation_http_parameters: Option<ConnectionHttpParameters>,
     /// <p>A <code>UpdateConnectionOAuthRequestParameters</code> object that contains the authorization parameters for OAuth authorization.</p>
-    #[serde(rename = "OAuthParameters")]
+    #[serde(rename = "oAuthParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub o_auth_parameters: Option<UpdateConnectionOAuthRequestParameters>,
 }
@@ -2621,11 +2621,11 @@ pub struct UpdateConnectionAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionBasicAuthRequestParameters {
     /// <p>The password associated with the user name to use for Basic authorization.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The user name to use for Basic authorization.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -2635,11 +2635,11 @@ pub struct UpdateConnectionBasicAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionOAuthClientRequestParameters {
     /// <p>The client ID to use for OAuth authorization.</p>
-    #[serde(rename = "ClientID")]
+    #[serde(rename = "clientID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The client secret assciated with the client ID to use for OAuth authorization.</p>
-    #[serde(rename = "ClientSecret")]
+    #[serde(rename = "clientSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_secret: Option<String>,
 }
@@ -2649,19 +2649,19 @@ pub struct UpdateConnectionOAuthClientRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionOAuthRequestParameters {
     /// <p>The URL to the authorization endpoint when OAuth is specified as the authorization type.</p>
-    #[serde(rename = "AuthorizationEndpoint")]
+    #[serde(rename = "authorizationEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_endpoint: Option<String>,
     /// <p>A <code>UpdateConnectionOAuthClientRequestParameters</code> object that contains the client parameters to use for the connection when OAuth is specified as the authorization type.</p>
-    #[serde(rename = "ClientParameters")]
+    #[serde(rename = "clientParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_parameters: Option<UpdateConnectionOAuthClientRequestParameters>,
     /// <p>The method used to connect to the HTTP endpoint.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>The additional HTTP parameters used for the OAuth authorization request.</p>
-    #[serde(rename = "OAuthHttpParameters")]
+    #[serde(rename = "oAuthHttpParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub o_auth_http_parameters: Option<ConnectionHttpParameters>,
 }
@@ -2670,19 +2670,19 @@ pub struct UpdateConnectionOAuthRequestParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConnectionRequest {
     /// <p>The authorization parameters to use for the connection.</p>
-    #[serde(rename = "AuthParameters")]
+    #[serde(rename = "authParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auth_parameters: Option<UpdateConnectionAuthRequestParameters>,
     /// <p>The type of authorization to use for the connection.</p>
-    #[serde(rename = "AuthorizationType")]
+    #[serde(rename = "authorizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authorization_type: Option<String>,
     /// <p>A description for the connection.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the connection to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -2690,23 +2690,23 @@ pub struct UpdateConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateConnectionResponse {
     /// <p>The ARN of the connection that was updated.</p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The state of the connection that was updated.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>A time stamp for the time that the connection was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last authorized.</p>
-    #[serde(rename = "LastAuthorizedTime")]
+    #[serde(rename = "lastAuthorizedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_authorized_time: Option<f64>,
     /// <p>A time stamp for the time that the connection was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
 }

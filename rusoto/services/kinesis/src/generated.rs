@@ -56,21 +56,21 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddTagsToStreamInput {
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p>A set of up to 10 key-value pairs to use to create the tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChildShard {
-    #[serde(rename = "HashKeyRange")]
+    #[serde(rename = "hashKeyRange")]
     pub hash_key_range: HashKeyRange,
-    #[serde(rename = "ParentShards")]
+    #[serde(rename = "parentShards")]
     pub parent_shards: Vec<String>,
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     pub shard_id: String,
 }
 
@@ -79,16 +79,16 @@ pub struct ChildShard {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Consumer {
     /// <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call <a>SubscribeToShard</a>.</p> <p>If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.</p>
-    #[serde(rename = "ConsumerARN")]
+    #[serde(rename = "consumerARN")]
     pub consumer_arn: String,
     /// <p><p/></p>
-    #[serde(rename = "ConsumerCreationTimestamp")]
+    #[serde(rename = "consumerCreationTimestamp")]
     pub consumer_creation_timestamp: f64,
     /// <p>The name of the consumer is something you choose when you register the consumer.</p>
-    #[serde(rename = "ConsumerName")]
+    #[serde(rename = "consumerName")]
     pub consumer_name: String,
     /// <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states.</p>
-    #[serde(rename = "ConsumerStatus")]
+    #[serde(rename = "consumerStatus")]
     pub consumer_status: String,
 }
 
@@ -97,19 +97,19 @@ pub struct Consumer {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConsumerDescription {
     /// <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call <a>SubscribeToShard</a>.</p> <p>If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.</p>
-    #[serde(rename = "ConsumerARN")]
+    #[serde(rename = "consumerARN")]
     pub consumer_arn: String,
     /// <p><p/></p>
-    #[serde(rename = "ConsumerCreationTimestamp")]
+    #[serde(rename = "consumerCreationTimestamp")]
     pub consumer_creation_timestamp: f64,
     /// <p>The name of the consumer is something you choose when you register the consumer.</p>
-    #[serde(rename = "ConsumerName")]
+    #[serde(rename = "consumerName")]
     pub consumer_name: String,
     /// <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states.</p>
-    #[serde(rename = "ConsumerStatus")]
+    #[serde(rename = "consumerStatus")]
     pub consumer_status: String,
     /// <p>The ARN of the stream with which you registered the consumer.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     pub stream_arn: String,
 }
 
@@ -118,10 +118,10 @@ pub struct ConsumerDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStreamInput {
     /// <p>The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.</p>
-    #[serde(rename = "ShardCount")]
+    #[serde(rename = "shardCount")]
     pub shard_count: i64,
     /// <p>A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -130,10 +130,10 @@ pub struct CreateStreamInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DecreaseStreamRetentionPeriodInput {
     /// <p>The new retention period of the stream, in hours. Must be less than the current retention period.</p>
-    #[serde(rename = "RetentionPeriodHours")]
+    #[serde(rename = "retentionPeriodHours")]
     pub retention_period_hours: i64,
     /// <p>The name of the stream to modify.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -142,11 +142,11 @@ pub struct DecreaseStreamRetentionPeriodInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStreamInput {
     /// <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>, and the stream has registered consumers, the call to <code>DeleteStream</code> fails with a <code>ResourceInUseException</code>. </p>
-    #[serde(rename = "EnforceConsumerDeletion")]
+    #[serde(rename = "enforceConsumerDeletion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enforce_consumer_deletion: Option<bool>,
     /// <p>The name of the stream to delete.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -154,15 +154,15 @@ pub struct DeleteStreamInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterStreamConsumerInput {
     /// <p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.</p>
-    #[serde(rename = "ConsumerARN")]
+    #[serde(rename = "consumerARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumer_arn: Option<String>,
     /// <p>The name that you gave to the consumer.</p>
-    #[serde(rename = "ConsumerName")]
+    #[serde(rename = "consumerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumer_name: Option<String>,
     /// <p>The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
 }
@@ -175,10 +175,10 @@ pub struct DescribeLimitsInput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLimitsOutput {
     /// <p>The number of open shards.</p>
-    #[serde(rename = "OpenShardCount")]
+    #[serde(rename = "openShardCount")]
     pub open_shard_count: i64,
     /// <p>The maximum number of shards.</p>
-    #[serde(rename = "ShardLimit")]
+    #[serde(rename = "shardLimit")]
     pub shard_limit: i64,
 }
 
@@ -186,15 +186,15 @@ pub struct DescribeLimitsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStreamConsumerInput {
     /// <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
-    #[serde(rename = "ConsumerARN")]
+    #[serde(rename = "consumerARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumer_arn: Option<String>,
     /// <p>The name that you gave to the consumer.</p>
-    #[serde(rename = "ConsumerName")]
+    #[serde(rename = "consumerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumer_name: Option<String>,
     /// <p>The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
 }
@@ -203,7 +203,7 @@ pub struct DescribeStreamConsumerInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStreamConsumerOutput {
     /// <p>An object that represents the details of the consumer.</p>
-    #[serde(rename = "ConsumerDescription")]
+    #[serde(rename = "consumerDescription")]
     pub consumer_description: ConsumerDescription,
 }
 
@@ -212,15 +212,15 @@ pub struct DescribeStreamConsumerOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStreamInput {
     /// <p>The shard ID of the shard to start with.</p>
-    #[serde(rename = "ExclusiveStartShardId")]
+    #[serde(rename = "exclusiveStartShardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusive_start_shard_id: Option<String>,
     /// <p>The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The name of the stream to describe.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -229,7 +229,7 @@ pub struct DescribeStreamInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStreamOutput {
     /// <p>The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.</p>
-    #[serde(rename = "StreamDescription")]
+    #[serde(rename = "streamDescription")]
     pub stream_description: StreamDescription,
 }
 
@@ -237,7 +237,7 @@ pub struct DescribeStreamOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStreamSummaryInput {
     /// <p>The name of the stream to describe.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -245,7 +245,7 @@ pub struct DescribeStreamSummaryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStreamSummaryOutput {
     /// <p>A <a>StreamDescriptionSummary</a> containing information about the stream.</p>
-    #[serde(rename = "StreamDescriptionSummary")]
+    #[serde(rename = "streamDescriptionSummary")]
     pub stream_description_summary: StreamDescriptionSummary,
 }
 
@@ -254,10 +254,10 @@ pub struct DescribeStreamSummaryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisableEnhancedMonitoringInput {
     /// <p>List of shard-level metrics to disable.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
-    #[serde(rename = "ShardLevelMetrics")]
+    #[serde(rename = "shardLevelMetrics")]
     pub shard_level_metrics: Vec<String>,
     /// <p>The name of the Kinesis data stream for which to disable enhanced monitoring.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -266,10 +266,10 @@ pub struct DisableEnhancedMonitoringInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EnableEnhancedMonitoringInput {
     /// <p>List of shard-level metrics to enable.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
-    #[serde(rename = "ShardLevelMetrics")]
+    #[serde(rename = "shardLevelMetrics")]
     pub shard_level_metrics: Vec<String>,
     /// <p>The name of the stream for which to enable enhanced monitoring.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -278,7 +278,7 @@ pub struct EnableEnhancedMonitoringInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EnhancedMetrics {
     /// <p>List of shard-level metrics.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
-    #[serde(rename = "ShardLevelMetrics")]
+    #[serde(rename = "shardLevelMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shard_level_metrics: Option<Vec<String>>,
 }
@@ -288,15 +288,15 @@ pub struct EnhancedMetrics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EnhancedMonitoringOutput {
     /// <p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>
-    #[serde(rename = "CurrentShardLevelMetrics")]
+    #[serde(rename = "currentShardLevelMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_shard_level_metrics: Option<Vec<String>>,
     /// <p>Represents the list of all the metrics that would be in the enhanced state after the operation.</p>
-    #[serde(rename = "DesiredShardLevelMetrics")]
+    #[serde(rename = "desiredShardLevelMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_shard_level_metrics: Option<Vec<String>>,
     /// <p>The name of the Kinesis data stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -319,11 +319,11 @@ pub struct ExpiredNextTokenException {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRecordsInput {
     /// <p>The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>. The default value is 10,000.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.</p>
-    #[serde(rename = "ShardIterator")]
+    #[serde(rename = "shardIterator")]
     pub shard_iterator: String,
 }
 
@@ -331,19 +331,19 @@ pub struct GetRecordsInput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRecordsOutput {
-    #[serde(rename = "ChildShards")]
+    #[serde(rename = "childShards")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub child_shards: Option<Vec<ChildShard>>,
     /// <p>The number of milliseconds the <a>GetRecords</a> response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.</p>
-    #[serde(rename = "MillisBehindLatest")]
+    #[serde(rename = "millisBehindLatest")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub millis_behind_latest: Option<i64>,
     /// <p>The next position in the shard from which to start sequentially reading data records. If set to <code>null</code>, the shard has been closed and the requested iterator does not return any more data. </p>
-    #[serde(rename = "NextShardIterator")]
+    #[serde(rename = "nextShardIterator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_shard_iterator: Option<String>,
     /// <p>The data records retrieved from the shard.</p>
-    #[serde(rename = "Records")]
+    #[serde(rename = "records")]
     pub records: Vec<Record>,
 }
 
@@ -352,20 +352,20 @@ pub struct GetRecordsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetShardIteratorInput {
     /// <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     pub shard_id: String,
     /// <p><p>Determines how the shard iterator is used to start reading data records from the shard.</p> <p>The following are the valid Amazon Kinesis shard iterator types:</p> <ul> <li> <p>AT<em>SEQUENCE</em>NUMBER - Start reading from the position denoted by a specific sequence number, provided in the value <code>StartingSequenceNumber</code>.</p> </li> <li> <p>AFTER<em>SEQUENCE</em>NUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value <code>StartingSequenceNumber</code>.</p> </li> <li> <p>AT<em>TIMESTAMP - Start reading from the position denoted by a specific time stamp, provided in the value <code>Timestamp</code>.</p> </li> <li> <p>TRIM</em>HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.</p> </li> <li> <p>LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.</p> </li> </ul></p>
-    #[serde(rename = "ShardIteratorType")]
+    #[serde(rename = "shardIteratorType")]
     pub shard_iterator_type: String,
     /// <p>The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
-    #[serde(rename = "StartingSequenceNumber")]
+    #[serde(rename = "startingSequenceNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub starting_sequence_number: Option<String>,
     /// <p>The name of the Amazon Kinesis data stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p>The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
 }
@@ -375,7 +375,7 @@ pub struct GetShardIteratorInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetShardIteratorOutput {
     /// <p>The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.</p>
-    #[serde(rename = "ShardIterator")]
+    #[serde(rename = "shardIterator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shard_iterator: Option<String>,
 }
@@ -385,10 +385,10 @@ pub struct GetShardIteratorOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HashKeyRange {
     /// <p>The ending hash key of the hash key range.</p>
-    #[serde(rename = "EndingHashKey")]
+    #[serde(rename = "endingHashKey")]
     pub ending_hash_key: String,
     /// <p>The starting hash key of the hash key range.</p>
-    #[serde(rename = "StartingHashKey")]
+    #[serde(rename = "startingHashKey")]
     pub starting_hash_key: String,
 }
 
@@ -397,10 +397,10 @@ pub struct HashKeyRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IncreaseStreamRetentionPeriodInput {
     /// <p>The new retention period of the stream, in hours. Must be more than the current retention period.</p>
-    #[serde(rename = "RetentionPeriodHours")]
+    #[serde(rename = "retentionPeriodHours")]
     pub retention_period_hours: i64,
     /// <p>The name of the stream to modify.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -491,26 +491,26 @@ pub struct LimitExceededException {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListShardsInput {
     /// <p>Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p> <p>If you don't specify this parameter, the default behavior is for <code>ListShards</code> to list the shards starting with the first one in the stream.</p> <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>
-    #[serde(rename = "ExclusiveStartShardId")]
+    #[serde(rename = "exclusiveStartShardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusive_start_shard_id: Option<String>,
     /// <p>The maximum number of shards to return in a single call to <code>ListShards</code>. The minimum value you can specify for this parameter is 1, and the maximum is 10,000, which is also the default.</p> <p>When the number of shards to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListShards</code> to list the next set of shards.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p><p>When the number of shards in the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of shards in the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to list the next set of shards.</p> <p>Don&#39;t specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you specify <code>NextToken</code> because the latter unambiguously identifies the stream.</p> <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that is less than the number of shards that the operation returns if you don&#39;t specify <code>MaxResults</code>, the response will contain a new <code>NextToken</code> value. You can use the new <code>NextToken</code> value in a subsequent call to the <code>ListShards</code> operation.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListShards</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p> </important></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
-    #[serde(rename = "ShardFilter")]
+    #[serde(rename = "shardFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shard_filter: Option<ShardFilter>,
     /// <p>Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for.</p> <p>You cannot specify this parameter if you specify the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "StreamCreationTimestamp")]
+    #[serde(rename = "streamCreationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_creation_timestamp: Option<f64>,
     /// <p>The name of the data stream whose shards you want to list. </p> <p>You cannot specify this parameter if you specify the <code>NextToken</code> parameter.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -519,11 +519,11 @@ pub struct ListShardsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListShardsOutput {
     /// <p><p>When the number of shards in the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of shards in the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to list the next set of shards. For more information about the use of this pagination token when calling the <code>ListShards</code> operation, see <a>ListShardsInput$NextToken</a>.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListShards</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p> </important></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.</p>
-    #[serde(rename = "Shards")]
+    #[serde(rename = "shards")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shards: Option<Vec<Shard>>,
 }
@@ -532,18 +532,18 @@ pub struct ListShardsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListStreamConsumersInput {
     /// <p>The maximum number of consumers that you want a single call of <code>ListStreamConsumers</code> to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p><p>When the number of consumers that are registered with the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of consumers that are registered with the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListStreamConsumers</code> to list the next set of registered consumers.</p> <p>Don&#39;t specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you specify <code>NextToken</code> because the latter unambiguously identifies the stream.</p> <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that is less than the number of consumers that the operation returns if you don&#39;t specify <code>MaxResults</code>, the response will contain a new <code>NextToken</code> value. You can use the new <code>NextToken</code> value in a subsequent call to the <code>ListStreamConsumers</code> operation to list the next set of consumers.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListStreamConsumers</code>, you get <code>ExpiredNextTokenException</code>.</p> </important></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARN of the Kinesis data stream for which you want to list the registered consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     pub stream_arn: String,
     /// <p>Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for. </p> <p>You can't specify this parameter if you specify the NextToken parameter. </p>
-    #[serde(rename = "StreamCreationTimestamp")]
+    #[serde(rename = "streamCreationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_creation_timestamp: Option<f64>,
 }
@@ -552,11 +552,11 @@ pub struct ListStreamConsumersInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListStreamConsumersOutput {
     /// <p>An array of JSON objects. Each object represents one registered consumer.</p>
-    #[serde(rename = "Consumers")]
+    #[serde(rename = "consumers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumers: Option<Vec<Consumer>>,
     /// <p><p>When the number of consumers that are registered with the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of registered consumers, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListStreamConsumers</code> to list the next set of registered consumers. For more information about the use of this pagination token when calling the <code>ListStreamConsumers</code> operation, see <a>ListStreamConsumersInput$NextToken</a>.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListStreamConsumers</code>, you get <code>ExpiredNextTokenException</code>.</p> </important></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -566,11 +566,11 @@ pub struct ListStreamConsumersOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListStreamsInput {
     /// <p>The name of the stream to start the list with.</p>
-    #[serde(rename = "ExclusiveStartStreamName")]
+    #[serde(rename = "exclusiveStartStreamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusive_start_stream_name: Option<String>,
     /// <p>The maximum number of streams to list.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
 }
@@ -580,10 +580,10 @@ pub struct ListStreamsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListStreamsOutput {
     /// <p>If set to <code>true</code>, there are more streams available to list.</p>
-    #[serde(rename = "HasMoreStreams")]
+    #[serde(rename = "hasMoreStreams")]
     pub has_more_streams: bool,
     /// <p>The names of the streams that are associated with the AWS account making the <code>ListStreams</code> request.</p>
-    #[serde(rename = "StreamNames")]
+    #[serde(rename = "streamNames")]
     pub stream_names: Vec<String>,
 }
 
@@ -592,15 +592,15 @@ pub struct ListStreamsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForStreamInput {
     /// <p>The key to use as the starting point for the list of tags. If this parameter is set, <code>ListTagsForStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>. </p>
-    #[serde(rename = "ExclusiveStartTagKey")]
+    #[serde(rename = "exclusiveStartTagKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclusive_start_tag_key: Option<String>,
     /// <p>The number of tags to return. If this number is less than the total number of tags associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -609,10 +609,10 @@ pub struct ListTagsForStreamInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForStreamOutput {
     /// <p>If set to <code>true</code>, more tags are available. To request additional tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned.</p>
-    #[serde(rename = "HasMoreTags")]
+    #[serde(rename = "hasMoreTags")]
     pub has_more_tags: bool,
     /// <p>A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -621,13 +621,13 @@ pub struct ListTagsForStreamOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MergeShardsInput {
     /// <p>The shard ID of the adjacent shard for the merge.</p>
-    #[serde(rename = "AdjacentShardToMerge")]
+    #[serde(rename = "adjacentShardToMerge")]
     pub adjacent_shard_to_merge: String,
     /// <p>The shard ID of the shard to combine with the adjacent shard for the merge.</p>
-    #[serde(rename = "ShardToMerge")]
+    #[serde(rename = "shardToMerge")]
     pub shard_to_merge: String,
     /// <p>The name of the stream for the merge.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -643,7 +643,7 @@ pub struct ProvisionedThroughputExceededException {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRecordInput {
     /// <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -651,18 +651,18 @@ pub struct PutRecordInput {
     )]
     pub data: bytes::Bytes,
     /// <p>The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.</p>
-    #[serde(rename = "ExplicitHashKey")]
+    #[serde(rename = "explicitHashKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub explicit_hash_key: Option<String>,
     /// <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.</p>
-    #[serde(rename = "PartitionKey")]
+    #[serde(rename = "partitionKey")]
     pub partition_key: String,
     /// <p>Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of record <i>n</i> to the sequence number of record <i>n-1</i> (as returned in the result when putting record <i>n-1</i>). If this parameter is not set, records are coarsely ordered based on arrival time.</p>
-    #[serde(rename = "SequenceNumberForOrdering")]
+    #[serde(rename = "sequenceNumberForOrdering")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sequence_number_for_ordering: Option<String>,
     /// <p>The name of the stream to put the data record into.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -671,14 +671,14 @@ pub struct PutRecordInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRecordOutput {
     /// <p><p>The encryption type to use on the record. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records in the stream.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.</p> </li> </ul></p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.</p>
-    #[serde(rename = "SequenceNumber")]
+    #[serde(rename = "sequenceNumber")]
     pub sequence_number: String,
     /// <p>The shard ID of the shard where the data record was placed.</p>
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     pub shard_id: String,
 }
 
@@ -687,10 +687,10 @@ pub struct PutRecordOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRecordsInput {
     /// <p>The records associated with the request.</p>
-    #[serde(rename = "Records")]
+    #[serde(rename = "records")]
     pub records: Vec<PutRecordsRequestEntry>,
     /// <p>The stream name associated with the request.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -699,15 +699,15 @@ pub struct PutRecordsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRecordsOutput {
     /// <p><p>The encryption type used on the records. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records using a customer-managed AWS KMS key.</p> </li> </ul></p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>The number of unsuccessfully processed records in a <code>PutRecords</code> request.</p>
-    #[serde(rename = "FailedRecordCount")]
+    #[serde(rename = "failedRecordCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_record_count: Option<i64>,
     /// <p>An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to a stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
-    #[serde(rename = "Records")]
+    #[serde(rename = "records")]
     pub records: Vec<PutRecordsResultEntry>,
 }
 
@@ -716,7 +716,7 @@ pub struct PutRecordsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRecordsRequestEntry {
     /// <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -724,11 +724,11 @@ pub struct PutRecordsRequestEntry {
     )]
     pub data: bytes::Bytes,
     /// <p>The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.</p>
-    #[serde(rename = "ExplicitHashKey")]
+    #[serde(rename = "explicitHashKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub explicit_hash_key: Option<String>,
     /// <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.</p>
-    #[serde(rename = "PartitionKey")]
+    #[serde(rename = "partitionKey")]
     pub partition_key: String,
 }
 
@@ -737,19 +737,19 @@ pub struct PutRecordsRequestEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutRecordsResultEntry {
     /// <p>The error code for an individual record result. <code>ErrorCodes</code> can be either <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message for an individual record result. An <code>ErrorCode</code> value of <code>ProvisionedThroughputExceededException</code> has an error message that includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of <code>InternalFailure</code> has the error message <code>"Internal Service Failure"</code>.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The sequence number for an individual record result.</p>
-    #[serde(rename = "SequenceNumber")]
+    #[serde(rename = "sequenceNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sequence_number: Option<String>,
     /// <p>The shard ID for an individual record result.</p>
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shard_id: Option<String>,
 }
@@ -759,11 +759,11 @@ pub struct PutRecordsResultEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Record {
     /// <p>The approximate time that the record was inserted into the stream.</p>
-    #[serde(rename = "ApproximateArrivalTimestamp")]
+    #[serde(rename = "approximateArrivalTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_arrival_timestamp: Option<f64>,
     /// <p>The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).</p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -771,14 +771,14 @@ pub struct Record {
     )]
     pub data: bytes::Bytes,
     /// <p><p>The encryption type used on the record. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records in the stream.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.</p> </li> </ul></p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>Identifies which shard in the stream the data record is assigned to.</p>
-    #[serde(rename = "PartitionKey")]
+    #[serde(rename = "partitionKey")]
     pub partition_key: String,
     /// <p>The unique identifier of the record within its shard.</p>
-    #[serde(rename = "SequenceNumber")]
+    #[serde(rename = "sequenceNumber")]
     pub sequence_number: String,
 }
 
@@ -786,10 +786,10 @@ pub struct Record {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterStreamConsumerInput {
     /// <p>For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.</p>
-    #[serde(rename = "ConsumerName")]
+    #[serde(rename = "consumerName")]
     pub consumer_name: String,
     /// <p>The ARN of the Kinesis data stream that you want to register the consumer with. For more info, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     pub stream_arn: String,
 }
 
@@ -797,7 +797,7 @@ pub struct RegisterStreamConsumerInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterStreamConsumerOutput {
     /// <p>An object that represents the details of the consumer you registered. When you register a consumer, it gets an ARN that is generated by Kinesis Data Streams.</p>
-    #[serde(rename = "Consumer")]
+    #[serde(rename = "consumer")]
     pub consumer: Consumer,
 }
 
@@ -806,10 +806,10 @@ pub struct RegisterStreamConsumerOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveTagsFromStreamInput {
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -838,11 +838,11 @@ pub struct ResourceNotFoundException {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SequenceNumberRange {
     /// <p>The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.</p>
-    #[serde(rename = "EndingSequenceNumber")]
+    #[serde(rename = "endingSequenceNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ending_sequence_number: Option<String>,
     /// <p>The starting sequence number for the range.</p>
-    #[serde(rename = "StartingSequenceNumber")]
+    #[serde(rename = "startingSequenceNumber")]
     pub starting_sequence_number: String,
 }
 
@@ -851,34 +851,34 @@ pub struct SequenceNumberRange {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Shard {
     /// <p>The shard ID of the shard adjacent to the shard's parent.</p>
-    #[serde(rename = "AdjacentParentShardId")]
+    #[serde(rename = "adjacentParentShardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub adjacent_parent_shard_id: Option<String>,
     /// <p>The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.</p>
-    #[serde(rename = "HashKeyRange")]
+    #[serde(rename = "hashKeyRange")]
     pub hash_key_range: HashKeyRange,
     /// <p>The shard ID of the shard's parent.</p>
-    #[serde(rename = "ParentShardId")]
+    #[serde(rename = "parentShardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_shard_id: Option<String>,
     /// <p>The range of possible sequence numbers for the shard.</p>
-    #[serde(rename = "SequenceNumberRange")]
+    #[serde(rename = "sequenceNumberRange")]
     pub sequence_number_range: SequenceNumberRange,
     /// <p>The unique identifier of the shard within the stream.</p>
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     pub shard_id: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ShardFilter {
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shard_id: Option<String>,
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -887,13 +887,13 @@ pub struct ShardFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SplitShardInput {
     /// <p>A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for <code>NewStartingHashKey</code> must be in the range of hash keys being mapped into the shard. The <code>NewStartingHashKey</code> hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.</p>
-    #[serde(rename = "NewStartingHashKey")]
+    #[serde(rename = "newStartingHashKey")]
     pub new_starting_hash_key: String,
     /// <p>The shard ID of the shard to split.</p>
-    #[serde(rename = "ShardToSplit")]
+    #[serde(rename = "shardToSplit")]
     pub shard_to_split: String,
     /// <p>The name of the stream for the shard split.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -901,13 +901,13 @@ pub struct SplitShardInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartStreamEncryptionInput {
     /// <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     pub encryption_type: String,
     /// <p><p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by &quot;alias/&quot;.You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul></p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     pub key_id: String,
     /// <p>The name of the stream for which to start encrypting records.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -916,15 +916,15 @@ pub struct StartStreamEncryptionInput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartingPosition {
     /// <p>The sequence number of the data record in the shard from which to start streaming. To specify a sequence number, set <code>StartingPosition</code> to <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>.</p>
-    #[serde(rename = "SequenceNumber")]
+    #[serde(rename = "sequenceNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sequence_number: Option<String>,
     /// <p>The time stamp of the data record from which to start reading. To specify a time stamp, set <code>StartingPosition</code> to <code>Type AT_TIMESTAMP</code>. A time stamp is the Unix epoch date with precision in milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a record with this exact time stamp does not exist, records will be streamed from the next (later) record. If the time stamp is older than the current trim horizon, records will be streamed from the oldest untrimmed data record (<code>TRIM_HORIZON</code>).</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
     /// <p>You can set the starting position to one of the following values:</p> <p> <code>AT_SEQUENCE_NUMBER</code>: Start streaming from the position denoted by the sequence number specified in the <code>SequenceNumber</code> field.</p> <p> <code>AFTER_SEQUENCE_NUMBER</code>: Start streaming right after the position denoted by the sequence number specified in the <code>SequenceNumber</code> field.</p> <p> <code>AT_TIMESTAMP</code>: Start streaming from the position denoted by the time stamp specified in the <code>Timestamp</code> field.</p> <p> <code>TRIM_HORIZON</code>: Start streaming at the last untrimmed record in the shard, which is the oldest data record in the shard.</p> <p> <code>LATEST</code>: Start streaming just after the most recent record in the shard, so that you always read the most recent data in the shard.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -932,13 +932,13 @@ pub struct StartingPosition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopStreamEncryptionInput {
     /// <p>The encryption type. The only valid value is <code>KMS</code>.</p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     pub encryption_type: String,
     /// <p><p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by &quot;alias/&quot;.You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul></p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     pub key_id: String,
     /// <p>The name of the stream on which to stop encrypting records.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
 }
 
@@ -947,36 +947,36 @@ pub struct StopStreamEncryptionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StreamDescription {
     /// <p><p>The server-side encryption type used on the stream. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records in the stream.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.</p> </li> </ul></p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>Represents the current enhanced monitoring settings of the stream.</p>
-    #[serde(rename = "EnhancedMonitoring")]
+    #[serde(rename = "enhancedMonitoring")]
     pub enhanced_monitoring: Vec<EnhancedMetrics>,
     /// <p>If set to <code>true</code>, more shards in the stream are available to describe.</p>
-    #[serde(rename = "HasMoreShards")]
+    #[serde(rename = "hasMoreShards")]
     pub has_more_shards: bool,
     /// <p><p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by &quot;alias/&quot;.You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul></p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_id: Option<String>,
     /// <p>The current retention period, in hours. Minimum value of 24. Maximum value of 168.</p>
-    #[serde(rename = "RetentionPeriodHours")]
+    #[serde(rename = "retentionPeriodHours")]
     pub retention_period_hours: i64,
     /// <p>The shards that comprise the stream.</p>
-    #[serde(rename = "Shards")]
+    #[serde(rename = "shards")]
     pub shards: Vec<Shard>,
     /// <p>The Amazon Resource Name (ARN) for the stream being described.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     pub stream_arn: String,
     /// <p>The approximate time that the stream was created.</p>
-    #[serde(rename = "StreamCreationTimestamp")]
+    #[serde(rename = "streamCreationTimestamp")]
     pub stream_creation_timestamp: f64,
     /// <p>The name of the stream being described.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p><p>The current status of the stream being described. The stream status is one of the following states:</p> <ul> <li> <p> <code>CREATING</code> - The stream is being created. Kinesis Data Streams immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</p> </li> <li> <p> <code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Kinesis Data Streams completes the deletion.</p> </li> <li> <p> <code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</p> </li> <li> <p> <code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</p> </li> </ul></p>
-    #[serde(rename = "StreamStatus")]
+    #[serde(rename = "streamStatus")]
     pub stream_status: String,
 }
 
@@ -985,37 +985,37 @@ pub struct StreamDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StreamDescriptionSummary {
     /// <p>The number of enhanced fan-out consumers registered with the stream.</p>
-    #[serde(rename = "ConsumerCount")]
+    #[serde(rename = "consumerCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumer_count: Option<i64>,
     /// <p><p>The encryption type used. This value is one of the following:</p> <ul> <li> <p> <code>KMS</code> </p> </li> <li> <p> <code>NONE</code> </p> </li> </ul></p>
-    #[serde(rename = "EncryptionType")]
+    #[serde(rename = "encryptionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_type: Option<String>,
     /// <p>Represents the current enhanced monitoring settings of the stream.</p>
-    #[serde(rename = "EnhancedMonitoring")]
+    #[serde(rename = "enhancedMonitoring")]
     pub enhanced_monitoring: Vec<EnhancedMetrics>,
     /// <p><p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by &quot;alias/&quot;.You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code> arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul></p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_id: Option<String>,
     /// <p>The number of open shards in the stream.</p>
-    #[serde(rename = "OpenShardCount")]
+    #[serde(rename = "openShardCount")]
     pub open_shard_count: i64,
     /// <p>The current retention period, in hours.</p>
-    #[serde(rename = "RetentionPeriodHours")]
+    #[serde(rename = "retentionPeriodHours")]
     pub retention_period_hours: i64,
     /// <p>The Amazon Resource Name (ARN) for the stream being described.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     pub stream_arn: String,
     /// <p>The approximate time that the stream was created.</p>
-    #[serde(rename = "StreamCreationTimestamp")]
+    #[serde(rename = "streamCreationTimestamp")]
     pub stream_creation_timestamp: f64,
     /// <p>The name of the stream being described.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p><p>The current status of the stream being described. The stream status is one of the following states:</p> <ul> <li> <p> <code>CREATING</code> - The stream is being created. Kinesis Data Streams immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</p> </li> <li> <p> <code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Kinesis Data Streams completes the deletion.</p> </li> <li> <p> <code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</p> </li> <li> <p> <code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</p> </li> </ul></p>
-    #[serde(rename = "StreamStatus")]
+    #[serde(rename = "streamStatus")]
     pub stream_status: String,
 }
 
@@ -1023,17 +1023,17 @@ pub struct StreamDescriptionSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SubscribeToShardEvent {
-    #[serde(rename = "ChildShards")]
+    #[serde(rename = "childShards")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub child_shards: Option<Vec<ChildShard>>,
     /// <p>Use this as <code>SequenceNumber</code> in the next call to <a>SubscribeToShard</a>, with <code>StartingPosition</code> set to <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>. Use <code>ContinuationSequenceNumber</code> for checkpointing because it captures your shard progress even when no data is written to the shard.</p>
-    #[serde(rename = "ContinuationSequenceNumber")]
+    #[serde(rename = "continuationSequenceNumber")]
     pub continuation_sequence_number: String,
     /// <p>The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.</p>
-    #[serde(rename = "MillisBehindLatest")]
+    #[serde(rename = "millisBehindLatest")]
     pub millis_behind_latest: i64,
     /// <p><p/></p>
-    #[serde(rename = "Records")]
+    #[serde(rename = "records")]
     pub records: Vec<Record>,
 }
 
@@ -1110,13 +1110,13 @@ impl DeserializeEvent for SubscribeToShardEventStreamItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SubscribeToShardInput {
     /// <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
-    #[serde(rename = "ConsumerARN")]
+    #[serde(rename = "consumerARN")]
     pub consumer_arn: String,
     /// <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use <a>ListShards</a>.</p>
-    #[serde(rename = "ShardId")]
+    #[serde(rename = "shardId")]
     pub shard_id: String,
     /// <p><p/></p>
-    #[serde(rename = "StartingPosition")]
+    #[serde(rename = "startingPosition")]
     pub starting_position: StartingPosition,
 }
 
@@ -1131,10 +1131,10 @@ pub struct SubscribeToShardOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Tag {
     /// <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1143,13 +1143,13 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateShardCountInput {
     /// <p>The scaling type. Uniform scaling creates shards of equal size.</p>
-    #[serde(rename = "ScalingType")]
+    #[serde(rename = "scalingType")]
     pub scaling_type: String,
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p><p>The new number of shards. This value has the following default limits. By default, you cannot do the following: </p> <ul> <li> <p>Set this value to more than double your current shard count for a stream.</p> </li> <li> <p>Set this value below half your current shard count for a stream.</p> </li> <li> <p>Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.</p> </li> <li> <p>Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.</p> </li> </ul></p>
-    #[serde(rename = "TargetShardCount")]
+    #[serde(rename = "targetShardCount")]
     pub target_shard_count: i64,
 }
 
@@ -1157,15 +1157,15 @@ pub struct UpdateShardCountInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateShardCountOutput {
     /// <p>The current number of shards.</p>
-    #[serde(rename = "CurrentShardCount")]
+    #[serde(rename = "currentShardCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_shard_count: Option<i64>,
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
     /// <p>The updated number of shards.</p>
-    #[serde(rename = "TargetShardCount")]
+    #[serde(rename = "targetShardCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_shard_count: Option<i64>,
 }

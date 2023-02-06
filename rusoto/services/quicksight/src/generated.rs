@@ -29,7 +29,7 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountCustomization {
     /// <p>The default theme for this QuickSight subscription.</p>
-    #[serde(rename = "DefaultTheme")]
+    #[serde(rename = "defaultTheme")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_theme: Option<String>,
 }
@@ -39,19 +39,19 @@ pub struct AccountCustomization {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AccountSettings {
     /// <p>The "account name" you provided for the QuickSight subscription in your AWS account. You create this name when you sign up for QuickSight. It is unique in all of AWS and it appears only in the console when users sign in.</p>
-    #[serde(rename = "AccountName")]
+    #[serde(rename = "accountName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_name: Option<String>,
     /// <p>The default QuickSight namespace for your AWS account. </p>
-    #[serde(rename = "DefaultNamespace")]
+    #[serde(rename = "defaultNamespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_namespace: Option<String>,
     /// <p>The edition of QuickSight that you're currently subscribed to: Enterprise edition or Standard edition.</p>
-    #[serde(rename = "Edition")]
+    #[serde(rename = "edition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub edition: Option<String>,
     /// <p>The main notification email for your QuickSight subscription.</p>
-    #[serde(rename = "NotificationEmail")]
+    #[serde(rename = "notificationEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_email: Option<String>,
 }
@@ -61,11 +61,11 @@ pub struct AccountSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ActiveIAMPolicyAssignment {
     /// <p>A name for the IAM policy assignment.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
 }
@@ -75,7 +75,7 @@ pub struct ActiveIAMPolicyAssignment {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdHocFilteringOption {
     /// <p>Availability status.</p>
-    #[serde(rename = "AvailabilityStatus")]
+    #[serde(rename = "availabilityStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_status: Option<String>,
 }
@@ -84,7 +84,7 @@ pub struct AdHocFilteringOption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AmazonElasticsearchParameters {
     /// <p>The Amazon Elasticsearch Service domain.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
 }
 
@@ -93,43 +93,43 @@ pub struct AmazonElasticsearchParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Analysis {
     /// <p>The ID of the analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the analysis.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that the analysis was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ARNs of the datasets of the analysis.</p>
-    #[serde(rename = "DataSetArns")]
+    #[serde(rename = "dataSetArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_arns: Option<Vec<String>>,
     /// <p>Errors associated with the analysis.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<AnalysisError>>,
     /// <p>The time that the analysis was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The descriptive name of the analysis.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-    #[serde(rename = "Sheets")]
+    #[serde(rename = "sheets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sheets: Option<Vec<Sheet>>,
     /// <p>Status associated with the analysis.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The ARN of the theme of the analysis.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
 }
@@ -139,11 +139,11 @@ pub struct Analysis {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AnalysisError {
     /// <p>The message associated with the analysis error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The type of the analysis error.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -153,15 +153,15 @@ pub struct AnalysisError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AnalysisSearchFilter {
     /// <p>The name of the value that you want to use as a filter, for example <code>"Name": "QUICKSIGHT_USER"</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>.</p>
-    #[serde(rename = "Operator")]
+    #[serde(rename = "operator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operator: Option<String>,
     /// <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want to use as a filter, for example <code>"Value"</code>. An example is <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -171,7 +171,7 @@ pub struct AnalysisSearchFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AnalysisSourceEntity {
     /// <p>The source template for the source entity of the analysis.</p>
-    #[serde(rename = "SourceTemplate")]
+    #[serde(rename = "sourceTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_template: Option<AnalysisSourceTemplate>,
 }
@@ -181,10 +181,10 @@ pub struct AnalysisSourceEntity {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AnalysisSourceTemplate {
     /// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The dataset references of the source template of an analysis.</p>
-    #[serde(rename = "DataSetReferences")]
+    #[serde(rename = "dataSetReferences")]
     pub data_set_references: Vec<DataSetReference>,
 }
 
@@ -193,27 +193,27 @@ pub struct AnalysisSourceTemplate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AnalysisSummary {
     /// <p>The ID of the analysis. This ID displays in the URL.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the analysis.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that the analysis was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The time that the analysis was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The name of the analysis. This name is displayed in the QuickSight console. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The last known status for the analysis.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -222,7 +222,7 @@ pub struct AnalysisSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AthenaParameters {
     /// <p>The workgroup that Amazon Athena uses.</p>
-    #[serde(rename = "WorkGroup")]
+    #[serde(rename = "workGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub work_group: Option<String>,
 }
@@ -231,13 +231,13 @@ pub struct AthenaParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AuroraParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -245,13 +245,13 @@ pub struct AuroraParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AuroraPostgreSqlParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -259,7 +259,7 @@ pub struct AuroraPostgreSqlParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AwsIotAnalyticsParameters {
     /// <p>Dataset name.</p>
-    #[serde(rename = "DataSetName")]
+    #[serde(rename = "dataSetName")]
     pub data_set_name: String,
 }
 
@@ -267,7 +267,7 @@ pub struct AwsIotAnalyticsParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BorderStyle {
     /// <p>The option to enable display of borders for visuals.</p>
-    #[serde(rename = "Show")]
+    #[serde(rename = "show")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub show: Option<bool>,
 }
@@ -276,13 +276,13 @@ pub struct BorderStyle {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CalculatedColumn {
     /// <p>A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.</p>
-    #[serde(rename = "ColumnId")]
+    #[serde(rename = "columnId")]
     pub column_id: String,
     /// <p>Column name.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p>An expression that defines the calculated column.</p>
-    #[serde(rename = "Expression")]
+    #[serde(rename = "expression")]
     pub expression: String,
 }
 
@@ -290,13 +290,13 @@ pub struct CalculatedColumn {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelIngestionRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the dataset used in the ingestion.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>An ID for the ingestion.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     pub ingestion_id: String,
 }
 
@@ -304,19 +304,19 @@ pub struct CancelIngestionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CancelIngestionResponse {
     /// <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An ID for the ingestion.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -325,14 +325,14 @@ pub struct CancelIngestionResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CastColumnTypeOperation {
     /// <p>Column name.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p>When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>New column data type.</p>
-    #[serde(rename = "NewColumnType")]
+    #[serde(rename = "newColumnType")]
     pub new_column_type: String,
 }
 
@@ -340,7 +340,7 @@ pub struct CastColumnTypeOperation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnDescription {
     /// <p>The text of a description for a column.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
 }
@@ -349,7 +349,7 @@ pub struct ColumnDescription {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnGroup {
     /// <p>Geospatial column group that denotes a hierarchy.</p>
-    #[serde(rename = "GeoSpatialColumnGroup")]
+    #[serde(rename = "geoSpatialColumnGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geo_spatial_column_group: Option<GeoSpatialColumnGroup>,
 }
@@ -359,7 +359,7 @@ pub struct ColumnGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnGroupColumnSchema {
     /// <p>The name of the column group's column schema.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -369,11 +369,11 @@ pub struct ColumnGroupColumnSchema {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnGroupSchema {
     /// <p>A structure containing the list of schemas for column group columns.</p>
-    #[serde(rename = "ColumnGroupColumnSchemaList")]
+    #[serde(rename = "columnGroupColumnSchemaList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_group_column_schema_list: Option<Vec<ColumnGroupColumnSchema>>,
     /// <p>The name of the column group schema.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -382,11 +382,11 @@ pub struct ColumnGroupSchema {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnLevelPermissionRule {
     /// <p>An array of column names.</p>
-    #[serde(rename = "ColumnNames")]
+    #[serde(rename = "columnNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_names: Option<Vec<String>>,
     /// <p>An array of Amazon Resource Names (ARNs) for QuickSight users or groups.</p>
-    #[serde(rename = "Principals")]
+    #[serde(rename = "principals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principals: Option<Vec<String>>,
 }
@@ -396,15 +396,15 @@ pub struct ColumnLevelPermissionRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ColumnSchema {
     /// <p>The data type of the column schema.</p>
-    #[serde(rename = "DataType")]
+    #[serde(rename = "dataType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_type: Option<String>,
     /// <p>The geographic role of the column schema.</p>
-    #[serde(rename = "GeographicRole")]
+    #[serde(rename = "geographicRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geographic_role: Option<String>,
     /// <p>The name of the column schema.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -413,11 +413,11 @@ pub struct ColumnSchema {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ColumnTag {
     /// <p>A description for a column.</p>
-    #[serde(rename = "ColumnDescription")]
+    #[serde(rename = "columnDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_description: Option<ColumnDescription>,
     /// <p>A geospatial role for a column.</p>
-    #[serde(rename = "ColumnGeographicRole")]
+    #[serde(rename = "columnGeographicRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_geographic_role: Option<String>,
 }
@@ -426,17 +426,17 @@ pub struct ColumnTag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAccountCustomizationRequest {
     /// <p>The QuickSight customizations you're adding in the current AWS Region. You can add these to an AWS account and a QuickSight namespace. </p> <p>For example, you can add a default theme by setting <code>AccountCustomization</code> to the midnight theme: <code>"AccountCustomization": { "DefaultTheme": "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by specifying <code>"AccountCustomization": { "DefaultTheme": "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639" }</code>. </p>
-    #[serde(rename = "AccountCustomization")]
+    #[serde(rename = "accountCustomization")]
     pub account_customization: AccountCustomization,
     /// <p>The ID for the AWS account that you want to customize QuickSight for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The QuickSight namespace that you want to add customizations to.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>A list of the tags that you want to attach to this resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -445,27 +445,27 @@ pub struct CreateAccountCustomizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAccountCustomizationResponse {
     /// <p>The QuickSight customizations you're adding in the current AWS Region. </p>
-    #[serde(rename = "AccountCustomization")]
+    #[serde(rename = "accountCustomization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_customization: Option<AccountCustomization>,
     /// <p>The Amazon Resource Name (ARN) for the customization that you created for this AWS account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID for the AWS account that you want to customize QuickSight for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_account_id: Option<String>,
     /// <p>The namespace associated with the customization you're creating. </p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -474,31 +474,31 @@ pub struct CreateAccountCustomizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAnalysisRequest {
     /// <p>The ID for the analysis that you're creating. This ID displays in the URL of the analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account where you are creating an analysis.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A descriptive name for the analysis that you're creating. This name displays for the analysis in the QuickSight console. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values. </p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Parameters>,
     /// <p>A structure that describes the principals and the resource-level permissions on an analysis. You can use the <code>Permissions</code> structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN). </p> <p>To specify no permissions, omit <code>Permissions</code>.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.</p>
-    #[serde(rename = "SourceEntity")]
+    #[serde(rename = "sourceEntity")]
     pub source_entity: AnalysisSourceEntity,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme in the QuickSight console, make sure that you have access to it.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
 }
@@ -507,23 +507,23 @@ pub struct CreateAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAnalysisResponse {
     /// <p>The ID of the analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>The ARN for the analysis.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The status of the creation of the analysis. </p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -532,7 +532,7 @@ pub struct CreateAnalysisResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CreateColumnsOperation {
     /// <p>Calculated columns to create.</p>
-    #[serde(rename = "Columns")]
+    #[serde(rename = "columns")]
     pub columns: Vec<CalculatedColumn>,
 }
 
@@ -540,39 +540,39 @@ pub struct CreateColumnsOperation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDashboardRequest {
     /// <p>The ID of the AWS account where you want to create the dashboard.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard, also added to the IAM policy.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p><p>Options for publishing the dashboard when you create it:</p> <ul> <li> <p> <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is set to <code>DISABLED</code>, QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is <code>ENABLED</code> by default. </p> </li> <li> <p> <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual option to export data to .CSV format isn&#39;t enabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p> </li> <li> <p> <code>VisibilityState</code> for <code>SheetControlsOption</code> - This visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>. This option is <code>COLLAPSED</code> by default. </p> </li> </ul></p>
-    #[serde(rename = "DashboardPublishOptions")]
+    #[serde(rename = "dashboardPublishOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_publish_options: Option<DashboardPublishOptions>,
     /// <p>The display name of the dashboard.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. </p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Parameters>,
     /// <p>A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN. </p> <p>To specify no permissions, omit the permissions list.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The entity that you are using as a source when you create the dashboard. In <code>SourceEntity</code>, you specify the type of object you're using as source. You can only create a dashboard from a template, so you use a <code>SourceTemplate</code> entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the <a>CreateTemplate</a> API operation. For <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source template. The <code>SourceTemplate</code>ARN can contain any AWS Account and any QuickSight-supported AWS Region. </p> <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder. </p>
-    #[serde(rename = "SourceEntity")]
+    #[serde(rename = "sourceEntity")]
     pub source_entity: DashboardSourceEntity,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
     /// <p>A description for the first version of the dashboard being created.</p>
-    #[serde(rename = "VersionDescription")]
+    #[serde(rename = "versionDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_description: Option<String>,
 }
@@ -581,27 +581,27 @@ pub struct CreateDashboardRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDashboardResponse {
     /// <p>The ARN of the dashboard.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The status of the dashboard creation request.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The ARN of the dashboard, including the version number of the first version that is created.</p>
-    #[serde(rename = "VersionArn")]
+    #[serde(rename = "versionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_arn: Option<String>,
 }
@@ -610,46 +610,46 @@ pub struct CreateDashboardResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDataSetRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-    #[serde(rename = "ColumnGroups")]
+    #[serde(rename = "columnGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_groups: Option<Vec<ColumnGroup>>,
     /// <p>A set of one or more definitions of a <code> <a>ColumnLevelPermissionRule</a> </code>.</p>
-    #[serde(rename = "ColumnLevelPermissionRules")]
+    #[serde(rename = "columnLevelPermissionRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_level_permission_rules: Option<Vec<ColumnLevelPermissionRule>>,
     /// <p>An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The folder that contains fields and nested subfolders for your dataset.</p>
-    #[serde(rename = "FieldFolders")]
+    #[serde(rename = "fieldFolders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_folders: Option<::std::collections::HashMap<String, FieldFolder>>,
     /// <p>Indicates whether you want to import the data into SPICE.</p>
-    #[serde(rename = "ImportMode")]
+    #[serde(rename = "importMode")]
     pub import_mode: String,
     /// <p>Configures the combination and transformation of the data from the physical tables.</p>
-    #[serde(rename = "LogicalTableMap")]
+    #[serde(rename = "logicalTableMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logical_table_map: Option<::std::collections::HashMap<String, LogicalTable>>,
     /// <p>The display name for the dataset.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of resource permissions on the dataset.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>Declares the physical tables that are available in the underlying data sources.</p>
-    #[serde(rename = "PhysicalTableMap")]
+    #[serde(rename = "physicalTableMap")]
     pub physical_table_map: ::std::collections::HashMap<String, PhysicalTable>,
     /// <p>The row-level security configuration for the data that you want to create.</p>
-    #[serde(rename = "RowLevelPermissionDataSet")]
+    #[serde(rename = "rowLevelPermissionDataSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_level_permission_data_set: Option<RowLevelPermissionDataSet>,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -658,27 +658,27 @@ pub struct CreateDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDataSetResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE.</p>
-    #[serde(rename = "IngestionArn")]
+    #[serde(rename = "ingestionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_arn: Option<String>,
     /// <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -687,39 +687,39 @@ pub struct CreateDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDataSourceRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The credentials QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.</p>
-    #[serde(rename = "Credentials")]
+    #[serde(rename = "credentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials: Option<DataSourceCredentials>,
     /// <p>An ID for the data source. This ID is unique per AWS Region for each AWS account. </p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     pub data_source_id: String,
     /// <p>The parameters that QuickSight uses to connect to your underlying source.</p>
-    #[serde(rename = "DataSourceParameters")]
+    #[serde(rename = "dataSourceParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_parameters: Option<DataSourceParameters>,
     /// <p>A display name for the data source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of resource permissions on the data source.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
-    #[serde(rename = "SslProperties")]
+    #[serde(rename = "sslProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssl_properties: Option<SslProperties>,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The type of the data source. Currently, the supported types for this operation are: <code>ATHENA, AURORA, AURORA_POSTGRESQL, AMAZON_ELASTICSEARCH, MARIADB, MYSQL, POSTGRESQL, PRESTO, REDSHIFT, S3, SNOWFLAKE, SPARK, SQLSERVER, TERADATA</code>. Use <code>ListDataSources</code> to return a list of all data sources.</p> <p> <code>AMAZON_ELASTICSEARCH</code> is for Amazon managed Elasticsearch Service.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to your underlying source.</p>
-    #[serde(rename = "VpcConnectionProperties")]
+    #[serde(rename = "vpcConnectionProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_connection_properties: Option<VpcConnectionProperties>,
 }
@@ -728,23 +728,23 @@ pub struct CreateDataSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDataSourceResponse {
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The status of creating the data source.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -753,16 +753,16 @@ pub struct CreateDataSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFolderMembershipRequest {
     /// <p>The AWS Account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The ID of the asset (the dashboard, analysis, or dataset).</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>.</p>
-    #[serde(rename = "MemberType")]
+    #[serde(rename = "memberType")]
     pub member_type: String,
 }
 
@@ -770,15 +770,15 @@ pub struct CreateFolderMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFolderMembershipResponse {
     /// <p>Information about the member in the folder.</p>
-    #[serde(rename = "FolderMember")]
+    #[serde(rename = "folderMember")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_member: Option<FolderMember>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status of the folder membership. If succeeded, the status is <code>SC_OK (200)</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -787,29 +787,29 @@ pub struct CreateFolderMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFolderRequest {
     /// <p>The AWS Account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
-    #[serde(rename = "FolderType")]
+    #[serde(rename = "folderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_type: Option<String>,
     /// <p>The name of the folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the parent folder.</p> <p> <code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates a root-level folder.</p>
-    #[serde(rename = "ParentFolderArn")]
+    #[serde(rename = "parentFolderArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_folder_arn: Option<String>,
     /// <p>A structure that describes the principals and the resource-level permissions of a folder.</p> <p>To specify no permissions, omit <code>Permissions</code>.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>Tags for the folder.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -818,19 +818,19 @@ pub struct CreateFolderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFolderResponse {
     /// <p>The Amazon Resource Name (ARN) for the newly created folder.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The folder ID for the newly created folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>The request ID for the newly created folder.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status of the newly created folder. If succeeded, the status is <code>SC_OK (200)</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -839,16 +839,16 @@ pub struct CreateFolderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGroupMembershipRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The name of the group that you want to add the user to.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The name of the user that you want to add to the group membership.</p>
-    #[serde(rename = "MemberName")]
+    #[serde(rename = "memberName")]
     pub member_name: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -856,15 +856,15 @@ pub struct CreateGroupMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGroupMembershipResponse {
     /// <p>The group member.</p>
-    #[serde(rename = "GroupMember")]
+    #[serde(rename = "groupMember")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_member: Option<GroupMember>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -874,17 +874,17 @@ pub struct CreateGroupMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGroupRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A description for the group that you want to create.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A name for the group that you want to create.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -893,15 +893,15 @@ pub struct CreateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGroupResponse {
     /// <p>The name of the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -910,23 +910,23 @@ pub struct CreateGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIAMPolicyAssignmentRequest {
     /// <p>The name of the assignment, also called a rule. It must be unique within an AWS account.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     pub assignment_name: String,
     /// <p><p>The status of the assignment. Possible values are as follows:</p> <ul> <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> <li> <p> <code>DISABLED</code> - This assignment isn&#39;t used when creating the data source.</p> </li> <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn&#39;t used when creating the data source.</p> </li> </ul></p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     pub assignment_status: String,
     /// <p>The ID of the AWS account where you want to assign an IAM policy to QuickSight users or groups.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
-    #[serde(rename = "Identities")]
+    #[serde(rename = "identities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identities: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The namespace that contains the assignment.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The ARN for the IAM policy to apply to the QuickSight users and groups specified in this assignment.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
 }
@@ -935,31 +935,31 @@ pub struct CreateIAMPolicyAssignmentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIAMPolicyAssignmentResponse {
     /// <p>The ID for the assignment.</p>
-    #[serde(rename = "AssignmentId")]
+    #[serde(rename = "assignmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_id: Option<String>,
     /// <p>The name of the assignment. This name must be unique within the AWS account.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_name: Option<String>,
     /// <p><p>The status of the assignment. Possible values are as follows:</p> <ul> <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> <li> <p> <code>DISABLED</code> - This assignment isn&#39;t used when creating the data source.</p> </li> <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn&#39;t used when creating the data source.</p> </li> </ul></p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_status: Option<String>,
     /// <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    #[serde(rename = "Identities")]
+    #[serde(rename = "identities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identities: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The ARN for the IAM policy that is applied to the QuickSight users and groups specified in this assignment.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -968,13 +968,13 @@ pub struct CreateIAMPolicyAssignmentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIngestionRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the dataset used in the ingestion.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>An ID for the ingestion.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     pub ingestion_id: String,
 }
 
@@ -982,23 +982,23 @@ pub struct CreateIngestionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIngestionResponse {
     /// <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An ID for the ingestion.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_id: Option<String>,
     /// <p>The ingestion status.</p>
-    #[serde(rename = "IngestionStatus")]
+    #[serde(rename = "ingestionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_status: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1007,16 +1007,16 @@ pub struct CreateIngestionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateNamespaceRequest {
     /// <p>The ID for the AWS account that you want to create the QuickSight namespace in.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>Specifies the type of your user identity directory. Currently, this supports users with an identity type of <code>QUICKSIGHT</code>.</p>
-    #[serde(rename = "IdentityStore")]
+    #[serde(rename = "identityStore")]
     pub identity_store: String,
     /// <p>The name that you want to use to describe the new namespace.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The tags that you want to associate with the namespace that you're creating.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1025,31 +1025,31 @@ pub struct CreateNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateNamespaceResponse {
     /// <p>The ARN of the QuickSight namespace you created. </p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS Region that you want to use for the free SPICE capacity for the new namespace. This is set to the region that you run CreateNamespace in. </p>
-    #[serde(rename = "CapacityRegion")]
+    #[serde(rename = "capacityRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capacity_region: Option<String>,
     /// <p>The status of the creation of the namespace. This is an asynchronous process. A status of <code>CREATED</code> means that your namespace is ready to use. If an error occurs, it indicates if the process is <code>retryable</code> or <code>non-retryable</code>. In the case of a non-retryable error, refer to the error message for follow-up tasks.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>Specifies the type of your user identity directory. Currently, this supports users with an identity type of <code>QUICKSIGHT</code>.</p>
-    #[serde(rename = "IdentityStore")]
+    #[serde(rename = "identityStore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_store: Option<String>,
     /// <p>The name of the new namespace that you created.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1058,16 +1058,16 @@ pub struct CreateNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTemplateAliasRequest {
     /// <p>The name that you want to give to the template alias that you're creating. Don't start the alias name with the <code>$</code> character. Alias names that start with <code>$</code> are reserved by QuickSight. </p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the template that you creating an alias for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>An ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
     /// <p>The version number of the template.</p>
-    #[serde(rename = "TemplateVersionNumber")]
+    #[serde(rename = "templateVersionNumber")]
     pub template_version_number: i64,
 }
 
@@ -1075,15 +1075,15 @@ pub struct CreateTemplateAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTemplateAliasResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Information about the template alias.</p>
-    #[serde(rename = "TemplateAlias")]
+    #[serde(rename = "templateAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_alias: Option<TemplateAlias>,
 }
@@ -1092,28 +1092,28 @@ pub struct CreateTemplateAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTemplateRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A display name for the template.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of resource permissions to be set on the template. </p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The entity that you are using as a source when you create the template. In <code>SourceEntity</code>, you specify the type of object you're using as source: <code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an analysis. Both of these require an Amazon Resource Name (ARN). For <code>SourceTemplate</code>, specify the ARN of the source template. For <code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code> ARN can contain any AWS Account and any QuickSight-supported AWS Region. </p> <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or <code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder. </p>
-    #[serde(rename = "SourceEntity")]
+    #[serde(rename = "sourceEntity")]
     pub source_entity: TemplateSourceEntity,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>An ID for the template that you want to create. This template is unique per AWS Region in each AWS account.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
     /// <p>A description of the current template version being created. This API operation creates the first version of the template. Every time <code>UpdateTemplate</code> is called, a new version is created. Each version of the template maintains a description of the version in the <code>VersionDescription</code> field.</p>
-    #[serde(rename = "VersionDescription")]
+    #[serde(rename = "versionDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_description: Option<String>,
 }
@@ -1122,27 +1122,27 @@ pub struct CreateTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTemplateResponse {
     /// <p>The ARN for the template.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The template creation status.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The ID of the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
     /// <p>The ARN for the template, including the version information of the first version.</p>
-    #[serde(rename = "VersionArn")]
+    #[serde(rename = "versionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_arn: Option<String>,
 }
@@ -1151,16 +1151,16 @@ pub struct CreateTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateThemeAliasRequest {
     /// <p>The name that you want to give to the theme alias that you are creating. The alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code> are reserved by Amazon QuickSight. </p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the theme for the new theme alias.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>An ID for the theme alias.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
     /// <p>The version number of the theme.</p>
-    #[serde(rename = "ThemeVersionNumber")]
+    #[serde(rename = "themeVersionNumber")]
     pub theme_version_number: i64,
 }
 
@@ -1168,15 +1168,15 @@ pub struct CreateThemeAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateThemeAliasResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Information about the theme alias.</p>
-    #[serde(rename = "ThemeAlias")]
+    #[serde(rename = "themeAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_alias: Option<ThemeAlias>,
 }
@@ -1185,30 +1185,30 @@ pub struct CreateThemeAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateThemeRequest {
     /// <p>The ID of the AWS account where you want to store the new theme. </p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use <code>ListThemes</code> or choose <b>Themes</b> from within a QuickSight analysis. </p>
-    #[serde(rename = "BaseThemeId")]
+    #[serde(rename = "baseThemeId")]
     pub base_theme_id: String,
     /// <p>The theme configuration, which contains the theme display properties.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     pub configuration: ThemeConfiguration,
     /// <p>A display name for the theme.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A valid grouping of resource permissions to apply to the new theme. </p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
     /// <p>A description of the first version of the theme that you're creating. Every time <code>UpdateTheme</code> is called, a new version is created. Each version of the theme has a description of the version in the <code>VersionDescription</code> field.</p>
-    #[serde(rename = "VersionDescription")]
+    #[serde(rename = "versionDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_description: Option<String>,
 }
@@ -1217,27 +1217,27 @@ pub struct CreateThemeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateThemeResponse {
     /// <p>The Amazon Resource Name (ARN) for the theme.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The theme creation status.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The ID of the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the new theme.</p>
-    #[serde(rename = "VersionArn")]
+    #[serde(rename = "versionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_arn: Option<String>,
 }
@@ -1247,14 +1247,14 @@ pub struct CreateThemeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CredentialPair {
     /// <p>A set of alternate data source parameters that you want to share for these credentials. The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the <code>DataSourceParameters</code> structure that's in the request with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the structures are an exact match, the request is allowed to use the new data source with the existing credentials. If the <code>AlternateDataSourceParameters</code> list is null, the <code>DataSourceParameters</code> originally used with these <code>Credentials</code> is automatically allowed.</p>
-    #[serde(rename = "AlternateDataSourceParameters")]
+    #[serde(rename = "alternateDataSourceParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alternate_data_source_parameters: Option<Vec<DataSourceParameters>>,
     /// <p>Password.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>User name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -1262,17 +1262,17 @@ pub struct CredentialPair {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CustomSql {
     /// <p>The column schema from the SQL query result set.</p>
-    #[serde(rename = "Columns")]
+    #[serde(rename = "columns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub columns: Option<Vec<InputColumn>>,
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
-    #[serde(rename = "DataSourceArn")]
+    #[serde(rename = "dataSourceArn")]
     pub data_source_arn: String,
     /// <p>A display name for the SQL query result.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The SQL query.</p>
-    #[serde(rename = "SqlQuery")]
+    #[serde(rename = "sqlQuery")]
     pub sql_query: String,
 }
 
@@ -1281,31 +1281,31 @@ pub struct CustomSql {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Dashboard {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that this dataset was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Dashboard ID.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>The last time that this dataset was published.</p>
-    #[serde(rename = "LastPublishedTime")]
+    #[serde(rename = "lastPublishedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_published_time: Option<f64>,
     /// <p>The last time that this dataset was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A display name for the dashboard.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<DashboardVersion>,
 }
@@ -1315,11 +1315,11 @@ pub struct Dashboard {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DashboardError {
     /// <p>Message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1329,15 +1329,15 @@ pub struct DashboardError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DashboardPublishOptions {
     /// <p>Ad hoc (one-time) filtering option.</p>
-    #[serde(rename = "AdHocFilteringOption")]
+    #[serde(rename = "adHocFilteringOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ad_hoc_filtering_option: Option<AdHocFilteringOption>,
     /// <p>Export to .csv option.</p>
-    #[serde(rename = "ExportToCSVOption")]
+    #[serde(rename = "exportToCSVOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_to_csv_option: Option<ExportToCSVOption>,
     /// <p>Sheet controls option.</p>
-    #[serde(rename = "SheetControlsOption")]
+    #[serde(rename = "sheetControlsOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sheet_controls_option: Option<SheetControlsOption>,
 }
@@ -1347,14 +1347,14 @@ pub struct DashboardPublishOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DashboardSearchFilter {
     /// <p>The name of the value that you want to use as a filter, for example, <code>"Name": "QUICKSIGHT_USER"</code>. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The comparison operator that you want to use as a filter, for example, <code>"Operator": "StringEquals"</code>.</p>
-    #[serde(rename = "Operator")]
+    #[serde(rename = "operator")]
     pub operator: String,
     /// <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want to use as a filter, for example, <code>"Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1364,7 +1364,7 @@ pub struct DashboardSearchFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DashboardSourceEntity {
     /// <p>Source template.</p>
-    #[serde(rename = "SourceTemplate")]
+    #[serde(rename = "sourceTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_template: Option<DashboardSourceTemplate>,
 }
@@ -1374,10 +1374,10 @@ pub struct DashboardSourceEntity {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DashboardSourceTemplate {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>Dataset references.</p>
-    #[serde(rename = "DataSetReferences")]
+    #[serde(rename = "dataSetReferences")]
     pub data_set_references: Vec<DataSetReference>,
 }
 
@@ -1386,31 +1386,31 @@ pub struct DashboardSourceTemplate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DashboardSummary {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that this dashboard was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Dashboard ID.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>The last time that this dashboard was published.</p>
-    #[serde(rename = "LastPublishedTime")]
+    #[serde(rename = "lastPublishedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_published_time: Option<f64>,
     /// <p>The last time that this dashboard was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A display name for the dashboard.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Published version number.</p>
-    #[serde(rename = "PublishedVersionNumber")]
+    #[serde(rename = "publishedVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub published_version_number: Option<i64>,
 }
@@ -1420,43 +1420,43 @@ pub struct DashboardSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DashboardVersion {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that this dashboard version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this version of the dashboard.</p>
-    #[serde(rename = "DataSetArns")]
+    #[serde(rename = "dataSetArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_arns: Option<Vec<String>>,
     /// <p>Description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Errors associated with this dashboard version.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<DashboardError>>,
     /// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-    #[serde(rename = "Sheets")]
+    #[serde(rename = "sheets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sheets: Option<Vec<Sheet>>,
     /// <p>Source entity ARN.</p>
-    #[serde(rename = "SourceEntityArn")]
+    #[serde(rename = "sourceEntityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_entity_arn: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The ARN of the theme associated with a version of the dashboard.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
     /// <p>Version number for this version of the dashboard.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -1466,27 +1466,27 @@ pub struct DashboardVersion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DashboardVersionSummary {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that this dashboard version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Source entity ARN.</p>
-    #[serde(rename = "SourceEntityArn")]
+    #[serde(rename = "sourceEntityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_entity_arn: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Version number.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -1495,15 +1495,15 @@ pub struct DashboardVersionSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataColorPalette {
     /// <p>The hexadecimal codes for the colors.</p>
-    #[serde(rename = "Colors")]
+    #[serde(rename = "colors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub colors: Option<Vec<String>>,
     /// <p>The hexadecimal code of a color that applies to charts where a lack of data is highlighted.</p>
-    #[serde(rename = "EmptyFillColor")]
+    #[serde(rename = "emptyFillColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub empty_fill_color: Option<String>,
     /// <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-    #[serde(rename = "MinMaxGradient")]
+    #[serde(rename = "minMaxGradient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_max_gradient: Option<Vec<String>>,
 }
@@ -1513,59 +1513,59 @@ pub struct DataColorPalette {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSet {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-    #[serde(rename = "ColumnGroups")]
+    #[serde(rename = "columnGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_groups: Option<Vec<ColumnGroup>>,
     /// <p>A set of one or more definitions of a <code> <a>ColumnLevelPermissionRule</a> </code>.</p>
-    #[serde(rename = "ColumnLevelPermissionRules")]
+    #[serde(rename = "columnLevelPermissionRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_level_permission_rules: Option<Vec<ColumnLevelPermissionRule>>,
     /// <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't imported into SPICE.</p>
-    #[serde(rename = "ConsumedSpiceCapacityInBytes")]
+    #[serde(rename = "consumedSpiceCapacityInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_spice_capacity_in_bytes: Option<i64>,
     /// <p>The time that this dataset was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ID of the dataset.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The folder that contains fields and nested subfolders for your dataset.</p>
-    #[serde(rename = "FieldFolders")]
+    #[serde(rename = "fieldFolders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_folders: Option<::std::collections::HashMap<String, FieldFolder>>,
     /// <p>A value that indicates whether you want to import the data into SPICE.</p>
-    #[serde(rename = "ImportMode")]
+    #[serde(rename = "importMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_mode: Option<String>,
     /// <p>The last time that this dataset was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>Configures the combination and transformation of the data from the physical tables.</p>
-    #[serde(rename = "LogicalTableMap")]
+    #[serde(rename = "logicalTableMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logical_table_map: Option<::std::collections::HashMap<String, LogicalTable>>,
     /// <p>A display name for the dataset.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The list of columns after all transforms. These columns are available in templates, analyses, and dashboards.</p>
-    #[serde(rename = "OutputColumns")]
+    #[serde(rename = "outputColumns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_columns: Option<Vec<OutputColumn>>,
     /// <p>Declares the physical tables that are available in the underlying data sources.</p>
-    #[serde(rename = "PhysicalTableMap")]
+    #[serde(rename = "physicalTableMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub physical_table_map: Option<::std::collections::HashMap<String, PhysicalTable>>,
     /// <p>The row-level security configuration for the dataset.</p>
-    #[serde(rename = "RowLevelPermissionDataSet")]
+    #[serde(rename = "rowLevelPermissionDataSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_level_permission_data_set: Option<RowLevelPermissionDataSet>,
 }
@@ -1575,15 +1575,15 @@ pub struct DataSet {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSetConfiguration {
     /// <p>A structure containing the list of column group schemas.</p>
-    #[serde(rename = "ColumnGroupSchemaList")]
+    #[serde(rename = "columnGroupSchemaList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_group_schema_list: Option<Vec<ColumnGroupSchema>>,
     /// <p>Dataset schema.</p>
-    #[serde(rename = "DataSetSchema")]
+    #[serde(rename = "dataSetSchema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_schema: Option<DataSetSchema>,
     /// <p>Placeholder.</p>
-    #[serde(rename = "Placeholder")]
+    #[serde(rename = "placeholder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub placeholder: Option<String>,
 }
@@ -1593,10 +1593,10 @@ pub struct DataSetConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DataSetReference {
     /// <p>Dataset Amazon Resource Name (ARN).</p>
-    #[serde(rename = "DataSetArn")]
+    #[serde(rename = "dataSetArn")]
     pub data_set_arn: String,
     /// <p>Dataset placeholder.</p>
-    #[serde(rename = "DataSetPlaceholder")]
+    #[serde(rename = "dataSetPlaceholder")]
     pub data_set_placeholder: String,
 }
 
@@ -1605,7 +1605,7 @@ pub struct DataSetReference {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSetSchema {
     /// <p>A structure containing the list of column schemas.</p>
-    #[serde(rename = "ColumnSchemaList")]
+    #[serde(rename = "columnSchemaList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_schema_list: Option<Vec<ColumnSchema>>,
 }
@@ -1615,35 +1615,35 @@ pub struct DataSetSchema {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSetSummary {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A value that indicates if the dataset has column level permission configured.</p>
-    #[serde(rename = "ColumnLevelPermissionRulesApplied")]
+    #[serde(rename = "columnLevelPermissionRulesApplied")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_level_permission_rules_applied: Option<bool>,
     /// <p>The time that this dataset was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ID of the dataset.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>A value that indicates whether you want to import the data into SPICE.</p>
-    #[serde(rename = "ImportMode")]
+    #[serde(rename = "importMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_mode: Option<String>,
     /// <p>The last time that this dataset was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A display name for the dataset.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The row-level security configuration for the dataset.</p>
-    #[serde(rename = "RowLevelPermissionDataSet")]
+    #[serde(rename = "rowLevelPermissionDataSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_level_permission_data_set: Option<RowLevelPermissionDataSet>,
 }
@@ -1653,51 +1653,51 @@ pub struct DataSetSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSource {
     /// <p>A set of alternate data source parameters that you want to share for the credentials stored with this data source. The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the <code>DataSourceParameters</code> structure that's in the request with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the <code>AlternateDataSourceParameters</code> list is null, the <code>Credentials</code> originally used with this <code>DataSourceParameters</code> are automatically allowed.</p>
-    #[serde(rename = "AlternateDataSourceParameters")]
+    #[serde(rename = "alternateDataSourceParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alternate_data_source_parameters: Option<Vec<DataSourceParameters>>,
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that this data source was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_id: Option<String>,
     /// <p>The parameters that Amazon QuickSight uses to connect to your underlying source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.</p>
-    #[serde(rename = "DataSourceParameters")]
+    #[serde(rename = "dataSourceParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_parameters: Option<DataSourceParameters>,
     /// <p>Error information from the last update or the creation of the data source.</p>
-    #[serde(rename = "ErrorInfo")]
+    #[serde(rename = "errorInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_info: Option<DataSourceErrorInfo>,
     /// <p>The last time that this data source was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A display name for the data source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
-    #[serde(rename = "SslProperties")]
+    #[serde(rename = "sslProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssl_properties: Option<SslProperties>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The type of the data source. This type indicates which database engine the data source connects to.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The VPC connection information. You need to use this parameter only when you want QuickSight to use a VPC connection when connecting to your underlying source.</p>
-    #[serde(rename = "VpcConnectionProperties")]
+    #[serde(rename = "vpcConnectionProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_connection_properties: Option<VpcConnectionProperties>,
 }
@@ -1707,11 +1707,11 @@ pub struct DataSource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DataSourceCredentials {
     /// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use. When <code>CopySourceArn</code> is not null, the credential pair from the data source in the ARN is used as the credentials for the <code>DataSourceCredentials</code> structure.</p>
-    #[serde(rename = "CopySourceArn")]
+    #[serde(rename = "copySourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_source_arn: Option<String>,
     /// <p>Credential pair. For more information, see <a>CredentialPair</a>.</p>
-    #[serde(rename = "CredentialPair")]
+    #[serde(rename = "credentialPair")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credential_pair: Option<CredentialPair>,
 }
@@ -1721,11 +1721,11 @@ pub struct DataSourceCredentials {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSourceErrorInfo {
     /// <p>Error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Error type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1734,83 +1734,83 @@ pub struct DataSourceErrorInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataSourceParameters {
     /// <p>Amazon Elasticsearch Service parameters.</p>
-    #[serde(rename = "AmazonElasticsearchParameters")]
+    #[serde(rename = "amazonElasticsearchParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub amazon_elasticsearch_parameters: Option<AmazonElasticsearchParameters>,
     /// <p>Amazon Athena parameters.</p>
-    #[serde(rename = "AthenaParameters")]
+    #[serde(rename = "athenaParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub athena_parameters: Option<AthenaParameters>,
     /// <p>Amazon Aurora MySQL parameters.</p>
-    #[serde(rename = "AuroraParameters")]
+    #[serde(rename = "auroraParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aurora_parameters: Option<AuroraParameters>,
     /// <p>Aurora PostgreSQL parameters.</p>
-    #[serde(rename = "AuroraPostgreSqlParameters")]
+    #[serde(rename = "auroraPostgreSqlParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aurora_postgre_sql_parameters: Option<AuroraPostgreSqlParameters>,
     /// <p>AWS IoT Analytics parameters.</p>
-    #[serde(rename = "AwsIotAnalyticsParameters")]
+    #[serde(rename = "awsIotAnalyticsParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_iot_analytics_parameters: Option<AwsIotAnalyticsParameters>,
     /// <p>Jira parameters.</p>
-    #[serde(rename = "JiraParameters")]
+    #[serde(rename = "jiraParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jira_parameters: Option<JiraParameters>,
     /// <p>MariaDB parameters.</p>
-    #[serde(rename = "MariaDbParameters")]
+    #[serde(rename = "mariaDbParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maria_db_parameters: Option<MariaDbParameters>,
     /// <p>MySQL parameters.</p>
-    #[serde(rename = "MySqlParameters")]
+    #[serde(rename = "mySqlParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub my_sql_parameters: Option<MySqlParameters>,
     /// <p>Oracle parameters.</p>
-    #[serde(rename = "OracleParameters")]
+    #[serde(rename = "oracleParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub oracle_parameters: Option<OracleParameters>,
     /// <p>PostgreSQL parameters.</p>
-    #[serde(rename = "PostgreSqlParameters")]
+    #[serde(rename = "postgreSqlParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub postgre_sql_parameters: Option<PostgreSqlParameters>,
     /// <p>Presto parameters.</p>
-    #[serde(rename = "PrestoParameters")]
+    #[serde(rename = "prestoParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub presto_parameters: Option<PrestoParameters>,
     /// <p>Amazon RDS parameters.</p>
-    #[serde(rename = "RdsParameters")]
+    #[serde(rename = "rdsParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rds_parameters: Option<RdsParameters>,
     /// <p>Amazon Redshift parameters.</p>
-    #[serde(rename = "RedshiftParameters")]
+    #[serde(rename = "redshiftParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redshift_parameters: Option<RedshiftParameters>,
     /// <p>S3 parameters.</p>
-    #[serde(rename = "S3Parameters")]
+    #[serde(rename = "s3Parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_parameters: Option<S3Parameters>,
     /// <p>ServiceNow parameters.</p>
-    #[serde(rename = "ServiceNowParameters")]
+    #[serde(rename = "serviceNowParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_now_parameters: Option<ServiceNowParameters>,
     /// <p>Snowflake parameters.</p>
-    #[serde(rename = "SnowflakeParameters")]
+    #[serde(rename = "snowflakeParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowflake_parameters: Option<SnowflakeParameters>,
     /// <p>Spark parameters.</p>
-    #[serde(rename = "SparkParameters")]
+    #[serde(rename = "sparkParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub spark_parameters: Option<SparkParameters>,
     /// <p>SQL Server parameters.</p>
-    #[serde(rename = "SqlServerParameters")]
+    #[serde(rename = "sqlServerParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sql_server_parameters: Option<SqlServerParameters>,
     /// <p>Teradata parameters.</p>
-    #[serde(rename = "TeradataParameters")]
+    #[serde(rename = "teradataParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub teradata_parameters: Option<TeradataParameters>,
     /// <p>Twitter parameters.</p>
-    #[serde(rename = "TwitterParameters")]
+    #[serde(rename = "twitterParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub twitter_parameters: Option<TwitterParameters>,
 }
@@ -1820,10 +1820,10 @@ pub struct DataSourceParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DateTimeParameter {
     /// <p>A display name for the date-time parameter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The values for the date-time parameter.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<f64>,
 }
 
@@ -1832,10 +1832,10 @@ pub struct DateTimeParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DecimalParameter {
     /// <p>A display name for the decimal parameter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The values for the decimal parameter.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<f64>,
 }
 
@@ -1843,10 +1843,10 @@ pub struct DecimalParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAccountCustomizationRequest {
     /// <p>The ID for the AWS account that you want to delete QuickSight customizations from in this AWS Region.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The QuickSight namespace that you're deleting the customizations from.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
 }
@@ -1855,11 +1855,11 @@ pub struct DeleteAccountCustomizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteAccountCustomizationResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1868,17 +1868,17 @@ pub struct DeleteAccountCustomizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAnalysisRequest {
     /// <p>The ID of the analysis that you're deleting.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account where you want to delete an analysis.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option. You can't restore an analysis after it's deleted. </p>
-    #[serde(rename = "ForceDeleteWithoutRecovery")]
+    #[serde(rename = "forceDeleteWithoutRecovery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_delete_without_recovery: Option<bool>,
     /// <p>A value that specifies the number of days that QuickSight waits before it deletes the analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code> option in the same API call. The default value is 30.</p>
-    #[serde(rename = "RecoveryWindowInDays")]
+    #[serde(rename = "recoveryWindowInDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recovery_window_in_days: Option<i64>,
 }
@@ -1887,23 +1887,23 @@ pub struct DeleteAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteAnalysisResponse {
     /// <p>The ID of the deleted analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the deleted analysis.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the analysis is scheduled to be deleted.</p>
-    #[serde(rename = "DeletionTime")]
+    #[serde(rename = "deletionTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_time: Option<f64>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1912,13 +1912,13 @@ pub struct DeleteAnalysisResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDashboardRequest {
     /// <p>The ID of the AWS account that contains the dashboard that you're deleting.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p>The version number of the dashboard. If the version number property is provided, only the specified version of the dashboard is deleted.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -1927,19 +1927,19 @@ pub struct DeleteDashboardRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteDashboardResponse {
     /// <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1948,10 +1948,10 @@ pub struct DeleteDashboardResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDataSetRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
 }
 
@@ -1959,19 +1959,19 @@ pub struct DeleteDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteDataSetResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -1980,10 +1980,10 @@ pub struct DeleteDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDataSourceRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     pub data_source_id: String,
 }
 
@@ -1991,19 +1991,19 @@ pub struct DeleteDataSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteDataSourceResponse {
     /// <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2012,16 +2012,16 @@ pub struct DeleteDataSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFolderMembershipRequest {
     /// <p>The AWS Account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The Folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The ID of the asset (the dashboard, analysis, or dataset) that you want to delete.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     pub member_id: String,
     /// <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code> </p>
-    #[serde(rename = "MemberType")]
+    #[serde(rename = "memberType")]
     pub member_type: String,
 }
 
@@ -2029,11 +2029,11 @@ pub struct DeleteFolderMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFolderMembershipResponse {
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status of deleting the asset. If succeeded, the status is <code>SC_OK (200)</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2042,10 +2042,10 @@ pub struct DeleteFolderMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFolderRequest {
     /// <p>The AWS Account ID for the folder.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
 }
 
@@ -2053,19 +2053,19 @@ pub struct DeleteFolderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFolderResponse {
     /// <p>The Amazon Resource Name of the deleted folder.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status of deleting the folder. If succeeded, the status is <code>SC_OK (200)</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2074,16 +2074,16 @@ pub struct DeleteFolderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGroupMembershipRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The name of the group that you want to delete the user from.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The name of the user that you want to delete from the group membership.</p>
-    #[serde(rename = "MemberName")]
+    #[serde(rename = "memberName")]
     pub member_name: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2091,11 +2091,11 @@ pub struct DeleteGroupMembershipRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteGroupMembershipResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2104,13 +2104,13 @@ pub struct DeleteGroupMembershipResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGroupRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The name of the group that you want to delete.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2118,11 +2118,11 @@ pub struct DeleteGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteGroupResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2131,13 +2131,13 @@ pub struct DeleteGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIAMPolicyAssignmentRequest {
     /// <p>The name of the assignment. </p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     pub assignment_name: String,
     /// <p>The AWS account ID where you want to delete the IAM policy assignment.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace that contains the assignment.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2145,15 +2145,15 @@ pub struct DeleteIAMPolicyAssignmentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteIAMPolicyAssignmentResponse {
     /// <p>The name of the assignment. </p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_name: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2162,10 +2162,10 @@ pub struct DeleteIAMPolicyAssignmentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteNamespaceRequest {
     /// <p>The ID for the AWS account that you want to delete the QuickSight namespace from.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace that you want to delete.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2173,11 +2173,11 @@ pub struct DeleteNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteNamespaceResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2186,13 +2186,13 @@ pub struct DeleteNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTemplateAliasRequest {
     /// <p>The name for the template alias. To delete a specific alias, you delete the version that the alias points to. You can specify the alias name, or specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. </p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the item to delete.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the template that the specified alias is for.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
 }
 
@@ -2200,23 +2200,23 @@ pub struct DeleteTemplateAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteTemplateAliasResponse {
     /// <p>The name for the template alias.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>An ID for the template associated with the deletion.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
 }
@@ -2225,13 +2225,13 @@ pub struct DeleteTemplateAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTemplateRequest {
     /// <p>The ID of the AWS account that contains the template that you're deleting.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>An ID for the template you want to delete.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
     /// <p>Specifies the version of the template that you want to delete. If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template. </p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -2240,19 +2240,19 @@ pub struct DeleteTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteTemplateResponse {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>An ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
 }
@@ -2261,13 +2261,13 @@ pub struct DeleteTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteThemeAliasRequest {
     /// <p>The unique name for the theme alias to delete.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the theme alias to delete.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the theme that the specified alias is for.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
 }
 
@@ -2275,23 +2275,23 @@ pub struct DeleteThemeAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteThemeAliasResponse {
     /// <p>The name for the theme alias.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>An ID for the theme associated with the deletion.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
 }
@@ -2300,13 +2300,13 @@ pub struct DeleteThemeAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteThemeRequest {
     /// <p>The ID of the AWS account that contains the theme that you're deleting.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>An ID for the theme that you want to delete.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
     /// <p>The version of the theme that you want to delete. </p> <p> <b>Note:</b> If you don't provide a version number, you're using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -2315,19 +2315,19 @@ pub struct DeleteThemeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteThemeResponse {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>An ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
 }
@@ -2337,13 +2337,13 @@ pub struct DeleteThemeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserByPrincipalIdRequest {
     /// <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The principal ID of the user.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     pub principal_id: String,
 }
 
@@ -2351,11 +2351,11 @@ pub struct DeleteUserByPrincipalIdRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteUserByPrincipalIdResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2364,13 +2364,13 @@ pub struct DeleteUserByPrincipalIdResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The name of the user that you want to delete.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -2378,11 +2378,11 @@ pub struct DeleteUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteUserResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2391,14 +2391,14 @@ pub struct DeleteUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAccountCustomizationRequest {
     /// <p>The ID for the AWS account that you want to describe QuickSight customizations for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The QuickSight namespace that you want to describe QuickSight customizations for.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>The <code>Resolved</code> flag works with the other parameters to determine which view of QuickSight customizations is returned. You can add this flag to your command to use the same view that QuickSight uses to identify which customizations to apply to the console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations that are configured at different levels. </p>
-    #[serde(rename = "Resolved")]
+    #[serde(rename = "resolved")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolved: Option<bool>,
 }
@@ -2407,27 +2407,27 @@ pub struct DescribeAccountCustomizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAccountCustomizationResponse {
     /// <p>The QuickSight customizations that exist in the current AWS Region. </p>
-    #[serde(rename = "AccountCustomization")]
+    #[serde(rename = "accountCustomization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_customization: Option<AccountCustomization>,
     /// <p>The Amazon Resource Name (ARN) of the customization that's associated with this AWS account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID for the AWS account that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_account_id: Option<String>,
     /// <p>The QuickSight namespace that you're describing. </p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2436,7 +2436,7 @@ pub struct DescribeAccountCustomizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAccountSettingsRequest {
     /// <p>The ID for the AWS account that contains the settings that you want to list.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
 }
 
@@ -2444,15 +2444,15 @@ pub struct DescribeAccountSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAccountSettingsResponse {
     /// <p>The QuickSight settings for this AWS account. This information includes the edition of Amazon QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the QuickSight subscription. In the QuickSight console, the QuickSight subscription is sometimes referred to as a QuickSight "account" even though it's technically not an account by itself. Instead, it's a subscription to the QuickSight service for your AWS account. The edition that you subscribe to applies to QuickSight in every AWS Region where you use it.</p>
-    #[serde(rename = "AccountSettings")]
+    #[serde(rename = "accountSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_settings: Option<AccountSettings>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2461,10 +2461,10 @@ pub struct DescribeAccountSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAnalysisPermissionsRequest {
     /// <p>The ID of the analysis whose permissions you're describing. The ID is part of the analysis URL.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account that contains the analysis whose permissions you're describing. You must be using the AWS account that the analysis is in.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
 }
 
@@ -2472,23 +2472,23 @@ pub struct DescribeAnalysisPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAnalysisPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're describing.</p>
-    #[serde(rename = "AnalysisArn")]
+    #[serde(rename = "analysisArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_arn: Option<String>,
     /// <p>The ID of the analysis whose permissions you're describing.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>A structure that describes the principals and the resource-level permissions on an analysis.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2497,10 +2497,10 @@ pub struct DescribeAnalysisPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAnalysisRequest {
     /// <p>The ID of the analysis that you're describing. The ID is part of the URL of the analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account that contains the analysis. You must be using the AWS account that the analysis is in.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
 }
 
@@ -2508,15 +2508,15 @@ pub struct DescribeAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAnalysisResponse {
     /// <p>A metadata structure that contains summary information for the analysis that you're describing.</p>
-    #[serde(rename = "Analysis")]
+    #[serde(rename = "analysis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis: Option<Analysis>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2525,10 +2525,10 @@ pub struct DescribeAnalysisResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDashboardPermissionsRequest {
     /// <p>The ID of the AWS account that contains the dashboard that you're describing permissions for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard, also added to the IAM policy.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
 }
 
@@ -2536,23 +2536,23 @@ pub struct DescribeDashboardPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDashboardPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-    #[serde(rename = "DashboardArn")]
+    #[serde(rename = "dashboardArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_arn: Option<String>,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>A structure that contains the permissions for the dashboard.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2561,17 +2561,17 @@ pub struct DescribeDashboardPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDashboardRequest {
     /// <p>The alias name.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The ID of the AWS account that contains the dashboard that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p>The version number for the dashboard. If a version number isn't passed, the latest published dashboard version is described. </p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -2580,15 +2580,15 @@ pub struct DescribeDashboardRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDashboardResponse {
     /// <p>Information about the dashboard.</p>
-    #[serde(rename = "Dashboard")]
+    #[serde(rename = "dashboard")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard: Option<Dashboard>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of this request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2597,10 +2597,10 @@ pub struct DescribeDashboardResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDataSetPermissionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
 }
 
@@ -2608,23 +2608,23 @@ pub struct DescribeDataSetPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDataSetPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "DataSetArn")]
+    #[serde(rename = "dataSetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_arn: Option<String>,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>A list of resource permissions on the dataset.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2633,10 +2633,10 @@ pub struct DescribeDataSetPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDataSetRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
 }
 
@@ -2644,15 +2644,15 @@ pub struct DescribeDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDataSetResponse {
     /// <p>Information on the dataset.</p>
-    #[serde(rename = "DataSet")]
+    #[serde(rename = "dataSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set: Option<DataSet>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2661,10 +2661,10 @@ pub struct DescribeDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDataSourcePermissionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     pub data_source_id: String,
 }
 
@@ -2672,23 +2672,23 @@ pub struct DescribeDataSourcePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDataSourcePermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
-    #[serde(rename = "DataSourceArn")]
+    #[serde(rename = "dataSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_arn: Option<String>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_id: Option<String>,
     /// <p>A list of resource permissions on the data source.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2697,10 +2697,10 @@ pub struct DescribeDataSourcePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDataSourceRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     pub data_source_id: String,
 }
 
@@ -2708,15 +2708,15 @@ pub struct DescribeDataSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDataSourceResponse {
     /// <p>The information on the data source.</p>
-    #[serde(rename = "DataSource")]
+    #[serde(rename = "dataSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source: Option<DataSource>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2725,10 +2725,10 @@ pub struct DescribeDataSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFolderPermissionsRequest {
     /// <p>The AWS Account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
 }
 
@@ -2736,23 +2736,23 @@ pub struct DescribeFolderPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFolderPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) for the folder.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>Information about the permissions on the folder.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2761,10 +2761,10 @@ pub struct DescribeFolderPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFolderRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
 }
 
@@ -2772,10 +2772,10 @@ pub struct DescribeFolderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFolderResolvedPermissionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
 }
 
@@ -2783,23 +2783,23 @@ pub struct DescribeFolderResolvedPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFolderResolvedPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>Information about the permissions on the dashboard.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code> </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2808,15 +2808,15 @@ pub struct DescribeFolderResolvedPermissionsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFolderResponse {
     /// <p>Information about the folder.</p>
-    #[serde(rename = "Folder")]
+    #[serde(rename = "folder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder: Option<Folder>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK (200)</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2825,13 +2825,13 @@ pub struct DescribeFolderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeGroupRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The name of the group that you want to describe.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2839,15 +2839,15 @@ pub struct DescribeGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeGroupResponse {
     /// <p>The name of the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2856,13 +2856,13 @@ pub struct DescribeGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeIAMPolicyAssignmentRequest {
     /// <p>The name of the assignment, also called a rule.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     pub assignment_name: String,
     /// <p>The ID of the AWS account that contains the assignment that you want to describe.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace that contains the assignment.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2870,15 +2870,15 @@ pub struct DescribeIAMPolicyAssignmentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeIAMPolicyAssignmentResponse {
     /// <p>Information describing the IAM policy assignment.</p>
-    #[serde(rename = "IAMPolicyAssignment")]
+    #[serde(rename = "iAMPolicyAssignment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_policy_assignment: Option<IAMPolicyAssignment>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2887,13 +2887,13 @@ pub struct DescribeIAMPolicyAssignmentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeIngestionRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the dataset used in the ingestion.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>An ID for the ingestion.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     pub ingestion_id: String,
 }
 
@@ -2901,15 +2901,15 @@ pub struct DescribeIngestionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeIngestionResponse {
     /// <p>Information about the ingestion.</p>
-    #[serde(rename = "Ingestion")]
+    #[serde(rename = "ingestion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion: Option<Ingestion>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2918,10 +2918,10 @@ pub struct DescribeIngestionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeNamespaceRequest {
     /// <p>The ID for the AWS account that contains the QuickSight namespace that you want to describe.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace that you want to describe.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -2929,15 +2929,15 @@ pub struct DescribeNamespaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeNamespaceResponse {
     /// <p>The information about the namespace that you're describing. The response includes the namespace ARN, name, AWS Region, creation status, and identity store. <code>DescribeNamespace</code> also works for namespaces that are in the process of being created. For incomplete namespaces, this API operation lists the namespace error types and messages associated with the creation process.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<NamespaceInfoV2>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -2946,13 +2946,13 @@ pub struct DescribeNamespaceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTemplateAliasRequest {
     /// <p>The name of the template alias that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the template alias that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
 }
 
@@ -2960,15 +2960,15 @@ pub struct DescribeTemplateAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTemplateAliasResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Information about the template alias.</p>
-    #[serde(rename = "TemplateAlias")]
+    #[serde(rename = "templateAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_alias: Option<TemplateAlias>,
 }
@@ -2977,10 +2977,10 @@ pub struct DescribeTemplateAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTemplatePermissionsRequest {
     /// <p>The ID of the AWS account that contains the template that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
 }
 
@@ -2988,23 +2988,23 @@ pub struct DescribeTemplatePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTemplatePermissionsResponse {
     /// <p>A list of resource permissions to be set on the template. </p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the template.</p>
-    #[serde(rename = "TemplateArn")]
+    #[serde(rename = "templateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_arn: Option<String>,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
 }
@@ -3013,17 +3013,17 @@ pub struct DescribeTemplatePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTemplateRequest {
     /// <p>The alias of the template that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The ID of the AWS account that contains the template that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
     /// <p>(Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter value isn't provided, the latest version of the template is described.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -3032,15 +3032,15 @@ pub struct DescribeTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTemplateResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The template structure for the object you want to describe.</p>
-    #[serde(rename = "Template")]
+    #[serde(rename = "template")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template: Option<Template>,
 }
@@ -3049,13 +3049,13 @@ pub struct DescribeTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeThemeAliasRequest {
     /// <p>The name of the theme alias that you want to describe.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the theme alias that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
 }
 
@@ -3063,15 +3063,15 @@ pub struct DescribeThemeAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeThemeAliasResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Information about the theme alias.</p>
-    #[serde(rename = "ThemeAlias")]
+    #[serde(rename = "themeAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_alias: Option<ThemeAlias>,
 }
@@ -3080,10 +3080,10 @@ pub struct DescribeThemeAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeThemePermissionsRequest {
     /// <p>The ID of the AWS account that contains the theme that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the theme that you want to describe permissions for.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
 }
 
@@ -3091,23 +3091,23 @@ pub struct DescribeThemePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeThemePermissionsResponse {
     /// <p>A list of resource permissions set on the theme. </p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the theme.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
 }
@@ -3116,17 +3116,17 @@ pub struct DescribeThemePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeThemeRequest {
     /// <p>The alias of the theme that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The ID of the AWS account that contains the theme that you're describing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
     /// <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter value isn't provided, the latest version of the theme is described.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -3135,15 +3135,15 @@ pub struct DescribeThemeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeThemeResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The information about the theme that you are describing.</p>
-    #[serde(rename = "Theme")]
+    #[serde(rename = "theme")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme: Option<Theme>,
 }
@@ -3152,13 +3152,13 @@ pub struct DescribeThemeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserRequest {
     /// <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The name of the user that you want to describe.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -3166,15 +3166,15 @@ pub struct DescribeUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The user name.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -3184,11 +3184,11 @@ pub struct DescribeUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorInfo {
     /// <p>Error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Error type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -3198,7 +3198,7 @@ pub struct ErrorInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExportToCSVOption {
     /// <p>Availability status.</p>
-    #[serde(rename = "AvailabilityStatus")]
+    #[serde(rename = "availabilityStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_status: Option<String>,
 }
@@ -3220,7 +3220,7 @@ pub struct FieldFolder {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FilterOperation {
     /// <p>An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.</p>
-    #[serde(rename = "ConditionExpression")]
+    #[serde(rename = "conditionExpression")]
     pub condition_expression: String,
 }
 
@@ -3229,31 +3229,31 @@ pub struct FilterOperation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Folder {
     /// <p>The folder Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that the folder was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>An array of ancestor folder ARN strings.</p>
-    #[serde(rename = "FolderPath")]
+    #[serde(rename = "folderPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_path: Option<Vec<String>>,
     /// <p>The type of the folder.</p>
-    #[serde(rename = "FolderType")]
+    #[serde(rename = "folderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_type: Option<String>,
     /// <p>The time that the folder was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A display name for the folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3263,11 +3263,11 @@ pub struct Folder {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FolderMember {
     /// <p>The ID of the asset.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_id: Option<String>,
     /// <p>The type of the asset.</p>
-    #[serde(rename = "MemberType")]
+    #[serde(rename = "memberType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_type: Option<String>,
 }
@@ -3277,15 +3277,15 @@ pub struct FolderMember {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FolderSearchFilter {
     /// <p>The name of the value that you want to use as a filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The comparison operator that you want to use as a filter. For example, <code>"Operator": "StringEquals"</code>.</p>
-    #[serde(rename = "Operator")]
+    #[serde(rename = "operator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operator: Option<String>,
     /// <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -3295,27 +3295,27 @@ pub struct FolderSearchFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FolderSummary {
     /// <p>The Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that the folder was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>The type of folder.</p>
-    #[serde(rename = "FolderType")]
+    #[serde(rename = "folderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_type: Option<String>,
     /// <p>The time that the folder was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The display name of the folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3324,13 +3324,13 @@ pub struct FolderSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GeoSpatialColumnGroup {
     /// <p>Columns in this hierarchy.</p>
-    #[serde(rename = "Columns")]
+    #[serde(rename = "columns")]
     pub columns: Vec<String>,
     /// <p>Country code.</p>
-    #[serde(rename = "CountryCode")]
+    #[serde(rename = "countryCode")]
     pub country_code: String,
     /// <p>A display name for the hierarchy.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -3338,40 +3338,40 @@ pub struct GeoSpatialColumnGroup {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDashboardEmbedUrlRequest {
     /// <p>A list of one or more dashboard IDs that you want to add to a session that includes anonymous users. The <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> for this to work, because other identity types authenticate as QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards. </p>
-    #[serde(rename = "AdditionalDashboardIds")]
+    #[serde(rename = "additionalDashboardIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub additional_dashboard_ids: Option<Vec<String>>,
     /// <p>The ID for the AWS account that contains the dashboard that you're embedding.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard, also added to the AWS Identity and Access Management (IAM) policy.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p>The authentication method that the user uses to sign in.</p>
-    #[serde(rename = "IdentityType")]
+    #[serde(rename = "identityType")]
     pub identity_type: String,
     /// <p>The QuickSight namespace that contains the dashboard IDs in this request. If you're not using a custom namespace, set this to "<code>default</code>".</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the reset button.</p>
-    #[serde(rename = "ResetDisabled")]
+    #[serde(rename = "resetDisabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reset_disabled: Option<bool>,
     /// <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-    #[serde(rename = "SessionLifetimeInMinutes")]
+    #[serde(rename = "sessionLifetimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_lifetime_in_minutes: Option<i64>,
     /// <p>Adds persistence of state for the user session in an embedded dashboard. Persistence applies to the sheet and the parameter settings. These are control settings that the dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this is set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same dashboard URL. The state is stored in QuickSight, not in a browser cookie. If this is set to FALSE, the state of the user session is not persisted. The default is <code>FALSE</code>.</p>
-    #[serde(rename = "StatePersistenceEnabled")]
+    #[serde(rename = "statePersistenceEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_persistence_enabled: Option<bool>,
     /// <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables the undo/redo button.</p>
-    #[serde(rename = "UndoRedoDisabled")]
+    #[serde(rename = "undoRedoDisabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub undo_redo_disabled: Option<bool>,
     /// <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type. You can use this for any Amazon QuickSight users in your account (readers, authors, or admins) authenticated as one of the following:</p> <ul> <li> <p>Active Directory (AD) users or group members</p> </li> <li> <p>Invited nonfederated users</p> </li> <li> <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation.</p> </li> </ul> <p>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }
@@ -3381,15 +3381,15 @@ pub struct GetDashboardEmbedUrlRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDashboardEmbedUrlResponse {
     /// <p>A single-use URL that you can put into your server-side webpage to embed your dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an <code>auth_code</code> value that enables one (and only one) sign-on to a user session that is valid for 10 hours. </p>
-    #[serde(rename = "EmbedUrl")]
+    #[serde(rename = "embedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub embed_url: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3398,18 +3398,18 @@ pub struct GetDashboardEmbedUrlResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSessionEmbedUrlRequest {
     /// <p>The ID for the AWS account associated with your QuickSight subscription.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p><p>The URL you use to access the embedded session. The entry point URL is constrained to the following paths:</p> <ul> <li> <p> <code>/start</code> </p> </li> <li> <p> <code>/start/analyses</code> </p> </li> <li> <p> <code>/start/dashboards</code> </p> </li> <li> <p> <code>/start/favorites</code> </p> </li> <li> <p> <code>/dashboards/<i>DashboardId</i> </code> - where <code>DashboardId</code> is the actual ID key from the QuickSight console URL of the dashboard</p> </li> <li> <p> <code>/analyses/<i>AnalysisId</i> </code> - where <code>AnalysisId</code> is the actual ID key from the QuickSight console URL of the analysis</p> </li> </ul></p>
-    #[serde(rename = "EntryPoint")]
+    #[serde(rename = "entryPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entry_point: Option<String>,
     /// <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-    #[serde(rename = "SessionLifetimeInMinutes")]
+    #[serde(rename = "sessionLifetimeInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_lifetime_in_minutes: Option<i64>,
     /// <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon QuickSight users in your account (readers, authors, or admins). They need to be authenticated as one of the following:</p> <ol> <li> <p>Active Directory (AD) users or group members</p> </li> <li> <p>Invited nonfederated users</p> </li> <li> <p>AWS Identity and Access Management (IAM) users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation</p> </li> </ol> <p>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
 }
@@ -3418,15 +3418,15 @@ pub struct GetSessionEmbedUrlRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSessionEmbedUrlResponse {
     /// <p>A single-use URL that you can put into your server-side web page to embed your QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an <code>auth_code</code> value that enables one (and only one) sign-on to a user session that is valid for 10 hours. </p>
-    #[serde(rename = "EmbedUrl")]
+    #[serde(rename = "embedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub embed_url: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3436,19 +3436,19 @@ pub struct GetSessionEmbedUrlResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Group {
     /// <p>The Amazon Resource Name (ARN) for the group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The group description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>The principal ID of the group.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_id: Option<String>,
 }
@@ -3458,11 +3458,11 @@ pub struct Group {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupMember {
     /// <p>The Amazon Resource Name (ARN) for the group member (user).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The name of the group member (user).</p>
-    #[serde(rename = "MemberName")]
+    #[serde(rename = "memberName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_name: Option<String>,
 }
@@ -3471,7 +3471,7 @@ pub struct GroupMember {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GutterStyle {
     /// <p>This Boolean value controls whether to display a gutter space between sheet tiles. </p>
-    #[serde(rename = "Show")]
+    #[serde(rename = "show")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub show: Option<bool>,
 }
@@ -3481,27 +3481,27 @@ pub struct GutterStyle {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IAMPolicyAssignment {
     /// <p>Assignment ID.</p>
-    #[serde(rename = "AssignmentId")]
+    #[serde(rename = "assignmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_id: Option<String>,
     /// <p>Assignment name.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_name: Option<String>,
     /// <p>Assignment status.</p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_status: Option<String>,
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_account_id: Option<String>,
     /// <p>Identities.</p>
-    #[serde(rename = "Identities")]
+    #[serde(rename = "identities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identities: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The Amazon Resource Name (ARN) for the IAM policy.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
 }
@@ -3511,11 +3511,11 @@ pub struct IAMPolicyAssignment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IAMPolicyAssignmentSummary {
     /// <p>Assignment name.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_name: Option<String>,
     /// <p>Assignment status.</p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_status: Option<String>,
 }
@@ -3525,42 +3525,42 @@ pub struct IAMPolicyAssignmentSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Ingestion {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The time that this ingestion started.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     pub created_time: f64,
     /// <p>Error information for this ingestion.</p>
-    #[serde(rename = "ErrorInfo")]
+    #[serde(rename = "errorInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_info: Option<ErrorInfo>,
     /// <p>Ingestion ID.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_id: Option<String>,
     /// <p>The size of the data ingested, in bytes.</p>
-    #[serde(rename = "IngestionSizeInBytes")]
+    #[serde(rename = "ingestionSizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_size_in_bytes: Option<i64>,
     /// <p>Ingestion status.</p>
-    #[serde(rename = "IngestionStatus")]
+    #[serde(rename = "ingestionStatus")]
     pub ingestion_status: String,
     /// <p>The time that this ingestion took, measured in seconds.</p>
-    #[serde(rename = "IngestionTimeInSeconds")]
+    #[serde(rename = "ingestionTimeInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_time_in_seconds: Option<i64>,
-    #[serde(rename = "QueueInfo")]
+    #[serde(rename = "queueInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub queue_info: Option<QueueInfo>,
     /// <p>Event source for this ingestion.</p>
-    #[serde(rename = "RequestSource")]
+    #[serde(rename = "requestSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_source: Option<String>,
     /// <p>Type of this ingestion.</p>
-    #[serde(rename = "RequestType")]
+    #[serde(rename = "requestType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_type: Option<String>,
-    #[serde(rename = "RowInfo")]
+    #[serde(rename = "rowInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_info: Option<RowInfo>,
 }
@@ -3569,10 +3569,10 @@ pub struct Ingestion {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputColumn {
     /// <p>The name of this column in the underlying data source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The data type of the column.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -3581,10 +3581,10 @@ pub struct InputColumn {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IntegerParameter {
     /// <p>The name of the integer parameter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The values for the integer parameter.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<i64>,
 }
 
@@ -3592,7 +3592,7 @@ pub struct IntegerParameter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JiraParameters {
     /// <p>The base URL of the Jira site.</p>
-    #[serde(rename = "SiteBaseUrl")]
+    #[serde(rename = "siteBaseUrl")]
     pub site_base_url: String,
 }
 
@@ -3600,24 +3600,24 @@ pub struct JiraParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JoinInstruction {
     /// <p>Join key properties of the left operand.</p>
-    #[serde(rename = "LeftJoinKeyProperties")]
+    #[serde(rename = "leftJoinKeyProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub left_join_key_properties: Option<JoinKeyProperties>,
     /// <p>The operand on the left side of a join.</p>
-    #[serde(rename = "LeftOperand")]
+    #[serde(rename = "leftOperand")]
     pub left_operand: String,
     /// <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
-    #[serde(rename = "OnClause")]
+    #[serde(rename = "onClause")]
     pub on_clause: String,
     /// <p>Join key properties of the right operand.</p>
-    #[serde(rename = "RightJoinKeyProperties")]
+    #[serde(rename = "rightJoinKeyProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub right_join_key_properties: Option<JoinKeyProperties>,
     /// <p>The operand on the right side of a join.</p>
-    #[serde(rename = "RightOperand")]
+    #[serde(rename = "rightOperand")]
     pub right_operand: String,
     /// <p>The type of join that it is.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -3625,7 +3625,7 @@ pub struct JoinInstruction {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JoinKeyProperties {
     /// <p>A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by QuickSight to optimize query performance.</p>
-    #[serde(rename = "UniqueKey")]
+    #[serde(rename = "uniqueKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unique_key: Option<bool>,
 }
@@ -3634,14 +3634,14 @@ pub struct JoinKeyProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAnalysesRequest {
     /// <p>The ID of the AWS account that contains the analyses.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3650,19 +3650,19 @@ pub struct ListAnalysesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAnalysesResponse {
     /// <p>Metadata describing each of the analyses that are listed.</p>
-    #[serde(rename = "AnalysisSummaryList")]
+    #[serde(rename = "analysisSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_summary_list: Option<Vec<AnalysisSummary>>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3671,17 +3671,17 @@ pub struct ListAnalysesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDashboardVersionsRequest {
     /// <p>The ID of the AWS account that contains the dashboard that you're listing versions for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3690,19 +3690,19 @@ pub struct ListDashboardVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDashboardVersionsResponse {
     /// <p>A structure that contains information about each version of the dashboard.</p>
-    #[serde(rename = "DashboardVersionSummaryList")]
+    #[serde(rename = "dashboardVersionSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_version_summary_list: Option<Vec<DashboardVersionSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3711,14 +3711,14 @@ pub struct ListDashboardVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDashboardsRequest {
     /// <p>The ID of the AWS account that contains the dashboards that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3727,19 +3727,19 @@ pub struct ListDashboardsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDashboardsResponse {
     /// <p>A structure that contains all of the dashboards in your AWS account. This structure provides basic information about the dashboards.</p>
-    #[serde(rename = "DashboardSummaryList")]
+    #[serde(rename = "dashboardSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_summary_list: Option<Vec<DashboardSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3748,14 +3748,14 @@ pub struct ListDashboardsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDataSetsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3764,19 +3764,19 @@ pub struct ListDataSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDataSetsResponse {
     /// <p>The list of dataset summaries.</p>
-    #[serde(rename = "DataSetSummaries")]
+    #[serde(rename = "dataSetSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_summaries: Option<Vec<DataSetSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3785,14 +3785,14 @@ pub struct ListDataSetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDataSourcesRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3801,19 +3801,19 @@ pub struct ListDataSourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDataSourcesResponse {
     /// <p>A list of data sources.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<Vec<DataSource>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3822,17 +3822,17 @@ pub struct ListDataSourcesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFolderMembersRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3841,19 +3841,19 @@ pub struct ListFolderMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFolderMembersResponse {
     /// <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
-    #[serde(rename = "FolderMemberList")]
+    #[serde(rename = "folderMemberList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_member_list: Option<Vec<MemberIdArnPair>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code> </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3862,14 +3862,14 @@ pub struct ListFolderMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFoldersRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3878,19 +3878,19 @@ pub struct ListFoldersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFoldersResponse {
     /// <p>A structure that contains all of the folders in your AWS account. This structure provides basic information about the folders.</p>
-    #[serde(rename = "FolderSummaryList")]
+    #[serde(rename = "folderSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_summary_list: Option<Vec<FolderSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code> </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3899,20 +3899,20 @@ pub struct ListFoldersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupMembershipsRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The name of the group that you want to see a membership list of.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The maximum number of results to return from this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3921,19 +3921,19 @@ pub struct ListGroupMembershipsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupMembershipsResponse {
     /// <p>The list of the members of the group.</p>
-    #[serde(rename = "GroupMemberList")]
+    #[serde(rename = "groupMemberList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_member_list: Option<Vec<GroupMember>>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3942,17 +3942,17 @@ pub struct ListGroupMembershipsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupsRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -3961,19 +3961,19 @@ pub struct ListGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupsResponse {
     /// <p>The list of the groups.</p>
-    #[serde(rename = "GroupList")]
+    #[serde(rename = "groupList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_list: Option<Vec<Group>>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -3982,21 +3982,21 @@ pub struct ListGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIAMPolicyAssignmentsForUserRequest {
     /// <p>The ID of the AWS account that contains the assignments.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The namespace of the assignment.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the user.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -4004,19 +4004,19 @@ pub struct ListIAMPolicyAssignmentsForUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIAMPolicyAssignmentsForUserResponse {
     /// <p>The active assignments for this user.</p>
-    #[serde(rename = "ActiveAssignments")]
+    #[serde(rename = "activeAssignments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_assignments: Option<Vec<ActiveIAMPolicyAssignment>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -4025,21 +4025,21 @@ pub struct ListIAMPolicyAssignmentsForUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIAMPolicyAssignmentsRequest {
     /// <p>The status of the assignments.</p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_status: Option<String>,
     /// <p>The ID of the AWS account that contains these IAM policy assignments.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The namespace for the assignments.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4048,19 +4048,19 @@ pub struct ListIAMPolicyAssignmentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIAMPolicyAssignmentsResponse {
     /// <p>Information describing the IAM policy assignments.</p>
-    #[serde(rename = "IAMPolicyAssignments")]
+    #[serde(rename = "iAMPolicyAssignments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_policy_assignments: Option<Vec<IAMPolicyAssignmentSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -4069,17 +4069,17 @@ pub struct ListIAMPolicyAssignmentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIngestionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the dataset used in the ingestion.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4088,19 +4088,19 @@ pub struct ListIngestionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIngestionsResponse {
     /// <p>A list of the ingestions.</p>
-    #[serde(rename = "Ingestions")]
+    #[serde(rename = "ingestions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestions: Option<Vec<Ingestion>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -4109,14 +4109,14 @@ pub struct ListIngestionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListNamespacesRequest {
     /// <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4125,19 +4125,19 @@ pub struct ListNamespacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListNamespacesResponse {
     /// <p>The information about the namespaces in this AWS account. The response includes the namespace ARN, name, AWS Region, notification email address, creation status, and identity store.</p>
-    #[serde(rename = "Namespaces")]
+    #[serde(rename = "namespaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespaces: Option<Vec<NamespaceInfoV2>>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -4146,7 +4146,7 @@ pub struct ListNamespacesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -4154,15 +4154,15 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -4171,18 +4171,18 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTemplateAliasesRequest {
     /// <p>The ID of the AWS account that contains the template aliases that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
 }
 
@@ -4190,19 +4190,19 @@ pub struct ListTemplateAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTemplateAliasesResponse {
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>A structure containing the list of the template's aliases.</p>
-    #[serde(rename = "TemplateAliasList")]
+    #[serde(rename = "templateAliasList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_alias_list: Option<Vec<TemplateAlias>>,
 }
@@ -4211,18 +4211,18 @@ pub struct ListTemplateAliasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTemplateVersionsRequest {
     /// <p>The ID of the AWS account that contains the templates that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
 }
 
@@ -4230,19 +4230,19 @@ pub struct ListTemplateVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTemplateVersionsResponse {
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>A structure containing a list of all the versions of the specified template.</p>
-    #[serde(rename = "TemplateVersionSummaryList")]
+    #[serde(rename = "templateVersionSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_version_summary_list: Option<Vec<TemplateVersionSummary>>,
 }
@@ -4251,14 +4251,14 @@ pub struct ListTemplateVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTemplatesRequest {
     /// <p>The ID of the AWS account that contains the templates that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4267,19 +4267,19 @@ pub struct ListTemplatesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTemplatesResponse {
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>A structure containing information about the templates in the list.</p>
-    #[serde(rename = "TemplateSummaryList")]
+    #[serde(rename = "templateSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_summary_list: Option<Vec<TemplateSummary>>,
 }
@@ -4288,18 +4288,18 @@ pub struct ListTemplatesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListThemeAliasesRequest {
     /// <p>The ID of the AWS account that contains the theme aliases that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
 }
 
@@ -4307,19 +4307,19 @@ pub struct ListThemeAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListThemeAliasesResponse {
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>A structure containing the list of the theme's aliases.</p>
-    #[serde(rename = "ThemeAliasList")]
+    #[serde(rename = "themeAliasList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_alias_list: Option<Vec<ThemeAlias>>,
 }
@@ -4328,18 +4328,18 @@ pub struct ListThemeAliasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListThemeVersionsRequest {
     /// <p>The ID of the AWS account that contains the themes that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
 }
 
@@ -4347,19 +4347,19 @@ pub struct ListThemeVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListThemeVersionsResponse {
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>A structure containing a list of all the versions of the specified theme.</p>
-    #[serde(rename = "ThemeVersionSummaryList")]
+    #[serde(rename = "themeVersionSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_version_summary_list: Option<Vec<ThemeVersionSummary>>,
 }
@@ -4368,18 +4368,18 @@ pub struct ListThemeVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListThemesRequest {
     /// <p>The ID of the AWS account that contains the themes that you're listing.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>The type of themes that you want to list. Valid options include the following:</p> <ul> <li> <p> <code>ALL (default)</code>- Display all existing themes.</p> </li> <li> <p> <code>CUSTOM</code> - Display only the themes created by people using Amazon QuickSight.</p> </li> <li> <p> <code>QUICKSIGHT</code> - Display only the starting themes defined by QuickSight.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -4388,19 +4388,19 @@ pub struct ListThemesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListThemesResponse {
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Information about the themes in the list.</p>
-    #[serde(rename = "ThemeSummaryList")]
+    #[serde(rename = "themeSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_summary_list: Option<Vec<ThemeSummary>>,
 }
@@ -4409,21 +4409,21 @@ pub struct ListThemesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUserGroupsRequest {
     /// <p>The AWS account ID that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to return from this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon QuickSight user name that you want to list group memberships for.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -4431,19 +4431,19 @@ pub struct ListUserGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUserGroupsResponse {
     /// <p>The list of groups the user is a member of.</p>
-    #[serde(rename = "GroupList")]
+    #[serde(rename = "groupList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_list: Option<Vec<Group>>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -4452,17 +4452,17 @@ pub struct ListUserGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The maximum number of results to return from this request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4471,19 +4471,19 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The list of users.</p>
-    #[serde(rename = "UserList")]
+    #[serde(rename = "userList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_list: Option<Vec<User>>,
 }
@@ -4492,14 +4492,14 @@ pub struct ListUsersResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LogicalTable {
     /// <p>A display name for the logical table.</p>
-    #[serde(rename = "Alias")]
+    #[serde(rename = "alias")]
     pub alias: String,
     /// <p>Transform operations that act on this logical table.</p>
-    #[serde(rename = "DataTransforms")]
+    #[serde(rename = "dataTransforms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transforms: Option<Vec<TransformOperation>>,
     /// <p>Source of this logical table.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     pub source: LogicalTableSource,
 }
 
@@ -4507,11 +4507,11 @@ pub struct LogicalTable {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LogicalTableSource {
     /// <p>Specifies the result of a join of two logical tables.</p>
-    #[serde(rename = "JoinInstruction")]
+    #[serde(rename = "joinInstruction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub join_instruction: Option<JoinInstruction>,
     /// <p>Physical table ID.</p>
-    #[serde(rename = "PhysicalTableId")]
+    #[serde(rename = "physicalTableId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub physical_table_id: Option<String>,
 }
@@ -4520,10 +4520,10 @@ pub struct LogicalTableSource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ManifestFileLocation {
     /// <p>Amazon S3 bucket.</p>
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     pub bucket: String,
     /// <p>Amazon S3 key that identifies an object.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
 }
 
@@ -4531,7 +4531,7 @@ pub struct ManifestFileLocation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MarginStyle {
     /// <p>This Boolean value controls whether to display sheet margins.</p>
-    #[serde(rename = "Show")]
+    #[serde(rename = "show")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub show: Option<bool>,
 }
@@ -4540,13 +4540,13 @@ pub struct MarginStyle {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MariaDbParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -4555,11 +4555,11 @@ pub struct MariaDbParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MemberIdArnPair {
     /// <p>The Amazon Resource Name (ARN) of the member.</p>
-    #[serde(rename = "MemberArn")]
+    #[serde(rename = "memberArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_arn: Option<String>,
     /// <p>The ID of the member.</p>
-    #[serde(rename = "MemberId")]
+    #[serde(rename = "memberId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_id: Option<String>,
 }
@@ -4568,13 +4568,13 @@ pub struct MemberIdArnPair {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MySqlParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -4583,11 +4583,11 @@ pub struct MySqlParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NamespaceError {
     /// <p>The message for the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The error type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -4597,27 +4597,27 @@ pub struct NamespaceError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NamespaceInfoV2 {
     /// <p>The namespace ARN.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The namespace AWS Region.</p>
-    #[serde(rename = "CapacityRegion")]
+    #[serde(rename = "capacityRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub capacity_region: Option<String>,
     /// <p>The creation status of a namespace that is not yet completely created.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The identity store used for the namespace.</p>
-    #[serde(rename = "IdentityStore")]
+    #[serde(rename = "identityStore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_store: Option<String>,
     /// <p>The name of the error.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An error that occurred when the namespace was created.</p>
-    #[serde(rename = "NamespaceError")]
+    #[serde(rename = "namespaceError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace_error: Option<NamespaceError>,
 }
@@ -4626,13 +4626,13 @@ pub struct NamespaceInfoV2 {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OracleParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>An Oracle host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -4641,15 +4641,15 @@ pub struct OracleParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OutputColumn {
     /// <p>A description for a column.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A display name for the dataset.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -4659,19 +4659,19 @@ pub struct OutputColumn {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Parameters {
     /// <p>Date-time parameters.</p>
-    #[serde(rename = "DateTimeParameters")]
+    #[serde(rename = "dateTimeParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_time_parameters: Option<Vec<DateTimeParameter>>,
     /// <p>Decimal parameters.</p>
-    #[serde(rename = "DecimalParameters")]
+    #[serde(rename = "decimalParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decimal_parameters: Option<Vec<DecimalParameter>>,
     /// <p>Integer parameters.</p>
-    #[serde(rename = "IntegerParameters")]
+    #[serde(rename = "integerParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integer_parameters: Option<Vec<IntegerParameter>>,
     /// <p>String parameters.</p>
-    #[serde(rename = "StringParameters")]
+    #[serde(rename = "stringParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_parameters: Option<Vec<StringParameter>>,
 }
@@ -4680,15 +4680,15 @@ pub struct Parameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PhysicalTable {
     /// <p>A physical table type built from the results of the custom SQL query.</p>
-    #[serde(rename = "CustomSql")]
+    #[serde(rename = "customSql")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_sql: Option<CustomSql>,
     /// <p>A physical table type for relational data sources.</p>
-    #[serde(rename = "RelationalTable")]
+    #[serde(rename = "relationalTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub relational_table: Option<RelationalTable>,
     /// <p>A physical table type for as S3 data source.</p>
-    #[serde(rename = "S3Source")]
+    #[serde(rename = "s3Source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_source: Option<S3Source>,
 }
@@ -4697,13 +4697,13 @@ pub struct PhysicalTable {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PostgreSqlParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -4711,13 +4711,13 @@ pub struct PostgreSqlParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PrestoParameters {
     /// <p>Catalog.</p>
-    #[serde(rename = "Catalog")]
+    #[serde(rename = "catalog")]
     pub catalog: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -4725,7 +4725,7 @@ pub struct PrestoParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ProjectOperation {
     /// <p>Projected columns.</p>
-    #[serde(rename = "ProjectedColumns")]
+    #[serde(rename = "projectedColumns")]
     pub projected_columns: Vec<String>,
 }
 
@@ -4734,10 +4734,10 @@ pub struct ProjectOperation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueueInfo {
     /// <p>The ID of the ongoing ingestion. The queued ingestion is waiting for the ongoing ingestion to complete.</p>
-    #[serde(rename = "QueuedIngestion")]
+    #[serde(rename = "queuedIngestion")]
     pub queued_ingestion: String,
     /// <p>The ID of the queued ingestion.</p>
-    #[serde(rename = "WaitingOnIngestion")]
+    #[serde(rename = "waitingOnIngestion")]
     pub waiting_on_ingestion: String,
 }
 
@@ -4745,10 +4745,10 @@ pub struct QueueInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RdsParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -4756,18 +4756,18 @@ pub struct RdsParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RedshiftParameters {
     /// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are provided.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host: Option<String>,
     /// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
 }
@@ -4776,47 +4776,47 @@ pub struct RedshiftParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterUserRequest {
     /// <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
-    #[serde(rename = "CustomFederationProviderUrl")]
+    #[serde(rename = "customFederationProviderUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_federation_provider_url: Option<String>,
     /// <p>(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user. Customized permissions allows you to control a user's access by restricting access the following operations:</p> <ul> <li> <p>Create and update data sources</p> </li> <li> <p>Create and update datasets</p> </li> <li> <p>Create and update email reports</p> </li> <li> <p>Subscribe to email reports</p> </li> </ul> <p>To add custom permissions to an existing user, use <code> <a>UpdateUser</a> </code> instead.</p> <p>A set of custom permissions includes any combination of these restrictions. Currently, you need to create the profile names for custom permission sets by using the QuickSight console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of permissions to a QuickSight user. </p> <p>QuickSight custom permissions are applied through IAM policies. Therefore, they override the permissions typically granted by assigning QuickSight users to one of the default security cohorts in QuickSight (admin, author, reader).</p> <p>This feature is available only to QuickSight Enterprise edition subscriptions that use SAML 2.0-Based Federation for Single Sign-On (SSO).</p>
-    #[serde(rename = "CustomPermissionsName")]
+    #[serde(rename = "customPermissionsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_permissions_name: Option<String>,
     /// <p>The email address of the user that you want to register.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     pub email: String,
     /// <p><p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p> <ul> <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the &quot;CustomFederationProviderUrl&quot; parameter which is only needed when the external provider is custom.</p> </li> <li> <p> <code>CUSTOM<em>OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM</em>OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p> </li> </ul></p>
-    #[serde(rename = "ExternalLoginFederationProviderType")]
+    #[serde(rename = "externalLoginFederationProviderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_federation_provider_type: Option<String>,
     /// <p>The identity ID for a user in the external login provider.</p>
-    #[serde(rename = "ExternalLoginId")]
+    #[serde(rename = "externalLoginId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_id: Option<String>,
     /// <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
-    #[serde(rename = "IamArn")]
+    #[serde(rename = "iamArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_arn: Option<String>,
     /// <p><p>Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values:</p> <ul> <li> <p> <code>IAM</code>: A user whose identity maps to an existing IAM user or role. </p> </li> <li> <p> <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by Amazon QuickSight. </p> </li> </ul></p>
-    #[serde(rename = "IdentityType")]
+    #[serde(rename = "identityType")]
     pub identity_type: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>You need to use this parameter only when you register one or more users using an assumed IAM role. You don't need to provide the session name for other scenarios, for example when you are registering an IAM user or an Amazon QuickSight user. You can register multiple users using the same IAM role if each user has a different session name. For more information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"> <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
-    #[serde(rename = "SessionName")]
+    #[serde(rename = "sessionName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_name: Option<String>,
     /// <p>The Amazon QuickSight user name that you want to create for the user you are registering.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
     /// <p><p>The Amazon QuickSight role for the user. The user role can be one of the following:</p> <ul> <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED<em>READER</code>: This role isn&#39;t currently available for use.</p> </li> <li> <p> <code>RESTRICTED</em>AUTHOR</code>: This role isn&#39;t currently available for use.</p> </li> </ul></p>
-    #[serde(rename = "UserRole")]
+    #[serde(rename = "userRole")]
     pub user_role: String,
 }
 
@@ -4824,19 +4824,19 @@ pub struct RegisterUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterUserResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The user's user name.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
     /// <p>The URL the user visits to complete registration and provide a password. This is returned only for users with an identity type of <code>QUICKSIGHT</code>.</p>
-    #[serde(rename = "UserInvitationUrl")]
+    #[serde(rename = "userInvitationUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_invitation_url: Option<String>,
 }
@@ -4845,20 +4845,20 @@ pub struct RegisterUserResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RelationalTable {
     /// <p>The catalog associated with a table.</p>
-    #[serde(rename = "Catalog")]
+    #[serde(rename = "catalog")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub catalog: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the data source.</p>
-    #[serde(rename = "DataSourceArn")]
+    #[serde(rename = "dataSourceArn")]
     pub data_source_arn: String,
     /// <p>The column schema of the table.</p>
-    #[serde(rename = "InputColumns")]
+    #[serde(rename = "inputColumns")]
     pub input_columns: Vec<InputColumn>,
     /// <p>The name of the relational table.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The schema name. This name applies to certain relational database engines.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<String>,
 }
@@ -4867,10 +4867,10 @@ pub struct RelationalTable {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RenameColumnOperation {
     /// <p>The name of the column to be renamed.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p>The new name for the column.</p>
-    #[serde(rename = "NewColumnName")]
+    #[serde(rename = "newColumnName")]
     pub new_column_name: String,
 }
 
@@ -4878,10 +4878,10 @@ pub struct RenameColumnOperation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourcePermission {
     /// <p>The IAM action to grant or revoke permissions on.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     pub actions: Vec<String>,
     /// <p><p>The Amazon Resource Name (ARN) of the principal. This can be one of the following:</p> <ul> <li> <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p> </li> <li> <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p> </li> <li> <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight ARN. Use this option only to share resources (templates) across AWS accounts. (This is less common.) </p> </li> </ul></p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: String,
 }
 
@@ -4889,10 +4889,10 @@ pub struct ResourcePermission {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RestoreAnalysisRequest {
     /// <p>The ID of the analysis that you're restoring.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account that contains the analysis.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
 }
 
@@ -4900,19 +4900,19 @@ pub struct RestoreAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RestoreAnalysisResponse {
     /// <p>The ID of the analysis that you're restoring. </p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the analysis that you're restoring.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -4922,11 +4922,11 @@ pub struct RestoreAnalysisResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RowInfo {
     /// <p>The number of rows that were not ingested.</p>
-    #[serde(rename = "RowsDropped")]
+    #[serde(rename = "rowsDropped")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rows_dropped: Option<i64>,
     /// <p>The number of rows that were ingested.</p>
-    #[serde(rename = "RowsIngested")]
+    #[serde(rename = "rowsIngested")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rows_ingested: Option<i64>,
 }
@@ -4935,18 +4935,18 @@ pub struct RowInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RowLevelPermissionDataSet {
     /// <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The user or group rules associated with the dataset that contains permissions for RLS.</p> <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
-    #[serde(rename = "FormatVersion")]
+    #[serde(rename = "formatVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format_version: Option<String>,
     /// <p>The namespace associated with the dataset that contains permissions for RLS.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>The type of permissions to use when interpretting the permissions for RLS. <code>DENY_ACCESS</code> is included for backward compatibility only.</p>
-    #[serde(rename = "PermissionPolicy")]
+    #[serde(rename = "permissionPolicy")]
     pub permission_policy: String,
 }
 
@@ -4954,7 +4954,7 @@ pub struct RowLevelPermissionDataSet {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Parameters {
     /// <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded in the console.</p>
-    #[serde(rename = "ManifestFileLocation")]
+    #[serde(rename = "manifestFileLocation")]
     pub manifest_file_location: ManifestFileLocation,
 }
 
@@ -4962,13 +4962,13 @@ pub struct S3Parameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Source {
     /// <p>The Amazon Resource Name (ARN) for the data source.</p>
-    #[serde(rename = "DataSourceArn")]
+    #[serde(rename = "dataSourceArn")]
     pub data_source_arn: String,
     /// <p><p>A physical table type for an S3 data source.</p> <note> <p>For non-JSON files, only <code>STRING</code> data types are supported in input columns.</p> </note></p>
-    #[serde(rename = "InputColumns")]
+    #[serde(rename = "inputColumns")]
     pub input_columns: Vec<InputColumn>,
     /// <p>Information about the format for the S3 source file or files.</p>
-    #[serde(rename = "UploadSettings")]
+    #[serde(rename = "uploadSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upload_settings: Option<UploadSettings>,
 }
@@ -4977,17 +4977,17 @@ pub struct S3Source {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchAnalysesRequest {
     /// <p>The ID of the AWS account that contains the analyses that you're searching for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The structure for the search filters that you want to apply to your search. </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     pub filters: Vec<AnalysisSearchFilter>,
     /// <p>The maximum number of results to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token that can be used in a subsequent request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -4996,19 +4996,19 @@ pub struct SearchAnalysesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchAnalysesResponse {
     /// <p>Metadata describing the analyses that you searched for.</p>
-    #[serde(rename = "AnalysisSummaryList")]
+    #[serde(rename = "analysisSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_summary_list: Option<Vec<AnalysisSummary>>,
     /// <p>A pagination token that can be used in a subsequent request. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5017,17 +5017,17 @@ pub struct SearchAnalysesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchDashboardsRequest {
     /// <p>The ID of the AWS account that contains the user whose dashboards you're searching for. </p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The filters to apply to the search. Currently, you can search only by user name, for example, <code>"Filters": [ { "Name": "QUICKSIGHT_USER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" } ]</code> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     pub filters: Vec<DashboardSearchFilter>,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -5036,19 +5036,19 @@ pub struct SearchDashboardsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchDashboardsResponse {
     /// <p>The list of dashboards owned by the user specified in <code>Filters</code> in your request.</p>
-    #[serde(rename = "DashboardSummaryList")]
+    #[serde(rename = "dashboardSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_summary_list: Option<Vec<DashboardSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5057,17 +5057,17 @@ pub struct SearchDashboardsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchFoldersRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ { "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</code>.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     pub filters: Vec<FolderSearchFilter>,
     /// <p>The maximum number of results to be returned per request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -5076,19 +5076,19 @@ pub struct SearchFoldersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchFoldersResponse {
     /// <p>A structure that contains all of the folders in your AWS account. This structure provides basic information about the folders.</p>
-    #[serde(rename = "FolderSummaryList")]
+    #[serde(rename = "folderSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_summary_list: Option<Vec<FolderSummary>>,
     /// <p>The token for the next set of results, or null if there are no more results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5097,7 +5097,7 @@ pub struct SearchFoldersResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ServiceNowParameters {
     /// <p>URL of the base site.</p>
-    #[serde(rename = "SiteBaseUrl")]
+    #[serde(rename = "siteBaseUrl")]
     pub site_base_url: String,
 }
 
@@ -5106,11 +5106,11 @@ pub struct ServiceNowParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Sheet {
     /// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight console.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique identifier associated with a sheet.</p>
-    #[serde(rename = "SheetId")]
+    #[serde(rename = "sheetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sheet_id: Option<String>,
 }
@@ -5120,7 +5120,7 @@ pub struct Sheet {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SheetControlsOption {
     /// <p>Visibility state.</p>
-    #[serde(rename = "VisibilityState")]
+    #[serde(rename = "visibilityState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub visibility_state: Option<String>,
 }
@@ -5129,11 +5129,11 @@ pub struct SheetControlsOption {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SheetStyle {
     /// <p>The display options for tiles.</p>
-    #[serde(rename = "Tile")]
+    #[serde(rename = "tile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tile: Option<TileStyle>,
     /// <p>The layout options for tiles.</p>
-    #[serde(rename = "TileLayout")]
+    #[serde(rename = "tileLayout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tile_layout: Option<TileLayoutStyle>,
 }
@@ -5142,13 +5142,13 @@ pub struct SheetStyle {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SnowflakeParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Warehouse.</p>
-    #[serde(rename = "Warehouse")]
+    #[serde(rename = "warehouse")]
     pub warehouse: String,
 }
 
@@ -5156,10 +5156,10 @@ pub struct SnowflakeParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SparkParameters {
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -5167,13 +5167,13 @@ pub struct SparkParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SqlServerParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -5181,7 +5181,7 @@ pub struct SqlServerParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SslProperties {
     /// <p>A Boolean option to control whether SSL should be disabled.</p>
-    #[serde(rename = "DisableSsl")]
+    #[serde(rename = "disableSsl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_ssl: Option<bool>,
 }
@@ -5191,10 +5191,10 @@ pub struct SslProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StringParameter {
     /// <p>A display name for a string parameter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The values of a string parameter.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -5202,10 +5202,10 @@ pub struct StringParameter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>Tag key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Tag value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -5213,10 +5213,10 @@ pub struct Tag {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TagColumnOperation {
     /// <p>The column that this operation acts on.</p>
-    #[serde(rename = "ColumnName")]
+    #[serde(rename = "columnName")]
     pub column_name: String,
     /// <p><p>The dataset column tag, currently only used for geospatial type tagging. .</p> <note> <p>This is not tags for the AWS tagging feature. .</p> </note></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<ColumnTag>,
 }
 
@@ -5224,10 +5224,10 @@ pub struct TagColumnOperation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -5235,11 +5235,11 @@ pub struct TagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagResourceResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5249,27 +5249,27 @@ pub struct TagResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Template {
     /// <p>The Amazon Resource Name (ARN) of the template.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Time when this was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Time when this was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The display name of the template.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID for the template. This is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
     /// <p>A structure describing the versions of the template.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<TemplateVersion>,
 }
@@ -5279,15 +5279,15 @@ pub struct Template {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TemplateAlias {
     /// <p>The display name of the template alias.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the template alias.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The version number of the template alias.</p>
-    #[serde(rename = "TemplateVersionNumber")]
+    #[serde(rename = "templateVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_version_number: Option<i64>,
 }
@@ -5297,11 +5297,11 @@ pub struct TemplateAlias {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TemplateError {
     /// <p>Description of the error type.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Type of error.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -5311,10 +5311,10 @@ pub struct TemplateError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TemplateSourceAnalysis {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>A structure containing information about the dataset references used as placeholders in the template.</p>
-    #[serde(rename = "DataSetReferences")]
+    #[serde(rename = "dataSetReferences")]
     pub data_set_references: Vec<DataSetReference>,
 }
 
@@ -5323,11 +5323,11 @@ pub struct TemplateSourceAnalysis {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TemplateSourceEntity {
     /// <p>The source analysis, if it is based on an analysis.</p>
-    #[serde(rename = "SourceAnalysis")]
+    #[serde(rename = "sourceAnalysis")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_analysis: Option<TemplateSourceAnalysis>,
     /// <p>The source template, if it is based on an template.</p>
-    #[serde(rename = "SourceTemplate")]
+    #[serde(rename = "sourceTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_template: Option<TemplateSourceTemplate>,
 }
@@ -5337,7 +5337,7 @@ pub struct TemplateSourceEntity {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TemplateSourceTemplate {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -5346,27 +5346,27 @@ pub struct TemplateSourceTemplate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TemplateSummary {
     /// <p>A summary of a template.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The last time that this template was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The last time that this template was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A structure containing a list of version numbers for the template summary.</p>
-    #[serde(rename = "LatestVersionNumber")]
+    #[serde(rename = "latestVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version_number: Option<i64>,
     /// <p>A display name for the template.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the template. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
 }
@@ -5376,39 +5376,39 @@ pub struct TemplateSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TemplateVersion {
     /// <p>The time that this template version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this template should be bound to new datasets matching the same schema described through this API operation.</p>
-    #[serde(rename = "DataSetConfigurations")]
+    #[serde(rename = "dataSetConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_configurations: Option<Vec<DataSetConfiguration>>,
     /// <p>The description of the template.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Errors associated with this template version.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<TemplateError>>,
     /// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-    #[serde(rename = "Sheets")]
+    #[serde(rename = "sheets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sheets: Option<Vec<Sheet>>,
     /// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this template.</p>
-    #[serde(rename = "SourceEntityArn")]
+    #[serde(rename = "sourceEntityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_entity_arn: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The ARN of the theme associated with this version of the template.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
     /// <p>The version number of the template version.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -5418,23 +5418,23 @@ pub struct TemplateVersion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TemplateVersionSummary {
     /// <p>The Amazon Resource Name (ARN) of the template version.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time that this template version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the template version.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The status of the template version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The version number of the template version.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -5443,13 +5443,13 @@ pub struct TemplateVersionSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TeradataParameters {
     /// <p>Database.</p>
-    #[serde(rename = "Database")]
+    #[serde(rename = "database")]
     pub database: String,
     /// <p>Host.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>Port.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
 }
 
@@ -5458,30 +5458,30 @@ pub struct TeradataParameters {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Theme {
     /// <p>The Amazon Resource Name (ARN) of the theme.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the theme was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The date and time that the theme was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The name that the user gives to the theme.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The identifier that the user gives to the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
     /// <p>The type of theme, based on how it was created. Valid values include: <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<ThemeVersion>,
 }
@@ -5491,15 +5491,15 @@ pub struct Theme {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ThemeAlias {
     /// <p>The display name of the theme alias.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_name: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the theme alias.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The version number of the theme alias.</p>
-    #[serde(rename = "ThemeVersionNumber")]
+    #[serde(rename = "themeVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_version_number: Option<i64>,
 }
@@ -5508,15 +5508,15 @@ pub struct ThemeAlias {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ThemeConfiguration {
     /// <p>Color properties that apply to chart data colors.</p>
-    #[serde(rename = "DataColorPalette")]
+    #[serde(rename = "dataColorPalette")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_color_palette: Option<DataColorPalette>,
     /// <p>Display options related to sheets.</p>
-    #[serde(rename = "Sheet")]
+    #[serde(rename = "sheet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sheet: Option<SheetStyle>,
     /// <p>Color properties that apply to the UI and to charts, excluding the colors that apply to data. </p>
-    #[serde(rename = "UIColorPalette")]
+    #[serde(rename = "uIColorPalette")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ui_color_palette: Option<UIColorPalette>,
 }
@@ -5526,11 +5526,11 @@ pub struct ThemeConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ThemeError {
     /// <p>The error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The type of error.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -5540,27 +5540,27 @@ pub struct ThemeError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ThemeSummary {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that this theme was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The last date and time that this theme was updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>The latest version number for the theme. </p>
-    #[serde(rename = "LatestVersionNumber")]
+    #[serde(rename = "latestVersionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version_number: Option<i64>,
     /// <p>the display name for the theme.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the theme. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
 }
@@ -5570,35 +5570,35 @@ pub struct ThemeSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ThemeVersion {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All themes initially inherit from a default QuickSight theme.</p>
-    #[serde(rename = "BaseThemeId")]
+    #[serde(rename = "baseThemeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub base_theme_id: Option<String>,
     /// <p>The theme configuration, which contains all the theme display properties.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<ThemeConfiguration>,
     /// <p>The date and time that this theme version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the theme.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Errors associated with the theme.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<ThemeError>>,
     /// <p>The status of the theme version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The version number of the theme.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -5608,23 +5608,23 @@ pub struct ThemeVersion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ThemeVersionSummary {
     /// <p>The Amazon Resource Name (ARN) of the theme version.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that this theme version was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the theme version.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The status of the theme version.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The version number of the theme version.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_number: Option<i64>,
 }
@@ -5633,11 +5633,11 @@ pub struct ThemeVersionSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TileLayoutStyle {
     /// <p>The gutter settings that apply between tiles. </p>
-    #[serde(rename = "Gutter")]
+    #[serde(rename = "gutter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gutter: Option<GutterStyle>,
     /// <p>The margin settings that apply around the outside edge of sheets.</p>
-    #[serde(rename = "Margin")]
+    #[serde(rename = "margin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub margin: Option<MarginStyle>,
 }
@@ -5646,7 +5646,7 @@ pub struct TileLayoutStyle {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TileStyle {
     /// <p>The border around a tile.</p>
-    #[serde(rename = "Border")]
+    #[serde(rename = "border")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub border: Option<BorderStyle>,
 }
@@ -5655,27 +5655,27 @@ pub struct TileStyle {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TransformOperation {
     /// <p>A transform operation that casts a column to a different type.</p>
-    #[serde(rename = "CastColumnTypeOperation")]
+    #[serde(rename = "castColumnTypeOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cast_column_type_operation: Option<CastColumnTypeOperation>,
     /// <p>An operation that creates calculated columns. Columns created in one such operation form a lexical closure.</p>
-    #[serde(rename = "CreateColumnsOperation")]
+    #[serde(rename = "createColumnsOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_columns_operation: Option<CreateColumnsOperation>,
     /// <p>An operation that filters rows based on some condition.</p>
-    #[serde(rename = "FilterOperation")]
+    #[serde(rename = "filterOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_operation: Option<FilterOperation>,
     /// <p>An operation that projects columns. Operations that come after a projection can only refer to projected columns.</p>
-    #[serde(rename = "ProjectOperation")]
+    #[serde(rename = "projectOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub project_operation: Option<ProjectOperation>,
     /// <p>An operation that renames a column.</p>
-    #[serde(rename = "RenameColumnOperation")]
+    #[serde(rename = "renameColumnOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rename_column_operation: Option<RenameColumnOperation>,
     /// <p>An operation that tags a column with additional information.</p>
-    #[serde(rename = "TagColumnOperation")]
+    #[serde(rename = "tagColumnOperation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_column_operation: Option<TagColumnOperation>,
 }
@@ -5684,10 +5684,10 @@ pub struct TransformOperation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TwitterParameters {
     /// <p>Maximum number of rows to query Twitter.</p>
-    #[serde(rename = "MaxRows")]
+    #[serde(rename = "maxRows")]
     pub max_rows: i64,
     /// <p>Twitter query string.</p>
-    #[serde(rename = "Query")]
+    #[serde(rename = "query")]
     pub query: String,
 }
 
@@ -5695,67 +5695,67 @@ pub struct TwitterParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UIColorPalette {
     /// <p>This color is that applies to selected states and buttons.</p>
-    #[serde(rename = "Accent")]
+    #[serde(rename = "accent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accent: Option<String>,
     /// <p>The foreground color that applies to any text or other elements that appear over the accent color.</p>
-    #[serde(rename = "AccentForeground")]
+    #[serde(rename = "accentForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accent_foreground: Option<String>,
     /// <p>The color that applies to error messages.</p>
-    #[serde(rename = "Danger")]
+    #[serde(rename = "danger")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub danger: Option<String>,
     /// <p>The foreground color that applies to any text or other elements that appear over the error color.</p>
-    #[serde(rename = "DangerForeground")]
+    #[serde(rename = "dangerForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub danger_foreground: Option<String>,
     /// <p>The color that applies to the names of fields that are identified as dimensions.</p>
-    #[serde(rename = "Dimension")]
+    #[serde(rename = "dimension")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dimension: Option<String>,
     /// <p>The foreground color that applies to any text or other elements that appear over the dimension color.</p>
-    #[serde(rename = "DimensionForeground")]
+    #[serde(rename = "dimensionForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dimension_foreground: Option<String>,
     /// <p>The color that applies to the names of fields that are identified as measures.</p>
-    #[serde(rename = "Measure")]
+    #[serde(rename = "measure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub measure: Option<String>,
     /// <p>The foreground color that applies to any text or other elements that appear over the measure color.</p>
-    #[serde(rename = "MeasureForeground")]
+    #[serde(rename = "measureForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub measure_foreground: Option<String>,
     /// <p>The background color that applies to visuals and other high emphasis UI.</p>
-    #[serde(rename = "PrimaryBackground")]
+    #[serde(rename = "primaryBackground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_background: Option<String>,
     /// <p>The color of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-    #[serde(rename = "PrimaryForeground")]
+    #[serde(rename = "primaryForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_foreground: Option<String>,
     /// <p>The background color that applies to the sheet background and sheet controls.</p>
-    #[serde(rename = "SecondaryBackground")]
+    #[serde(rename = "secondaryBackground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secondary_background: Option<String>,
     /// <p>The foreground color that applies to any sheet title, sheet control text, or UI that appears over the secondary background.</p>
-    #[serde(rename = "SecondaryForeground")]
+    #[serde(rename = "secondaryForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secondary_foreground: Option<String>,
     /// <p>The color that applies to success messages, for example the check mark for a successful download.</p>
-    #[serde(rename = "Success")]
+    #[serde(rename = "success")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub success: Option<String>,
     /// <p>The foreground color that applies to any text or other elements that appear over the success color.</p>
-    #[serde(rename = "SuccessForeground")]
+    #[serde(rename = "successForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub success_foreground: Option<String>,
     /// <p>This color that applies to warning and informational messages.</p>
-    #[serde(rename = "Warning")]
+    #[serde(rename = "warning")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warning: Option<String>,
     /// <p>The foreground color that applies to any text or other elements that appear over the warning color.</p>
-    #[serde(rename = "WarningForeground")]
+    #[serde(rename = "warningForeground")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warning_foreground: Option<String>,
 }
@@ -5764,10 +5764,10 @@ pub struct UIColorPalette {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -5775,11 +5775,11 @@ pub struct UntagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UntagResourceResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5788,13 +5788,13 @@ pub struct UntagResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAccountCustomizationRequest {
     /// <p>The QuickSight customizations you're updating in the current AWS Region. </p>
-    #[serde(rename = "AccountCustomization")]
+    #[serde(rename = "accountCustomization")]
     pub account_customization: AccountCustomization,
     /// <p>The ID for the AWS account that you want to update QuickSight customizations for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The namespace that you want to update QuickSight customizations for.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
 }
@@ -5803,27 +5803,27 @@ pub struct UpdateAccountCustomizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAccountCustomizationResponse {
     /// <p>The QuickSight customizations you're updating in the current AWS Region. </p>
-    #[serde(rename = "AccountCustomization")]
+    #[serde(rename = "accountCustomization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_customization: Option<AccountCustomization>,
     /// <p>The Amazon Resource Name (ARN) for the updated customization for this AWS account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID for the AWS account that you want to update QuickSight customizations for.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_account_id: Option<String>,
     /// <p>The namespace associated with the customization that you're updating.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5832,13 +5832,13 @@ pub struct UpdateAccountCustomizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAccountSettingsRequest {
     /// <p>The ID for the AWS account that contains the QuickSight settings that you want to list.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The default namespace for this AWS account. Currently, the default is <code>default</code>. AWS Identity and Access Management (IAM) users that register for the first time with QuickSight provide an email that becomes associated with the default namespace.</p>
-    #[serde(rename = "DefaultNamespace")]
+    #[serde(rename = "defaultNamespace")]
     pub default_namespace: String,
     /// <p>The email address that you want QuickSight to send notifications to regarding your AWS account or QuickSight subscription.</p>
-    #[serde(rename = "NotificationEmail")]
+    #[serde(rename = "notificationEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_email: Option<String>,
 }
@@ -5847,11 +5847,11 @@ pub struct UpdateAccountSettingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAccountSettingsResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5860,17 +5860,17 @@ pub struct UpdateAccountSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAnalysisPermissionsRequest {
     /// <p>The ID of the analysis whose permissions you're updating. The ID is part of the analysis URL.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account that contains the analysis whose permissions you're updating. You must be using the AWS account that the analysis is in.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A structure that describes the permissions to add and the principal to add them to.</p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>A structure that describes the permissions to remove and the principal to remove them from.</p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
 }
@@ -5879,23 +5879,23 @@ pub struct UpdateAnalysisPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAnalysisPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
-    #[serde(rename = "AnalysisArn")]
+    #[serde(rename = "analysisArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_arn: Option<String>,
     /// <p>The ID of the analysis that you updated permissions for.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>A structure that describes the principals and the resource-level permissions on an analysis.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5904,23 +5904,23 @@ pub struct UpdateAnalysisPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAnalysisRequest {
     /// <p>The ID for the analysis that you're updating. This ID displays in the URL of the analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     pub analysis_id: String,
     /// <p>The ID of the AWS account that contains the analysis that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A descriptive name for the analysis that you're updating. This name displays for the analysis in the QuickSight console.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values. </p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Parameters>,
     /// <p>A source entity to use for the analysis that you're updating. This metadata structure contains details that describe a source template and one or more datasets.</p>
-    #[serde(rename = "SourceEntity")]
+    #[serde(rename = "sourceEntity")]
     pub source_entity: AnalysisSourceEntity,
     /// <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're creating. To see the theme in the QuickSight console, make sure that you have access to it.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
 }
@@ -5929,23 +5929,23 @@ pub struct UpdateAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAnalysisResponse {
     /// <p>The ID of the analysis.</p>
-    #[serde(rename = "AnalysisId")]
+    #[serde(rename = "analysisId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_id: Option<String>,
     /// <p>The ARN of the analysis that you're updating.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The update status of the last update that was made to the analysis.</p>
-    #[serde(rename = "UpdateStatus")]
+    #[serde(rename = "updateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_status: Option<String>,
 }
@@ -5954,17 +5954,17 @@ pub struct UpdateAnalysisResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDashboardPermissionsRequest {
     /// <p>The ID of the AWS account that contains the dashboard whose permissions you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p>The permissions that you want to grant on this resource.</p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>The permissions that you want to revoke from this resource.</p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
 }
@@ -5973,23 +5973,23 @@ pub struct UpdateDashboardPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDashboardPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-    #[serde(rename = "DashboardArn")]
+    #[serde(rename = "dashboardArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_arn: Option<String>,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>Information about the permissions on the dashboard.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -5998,13 +5998,13 @@ pub struct UpdateDashboardPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDashboardPublishedVersionRequest {
     /// <p>The ID of the AWS account that contains the dashboard that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p>The version number of the dashboard.</p>
-    #[serde(rename = "VersionNumber")]
+    #[serde(rename = "versionNumber")]
     pub version_number: i64,
 }
 
@@ -6012,19 +6012,19 @@ pub struct UpdateDashboardPublishedVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDashboardPublishedVersionResponse {
     /// <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-    #[serde(rename = "DashboardArn")]
+    #[serde(rename = "dashboardArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_arn: Option<String>,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6033,31 +6033,31 @@ pub struct UpdateDashboardPublishedVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDashboardRequest {
     /// <p>The ID of the AWS account that contains the dashboard that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     pub dashboard_id: String,
     /// <p><p>Options for publishing the dashboard when you create it:</p> <ul> <li> <p> <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is set to <code>DISABLED</code>, QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is <code>ENABLED</code> by default. </p> </li> <li> <p> <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual option to export data to .CSV format isn&#39;t enabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p> </li> <li> <p> <code>VisibilityState</code> for <code>SheetControlsOption</code> - This visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>. This option is <code>COLLAPSED</code> by default. </p> </li> </ul></p>
-    #[serde(rename = "DashboardPublishOptions")]
+    #[serde(rename = "dashboardPublishOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_publish_options: Option<DashboardPublishOptions>,
     /// <p>The display name of the dashboard.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A structure that contains the parameters of the dashboard. These are parameter overrides for a dashboard. A dashboard can have any type of parameters, and some parameters might accept multiple values.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Parameters>,
     /// <p>The entity that you are using as a source when you update the dashboard. In <code>SourceEntity</code>, you specify the type of object you're using as source. You can only update a dashboard from a template, so you use a <code>SourceTemplate</code> entity. If you need to update a dashboard from an analysis, first convert the analysis to a template by using the <a>CreateTemplate</a> API operation. For <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source template. The <code>SourceTemplate</code> ARN can contain any AWS Account and any QuickSight-supported AWS Region. </p> <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder. </p>
-    #[serde(rename = "SourceEntity")]
+    #[serde(rename = "sourceEntity")]
     pub source_entity: DashboardSourceEntity,
     /// <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that was originally associated with the entity. The theme ARN must exist in the same AWS account where you create the dashboard.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
     /// <p>A description for the first version of the dashboard being created.</p>
-    #[serde(rename = "VersionDescription")]
+    #[serde(rename = "versionDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_description: Option<String>,
 }
@@ -6066,27 +6066,27 @@ pub struct UpdateDashboardRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDashboardResponse {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The creation status of the request.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The ID for the dashboard.</p>
-    #[serde(rename = "DashboardId")]
+    #[serde(rename = "dashboardId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dashboard_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The ARN of the dashboard, including the version number.</p>
-    #[serde(rename = "VersionArn")]
+    #[serde(rename = "versionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_arn: Option<String>,
 }
@@ -6095,17 +6095,17 @@ pub struct UpdateDashboardResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataSetPermissionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the dataset whose permissions you want to update. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The resource permissions that you want to grant to the dataset.</p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>The resource permissions that you want to revoke from the dataset.</p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
 }
@@ -6114,19 +6114,19 @@ pub struct UpdateDataSetPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDataSetPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "DataSetArn")]
+    #[serde(rename = "dataSetArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_arn: Option<String>,
     /// <p>The ID for the dataset whose permissions you want to update. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6135,38 +6135,38 @@ pub struct UpdateDataSetPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataSetRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-    #[serde(rename = "ColumnGroups")]
+    #[serde(rename = "columnGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_groups: Option<Vec<ColumnGroup>>,
     /// <p>A set of one or more definitions of a <code> <a>ColumnLevelPermissionRule</a> </code>.</p>
-    #[serde(rename = "ColumnLevelPermissionRules")]
+    #[serde(rename = "columnLevelPermissionRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_level_permission_rules: Option<Vec<ColumnLevelPermissionRule>>,
     /// <p>The ID for the dataset that you want to update. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The folder that contains fields and nested subfolders for your dataset.</p>
-    #[serde(rename = "FieldFolders")]
+    #[serde(rename = "fieldFolders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub field_folders: Option<::std::collections::HashMap<String, FieldFolder>>,
     /// <p>Indicates whether you want to import the data into SPICE.</p>
-    #[serde(rename = "ImportMode")]
+    #[serde(rename = "importMode")]
     pub import_mode: String,
     /// <p>Configures the combination and transformation of the data from the physical tables.</p>
-    #[serde(rename = "LogicalTableMap")]
+    #[serde(rename = "logicalTableMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logical_table_map: Option<::std::collections::HashMap<String, LogicalTable>>,
     /// <p>The display name for the dataset.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Declares the physical tables that are available in the underlying data sources.</p>
-    #[serde(rename = "PhysicalTableMap")]
+    #[serde(rename = "physicalTableMap")]
     pub physical_table_map: ::std::collections::HashMap<String, PhysicalTable>,
     /// <p>The row-level security configuration for the data you want to create.</p>
-    #[serde(rename = "RowLevelPermissionDataSet")]
+    #[serde(rename = "rowLevelPermissionDataSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_level_permission_data_set: Option<RowLevelPermissionDataSet>,
 }
@@ -6175,27 +6175,27 @@ pub struct UpdateDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDataSetResponse {
     /// <p>The Amazon Resource Name (ARN) of the dataset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE.</p>
-    #[serde(rename = "IngestionArn")]
+    #[serde(rename = "ingestionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_arn: Option<String>,
     /// <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE.</p>
-    #[serde(rename = "IngestionId")]
+    #[serde(rename = "ingestionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingestion_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6204,17 +6204,17 @@ pub struct UpdateDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataSourcePermissionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account. </p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     pub data_source_id: String,
     /// <p>A list of resource permissions that you want to grant on the data source.</p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>A list of resource permissions that you want to revoke on the data source.</p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
 }
@@ -6223,19 +6223,19 @@ pub struct UpdateDataSourcePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDataSourcePermissionsResponse {
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
-    #[serde(rename = "DataSourceArn")]
+    #[serde(rename = "dataSourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_arn: Option<String>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6244,28 +6244,28 @@ pub struct UpdateDataSourcePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataSourceRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The credentials that QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.</p>
-    #[serde(rename = "Credentials")]
+    #[serde(rename = "credentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub credentials: Option<DataSourceCredentials>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account. </p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     pub data_source_id: String,
     /// <p>The parameters that QuickSight uses to connect to your underlying source.</p>
-    #[serde(rename = "DataSourceParameters")]
+    #[serde(rename = "dataSourceParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_parameters: Option<DataSourceParameters>,
     /// <p>A display name for the data source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
-    #[serde(rename = "SslProperties")]
+    #[serde(rename = "sslProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssl_properties: Option<SslProperties>,
     /// <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to your underlying source.</p>
-    #[serde(rename = "VpcConnectionProperties")]
+    #[serde(rename = "vpcConnectionProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_connection_properties: Option<VpcConnectionProperties>,
 }
@@ -6274,23 +6274,23 @@ pub struct UpdateDataSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDataSourceResponse {
     /// <p>The Amazon Resource Name (ARN) of the data source.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-    #[serde(rename = "DataSourceId")]
+    #[serde(rename = "dataSourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_source_id: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The update status of the data source's last update.</p>
-    #[serde(rename = "UpdateStatus")]
+    #[serde(rename = "updateStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub update_status: Option<String>,
 }
@@ -6299,17 +6299,17 @@ pub struct UpdateDataSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFolderPermissionsRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The permissions that you want to grant on a resource.</p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>The permissions that you want to revoke from a resource.</p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
 }
@@ -6318,23 +6318,23 @@ pub struct UpdateFolderPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFolderPermissionsResponse {
     /// <p>The Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>Information about the permissions on the dashboard.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6343,13 +6343,13 @@ pub struct UpdateFolderPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFolderRequest {
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The name of the folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -6357,19 +6357,19 @@ pub struct UpdateFolderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFolderResponse {
     /// <p>The Amazon Resource Name (ARN).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The folder ID.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folder_id: Option<String>,
     /// <p>The request ID.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6378,17 +6378,17 @@ pub struct UpdateFolderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGroupRequest {
     /// <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The description for the group that you want to update.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the group that you want to update.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
@@ -6396,15 +6396,15 @@ pub struct UpdateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateGroupResponse {
     /// <p>The name of the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6413,24 +6413,24 @@ pub struct UpdateGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateIAMPolicyAssignmentRequest {
     /// <p>The name of the assignment, also called a rule. This name must be unique within an AWS account.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     pub assignment_name: String,
     /// <p><p>The status of the assignment. Possible values are as follows:</p> <ul> <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> <li> <p> <code>DISABLED</code> - This assignment isn&#39;t used when creating the data source.</p> </li> <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn&#39;t used when creating the data source.</p> </li> </ul></p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_status: Option<String>,
     /// <p>The ID of the AWS account that contains the IAM policy assignment. </p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
-    #[serde(rename = "Identities")]
+    #[serde(rename = "identities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identities: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The namespace of the assignment.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The ARN for the IAM policy to apply to the QuickSight users and groups specified in this assignment.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
 }
@@ -6439,31 +6439,31 @@ pub struct UpdateIAMPolicyAssignmentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateIAMPolicyAssignmentResponse {
     /// <p>The ID of the assignment.</p>
-    #[serde(rename = "AssignmentId")]
+    #[serde(rename = "assignmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_id: Option<String>,
     /// <p>The name of the assignment or rule.</p>
-    #[serde(rename = "AssignmentName")]
+    #[serde(rename = "assignmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_name: Option<String>,
     /// <p><p>The status of the assignment. Possible values are as follows:</p> <ul> <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> <li> <p> <code>DISABLED</code> - This assignment isn&#39;t used when creating the data source.</p> </li> <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn&#39;t used when creating the data source.</p> </li> </ul></p>
-    #[serde(rename = "AssignmentStatus")]
+    #[serde(rename = "assignmentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignment_status: Option<String>,
     /// <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    #[serde(rename = "Identities")]
+    #[serde(rename = "identities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identities: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The ARN for the IAM policy applied to the QuickSight users and groups specified in this assignment.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
 }
@@ -6472,16 +6472,16 @@ pub struct UpdateIAMPolicyAssignmentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTemplateAliasRequest {
     /// <p>The alias of the template that you want to update. If you name a specific alias, you update the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the template alias that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
     /// <p>The version number of the template.</p>
-    #[serde(rename = "TemplateVersionNumber")]
+    #[serde(rename = "templateVersionNumber")]
     pub template_version_number: i64,
 }
 
@@ -6489,15 +6489,15 @@ pub struct UpdateTemplateAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateTemplateAliasResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The template alias.</p>
-    #[serde(rename = "TemplateAlias")]
+    #[serde(rename = "templateAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_alias: Option<TemplateAlias>,
 }
@@ -6506,18 +6506,18 @@ pub struct UpdateTemplateAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTemplatePermissionsRequest {
     /// <p>The ID of the AWS account that contains the template.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A list of resource permissions to be granted on the template. </p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>A list of resource permissions to be revoked from the template. </p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
 }
 
@@ -6525,23 +6525,23 @@ pub struct UpdateTemplatePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateTemplatePermissionsResponse {
     /// <p>A list of resource permissions to be set on the template.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the template.</p>
-    #[serde(rename = "TemplateArn")]
+    #[serde(rename = "templateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_arn: Option<String>,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
 }
@@ -6550,20 +6550,20 @@ pub struct UpdateTemplatePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTemplateRequest {
     /// <p>The ID of the AWS account that contains the template that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The name for the template.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The entity that you are using as a source when you update the template. In <code>SourceEntity</code>, you specify the type of object you're using as source: <code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an analysis. Both of these require an Amazon Resource Name (ARN). For <code>SourceTemplate</code>, specify the ARN of the source template. For <code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code> ARN can contain any AWS Account and any QuickSight-supported AWS Region. </p> <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or <code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder. </p>
-    #[serde(rename = "SourceEntity")]
+    #[serde(rename = "sourceEntity")]
     pub source_entity: TemplateSourceEntity,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     pub template_id: String,
     /// <p>A description of the current template version that is being updated. Every time you call <code>UpdateTemplate</code>, you create a new version of the template. Each version of the template maintains a description of the version in the <code>VersionDescription</code> field.</p>
-    #[serde(rename = "VersionDescription")]
+    #[serde(rename = "versionDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_description: Option<String>,
 }
@@ -6572,27 +6572,27 @@ pub struct UpdateTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateTemplateResponse {
     /// <p>The Amazon Resource Name (ARN) for the template.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The creation status of the template.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The ID for the template.</p>
-    #[serde(rename = "TemplateId")]
+    #[serde(rename = "templateId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
     /// <p>The ARN for the template, including the version information of the first version.</p>
-    #[serde(rename = "VersionArn")]
+    #[serde(rename = "versionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_arn: Option<String>,
 }
@@ -6601,16 +6601,16 @@ pub struct UpdateTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateThemeAliasRequest {
     /// <p>The name of the theme alias that you want to update.</p>
-    #[serde(rename = "AliasName")]
+    #[serde(rename = "aliasName")]
     pub alias_name: String,
     /// <p>The ID of the AWS account that contains the theme alias that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
     /// <p>The version number of the theme that the alias should reference.</p>
-    #[serde(rename = "ThemeVersionNumber")]
+    #[serde(rename = "themeVersionNumber")]
     pub theme_version_number: i64,
 }
 
@@ -6618,15 +6618,15 @@ pub struct UpdateThemeAliasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateThemeAliasResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>Information about the theme alias.</p>
-    #[serde(rename = "ThemeAlias")]
+    #[serde(rename = "themeAlias")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_alias: Option<ThemeAlias>,
 }
@@ -6635,18 +6635,18 @@ pub struct UpdateThemeAliasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateThemePermissionsRequest {
     /// <p>The ID of the AWS account that contains the theme.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>A list of resource permissions to be granted for the theme.</p>
-    #[serde(rename = "GrantPermissions")]
+    #[serde(rename = "grantPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_permissions: Option<Vec<ResourcePermission>>,
     /// <p>A list of resource permissions to be revoked from the theme.</p>
-    #[serde(rename = "RevokePermissions")]
+    #[serde(rename = "revokePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revoke_permissions: Option<Vec<ResourcePermission>>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
 }
 
@@ -6654,23 +6654,23 @@ pub struct UpdateThemePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateThemePermissionsResponse {
     /// <p>The resulting list of resource permissions for the theme.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<ResourcePermission>>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the theme.</p>
-    #[serde(rename = "ThemeArn")]
+    #[serde(rename = "themeArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_arn: Option<String>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
 }
@@ -6679,24 +6679,24 @@ pub struct UpdateThemePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateThemeRequest {
     /// <p>The ID of the AWS account that contains the theme that you're updating.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from. All themes initially inherit from a default QuickSight theme.</p>
-    #[serde(rename = "BaseThemeId")]
+    #[serde(rename = "baseThemeId")]
     pub base_theme_id: String,
     /// <p>The theme configuration, which contains the theme display properties.</p>
-    #[serde(rename = "Configuration")]
+    #[serde(rename = "configuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration: Option<ThemeConfiguration>,
     /// <p>The name for the theme.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     pub theme_id: String,
     /// <p>A description of the theme version that you're updating Every time that you call <code>UpdateTheme</code>, you create a new version of the theme. Each version of the theme maintains a description of the version in <code>VersionDescription</code>.</p>
-    #[serde(rename = "VersionDescription")]
+    #[serde(rename = "versionDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_description: Option<String>,
 }
@@ -6705,27 +6705,27 @@ pub struct UpdateThemeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateThemeResponse {
     /// <p>The Amazon Resource Name (ARN) for the theme.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The creation status of the theme.</p>
-    #[serde(rename = "CreationStatus")]
+    #[serde(rename = "creationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_status: Option<String>,
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The ID for the theme.</p>
-    #[serde(rename = "ThemeId")]
+    #[serde(rename = "themeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub theme_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the new version of the theme.</p>
-    #[serde(rename = "VersionArn")]
+    #[serde(rename = "versionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_arn: Option<String>,
 }
@@ -6734,39 +6734,39 @@ pub struct UpdateThemeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRequest {
     /// <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.</p>
-    #[serde(rename = "AwsAccountId")]
+    #[serde(rename = "awsAccountId")]
     pub aws_account_id: String,
     /// <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
-    #[serde(rename = "CustomFederationProviderUrl")]
+    #[serde(rename = "customFederationProviderUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_federation_provider_url: Option<String>,
     /// <p>(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user. Customized permissions allows you to control a user's access by restricting access the following operations:</p> <ul> <li> <p>Create and update data sources</p> </li> <li> <p>Create and update datasets</p> </li> <li> <p>Create and update email reports</p> </li> <li> <p>Subscribe to email reports</p> </li> </ul> <p>A set of custom permissions includes any combination of these restrictions. Currently, you need to create the profile names for custom permission sets by using the QuickSight console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of permissions to a QuickSight user. </p> <p>QuickSight custom permissions are applied through IAM policies. Therefore, they override the permissions typically granted by assigning QuickSight users to one of the default security cohorts in QuickSight (admin, author, reader).</p> <p>This feature is available only to QuickSight Enterprise edition subscriptions that use SAML 2.0-Based Federation for Single Sign-On (SSO).</p>
-    #[serde(rename = "CustomPermissionsName")]
+    #[serde(rename = "customPermissionsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_permissions_name: Option<String>,
     /// <p>The email address of the user that you want to update.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     pub email: String,
     /// <p><p>The type of supported external login provider that provides identity to let a user federate into QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p> <ul> <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the &quot;CustomFederationProviderUrl&quot; parameter which is only needed when the external provider is custom.</p> </li> <li> <p> <code>CUSTOM<em>OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM</em>OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p> </li> <li> <p> <code>NONE</code>: This clears all the previously saved external login information for a user. Use <code> <a>DescribeUser</a> </code> API to check the external login information.</p> </li> </ul></p>
-    #[serde(rename = "ExternalLoginFederationProviderType")]
+    #[serde(rename = "externalLoginFederationProviderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_federation_provider_type: Option<String>,
     /// <p>The identity ID for a user in the external login provider.</p>
-    #[serde(rename = "ExternalLoginId")]
+    #[serde(rename = "externalLoginId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_id: Option<String>,
     /// <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-    #[serde(rename = "Namespace")]
+    #[serde(rename = "namespace")]
     pub namespace: String,
     /// <p>The Amazon QuickSight role of the user. The role can be one of the following default security cohorts:</p> <ul> <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight settings.</p> </li> </ul> <p>The name of the QuickSight role is invisible to the user except for the console screens dealing with permissions.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>A flag that you use to indicate that you want to remove all custom permissions from this user. Using this parameter resets the user to the state it was in before a custom permissions profile was applied. This parameter defaults to NULL and it doesn't accept any other value.</p>
-    #[serde(rename = "UnapplyCustomPermissions")]
+    #[serde(rename = "unapplyCustomPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unapply_custom_permissions: Option<bool>,
     /// <p>The Amazon QuickSight user name that you want to update.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -6774,15 +6774,15 @@ pub struct UpdateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserResponse {
     /// <p>The AWS request ID for this operation.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>The HTTP status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<i64>,
     /// <p>The Amazon QuickSight user.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -6791,23 +6791,23 @@ pub struct UpdateUserResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UploadSettings {
     /// <p>Whether the file has a header row, or the files each have a header row.</p>
-    #[serde(rename = "ContainsHeader")]
+    #[serde(rename = "containsHeader")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contains_header: Option<bool>,
     /// <p>The delimiter between values in the file.</p>
-    #[serde(rename = "Delimiter")]
+    #[serde(rename = "delimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delimiter: Option<String>,
     /// <p>File format.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>A row number to start reading data from.</p>
-    #[serde(rename = "StartFromRow")]
+    #[serde(rename = "startFromRow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_from_row: Option<i64>,
     /// <p>Text qualifier.</p>
-    #[serde(rename = "TextQualifier")]
+    #[serde(rename = "textQualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_qualifier: Option<String>,
 }
@@ -6817,47 +6817,47 @@ pub struct UploadSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct User {
     /// <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.</p>
-    #[serde(rename = "Active")]
+    #[serde(rename = "active")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) for the user.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The custom permissions profile associated with this user.</p>
-    #[serde(rename = "CustomPermissionsName")]
+    #[serde(rename = "customPermissionsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_permissions_name: Option<String>,
     /// <p>The user's email address.</p>
-    #[serde(rename = "Email")]
+    #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
     /// <p><p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p> <ul> <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li> <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li> </ul></p>
-    #[serde(rename = "ExternalLoginFederationProviderType")]
+    #[serde(rename = "externalLoginFederationProviderType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_federation_provider_type: Option<String>,
     /// <p>The URL of the external login provider.</p>
-    #[serde(rename = "ExternalLoginFederationProviderUrl")]
+    #[serde(rename = "externalLoginFederationProviderUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_federation_provider_url: Option<String>,
     /// <p>The identity ID for the user in the external login provider.</p>
-    #[serde(rename = "ExternalLoginId")]
+    #[serde(rename = "externalLoginId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_login_id: Option<String>,
     /// <p>The type of identity authentication used by the user.</p>
-    #[serde(rename = "IdentityType")]
+    #[serde(rename = "identityType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identity_type: Option<String>,
     /// <p>The principal ID of the user.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_id: Option<String>,
     /// <p><p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED<em>READER</code>: This role isn&#39;t currently available for use.</p> </li> <li> <p> <code>RESTRICTED</em>AUTHOR</code>: This role isn&#39;t currently available for use.</p> </li> </ul></p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The user's user name.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -6866,7 +6866,7 @@ pub struct User {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VpcConnectionProperties {
     /// <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
-    #[serde(rename = "VpcConnectionArn")]
+    #[serde(rename = "vpcConnectionArn")]
     pub vpc_connection_arn: String,
 }
 

@@ -29,18 +29,18 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateRepositoryRequest {
     /// <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository associations if there are failures and retries. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p><p>A <code>KMSKeyDetails</code> object that contains:</p> <ul> <li> <p>The encryption option for this repository association. It is either owned by AWS Key Management Service (KMS) (<code>AWS<em>OWNED</em>CMK</code>) or customer managed (<code>CUSTOMER<em>MANAGED</em>CMK</code>).</p> </li> <li> <p>The ID of the AWS KMS key that is associated with this respository association.</p> </li> </ul></p>
-    #[serde(rename = "KMSKeyDetails")]
+    #[serde(rename = "kMSKeyDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_details: Option<KMSKeyDetails>,
     /// <p>The repository to associate.</p>
-    #[serde(rename = "Repository")]
+    #[serde(rename = "repository")]
     pub repository: Repository,
     /// <p><p> An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts: </p> <ul> <li> <p>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</p> </li> <li> <p>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -49,11 +49,11 @@ pub struct AssociateRepositoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateRepositoryResponse {
     /// <p>Information about the repository association.</p>
-    #[serde(rename = "RepositoryAssociation")]
+    #[serde(rename = "repositoryAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_association: Option<RepositoryAssociation>,
     /// <p><p> An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts: </p> <ul> <li> <p>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</p> </li> <li> <p>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -62,10 +62,10 @@ pub struct AssociateRepositoryResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BranchDiffSourceCodeType {
     /// <p>The destination branch for a diff in an associated repository.</p>
-    #[serde(rename = "DestinationBranchName")]
+    #[serde(rename = "destinationBranchName")]
     pub destination_branch_name: String,
     /// <p>The source branch for a diff in an associated repository.</p>
-    #[serde(rename = "SourceBranchName")]
+    #[serde(rename = "sourceBranchName")]
     pub source_branch_name: String,
 }
 
@@ -73,11 +73,11 @@ pub struct BranchDiffSourceCodeType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CodeArtifacts {
     /// <p>The S3 object key for a build artifacts .zip file that contains .jar or .class files. This is required for a code review with security analysis. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html">Create code reviews with security analysis</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.</p>
-    #[serde(rename = "BuildArtifactsObjectKey")]
+    #[serde(rename = "buildArtifactsObjectKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub build_artifacts_object_key: Option<String>,
     /// <p>The S3 object key for a source code .zip file. This is required for all code reviews.</p>
-    #[serde(rename = "SourceCodeArtifactsObjectKey")]
+    #[serde(rename = "sourceCodeArtifactsObjectKey")]
     pub source_code_artifacts_object_key: String,
 }
 
@@ -86,7 +86,7 @@ pub struct CodeArtifacts {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CodeCommitRepository {
     /// <p>The name of the AWS CodeCommit repository. For more information, see <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a> in the <i>AWS CodeCommit API Reference</i>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -95,63 +95,63 @@ pub struct CodeCommitRepository {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CodeReview {
     /// <p>They types of analysis performed during a repository analysis or a pull request review. You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
-    #[serde(rename = "AnalysisTypes")]
+    #[serde(rename = "analysisTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_types: Option<Vec<String>>,
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> that contains the reviewed source code. You can retrieve associated repository ARNs by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p>
-    #[serde(rename = "AssociationArn")]
+    #[serde(rename = "associationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_review_arn: Option<String>,
     /// <p> The time, in milliseconds since the epoch, when the code review was created. </p>
-    #[serde(rename = "CreatedTimeStamp")]
+    #[serde(rename = "createdTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time_stamp: Option<f64>,
     /// <p> The time, in milliseconds since the epoch, when the code review was last updated. </p>
-    #[serde(rename = "LastUpdatedTimeStamp")]
+    #[serde(rename = "lastUpdatedTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time_stamp: Option<f64>,
     /// <p> The statistics from the code review. </p>
-    #[serde(rename = "Metrics")]
+    #[serde(rename = "metrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metrics: Option<Metrics>,
     /// <p> The name of the code review. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository. For an S3 repository, it can be the username or AWS account ID.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p> The type of repository that contains the reviewed code (for example, GitHub or Bitbucket). </p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p> The pull request ID for the code review. </p>
-    #[serde(rename = "PullRequestId")]
+    #[serde(rename = "pullRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pull_request_id: Option<String>,
     /// <p> The name of the repository. </p>
-    #[serde(rename = "RepositoryName")]
+    #[serde(rename = "repositoryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_name: Option<String>,
     /// <p> The type of the source code for the code review. </p>
-    #[serde(rename = "SourceCodeType")]
+    #[serde(rename = "sourceCodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_code_type: Option<SourceCodeType>,
     /// <p><p>The valid code review states are:</p> <ul> <li> <p> <code>Completed</code>: The code review is complete. </p> </li> <li> <p> <code>Pending</code>: The code review started and has not completed or failed. </p> </li> <li> <p> <code>Failed</code>: The code review failed. </p> </li> <li> <p> <code>Deleting</code>: The code review is being deleted. </p> </li> </ul></p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p> The reason for the state of the code review. </p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
     /// <p> The type of code review. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -161,50 +161,50 @@ pub struct CodeReview {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CodeReviewSummary {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_review_arn: Option<String>,
     /// <p> The time, in milliseconds since the epoch, when the code review was created. </p>
-    #[serde(rename = "CreatedTimeStamp")]
+    #[serde(rename = "createdTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time_stamp: Option<f64>,
     /// <p> The time, in milliseconds since the epoch, when the code review was last updated. </p>
-    #[serde(rename = "LastUpdatedTimeStamp")]
+    #[serde(rename = "lastUpdatedTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time_stamp: Option<f64>,
     /// <p> The statistics from the code review. </p>
-    #[serde(rename = "MetricsSummary")]
+    #[serde(rename = "metricsSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metrics_summary: Option<MetricsSummary>,
     /// <p> The name of the code review. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository. For an S3 repository, it can be the username or AWS account ID.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p> The provider type of the repository association. </p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p> The pull request ID for the code review. </p>
-    #[serde(rename = "PullRequestId")]
+    #[serde(rename = "pullRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pull_request_id: Option<String>,
     /// <p> The name of the repository. </p>
-    #[serde(rename = "RepositoryName")]
+    #[serde(rename = "repositoryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_name: Option<String>,
-    #[serde(rename = "SourceCodeType")]
+    #[serde(rename = "sourceCodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_code_type: Option<SourceCodeType>,
     /// <p><p> The state of the code review. </p> <p>The valid code review states are:</p> <ul> <li> <p> <code>Completed</code>: The code review is complete. </p> </li> <li> <p> <code>Pending</code>: The code review started and has not completed or failed. </p> </li> <li> <p> <code>Failed</code>: The code review failed. </p> </li> <li> <p> <code>Deleting</code>: The code review is being deleted. </p> </li> </ul></p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p> The type of the code review. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -214,11 +214,11 @@ pub struct CodeReviewSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CodeReviewType {
     /// <p>They types of analysis performed during a repository analysis or a pull request review. You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
-    #[serde(rename = "AnalysisTypes")]
+    #[serde(rename = "analysisTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analysis_types: Option<Vec<String>>,
     /// <p> A code review that analyzes all code under a specified branch in an associated repository. The associated repository is specified using its ARN in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview"> <code>CreateCodeReview</code> </a>. </p>
-    #[serde(rename = "RepositoryAnalysis")]
+    #[serde(rename = "repositoryAnalysis")]
     pub repository_analysis: RepositoryAnalysis,
 }
 
@@ -226,15 +226,15 @@ pub struct CodeReviewType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CommitDiffSourceCodeType {
     /// <p> The SHA of the destination commit used to generate a commit diff. This field is required for a pull request code review. </p>
-    #[serde(rename = "DestinationCommit")]
+    #[serde(rename = "destinationCommit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_commit: Option<String>,
     /// <p>The SHA of the merge base of a commit.</p>
-    #[serde(rename = "MergeBaseCommit")]
+    #[serde(rename = "mergeBaseCommit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub merge_base_commit: Option<String>,
     /// <p> The SHA of the source commit used to generate a commit diff. This field is required for a pull request code review. </p>
-    #[serde(rename = "SourceCommit")]
+    #[serde(rename = "sourceCommit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_commit: Option<String>,
 }
@@ -243,24 +243,24 @@ pub struct CommitDiffSourceCodeType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCodeReviewRequest {
     /// <p> Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate code reviews if there are failures and retries. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p> The name of the code review. The name of each code review in your AWS account must be unique. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p> <p> A code review can only be created on an associated repository. This is the ARN of the associated repository. </p>
-    #[serde(rename = "RepositoryAssociationArn")]
+    #[serde(rename = "repositoryAssociationArn")]
     pub repository_association_arn: String,
     /// <p> The type of code review to create. This is specified using a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html"> <code>CodeReviewType</code> </a> object. You can create a code review only of type <code>RepositoryAnalysis</code>. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: CodeReviewType,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCodeReviewResponse {
-    #[serde(rename = "CodeReview")]
+    #[serde(rename = "codeReview")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_review: Option<CodeReview>,
 }
@@ -269,7 +269,7 @@ pub struct CreateCodeReviewResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCodeReviewRequest {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     pub code_review_arn: String,
 }
 
@@ -277,7 +277,7 @@ pub struct DescribeCodeReviewRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCodeReviewResponse {
     /// <p> Information about the code review. </p>
-    #[serde(rename = "CodeReview")]
+    #[serde(rename = "codeReview")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_review: Option<CodeReview>,
 }
@@ -286,13 +286,13 @@ pub struct DescribeCodeReviewResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRecommendationFeedbackRequest {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     pub code_review_arn: String,
     /// <p> The recommendation ID that can be used to track the provided recommendations and then to collect the feedback. </p>
-    #[serde(rename = "RecommendationId")]
+    #[serde(rename = "recommendationId")]
     pub recommendation_id: String,
     /// <p> Optional parameter to describe the feedback for a given user. If this is not supplied, it defaults to the user making the request. </p> <p> The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying"> Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>. </p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -301,7 +301,7 @@ pub struct DescribeRecommendationFeedbackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRecommendationFeedbackResponse {
     /// <p> The recommendation feedback given by the user. </p>
-    #[serde(rename = "RecommendationFeedback")]
+    #[serde(rename = "recommendationFeedback")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_feedback: Option<RecommendationFeedback>,
 }
@@ -310,7 +310,7 @@ pub struct DescribeRecommendationFeedbackResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRepositoryAssociationRequest {
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p>
-    #[serde(rename = "AssociationArn")]
+    #[serde(rename = "associationArn")]
     pub association_arn: String,
 }
 
@@ -318,11 +318,11 @@ pub struct DescribeRepositoryAssociationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRepositoryAssociationResponse {
     /// <p>Information about the repository association.</p>
-    #[serde(rename = "RepositoryAssociation")]
+    #[serde(rename = "repositoryAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_association: Option<RepositoryAssociation>,
     /// <p><p> An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts: </p> <ul> <li> <p>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</p> </li> <li> <p>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -331,7 +331,7 @@ pub struct DescribeRepositoryAssociationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateRepositoryRequest {
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p>
-    #[serde(rename = "AssociationArn")]
+    #[serde(rename = "associationArn")]
     pub association_arn: String,
 }
 
@@ -339,11 +339,11 @@ pub struct DisassociateRepositoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateRepositoryResponse {
     /// <p>Information about the disassociated repository.</p>
-    #[serde(rename = "RepositoryAssociation")]
+    #[serde(rename = "repositoryAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_association: Option<RepositoryAssociation>,
     /// <p><p> An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts: </p> <ul> <li> <p>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</p> </li> <li> <p>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -352,11 +352,11 @@ pub struct DisassociateRepositoryResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EventInfo {
     /// <p>The name of the event. The possible names are <code>pull_request</code>, <code>workflow_dispatch</code>, <code>schedule</code>, and <code>push</code> </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The state of an event. The state might be open, closed, or another state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -365,11 +365,11 @@ pub struct EventInfo {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KMSKeyDetails {
     /// <p>The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
-    #[serde(rename = "EncryptionOption")]
+    #[serde(rename = "encryptionOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_option: Option<String>,
     /// <p>The ID of the AWS KMS key that is associated with a respository association.</p>
-    #[serde(rename = "KMSKeyId")]
+    #[serde(rename = "kMSKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
 }
@@ -378,27 +378,27 @@ pub struct KMSKeyDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCodeReviewsRequest {
     /// <p> The maximum number of results that are returned per call. The default is 100. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p> If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> List of provider types for filtering that needs to be applied before displaying the result. For example, <code>providerTypes=[GitHub]</code> lists code reviews from GitHub. </p>
-    #[serde(rename = "ProviderTypes")]
+    #[serde(rename = "providerTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_types: Option<Vec<String>>,
     /// <p> List of repository names for filtering that needs to be applied before displaying the result. </p>
-    #[serde(rename = "RepositoryNames")]
+    #[serde(rename = "repositoryNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_names: Option<Vec<String>>,
     /// <p><p> List of states for filtering that needs to be applied before displaying the result. For example, <code>states=[Pending]</code> lists code reviews in the Pending state. </p> <p>The valid code review states are:</p> <ul> <li> <p> <code>Completed</code>: The code review is complete. </p> </li> <li> <p> <code>Pending</code>: The code review started and has not completed or failed. </p> </li> <li> <p> <code>Failed</code>: The code review failed. </p> </li> <li> <p> <code>Deleting</code>: The code review is being deleted. </p> </li> </ul></p>
-    #[serde(rename = "States")]
+    #[serde(rename = "states")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states: Option<Vec<String>>,
     /// <p> The type of code reviews to list in the response. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -406,11 +406,11 @@ pub struct ListCodeReviewsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCodeReviewsResponse {
     /// <p> A list of code reviews that meet the criteria of the request. </p>
-    #[serde(rename = "CodeReviewSummaries")]
+    #[serde(rename = "codeReviewSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_review_summaries: Option<Vec<CodeReviewSummary>>,
     /// <p> Pagination token. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -419,22 +419,22 @@ pub struct ListCodeReviewsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRecommendationFeedbackRequest {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     pub code_review_arn: String,
     /// <p> The maximum number of results that are returned per call. The default is 100. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p> If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> Used to query the recommendation feedback for a given recommendation. </p>
-    #[serde(rename = "RecommendationIds")]
+    #[serde(rename = "recommendationIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_ids: Option<Vec<String>>,
     /// <p> An AWS user's account ID or Amazon Resource Name (ARN). Use this ID to query the recommendation feedback for a code review from that user. </p> <p> The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying"> Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>. </p>
-    #[serde(rename = "UserIds")]
+    #[serde(rename = "userIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_ids: Option<Vec<String>>,
 }
@@ -443,11 +443,11 @@ pub struct ListRecommendationFeedbackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRecommendationFeedbackResponse {
     /// <p> If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> Recommendation feedback summaries corresponding to the code review ARN. </p>
-    #[serde(rename = "RecommendationFeedbackSummaries")]
+    #[serde(rename = "recommendationFeedbackSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_feedback_summaries: Option<Vec<RecommendationFeedbackSummary>>,
 }
@@ -456,14 +456,14 @@ pub struct ListRecommendationFeedbackResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRecommendationsRequest {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     pub code_review_arn: String,
     /// <p> The maximum number of results that are returned per call. The default is 100. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p> Pagination token. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -472,11 +472,11 @@ pub struct ListRecommendationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRecommendationsResponse {
     /// <p> Pagination token. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p> List of recommendations for the requested code review. </p>
-    #[serde(rename = "RecommendationSummaries")]
+    #[serde(rename = "recommendationSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_summaries: Option<Vec<RecommendationSummary>>,
 }
@@ -485,27 +485,27 @@ pub struct ListRecommendationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRepositoryAssociationsRequest {
     /// <p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code> in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns <code>maxResults</code> results in a single page with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListRepositoryAssociations</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, <code>ListRepositoryAssociations</code> returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>List of repository names to use as a filter.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p><p>The <code>nextToken</code> value returned from a previous paginated <code>ListRepositoryAssociations</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>Treat this token as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note></p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>List of owners to use as a filter. For AWS CodeCommit, it is the name of the CodeCommit account that was used to associate the repository. For other repository source providers, such as Bitbucket and GitHub Enterprise Server, this is name of the account that was used to associate the repository. </p>
-    #[serde(rename = "Owners")]
+    #[serde(rename = "owners")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owners: Option<Vec<String>>,
     /// <p>List of provider types to use as a filter.</p>
-    #[serde(rename = "ProviderTypes")]
+    #[serde(rename = "providerTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_types: Option<Vec<String>>,
     /// <p><p>List of repository association states to use as a filter.</p> <p>The valid repository association states are:</p> <ul> <li> <p> <b>Associated</b>: The repository association is complete. </p> </li> <li> <p> <b>Associating</b>: CodeGuru Reviewer is: </p> <ul> <li> <p> Setting up pull request notifications. This is required for pull requests to trigger a CodeGuru Reviewer review. </p> <note> <p> If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, reviews of code in your repository cannot be triggered. </p> </note> </li> <li> <p> Setting up source code access. This is required for CodeGuru Reviewer to securely clone code in your repository. </p> </li> </ul> </li> <li> <p> <b>Failed</b>: The repository failed to associate or disassociate. </p> </li> <li> <p> <b>Disassociating</b>: CodeGuru Reviewer is removing the repository&#39;s pull request notifications and source code access. </p> </li> <li> <p> <b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository. You can create a new association with this repository if you want to review source code in it later. You can control access to code reviews created in an associated repository with tags after it has been disassociated. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html">Using tags to control access to associated repositories</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>. </p> </li> </ul></p>
-    #[serde(rename = "States")]
+    #[serde(rename = "states")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states: Option<Vec<String>>,
 }
@@ -514,11 +514,11 @@ pub struct ListRepositoryAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRepositoryAssociationsResponse {
     /// <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code> request. When the results of a <code>ListRecommendations</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of repository associations that meet the criteria of the request.</p>
-    #[serde(rename = "RepositoryAssociationSummaries")]
+    #[serde(rename = "repositoryAssociationSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_association_summaries: Option<Vec<RepositoryAssociationSummary>>,
 }
@@ -535,7 +535,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p><p> An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts: </p> <ul> <li> <p>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</p> </li> <li> <p>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -545,11 +545,11 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Metrics {
     /// <p> Total number of recommendations found in the code review. </p>
-    #[serde(rename = "FindingsCount")]
+    #[serde(rename = "findingsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub findings_count: Option<i64>,
     /// <p> Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions, this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files, <code>MeteredLinesOfCodeCount</code> includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of code for a total of 2,725 lines of code. </p>
-    #[serde(rename = "MeteredLinesOfCodeCount")]
+    #[serde(rename = "meteredLinesOfCodeCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metered_lines_of_code_count: Option<i64>,
 }
@@ -559,11 +559,11 @@ pub struct Metrics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MetricsSummary {
     /// <p> Total number of recommendations found in the code review. </p>
-    #[serde(rename = "FindingsCount")]
+    #[serde(rename = "findingsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub findings_count: Option<i64>,
     /// <p> Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions, this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files, <code>MeteredLinesOfCodeCount</code> includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of code for a total of 2,725 lines of code. </p>
-    #[serde(rename = "MeteredLinesOfCodeCount")]
+    #[serde(rename = "meteredLinesOfCodeCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metered_lines_of_code_count: Option<i64>,
 }
@@ -572,13 +572,13 @@ pub struct MetricsSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutRecommendationFeedbackRequest {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     pub code_review_arn: String,
     /// <p> List for storing reactions. Reactions are utf-8 text code for emojis. If you send an empty list it clears all your feedback. </p>
-    #[serde(rename = "Reactions")]
+    #[serde(rename = "reactions")]
     pub reactions: Vec<String>,
     /// <p> The recommendation ID that can be used to track the provided recommendations and then to collect the feedback. </p>
-    #[serde(rename = "RecommendationId")]
+    #[serde(rename = "recommendationId")]
     pub recommendation_id: String,
 }
 
@@ -591,27 +591,27 @@ pub struct PutRecommendationFeedbackResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecommendationFeedback {
     /// <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"> <code>CodeReview</code> </a> object. </p>
-    #[serde(rename = "CodeReviewArn")]
+    #[serde(rename = "codeReviewArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_review_arn: Option<String>,
     /// <p> The time at which the feedback was created. </p>
-    #[serde(rename = "CreatedTimeStamp")]
+    #[serde(rename = "createdTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time_stamp: Option<f64>,
     /// <p> The time at which the feedback was last updated. </p>
-    #[serde(rename = "LastUpdatedTimeStamp")]
+    #[serde(rename = "lastUpdatedTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time_stamp: Option<f64>,
     /// <p> List for storing reactions. Reactions are utf-8 text code for emojis. You can send an empty list to clear off all your feedback. </p>
-    #[serde(rename = "Reactions")]
+    #[serde(rename = "reactions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reactions: Option<Vec<String>>,
     /// <p> The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback. </p>
-    #[serde(rename = "RecommendationId")]
+    #[serde(rename = "recommendationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_id: Option<String>,
     /// <p> The ID of the user that made the API call. </p> <p> The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying"> Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>. </p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -621,15 +621,15 @@ pub struct RecommendationFeedback {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecommendationFeedbackSummary {
     /// <p> List for storing reactions. Reactions are utf-8 text code for emojis. </p>
-    #[serde(rename = "Reactions")]
+    #[serde(rename = "reactions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reactions: Option<Vec<String>>,
     /// <p> The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback. </p>
-    #[serde(rename = "RecommendationId")]
+    #[serde(rename = "recommendationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_id: Option<String>,
     /// <p> The ID of the user that gave the feedback. </p> <p> The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying"> Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>. </p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -639,27 +639,27 @@ pub struct RecommendationFeedbackSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecommendationSummary {
     /// <p> A description of the recommendation generated by CodeGuru Reviewer for the lines of code between the start line and the end line. </p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p> Last line where the recommendation is applicable in the source commit or source branch. For a single line comment the start line and end line values are the same. </p>
-    #[serde(rename = "EndLine")]
+    #[serde(rename = "endLine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_line: Option<i64>,
     /// <p>Name of the file on which a recommendation is provided.</p>
-    #[serde(rename = "FilePath")]
+    #[serde(rename = "filePath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_path: Option<String>,
     /// <p>The type of a recommendation.</p>
-    #[serde(rename = "RecommendationCategory")]
+    #[serde(rename = "recommendationCategory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_category: Option<String>,
     /// <p> The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback. </p>
-    #[serde(rename = "RecommendationId")]
+    #[serde(rename = "recommendationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recommendation_id: Option<String>,
     /// <p> Start line from where the recommendation is applicable in the source commit or source branch. </p>
-    #[serde(rename = "StartLine")]
+    #[serde(rename = "startLine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_line: Option<i64>,
 }
@@ -669,18 +669,18 @@ pub struct RecommendationSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Repository {
     /// <p> Information about a Bitbucket repository. </p>
-    #[serde(rename = "Bitbucket")]
+    #[serde(rename = "bitbucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bitbucket: Option<ThirdPartySourceRepository>,
     /// <p>Information about an AWS CodeCommit repository.</p>
-    #[serde(rename = "CodeCommit")]
+    #[serde(rename = "codeCommit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_commit: Option<CodeCommitRepository>,
     /// <p> Information about a GitHub Enterprise Server repository. </p>
-    #[serde(rename = "GitHubEnterpriseServer")]
+    #[serde(rename = "gitHubEnterpriseServer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub git_hub_enterprise_server: Option<ThirdPartySourceRepository>,
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket: Option<S3Repository>,
 }
@@ -690,10 +690,10 @@ pub struct Repository {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RepositoryAnalysis {
     /// <p> A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType"> <code>SourceCodeType</code> </a> that specifies the tip of a branch in an associated repository. </p>
-    #[serde(rename = "RepositoryHead")]
+    #[serde(rename = "repositoryHead")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_head: Option<RepositoryHeadSourceCodeType>,
-    #[serde(rename = "SourceCodeType")]
+    #[serde(rename = "sourceCodeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_code_type: Option<SourceCodeType>,
 }
@@ -703,50 +703,50 @@ pub struct RepositoryAnalysis {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RepositoryAssociation {
     /// <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
-    #[serde(rename = "AssociationArn")]
+    #[serde(rename = "associationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_arn: Option<String>,
     /// <p>The ID of the repository association.</p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_id: Option<String>,
     /// <p> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"> <code>Connection</code> </a> in the <i>AWS CodeStar Connections API Reference</i>. </p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The time, in milliseconds since the epoch, when the repository association was created.</p>
-    #[serde(rename = "CreatedTimeStamp")]
+    #[serde(rename = "createdTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time_stamp: Option<f64>,
     /// <p><p>A <code>KMSKeyDetails</code> object that contains:</p> <ul> <li> <p>The encryption option for this repository association. It is either owned by AWS Key Management Service (KMS) (<code>AWS<em>OWNED</em>CMK</code>) or customer managed (<code>CUSTOMER<em>MANAGED</em>CMK</code>).</p> </li> <li> <p>The ID of the AWS KMS key that is associated with this respository association.</p> </li> </ul></p>
-    #[serde(rename = "KMSKeyDetails")]
+    #[serde(rename = "kMSKeyDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_details: Option<KMSKeyDetails>,
     /// <p>The time, in milliseconds since the epoch, when the repository association was last updated.</p>
-    #[serde(rename = "LastUpdatedTimeStamp")]
+    #[serde(rename = "lastUpdatedTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time_stamp: Option<f64>,
     /// <p>The name of the repository.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository. For an S3 repository, it can be the username or AWS account ID.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The provider type of the repository association.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
-    #[serde(rename = "S3RepositoryDetails")]
+    #[serde(rename = "s3RepositoryDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_repository_details: Option<S3RepositoryDetails>,
     /// <p><p>The state of the repository association.</p> <p>The valid repository association states are:</p> <ul> <li> <p> <b>Associated</b>: The repository association is complete. </p> </li> <li> <p> <b>Associating</b>: CodeGuru Reviewer is: </p> <ul> <li> <p> Setting up pull request notifications. This is required for pull requests to trigger a CodeGuru Reviewer review. </p> <note> <p> If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, reviews of code in your repository cannot be triggered. </p> </note> </li> <li> <p> Setting up source code access. This is required for CodeGuru Reviewer to securely clone code in your repository. </p> </li> </ul> </li> <li> <p> <b>Failed</b>: The repository failed to associate or disassociate. </p> </li> <li> <p> <b>Disassociating</b>: CodeGuru Reviewer is removing the repository&#39;s pull request notifications and source code access. </p> </li> <li> <p> <b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository. You can create a new association with this repository if you want to review source code in it later. You can control access to code reviews created in an associated repository with tags after it has been disassociated. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html">Using tags to control access to associated repositories</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>. </p> </li> </ul></p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A description of why the repository association is in the current state.</p>
-    #[serde(rename = "StateReason")]
+    #[serde(rename = "stateReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_reason: Option<String>,
 }
@@ -756,35 +756,35 @@ pub struct RepositoryAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RepositoryAssociationSummary {
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p>
-    #[serde(rename = "AssociationArn")]
+    #[serde(rename = "associationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_arn: Option<String>,
     /// <p> The repository association ID. </p>
-    #[serde(rename = "AssociationId")]
+    #[serde(rename = "associationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_id: Option<String>,
     /// <p> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"> <code>Connection</code> </a> in the <i>AWS CodeStar Connections API Reference</i>. </p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_arn: Option<String>,
     /// <p>The time, in milliseconds since the epoch, since the repository association was last updated. </p>
-    #[serde(rename = "LastUpdatedTimeStamp")]
+    #[serde(rename = "lastUpdatedTimeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time_stamp: Option<f64>,
     /// <p>The name of the repository association.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository. For an S3 repository, it can be the username or AWS account ID.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The provider type of the repository association.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p><p>The state of the repository association.</p> <p>The valid repository association states are:</p> <ul> <li> <p> <b>Associated</b>: The repository association is complete. </p> </li> <li> <p> <b>Associating</b>: CodeGuru Reviewer is: </p> <ul> <li> <p> Setting up pull request notifications. This is required for pull requests to trigger a CodeGuru Reviewer review. </p> <note> <p> If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, reviews of code in your repository cannot be triggered. </p> </note> </li> <li> <p> Setting up source code access. This is required for CodeGuru Reviewer to securely clone code in your repository. </p> </li> </ul> </li> <li> <p> <b>Failed</b>: The repository failed to associate or disassociate. </p> </li> <li> <p> <b>Disassociating</b>: CodeGuru Reviewer is removing the repository&#39;s pull request notifications and source code access. </p> </li> <li> <p> <b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository. You can create a new association with this repository if you want to review source code in it later. You can control access to code reviews created in an associated repository with tags after it has been disassociated. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html">Using tags to control access to associated repositories</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>. </p> </li> </ul></p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -793,7 +793,7 @@ pub struct RepositoryAssociationSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RepositoryHeadSourceCodeType {
     /// <p> The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code> specifies the tip of this branch. </p>
-    #[serde(rename = "BranchName")]
+    #[serde(rename = "branchName")]
     pub branch_name: String,
 }
 
@@ -801,19 +801,19 @@ pub struct RepositoryHeadSourceCodeType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RequestMetadata {
     /// <p>Information about the event associated with a code review.</p>
-    #[serde(rename = "EventInfo")]
+    #[serde(rename = "eventInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_info: Option<EventInfo>,
     /// <p>The ID of the request. This is required for a pull request code review.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>An identifier, such as a name or account ID, that is associated with the requester. The <code>Requester</code> is used to capture the <code>author/actor</code> name of the event request.</p>
-    #[serde(rename = "Requester")]
+    #[serde(rename = "requester")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requester: Option<String>,
     /// <p>The name of the repository vendor used to upload code to an S3 bucket for a CI/CD code review. For example, if code and artifacts are uploaded to an S3 bucket for a CI/CD code review by GitHub scripts from a GitHub repository, then the repository association's <code>ProviderType</code> is <code>S3Bucket</code> and the CI/CD repository vendor name is GitHub. For more information, see the definition for <code>ProviderType</code> in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>. </p>
-    #[serde(rename = "VendorName")]
+    #[serde(rename = "vendorName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor_name: Option<String>,
 }
@@ -822,11 +822,11 @@ pub struct RequestMetadata {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3BucketRepository {
     /// <p> An <code>S3RepositoryDetails</code> object that specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the S3 object keys for a source code .zip file and for a build artifacts .zip file. </p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<S3RepositoryDetails>,
     /// <p> The name of the repository when the <code>ProviderType</code> is <code>S3Bucket</code>. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -835,10 +835,10 @@ pub struct S3BucketRepository {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct S3Repository {
     /// <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with <code>codeguru-reviewer-</code>. </p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     pub bucket_name: String,
     /// <p> The name of the repository in the S3 bucket. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -846,11 +846,11 @@ pub struct S3Repository {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3RepositoryDetails {
     /// <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with <code>codeguru-reviewer-</code>. </p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_name: Option<String>,
     /// <p> A <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the S3 object key for a source code .zip file and for a build artifacts .zip file that contains .jar or .class files. </p>
-    #[serde(rename = "CodeArtifacts")]
+    #[serde(rename = "codeArtifacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_artifacts: Option<CodeArtifacts>,
 }
@@ -859,22 +859,22 @@ pub struct S3RepositoryDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SourceCodeType {
     /// <p> A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType"> <code>SourceCodeType</code> </a> that specifies a source branch name and a destination branch name in an associated repository. </p>
-    #[serde(rename = "BranchDiff")]
+    #[serde(rename = "branchDiff")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub branch_diff: Option<BranchDiffSourceCodeType>,
     /// <p> A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType"> <code>SourceCodeType</code> </a> that specifies a commit diff created by a pull request on an associated repository. </p>
-    #[serde(rename = "CommitDiff")]
+    #[serde(rename = "commitDiff")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commit_diff: Option<CommitDiffSourceCodeType>,
-    #[serde(rename = "RepositoryHead")]
+    #[serde(rename = "repositoryHead")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository_head: Option<RepositoryHeadSourceCodeType>,
     /// <p>Metadata that is associated with a code review. This applies to any type of code review supported by CodeGuru Reviewer. The <code>RequestMetadaa</code> field captures any event metadata. For example, it might capture metadata associated with an event trigger, such as a push or a pull request. </p>
-    #[serde(rename = "RequestMetadata")]
+    #[serde(rename = "requestMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_metadata: Option<RequestMetadata>,
     /// <p> Information about an associated repository in an S3 bucket that includes its name and an <code>S3RepositoryDetails</code> object. The <code>S3RepositoryDetails</code> object includes the name of an S3 bucket, an S3 key for a source code .zip file, and an S3 key for a build artifacts .zip file. <code>S3BucketRepository</code> is required in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType"> <code>SourceCodeType</code> </a> for <code>S3BucketRepository</code> based code reviews. </p>
-    #[serde(rename = "S3BucketRepository")]
+    #[serde(rename = "s3BucketRepository")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_repository: Option<S3BucketRepository>,
 }
@@ -883,7 +883,7 @@ pub struct SourceCodeType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p><p> An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts: </p> <ul> <li> <p>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</p> </li> <li> <p>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p>
     #[serde(rename = "resourceArn")]
@@ -899,13 +899,13 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ThirdPartySourceRepository {
     /// <p> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"> <code>Connection</code> </a> in the <i>AWS CodeStar Connections API Reference</i>. </p>
-    #[serde(rename = "ConnectionArn")]
+    #[serde(rename = "connectionArn")]
     pub connection_arn: String,
     /// <p> The name of the third party source repository. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository, this is the username for the account that owns the repository. For an S3 repository, this can be the username or AWS account ID. </p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     pub owner: String,
 }
 
@@ -913,7 +913,7 @@ pub struct ThirdPartySourceRepository {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>A list of the keys for each tag you want to remove from an associated repository.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
     /// <p> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"> <code>RepositoryAssociation</code> </a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"> <code>ListRepositoryAssociations</code> </a>. </p>
     #[serde(rename = "resourceArn")]

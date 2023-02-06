@@ -55,7 +55,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelRotateSecretRequest {
     /// <p><p>Specifies the secret to cancel a rotation request. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -63,15 +63,15 @@ pub struct CancelRotateSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CancelRotateSecretResponse {
     /// <p>The ARN of the secret for which rotation was canceled.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret for which rotation was canceled.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the <code>VersionStage</code> value <code>AWSPENDING</code> to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -80,30 +80,30 @@ pub struct CancelRotateSecretResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSecretRequest {
     /// <p>(Optional) Add a list of regions to replicate secrets. Secrets Manager replicates the KMSKeyID objects to the list of regions specified in the parameter.</p>
-    #[serde(rename = "AddReplicaRegions")]
+    #[serde(rename = "addReplicaRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_replica_regions: Option<Vec<ReplicaRegionType>>,
     /// <p>(Optional) If you include <code>SecretString</code> or <code>SecretBinary</code>, then an initial version is created as part of the secret, and this parameter specifies a unique identifier for the new version. </p> <note> <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> yourself for the new version and include the value in the request.</p> </note> <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p> <ul> <li> <p>If the <code>ClientRequestToken</code> value isn't already associated with a version of the secret then a new version of the secret is created. </p> </li> <li> <p>If a version with this value already exists and the version <code>SecretString</code> and <code>SecretBinary</code> values are the same as those in the request, then the request is ignored.</p> </li> <li> <p>If a version with this value already exists and that version's <code>SecretString</code> and <code>SecretBinary</code> values are different from those in the request, then the request fails because you cannot modify an existing version. Instead, use <a>PutSecretValue</a> to create a new version.</p> </li> </ul> <p>This value becomes the <code>VersionId</code> of the new version.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>(Optional) Specifies a user-provided description of the secret.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>(Optional) If set, the replication overwrites a secret with the same name in the destination region.</p>
-    #[serde(rename = "ForceOverwriteReplicaSecret")]
+    #[serde(rename = "forceOverwriteReplicaSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_overwrite_replica_secret: Option<bool>,
     /// <p><p>(Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) to be used to encrypt the <code>SecretString</code> or <code>SecretBinary</code> values in the versions stored in this secret.</p> <p>You can specify any of the supported ways to identify a AWS KMS key ID. If you need to reference a CMK in a different account, you can use only the key ARN or the alias ARN.</p> <p>If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default CMK (the one named <code>aws/secretsmanager</code>). If a AWS KMS CMK with that name doesn&#39;t yet exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version&#39;s <code>SecretString</code> or <code>SecretBinary</code> fields.</p> <important> <p>You can use the account default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If the secret resides in a different account, then you must create a custom CMK and specify the ARN in this field. </p> </important></p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p><p>Specifies the friendly name of the new secret.</p> <p>The secret name must be ASCII letters, digits, or the following characters : /_+=.@-</p> <note> <p>Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters at the end of the ARN.</p> </note></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>(Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter.</p> <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not both. They cannot both be empty.</p> <p>This parameter is not available using the Secrets Manager console. It can be accessed only by using the AWS CLI or one of the AWS SDKs.</p>
-    #[serde(rename = "SecretBinary")]
+    #[serde(rename = "secretBinary")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -112,11 +112,11 @@ pub struct CreateSecretRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_binary: Option<bytes::Bytes>,
     /// <p>(Optional) Specifies text data that you want to encrypt and store in this new version of the secret.</p> <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not both. They cannot both be empty.</p> <p>If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the <code>SecretString</code> parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.</p> <p>For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</p> <p> <code>{"username":"bob","password":"abc123xyz456"}</code> </p> <p>If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. </p>
-    #[serde(rename = "SecretString")]
+    #[serde(rename = "secretString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_string: Option<String>,
     /// <p><p>(Optional) Specifies a list of user-defined tags that are attached to the secret. Each tag is a &quot;Key&quot; and &quot;Value&quot; pair of strings. This operation only appends tags to the existing list of tags. To remove tags, you must use <a>UntagResource</a>.</p> <important> <ul> <li> <p>Secrets Manager tag key names are case sensitive. A tag with the key &quot;ABC&quot; is a different tag from one with key &quot;abc&quot;.</p> </li> <li> <p>If you check tags in IAM policy <code>Condition</code> elements as part of your security strategy, then adding or removing a tag can change permissions. If the successful completion of this operation would result in you losing your permissions for this secret, then this operation is blocked and returns an <code>Access Denied</code> error.</p> </li> </ul> </important> <p>This parameter requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</p> <p> <code>[{&quot;Key&quot;:&quot;CostCenter&quot;,&quot;Value&quot;:&quot;12345&quot;},{&quot;Key&quot;:&quot;environment&quot;,&quot;Value&quot;:&quot;production&quot;}]</code> </p> <p>If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. </p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per secret—50</p> </li> <li> <p>Maximum key length—127 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length—255 Unicode characters in UTF-8</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use the <code>aws:</code> prefix in your tag names or values because AWS reserves it for AWS use. You can&#39;t edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.</p> </li> <li> <p>If you use your tagging schema across multiple services and resources, remember other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -125,19 +125,19 @@ pub struct CreateSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSecretResponse {
     /// <p><p>The Amazon Resource Name (ARN) of the secret that you just created.</p> <note> <p>Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret <i>don&#39;t</i> automatically get access to the new secret because the ARNs are different.</p> </note></p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret that you just created.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Describes a list of replication status objects as <code>InProgress</code>, <code>Failed</code> or <code>InSync</code>.</p>
-    #[serde(rename = "ReplicationStatus")]
+    #[serde(rename = "replicationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replication_status: Option<Vec<ReplicationStatusType>>,
     /// <p>The unique identifier associated with the version of the secret you just created.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -146,7 +146,7 @@ pub struct CreateSecretResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourcePolicyRequest {
     /// <p><p>Specifies the secret that you want to delete the attached resource-based policy for. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -154,11 +154,11 @@ pub struct DeleteResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteResourcePolicyResponse {
     /// <p>The ARN of the secret that the resource-based policy was deleted for.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret that the resource-based policy was deleted for.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -167,15 +167,15 @@ pub struct DeleteResourcePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSecretRequest {
     /// <p><p>(Optional) Specifies that the secret is to be deleted without any recovery window. You can&#39;t use both this parameter and the <code>RecoveryWindowInDays</code> parameter in the same API call.</p> <p>An asynchronous background process performs the actual deletion, so there can be a short delay before the operation completes. If you write code to delete and then immediately recreate a secret with the same name, ensure that your code includes appropriate back off and retry logic.</p> <important> <p>Use this parameter with caution. This parameter causes the operation to skip the normal waiting period before the permanent deletion that AWS would normally impose with the <code>RecoveryWindowInDays</code> parameter. If you delete a secret with the <code>ForceDeleteWithouRecovery</code> parameter, then you have no opportunity to recover the secret. You lose the secret permanently.</p> </important> <important> <p>If you use this parameter and include a previously deleted or nonexistent secret, the operation does not return the error <code>ResourceNotFoundException</code> in order to correctly handle retries.</p> </important></p>
-    #[serde(rename = "ForceDeleteWithoutRecovery")]
+    #[serde(rename = "forceDeleteWithoutRecovery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_delete_without_recovery: Option<bool>,
     /// <p>(Optional) Specifies the number of days that Secrets Manager waits before Secrets Manager can delete the secret. You can't use both this parameter and the <code>ForceDeleteWithoutRecovery</code> parameter in the same API call.</p> <p>This value can range from 7 to 30 days with a default value of 30.</p>
-    #[serde(rename = "RecoveryWindowInDays")]
+    #[serde(rename = "recoveryWindowInDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recovery_window_in_days: Option<i64>,
     /// <p><p>Specifies the secret to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -183,15 +183,15 @@ pub struct DeleteSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSecretResponse {
     /// <p>The ARN of the secret that is now scheduled for deletion.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time after which this secret can be deleted by Secrets Manager and can no longer be restored. This value is the date and time of the delete request plus the number of days specified in <code>RecoveryWindowInDays</code>.</p>
-    #[serde(rename = "DeletionDate")]
+    #[serde(rename = "deletionDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_date: Option<f64>,
     /// <p>The friendly name of the secret currently scheduled for deletion.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -200,7 +200,7 @@ pub struct DeleteSecretResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSecretRequest {
     /// <p><p>The identifier of the secret whose details you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -208,71 +208,71 @@ pub struct DescribeSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSecretResponse {
     /// <p>The ARN of the secret.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date you created the secret.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>This value exists if the secret is scheduled for deletion. Some time after the specified date and time, Secrets Manager deletes the secret and all of its versions.</p> <p>If a secret is scheduled for deletion, then its details, including the encrypted secret information, is not accessible. To cancel a scheduled deletion and restore access, use <a>RestoreSecret</a>.</p>
-    #[serde(rename = "DeletedDate")]
+    #[serde(rename = "deletedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deleted_date: Option<f64>,
     /// <p>The user-provided description of the secret.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the <code>SecretString</code> or <code>SecretBinary</code> fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default AWS KMS CMK (the one named <code>awssecretsmanager</code>) for this account.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.</p>
-    #[serde(rename = "LastAccessedDate")]
+    #[serde(rename = "lastAccessedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_accessed_date: Option<f64>,
     /// <p>The last date and time that this secret was modified in any way.</p>
-    #[serde(rename = "LastChangedDate")]
+    #[serde(rename = "lastChangedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_changed_date: Option<f64>,
     /// <p>The last date and time that the rotation process for this secret was invoked.</p> <p>The most recent date and time that the Secrets Manager rotation process successfully completed. If the secret doesn't rotate, Secrets Manager returns a null value.</p>
-    #[serde(rename = "LastRotatedDate")]
+    #[serde(rename = "lastRotatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_rotated_date: Option<f64>,
     /// <p>The user-provided friendly name of the secret.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Returns the name of the service that created this secret.</p>
-    #[serde(rename = "OwningService")]
+    #[serde(rename = "owningService")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owning_service: Option<String>,
     /// <p>Specifies the primary region for secret replication. </p>
-    #[serde(rename = "PrimaryRegion")]
+    #[serde(rename = "primaryRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_region: Option<String>,
     /// <p>Describes a list of replication status objects as <code>InProgress</code>, <code>Failed</code> or <code>InSync</code>.<code>P</code> </p>
-    #[serde(rename = "ReplicationStatus")]
+    #[serde(rename = "replicationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replication_status: Option<Vec<ReplicationStatusType>>,
     /// <p>Specifies whether automatic rotation is enabled for this secret.</p> <p>To enable rotation, use <a>RotateSecret</a> with <code>AutomaticallyRotateAfterDays</code> set to a value greater than 0. To disable rotation, use <a>CancelRotateSecret</a>.</p>
-    #[serde(rename = "RotationEnabled")]
+    #[serde(rename = "rotationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_enabled: Option<bool>,
     /// <p>The ARN of a Lambda function that's invoked by Secrets Manager to rotate the secret either automatically per the schedule or manually by a call to <code>RotateSecret</code>.</p>
-    #[serde(rename = "RotationLambdaARN")]
+    #[serde(rename = "rotationLambdaARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_lambda_arn: Option<String>,
     /// <p>A structure with the rotation configuration for this secret.</p>
-    #[serde(rename = "RotationRules")]
+    #[serde(rename = "rotationRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_rules: Option<RotationRulesType>,
     /// <p>The list of user-defined tags that are associated with the secret. To add tags to a secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p><p>A list of all of the currently assigned <code>VersionStage</code> staging labels and the <code>VersionId</code> that each is attached to. Staging labels are used to keep track of the different versions during the rotation process.</p> <note> <p>A version that does not have any staging labels attached is considered deprecated and subject to deletion. Such versions are not included in this list.</p> </note></p>
-    #[serde(rename = "VersionIdsToStages")]
+    #[serde(rename = "versionIdsToStages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_ids_to_stages: Option<::std::collections::HashMap<String, Vec<String>>>,
 }
@@ -282,11 +282,11 @@ pub struct DescribeSecretResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p>Filters your list of secrets by a specific key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>Filters your list of secrets by a specific value.</p> <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -295,35 +295,35 @@ pub struct Filter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRandomPasswordRequest {
     /// <p>A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.</p>
-    #[serde(rename = "ExcludeCharacters")]
+    #[serde(rename = "excludeCharacters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_characters: Option<String>,
     /// <p>Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.</p>
-    #[serde(rename = "ExcludeLowercase")]
+    #[serde(rename = "excludeLowercase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_lowercase: Option<bool>,
     /// <p>Specifies that the generated password should not include digits. The default if you do not include this switch parameter is that digits can be included.</p>
-    #[serde(rename = "ExcludeNumbers")]
+    #[serde(rename = "excludeNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_numbers: Option<bool>,
     /// <p>Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.</p> <p>The following are the punctuation characters that <i>can</i> be included in the generated password if you don't explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:</p> <p> <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code> </p>
-    #[serde(rename = "ExcludePunctuation")]
+    #[serde(rename = "excludePunctuation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_punctuation: Option<bool>,
     /// <p>Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.</p>
-    #[serde(rename = "ExcludeUppercase")]
+    #[serde(rename = "excludeUppercase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_uppercase: Option<bool>,
     /// <p>Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.</p>
-    #[serde(rename = "IncludeSpace")]
+    #[serde(rename = "includeSpace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_space: Option<bool>,
     /// <p>The desired length of the generated password. The default value if you do not include this parameter is 32 characters.</p>
-    #[serde(rename = "PasswordLength")]
+    #[serde(rename = "passwordLength")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password_length: Option<i64>,
     /// <p>A boolean value that specifies whether the generated password must include at least one of every allowed character type. The default value is <code>True</code> and the operation requires at least one of every character type.</p>
-    #[serde(rename = "RequireEachIncludedType")]
+    #[serde(rename = "requireEachIncludedType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_each_included_type: Option<bool>,
 }
@@ -332,7 +332,7 @@ pub struct GetRandomPasswordRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRandomPasswordResponse {
     /// <p>A string with the generated password.</p>
-    #[serde(rename = "RandomPassword")]
+    #[serde(rename = "randomPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub random_password: Option<String>,
 }
@@ -341,7 +341,7 @@ pub struct GetRandomPasswordResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourcePolicyRequest {
     /// <p><p>Specifies the secret that you want to retrieve the attached resource-based policy for. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -349,15 +349,15 @@ pub struct GetResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourcePolicyResponse {
     /// <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret that the resource-based policy was retrieved for.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication and Access Control for AWS Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.</p>
-    #[serde(rename = "ResourcePolicy")]
+    #[serde(rename = "resourcePolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_policy: Option<String>,
 }
@@ -366,14 +366,14 @@ pub struct GetResourcePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSecretValueRequest {
     /// <p><p>Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
     /// <p>Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify both this parameter and <code>VersionStage</code>, the two parameters must refer to the same secret version. If you don't specify either a <code>VersionStage</code> or <code>VersionId</code> then the default is to perform the operation on the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p> <p>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value with 32 hexadecimal digits.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
     /// <p>Specifies the secret version that you want to retrieve by the staging label attached to the version.</p> <p>Staging labels are used to keep track of different versions during the rotation process. If you specify both this parameter and <code>VersionId</code>, the two parameters must refer to the same secret version . If you don't specify either a <code>VersionStage</code> or <code>VersionId</code>, then the default is to perform the operation on the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
-    #[serde(rename = "VersionStage")]
+    #[serde(rename = "versionStage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_stage: Option<String>,
 }
@@ -382,19 +382,19 @@ pub struct GetSecretValueRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSecretValueResponse {
     /// <p>The ARN of the secret.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that this version of the secret was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The friendly name of the secret.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The decrypted part of the protected secret information that was originally provided as binary data in the form of a byte array. The response parameter represents the binary data as a <a href="https://tools.ietf.org/html/rfc4648#section-4">base64-encoded</a> string.</p> <p>This parameter is not used if the secret is created by the Secrets Manager console.</p> <p>If you store custom information in this field of the secret, then you must code your Lambda rotation function to parse and interpret whatever you store in the <code>SecretString</code> or <code>SecretBinary</code> fields.</p>
-    #[serde(rename = "SecretBinary")]
+    #[serde(rename = "secretBinary")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -403,15 +403,15 @@ pub struct GetSecretValueResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_binary: Option<bytes::Bytes>,
     /// <p>The decrypted part of the protected secret information that was originally provided as a string.</p> <p>If you create this secret by using the Secrets Manager console then only the <code>SecretString</code> parameter contains data. Secrets Manager stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.</p> <p>If you store custom information in the secret by using the <a>CreateSecret</a>, <a>UpdateSecret</a>, or <a>PutSecretValue</a> API operations instead of the Secrets Manager console, or by using the <b>Other secret type</b> in the console, then you must code your Lambda rotation function to parse and interpret those values.</p>
-    #[serde(rename = "SecretString")]
+    #[serde(rename = "secretString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_string: Option<String>,
     /// <p>The unique identifier of this version of the secret.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
     /// <p>A list of all of the staging labels currently attached to this version of the secret.</p>
-    #[serde(rename = "VersionStages")]
+    #[serde(rename = "versionStages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_stages: Option<Vec<String>>,
 }
@@ -420,19 +420,19 @@ pub struct GetSecretValueResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSecretVersionIdsRequest {
     /// <p>(Optional) Specifies that you want the results to include versions that do not have any staging labels attached to them. Such versions are considered deprecated and are subject to deletion by Secrets Manager as needed.</p>
-    #[serde(rename = "IncludeDeprecated")]
+    #[serde(rename = "includeDeprecated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_deprecated: Option<bool>,
     /// <p>(Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (isn't null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code> response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call <code>NextToken</code> response to indicate where the output should continue from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -440,19 +440,19 @@ pub struct ListSecretVersionIdsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSecretVersionIdsResponse {
     /// <p><p>The Amazon Resource Name (ARN) for the secret.</p> <note> <p>Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret <i>don&#39;t</i> automatically get access to the new secret because the ARNs are different.</p> </note></p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of the currently available versions of the specified secret.</p>
-    #[serde(rename = "Versions")]
+    #[serde(rename = "versions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub versions: Option<Vec<SecretVersionsListEntry>>,
 }
@@ -461,19 +461,19 @@ pub struct ListSecretVersionIdsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSecretsRequest {
     /// <p>Lists the secret request filters.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>(Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (isn't null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code> response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call <code>NextToken</code> response to indicate where the output should continue from.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Lists secrets in the requested order. </p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -482,11 +482,11 @@ pub struct ListSecretsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSecretsResponse {
     /// <p>If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of the secrets in the account.</p>
-    #[serde(rename = "SecretList")]
+    #[serde(rename = "secretList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_list: Option<Vec<SecretListEntry>>,
 }
@@ -495,14 +495,14 @@ pub struct ListSecretsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResourcePolicyRequest {
     /// <p>(Optional) If you set the parameter, <code>BlockPublicPolicy</code> to true, then you block resource-based policies that allow broad access to the secret.</p>
-    #[serde(rename = "BlockPublicPolicy")]
+    #[serde(rename = "blockPublicPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_public_policy: Option<bool>,
     /// <p>A JSON-formatted string constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</p>
-    #[serde(rename = "ResourcePolicy")]
+    #[serde(rename = "resourcePolicy")]
     pub resource_policy: String,
     /// <p><p>Specifies the secret that you want to attach the resource-based policy. You can specify either the ARN or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -510,11 +510,11 @@ pub struct PutResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutResourcePolicyResponse {
     /// <p>The ARN of the secret retrieved by the resource-based policy.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret retrieved by the resource-based policy.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -523,11 +523,11 @@ pub struct PutResourcePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutSecretValueRequest {
     /// <p>(Optional) Specifies a unique identifier for the new version of the secret. </p> <note> <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> yourself for new versions and include that value in the request. </p> </note> <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness within the specified secret. </p> <ul> <li> <p>If the <code>ClientRequestToken</code> value isn't already associated with a version of the secret then a new version of the secret is created. </p> </li> <li> <p>If a version with this value already exists and that version's <code>SecretString</code> or <code>SecretBinary</code> values are the same as those in the request then the request is ignored (the operation is idempotent). </p> </li> <li> <p>If a version with this value already exists and the version of the <code>SecretString</code> and <code>SecretBinary</code> values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values.</p> </li> </ul> <p>This value becomes the <code>VersionId</code> of the new version.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p><p>(Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p> <p>This parameter is not accessible if the secret using the Secrets Manager console.</p> <p/></p>
-    #[serde(rename = "SecretBinary")]
+    #[serde(rename = "secretBinary")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -536,14 +536,14 @@ pub struct PutSecretValueRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_binary: Option<bytes::Bytes>,
     /// <p><p>Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
     /// <p>(Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not both. They cannot both be empty.</p> <p>If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the <code>SecretString</code> parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.</p> <p>For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</p> <p> For example:</p> <p> <code>[{"username":"bob"},{"password":"abc123xyz456"}]</code> </p> <p>If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.</p>
-    #[serde(rename = "SecretString")]
+    #[serde(rename = "secretString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_string: Option<String>,
     /// <p>(Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.</p> <p>A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.</p> <p>If you do not specify a value for <code>VersionStages</code> then Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to this new version.</p>
-    #[serde(rename = "VersionStages")]
+    #[serde(rename = "versionStages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_stages: Option<Vec<String>>,
 }
@@ -552,19 +552,19 @@ pub struct PutSecretValueRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutSecretValueResponse {
     /// <p>The Amazon Resource Name (ARN) for the secret for which you just created a version.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret for which you just created or updated a version.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique identifier of the version of the secret you just created or updated.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
     /// <p>The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.</p>
-    #[serde(rename = "VersionStages")]
+    #[serde(rename = "versionStages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_stages: Option<Vec<String>>,
 }
@@ -573,10 +573,10 @@ pub struct PutSecretValueResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveRegionsFromReplicationRequest {
     /// <p>Remove replication from specific Regions.</p>
-    #[serde(rename = "RemoveReplicaRegions")]
+    #[serde(rename = "removeReplicaRegions")]
     pub remove_replica_regions: Vec<String>,
     /// <p>Remove a secret by <code>SecretId</code> from replica Regions.</p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -584,11 +584,11 @@ pub struct RemoveRegionsFromReplicationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveRegionsFromReplicationResponse {
     /// <p>The secret <code>ARN</code> removed from replication regions.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Describes the remaining replication status after you remove regions from the replication list.</p>
-    #[serde(rename = "ReplicationStatus")]
+    #[serde(rename = "replicationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replication_status: Option<Vec<ReplicationStatusType>>,
 }
@@ -598,11 +598,11 @@ pub struct RemoveRegionsFromReplicationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReplicaRegionType {
     /// <p>Can be an <code>ARN</code>, <code>Key ID</code>, or <code>Alias</code>. </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>Describes a single instance of Region objects.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
 }
@@ -611,14 +611,14 @@ pub struct ReplicaRegionType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ReplicateSecretToRegionsRequest {
     /// <p>Add Regions to replicate the secret.</p>
-    #[serde(rename = "AddReplicaRegions")]
+    #[serde(rename = "addReplicaRegions")]
     pub add_replica_regions: Vec<ReplicaRegionType>,
     /// <p>(Optional) If set, Secrets Manager replication overwrites a secret with the same name in the destination region.</p>
-    #[serde(rename = "ForceOverwriteReplicaSecret")]
+    #[serde(rename = "forceOverwriteReplicaSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_overwrite_replica_secret: Option<bool>,
     /// <p>Use the <code>Secret Id</code> to replicate a secret to regions.</p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -626,11 +626,11 @@ pub struct ReplicateSecretToRegionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReplicateSecretToRegionsResponse {
     /// <p>Replicate a secret based on the <code>ReplicaRegionType</code>&gt; consisting of a Region(required) and a KMSKeyId (optional) which can be the ARN, KeyID, or Alias. </p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Describes the secret replication status as <code>PENDING</code>, <code>SUCCESS</code> or <code>FAIL</code>.</p>
-    #[serde(rename = "ReplicationStatus")]
+    #[serde(rename = "replicationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replication_status: Option<Vec<ReplicationStatusType>>,
 }
@@ -640,23 +640,23 @@ pub struct ReplicateSecretToRegionsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReplicationStatusType {
     /// <p>Can be an <code>ARN</code>, <code>Key ID</code>, or <code>Alias</code>. </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The date that you last accessed the secret in the Region. </p>
-    #[serde(rename = "LastAccessedDate")]
+    #[serde(rename = "lastAccessedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_accessed_date: Option<f64>,
     /// <p>The Region where replication occurs.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The status can be <code>InProgress</code>, <code>Failed</code>, or <code>InSync</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Status message such as "<i>Secret with this name already exists in this region</i>".</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -665,7 +665,7 @@ pub struct ReplicationStatusType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RestoreSecretRequest {
     /// <p><p>Specifies the secret that you want to restore from a previously scheduled deletion. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -673,11 +673,11 @@ pub struct RestoreSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RestoreSecretResponse {
     /// <p>The ARN of the secret that was restored.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret that was restored.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -686,19 +686,19 @@ pub struct RestoreSecretResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RotateSecretRequest {
     /// <p>(Optional) Specifies a unique identifier for the new version of the secret that helps ensure idempotency. </p> <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> yourself for new versions and include that value in the request.</p> <p>You only need to specify your own value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness within the specified secret. </p> <p>Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the function's processing. This value becomes the <code>VersionId</code> of the new version.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>(Optional) Specifies the ARN of the Lambda function that can rotate the secret.</p>
-    #[serde(rename = "RotationLambdaARN")]
+    #[serde(rename = "rotationLambdaARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_lambda_arn: Option<String>,
     /// <p>A structure that defines the rotation configuration for this secret.</p>
-    #[serde(rename = "RotationRules")]
+    #[serde(rename = "rotationRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_rules: Option<RotationRulesType>,
     /// <p><p>Specifies the secret that you want to rotate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -706,15 +706,15 @@ pub struct RotateSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RotateSecretResponse {
     /// <p>The ARN of the secret.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the new version of the secret created by the rotation started by this request.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -723,7 +723,7 @@ pub struct RotateSecretResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RotationRulesType {
     /// <p>Specifies the number of days between automatic scheduled rotations of the secret.</p> <p>Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.</p>
-    #[serde(rename = "AutomaticallyAfterDays")]
+    #[serde(rename = "automaticallyAfterDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatically_after_days: Option<i64>,
 }
@@ -733,67 +733,67 @@ pub struct RotationRulesType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecretListEntry {
     /// <p>The Amazon Resource Name (ARN) of the secret.</p> <p>For more information about ARNs in Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources">Policy Resources</a> in the <i>AWS Secrets Manager User Guide</i>.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time when a secret was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the <code>RecoveryWindowInDays</code> parameter of the <a>DeleteSecret</a> operation.</p>
-    #[serde(rename = "DeletedDate")]
+    #[serde(rename = "deletedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deleted_date: Option<f64>,
     /// <p>The user-provided description of the secret.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the <code>SecretString</code> and <code>SecretBinary</code> fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK, the key named <code>awssecretsmanager</code>, for this account.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.</p>
-    #[serde(rename = "LastAccessedDate")]
+    #[serde(rename = "lastAccessedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_accessed_date: Option<f64>,
     /// <p>The last date and time that this secret was modified in any way.</p>
-    #[serde(rename = "LastChangedDate")]
+    #[serde(rename = "lastChangedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_changed_date: Option<f64>,
     /// <p>The most recent date and time that the Secrets Manager rotation process was successfully completed. This value is null if the secret hasn't ever rotated.</p>
-    #[serde(rename = "LastRotatedDate")]
+    #[serde(rename = "lastRotatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_rotated_date: Option<f64>,
     /// <p>The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, <code>/prod/databases/dbserver1</code> could represent the secret for a server named <code>dbserver1</code> in the folder <code>databases</code> in the folder <code>prod</code>. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Returns the name of the service that created the secret.</p>
-    #[serde(rename = "OwningService")]
+    #[serde(rename = "owningService")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owning_service: Option<String>,
     /// <p>The Region where Secrets Manager originated the secret.</p>
-    #[serde(rename = "PrimaryRegion")]
+    #[serde(rename = "primaryRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_region: Option<String>,
     /// <p>Indicates whether automatic, scheduled rotation is enabled for this secret.</p>
-    #[serde(rename = "RotationEnabled")]
+    #[serde(rename = "rotationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_enabled: Option<bool>,
     /// <p>The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to <a>RotateSecret</a>.</p>
-    #[serde(rename = "RotationLambdaARN")]
+    #[serde(rename = "rotationLambdaARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_lambda_arn: Option<String>,
     /// <p>A structure that defines the rotation configuration for the secret.</p>
-    #[serde(rename = "RotationRules")]
+    #[serde(rename = "rotationRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rotation_rules: Option<RotationRulesType>,
     /// <p><p>A list of all of the currently assigned <code>SecretVersionStage</code> staging labels and the <code>SecretVersionId</code> attached to each one. Staging labels are used to keep track of the different versions during the rotation process.</p> <note> <p>A version that does not have any <code>SecretVersionStage</code> is considered deprecated and subject to deletion. Such versions are not included in this list.</p> </note></p>
-    #[serde(rename = "SecretVersionsToStages")]
+    #[serde(rename = "secretVersionsToStages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_versions_to_stages: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The list of user-defined tags associated with the secret. To add tags to a secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -803,19 +803,19 @@ pub struct SecretListEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecretVersionsListEntry {
     /// <p>The date and time this version of the secret was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The date that this version of the secret was last accessed. Note that the resolution of this field is at the date level and does not include the time.</p>
-    #[serde(rename = "LastAccessedDate")]
+    #[serde(rename = "lastAccessedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_accessed_date: Option<f64>,
     /// <p>The unique version identifier of this version of the secret.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
     /// <p>An array of staging labels that are currently associated with this version of the secret.</p>
-    #[serde(rename = "VersionStages")]
+    #[serde(rename = "versionStages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_stages: Option<Vec<String>>,
 }
@@ -824,7 +824,7 @@ pub struct SecretVersionsListEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopReplicationToReplicaRequest {
     /// <p>Response to <code>StopReplicationToReplica</code> of a secret, based on the <code>SecretId</code>.</p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
 }
 
@@ -832,7 +832,7 @@ pub struct StopReplicationToReplicaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopReplicationToReplicaResponse {
     /// <p>Response <code>StopReplicationToReplica</code> of a secret, based on the <code>ARN,</code>.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -841,11 +841,11 @@ pub struct StopReplicationToReplicaResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The key identifier, or name, of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The string value associated with the key of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -854,10 +854,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p><p>The identifier for the secret that you want to attach tags to. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
     /// <p>The tags to attach to the secret. Each element in the list consists of a <code>Key</code> and a <code>Value</code>.</p> <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For the AWS CLI, you can also use the syntax: <code>--Tags Key="Key1",Value="Value1" Key="Key2",Value="Value2"[,…]</code> </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -865,10 +865,10 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p><p>The identifier for the secret that you want to remove tags from. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
     /// <p>A list of tag key names to remove from the secret. You don't specify the value. Both the key and its associated value are removed.</p> <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -876,19 +876,19 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSecretRequest {
     /// <p>(Optional) If you want to add a new version to the secret, this parameter specifies a unique identifier for the new version that helps ensure idempotency. </p> <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> yourself for new versions and include that value in the request.</p> <p>You typically only need to interact with this value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness within the specified secret. </p> <p>Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing.</p> <ul> <li> <p>If the <code>ClientRequestToken</code> value isn't already associated with a version of the secret then a new version of the secret is created. </p> </li> <li> <p>If a version with this value already exists and that version's <code>SecretString</code> and <code>SecretBinary</code> values are the same as those in the request then the request is ignored (the operation is idempotent). </p> </li> <li> <p>If a version with this value already exists and that version's <code>SecretString</code> and <code>SecretBinary</code> values are different from the request then an error occurs because you cannot modify an existing secret value.</p> </li> </ul> <p>This value becomes the <code>VersionId</code> of the new version.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>(Optional) Specifies an updated user-provided description of the secret.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p><p>(Optional) Specifies an updated ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the protected text in new versions of this secret.</p> <important> <p>You can only use the account&#39;s default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN of that CMK in this field. The user making the call must have permissions to both the secret and the CMK in their respective accounts.</p> </important></p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>(Optional) Specifies updated binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p> <p>This parameter is not accessible using the Secrets Manager console.</p>
-    #[serde(rename = "SecretBinary")]
+    #[serde(rename = "secretBinary")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -897,10 +897,10 @@ pub struct UpdateSecretRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_binary: Option<bytes::Bytes>,
     /// <p><p>Specifies the secret that you want to modify or to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
     /// <p>(Optional) Specifies updated text data that you want to encrypt and store in this new version of the secret. Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p> <p>If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the <code>SecretString</code> parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.</p> <p>For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</p> <p> <code>[{"username":"bob"},{"password":"abc123xyz456"}]</code> </p> <p>If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. You can also 'escape' the double quote character in the embedded JSON text by prefacing each with a backslash. For example, the following string is surrounded by double-quotes. All of the embedded double quotes are escaped:</p> <p> <code>"[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]"</code> </p>
-    #[serde(rename = "SecretString")]
+    #[serde(rename = "secretString")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_string: Option<String>,
 }
@@ -909,15 +909,15 @@ pub struct UpdateSecretRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSecretResponse {
     /// <p><p>The ARN of the secret that was updated.</p> <note> <p>Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret <i>don&#39;t</i> automatically get access to the new secret because the ARNs are different.</p> </note></p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret that was updated.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>If a new version of the secret was created by this operation, then <code>VersionId</code> contains the unique identifier of the new version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -926,18 +926,18 @@ pub struct UpdateSecretResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSecretVersionStageRequest {
     /// <p>(Optional) The secret version ID that you want to add the staging label. If you want to remove a label from a version, then do not specify this parameter.</p> <p>If the staging label is already attached to a different version of the secret, then you must also specify the <code>RemoveFromVersionId</code> parameter. </p>
-    #[serde(rename = "MoveToVersionId")]
+    #[serde(rename = "moveToVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub move_to_version_id: Option<String>,
     /// <p>Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.</p>
-    #[serde(rename = "RemoveFromVersionId")]
+    #[serde(rename = "removeFromVersionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_from_version_id: Option<String>,
     /// <p><p>Specifies the secret with the version with the list of staging labels you want to modify. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     pub secret_id: String,
     /// <p>The staging label to add to this version.</p>
-    #[serde(rename = "VersionStage")]
+    #[serde(rename = "versionStage")]
     pub version_stage: String,
 }
 
@@ -945,11 +945,11 @@ pub struct UpdateSecretVersionStageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSecretVersionStageResponse {
     /// <p>The ARN of the secret with the modified staging label.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The friendly name of the secret with the modified staging label.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -958,10 +958,10 @@ pub struct UpdateSecretVersionStageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ValidateResourcePolicyRequest {
     /// <p>A JSON-formatted string constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.publi</p>
-    #[serde(rename = "ResourcePolicy")]
+    #[serde(rename = "resourcePolicy")]
     pub resource_policy: String,
     /// <p><p> (Optional) The identifier of the secret with the resource-based policy you want to validate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note> <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t create secret names ending with a hyphen followed by six characters.</p> <p>If you specify an incomplete ARN without the random suffix, and instead provide the &#39;friendly name&#39;, you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p> </note></p>
-    #[serde(rename = "SecretId")]
+    #[serde(rename = "secretId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_id: Option<String>,
 }
@@ -970,11 +970,11 @@ pub struct ValidateResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ValidateResourcePolicyResponse {
     /// <p>Returns a message stating that your Reource Policy passed validation. </p>
-    #[serde(rename = "PolicyValidationPassed")]
+    #[serde(rename = "policyValidationPassed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_validation_passed: Option<bool>,
     /// <p>Returns an error message if your policy doesn't pass validatation.</p>
-    #[serde(rename = "ValidationErrors")]
+    #[serde(rename = "validationErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validation_errors: Option<Vec<ValidationErrorsEntry>>,
 }
@@ -984,11 +984,11 @@ pub struct ValidateResourcePolicyResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ValidationErrorsEntry {
     /// <p>Checks the name of the policy.</p>
-    #[serde(rename = "CheckName")]
+    #[serde(rename = "checkName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub check_name: Option<String>,
     /// <p>Displays error messages if validation encounters problems during validation of the resource policy.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }

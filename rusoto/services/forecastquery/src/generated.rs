@@ -56,11 +56,11 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataPoint {
     /// <p>The timestamp of the specific forecast.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
     /// <p>The forecast value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
 }
@@ -70,7 +70,7 @@ pub struct DataPoint {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Forecast {
     /// <p><p>The forecast.</p> <p>The <i>string</i> of the string-to-array map is one of the following values:</p> <ul> <li> <p>p10</p> </li> <li> <p>p50</p> </li> <li> <p>p90</p> </li> </ul></p>
-    #[serde(rename = "Predictions")]
+    #[serde(rename = "predictions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub predictions: Option<::std::collections::HashMap<String, Vec<DataPoint>>>,
 }
@@ -79,21 +79,21 @@ pub struct Forecast {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct QueryForecastRequest {
     /// <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
-    #[serde(rename = "EndDate")]
+    #[serde(rename = "endDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_date: Option<String>,
     /// <p>The filtering criteria to apply when retrieving the forecast. For example, to get the forecast for <code>client_21</code> in the electricity usage dataset, specify the following:</p> <p> <code>{"item_id" : "client_21"}</code> </p> <p>To get the full forecast, use the <a href="https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html">CreateForecastExportJob</a> operation.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     pub filters: ::std::collections::HashMap<String, String>,
     /// <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
-    #[serde(rename = "ForecastArn")]
+    #[serde(rename = "forecastArn")]
     pub forecast_arn: String,
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
 }
@@ -102,7 +102,7 @@ pub struct QueryForecastRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QueryForecastResponse {
     /// <p>The forecast.</p>
-    #[serde(rename = "Forecast")]
+    #[serde(rename = "forecast")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast: Option<Forecast>,
 }

@@ -30,14 +30,14 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDiscovererRequest {
     /// <p>A description for the discoverer.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the event bus.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     pub source_arn: String,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -46,27 +46,27 @@ pub struct CreateDiscovererRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDiscovererResponse {
     /// <p>The description of the discoverer.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the discoverer.</p>
-    #[serde(rename = "DiscovererArn")]
+    #[serde(rename = "discovererArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_arn: Option<String>,
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id: Option<String>,
     /// <p>The ARN of the event bus.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The state of the discoverer.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -75,14 +75,14 @@ pub struct CreateDiscovererResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRegistryRequest {
     /// <p>A description of the registry to be created.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>Tags to associate with the registry.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -91,19 +91,19 @@ pub struct CreateRegistryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRegistryResponse {
     /// <p>The description of the registry.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>Tags associated with the registry.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -112,24 +112,24 @@ pub struct CreateRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSchemaRequest {
     /// <p>The source of the schema definition.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>A description of the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Tags associated with the schema.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -137,34 +137,34 @@ pub struct CreateSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSchemaResponse {
     /// <p>The description of the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The date and time that schema was modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The ARN of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The version number of the schema</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The date the schema version was created.</p>
-    #[serde(rename = "VersionCreatedDate")]
+    #[serde(rename = "versionCreatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_created_date: Option<f64>,
 }
@@ -173,7 +173,7 @@ pub struct CreateSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDiscovererRequest {
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     pub discoverer_id: String,
 }
 
@@ -181,7 +181,7 @@ pub struct DeleteDiscovererRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRegistryRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
 }
 
@@ -189,7 +189,7 @@ pub struct DeleteRegistryRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourcePolicyRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
 }
@@ -198,10 +198,10 @@ pub struct DeleteResourcePolicyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSchemaRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
 }
 
@@ -209,13 +209,13 @@ pub struct DeleteSchemaRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSchemaVersionRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>The version number of the schema</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     pub schema_version: String,
 }
 
@@ -223,16 +223,16 @@ pub struct DeleteSchemaVersionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCodeBindingRequest {
     /// <p>The language of the code binding.</p>
-    #[serde(rename = "Language")]
+    #[serde(rename = "language")]
     pub language: String,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Specifying this limits the results to only this schema version.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
 }
@@ -241,19 +241,19 @@ pub struct DescribeCodeBindingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCodeBindingResponse {
     /// <p>The time and date that the code binding was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The date and time that code bindings were modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
     /// <p>The current status of code binding generation.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -262,7 +262,7 @@ pub struct DescribeCodeBindingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDiscovererRequest {
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     pub discoverer_id: String,
 }
 
@@ -270,27 +270,27 @@ pub struct DescribeDiscovererRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDiscovererResponse {
     /// <p>The description of the discoverer.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the discoverer.</p>
-    #[serde(rename = "DiscovererArn")]
+    #[serde(rename = "discovererArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_arn: Option<String>,
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id: Option<String>,
     /// <p>The ARN of the event bus.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The state of the discoverer.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -299,7 +299,7 @@ pub struct DescribeDiscovererResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRegistryRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
 }
 
@@ -307,19 +307,19 @@ pub struct DescribeRegistryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRegistryResponse {
     /// <p>The description of the registry.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>Tags associated with the registry.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -328,13 +328,13 @@ pub struct DescribeRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSchemaRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Specifying this limits the results to only this schema version.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
 }
@@ -343,39 +343,39 @@ pub struct DescribeSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSchemaResponse {
     /// <p>The source of the schema definition.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The description of the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The date and time that schema was modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The ARN of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The version number of the schema</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The date the schema version was created.</p>
-    #[serde(rename = "VersionCreatedDate")]
+    #[serde(rename = "versionCreatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_created_date: Option<f64>,
 }
@@ -384,23 +384,23 @@ pub struct DescribeSchemaResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DiscovererSummary {
     /// <p>The ARN of the discoverer.</p>
-    #[serde(rename = "DiscovererArn")]
+    #[serde(rename = "discovererArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_arn: Option<String>,
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id: Option<String>,
     /// <p>The ARN of the event bus.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The state of the discoverer.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -409,35 +409,35 @@ pub struct DiscovererSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExportSchemaRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Specifying this limits the results to only this schema version.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExportSchemaResponse {
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -446,16 +446,16 @@ pub struct ExportSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCodeBindingSourceRequest {
     /// <p>The language of the code binding.</p>
-    #[serde(rename = "Language")]
+    #[serde(rename = "language")]
     pub language: String,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Specifying this limits the results to only this schema version.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
 }
@@ -469,10 +469,10 @@ pub struct GetCodeBindingSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDiscoveredSchemaRequest {
     /// <p>An array of strings where each string is a JSON event. These are the events that were used to generate the schema. The array includes a single type of event and has a maximum size of 10 events.</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     pub events: Vec<String>,
     /// <p>The type of event.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -480,7 +480,7 @@ pub struct GetDiscoveredSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDiscoveredSchemaResponse {
     /// <p>The source of the schema definition.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
 }
@@ -489,7 +489,7 @@ pub struct GetDiscoveredSchemaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourcePolicyRequest {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
 }
@@ -498,11 +498,11 @@ pub struct GetResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourcePolicyResponse {
     /// <p>The resource-based policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>The revision ID.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -511,18 +511,18 @@ pub struct GetResourcePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDiscoverersRequest {
     /// <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
-    #[serde(rename = "DiscovererIdPrefix")]
+    #[serde(rename = "discovererIdPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id_prefix: Option<String>,
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifying this limits the results to only those ARNs that start with the specified prefix.</p>
-    #[serde(rename = "SourceArnPrefix")]
+    #[serde(rename = "sourceArnPrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn_prefix: Option<String>,
 }
@@ -531,11 +531,11 @@ pub struct ListDiscoverersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDiscoverersResponse {
     /// <p>An array of DiscovererSummary information.</p>
-    #[serde(rename = "Discoverers")]
+    #[serde(rename = "discoverers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverers: Option<Vec<DiscovererSummary>>,
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -543,19 +543,19 @@ pub struct ListDiscoverersResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRegistriesRequest {
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specifying this limits the results to only those registry names that start with the specified prefix.</p>
-    #[serde(rename = "RegistryNamePrefix")]
+    #[serde(rename = "registryNamePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name_prefix: Option<String>,
     /// <p>Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.</p>
-    #[serde(rename = "Scope")]
+    #[serde(rename = "scope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scope: Option<String>,
 }
@@ -564,11 +564,11 @@ pub struct ListRegistriesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRegistriesResponse {
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of registry summaries.</p>
-    #[serde(rename = "Registries")]
+    #[serde(rename = "registries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registries: Option<Vec<RegistrySummary>>,
 }
@@ -576,18 +576,18 @@ pub struct ListRegistriesResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSchemaVersionsRequest {
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
 }
 
@@ -595,11 +595,11 @@ pub struct ListSchemaVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSchemaVersionsResponse {
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of schema version summaries.</p>
-    #[serde(rename = "SchemaVersions")]
+    #[serde(rename = "schemaVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_versions: Option<Vec<SchemaVersionSummary>>,
 }
@@ -607,18 +607,18 @@ pub struct ListSchemaVersionsResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSchemasRequest {
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>Specifying this limits the results to only those schema names that start with the specified prefix.</p>
-    #[serde(rename = "SchemaNamePrefix")]
+    #[serde(rename = "schemaNamePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name_prefix: Option<String>,
 }
@@ -627,11 +627,11 @@ pub struct ListSchemasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSchemasResponse {
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of schema summaries.</p>
-    #[serde(rename = "Schemas")]
+    #[serde(rename = "schemas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schemas: Option<Vec<SchemaSummary>>,
 }
@@ -640,14 +640,14 @@ pub struct ListSchemasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -656,16 +656,16 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutCodeBindingRequest {
     /// <p>The language of the code binding.</p>
-    #[serde(rename = "Language")]
+    #[serde(rename = "language")]
     pub language: String,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>Specifying this limits the results to only this schema version.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
 }
@@ -674,19 +674,19 @@ pub struct PutCodeBindingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutCodeBindingResponse {
     /// <p>The time and date that the code binding was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The date and time that code bindings were modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
     /// <p>The current status of code binding generation.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -696,14 +696,14 @@ pub struct PutCodeBindingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResourcePolicyRequest {
     /// <p>The resource-based policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     pub policy: String,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The revision ID of the policy.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -712,11 +712,11 @@ pub struct PutResourcePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutResourcePolicyResponse {
     /// <p>The resource-based policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>The revision ID of the policy.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -725,15 +725,15 @@ pub struct PutResourcePolicyResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegistrySummary {
     /// <p>The ARN of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>Tags associated with the registry.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -743,23 +743,23 @@ pub struct RegistrySummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SchemaSummary {
     /// <p>The date and time that schema was modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The ARN of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>Tags associated with the schema.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The number of versions available for the schema.</p>
-    #[serde(rename = "VersionCount")]
+    #[serde(rename = "versionCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_count: Option<i64>,
 }
@@ -768,19 +768,19 @@ pub struct SchemaSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SchemaVersionSummary {
     /// <p>The ARN of the schema version.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The version number of the schema.</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
     /// <p>The type of schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -789,19 +789,19 @@ pub struct SchemaVersionSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchSchemaSummary {
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>The ARN of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>An array of schema version summaries.</p>
-    #[serde(rename = "SchemaVersions")]
+    #[serde(rename = "schemaVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_versions: Option<Vec<SearchSchemaVersionSummary>>,
 }
@@ -810,15 +810,15 @@ pub struct SearchSchemaSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchSchemaVersionSummary {
     /// <p>The date the schema version was created.</p>
-    #[serde(rename = "CreatedDate")]
+    #[serde(rename = "createdDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_date: Option<f64>,
     /// <p>The version number of the schema</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
     /// <p>The type of schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -827,17 +827,17 @@ pub struct SearchSchemaVersionSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchSchemasRequest {
     /// <p>Specifying this limits the results to only schemas that include the provided keywords.</p>
-    #[serde(rename = "Keywords")]
+    #[serde(rename = "keywords")]
     pub keywords: String,
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
 }
 
@@ -845,11 +845,11 @@ pub struct SearchSchemasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchSchemasResponse {
     /// <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of SearchSchemaSummary information.</p>
-    #[serde(rename = "Schemas")]
+    #[serde(rename = "schemas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schemas: Option<Vec<SearchSchemaSummary>>,
 }
@@ -858,7 +858,7 @@ pub struct SearchSchemasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDiscovererRequest {
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     pub discoverer_id: String,
 }
 
@@ -866,11 +866,11 @@ pub struct StartDiscovererRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartDiscovererResponse {
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id: Option<String>,
     /// <p>The state of the discoverer.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -879,7 +879,7 @@ pub struct StartDiscovererResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopDiscovererRequest {
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     pub discoverer_id: String,
 }
 
@@ -887,11 +887,11 @@ pub struct StopDiscovererRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopDiscovererResponse {
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id: Option<String>,
     /// <p>The state of the discoverer.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -901,10 +901,10 @@ pub struct StopDiscovererResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -912,10 +912,10 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Keys of key-value pairs.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -923,11 +923,11 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDiscovererRequest {
     /// <p>The description of the discoverer to update.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     pub discoverer_id: String,
 }
 
@@ -935,27 +935,27 @@ pub struct UpdateDiscovererRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDiscovererResponse {
     /// <p>The description of the discoverer.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the discoverer.</p>
-    #[serde(rename = "DiscovererArn")]
+    #[serde(rename = "discovererArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_arn: Option<String>,
     /// <p>The ID of the discoverer.</p>
-    #[serde(rename = "DiscovererId")]
+    #[serde(rename = "discovererId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub discoverer_id: Option<String>,
     /// <p>The ARN of the event bus.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
     /// <p>The state of the discoverer.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Tags associated with the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -965,11 +965,11 @@ pub struct UpdateDiscovererResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRegistryRequest {
     /// <p>The description of the registry to update.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
 }
 
@@ -977,19 +977,19 @@ pub struct UpdateRegistryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRegistryResponse {
     /// <p>The description of the registry.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the registry.</p>
-    #[serde(rename = "RegistryArn")]
+    #[serde(rename = "registryArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_arn: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registry_name: Option<String>,
     /// <p>Tags associated with the registry.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -998,25 +998,25 @@ pub struct UpdateRegistryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSchemaRequest {
     /// <p>The ID of the client token.</p>
-    #[serde(rename = "ClientTokenId")]
+    #[serde(rename = "clientTokenId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token_id: Option<String>,
     /// <p>The source of the schema definition.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The description of the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the registry.</p>
-    #[serde(rename = "RegistryName")]
+    #[serde(rename = "registryName")]
     pub registry_name: String,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     pub schema_name: String,
     /// <p>The schema type for the events schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1025,34 +1025,34 @@ pub struct UpdateSchemaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSchemaResponse {
     /// <p>The description of the schema.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The date and time that schema was modified.</p>
-    #[serde(rename = "LastModified")]
+    #[serde(rename = "lastModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified: Option<f64>,
     /// <p>The ARN of the schema.</p>
-    #[serde(rename = "SchemaArn")]
+    #[serde(rename = "schemaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_arn: Option<String>,
     /// <p>The name of the schema.</p>
-    #[serde(rename = "SchemaName")]
+    #[serde(rename = "schemaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_name: Option<String>,
     /// <p>The version number of the schema</p>
-    #[serde(rename = "SchemaVersion")]
+    #[serde(rename = "schemaVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_version: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the schema.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The date the schema version was created.</p>
-    #[serde(rename = "VersionCreatedDate")]
+    #[serde(rename = "versionCreatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_created_date: Option<f64>,
 }

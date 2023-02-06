@@ -55,11 +55,11 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppliedTerminology {
     /// <p>The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text. </p>
-    #[serde(rename = "Terms")]
+    #[serde(rename = "terms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terms: Option<Vec<Term>>,
 }
@@ -68,20 +68,20 @@ pub struct AppliedTerminology {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateParallelDataRequest {
     /// <p>A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>A custom description for the parallel data resource in Amazon Translate.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EncryptionKey")]
+    #[serde(rename = "encryptionKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_key: Option<EncryptionKey>,
     /// <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Specifies the format and S3 location of the parallel data input file.</p>
-    #[serde(rename = "ParallelDataConfig")]
+    #[serde(rename = "parallelDataConfig")]
     pub parallel_data_config: ParallelDataConfig,
 }
 
@@ -89,11 +89,11 @@ pub struct CreateParallelDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateParallelDataResponse {
     /// <p>The custom name that you assigned to the parallel data resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the parallel data resource. When the resource is ready for you to use, the status is <code>ACTIVE</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -102,7 +102,7 @@ pub struct CreateParallelDataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteParallelDataRequest {
     /// <p>The name of the parallel data resource that is being deleted.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -110,11 +110,11 @@ pub struct DeleteParallelDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteParallelDataResponse {
     /// <p>The name of the parallel data resource that is being deleted.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the parallel data deletion.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -123,7 +123,7 @@ pub struct DeleteParallelDataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTerminologyRequest {
     /// <p>The name of the custom terminology being deleted. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -131,7 +131,7 @@ pub struct DeleteTerminologyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTextTranslationJobRequest {
     /// <p>The identifier that Amazon Translate generated for the job. The <a>StartTextTranslationJob</a> operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -139,7 +139,7 @@ pub struct DescribeTextTranslationJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTextTranslationJobResponse {
     /// <p>An object that contains the properties associated with an asynchronous batch translation job.</p>
-    #[serde(rename = "TextTranslationJobProperties")]
+    #[serde(rename = "textTranslationJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_translation_job_properties: Option<TextTranslationJobProperties>,
 }
@@ -148,10 +148,10 @@ pub struct DescribeTextTranslationJobResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionKey {
     /// <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom terminology.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -159,7 +159,7 @@ pub struct EncryptionKey {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetParallelDataRequest {
     /// <p>The name of the parallel data resource that is being retrieved.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -167,19 +167,19 @@ pub struct GetParallelDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetParallelDataResponse {
     /// <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
-    #[serde(rename = "AuxiliaryDataLocation")]
+    #[serde(rename = "auxiliaryDataLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auxiliary_data_location: Option<ParallelDataDataLocation>,
     /// <p>The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p>
-    #[serde(rename = "DataLocation")]
+    #[serde(rename = "dataLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_location: Option<ParallelDataDataLocation>,
     /// <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
-    #[serde(rename = "LatestUpdateAttemptAuxiliaryDataLocation")]
+    #[serde(rename = "latestUpdateAttemptAuxiliaryDataLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_update_attempt_auxiliary_data_location: Option<ParallelDataDataLocation>,
     /// <p>The properties of the parallel data resource that is being retrieved.</p>
-    #[serde(rename = "ParallelDataProperties")]
+    #[serde(rename = "parallelDataProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallel_data_properties: Option<ParallelDataProperties>,
 }
@@ -188,10 +188,10 @@ pub struct GetParallelDataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTerminologyRequest {
     /// <p>The name of the custom terminology being retrieved.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The data format of the custom terminology being retrieved, either CSV or TMX.</p>
-    #[serde(rename = "TerminologyDataFormat")]
+    #[serde(rename = "terminologyDataFormat")]
     pub terminology_data_format: String,
 }
 
@@ -199,11 +199,11 @@ pub struct GetTerminologyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTerminologyResponse {
     /// <p>The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.</p>
-    #[serde(rename = "TerminologyDataLocation")]
+    #[serde(rename = "terminologyDataLocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_data_location: Option<TerminologyDataLocation>,
     /// <p>The properties of the custom terminology being retrieved.</p>
-    #[serde(rename = "TerminologyProperties")]
+    #[serde(rename = "terminologyProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_properties: Option<TerminologyProperties>,
 }
@@ -212,21 +212,21 @@ pub struct GetTerminologyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportTerminologyRequest {
     /// <p>The description of the custom terminology being imported.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The encryption key for the custom terminology being imported.</p>
-    #[serde(rename = "EncryptionKey")]
+    #[serde(rename = "encryptionKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_key: Option<EncryptionKey>,
     /// <p>The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE merge strategy is supported. In this case, the imported terminology will overwrite an existing terminology of the same name.</p>
-    #[serde(rename = "MergeStrategy")]
+    #[serde(rename = "mergeStrategy")]
     pub merge_strategy: String,
     /// <p>The name of the custom terminology being imported.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The terminology data for the custom terminology being imported.</p>
-    #[serde(rename = "TerminologyData")]
+    #[serde(rename = "terminologyData")]
     pub terminology_data: TerminologyData,
 }
 
@@ -234,7 +234,7 @@ pub struct ImportTerminologyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportTerminologyResponse {
     /// <p>The properties of the custom terminology being imported.</p>
-    #[serde(rename = "TerminologyProperties")]
+    #[serde(rename = "terminologyProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_properties: Option<TerminologyProperties>,
 }
@@ -243,10 +243,10 @@ pub struct ImportTerminologyResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputDataConfig {
     /// <p><p>Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:</p> <ul> <li> <p> <code>text/html</code>: The input data consists of one or more HTML files. Amazon Translate translates only the text that resides in the <code>html</code> element in each file.</p> </li> <li> <p> <code>text/plain</code>: The input data consists of one or more unformatted text files. Amazon Translate translates every character in this type of input.</p> </li> <li> <p> <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>: The input data consists of one or more Word documents (.docx).</p> </li> <li> <p> <code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>: The input data consists of one or more PowerPoint Presentation files (.pptx).</p> </li> <li> <p> <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The input data consists of one or more Excel Workbook files (.xlsx).</p> </li> </ul> <important> <p>If you structure your input data as HTML, ensure that you set this parameter to <code>text/html</code>. By doing so, you cut costs by limiting the translation to the contents of the <code>html</code> element in each file. Otherwise, if you set this parameter to <code>text/plain</code>, your costs will cover the translation of every character.</p> </important></p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     pub content_type: String,
     /// <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -255,15 +255,15 @@ pub struct InputDataConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobDetails {
     /// <p>The number of documents that could not be processed during a translation job.</p>
-    #[serde(rename = "DocumentsWithErrorsCount")]
+    #[serde(rename = "documentsWithErrorsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub documents_with_errors_count: Option<i64>,
     /// <p>The number of documents used as input in a translation job.</p>
-    #[serde(rename = "InputDocumentsCount")]
+    #[serde(rename = "inputDocumentsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_documents_count: Option<i64>,
     /// <p>The number of documents successfully processed during a translation job.</p>
-    #[serde(rename = "TranslatedDocumentsCount")]
+    #[serde(rename = "translatedDocumentsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub translated_documents_count: Option<i64>,
 }
@@ -272,11 +272,11 @@ pub struct JobDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListParallelDataRequest {
     /// <p>The maximum number of parallel data resources returned for each request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A string that specifies the next page of results to return in a paginated response.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -285,11 +285,11 @@ pub struct ListParallelDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListParallelDataResponse {
     /// <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The properties of the parallel data resources returned by this request.</p>
-    #[serde(rename = "ParallelDataPropertiesList")]
+    #[serde(rename = "parallelDataPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallel_data_properties_list: Option<Vec<ParallelDataProperties>>,
 }
@@ -298,11 +298,11 @@ pub struct ListParallelDataResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTerminologiesRequest {
     /// <p>The maximum number of custom terminologies returned per list request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -311,11 +311,11 @@ pub struct ListTerminologiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTerminologiesResponse {
     /// <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next group of custom terminologies.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The properties list of the custom terminologies returned on the list request.</p>
-    #[serde(rename = "TerminologyPropertiesList")]
+    #[serde(rename = "terminologyPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_properties_list: Option<Vec<TerminologyProperties>>,
 }
@@ -324,15 +324,15 @@ pub struct ListTerminologiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTextTranslationJobsRequest {
     /// <p>The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<TextTranslationJobFilter>,
     /// <p>The maximum number of results to return in each page. The default value is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to request the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -341,11 +341,11 @@ pub struct ListTextTranslationJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTextTranslationJobsResponse {
     /// <p>The token to use to retreive the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "TextTranslationJobPropertiesList")]
+    #[serde(rename = "textTranslationJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_translation_job_properties_list: Option<Vec<TextTranslationJobProperties>>,
 }
@@ -354,7 +354,7 @@ pub struct ListTextTranslationJobsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OutputDataConfig {
     /// <p>The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -362,10 +362,10 @@ pub struct OutputDataConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ParallelDataConfig {
     /// <p>The format of the parallel data input file.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
     /// <p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder must be in the same Region as the API endpoint you are calling.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -374,10 +374,10 @@ pub struct ParallelDataConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ParallelDataDataLocation {
     /// <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
     /// <p>Describes the repository that contains the parallel data input file.</p>
-    #[serde(rename = "RepositoryType")]
+    #[serde(rename = "repositoryType")]
     pub repository_type: String,
 }
 
@@ -386,70 +386,70 @@ pub struct ParallelDataDataLocation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ParallelDataProperties {
     /// <p>The Amazon Resource Name (ARN) of the parallel data resource.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time at which the parallel data resource was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description assigned to the parallel data resource.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "EncryptionKey")]
+    #[serde(rename = "encryptionKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_key: Option<EncryptionKey>,
     /// <p>The number of records unsuccessfully imported from the parallel data input file.</p>
-    #[serde(rename = "FailedRecordCount")]
+    #[serde(rename = "failedRecordCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_record_count: Option<i64>,
     /// <p>The number of UTF-8 characters that Amazon Translate imported from the parallel data input file. This number includes only the characters in your translation examples. It does not include characters that are used to format your file. For example, if you provided a Translation Memory Exchange (.tmx) file, this number does not include the tags.</p>
-    #[serde(rename = "ImportedDataSize")]
+    #[serde(rename = "importedDataSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub imported_data_size: Option<i64>,
     /// <p>The number of records successfully imported from the parallel data input file.</p>
-    #[serde(rename = "ImportedRecordCount")]
+    #[serde(rename = "importedRecordCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub imported_record_count: Option<i64>,
     /// <p>The time at which the parallel data resource was last updated.</p>
-    #[serde(rename = "LastUpdatedAt")]
+    #[serde(rename = "lastUpdatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_at: Option<f64>,
     /// <p>The time that the most recent update was attempted.</p>
-    #[serde(rename = "LatestUpdateAttemptAt")]
+    #[serde(rename = "latestUpdateAttemptAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_update_attempt_at: Option<f64>,
     /// <p>The status of the most recent update attempt for the parallel data resource.</p>
-    #[serde(rename = "LatestUpdateAttemptStatus")]
+    #[serde(rename = "latestUpdateAttemptStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_update_attempt_status: Option<String>,
     /// <p>Additional information from Amazon Translate about the parallel data resource. </p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The custom name assigned to the parallel data resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Specifies the format and S3 location of the parallel data input file.</p>
-    #[serde(rename = "ParallelDataConfig")]
+    #[serde(rename = "parallelDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallel_data_config: Option<ParallelDataConfig>,
     /// <p>The number of items in the input file that Amazon Translate skipped when you created or updated the parallel data resource. For example, Amazon Translate skips empty records, empty target texts, and empty lines.</p>
-    #[serde(rename = "SkippedRecordCount")]
+    #[serde(rename = "skippedRecordCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skipped_record_count: Option<i64>,
     /// <p>The source language of the translations in the parallel data file.</p>
-    #[serde(rename = "SourceLanguageCode")]
+    #[serde(rename = "sourceLanguageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_language_code: Option<String>,
     /// <p>The status of the parallel data resource. When the parallel data is ready for you to use, the status is <code>ACTIVE</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The language codes for the target languages available in the parallel data file. All possible target languages are returned as an array.</p>
-    #[serde(rename = "TargetLanguageCodes")]
+    #[serde(rename = "targetLanguageCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_language_codes: Option<Vec<String>>,
 }
@@ -458,33 +458,33 @@ pub struct ParallelDataProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTextTranslationJobRequest {
     /// <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and S3 location of the input documents for the translation job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The name of the batch translation job to be performed.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Specifies the S3 folder to which your job output will be saved. </p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p>The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p>
-    #[serde(rename = "ParallelDataNames")]
+    #[serde(rename = "parallelDataNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallel_data_names: Option<Vec<String>>,
     /// <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p> <p>Amazon Translate does not automatically detect a source language during batch translation jobs.</p>
-    #[serde(rename = "SourceLanguageCode")]
+    #[serde(rename = "sourceLanguageCode")]
     pub source_language_code: String,
     /// <p>The language code of the output language.</p>
-    #[serde(rename = "TargetLanguageCodes")]
+    #[serde(rename = "targetLanguageCodes")]
     pub target_language_codes: Vec<String>,
     /// <p>The name of the terminology to use in the batch translation job. For a list of available terminologies, use the <a>ListTerminologies</a> operation.</p>
-    #[serde(rename = "TerminologyNames")]
+    #[serde(rename = "terminologyNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_names: Option<Vec<String>>,
 }
@@ -493,11 +493,11 @@ pub struct StartTextTranslationJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTextTranslationJobResponse {
     /// <p>The identifier generated for the job. To get the status of a job, use this ID with the <a>DescribeTextTranslationJob</a> operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job. Possible values include:</p> <ul> <li> <p> <code>SUBMITTED</code> - The job has been received and is queued for processing.</p> </li> <li> <p> <code>IN<em>PROGRESS</code> - Amazon Translate is processing the job.</p> </li> <li> <p> <code>COMPLETED</code> - The job was successfully completed and the output is available.</p> </li> <li> <p> <code>COMPLETED</em>WITH<em>ERROR</code> - The job was completed with errors. The errors can be analyzed in the job&#39;s output.</p> </li> <li> <p> <code>FAILED</code> - The job did not complete. To get details, use the <a>DescribeTextTranslationJob</a> operation.</p> </li> <li> <p> <code>STOP</em>REQUESTED</code> - The user who started the job has requested that it be stopped.</p> </li> <li> <p> <code>STOPPED</code> - The job has been stopped.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -506,7 +506,7 @@ pub struct StartTextTranslationJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopTextTranslationJobRequest {
     /// <p>The job ID of the job to be stopped.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -514,11 +514,11 @@ pub struct StopTextTranslationJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopTextTranslationJobResponse {
     /// <p>The job ID of the stopped batch translation job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The status of the designated job. Upon successful completion, the job's status will be <code>STOPPED</code>.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -528,11 +528,11 @@ pub struct StopTextTranslationJobResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Term {
     /// <p>The source text of the term being translated by the custom terminology.</p>
-    #[serde(rename = "SourceText")]
+    #[serde(rename = "sourceText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_text: Option<String>,
     /// <p>The target text of the term being translated by the custom terminology.</p>
-    #[serde(rename = "TargetText")]
+    #[serde(rename = "targetText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_text: Option<String>,
 }
@@ -542,7 +542,7 @@ pub struct Term {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TerminologyData {
     /// <p>The file containing the custom terminology data. Your version of the AWS SDK performs a Base64-encoding on this field before sending a request to the AWS service. Users of the SDK should not perform Base64-encoding themselves.</p>
-    #[serde(rename = "File")]
+    #[serde(rename = "file")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -550,7 +550,7 @@ pub struct TerminologyData {
     )]
     pub file: bytes::Bytes,
     /// <p>The data format of the custom terminology. Either CSV or TMX.</p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     pub format: String,
 }
 
@@ -559,10 +559,10 @@ pub struct TerminologyData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TerminologyDataLocation {
     /// <p>The location of the custom terminology data.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     pub location: String,
     /// <p>The repository type for the custom terminology data.</p>
-    #[serde(rename = "RepositoryType")]
+    #[serde(rename = "repositoryType")]
     pub repository_type: String,
 }
 
@@ -571,43 +571,43 @@ pub struct TerminologyDataLocation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TerminologyProperties {
     /// <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time at which the custom terminology was created, based on the timestamp.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description of the custom terminology properties.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The encryption key for the custom terminology.</p>
-    #[serde(rename = "EncryptionKey")]
+    #[serde(rename = "encryptionKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_key: Option<EncryptionKey>,
     /// <p>The time at which the custom terminology was last update, based on the timestamp.</p>
-    #[serde(rename = "LastUpdatedAt")]
+    #[serde(rename = "lastUpdatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_at: Option<f64>,
     /// <p>The name of the custom terminology.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The size of the file used when importing a custom terminology.</p>
-    #[serde(rename = "SizeBytes")]
+    #[serde(rename = "sizeBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size_bytes: Option<i64>,
     /// <p>The language code for the source text of the translation request for which the custom terminology is being used.</p>
-    #[serde(rename = "SourceLanguageCode")]
+    #[serde(rename = "sourceLanguageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_language_code: Option<String>,
     /// <p>The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.</p>
-    #[serde(rename = "TargetLanguageCodes")]
+    #[serde(rename = "targetLanguageCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_language_codes: Option<Vec<String>>,
     /// <p>The number of terms included in the custom terminology.</p>
-    #[serde(rename = "TermCount")]
+    #[serde(rename = "termCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub term_count: Option<i64>,
 }
@@ -617,19 +617,19 @@ pub struct TerminologyProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TextTranslationJobFilter {
     /// <p>Filters the list of jobs by name.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based by job status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmittedAfterTime")]
+    #[serde(rename = "submittedAfterTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submitted_after_time: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmittedBeforeTime")]
+    #[serde(rename = "submittedBeforeTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submitted_before_time: Option<f64>,
 }
@@ -639,59 +639,59 @@ pub struct TextTranslationJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TextTranslationJobProperties {
     /// <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time at which the translation job ended.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input configuration properties that were specified when the job was requested.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The number of documents successfully and unsuccessfully processed during the translation job.</p>
-    #[serde(rename = "JobDetails")]
+    #[serde(rename = "jobDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_details: Option<JobDetails>,
     /// <p>The ID of the translation job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The user-defined name of the translation job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The status of the translation job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>An explanation of any errors that may have occured during the translation job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output configuration properties that were specified when the job was requested.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>A list containing the names of the parallel data resources applied to the translation job.</p>
-    #[serde(rename = "ParallelDataNames")]
+    #[serde(rename = "parallelDataNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parallel_data_names: Option<Vec<String>>,
     /// <p>The language code of the language of the source text. The language must be a language supported by Amazon Translate.</p>
-    #[serde(rename = "SourceLanguageCode")]
+    #[serde(rename = "sourceLanguageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_language_code: Option<String>,
     /// <p>The time at which the translation job was submitted.</p>
-    #[serde(rename = "SubmittedTime")]
+    #[serde(rename = "submittedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submitted_time: Option<f64>,
     /// <p>The language code of the language of the target text. The language must be a language supported by Amazon Translate.</p>
-    #[serde(rename = "TargetLanguageCodes")]
+    #[serde(rename = "targetLanguageCodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_language_codes: Option<Vec<String>>,
     /// <p>A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per <a>StartTextTranslationJob</a> request at this time.</p>
-    #[serde(rename = "TerminologyNames")]
+    #[serde(rename = "terminologyNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_names: Option<Vec<String>>,
 }
@@ -700,17 +700,17 @@ pub struct TextTranslationJobProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TranslateTextRequest {
     /// <p>The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon Comprehend</a> to determine the source language.</p>
-    #[serde(rename = "SourceLanguageCode")]
+    #[serde(rename = "sourceLanguageCode")]
     pub source_language_code: String,
     /// <p>The language code requested for the language of the target text. The language must be a language supported by Amazon Translate.</p>
-    #[serde(rename = "TargetLanguageCode")]
+    #[serde(rename = "targetLanguageCode")]
     pub target_language_code: String,
     /// <p>The name of the terminology list file to be used in the TranslateText request. You can use 1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can contain a maximum of 256 terms.</p>
-    #[serde(rename = "TerminologyNames")]
+    #[serde(rename = "terminologyNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminology_names: Option<Vec<String>>,
     /// <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set, this may be fewer than 5,000 characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -718,17 +718,17 @@ pub struct TranslateTextRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TranslateTextResponse {
     /// <p>The names of the custom terminologies applied to the input text by Amazon Translate for the translated text response.</p>
-    #[serde(rename = "AppliedTerminologies")]
+    #[serde(rename = "appliedTerminologies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub applied_terminologies: Option<Vec<AppliedTerminology>>,
     /// <p>The language code for the language of the source text.</p>
-    #[serde(rename = "SourceLanguageCode")]
+    #[serde(rename = "sourceLanguageCode")]
     pub source_language_code: String,
     /// <p>The language code for the language of the target text. </p>
-    #[serde(rename = "TargetLanguageCode")]
+    #[serde(rename = "targetLanguageCode")]
     pub target_language_code: String,
     /// <p>The translated text.</p>
-    #[serde(rename = "TranslatedText")]
+    #[serde(rename = "translatedText")]
     pub translated_text: String,
 }
 
@@ -736,17 +736,17 @@ pub struct TranslateTextResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateParallelDataRequest {
     /// <p>A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>A custom description for the parallel data resource in Amazon Translate.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the parallel data resource being updated.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Specifies the format and S3 location of the parallel data input file.</p>
-    #[serde(rename = "ParallelDataConfig")]
+    #[serde(rename = "parallelDataConfig")]
     pub parallel_data_config: ParallelDataConfig,
 }
 
@@ -754,19 +754,19 @@ pub struct UpdateParallelDataRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateParallelDataResponse {
     /// <p>The time that the most recent update was attempted.</p>
-    #[serde(rename = "LatestUpdateAttemptAt")]
+    #[serde(rename = "latestUpdateAttemptAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_update_attempt_at: Option<f64>,
     /// <p>The status of the parallel data update attempt. When the updated parallel data resource is ready for you to use, the status is <code>ACTIVE</code>.</p>
-    #[serde(rename = "LatestUpdateAttemptStatus")]
+    #[serde(rename = "latestUpdateAttemptStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_update_attempt_status: Option<String>,
     /// <p>The name of the parallel data resource being updated.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the parallel data resource that you are attempting to update. Your update request is accepted only if this status is either <code>ACTIVE</code> or <code>FAILED</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }

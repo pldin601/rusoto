@@ -57,10 +57,10 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchMeterUsageRequest {
     /// <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>
-    #[serde(rename = "ProductCode")]
+    #[serde(rename = "productCode")]
     pub product_code: String,
     /// <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.</p>
-    #[serde(rename = "UsageRecords")]
+    #[serde(rename = "usageRecords")]
     pub usage_records: Vec<UsageRecord>,
 }
 
@@ -69,11 +69,11 @@ pub struct BatchMeterUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchMeterUsageResult {
     /// <p>Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid.</p>
-    #[serde(rename = "Results")]
+    #[serde(rename = "results")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub results: Option<Vec<UsageRecordResult>>,
     /// <p>Contains all UsageRecords that were not processed by BatchMeterUsage. This is a list of UsageRecords. You can retry the failed request by making another BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.</p>
-    #[serde(rename = "UnprocessedRecords")]
+    #[serde(rename = "unprocessedRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_records: Option<Vec<UsageRecord>>,
 }
@@ -82,24 +82,24 @@ pub struct BatchMeterUsageResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MeterUsageRequest {
     /// <p>Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not specified.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>
-    #[serde(rename = "ProductCode")]
+    #[serde(rename = "productCode")]
     pub product_code: String,
     /// <p>Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     pub timestamp: f64,
     /// <p>The set of UsageAllocations to submit.</p> <p>The sum of all UsageAllocation quantities must equal the UsageQuantity of the MeterUsage request, and each UsageAllocation must have a unique set of tags (include no tags).</p>
-    #[serde(rename = "UsageAllocations")]
+    #[serde(rename = "usageAllocations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_allocations: Option<Vec<UsageAllocation>>,
     /// <p>It will be one of the fcp dimension name provided during the publishing of the product.</p>
-    #[serde(rename = "UsageDimension")]
+    #[serde(rename = "usageDimension")]
     pub usage_dimension: String,
     /// <p>Consumption value for the hour. Defaults to <code>0</code> if not specified.</p>
-    #[serde(rename = "UsageQuantity")]
+    #[serde(rename = "usageQuantity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_quantity: Option<i64>,
 }
@@ -108,7 +108,7 @@ pub struct MeterUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MeterUsageResult {
     /// <p>Metering record id.</p>
-    #[serde(rename = "MeteringRecordId")]
+    #[serde(rename = "meteringRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metering_record_id: Option<String>,
 }
@@ -117,14 +117,14 @@ pub struct MeterUsageResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterUsageRequest {
     /// <p>(Optional) To scope down the registration to a specific running software instance and guard against replay attacks.</p>
-    #[serde(rename = "Nonce")]
+    #[serde(rename = "nonce")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nonce: Option<String>,
     /// <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>
-    #[serde(rename = "ProductCode")]
+    #[serde(rename = "productCode")]
     pub product_code: String,
     /// <p>Public Key Version provided by AWS Marketplace</p>
-    #[serde(rename = "PublicKeyVersion")]
+    #[serde(rename = "publicKeyVersion")]
     pub public_key_version: i64,
 }
 
@@ -132,11 +132,11 @@ pub struct RegisterUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterUsageResult {
     /// <p>(Optional) Only included when public key version has expired</p>
-    #[serde(rename = "PublicKeyRotationTimestamp")]
+    #[serde(rename = "publicKeyRotationTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_key_rotation_timestamp: Option<f64>,
     /// <p>JWT Token</p>
-    #[serde(rename = "Signature")]
+    #[serde(rename = "signature")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signature: Option<String>,
 }
@@ -146,7 +146,7 @@ pub struct RegisterUsageResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResolveCustomerRequest {
     /// <p>When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.</p>
-    #[serde(rename = "RegistrationToken")]
+    #[serde(rename = "registrationToken")]
     pub registration_token: String,
 }
 
@@ -155,11 +155,11 @@ pub struct ResolveCustomerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolveCustomerResult {
     /// <p>The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.</p>
-    #[serde(rename = "CustomerIdentifier")]
+    #[serde(rename = "customerIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_identifier: Option<String>,
     /// <p>The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.</p>
-    #[serde(rename = "ProductCode")]
+    #[serde(rename = "productCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_code: Option<String>,
 }
@@ -168,10 +168,10 @@ pub struct ResolveCustomerResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>One part of a key-value pair that makes up a tag. A key is a label that acts like a category for the specific tag values.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>One part of a key-value pair that makes up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -179,10 +179,10 @@ pub struct Tag {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UsageAllocation {
     /// <p>The total quantity allocated to this bucket of usage.</p>
-    #[serde(rename = "AllocatedUsageQuantity")]
+    #[serde(rename = "allocatedUsageQuantity")]
     pub allocated_usage_quantity: i64,
     /// <p>The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -191,20 +191,20 @@ pub struct UsageAllocation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UsageRecord {
     /// <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.</p>
-    #[serde(rename = "CustomerIdentifier")]
+    #[serde(rename = "customerIdentifier")]
     pub customer_identifier: String,
     /// <p>During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.</p>
-    #[serde(rename = "Dimension")]
+    #[serde(rename = "dimension")]
     pub dimension: String,
     /// <p>The quantity of usage consumed by the customer for the given dimension and time. Defaults to <code>0</code> if not specified.</p>
-    #[serde(rename = "Quantity")]
+    #[serde(rename = "quantity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quantity: Option<i64>,
     /// <p>Timestamp, in UTC, for which the usage is being reported.</p> <p>Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     pub timestamp: f64,
     /// <p>The set of UsageAllocations to submit. The sum of all UsageAllocation quantities must equal the Quantity of the UsageRecord.</p>
-    #[serde(rename = "UsageAllocations")]
+    #[serde(rename = "usageAllocations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_allocations: Option<Vec<UsageAllocation>>,
 }
@@ -214,15 +214,15 @@ pub struct UsageRecord {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageRecordResult {
     /// <p>The MeteringRecordId is a unique identifier for this metering event.</p>
-    #[serde(rename = "MeteringRecordId")]
+    #[serde(rename = "meteringRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metering_record_id: Option<String>,
     /// <p><p>The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.</p> <ul> <li> <p> <i>Success</i>- The UsageRecord was accepted and honored by BatchMeterUsage.</p> </li> <li> <p> <i>CustomerNotSubscribed</i>- The CustomerIdentifier specified is not subscribed to your product. The UsageRecord was not honored. Future UsageRecords for this customer will fail until the customer subscribes to your product.</p> </li> <li> <p> <i>DuplicateRecord</i>- Indicates that the UsageRecord was invalid and not honored. A previously metered UsageRecord had the same customer, dimension, and time, but a different quantity.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
-    #[serde(rename = "UsageRecord")]
+    #[serde(rename = "usageRecord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_record: Option<UsageRecord>,
 }

@@ -59,16 +59,16 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendSSHPublicKeyRequest {
     /// <p>The Availability Zone in which the EC2 instance was launched.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     pub availability_zone: String,
     /// <p>The ID of the EC2 instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The OS user on the EC2 instance for whom the key can be used to authenticate.</p>
-    #[serde(rename = "InstanceOSUser")]
+    #[serde(rename = "instanceOSUser")]
     pub instance_os_user: String,
     /// <p>The public key material. To use the public key, you must have the matching private key.</p>
-    #[serde(rename = "SSHPublicKey")]
+    #[serde(rename = "sSHPublicKey")]
     pub ssh_public_key: String,
 }
 
@@ -76,11 +76,11 @@ pub struct SendSSHPublicKeyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendSSHPublicKeyResponse {
     /// <p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>Is true if the request succeeds and an error otherwise.</p>
-    #[serde(rename = "Success")]
+    #[serde(rename = "success")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub success: Option<bool>,
 }
@@ -89,13 +89,13 @@ pub struct SendSSHPublicKeyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendSerialConsoleSSHPublicKeyRequest {
     /// <p>The ID of the EC2 instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The public key material. To use the public key, you must have the matching private key. For information about the supported key formats and lengths, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws">Requirements for key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
-    #[serde(rename = "SSHPublicKey")]
+    #[serde(rename = "sSHPublicKey")]
     pub ssh_public_key: String,
     /// <p>The serial port of the EC2 instance. Currently only port 0 is supported.</p> <p>Default: 0</p>
-    #[serde(rename = "SerialPort")]
+    #[serde(rename = "serialPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serial_port: Option<i64>,
 }
@@ -104,11 +104,11 @@ pub struct SendSerialConsoleSSHPublicKeyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendSerialConsoleSSHPublicKeyResponse {
     /// <p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
     /// <p>Is true if the request succeeds and an error otherwise.</p>
-    #[serde(rename = "Success")]
+    #[serde(rename = "success")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub success: Option<bool>,
 }

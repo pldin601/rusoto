@@ -1342,7 +1342,7 @@ pub struct CodeSigningSignature {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Configuration {
     /// <p>True to enable the configuration.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -5160,11 +5160,11 @@ pub struct KafkaAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KeyPair {
     /// <p>The private key.</p>
-    #[serde(rename = "PrivateKey")]
+    #[serde(rename = "privateKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_key: Option<String>,
     /// <p>The public key.</p>
-    #[serde(rename = "PublicKey")]
+    #[serde(rename = "publicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_key: Option<String>,
 }
@@ -8404,10 +8404,10 @@ pub struct StreamSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The tag's key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The tag's value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }

@@ -61,7 +61,7 @@ pub struct AbortTransactionRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AbortTransactionResult {
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
 }
@@ -71,7 +71,7 @@ pub struct AbortTransactionResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CommitTransactionRequest {
     /// <p>Specifies the commit digest for the transaction to commit. For every active transaction, the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects the commit with an error if the digest computed on the client does not match the digest computed by QLDB.</p> <p>The purpose of the <code>CommitDigest</code> parameter is to ensure that QLDB commits a transaction if and only if the server has processed the exact set of statements sent by the client, in the same order that client sent them, and with no duplicates.</p>
-    #[serde(rename = "CommitDigest")]
+    #[serde(rename = "commitDigest")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -79,7 +79,7 @@ pub struct CommitTransactionRequest {
     )]
     pub commit_digest: bytes::Bytes,
     /// <p>Specifies the transaction ID of the transaction to commit.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     pub transaction_id: String,
 }
 
@@ -88,7 +88,7 @@ pub struct CommitTransactionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CommitTransactionResult {
     /// <p>The commit digest of the committed transaction.</p>
-    #[serde(rename = "CommitDigest")]
+    #[serde(rename = "commitDigest")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -97,15 +97,15 @@ pub struct CommitTransactionResult {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commit_digest: Option<bytes::Bytes>,
     /// <p>Contains metrics about the number of I/O requests that were consumed.</p>
-    #[serde(rename = "ConsumedIOs")]
+    #[serde(rename = "consumedIOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_i_os: Option<IOUsage>,
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
     /// <p>The transaction ID of the committed transaction.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transaction_id: Option<String>,
 }
@@ -120,7 +120,7 @@ pub struct EndSessionRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EndSessionResult {
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
 }
@@ -130,14 +130,14 @@ pub struct EndSessionResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExecuteStatementRequest {
     /// <p>Specifies the parameters for the parameterized statement in the request.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Vec<ValueHolder>>,
     /// <p>Specifies the statement of the request.</p>
-    #[serde(rename = "Statement")]
+    #[serde(rename = "statement")]
     pub statement: String,
     /// <p>Specifies the transaction ID of the request.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     pub transaction_id: String,
 }
 
@@ -146,15 +146,15 @@ pub struct ExecuteStatementRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExecuteStatementResult {
     /// <p>Contains metrics about the number of I/O requests that were consumed.</p>
-    #[serde(rename = "ConsumedIOs")]
+    #[serde(rename = "consumedIOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_i_os: Option<IOUsage>,
     /// <p>Contains the details of the first fetched page.</p>
-    #[serde(rename = "FirstPage")]
+    #[serde(rename = "firstPage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_page: Option<Page>,
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
 }
@@ -164,10 +164,10 @@ pub struct ExecuteStatementResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FetchPageRequest {
     /// <p>Specifies the next page token of the page to be fetched.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     pub next_page_token: String,
     /// <p>Specifies the transaction ID of the page to be fetched.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     pub transaction_id: String,
 }
 
@@ -176,15 +176,15 @@ pub struct FetchPageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FetchPageResult {
     /// <p>Contains metrics about the number of I/O requests that were consumed.</p>
-    #[serde(rename = "ConsumedIOs")]
+    #[serde(rename = "consumedIOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_i_os: Option<IOUsage>,
     /// <p>Contains details of the fetched page.</p>
-    #[serde(rename = "Page")]
+    #[serde(rename = "page")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page: Option<Page>,
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
 }
@@ -194,11 +194,11 @@ pub struct FetchPageResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IOUsage {
     /// <p>The number of read I/O requests that the command made.</p>
-    #[serde(rename = "ReadIOs")]
+    #[serde(rename = "readIOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_i_os: Option<i64>,
     /// <p>The number of write I/O requests that the command made.</p>
-    #[serde(rename = "WriteIOs")]
+    #[serde(rename = "writeIOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub write_i_os: Option<i64>,
 }
@@ -208,11 +208,11 @@ pub struct IOUsage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Page {
     /// <p>The token of the next page.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>A structure that contains values in multiple encoding formats.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<ValueHolder>>,
 }
@@ -221,35 +221,35 @@ pub struct Page {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendCommandRequest {
     /// <p>Command to abort the current transaction.</p>
-    #[serde(rename = "AbortTransaction")]
+    #[serde(rename = "abortTransaction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub abort_transaction: Option<AbortTransactionRequest>,
     /// <p>Command to commit the specified transaction.</p>
-    #[serde(rename = "CommitTransaction")]
+    #[serde(rename = "commitTransaction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commit_transaction: Option<CommitTransactionRequest>,
     /// <p>Command to end the current session.</p>
-    #[serde(rename = "EndSession")]
+    #[serde(rename = "endSession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_session: Option<EndSessionRequest>,
     /// <p>Command to execute a statement in the specified transaction.</p>
-    #[serde(rename = "ExecuteStatement")]
+    #[serde(rename = "executeStatement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execute_statement: Option<ExecuteStatementRequest>,
     /// <p>Command to fetch a page.</p>
-    #[serde(rename = "FetchPage")]
+    #[serde(rename = "fetchPage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fetch_page: Option<FetchPageRequest>,
     /// <p>Specifies the session token for the current command. A session token is constant throughout the life of the session.</p> <p>To obtain a session token, run the <code>StartSession</code> command. This <code>SessionToken</code> is required for every subsequent command that is issued during the current session.</p>
-    #[serde(rename = "SessionToken")]
+    #[serde(rename = "sessionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_token: Option<String>,
     /// <p>Command to start a new session. A session token is obtained as part of the response.</p>
-    #[serde(rename = "StartSession")]
+    #[serde(rename = "startSession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_session: Option<StartSessionRequest>,
     /// <p>Command to start a new transaction.</p>
-    #[serde(rename = "StartTransaction")]
+    #[serde(rename = "startTransaction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_transaction: Option<StartTransactionRequest>,
 }
@@ -258,31 +258,31 @@ pub struct SendCommandRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendCommandResult {
     /// <p>Contains the details of the aborted transaction.</p>
-    #[serde(rename = "AbortTransaction")]
+    #[serde(rename = "abortTransaction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub abort_transaction: Option<AbortTransactionResult>,
     /// <p>Contains the details of the committed transaction.</p>
-    #[serde(rename = "CommitTransaction")]
+    #[serde(rename = "commitTransaction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commit_transaction: Option<CommitTransactionResult>,
     /// <p>Contains the details of the ended session.</p>
-    #[serde(rename = "EndSession")]
+    #[serde(rename = "endSession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_session: Option<EndSessionResult>,
     /// <p>Contains the details of the executed statement.</p>
-    #[serde(rename = "ExecuteStatement")]
+    #[serde(rename = "executeStatement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execute_statement: Option<ExecuteStatementResult>,
     /// <p>Contains the details of the fetched page.</p>
-    #[serde(rename = "FetchPage")]
+    #[serde(rename = "fetchPage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fetch_page: Option<FetchPageResult>,
     /// <p>Contains the details of the started session that includes a session token. This <code>SessionToken</code> is required for every subsequent command that is issued during the current session.</p>
-    #[serde(rename = "StartSession")]
+    #[serde(rename = "startSession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_session: Option<StartSessionResult>,
     /// <p>Contains the details of the started transaction.</p>
-    #[serde(rename = "StartTransaction")]
+    #[serde(rename = "startTransaction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_transaction: Option<StartTransactionResult>,
 }
@@ -292,7 +292,7 @@ pub struct SendCommandResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSessionRequest {
     /// <p>The name of the ledger to start a new session against.</p>
-    #[serde(rename = "LedgerName")]
+    #[serde(rename = "ledgerName")]
     pub ledger_name: String,
 }
 
@@ -301,11 +301,11 @@ pub struct StartSessionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartSessionResult {
     /// <p>Session token of the started session. This <code>SessionToken</code> is required for every subsequent command that is issued during the current session.</p>
-    #[serde(rename = "SessionToken")]
+    #[serde(rename = "sessionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_token: Option<String>,
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
 }
@@ -320,11 +320,11 @@ pub struct StartTransactionRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTransactionResult {
     /// <p>Contains server-side performance information for the command.</p>
-    #[serde(rename = "TimingInformation")]
+    #[serde(rename = "timingInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timing_information: Option<TimingInformation>,
     /// <p>The transaction ID of the started transaction.</p>
-    #[serde(rename = "TransactionId")]
+    #[serde(rename = "transactionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transaction_id: Option<String>,
 }
@@ -334,7 +334,7 @@ pub struct StartTransactionResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TimingInformation {
     /// <p>The amount of time that QLDB spent on processing the command, measured in milliseconds.</p>
-    #[serde(rename = "ProcessingTimeMilliseconds")]
+    #[serde(rename = "processingTimeMilliseconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub processing_time_milliseconds: Option<i64>,
 }
@@ -343,7 +343,7 @@ pub struct TimingInformation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ValueHolder {
     /// <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
-    #[serde(rename = "IonBinary")]
+    #[serde(rename = "ionBinary")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -352,7 +352,7 @@ pub struct ValueHolder {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ion_binary: Option<bytes::Bytes>,
     /// <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
-    #[serde(rename = "IonText")]
+    #[serde(rename = "ionText")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ion_text: Option<String>,
 }

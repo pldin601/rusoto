@@ -33,7 +33,7 @@ pub struct Attributes {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ClaimDevicesByClaimCodeRequest {
     /// <p>The claim code, starting with "C-", as provided by the device manufacturer.</p>
-    #[serde(rename = "ClaimCode")]
+    #[serde(rename = "claimCode")]
     pub claim_code: String,
 }
 
@@ -41,12 +41,12 @@ pub struct ClaimDevicesByClaimCodeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClaimDevicesByClaimCodeResponse {
     /// <p>The claim code provided by the device manufacturer.</p>
-    #[serde(rename = "ClaimCode")]
+    #[serde(rename = "claimCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub claim_code: Option<String>,
     /// <p>The total number of devices associated with the claim code that has been processed in
     /// the claim request.</p>
-    #[serde(rename = "Total")]
+    #[serde(rename = "total")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total: Option<i64>,
 }
@@ -55,7 +55,7 @@ pub struct ClaimDevicesByClaimCodeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDeviceRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
 }
 
@@ -63,7 +63,7 @@ pub struct DescribeDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDeviceResponse {
     /// <p>Device details.</p>
-    #[serde(rename = "DeviceDescription")]
+    #[serde(rename = "deviceDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_description: Option<DeviceDescription>,
 }
@@ -72,15 +72,15 @@ pub struct DescribeDeviceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Device {
     /// <p>The user specified attributes associated with the device for an event.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Attributes>,
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The device type, such as "button".</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -89,33 +89,33 @@ pub struct Device {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceDescription {
     /// <p>The ARN of the device.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An array of zero or more elements of DeviceAttribute objects providing
     /// user specified device attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>A Boolean value indicating whether or not the device is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the
     /// device.</p>
-    #[serde(rename = "RemainingLife")]
+    #[serde(rename = "remainingLife")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remaining_life: Option<f64>,
     /// <p>The tags currently associated with the AWS IoT 1-Click device.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The type of the device, such as "button".</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -124,11 +124,11 @@ pub struct DeviceDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceEvent {
     /// <p>An object representing the device associated with the event.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<Device>,
     /// <p>A serialized JSON object representing the device-type specific event.</p>
-    #[serde(rename = "StdEvent")]
+    #[serde(rename = "stdEvent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub std_event: Option<String>,
 }
@@ -136,11 +136,11 @@ pub struct DeviceEvent {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeviceMethod {
     /// <p>The type of the device, such as "button".</p>
-    #[serde(rename = "DeviceType")]
+    #[serde(rename = "deviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type: Option<String>,
     /// <p>The name of the method applicable to the deviceType.</p>
-    #[serde(rename = "MethodName")]
+    #[serde(rename = "methodName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub method_name: Option<String>,
 }
@@ -149,14 +149,14 @@ pub struct DeviceMethod {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FinalizeDeviceClaimRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>A collection of key/value pairs defining the resource tags. For example, {
     /// "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
     /// Tagging Strategies</a>.</p><p>
     ///
     /// </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -165,7 +165,7 @@ pub struct FinalizeDeviceClaimRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FinalizeDeviceClaimResponse {
     /// <p>The device's final claim state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -174,7 +174,7 @@ pub struct FinalizeDeviceClaimResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeviceMethodsRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
 }
 
@@ -182,7 +182,7 @@ pub struct GetDeviceMethodsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeviceMethodsResponse {
     /// <p>List of available device APIs.</p>
-    #[serde(rename = "DeviceMethods")]
+    #[serde(rename = "deviceMethods")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_methods: Option<Vec<DeviceMethod>>,
 }
@@ -191,7 +191,7 @@ pub struct GetDeviceMethodsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InitiateDeviceClaimRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
 }
 
@@ -199,7 +199,7 @@ pub struct InitiateDeviceClaimRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InitiateDeviceClaimResponse {
     /// <p>The device's final claim state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -208,14 +208,14 @@ pub struct InitiateDeviceClaimResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InvokeDeviceMethodRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The device method to invoke.</p>
-    #[serde(rename = "DeviceMethod")]
+    #[serde(rename = "deviceMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_method: Option<DeviceMethod>,
     /// <p>A JSON encoded string containing the device method request parameters.</p>
-    #[serde(rename = "DeviceMethodParameters")]
+    #[serde(rename = "deviceMethodParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_method_parameters: Option<String>,
 }
@@ -224,7 +224,7 @@ pub struct InvokeDeviceMethodRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InvokeDeviceMethodResponse {
     /// <p>A JSON encoded string containing the device method response.</p>
-    #[serde(rename = "DeviceMethodResponse")]
+    #[serde(rename = "deviceMethodResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_method_response: Option<String>,
 }
@@ -233,26 +233,26 @@ pub struct InvokeDeviceMethodResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDeviceEventsRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>The start date for the device event query, in ISO8061 format. For example,
     /// 2018-03-28T15:45:12.880Z
     /// </p>
-    #[serde(rename = "FromTimeStamp")]
+    #[serde(rename = "fromTimeStamp")]
     pub from_time_stamp: f64,
     /// <p>The maximum number of results to return per request. If not set, a default value of
     /// 100 is used.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The end date for the device event query, in ISO8061 format. For example,
     /// 2018-03-28T15:45:12.880Z
     /// </p>
-    #[serde(rename = "ToTimeStamp")]
+    #[serde(rename = "toTimeStamp")]
     pub to_time_stamp: f64,
 }
 
@@ -261,11 +261,11 @@ pub struct ListDeviceEventsRequest {
 pub struct ListDeviceEventsResponse {
     /// <p>An array of zero or more elements describing the event(s) associated with the
     /// device.</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events: Option<Vec<DeviceEvent>>,
     /// <p>The token to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -274,16 +274,16 @@ pub struct ListDeviceEventsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDevicesRequest {
     /// <p>The type of the device, such as "button".</p>
-    #[serde(rename = "DeviceType")]
+    #[serde(rename = "deviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_type: Option<String>,
     /// <p>The maximum number of results to return per request. If not set, a default value of
     /// 100 is used.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -292,11 +292,11 @@ pub struct ListDevicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDevicesResponse {
     /// <p>A list of devices.</p>
-    #[serde(rename = "Devices")]
+    #[serde(rename = "devices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub devices: Option<Vec<DeviceDescription>>,
     /// <p>The token to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -305,7 +305,7 @@ pub struct ListDevicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -317,7 +317,7 @@ pub struct ListTagsForResourceResponse {
     /// Tagging Strategies</a>.</p><p>
     ///
     /// </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -326,14 +326,14 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A collection of key/value pairs defining the resource tags. For example, {
     /// "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
     /// Tagging Strategies</a>.</p><p>
     ///
     /// </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -341,7 +341,7 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UnclaimDeviceRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
 }
 
@@ -349,7 +349,7 @@ pub struct UnclaimDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnclaimDeviceResponse {
     /// <p>The device's final claim state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -358,10 +358,10 @@ pub struct UnclaimDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A collections of tag keys. For example, {"key1","key2"}</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -369,11 +369,11 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDeviceStateRequest {
     /// <p>The unique identifier of the device.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     pub device_id: String,
     /// <p>If true, the device is enabled. If false, the device is
     /// disabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }

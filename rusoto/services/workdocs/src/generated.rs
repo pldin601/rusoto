@@ -29,14 +29,14 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AbortDocumentVersionUploadRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>The ID of the version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
 }
 
@@ -44,11 +44,11 @@ pub struct AbortDocumentVersionUploadRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ActivateUserRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -56,7 +56,7 @@ pub struct ActivateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ActivateUserResponse {
     /// <p>The user information.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -66,39 +66,39 @@ pub struct ActivateUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Activity {
     /// <p>Metadata of the commenting activity. This is an optional field and is filled for commenting activities.</p>
-    #[serde(rename = "CommentMetadata")]
+    #[serde(rename = "commentMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment_metadata: Option<CommentMetadata>,
     /// <p>The user who performed the action.</p>
-    #[serde(rename = "Initiator")]
+    #[serde(rename = "initiator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initiator: Option<UserMetadata>,
     /// <p>Indicates whether an activity is indirect or direct. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).</p>
-    #[serde(rename = "IsIndirectActivity")]
+    #[serde(rename = "isIndirectActivity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_indirect_activity: Option<bool>,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The original parent of the resource. This is an optional field and is filled for move activities.</p>
-    #[serde(rename = "OriginalParent")]
+    #[serde(rename = "originalParent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub original_parent: Option<ResourceMetadata>,
     /// <p>The list of users or groups impacted by this action. This is an optional field and is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>
-    #[serde(rename = "Participants")]
+    #[serde(rename = "participants")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub participants: Option<Participants>,
     /// <p>The metadata of the resource involved in the user action.</p>
-    #[serde(rename = "ResourceMetadata")]
+    #[serde(rename = "resourceMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_metadata: Option<ResourceMetadata>,
     /// <p>The timestamp when the action was performed.</p>
-    #[serde(rename = "TimeStamp")]
+    #[serde(rename = "timeStamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_stamp: Option<f64>,
     /// <p>The activity type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -107,18 +107,18 @@ pub struct Activity {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddResourcePermissionsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The notification options.</p>
-    #[serde(rename = "NotificationOptions")]
+    #[serde(rename = "notificationOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_options: Option<NotificationOptions>,
     /// <p>The users, groups, or organization being granted permission.</p>
-    #[serde(rename = "Principals")]
+    #[serde(rename = "principals")]
     pub principals: Vec<SharePrincipal>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -126,7 +126,7 @@ pub struct AddResourcePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddResourcePermissionsResponse {
     /// <p>The share results.</p>
-    #[serde(rename = "ShareResults")]
+    #[serde(rename = "shareResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_results: Option<Vec<ShareResult>>,
 }
@@ -136,38 +136,38 @@ pub struct AddResourcePermissionsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Comment {
     /// <p>The ID of the comment.</p>
-    #[serde(rename = "CommentId")]
+    #[serde(rename = "commentId")]
     pub comment_id: String,
     /// <p>The details of the user who made the comment.</p>
-    #[serde(rename = "Contributor")]
+    #[serde(rename = "contributor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contributor: Option<User>,
     /// <p>The time that the comment was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ID of the parent comment.</p>
-    #[serde(rename = "ParentId")]
+    #[serde(rename = "parentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<String>,
     /// <p>If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.</p>
-    #[serde(rename = "RecipientId")]
+    #[serde(rename = "recipientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recipient_id: Option<String>,
     /// <p>The status of the comment.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The text of the comment.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     /// <p>The ID of the root comment in the thread.</p>
-    #[serde(rename = "ThreadId")]
+    #[serde(rename = "threadId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub thread_id: Option<String>,
     /// <p>The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.</p>
-    #[serde(rename = "Visibility")]
+    #[serde(rename = "visibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub visibility: Option<String>,
 }
@@ -177,23 +177,23 @@ pub struct Comment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CommentMetadata {
     /// <p>The ID of the comment.</p>
-    #[serde(rename = "CommentId")]
+    #[serde(rename = "commentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment_id: Option<String>,
     /// <p>The status of the comment.</p>
-    #[serde(rename = "CommentStatus")]
+    #[serde(rename = "commentStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment_status: Option<String>,
     /// <p>The user who made the comment.</p>
-    #[serde(rename = "Contributor")]
+    #[serde(rename = "contributor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contributor: Option<User>,
     /// <p>The timestamp that the comment was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ID of the user being replied to.</p>
-    #[serde(rename = "RecipientId")]
+    #[serde(rename = "recipientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recipient_id: Option<String>,
 }
@@ -202,32 +202,32 @@ pub struct CommentMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCommentRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.</p>
-    #[serde(rename = "NotifyCollaborators")]
+    #[serde(rename = "notifyCollaborators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notify_collaborators: Option<bool>,
     /// <p>The ID of the parent comment.</p>
-    #[serde(rename = "ParentId")]
+    #[serde(rename = "parentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<String>,
     /// <p>The text of the comment.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
     /// <p>The ID of the root comment in the thread.</p>
-    #[serde(rename = "ThreadId")]
+    #[serde(rename = "threadId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub thread_id: Option<String>,
     /// <p>The ID of the document version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
     /// <p>The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.</p>
-    #[serde(rename = "Visibility")]
+    #[serde(rename = "visibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub visibility: Option<String>,
 }
@@ -236,7 +236,7 @@ pub struct CreateCommentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCommentResponse {
     /// <p>The comment that has been created.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<Comment>,
 }
@@ -245,17 +245,17 @@ pub struct CreateCommentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCustomMetadataRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>Custom metadata in the form of name-value pairs.</p>
-    #[serde(rename = "CustomMetadata")]
+    #[serde(rename = "customMetadata")]
     pub custom_metadata: ::std::collections::HashMap<String, String>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The ID of the version, if the custom metadata is being added to a document version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -268,15 +268,15 @@ pub struct CreateCustomMetadataResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFolderRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The name of the new folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the parent folder.</p>
-    #[serde(rename = "ParentFolderId")]
+    #[serde(rename = "parentFolderId")]
     pub parent_folder_id: String,
 }
 
@@ -284,7 +284,7 @@ pub struct CreateFolderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFolderResponse {
     /// <p>The metadata of the folder.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<FolderMetadata>,
 }
@@ -293,14 +293,14 @@ pub struct CreateFolderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLabelsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>List of labels to add to the resource.</p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     pub labels: Vec<String>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -312,16 +312,16 @@ pub struct CreateLabelsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateNotificationSubscriptionRequest {
     /// <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with <code>https</code>.</p>
-    #[serde(rename = "Endpoint")]
+    #[serde(rename = "endpoint")]
     pub endpoint: String,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     pub protocol: String,
     /// <p>The notification type.</p>
-    #[serde(rename = "SubscriptionType")]
+    #[serde(rename = "subscriptionType")]
     pub subscription_type: String,
 }
 
@@ -329,7 +329,7 @@ pub struct CreateNotificationSubscriptionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateNotificationSubscriptionResponse {
     /// <p>The subscription.</p>
-    #[serde(rename = "Subscription")]
+    #[serde(rename = "subscription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription: Option<Subscription>,
 }
@@ -338,36 +338,36 @@ pub struct CreateNotificationSubscriptionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The email address of the user.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>The given name of the user.</p>
-    #[serde(rename = "GivenName")]
+    #[serde(rename = "givenName")]
     pub given_name: String,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The password of the user.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>The amount of storage for the user.</p>
-    #[serde(rename = "StorageRule")]
+    #[serde(rename = "storageRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_rule: Option<StorageRuleType>,
     /// <p>The surname of the user.</p>
-    #[serde(rename = "Surname")]
+    #[serde(rename = "surname")]
     pub surname: String,
     /// <p>The time zone ID of the user.</p>
-    #[serde(rename = "TimeZoneId")]
+    #[serde(rename = "timeZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone_id: Option<String>,
     /// <p>The login name of the user.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -375,7 +375,7 @@ pub struct CreateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserResponse {
     /// <p>The user information.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -384,11 +384,11 @@ pub struct CreateUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeactivateUserRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -396,17 +396,17 @@ pub struct DeactivateUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCommentRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the comment.</p>
-    #[serde(rename = "CommentId")]
+    #[serde(rename = "commentId")]
     pub comment_id: String,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>The ID of the document version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
 }
 
@@ -414,22 +414,22 @@ pub struct DeleteCommentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCustomMetadataRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>Flag to indicate removal of all custom metadata properties from the specified resource.</p>
-    #[serde(rename = "DeleteAll")]
+    #[serde(rename = "deleteAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_all: Option<bool>,
     /// <p>List of properties to remove.</p>
-    #[serde(rename = "Keys")]
+    #[serde(rename = "keys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub keys: Option<Vec<String>>,
     /// <p>The ID of the resource, either a document or folder.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The ID of the version, if the custom metadata is being deleted from a document version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -442,11 +442,11 @@ pub struct DeleteCustomMetadataResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDocumentRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
 }
 
@@ -454,11 +454,11 @@ pub struct DeleteDocumentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFolderContentsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
 }
 
@@ -466,11 +466,11 @@ pub struct DeleteFolderContentsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFolderRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
 }
 
@@ -478,19 +478,19 @@ pub struct DeleteFolderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLabelsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>Flag to request removal of all labels from the specified resource.</p>
-    #[serde(rename = "DeleteAll")]
+    #[serde(rename = "deleteAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_all: Option<bool>,
     /// <p>List of labels to delete from the resource.</p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<String>>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -502,10 +502,10 @@ pub struct DeleteLabelsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteNotificationSubscriptionRequest {
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
     /// <p>The ID of the subscription.</p>
-    #[serde(rename = "SubscriptionId")]
+    #[serde(rename = "subscriptionId")]
     pub subscription_id: String,
 }
 
@@ -513,11 +513,11 @@ pub struct DeleteNotificationSubscriptionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -525,43 +525,43 @@ pub struct DeleteUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeActivitiesRequest {
     /// <p>Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.</p>
-    #[serde(rename = "ActivityTypes")]
+    #[serde(rename = "activityTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub activity_types: Option<String>,
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).</p>
-    #[serde(rename = "IncludeIndirectActivities")]
+    #[serde(rename = "includeIndirectActivities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_indirect_activities: Option<bool>,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The document or folder ID for which to describe activity types.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -570,11 +570,11 @@ pub struct DescribeActivitiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeActivitiesResponse {
     /// <p>The marker for the next set of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The list of activities for the specified user and time period.</p>
-    #[serde(rename = "UserActivities")]
+    #[serde(rename = "userActivities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_activities: Option<Vec<Activity>>,
 }
@@ -583,22 +583,22 @@ pub struct DescribeActivitiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCommentsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. This marker was received from a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The ID of the document version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
 }
 
@@ -606,11 +606,11 @@ pub struct DescribeCommentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCommentsResponse {
     /// <p>The list of comments for the specified document version.</p>
-    #[serde(rename = "Comments")]
+    #[serde(rename = "comments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comments: Option<Vec<Comment>>,
     /// <p>The marker for the next set of results. This marker was received from a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -619,26 +619,26 @@ pub struct DescribeCommentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDocumentVersionsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>Specify "SOURCE" to include initialized versions and a URL for the source document.</p>
-    #[serde(rename = "Fields")]
+    #[serde(rename = "fields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fields: Option<String>,
     /// <p>A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.</p>
-    #[serde(rename = "Include")]
+    #[serde(rename = "include")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include: Option<String>,
     /// <p>The maximum number of versions to return with this call.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -647,11 +647,11 @@ pub struct DescribeDocumentVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDocumentVersionsResponse {
     /// <p>The document versions.</p>
-    #[serde(rename = "DocumentVersions")]
+    #[serde(rename = "documentVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_versions: Option<Vec<DocumentVersionMetadata>>,
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -660,34 +660,34 @@ pub struct DescribeDocumentVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFolderContentsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The contents to include. Specify "INITIALIZED" to include initialized documents.</p>
-    #[serde(rename = "Include")]
+    #[serde(rename = "include")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. This marker was received from a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The order for the contents of the folder.</p>
-    #[serde(rename = "Order")]
+    #[serde(rename = "order")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub order: Option<String>,
     /// <p>The sorting criteria.</p>
-    #[serde(rename = "Sort")]
+    #[serde(rename = "sort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort: Option<String>,
     /// <p>The type of items.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -696,15 +696,15 @@ pub struct DescribeFolderContentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFolderContentsResponse {
     /// <p>The documents in the specified folder.</p>
-    #[serde(rename = "Documents")]
+    #[serde(rename = "documents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub documents: Option<Vec<DocumentMetadata>>,
     /// <p>The subfolders in the specified folder.</p>
-    #[serde(rename = "Folders")]
+    #[serde(rename = "folders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folders: Option<Vec<FolderMetadata>>,
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -713,23 +713,23 @@ pub struct DescribeFolderContentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeGroupsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>A query to describe groups by group name.</p>
-    #[serde(rename = "SearchQuery")]
+    #[serde(rename = "searchQuery")]
     pub search_query: String,
 }
 
@@ -737,11 +737,11 @@ pub struct DescribeGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeGroupsResponse {
     /// <p>The list of groups.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<GroupMetadata>>,
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -750,15 +750,15 @@ pub struct DescribeGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeNotificationSubscriptionsRequest {
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     pub organization_id: String,
 }
 
@@ -766,11 +766,11 @@ pub struct DescribeNotificationSubscriptionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeNotificationSubscriptionsResponse {
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The subscriptions.</p>
-    #[serde(rename = "Subscriptions")]
+    #[serde(rename = "subscriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscriptions: Option<Vec<Subscription>>,
 }
@@ -779,23 +779,23 @@ pub struct DescribeNotificationSubscriptionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeResourcePermissionsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. (You received this marker from a previous call)</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The ID of the principal to filter permissions by.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_id: Option<String>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -803,11 +803,11 @@ pub struct DescribeResourcePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeResourcePermissionsResponse {
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The principals.</p>
-    #[serde(rename = "Principals")]
+    #[serde(rename = "principals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principals: Option<Vec<Principal>>,
 }
@@ -816,14 +816,14 @@ pub struct DescribeResourcePermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRootFoldersRequest {
     /// <p>Amazon WorkDocs authentication token.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     pub authentication_token: String,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -832,11 +832,11 @@ pub struct DescribeRootFoldersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRootFoldersResponse {
     /// <p>The user's special folders.</p>
-    #[serde(rename = "Folders")]
+    #[serde(rename = "folders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folders: Option<Vec<FolderMetadata>>,
     /// <p>The marker for the next set of results.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -845,43 +845,43 @@ pub struct DescribeRootFoldersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUsersRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.</p>
-    #[serde(rename = "Fields")]
+    #[serde(rename = "fields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fields: Option<String>,
     /// <p>The state of the users. Specify "ALL" to include inactive users.</p>
-    #[serde(rename = "Include")]
+    #[serde(rename = "include")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include: Option<String>,
     /// <p>The maximum number of items to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The order for the results.</p>
-    #[serde(rename = "Order")]
+    #[serde(rename = "order")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub order: Option<String>,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>A query to filter users by user name.</p>
-    #[serde(rename = "Query")]
+    #[serde(rename = "query")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub query: Option<String>,
     /// <p>The sorting criteria.</p>
-    #[serde(rename = "Sort")]
+    #[serde(rename = "sort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort: Option<String>,
     /// <p>The IDs of the users.</p>
-    #[serde(rename = "UserIds")]
+    #[serde(rename = "userIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_ids: Option<String>,
 }
@@ -890,11 +890,11 @@ pub struct DescribeUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUsersResponse {
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The users.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<User>>,
 }
@@ -904,35 +904,35 @@ pub struct DescribeUsersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentMetadata {
     /// <p>The time when the document was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ID of the creator.</p>
-    #[serde(rename = "CreatorId")]
+    #[serde(rename = "creatorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_id: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>List of labels on the document.</p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<String>>,
     /// <p>The latest version of the document.</p>
-    #[serde(rename = "LatestVersionMetadata")]
+    #[serde(rename = "latestVersionMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version_metadata: Option<DocumentVersionMetadata>,
     /// <p>The time when the document was updated.</p>
-    #[serde(rename = "ModifiedTimestamp")]
+    #[serde(rename = "modifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modified_timestamp: Option<f64>,
     /// <p>The ID of the parent folder.</p>
-    #[serde(rename = "ParentFolderId")]
+    #[serde(rename = "parentFolderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_folder_id: Option<String>,
     /// <p>The resource state.</p>
-    #[serde(rename = "ResourceState")]
+    #[serde(rename = "resourceState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_state: Option<String>,
 }
@@ -942,55 +942,55 @@ pub struct DocumentMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentVersionMetadata {
     /// <p>The timestamp when the content of the document was originally created.</p>
-    #[serde(rename = "ContentCreatedTimestamp")]
+    #[serde(rename = "contentCreatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_created_timestamp: Option<f64>,
     /// <p>The timestamp when the content of the document was modified.</p>
-    #[serde(rename = "ContentModifiedTimestamp")]
+    #[serde(rename = "contentModifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_modified_timestamp: Option<f64>,
     /// <p>The content type of the document.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The timestamp when the document was first uploaded.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ID of the creator.</p>
-    #[serde(rename = "CreatorId")]
+    #[serde(rename = "creatorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_id: Option<String>,
     /// <p>The ID of the version.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The timestamp when the document was last uploaded.</p>
-    #[serde(rename = "ModifiedTimestamp")]
+    #[serde(rename = "modifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modified_timestamp: Option<f64>,
     /// <p>The name of the version.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The signature of the document.</p>
-    #[serde(rename = "Signature")]
+    #[serde(rename = "signature")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signature: Option<String>,
     /// <p>The size of the document, in bytes.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size: Option<i64>,
     /// <p>The source of the document.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<::std::collections::HashMap<String, String>>,
     /// <p>The status of the document.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The thumbnail of the document.</p>
-    #[serde(rename = "Thumbnail")]
+    #[serde(rename = "thumbnail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub thumbnail: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1000,47 +1000,47 @@ pub struct DocumentVersionMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FolderMetadata {
     /// <p>The time when the folder was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The ID of the creator.</p>
-    #[serde(rename = "CreatorId")]
+    #[serde(rename = "creatorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_id: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>List of labels on the folder.</p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<String>>,
     /// <p>The size of the latest version of the folder metadata.</p>
-    #[serde(rename = "LatestVersionSize")]
+    #[serde(rename = "latestVersionSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub latest_version_size: Option<i64>,
     /// <p>The time when the folder was updated.</p>
-    #[serde(rename = "ModifiedTimestamp")]
+    #[serde(rename = "modifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modified_timestamp: Option<f64>,
     /// <p>The name of the folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the parent folder.</p>
-    #[serde(rename = "ParentFolderId")]
+    #[serde(rename = "parentFolderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_folder_id: Option<String>,
     /// <p>The resource state of the folder.</p>
-    #[serde(rename = "ResourceState")]
+    #[serde(rename = "resourceState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_state: Option<String>,
     /// <p>The unique identifier created from the subfolders and documents of the folder.</p>
-    #[serde(rename = "Signature")]
+    #[serde(rename = "signature")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signature: Option<String>,
     /// <p>The size of the folder metadata.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size: Option<i64>,
 }
@@ -1049,7 +1049,7 @@ pub struct FolderMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCurrentUserRequest {
     /// <p>Amazon WorkDocs authentication token.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     pub authentication_token: String,
 }
 
@@ -1057,7 +1057,7 @@ pub struct GetCurrentUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCurrentUserResponse {
     /// <p>Metadata of the user.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -1066,22 +1066,22 @@ pub struct GetCurrentUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDocumentPathRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>A comma-separated list of values. Specify <code>NAME</code> to include the names of the parent folders.</p>
-    #[serde(rename = "Fields")]
+    #[serde(rename = "fields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fields: Option<String>,
     /// <p>The maximum number of levels in the hierarchy to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>This value is not supported.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -1090,7 +1090,7 @@ pub struct GetDocumentPathRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDocumentPathResponse {
     /// <p>The path information.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<ResourcePath>,
 }
@@ -1099,14 +1099,14 @@ pub struct GetDocumentPathResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDocumentRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>
-    #[serde(rename = "IncludeCustomMetadata")]
+    #[serde(rename = "includeCustomMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_custom_metadata: Option<bool>,
 }
@@ -1115,11 +1115,11 @@ pub struct GetDocumentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDocumentResponse {
     /// <p>The custom metadata on the document.</p>
-    #[serde(rename = "CustomMetadata")]
+    #[serde(rename = "customMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The metadata details of the document.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<DocumentMetadata>,
 }
@@ -1128,22 +1128,22 @@ pub struct GetDocumentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDocumentVersionRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.</p>
-    #[serde(rename = "Fields")]
+    #[serde(rename = "fields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fields: Option<String>,
     /// <p>Set this to TRUE to include custom metadata in the response.</p>
-    #[serde(rename = "IncludeCustomMetadata")]
+    #[serde(rename = "includeCustomMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_custom_metadata: Option<bool>,
     /// <p>The version ID of the document.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
 }
 
@@ -1151,11 +1151,11 @@ pub struct GetDocumentVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDocumentVersionResponse {
     /// <p>The custom metadata on the document version.</p>
-    #[serde(rename = "CustomMetadata")]
+    #[serde(rename = "customMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The version metadata.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<DocumentVersionMetadata>,
 }
@@ -1164,22 +1164,22 @@ pub struct GetDocumentVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFolderPathRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>A comma-separated list of values. Specify "NAME" to include the names of the parent folders.</p>
-    #[serde(rename = "Fields")]
+    #[serde(rename = "fields")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fields: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The maximum number of levels in the hierarchy to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>This value is not supported.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -1188,7 +1188,7 @@ pub struct GetFolderPathRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFolderPathResponse {
     /// <p>The path information.</p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<ResourcePath>,
 }
@@ -1197,14 +1197,14 @@ pub struct GetFolderPathResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFolderRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>Set to TRUE to include custom metadata in the response.</p>
-    #[serde(rename = "IncludeCustomMetadata")]
+    #[serde(rename = "includeCustomMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_custom_metadata: Option<bool>,
 }
@@ -1213,11 +1213,11 @@ pub struct GetFolderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFolderResponse {
     /// <p>The custom metadata on the folder.</p>
-    #[serde(rename = "CustomMetadata")]
+    #[serde(rename = "customMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The metadata of the folder.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<FolderMetadata>,
 }
@@ -1226,23 +1226,23 @@ pub struct GetFolderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourcesRequest {
     /// <p>The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The collection type.</p>
-    #[serde(rename = "CollectionType")]
+    #[serde(rename = "collectionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub collection_type: Option<String>,
     /// <p>The maximum number of resources to return.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The marker for the next set of results. This marker was received from a previous call.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
     /// <p>The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -1251,15 +1251,15 @@ pub struct GetResourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourcesResponse {
     /// <p>The documents in the specified collection.</p>
-    #[serde(rename = "Documents")]
+    #[serde(rename = "documents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub documents: Option<Vec<DocumentMetadata>>,
     /// <p>The folders in the specified folder.</p>
-    #[serde(rename = "Folders")]
+    #[serde(rename = "folders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub folders: Option<Vec<FolderMetadata>>,
     /// <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-    #[serde(rename = "Marker")]
+    #[serde(rename = "marker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub marker: Option<String>,
 }
@@ -1269,11 +1269,11 @@ pub struct GetResourcesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupMetadata {
     /// <p>The ID of the user group.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1282,35 +1282,35 @@ pub struct GroupMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InitiateDocumentVersionUploadRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The timestamp when the content of the document was originally created.</p>
-    #[serde(rename = "ContentCreatedTimestamp")]
+    #[serde(rename = "contentCreatedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_created_timestamp: Option<f64>,
     /// <p>The timestamp when the content of the document was modified.</p>
-    #[serde(rename = "ContentModifiedTimestamp")]
+    #[serde(rename = "contentModifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_modified_timestamp: Option<f64>,
     /// <p>The content type of the document.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The size of the document, in bytes.</p>
-    #[serde(rename = "DocumentSizeInBytes")]
+    #[serde(rename = "documentSizeInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_size_in_bytes: Option<i64>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the document.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the parent folder.</p>
-    #[serde(rename = "ParentFolderId")]
+    #[serde(rename = "parentFolderId")]
     pub parent_folder_id: String,
 }
 
@@ -1318,11 +1318,11 @@ pub struct InitiateDocumentVersionUploadRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InitiateDocumentVersionUploadResponse {
     /// <p>The document metadata.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<DocumentMetadata>,
     /// <p>The upload metadata.</p>
-    #[serde(rename = "UploadMetadata")]
+    #[serde(rename = "uploadMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upload_metadata: Option<UploadMetadata>,
 }
@@ -1332,11 +1332,11 @@ pub struct InitiateDocumentVersionUploadResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct NotificationOptions {
     /// <p>Text value to be included in the email body.</p>
-    #[serde(rename = "EmailMessage")]
+    #[serde(rename = "emailMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_message: Option<String>,
     /// <p>Boolean value to indicate an email notification should be sent to the receipients.</p>
-    #[serde(rename = "SendEmail")]
+    #[serde(rename = "sendEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub send_email: Option<bool>,
 }
@@ -1346,11 +1346,11 @@ pub struct NotificationOptions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Participants {
     /// <p>The list of user groups.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<GroupMetadata>>,
     /// <p>The list of users.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<UserMetadata>>,
 }
@@ -1360,11 +1360,11 @@ pub struct Participants {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PermissionInfo {
     /// <p>The role of the user.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The type of permissions.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1374,15 +1374,15 @@ pub struct PermissionInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Principal {
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The permission information for the resource.</p>
-    #[serde(rename = "Roles")]
+    #[serde(rename = "roles")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub roles: Option<Vec<PermissionInfo>>,
     /// <p>The type of resource.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1391,11 +1391,11 @@ pub struct Principal {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveAllResourcePermissionsRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1403,18 +1403,18 @@ pub struct RemoveAllResourcePermissionsRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveResourcePermissionRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The principal ID of the resource.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     pub principal_id: String,
     /// <p>The principal type of the resource.</p>
-    #[serde(rename = "PrincipalType")]
+    #[serde(rename = "principalType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_type: Option<String>,
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1423,31 +1423,31 @@ pub struct RemoveResourcePermissionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceMetadata {
     /// <p>The ID of the resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The original name of the resource before a rename operation.</p>
-    #[serde(rename = "OriginalName")]
+    #[serde(rename = "originalName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub original_name: Option<String>,
     /// <p>The owner of the resource.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<UserMetadata>,
     /// <p>The parent ID of the resource before a rename operation.</p>
-    #[serde(rename = "ParentId")]
+    #[serde(rename = "parentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<String>,
     /// <p>The type of resource.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The version ID of the resource. This is an optional field and is filled for action on document version.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_id: Option<String>,
 }
@@ -1457,7 +1457,7 @@ pub struct ResourceMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourcePath {
     /// <p>The components of the resource path.</p>
-    #[serde(rename = "Components")]
+    #[serde(rename = "components")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub components: Option<Vec<ResourcePathComponent>>,
 }
@@ -1467,11 +1467,11 @@ pub struct ResourcePath {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourcePathComponent {
     /// <p>The ID of the resource path.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the resource path.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1481,13 +1481,13 @@ pub struct ResourcePathComponent {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SharePrincipal {
     /// <p>The ID of the recipient.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The role of the recipient.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     pub role: String,
     /// <p>The type of the recipient.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1496,27 +1496,27 @@ pub struct SharePrincipal {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ShareResult {
     /// <p>The ID of the invited user.</p>
-    #[serde(rename = "InviteePrincipalId")]
+    #[serde(rename = "inviteePrincipalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invitee_principal_id: Option<String>,
     /// <p>The ID of the principal.</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_id: Option<String>,
     /// <p>The role.</p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
     /// <p>The ID of the resource that was shared.</p>
-    #[serde(rename = "ShareId")]
+    #[serde(rename = "shareId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_id: Option<String>,
     /// <p>The status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The status message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -1525,11 +1525,11 @@ pub struct ShareResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StorageRuleType {
     /// <p>The amount of storage allocated, in bytes.</p>
-    #[serde(rename = "StorageAllocatedInBytes")]
+    #[serde(rename = "storageAllocatedInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_allocated_in_bytes: Option<i64>,
     /// <p>The type of storage.</p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
 }
@@ -1539,15 +1539,15 @@ pub struct StorageRuleType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Subscription {
     /// <p>The endpoint of the subscription.</p>
-    #[serde(rename = "EndPoint")]
+    #[serde(rename = "endPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_point: Option<String>,
     /// <p>The protocol of the subscription.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The ID of the subscription.</p>
-    #[serde(rename = "SubscriptionId")]
+    #[serde(rename = "subscriptionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription_id: Option<String>,
 }
@@ -1556,22 +1556,22 @@ pub struct Subscription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDocumentRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>The name of the document.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the parent folder.</p>
-    #[serde(rename = "ParentFolderId")]
+    #[serde(rename = "parentFolderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_folder_id: Option<String>,
     /// <p>The resource state of the document. Only ACTIVE and RECYCLED are supported.</p>
-    #[serde(rename = "ResourceState")]
+    #[serde(rename = "resourceState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_state: Option<String>,
 }
@@ -1580,17 +1580,17 @@ pub struct UpdateDocumentRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDocumentVersionRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the document.</p>
-    #[serde(rename = "DocumentId")]
+    #[serde(rename = "documentId")]
     pub document_id: String,
     /// <p>The version ID of the document.</p>
-    #[serde(rename = "VersionId")]
+    #[serde(rename = "versionId")]
     pub version_id: String,
     /// <p>The status of the version.</p>
-    #[serde(rename = "VersionStatus")]
+    #[serde(rename = "versionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version_status: Option<String>,
 }
@@ -1599,22 +1599,22 @@ pub struct UpdateDocumentVersionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFolderRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The ID of the folder.</p>
-    #[serde(rename = "FolderId")]
+    #[serde(rename = "folderId")]
     pub folder_id: String,
     /// <p>The name of the folder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the parent folder.</p>
-    #[serde(rename = "ParentFolderId")]
+    #[serde(rename = "parentFolderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parent_folder_id: Option<String>,
     /// <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.</p>
-    #[serde(rename = "ResourceState")]
+    #[serde(rename = "resourceState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_state: Option<String>,
 }
@@ -1623,39 +1623,39 @@ pub struct UpdateFolderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserRequest {
     /// <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
-    #[serde(rename = "AuthenticationToken")]
+    #[serde(rename = "authenticationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_token: Option<String>,
     /// <p>The given name of the user.</p>
-    #[serde(rename = "GivenName")]
+    #[serde(rename = "givenName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub given_name: Option<String>,
     /// <p>Boolean value to determine whether the user is granted Poweruser privileges.</p>
-    #[serde(rename = "GrantPoweruserPrivileges")]
+    #[serde(rename = "grantPoweruserPrivileges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_poweruser_privileges: Option<String>,
     /// <p>The locale of the user.</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
     /// <p>The amount of storage for the user.</p>
-    #[serde(rename = "StorageRule")]
+    #[serde(rename = "storageRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_rule: Option<StorageRuleType>,
     /// <p>The surname of the user.</p>
-    #[serde(rename = "Surname")]
+    #[serde(rename = "surname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub surname: Option<String>,
     /// <p>The time zone ID of the user.</p>
-    #[serde(rename = "TimeZoneId")]
+    #[serde(rename = "timeZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone_id: Option<String>,
     /// <p>The type of the user.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The ID of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -1663,7 +1663,7 @@ pub struct UpdateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserResponse {
     /// <p>The user information.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<User>,
 }
@@ -1673,11 +1673,11 @@ pub struct UpdateUserResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UploadMetadata {
     /// <p>The signed headers.</p>
-    #[serde(rename = "SignedHeaders")]
+    #[serde(rename = "signedHeaders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_headers: Option<::std::collections::HashMap<String, String>>,
     /// <p>The URL of the upload.</p>
-    #[serde(rename = "UploadUrl")]
+    #[serde(rename = "uploadUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upload_url: Option<String>,
 }
@@ -1687,63 +1687,63 @@ pub struct UploadMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct User {
     /// <p>The time when the user was created.</p>
-    #[serde(rename = "CreatedTimestamp")]
+    #[serde(rename = "createdTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<f64>,
     /// <p>The email address of the user.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>The given name of the user.</p>
-    #[serde(rename = "GivenName")]
+    #[serde(rename = "givenName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub given_name: Option<String>,
     /// <p>The ID of the user.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The locale of the user.</p>
-    #[serde(rename = "Locale")]
+    #[serde(rename = "locale")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
     /// <p>The time when the user was modified.</p>
-    #[serde(rename = "ModifiedTimestamp")]
+    #[serde(rename = "modifiedTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modified_timestamp: Option<f64>,
     /// <p>The ID of the organization.</p>
-    #[serde(rename = "OrganizationId")]
+    #[serde(rename = "organizationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
     /// <p>The ID of the recycle bin folder.</p>
-    #[serde(rename = "RecycleBinFolderId")]
+    #[serde(rename = "recycleBinFolderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recycle_bin_folder_id: Option<String>,
     /// <p>The ID of the root folder.</p>
-    #[serde(rename = "RootFolderId")]
+    #[serde(rename = "rootFolderId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_folder_id: Option<String>,
     /// <p>The status of the user.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The storage for the user.</p>
-    #[serde(rename = "Storage")]
+    #[serde(rename = "storage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage: Option<UserStorageMetadata>,
     /// <p>The surname of the user.</p>
-    #[serde(rename = "Surname")]
+    #[serde(rename = "surname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub surname: Option<String>,
     /// <p>The time zone ID of the user.</p>
-    #[serde(rename = "TimeZoneId")]
+    #[serde(rename = "timeZoneId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone_id: Option<String>,
     /// <p>The type of user.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The login name of the user.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -1753,23 +1753,23 @@ pub struct User {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserMetadata {
     /// <p>The email address of the user.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>The given name of the user before a rename operation.</p>
-    #[serde(rename = "GivenName")]
+    #[serde(rename = "givenName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub given_name: Option<String>,
     /// <p>The ID of the user.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The surname of the user.</p>
-    #[serde(rename = "Surname")]
+    #[serde(rename = "surname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub surname: Option<String>,
     /// <p>The name of the user.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -1779,11 +1779,11 @@ pub struct UserMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserStorageMetadata {
     /// <p>The storage for a user.</p>
-    #[serde(rename = "StorageRule")]
+    #[serde(rename = "storageRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_rule: Option<StorageRuleType>,
     /// <p>The amount of storage used, in bytes.</p>
-    #[serde(rename = "StorageUtilizedInBytes")]
+    #[serde(rename = "storageUtilizedInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_utilized_in_bytes: Option<i64>,
 }

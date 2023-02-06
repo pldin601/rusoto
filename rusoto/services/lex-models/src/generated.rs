@@ -641,7 +641,7 @@ pub struct GetBotAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetBotAliasesResponse {
     /// <p>An array of <code>BotAliasMetadata</code> objects, each describing a bot alias.</p>
-    #[serde(rename = "BotAliases")]
+    #[serde(rename = "botAliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bot_aliases: Option<Vec<BotAliasMetadata>>,
     /// <p>A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request. </p>

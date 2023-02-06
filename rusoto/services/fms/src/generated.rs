@@ -54,13 +54,13 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct App {
     /// <p>The application's name.</p>
-    #[serde(rename = "AppName")]
+    #[serde(rename = "appName")]
     pub app_name: String,
     /// <p>The application's port number, for example <code>80</code>.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     pub port: i64,
     /// <p>The IP protocol name or number. The name can be one of <code>tcp</code>, <code>udp</code>, or <code>icmp</code>. For information on possible numbers, see <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     pub protocol: String,
 }
 
@@ -68,29 +68,29 @@ pub struct App {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AppsListData {
     /// <p>An array of applications in the AWS Firewall Manager applications list.</p>
-    #[serde(rename = "AppsList")]
+    #[serde(rename = "appsList")]
     pub apps_list: Vec<App>,
     /// <p>The time that the AWS Firewall Manager applications list was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>The time that the AWS Firewall Manager applications list was last updated.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p>The ID of the AWS Firewall Manager applications list.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_id: Option<String>,
     /// <p>The name of the AWS Firewall Manager applications list.</p>
-    #[serde(rename = "ListName")]
+    #[serde(rename = "listName")]
     pub list_name: String,
     /// <p>A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list. </p>
-    #[serde(rename = "ListUpdateToken")]
+    #[serde(rename = "listUpdateToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_update_token: Option<String>,
     /// <p>A map of previous version numbers to their corresponding <code>App</code> object arrays.</p>
-    #[serde(rename = "PreviousAppsList")]
+    #[serde(rename = "previousAppsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub previous_apps_list: Option<::std::collections::HashMap<String, Vec<App>>>,
 }
@@ -100,19 +100,19 @@ pub struct AppsListData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AppsListDataSummary {
     /// <p>An array of <code>App</code> objects in the AWS Firewall Manager applications list.</p>
-    #[serde(rename = "AppsList")]
+    #[serde(rename = "appsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_list: Option<Vec<App>>,
     /// <p>The Amazon Resource Name (ARN) of the applications list.</p>
-    #[serde(rename = "ListArn")]
+    #[serde(rename = "listArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_arn: Option<String>,
     /// <p>The ID of the applications list.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_id: Option<String>,
     /// <p>The name of the applications list.</p>
-    #[serde(rename = "ListName")]
+    #[serde(rename = "listName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_name: Option<String>,
 }
@@ -121,7 +121,7 @@ pub struct AppsListDataSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateAdminAccountRequest {
     /// <p>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. For more information about AWS Organizations and master accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the AWS Accounts in Your Organization</a>. </p>
-    #[serde(rename = "AdminAccount")]
+    #[serde(rename = "adminAccount")]
     pub admin_account: String,
 }
 
@@ -130,11 +130,11 @@ pub struct AssociateAdminAccountRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AwsEc2InstanceViolation {
     /// <p>Violations for network interfaces associated with the EC2 instance.</p>
-    #[serde(rename = "AwsEc2NetworkInterfaceViolations")]
+    #[serde(rename = "awsEc2NetworkInterfaceViolations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_ec_2_network_interface_violations: Option<Vec<AwsEc2NetworkInterfaceViolation>>,
     /// <p>The resource ID of the EC2 instance.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
 }
@@ -144,11 +144,11 @@ pub struct AwsEc2InstanceViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AwsEc2NetworkInterfaceViolation {
     /// <p>List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "ViolatingSecurityGroups")]
+    #[serde(rename = "violatingSecurityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violating_security_groups: Option<Vec<String>>,
     /// <p>The resource ID of the network interface.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
 }
@@ -158,19 +158,19 @@ pub struct AwsEc2NetworkInterfaceViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AwsVPCSecurityGroupViolation {
     /// <p>List of rules specified in the security group of the AWS Firewall Manager policy that partially match the <code>ViolationTarget</code> rule.</p>
-    #[serde(rename = "PartialMatches")]
+    #[serde(rename = "partialMatches")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub partial_matches: Option<Vec<PartialMatch>>,
     /// <p>Remediation options for the rule specified in the <code>ViolationTarget</code>.</p>
-    #[serde(rename = "PossibleSecurityGroupRemediationActions")]
+    #[serde(rename = "possibleSecurityGroupRemediationActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub possible_security_group_remediation_actions: Option<Vec<SecurityGroupRemediationAction>>,
     /// <p>The security group rule that is being evaluated.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
     /// <p>A description of the security group that violates the policy.</p>
-    #[serde(rename = "ViolationTargetDescription")]
+    #[serde(rename = "violationTargetDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target_description: Option<String>,
 }
@@ -180,15 +180,15 @@ pub struct AwsVPCSecurityGroupViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceViolator {
     /// <p>The resource ID.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>. For example: <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::CloudFront::Distribution</code>, or <code>AWS::NetworkFirewall::FirewallPolicy</code>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The reason that the resource is not protected by the policy.</p>
-    #[serde(rename = "ViolationReason")]
+    #[serde(rename = "violationReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_reason: Option<String>,
 }
@@ -197,7 +197,7 @@ pub struct ComplianceViolator {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAppsListRequest {
     /// <p>The ID of the applications list that you want to delete. You can retrieve this ID from <code>PutAppsList</code>, <code>ListAppsLists</code>, and <code>GetAppsList</code>.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     pub list_id: String,
 }
 
@@ -209,11 +209,11 @@ pub struct DeleteNotificationChannelRequest {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePolicyRequest {
     /// <p>If <code>True</code>, the request performs cleanup according to the policy type. </p> <p>For AWS WAF and Shield Advanced policies, the cleanup does the following:</p> <ul> <li> <p>Deletes rule groups created by AWS Firewall Manager</p> </li> <li> <p>Removes web ACLs from in-scope resources</p> </li> <li> <p>Deletes web ACLs that contain no rules or rule groups</p> </li> </ul> <p>For security group policies, the cleanup does the following for each security group in the policy:</p> <ul> <li> <p>Disassociates the security group from in-scope resources </p> </li> <li> <p>Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy</p> </li> </ul> <p>After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope. </p>
-    #[serde(rename = "DeleteAllPolicyResources")]
+    #[serde(rename = "deleteAllPolicyResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_all_policy_resources: Option<bool>,
     /// <p>The ID of the policy that you want to delete. You can retrieve this ID from <code>PutPolicy</code> and <code>ListPolicies</code>.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
 }
 
@@ -221,7 +221,7 @@ pub struct DeletePolicyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProtocolsListRequest {
     /// <p>The ID of the protocols list that you want to delete. You can retrieve this ID from <code>PutProtocolsList</code>, <code>ListProtocolsLists</code>, and <code>GetProtocolsLost</code>.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     pub list_id: String,
 }
 
@@ -234,11 +234,11 @@ pub struct DisassociateAdminAccountRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DnsDuplicateRuleGroupViolation {
     /// <p>The ID of the VPC. </p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
     /// <p>A description of the violation that specifies the rule group and VPC.</p>
-    #[serde(rename = "ViolationTargetDescription")]
+    #[serde(rename = "violationTargetDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target_description: Option<String>,
 }
@@ -248,15 +248,15 @@ pub struct DnsDuplicateRuleGroupViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DnsRuleGroupLimitExceededViolation {
     /// <p>The number of rule groups currently associated with the VPC. </p>
-    #[serde(rename = "NumberOfRuleGroupsAlreadyAssociated")]
+    #[serde(rename = "numberOfRuleGroupsAlreadyAssociated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_rule_groups_already_associated: Option<i64>,
     /// <p>The ID of the VPC. </p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
     /// <p>A description of the violation that specifies the rule group and VPC.</p>
-    #[serde(rename = "ViolationTargetDescription")]
+    #[serde(rename = "violationTargetDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target_description: Option<String>,
 }
@@ -266,23 +266,23 @@ pub struct DnsRuleGroupLimitExceededViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DnsRuleGroupPriorityConflictViolation {
     /// <p>The ID of the Firewall Manager DNS Firewall policy that was already applied to the VPC. This policy contains the rule group that's already associated with the VPC. </p>
-    #[serde(rename = "ConflictingPolicyId")]
+    #[serde(rename = "conflictingPolicyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conflicting_policy_id: Option<String>,
     /// <p>The priority setting of the two conflicting rule groups.</p>
-    #[serde(rename = "ConflictingPriority")]
+    #[serde(rename = "conflictingPriority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conflicting_priority: Option<i64>,
     /// <p>The priorities of rule groups that are already associated with the VPC. To retry your operation, choose priority settings that aren't in this list for the rule groups in your new DNS Firewall policy. </p>
-    #[serde(rename = "UnavailablePriorities")]
+    #[serde(rename = "unavailablePriorities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unavailable_priorities: Option<Vec<i64>>,
     /// <p>The ID of the VPC. </p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
     /// <p>A description of the violation that specifies the VPC and the rule group that's already associated with it.</p>
-    #[serde(rename = "ViolationTargetDescription")]
+    #[serde(rename = "violationTargetDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target_description: Option<String>,
 }
@@ -292,15 +292,15 @@ pub struct DnsRuleGroupPriorityConflictViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EvaluationResult {
     /// <p>Describes an AWS account's compliance with the AWS Firewall Manager policy.</p>
-    #[serde(rename = "ComplianceStatus")]
+    #[serde(rename = "complianceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_status: Option<String>,
     /// <p>Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy.</p>
-    #[serde(rename = "EvaluationLimitExceeded")]
+    #[serde(rename = "evaluationLimitExceeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_limit_exceeded: Option<bool>,
     /// <p>The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.</p>
-    #[serde(rename = "ViolatorCount")]
+    #[serde(rename = "violatorCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violator_count: Option<i64>,
 }
@@ -313,11 +313,11 @@ pub struct GetAdminAccountRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAdminAccountResponse {
     /// <p>The AWS account that is set as the AWS Firewall Manager administrator.</p>
-    #[serde(rename = "AdminAccount")]
+    #[serde(rename = "adminAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_account: Option<String>,
     /// <p>The status of the AWS account that you set as the AWS Firewall Manager administrator.</p>
-    #[serde(rename = "RoleStatus")]
+    #[serde(rename = "roleStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_status: Option<String>,
 }
@@ -326,11 +326,11 @@ pub struct GetAdminAccountResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAppsListRequest {
     /// <p>Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.</p>
-    #[serde(rename = "DefaultList")]
+    #[serde(rename = "defaultList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_list: Option<bool>,
     /// <p>The ID of the AWS Firewall Manager applications list that you want the details for.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     pub list_id: String,
 }
 
@@ -338,11 +338,11 @@ pub struct GetAppsListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAppsListResponse {
     /// <p>Information about the specified AWS Firewall Manager applications list.</p>
-    #[serde(rename = "AppsList")]
+    #[serde(rename = "appsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_list: Option<AppsListData>,
     /// <p>The Amazon Resource Name (ARN) of the applications list.</p>
-    #[serde(rename = "AppsListArn")]
+    #[serde(rename = "appsListArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_list_arn: Option<String>,
 }
@@ -351,10 +351,10 @@ pub struct GetAppsListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetComplianceDetailRequest {
     /// <p>The AWS account that owns the resources that you want to get the details for.</p>
-    #[serde(rename = "MemberAccount")]
+    #[serde(rename = "memberAccount")]
     pub member_account: String,
     /// <p>The ID of the policy that you want to get the details for. <code>PolicyId</code> is returned by <code>PutPolicy</code> and by <code>ListPolicies</code>.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
 }
 
@@ -362,7 +362,7 @@ pub struct GetComplianceDetailRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetComplianceDetailResponse {
     /// <p>Information about the resources and the policy that you specified in the <code>GetComplianceDetail</code> request.</p>
-    #[serde(rename = "PolicyComplianceDetail")]
+    #[serde(rename = "policyComplianceDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_compliance_detail: Option<PolicyComplianceDetail>,
 }
@@ -375,11 +375,11 @@ pub struct GetNotificationChannelRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetNotificationChannelResponse {
     /// <p>The IAM role that is used by AWS Firewall Manager to record activity to SNS.</p>
-    #[serde(rename = "SnsRoleName")]
+    #[serde(rename = "snsRoleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_role_name: Option<String>,
     /// <p>The SNS topic that records AWS Firewall Manager activity. </p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
 }
@@ -388,7 +388,7 @@ pub struct GetNotificationChannelResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPolicyRequest {
     /// <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
 }
 
@@ -396,11 +396,11 @@ pub struct GetPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPolicyResponse {
     /// <p>Information about the specified AWS Firewall Manager policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<Policy>,
     /// <p>The Amazon Resource Name (ARN) of the specified policy.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
 }
@@ -409,26 +409,26 @@ pub struct GetPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProtectionStatusRequest {
     /// <p>The end of the time period to query for the attacks. This is a <code>timestamp</code> type. The request syntax listing indicates a <code>number</code> type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is allowed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The AWS account that is in scope of the policy that you want to get the details for.</p>
-    #[serde(rename = "MemberAccountId")]
+    #[serde(rename = "memberAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_account_id: Option<String>,
     /// <p>If you specify a value for <code>MaxResults</code> and you have more objects than the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response, which you can use to retrieve another group of objects. For the second and subsequent <code>GetProtectionStatus</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the policy for which you want to get the attack information.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
     /// <p>The start of the time period to query for the attacks. This is a <code>timestamp</code> type. The request syntax listing indicates a <code>number</code> type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is allowed.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -437,19 +437,19 @@ pub struct GetProtectionStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProtectionStatusResponse {
     /// <p>The ID of the AWS Firewall administrator account for this policy.</p>
-    #[serde(rename = "AdminAccountId")]
+    #[serde(rename = "adminAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_account_id: Option<String>,
     /// <p>Details about the attack, including the following:</p> <ul> <li> <p>Attack type</p> </li> <li> <p>Account ID</p> </li> <li> <p>ARN of the resource attacked</p> </li> <li> <p>Start time of the attack</p> </li> <li> <p>End time of the attack (ongoing attacks will not have an end time)</p> </li> </ul> <p>The details are in JSON format. </p>
-    #[serde(rename = "Data")]
+    #[serde(rename = "data")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<String>,
     /// <p>If you have more objects than the number that you specified for <code>MaxResults</code> in the request, the response includes a <code>NextToken</code> value. To list more objects, submit another <code>GetProtectionStatus</code> request, and specify the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the next request.</p> <p>AWS SDKs provide auto-pagination that identify <code>NextToken</code> in a response and make subsequent request calls automatically on your behalf. However, this feature is not supported by <code>GetProtectionStatus</code>. You must submit subsequent requests with <code>NextToken</code> using your own processes. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service type that is protected by the policy. Currently, this is always <code>SHIELD_ADVANCED</code>.</p>
-    #[serde(rename = "ServiceType")]
+    #[serde(rename = "serviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_type: Option<String>,
 }
@@ -458,11 +458,11 @@ pub struct GetProtectionStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProtocolsListRequest {
     /// <p>Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.</p>
-    #[serde(rename = "DefaultList")]
+    #[serde(rename = "defaultList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_list: Option<bool>,
     /// <p>The ID of the AWS Firewall Manager protocols list that you want the details for.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     pub list_id: String,
 }
 
@@ -470,11 +470,11 @@ pub struct GetProtocolsListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProtocolsListResponse {
     /// <p>Information about the specified AWS Firewall Manager protocols list.</p>
-    #[serde(rename = "ProtocolsList")]
+    #[serde(rename = "protocolsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols_list: Option<ProtocolsListData>,
     /// <p>The Amazon Resource Name (ARN) of the specified protocols list.</p>
-    #[serde(rename = "ProtocolsListArn")]
+    #[serde(rename = "protocolsListArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols_list_arn: Option<String>,
 }
@@ -483,16 +483,16 @@ pub struct GetProtocolsListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetViolationDetailsRequest {
     /// <p>The AWS account ID that you want the details for.</p>
-    #[serde(rename = "MemberAccount")]
+    #[serde(rename = "memberAccount")]
     pub member_account: String,
     /// <p>The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
     /// <p>The ID of the resource that has violations.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>. Supported resource types are: <code>AWS::EC2::Instance</code>, <code>AWS::EC2::NetworkInterface</code>, <code>AWS::EC2::SecurityGroup</code>, <code>AWS::NetworkFirewall::FirewallPolicy</code>, and <code>AWS::EC2::Subnet</code>. </p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -500,7 +500,7 @@ pub struct GetViolationDetailsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetViolationDetailsResponse {
     /// <p>Violation detail for a resource.</p>
-    #[serde(rename = "ViolationDetail")]
+    #[serde(rename = "violationDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_detail: Option<ViolationDetail>,
 }
@@ -509,14 +509,14 @@ pub struct GetViolationDetailsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAppsListsRequest {
     /// <p>Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.</p>
-    #[serde(rename = "DefaultLists")]
+    #[serde(rename = "defaultLists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_lists: Option<bool>,
     /// <p>The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify this, AWS Firewall Manager returns all available objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     pub max_results: i64,
     /// <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -525,11 +525,11 @@ pub struct ListAppsListsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAppsListsResponse {
     /// <p>An array of <code>AppsListDataSummary</code> objects.</p>
-    #[serde(rename = "AppsLists")]
+    #[serde(rename = "appsLists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_lists: Option<Vec<AppsListDataSummary>>,
     /// <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -538,15 +538,15 @@ pub struct ListAppsListsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListComplianceStatusRequest {
     /// <p>Specifies the number of <code>PolicyComplianceStatus</code> objects that you want AWS Firewall Manager to return for this request. If you have more <code>PolicyComplianceStatus</code> objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of <code>PolicyComplianceStatus</code> objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you specify a value for <code>MaxResults</code> and you have more <code>PolicyComplianceStatus</code> objects than the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicyComplianceStatus</code> objects. For the second and subsequent <code>ListComplianceStatus</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicyComplianceStatus</code> objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
 }
 
@@ -554,11 +554,11 @@ pub struct ListComplianceStatusRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListComplianceStatusResponse {
     /// <p>If you have more <code>PolicyComplianceStatus</code> objects than the number that you specified for <code>MaxResults</code> in the request, the response includes a <code>NextToken</code> value. To list more <code>PolicyComplianceStatus</code> objects, submit another <code>ListComplianceStatus</code> request, and specify the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>PolicyComplianceStatus</code> objects.</p>
-    #[serde(rename = "PolicyComplianceStatusList")]
+    #[serde(rename = "policyComplianceStatusList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_compliance_status_list: Option<Vec<PolicyComplianceStatus>>,
 }
@@ -567,11 +567,11 @@ pub struct ListComplianceStatusResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMemberAccountsRequest {
     /// <p>Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of member account IDs.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you specify a value for <code>MaxResults</code> and you have more account IDs than the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of IDs. For the second and subsequent <code>ListMemberAccountsRequest</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of member account IDs.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -580,11 +580,11 @@ pub struct ListMemberAccountsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMemberAccountsResponse {
     /// <p>An array of account IDs.</p>
-    #[serde(rename = "MemberAccounts")]
+    #[serde(rename = "memberAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_accounts: Option<Vec<String>>,
     /// <p>If you have more member account IDs than the number that you specified for <code>MaxResults</code> in the request, the response includes a <code>NextToken</code> value. To list more IDs, submit another <code>ListMemberAccounts</code> request, and specify the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -593,11 +593,11 @@ pub struct ListMemberAccountsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPoliciesRequest {
     /// <p>Specifies the number of <code>PolicySummary</code> objects that you want AWS Firewall Manager to return for this request. If you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of <code>PolicySummary</code> objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you specify a value for <code>MaxResults</code> and you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicySummary</code> objects. For the second and subsequent <code>ListPolicies</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicySummary</code> objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -606,11 +606,11 @@ pub struct ListPoliciesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPoliciesResponse {
     /// <p>If you have more <code>PolicySummary</code> objects than the number that you specified for <code>MaxResults</code> in the request, the response includes a <code>NextToken</code> value. To list more <code>PolicySummary</code> objects, submit another <code>ListPolicies</code> request, and specify the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>PolicySummary</code> objects.</p>
-    #[serde(rename = "PolicyList")]
+    #[serde(rename = "policyList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_list: Option<Vec<PolicySummary>>,
 }
@@ -619,14 +619,14 @@ pub struct ListPoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProtocolsListsRequest {
     /// <p>Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.</p>
-    #[serde(rename = "DefaultLists")]
+    #[serde(rename = "defaultLists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_lists: Option<bool>,
     /// <p>The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify this, AWS Firewall Manager returns all available objects.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     pub max_results: i64,
     /// <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -635,11 +635,11 @@ pub struct ListProtocolsListsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProtocolsListsResponse {
     /// <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>ProtocolsListDataSummary</code> objects.</p>
-    #[serde(rename = "ProtocolsLists")]
+    #[serde(rename = "protocolsLists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols_lists: Option<Vec<ProtocolsListDataSummary>>,
 }
@@ -648,7 +648,7 @@ pub struct ListProtocolsListsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -656,7 +656,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The tags associated with the resource.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -666,23 +666,23 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkFirewallMissingExpectedRTViolation {
     /// <p>The Availability Zone of a violating subnet. </p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The resource ID of the current route table that's associated with the subnet, if one is available.</p>
-    #[serde(rename = "CurrentRouteTable")]
+    #[serde(rename = "currentRouteTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_route_table: Option<String>,
     /// <p>The resource ID of the route table that should be associated with the subnet.</p>
-    #[serde(rename = "ExpectedRouteTable")]
+    #[serde(rename = "expectedRouteTable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expected_route_table: Option<String>,
     /// <p>The resource ID of the VPC associated with a violating subnet.</p>
-    #[serde(rename = "VPC")]
+    #[serde(rename = "vPC")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc: Option<String>,
     /// <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
 }
@@ -692,19 +692,19 @@ pub struct NetworkFirewallMissingExpectedRTViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkFirewallMissingFirewallViolation {
     /// <p>The Availability Zone of a violating subnet. </p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The reason the resource has this violation, if one is available. </p>
-    #[serde(rename = "TargetViolationReason")]
+    #[serde(rename = "targetViolationReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_violation_reason: Option<String>,
     /// <p>The resource ID of the VPC associated with a violating subnet.</p>
-    #[serde(rename = "VPC")]
+    #[serde(rename = "vPC")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc: Option<String>,
     /// <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
 }
@@ -714,19 +714,19 @@ pub struct NetworkFirewallMissingFirewallViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkFirewallMissingSubnetViolation {
     /// <p>The Availability Zone of a violating subnet. </p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The reason the resource has this violation, if one is available. </p>
-    #[serde(rename = "TargetViolationReason")]
+    #[serde(rename = "targetViolationReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_violation_reason: Option<String>,
     /// <p>The resource ID of the VPC associated with a violating subnet.</p>
-    #[serde(rename = "VPC")]
+    #[serde(rename = "vPC")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc: Option<String>,
     /// <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
 }
@@ -736,23 +736,23 @@ pub struct NetworkFirewallMissingSubnetViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkFirewallPolicyDescription {
     /// <p>The stateful rule groups that are used in the Network Firewall firewall policy. </p>
-    #[serde(rename = "StatefulRuleGroups")]
+    #[serde(rename = "statefulRuleGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stateful_rule_groups: Option<Vec<StatefulRuleGroup>>,
     /// <p>Names of custom actions that are available for use in the stateless default actions settings.</p>
-    #[serde(rename = "StatelessCustomActions")]
+    #[serde(rename = "statelessCustomActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stateless_custom_actions: Option<Vec<String>>,
     /// <p>The actions to take on packets that don't match any of the stateless rule groups. </p>
-    #[serde(rename = "StatelessDefaultActions")]
+    #[serde(rename = "statelessDefaultActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stateless_default_actions: Option<Vec<String>>,
     /// <p>The actions to take on packet fragments that don't match any of the stateless rule groups. </p>
-    #[serde(rename = "StatelessFragmentDefaultActions")]
+    #[serde(rename = "statelessFragmentDefaultActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stateless_fragment_default_actions: Option<Vec<String>>,
     /// <p>The stateless rule groups that are used in the Network Firewall firewall policy. </p>
-    #[serde(rename = "StatelessRuleGroups")]
+    #[serde(rename = "statelessRuleGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stateless_rule_groups: Option<Vec<StatelessRuleGroup>>,
 }
@@ -762,15 +762,15 @@ pub struct NetworkFirewallPolicyDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkFirewallPolicyModifiedViolation {
     /// <p>The policy that's currently in use in the individual account. </p>
-    #[serde(rename = "CurrentPolicyDescription")]
+    #[serde(rename = "currentPolicyDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_policy_description: Option<NetworkFirewallPolicyDescription>,
     /// <p>The policy that should be in use in the individual account in order to be compliant. </p>
-    #[serde(rename = "ExpectedPolicyDescription")]
+    #[serde(rename = "expectedPolicyDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expected_policy_description: Option<NetworkFirewallPolicyDescription>,
     /// <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
-    #[serde(rename = "ViolationTarget")]
+    #[serde(rename = "violationTarget")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violation_target: Option<String>,
 }
@@ -780,11 +780,11 @@ pub struct NetworkFirewallPolicyModifiedViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartialMatch {
     /// <p>The reference rule from the master security group of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "Reference")]
+    #[serde(rename = "reference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference: Option<String>,
     /// <p>The violation reason.</p>
-    #[serde(rename = "TargetViolationReasons")]
+    #[serde(rename = "targetViolationReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_violation_reasons: Option<Vec<String>>,
 }
@@ -793,43 +793,43 @@ pub struct PartialMatch {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Policy {
     /// <p><p>Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.</p> <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, AWS Firewall Manager applies the policy to all accounts specified by the <code>IncludeMap</code>, and does not evaluate any <code>ExcludeMap</code> specifications. If you do not specify an <code>IncludeMap</code>, then Firewall Manager applies the policy to all accounts except for those specified by the <code>ExcludeMap</code>.</p> <p>You can specify account IDs, OUs, or a combination: </p> <ul> <li> <p>Specify account IDs by setting the key to <code>ACCOUNT</code>. For example, the following is a valid map: <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p> </li> <li> <p>Specify OUs by setting the key to <code>ORG<em>UNIT</code>. For example, the following is a valid map: <code>{“ORG</em>UNIT” : [“ouid111”, “ouid112”]}</code>.</p> </li> <li> <p>Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: <code>{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}</code>.</p> </li> </ul></p>
-    #[serde(rename = "ExcludeMap")]
+    #[serde(rename = "excludeMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_map: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>If set to <code>True</code>, resources with the tags that are specified in the <code>ResourceTag</code> array are not in scope of the policy. If set to <code>False</code>, and the <code>ResourceTag</code> array is not null, only resources with the specified tags are in scope of the policy.</p>
-    #[serde(rename = "ExcludeResourceTags")]
+    #[serde(rename = "excludeResourceTags")]
     pub exclude_resource_tags: bool,
     /// <p><p>Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.</p> <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, AWS Firewall Manager applies the policy to all accounts specified by the <code>IncludeMap</code>, and does not evaluate any <code>ExcludeMap</code> specifications. If you do not specify an <code>IncludeMap</code>, then Firewall Manager applies the policy to all accounts except for those specified by the <code>ExcludeMap</code>.</p> <p>You can specify account IDs, OUs, or a combination: </p> <ul> <li> <p>Specify account IDs by setting the key to <code>ACCOUNT</code>. For example, the following is a valid map: <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p> </li> <li> <p>Specify OUs by setting the key to <code>ORG<em>UNIT</code>. For example, the following is a valid map: <code>{“ORG</em>UNIT” : [“ouid111”, “ouid112”]}</code>.</p> </li> <li> <p>Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: <code>{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}</code>.</p> </li> </ul></p>
-    #[serde(rename = "IncludeMap")]
+    #[serde(rename = "includeMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_map: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The ID of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The name of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyName")]
+    #[serde(rename = "policyName")]
     pub policy_name: String,
     /// <p>A unique identifier for each update to the policy. When issuing a <code>PutPolicy</code> request, the <code>PolicyUpdateToken</code> in the request must match the <code>PolicyUpdateToken</code> of the current policy version. To get the <code>PolicyUpdateToken</code> of the current policy version, use a <code>GetPolicy</code> request.</p>
-    #[serde(rename = "PolicyUpdateToken")]
+    #[serde(rename = "policyUpdateToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_update_token: Option<String>,
     /// <p>Indicates if the policy should be automatically applied to new resources.</p>
-    #[serde(rename = "RemediationEnabled")]
+    #[serde(rename = "remediationEnabled")]
     pub remediation_enabled: bool,
     /// <p>An array of <code>ResourceTag</code> objects.</p>
-    #[serde(rename = "ResourceTags")]
+    #[serde(rename = "resourceTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_tags: Option<Vec<ResourceTag>>,
     /// <p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>. For AWS WAF and Shield Advanced, examples include <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an AWS Network Firewall policy, the value is <code>AWS::EC2::VPC</code>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
     /// <p>An array of <code>ResourceType</code>.</p>
-    #[serde(rename = "ResourceTypeList")]
+    #[serde(rename = "resourceTypeList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type_list: Option<Vec<String>>,
     /// <p>Details about the security service that is being used to protect the resources.</p>
-    #[serde(rename = "SecurityServicePolicyData")]
+    #[serde(rename = "securityServicePolicyData")]
     pub security_service_policy_data: SecurityServicePolicyData,
 }
 
@@ -838,31 +838,31 @@ pub struct Policy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PolicyComplianceDetail {
     /// <p>Indicates if over 100 resources are noncompliant with the AWS Firewall Manager policy.</p>
-    #[serde(rename = "EvaluationLimitExceeded")]
+    #[serde(rename = "evaluationLimitExceeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_limit_exceeded: Option<bool>,
     /// <p>A timestamp that indicates when the returned information should be considered out of date.</p>
-    #[serde(rename = "ExpiredAt")]
+    #[serde(rename = "expiredAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expired_at: Option<f64>,
     /// <p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.</p>
-    #[serde(rename = "IssueInfoMap")]
+    #[serde(rename = "issueInfoMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issue_info_map: Option<::std::collections::HashMap<String, String>>,
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "MemberAccount")]
+    #[serde(rename = "memberAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_account: Option<String>,
     /// <p>The ID of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The AWS account that created the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyOwner")]
+    #[serde(rename = "policyOwner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_owner: Option<String>,
     /// <p>An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or that aren't in compliance with the security group policy.</p>
-    #[serde(rename = "Violators")]
+    #[serde(rename = "violators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub violators: Option<Vec<ComplianceViolator>>,
 }
@@ -872,31 +872,31 @@ pub struct PolicyComplianceDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PolicyComplianceStatus {
     /// <p>An array of <code>EvaluationResult</code> objects.</p>
-    #[serde(rename = "EvaluationResults")]
+    #[serde(rename = "evaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_results: Option<Vec<EvaluationResult>>,
     /// <p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.</p>
-    #[serde(rename = "IssueInfoMap")]
+    #[serde(rename = "issueInfoMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issue_info_map: Option<::std::collections::HashMap<String, String>>,
     /// <p>Timestamp of the last update to the <code>EvaluationResult</code> objects.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>The member account ID.</p>
-    #[serde(rename = "MemberAccount")]
+    #[serde(rename = "memberAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_account: Option<String>,
     /// <p>The ID of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The name of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyName")]
+    #[serde(rename = "policyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_name: Option<String>,
     /// <p>The AWS account that created the AWS Firewall Manager policy.</p>
-    #[serde(rename = "PolicyOwner")]
+    #[serde(rename = "policyOwner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_owner: Option<String>,
 }
@@ -906,27 +906,27 @@ pub struct PolicyComplianceStatus {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PolicySummary {
     /// <p>The Amazon Resource Name (ARN) of the specified policy.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
     /// <p>The ID of the specified policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The name of the specified policy.</p>
-    #[serde(rename = "PolicyName")]
+    #[serde(rename = "policyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_name: Option<String>,
     /// <p>Indicates if the policy should be automatically applied to new resources.</p>
-    #[serde(rename = "RemediationEnabled")]
+    #[serde(rename = "remediationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remediation_enabled: Option<bool>,
     /// <p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>. For AWS WAF and Shield Advanced, examples include <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an AWS Network Firewall policy, the value is <code>AWS::EC2::VPC</code>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy.</p>
-    #[serde(rename = "SecurityServiceType")]
+    #[serde(rename = "securityServiceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_service_type: Option<String>,
 }
@@ -935,30 +935,30 @@ pub struct PolicySummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ProtocolsListData {
     /// <p>The time that the AWS Firewall Manager protocols list was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<f64>,
     /// <p>The time that the AWS Firewall Manager protocols list was last updated.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
     /// <p>The ID of the AWS Firewall Manager protocols list.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_id: Option<String>,
     /// <p>The name of the AWS Firewall Manager protocols list.</p>
-    #[serde(rename = "ListName")]
+    #[serde(rename = "listName")]
     pub list_name: String,
     /// <p>A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list. </p>
-    #[serde(rename = "ListUpdateToken")]
+    #[serde(rename = "listUpdateToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_update_token: Option<String>,
     /// <p>A map of previous version numbers to their corresponding protocol arrays.</p>
-    #[serde(rename = "PreviousProtocolsList")]
+    #[serde(rename = "previousProtocolsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub previous_protocols_list: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>An array of protocols in the AWS Firewall Manager protocols list.</p>
-    #[serde(rename = "ProtocolsList")]
+    #[serde(rename = "protocolsList")]
     pub protocols_list: Vec<String>,
 }
 
@@ -967,19 +967,19 @@ pub struct ProtocolsListData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProtocolsListDataSummary {
     /// <p>The Amazon Resource Name (ARN) of the specified protocols list.</p>
-    #[serde(rename = "ListArn")]
+    #[serde(rename = "listArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_arn: Option<String>,
     /// <p>The ID of the specified protocols list.</p>
-    #[serde(rename = "ListId")]
+    #[serde(rename = "listId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_id: Option<String>,
     /// <p>The name of the specified protocols list.</p>
-    #[serde(rename = "ListName")]
+    #[serde(rename = "listName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub list_name: Option<String>,
     /// <p>An array of protocols in the AWS Firewall Manager protocols list.</p>
-    #[serde(rename = "ProtocolsList")]
+    #[serde(rename = "protocolsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols_list: Option<Vec<String>>,
 }
@@ -988,10 +988,10 @@ pub struct ProtocolsListDataSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutAppsListRequest {
     /// <p>The details of the AWS Firewall Manager applications list to be created.</p>
-    #[serde(rename = "AppsList")]
+    #[serde(rename = "appsList")]
     pub apps_list: AppsListData,
     /// <p>The tags associated with the resource.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -1000,11 +1000,11 @@ pub struct PutAppsListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutAppsListResponse {
     /// <p>The details of the AWS Firewall Manager applications list.</p>
-    #[serde(rename = "AppsList")]
+    #[serde(rename = "appsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_list: Option<AppsListData>,
     /// <p>The Amazon Resource Name (ARN) of the applications list.</p>
-    #[serde(rename = "AppsListArn")]
+    #[serde(rename = "appsListArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_list_arn: Option<String>,
 }
@@ -1013,10 +1013,10 @@ pub struct PutAppsListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutNotificationChannelRequest {
     /// <p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity. </p>
-    #[serde(rename = "SnsRoleName")]
+    #[serde(rename = "snsRoleName")]
     pub sns_role_name: String,
     /// <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager.</p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     pub sns_topic_arn: String,
 }
 
@@ -1024,10 +1024,10 @@ pub struct PutNotificationChannelRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutPolicyRequest {
     /// <p>The details of the AWS Firewall Manager policy to be created.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     pub policy: Policy,
     /// <p>The tags to add to the AWS resource.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -1036,11 +1036,11 @@ pub struct PutPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutPolicyResponse {
     /// <p>The details of the AWS Firewall Manager policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<Policy>,
     /// <p>The Amazon Resource Name (ARN) of the policy.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
 }
@@ -1049,10 +1049,10 @@ pub struct PutPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutProtocolsListRequest {
     /// <p>The details of the AWS Firewall Manager protocols list to be created.</p>
-    #[serde(rename = "ProtocolsList")]
+    #[serde(rename = "protocolsList")]
     pub protocols_list: ProtocolsListData,
     /// <p>The tags associated with the resource.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_list: Option<Vec<Tag>>,
 }
@@ -1061,11 +1061,11 @@ pub struct PutProtocolsListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutProtocolsListResponse {
     /// <p>The details of the AWS Firewall Manager protocols list.</p>
-    #[serde(rename = "ProtocolsList")]
+    #[serde(rename = "protocolsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols_list: Option<ProtocolsListData>,
     /// <p>The Amazon Resource Name (ARN) of the protocols list.</p>
-    #[serde(rename = "ProtocolsListArn")]
+    #[serde(rename = "protocolsListArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols_list_arn: Option<String>,
 }
@@ -1074,10 +1074,10 @@ pub struct PutProtocolsListResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourceTag {
     /// <p>The resource tag key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The resource tag value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1087,45 +1087,45 @@ pub struct ResourceTag {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceViolation {
     /// <p>Violation details for an EC2 instance.</p>
-    #[serde(rename = "AwsEc2InstanceViolation")]
+    #[serde(rename = "awsEc2InstanceViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_ec_2_instance_violation: Option<AwsEc2InstanceViolation>,
     /// <p>Violation details for network interface.</p>
-    #[serde(rename = "AwsEc2NetworkInterfaceViolation")]
+    #[serde(rename = "awsEc2NetworkInterfaceViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_ec_2_network_interface_violation: Option<AwsEc2NetworkInterfaceViolation>,
     /// <p>Violation details for security groups.</p>
-    #[serde(rename = "AwsVPCSecurityGroupViolation")]
+    #[serde(rename = "awsVPCSecurityGroupViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_vpc_security_group_violation: Option<AwsVPCSecurityGroupViolation>,
     /// <p>Violation detail for a DNS Firewall policy that indicates that a rule group that Firewall Manager tried to associate with a VPC is already associated with the VPC and can't be associated again. </p>
-    #[serde(rename = "DnsDuplicateRuleGroupViolation")]
+    #[serde(rename = "dnsDuplicateRuleGroupViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_duplicate_rule_group_violation: Option<DnsDuplicateRuleGroupViolation>,
     /// <p>Violation details for a DNS Firewall policy that indicates that the VPC reached the limit for associated DNS Firewall rule groups. Firewall Manager tried to associate another rule group with the VPC and failed. </p>
-    #[serde(rename = "DnsRuleGroupLimitExceededViolation")]
+    #[serde(rename = "dnsRuleGroupLimitExceededViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_rule_group_limit_exceeded_violation: Option<DnsRuleGroupLimitExceededViolation>,
     /// <p>Violation detail for a DNS Firewall policy that indicates that a rule group that Firewall Manager tried to associate with a VPC has the same priority as a rule group that's already associated. </p>
-    #[serde(rename = "DnsRuleGroupPriorityConflictViolation")]
+    #[serde(rename = "dnsRuleGroupPriorityConflictViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_rule_group_priority_conflict_violation: Option<DnsRuleGroupPriorityConflictViolation>,
     /// <p>Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table. </p>
-    #[serde(rename = "NetworkFirewallMissingExpectedRTViolation")]
+    #[serde(rename = "networkFirewallMissingExpectedRTViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_firewall_missing_expected_rt_violation:
         Option<NetworkFirewallMissingExpectedRTViolation>,
     /// <p>Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC. </p>
-    #[serde(rename = "NetworkFirewallMissingFirewallViolation")]
+    #[serde(rename = "networkFirewallMissingFirewallViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_firewall_missing_firewall_violation:
         Option<NetworkFirewallMissingFirewallViolation>,
     /// <p>Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet.</p>
-    #[serde(rename = "NetworkFirewallMissingSubnetViolation")]
+    #[serde(rename = "networkFirewallMissingSubnetViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_firewall_missing_subnet_violation: Option<NetworkFirewallMissingSubnetViolation>,
     /// <p>Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action.</p>
-    #[serde(rename = "NetworkFirewallPolicyModifiedViolation")]
+    #[serde(rename = "networkFirewallPolicyModifiedViolation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_firewall_policy_modified_violation: Option<NetworkFirewallPolicyModifiedViolation>,
 }
@@ -1135,19 +1135,19 @@ pub struct ResourceViolation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityGroupRemediationAction {
     /// <p>Brief description of the action that will be performed.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Indicates if the current action is the default action.</p>
-    #[serde(rename = "IsDefaultAction")]
+    #[serde(rename = "isDefaultAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_default_action: Option<bool>,
     /// <p>The remediation action that will be performed.</p>
-    #[serde(rename = "RemediationActionType")]
+    #[serde(rename = "remediationActionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remediation_action_type: Option<String>,
     /// <p>The final state of the rule specified in the <code>ViolationTarget</code> after it is remediated.</p>
-    #[serde(rename = "RemediationResult")]
+    #[serde(rename = "remediationResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remediation_result: Option<SecurityGroupRuleDescription>,
 }
@@ -1157,27 +1157,27 @@ pub struct SecurityGroupRemediationAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SecurityGroupRuleDescription {
     /// <p>The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of <code>-1</code> indicates all ICMP/ICMPv6 types.</p>
-    #[serde(rename = "FromPort")]
+    #[serde(rename = "fromPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_port: Option<i64>,
     /// <p>The IPv4 ranges for the security group rule.</p>
-    #[serde(rename = "IPV4Range")]
+    #[serde(rename = "iPV4Range")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ipv4_range: Option<String>,
     /// <p>The IPv6 ranges for the security group rule.</p>
-    #[serde(rename = "IPV6Range")]
+    #[serde(rename = "iPV6Range")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ipv6_range: Option<String>,
     /// <p>The ID of the prefix list for the security group rule.</p>
-    #[serde(rename = "PrefixListId")]
+    #[serde(rename = "prefixListId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prefix_list_id: Option<String>,
     /// <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes.</p>
-    #[serde(rename = "ToPort")]
+    #[serde(rename = "toPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub to_port: Option<i64>,
 }
@@ -1186,11 +1186,11 @@ pub struct SecurityGroupRuleDescription {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SecurityServicePolicyData {
     /// <p><p>Details about the service that are specific to the service type, in JSON format. For service type <code>SHIELD<em>ADVANCED</code>, this is an empty string.</p> <ul> <li> <p>Example: <code>NETWORK</em>FIREWALL</code> </p> <p> <code>&quot;{&quot;type&quot;:&quot;NETWORK<em>FIREWALL&quot;,&quot;networkFirewallStatelessRuleGroupReferences&quot;:[{&quot;resourceARN&quot;:&quot;arn:aws:network-firewall:us-west-1:1234567891011:stateless-rulegroup/rulegroup2&quot;,&quot;priority&quot;:10}],&quot;networkFirewallStatelessDefaultActions&quot;:[&quot;aws:pass&quot;,&quot;custom1&quot;],&quot;networkFirewallStatelessFragmentDefaultActions&quot;:[&quot;custom2&quot;,&quot;aws:pass&quot;],&quot;networkFirewallStatelessCustomActions&quot;:[{&quot;actionName&quot;:&quot;custom1&quot;,&quot;actionDefinition&quot;:{&quot;publishMetricAction&quot;:{&quot;dimensions&quot;:[{&quot;value&quot;:&quot;dimension1&quot;}]}}},{&quot;actionName&quot;:&quot;custom2&quot;,&quot;actionDefinition&quot;:{&quot;publishMetricAction&quot;:{&quot;dimensions&quot;:[{&quot;value&quot;:&quot;dimension2&quot;}]}}}],&quot;networkFirewallStatefulRuleGroupReferences&quot;:[{&quot;resourceARN&quot;:&quot;arn:aws:network-firewall:us-west-1:1234567891011:stateful-rulegroup/rulegroup1&quot;}],&quot;networkFirewallOrchestrationConfig&quot;:{&quot;singleFirewallEndpointPerVPC&quot;:true,&quot;allowedIPV4CidrList&quot;:[&quot;10.24.34.0/28&quot;]} }&quot;</code> </p> </li> <li> <p>Example: <code>WAFV2</code> </p> <p> <code>&quot;{&quot;type&quot;:&quot;WAFV2&quot;,&quot;preProcessRuleGroups&quot;:[{&quot;ruleGroupArn&quot;:null,&quot;overrideAction&quot;:{&quot;type&quot;:&quot;NONE&quot;},&quot;managedRuleGroupIdentifier&quot;:{&quot;version&quot;:null,&quot;vendorName&quot;:&quot;AWS&quot;,&quot;managedRuleGroupName&quot;:&quot;AWSManagedRulesAmazonIpReputationList&quot;},&quot;ruleGroupType&quot;:&quot;ManagedRuleGroup&quot;,&quot;excludeRules&quot;:[]}],&quot;postProcessRuleGroups&quot;:[],&quot;defaultAction&quot;:{&quot;type&quot;:&quot;ALLOW&quot;},&quot;overrideCustomerWebACLAssociation&quot;:false,&quot;loggingConfiguration&quot;:{&quot;logDestinationConfigs&quot;:[&quot;arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination&quot;],&quot;redactedFields&quot;:[{&quot;redactedFieldType&quot;:&quot;SingleHeader&quot;,&quot;redactedFieldValue&quot;:&quot;Cookies&quot;},{&quot;redactedFieldType&quot;:&quot;Method&quot;}]}}&quot;</code> </p> <p>In the <code>loggingConfiguration</code>, you can specify one <code>logDestinationConfigs</code>, you can optionally provide up to 20 <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of <code>URI</code>, <code>QUERY</em>STRING</code>, <code>HEADER</code>, or <code>METHOD</code>.</p> </li> <li> <p>Example: <code>WAF Classic</code> </p> <p> <code>&quot;{&quot;type&quot;: &quot;WAF&quot;, &quot;ruleGroups&quot;: [{&quot;id&quot;:&quot;12345678-1bcd-9012-efga-0987654321ab&quot;, &quot;overrideAction&quot; : {&quot;type&quot;: &quot;COUNT&quot;}}], &quot;defaultAction&quot;: {&quot;type&quot;: &quot;BLOCK&quot;}}&quot;</code> </p> </li> <li> <p>Example: <code>SECURITY<em>GROUPS</em>COMMON</code> </p> <p> <code>&quot;{&quot;type&quot;:&quot;SECURITY<em>GROUPS</em>COMMON&quot;,&quot;revertManualSecurityGroupChanges&quot;:false,&quot;exclusiveResourceSecurityGroupManagement&quot;:false, &quot;applyToAllEC2InstanceENIs&quot;:false,&quot;securityGroups&quot;:[{&quot;id&quot;:&quot; sg-000e55995d61a06bd&quot;}]}&quot;</code> </p> </li> <li> <p>Example: <code>SECURITY<em>GROUPS</em>CONTENT<em>AUDIT</code> </p> <p> <code>&quot;{&quot;type&quot;:&quot;SECURITY</em>GROUPS<em>CONTENT</em>AUDIT&quot;,&quot;securityGroups&quot;:[{&quot;id&quot;:&quot;sg-000e55995d61a06bd&quot;}],&quot;securityGroupAction&quot;:{&quot;type&quot;:&quot;ALLOW&quot;}}&quot;</code> </p> <p>The security group action for content audit can be <code>ALLOW</code> or <code>DENY</code>. For <code>ALLOW</code>, all in-scope security group rules must be within the allowed range of the policy&#39;s security group rules. For <code>DENY</code>, all in-scope security group rules must not contain a value or a range that matches a rule value or range in the policy security group.</p> </li> <li> <p>Example: <code>SECURITY<em>GROUPS</em>USAGE<em>AUDIT</code> </p> <p> <code>&quot;{&quot;type&quot;:&quot;SECURITY</em>GROUPS<em>USAGE</em>AUDIT&quot;,&quot;deleteUnusedSecurityGroups&quot;:true,&quot;coalesceRedundantSecurityGroups&quot;:true}&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "ManagedServiceData")]
+    #[serde(rename = "managedServiceData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_service_data: Option<String>,
     /// <p>The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1199,11 +1199,11 @@ pub struct SecurityServicePolicyData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StatefulRuleGroup {
     /// <p>The resource ID of the rule group.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The name of the rule group.</p>
-    #[serde(rename = "RuleGroupName")]
+    #[serde(rename = "ruleGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_group_name: Option<String>,
 }
@@ -1213,15 +1213,15 @@ pub struct StatefulRuleGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StatelessRuleGroup {
     /// <p>The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting. </p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>The resource ID of the rule group.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The name of the rule group.</p>
-    #[serde(rename = "RuleGroupName")]
+    #[serde(rename = "ruleGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_group_name: Option<String>,
 }
@@ -1230,10 +1230,10 @@ pub struct StatelessRuleGroup {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive. </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1241,10 +1241,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to add to the resource.</p>
-    #[serde(rename = "TagList")]
+    #[serde(rename = "tagList")]
     pub tag_list: Vec<Tag>,
 }
 
@@ -1256,10 +1256,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The keys of the tags to remove from the resource. </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1272,27 +1272,27 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ViolationDetail {
     /// <p>The AWS account that the violation details were requested for.</p>
-    #[serde(rename = "MemberAccount")]
+    #[serde(rename = "memberAccount")]
     pub member_account: String,
     /// <p>The ID of the AWS Firewall Manager policy that the violation details were requested for.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
     /// <p>Brief description for the requested resource.</p>
-    #[serde(rename = "ResourceDescription")]
+    #[serde(rename = "resourceDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_description: Option<String>,
     /// <p>The resource ID that the violation details were requested for.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The <code>ResourceTag</code> objects associated with the resource.</p>
-    #[serde(rename = "ResourceTags")]
+    #[serde(rename = "resourceTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_tags: Option<Vec<Tag>>,
     /// <p>The resource type that the violation details were requested for.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
     /// <p>List of violations for the requested resource.</p>
-    #[serde(rename = "ResourceViolations")]
+    #[serde(rename = "resourceViolations")]
     pub resource_violations: Vec<ResourceViolation>,
 }
 

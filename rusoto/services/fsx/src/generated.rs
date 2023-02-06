@@ -55,14 +55,14 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ActiveDirectoryBackupAttributes {
     /// <p>The ID of the AWS Managed Microsoft Active Directory instance to which the file system is joined.</p>
-    #[serde(rename = "ActiveDirectoryId")]
+    #[serde(rename = "activeDirectoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_directory_id: Option<String>,
     /// <p>The fully qualified domain name of the self-managed AD directory.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
 }
@@ -71,26 +71,26 @@ pub struct ActiveDirectoryBackupAttributes {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdministrativeAction {
-    #[serde(rename = "AdministrativeActionType")]
+    #[serde(rename = "administrativeActionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub administrative_action_type: Option<String>,
-    #[serde(rename = "FailureDetails")]
+    #[serde(rename = "failureDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_details: Option<AdministrativeActionFailureDetails>,
     /// <p>Provides the percent complete of a <code>STORAGE_OPTIMIZATION</code> administrative action. Does not apply to any other administrative action type.</p>
-    #[serde(rename = "ProgressPercent")]
+    #[serde(rename = "progressPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_percent: Option<i64>,
     /// <p>Time that the administrative action request was received.</p>
-    #[serde(rename = "RequestTime")]
+    #[serde(rename = "requestTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_time: Option<f64>,
     /// <p><p>Describes the status of the administrative action, as follows:</p> <ul> <li> <p> <code>FAILED</code> - Amazon FSx failed to process the administrative action successfully.</p> </li> <li> <p> <code>IN<em>PROGRESS</code> - Amazon FSx is processing the administrative action.</p> </li> <li> <p> <code>PENDING</code> - Amazon FSx is waiting to process the administrative action.</p> </li> <li> <p> <code>COMPLETED</code> - Amazon FSx has finished processing the administrative task.</p> </li> <li> <p> <code>UPDATED</em>OPTIMIZING</code> - For a storage capacity increase update, Amazon FSx has updated the file system with the new storage capacity, and is now performing the storage optimization process. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Describes the target value for the administration action, provided in the <code>UpdateFileSystem</code> operation. Returned for <code>FILE_SYSTEM_UPDATE</code> administrative actions. </p>
-    #[serde(rename = "TargetFileSystemValues")]
+    #[serde(rename = "targetFileSystemValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_file_system_values: Option<FileSystem>,
 }
@@ -100,7 +100,7 @@ pub struct AdministrativeAction {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdministrativeActionFailureDetails {
     /// <p>Error message providing details about the failed administrative action.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -110,11 +110,11 @@ pub struct AdministrativeActionFailureDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Alias {
     /// <p><p>Describes the state of the DNS alias.</p> <ul> <li> <p>AVAILABLE - The DNS alias is associated with an Amazon FSx file system.</p> </li> <li> <p>CREATING - Amazon FSx is creating the DNS alias and associating it with the file system.</p> </li> <li> <p>CREATE<em>FAILED - Amazon FSx was unable to associate the DNS alias with the file system.</p> </li> <li> <p>DELETING - Amazon FSx is disassociating the DNS alias from the file system and deleting it.</p> </li> <li> <p>DELETE</em>FAILED - Amazon FSx was unable to disassocate the DNS alias from the file system.</p> </li> </ul></p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle: Option<String>,
     /// <p>The name of the DNS alias. The alias name has to meet the following requirements:</p> <ul> <li> <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p> </li> <li> <p>Can contain alphanumeric characters, the underscore (_), and the hyphen (-).</p> </li> <li> <p>Cannot start or end with a hyphen.</p> </li> <li> <p>Can start with a numeric.</p> </li> </ul> <p>For DNS names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -124,13 +124,13 @@ pub struct Alias {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateFileSystemAliasesRequest {
     /// <p>An array of one or more DNS alias names to associate with the file system. The alias name has to comply with the following formatting requirements:</p> <ul> <li> <p>Formatted as a fully-qualified domain name (FQDN), <i> <code>hostname.domain</code> </i>, for example, <code>accounting.corp.example.com</code>.</p> </li> <li> <p>Can contain alphanumeric characters and the hyphen (-).</p> </li> <li> <p>Cannot start or end with a hyphen.</p> </li> <li> <p>Can start with a numeric.</p> </li> </ul> <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     pub aliases: Vec<String>,
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>Specifies the file system with which you want to associate one or more DNS aliases.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
 }
 
@@ -139,7 +139,7 @@ pub struct AssociateFileSystemAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateFileSystemAliasesResponse {
     /// <p>An array of the DNS aliases that Amazon FSx is associating with the file system.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<Alias>>,
 }
@@ -149,52 +149,52 @@ pub struct AssociateFileSystemAliasesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Backup {
     /// <p>The ID of the backup.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
     /// <p>The time when a particular backup was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     pub creation_time: f64,
     /// <p>The configuration of the self-managed Microsoft Active Directory (AD) to which the Windows File Server instance is joined.</p>
-    #[serde(rename = "DirectoryInformation")]
+    #[serde(rename = "directoryInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_information: Option<ActiveDirectoryBackupAttributes>,
     /// <p>Details explaining any failures that occur when creating a backup.</p>
-    #[serde(rename = "FailureDetails")]
+    #[serde(rename = "failureDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_details: Option<BackupFailureDetails>,
     /// <p>Metadata of the file system associated with the backup. This metadata is persisted even if the file system is deleted.</p>
-    #[serde(rename = "FileSystem")]
+    #[serde(rename = "fileSystem")]
     pub file_system: FileSystem,
     /// <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest. </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p><p>The lifecycle status of the backup.</p> <ul> <li> <p> <code>AVAILABLE</code> - The backup is fully available.</p> </li> <li> <p> <code>PENDING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx has not started creating the backup.</p> </li> <li> <p> <code>CREATING</code> - Amazon FSx is creating the backup.</p> </li> <li> <p> <code>TRANSFERRING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx is transferring the backup to S3.</p> </li> <li> <p> <code>COPYING</code> - Amazon FSx is copying the backup.</p> </li> <li> <p> <code>DELETED</code> - Amazon FSx deleted the backup and it is no longer available.</p> </li> <li> <p> <code>FAILED</code> - Amazon FSx could not complete the backup.</p> </li> </ul></p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     pub lifecycle: String,
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
-    #[serde(rename = "ProgressPercent")]
+    #[serde(rename = "progressPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub progress_percent: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) for the backup resource.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
-    #[serde(rename = "SourceBackupId")]
+    #[serde(rename = "sourceBackupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_backup_id: Option<String>,
     /// <p>The source Region of the backup. Specifies the Region from where this backup is copied.</p>
-    #[serde(rename = "SourceBackupRegion")]
+    #[serde(rename = "sourceBackupRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_backup_region: Option<String>,
     /// <p>Tags associated with a particular file system.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The type of the file system backup.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -203,7 +203,7 @@ pub struct Backup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BackupFailureDetails {
     /// <p>A message describing the backup creation failure.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -213,7 +213,7 @@ pub struct BackupFailureDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelDataRepositoryTaskRequest {
     /// <p>Specifies the data repository task to cancel.</p>
-    #[serde(rename = "TaskId")]
+    #[serde(rename = "taskId")]
     pub task_id: String,
 }
 
@@ -221,11 +221,11 @@ pub struct CancelDataRepositoryTaskRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CancelDataRepositoryTaskResponse {
     /// <p><p>The lifecycle status of the data repository task, as follows:</p> <ul> <li> <p> <code>PENDING</code> - Amazon FSx has not started the task.</p> </li> <li> <p> <code>EXECUTING</code> - Amazon FSx is processing the task.</p> </li> <li> <p> <code>FAILED</code> - Amazon FSx was not able to complete the task. For example, there may be files the task failed to process. The <a>DataRepositoryTaskFailureDetails</a> property provides more information about task failures.</p> </li> <li> <p> <code>SUCCEEDED</code> - FSx completed the task successfully.</p> </li> <li> <p> <code>CANCELED</code> - Amazon FSx canceled the task and it did not complete.</p> </li> <li> <p> <code>CANCELING</code> - FSx is in process of canceling the task.</p> </li> </ul></p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle: Option<String>,
     /// <p>The ID of the task being canceled.</p>
-    #[serde(rename = "TaskId")]
+    #[serde(rename = "taskId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_id: Option<String>,
 }
@@ -234,18 +234,18 @@ pub struct CancelDataRepositoryTaskResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CompletionReport {
     /// <p>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code> when the task completes. If set to <code>true</code>, then you need to provide a report <code>Scope</code>, <code>Path</code>, and <code>Format</code>. Set <code>Enabled</code> to <code>False</code> if you do not want a <code>CompletionReport</code> generated when the task completes.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
     /// <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the format of the <code>CompletionReport</code>. <code>REPORT_CSV_20191124</code> is the only format currently supported. When <code>Format</code> is set to <code>REPORT_CSV_20191124</code>, the <code>CompletionReport</code> is provided in CSV format, and is delivered to <code>{path}/task-{id}/failures.csv</code>. </p>
-    #[serde(rename = "Format")]
+    #[serde(rename = "format")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
     /// <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location of the report on the file system's linked S3 data repository. An absolute path that defines where the completion report will be stored in the destination location. The <code>Path</code> you provide must be located within the file system’s ExportPath. An example <code>Path</code> value is "s3://myBucket/myExportPath/optionalPrefix". The report provides the following information for each file in the report: FilePath, FileStatus, and ErrorCode. To learn more about a file system's <code>ExportPath</code>, see . </p>
-    #[serde(rename = "Path")]
+    #[serde(rename = "path")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
     /// <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the scope of the <code>CompletionReport</code>; <code>FAILED_FILES_ONLY</code> is the only scope currently supported. When <code>Scope</code> is set to <code>FAILED_FILES_ONLY</code>, the <code>CompletionReport</code> only contains information about files that the data repository task failed to process.</p>
-    #[serde(rename = "Scope")]
+    #[serde(rename = "scope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scope: Option<String>,
 }
@@ -253,24 +253,24 @@ pub struct CompletionReport {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CopyBackupRequest {
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>A boolean flag indicating whether tags from the source backup should be copied to the backup copy. This value defaults to false.</p> <p>If you set <code>CopyTags</code> to true and the source backup has existing tags, you can use the <code>Tags</code> parameter to create new tags, provided that the sum of the source backup tags and the new tags doesn't exceed 50. Both sets of tags are merged. If there are tag conflicts (for example, two tags with the same key but different values), the tags created with the <code>Tags</code> parameter take precedence.</p>
-    #[serde(rename = "CopyTags")]
+    #[serde(rename = "copyTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags: Option<bool>,
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The ID of the source backup. Specifies the ID of the backup that is being copied.</p>
-    #[serde(rename = "SourceBackupId")]
+    #[serde(rename = "sourceBackupId")]
     pub source_backup_id: String,
     /// <p>The source AWS Region of the backup. Specifies the AWS Region from which the backup is being copied. The source and destination Regions must be in the same AWS partition. If you don't specify a Region, it defaults to the Region where the request is sent from (in-Region copy).</p>
-    #[serde(rename = "SourceRegion")]
+    #[serde(rename = "sourceRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_region: Option<String>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -278,7 +278,7 @@ pub struct CopyBackupRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CopyBackupResponse {
-    #[serde(rename = "Backup")]
+    #[serde(rename = "backup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup: Option<Backup>,
 }
@@ -288,14 +288,14 @@ pub struct CopyBackupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateBackupRequest {
     /// <p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The ID of the file system to back up.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
     /// <p>(Optional) The tags to apply to the backup at backup creation. The key value of the <code>Name</code> tag appears in the console as the backup name. If you have set <code>CopyTagsToBackups</code> to true, and you specify one or more tags using the <code>CreateBackup</code> action, no existing file system tags are copied from the file system to the backup.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -305,7 +305,7 @@ pub struct CreateBackupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateBackupResponse {
     /// <p>A description of the backup.</p>
-    #[serde(rename = "Backup")]
+    #[serde(rename = "backup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup: Option<Backup>,
 }
@@ -313,23 +313,23 @@ pub struct CreateBackupResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDataRepositoryTaskRequest {
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
     /// <p>(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed. The default path is the file system root directory. The paths you provide need to be relative to the mount point of the file system. If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code> is a directory or file on the file system you want to export, then the path to provide is <code>path1</code>. If a path that you provide isn't valid, the task fails.</p>
-    #[serde(rename = "Paths")]
+    #[serde(rename = "paths")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub paths: Option<Vec<String>>,
     /// <p>Defines whether or not Amazon FSx provides a CompletionReport once the task has completed. A CompletionReport provides a detailed report on the files that Amazon FSx processed that meet the criteria specified by the <code>Scope</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/task-completion-report.html">Working with Task Completion Reports</a>.</p>
-    #[serde(rename = "Report")]
+    #[serde(rename = "report")]
     pub report: CompletionReport,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>Specifies the type of data repository task to create.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -337,7 +337,7 @@ pub struct CreateDataRepositoryTaskRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDataRepositoryTaskResponse {
     /// <p>The description of the data repository task that you just created.</p>
-    #[serde(rename = "DataRepositoryTask")]
+    #[serde(rename = "dataRepositoryTask")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_repository_task: Option<DataRepositoryTask>,
 }
@@ -346,35 +346,35 @@ pub struct CreateDataRepositoryTaskResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFileSystemFromBackupRequest {
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
     /// <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
-    #[serde(rename = "LustreConfiguration")]
+    #[serde(rename = "lustreConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lustre_configuration: Option<CreateFileSystemLustreConfiguration>,
     /// <p>A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups apply to all network interfaces. This value isn't returned in later DescribeFileSystem requests.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p><p>Sets the storage type for the Windows file system you&#39;re creating from a backup. Valid values are <code>SSD</code> and <code>HDD</code>.</p> <ul> <li> <p>Set to <code>SSD</code> to use solid state drive storage. Supported on all Windows deployment types.</p> </li> <li> <p>Set to <code>HDD</code> to use hard disk drive storage. Supported on <code>SINGLE<em>AZ</em>2</code> and <code>MULTI<em>AZ</em>1</code> Windows file system deployment types. </p> </li> </ul> <p> Default value is <code>SSD</code>. </p> <note> <p>HDD and SSD storage types have different minimum storage capacity requirements. A restored file system&#39;s storage capacity is tied to the file system that was backed up. You can create a file system that uses HDD storage from a backup of a file system that used SSD storage only if the original SSD file system had a storage capacity of at least 2000 GiB. </p> </note></p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
     /// <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration &gt; PreferredSubnetID</code> property.</p> <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet's Availability Zone.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
     /// <p>The tags to be applied to the file system at file system creation. The key value of the <code>Name</code> tag appears in the console as the file system name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The configuration for this Microsoft Windows file system.</p>
-    #[serde(rename = "WindowsConfiguration")]
+    #[serde(rename = "windowsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub windows_configuration: Option<CreateFileSystemWindowsConfiguration>,
 }
@@ -384,7 +384,7 @@ pub struct CreateFileSystemFromBackupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFileSystemFromBackupResponse {
     /// <p>A description of the file system.</p>
-    #[serde(rename = "FileSystem")]
+    #[serde(rename = "fileSystem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system: Option<FileSystem>,
 }
@@ -394,49 +394,49 @@ pub struct CreateFileSystemFromBackupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFileSystemLustreConfiguration {
     /// <p> (Optional) When you create your file system, your existing S3 objects appear as file and directory listings. Use this property to choose how Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can have the following values:</p> <ul> <li> <p> <code>NONE</code> - (Default) AutoImport is off. Amazon FSx only updates file and directory listings from the linked S3 bucket when the file system is created. FSx does not update file and directory listings for any new or changed objects after choosing this option.</p> </li> <li> <p> <code>NEW</code> - AutoImport is on. Amazon FSx automatically imports directory listings of any new objects added to the linked S3 bucket that do not currently exist in the FSx file system. </p> </li> <li> <p> <code>NEW_CHANGED</code> - AutoImport is on. Amazon FSx automatically imports file and directory listings of any new objects added to the S3 bucket and any existing objects that are changed in the S3 bucket after you choose this option. </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html">Automatically import updates from your S3 bucket</a>.</p>
-    #[serde(rename = "AutoImportPolicy")]
+    #[serde(rename = "autoImportPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_import_policy: Option<String>,
-    #[serde(rename = "AutomaticBackupRetentionDays")]
+    #[serde(rename = "automaticBackupRetentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic_backup_retention_days: Option<i64>,
     /// <p>(Optional) Not available to use with file systems that are linked to a data repository. A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false. If it's set to true, all file system tags are copied to all automatic and user-initiated backups when the user doesn't specify any backup-specific tags. If this value is true, and you specify one or more backup tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with backups</a>.</p>
-    #[serde(rename = "CopyTagsToBackups")]
+    #[serde(rename = "copyTagsToBackups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags_to_backups: Option<bool>,
-    #[serde(rename = "DailyAutomaticBackupStartTime")]
+    #[serde(rename = "dailyAutomaticBackupStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub daily_automatic_backup_start_time: Option<String>,
     /// <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code> can have the following values:</p> <ul> <li> <p> <code>NONE</code> - (Default) Data compression is turned off when the file system is created.</p> </li> <li> <p> <code>LZ4</code> - Data compression is turned on with the LZ4 algorithm.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
-    #[serde(rename = "DataCompressionType")]
+    #[serde(rename = "dataCompressionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_compression_type: Option<String>,
     /// <p> Choose <code>SCRATCH_1</code> and <code>SCRATCH_2</code> deployment types when you need temporary storage and shorter-term processing of data. The <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst throughput capacity than <code>SCRATCH_1</code>.</p> <p>Choose <code>PERSISTENT_1</code> deployment type for longer-term storage and workloads and encryption of data in transit. To learn more about deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html"> FSx for Lustre Deployment Options</a>.</p> <p>Encryption of data in-transit is automatically enabled when you access a <code>SCRATCH_2</code> or <code>PERSISTENT_1</code> file system from Amazon EC2 instances that <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data- protection.html">support this feature</a>. (Default = <code>SCRATCH_1</code>) </p> <p>Encryption of data in-transit for <code>SCRATCH_2</code> and <code>PERSISTENT_1</code> deployment types is supported when accessed from supported instance types in supported AWS Regions. To learn more, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting Data in Transit</a>.</p>
-    #[serde(rename = "DeploymentType")]
+    #[serde(rename = "deploymentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_type: Option<String>,
     /// <p>The type of drive cache used by PERSISTENT_1 file systems that are provisioned with HDD storage devices. This parameter is required when storage type is HDD. Set to <code>READ</code>, improve the performance for frequently accessed files and allows 20% of the total storage capacity of the file system to be cached. </p> <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
-    #[serde(rename = "DriveCacheType")]
+    #[serde(rename = "driveCacheType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub drive_cache_type: Option<String>,
     /// <p>(Optional) The path in Amazon S3 where the root of your Amazon FSx file system is exported. The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which new and changed data is to be exported from your Amazon FSx for Lustre file system. If an <code>ExportPath</code> value is not provided, Amazon FSx sets a default export path, <code>s3://import-bucket/FSxLustre[creation-timestamp]</code>. The timestamp is in UTC format, for example <code>s3://import-bucket/FSxLustre20181105T222312Z</code>.</p> <p>The Amazon S3 export bucket must be the same as the import bucket specified by <code>ImportPath</code>. If you only specify a bucket name, such as <code>s3://import-bucket</code>, you get a 1:1 mapping of file system objects to S3 bucket objects. This mapping means that the input data in S3 is overwritten on export. If you provide a custom prefix in the export path, such as <code>s3://import-bucket/[custom-optional-prefix]</code>, Amazon FSx exports the contents of your file system to that export prefix in the Amazon S3 bucket.</p>
-    #[serde(rename = "ExportPath")]
+    #[serde(rename = "exportPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_path: Option<String>,
     /// <p>(Optional) The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system. The root of your FSx for Lustre file system will be mapped to the root of the Amazon S3 bucket you select. An example is <code>s3://import-bucket/optional-prefix</code>. If you specify a prefix after the Amazon S3 bucket name, only object keys with that prefix are loaded into the file system.</p>
-    #[serde(rename = "ImportPath")]
+    #[serde(rename = "importPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_path: Option<String>,
     /// <p>(Optional) For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.</p> <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
-    #[serde(rename = "ImportedFileChunkSize")]
+    #[serde(rename = "importedFileChunkSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub imported_file_chunk_size: Option<i64>,
     /// <p> Required for the <code>PERSISTENT_1</code> deployment type, describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB. File system throughput capacity is calculated by multiplying ﬁle system storage capacity (TiB) by the PerUnitStorageThroughput (MB/s/TiB). For a 2.4 TiB ﬁle system, provisioning 50 MB/s/TiB of PerUnitStorageThroughput yields 120 MB/s of ﬁle system throughput. You pay for the amount of throughput that you provision. </p> <p>Valid values for SSD storage: 50, 100, 200. Valid values for HDD storage: 12, 40.</p>
-    #[serde(rename = "PerUnitStorageThroughput")]
+    #[serde(rename = "perUnitStorageThroughput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub per_unit_storage_throughput: Option<i64>,
     /// <p>(Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-    #[serde(rename = "WeeklyMaintenanceStartTime")]
+    #[serde(rename = "weeklyMaintenanceStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weekly_maintenance_start_time: Option<String>,
 }
@@ -446,38 +446,38 @@ pub struct CreateFileSystemLustreConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFileSystemRequest {
     /// <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The type of Amazon FSx file system to create, either <code>WINDOWS</code> or <code>LUSTRE</code>.</p>
-    #[serde(rename = "FileSystemType")]
+    #[serde(rename = "fileSystemType")]
     pub file_system_type: String,
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
-    #[serde(rename = "LustreConfiguration")]
+    #[serde(rename = "lustreConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lustre_configuration: Option<CreateFileSystemLustreConfiguration>,
     /// <p>A list of IDs specifying the security groups to apply to all network interfaces created for file system access. This list isn't returned in later requests to describe the file system.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p><p>Sets the storage capacity of the file system that you&#39;re creating.</p> <p>For Lustre file systems:</p> <ul> <li> <p>For <code>SCRATCH<em>2</code> and <code>PERSISTENT</em>1 SSD</code> deployment types, valid values are 1200 GiB, 2400 GiB, and increments of 2400 GiB.</p> </li> <li> <p>For <code>PERSISTENT HDD</code> file systems, valid values are increments of 6000 GiB for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.</p> </li> <li> <p>For <code>SCRATCH_1</code> deployment type, valid values are 1200 GiB, 2400 GiB, and increments of 3600 GiB.</p> </li> </ul> <p>For Windows file systems:</p> <ul> <li> <p>If <code>StorageType=SSD</code>, valid values are 32 GiB - 65,536 GiB (64 TiB).</p> </li> <li> <p>If <code>StorageType=HDD</code>, valid values are 2000 GiB - 65,536 GiB (64 TiB).</p> </li> </ul></p>
-    #[serde(rename = "StorageCapacity")]
+    #[serde(rename = "storageCapacity")]
     pub storage_capacity: i64,
     /// <p>Sets the storage type for the file system you're creating. Valid values are <code>SSD</code> and <code>HDD</code>.</p> <ul> <li> <p>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all Windows and Lustre deployment types.</p> </li> <li> <p>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> Windows file system deployment types, and on <code>PERSISTENT</code> Lustre file system deployment types. </p> </li> </ul> <p> Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options"> Storage Type Options</a> in the <i>Amazon FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple Storage Options</a> in the <i>Amazon FSx for Lustre User Guide</i>. </p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
     /// <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration &gt; PreferredSubnetID</code> property. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html"> Availability and durability: Single-AZ and Multi-AZ file systems</a>.</p> <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet's Availability Zone.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     pub subnet_ids: Vec<String>,
     /// <p>The tags to apply to the file system being created. The key value of the <code>Name</code> tag appears in the console as the file system name.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The Microsoft Windows configuration for the file system being created. </p>
-    #[serde(rename = "WindowsConfiguration")]
+    #[serde(rename = "windowsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub windows_configuration: Option<CreateFileSystemWindowsConfiguration>,
 }
@@ -487,7 +487,7 @@ pub struct CreateFileSystemRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFileSystemResponse {
     /// <p>The configuration of the file system that was created.</p>
-    #[serde(rename = "FileSystem")]
+    #[serde(rename = "fileSystem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system: Option<FileSystem>,
 }
@@ -497,46 +497,46 @@ pub struct CreateFileSystemResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFileSystemWindowsConfiguration {
     /// <p>The ID for an existing AWS Managed Microsoft Active Directory (AD) instance that the file system should join when it's created.</p>
-    #[serde(rename = "ActiveDirectoryId")]
+    #[serde(rename = "activeDirectoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_directory_id: Option<String>,
     /// <p>An array of one or more DNS alias names that you want to associate with the Amazon FSx file system. Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system. You can associate up to 50 aliases with a file system at any time. You can associate additional DNS aliases after you create the file system using the AssociateFileSystemAliases operation. You can remove DNS aliases from the file system after it is created using the DisassociateFileSystemAliases operation. You only need to specify the alias name in the request payload.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including additional steps you must take to be able to access your file system using a DNS alias.</p> <p>An alias name has to meet the following requirements:</p> <ul> <li> <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p> </li> <li> <p>Can contain alphanumeric characters, the underscore (_), and the hyphen (-).</p> </li> <li> <p>Cannot start or end with a hyphen.</p> </li> <li> <p>Can start with a numeric.</p> </li> </ul> <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<String>>,
     /// <p>The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.</p>
-    #[serde(rename = "AuditLogConfiguration")]
+    #[serde(rename = "auditLogConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_log_configuration: Option<WindowsAuditLogCreateConfiguration>,
     /// <p>The number of days to retain automatic backups. The default is to retain backups for 7 days. Setting this value to 0 disables the creation of automatic backups. The maximum retention period for backups is 90 days.</p>
-    #[serde(rename = "AutomaticBackupRetentionDays")]
+    #[serde(rename = "automaticBackupRetentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic_backup_retention_days: Option<i64>,
     /// <p>A boolean flag indicating whether tags for the file system should be copied to backups. This value defaults to false. If it's set to true, all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.</p>
-    #[serde(rename = "CopyTagsToBackups")]
+    #[serde(rename = "copyTagsToBackups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags_to_backups: Option<bool>,
     /// <p>The preferred time to take daily automatic backups, formatted HH:MM in the UTC time zone.</p>
-    #[serde(rename = "DailyAutomaticBackupStartTime")]
+    #[serde(rename = "dailyAutomaticBackupStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub daily_automatic_backup_start_time: Option<String>,
     /// <p>Specifies the file system deployment type, valid values are the following:</p> <ul> <li> <p> <code>MULTI_AZ_1</code> - Deploys a high availability file system that is configured for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS Regions that have a minimum of three Availability Zones. Also supports HDD storage type</p> </li> <li> <p> <code>SINGLE_AZ_1</code> - (Default) Choose to deploy a file system that is configured for single AZ redundancy.</p> </li> <li> <p> <code>SINGLE_AZ_2</code> - The latest generation Single AZ file system. Specifies a file system that is configured for single AZ redundancy and supports HDD storage type.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html"> Availability and Durability: Single-AZ and Multi-AZ File Systems</a>.</p>
-    #[serde(rename = "DeploymentType")]
+    #[serde(rename = "deploymentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_type: Option<String>,
     /// <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet in which you want the preferred file server to be located. For in-AWS applications, we recommend that you launch your clients in the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ data transfer costs and minimize latency. </p>
-    #[serde(rename = "PreferredSubnetId")]
+    #[serde(rename = "preferredSubnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_subnet_id: Option<String>,
-    #[serde(rename = "SelfManagedActiveDirectoryConfiguration")]
+    #[serde(rename = "selfManagedActiveDirectoryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub self_managed_active_directory_configuration:
         Option<SelfManagedActiveDirectoryConfiguration>,
     /// <p>The throughput of an Amazon FSx file system, measured in megabytes per second, in 2 to the <i>n</i>th increments, between 2^3 (8) and 2^11 (2048).</p>
-    #[serde(rename = "ThroughputCapacity")]
+    #[serde(rename = "throughputCapacity")]
     pub throughput_capacity: i64,
     /// <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-    #[serde(rename = "WeeklyMaintenanceStartTime")]
+    #[serde(rename = "weeklyMaintenanceStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weekly_maintenance_start_time: Option<String>,
 }
@@ -546,26 +546,26 @@ pub struct CreateFileSystemWindowsConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataRepositoryConfiguration {
     /// <p>Describes the file system's linked S3 data repository's <code>AutoImportPolicy</code>. The AutoImportPolicy configures how Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can have the following values:</p> <ul> <li> <p> <code>NONE</code> - (Default) AutoImport is off. Amazon FSx only updates file and directory listings from the linked S3 bucket when the file system is created. FSx does not update file and directory listings for any new or changed objects after choosing this option.</p> </li> <li> <p> <code>NEW</code> - AutoImport is on. Amazon FSx automatically imports directory listings of any new objects added to the linked S3 bucket that do not currently exist in the FSx file system. </p> </li> <li> <p> <code>NEW_CHANGED</code> - AutoImport is on. Amazon FSx automatically imports file and directory listings of any new objects added to the S3 bucket and any existing objects that are changed in the S3 bucket after you choose this option. </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html">Automatically import updates from your S3 bucket</a>.</p>
-    #[serde(rename = "AutoImportPolicy")]
+    #[serde(rename = "autoImportPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_import_policy: Option<String>,
     /// <p>The export path to the Amazon S3 bucket (and prefix) that you are using to store new and changed Lustre file system files in S3.</p>
-    #[serde(rename = "ExportPath")]
+    #[serde(rename = "exportPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_path: Option<String>,
-    #[serde(rename = "FailureDetails")]
+    #[serde(rename = "failureDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_details: Option<DataRepositoryFailureDetails>,
     /// <p>The import path to the Amazon S3 bucket (and optional prefix) that you're using as the data repository for your FSx for Lustre file system, for example <code>s3://import-bucket/optional-prefix</code>. If a prefix is specified after the Amazon S3 bucket name, only object keys with that prefix are loaded into the file system.</p>
-    #[serde(rename = "ImportPath")]
+    #[serde(rename = "importPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_path: Option<String>,
     /// <p>For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.</p> <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
-    #[serde(rename = "ImportedFileChunkSize")]
+    #[serde(rename = "importedFileChunkSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub imported_file_chunk_size: Option<i64>,
     /// <p><p>Describes the state of the file system&#39;s S3 durable data repository, if it is configured with an S3 repository. The lifecycle can have the following values:</p> <ul> <li> <p> <code>CREATING</code> - The data repository configuration between the FSx file system and the linked S3 data repository is being created. The data repository is unavailable.</p> </li> <li> <p> <code>AVAILABLE</code> - The data repository is available for use.</p> </li> <li> <p> <code>MISCONFIGURED</code> - Amazon FSx cannot automatically import updates from the S3 bucket until the data repository configuration is corrected. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/troubleshooting.html#troubleshooting-misconfigured-data-repository">Troubleshooting a Misconfigured linked S3 bucket</a>. </p> </li> <li> <p> <code>UPDATING</code> - The data repository is undergoing a customer initiated update and availability may be impacted.</p> </li> </ul></p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle: Option<String>,
 }
@@ -574,7 +574,7 @@ pub struct DataRepositoryConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataRepositoryFailureDetails {
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -583,47 +583,47 @@ pub struct DataRepositoryFailureDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataRepositoryTask {
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     pub creation_time: f64,
     /// <p>The time that Amazon FSx completed processing the task, populated after the task is complete.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Failure message describing why the task failed, it is populated only when <code>Lifecycle</code> is set to <code>FAILED</code>.</p>
-    #[serde(rename = "FailureDetails")]
+    #[serde(rename = "failureDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_details: Option<DataRepositoryTaskFailureDetails>,
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
     /// <p><p>The lifecycle status of the data repository task, as follows:</p> <ul> <li> <p> <code>PENDING</code> - Amazon FSx has not started the task.</p> </li> <li> <p> <code>EXECUTING</code> - Amazon FSx is processing the task.</p> </li> <li> <p> <code>FAILED</code> - Amazon FSx was not able to complete the task. For example, there may be files the task failed to process. The <a>DataRepositoryTaskFailureDetails</a> property provides more information about task failures.</p> </li> <li> <p> <code>SUCCEEDED</code> - FSx completed the task successfully.</p> </li> <li> <p> <code>CANCELED</code> - Amazon FSx canceled the task and it did not complete.</p> </li> <li> <p> <code>CANCELING</code> - FSx is in process of canceling the task.</p> </li> </ul> <note> <p>You cannot delete an FSx for Lustre file system if there are data repository tasks for the file system in the <code>PENDING</code> or <code>EXECUTING</code> states. Please retry when the data repository task is finished (with a status of <code>CANCELED</code>, <code>SUCCEEDED</code>, or <code>FAILED</code>). You can use the DescribeDataRepositoryTask action to monitor the task status. Contact the FSx team if you need to delete your file system immediately.</p> </note></p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     pub lifecycle: String,
     /// <p>An array of paths on the Amazon FSx for Lustre file system that specify the data for the data repository task to process. For example, in an EXPORT_TO_REPOSITORY task, the paths specify which data to export to the linked data repository.</p> <p>(Default) If <code>Paths</code> is not specified, Amazon FSx uses the file system root directory.</p>
-    #[serde(rename = "Paths")]
+    #[serde(rename = "paths")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub paths: Option<Vec<String>>,
-    #[serde(rename = "Report")]
+    #[serde(rename = "report")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report: Option<CompletionReport>,
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The time that Amazon FSx began processing the task.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>Provides the status of the number of files that the task has processed successfully and failed to process.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<DataRepositoryTaskStatus>,
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The system-generated, unique 17-digit ID of the data repository task.</p>
-    #[serde(rename = "TaskId")]
+    #[serde(rename = "taskId")]
     pub task_id: String,
     /// <p>The type of data repository task; EXPORT_TO_REPOSITORY is the only type currently supported.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -631,7 +631,7 @@ pub struct DataRepositoryTask {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataRepositoryTaskFailureDetails {
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -641,11 +641,11 @@ pub struct DataRepositoryTaskFailureDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DataRepositoryTaskFilter {
     /// <p><p>Name of the task property to use in filtering the tasks returned in the response.</p> <ul> <li> <p>Use <code>file-system-id</code> to retrieve data repository tasks for specific file systems.</p> </li> <li> <p>Use <code>task-lifecycle</code> to retrieve data repository tasks with one or more specific lifecycle states, as follows: CANCELED, EXECUTING, FAILED, PENDING, and SUCCEEDED.</p> </li> </ul></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Use Values to include the specific file system IDs and task lifecycle states for the filters you are using.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -655,19 +655,19 @@ pub struct DataRepositoryTaskFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataRepositoryTaskStatus {
     /// <p>A running total of the number of files that the task failed to process.</p>
-    #[serde(rename = "FailedCount")]
+    #[serde(rename = "failedCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_count: Option<i64>,
     /// <p>The time at which the task status was last updated.</p>
-    #[serde(rename = "LastUpdatedTime")]
+    #[serde(rename = "lastUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated_time: Option<f64>,
     /// <p>A running total of the number of files that the task has successfully processed.</p>
-    #[serde(rename = "SucceededCount")]
+    #[serde(rename = "succeededCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub succeeded_count: Option<i64>,
     /// <p>The total number of files that the task will process. While a task is executing, the sum of <code>SucceededCount</code> plus <code>FailedCount</code> may not equal <code>TotalCount</code>. When the task is complete, <code>TotalCount</code> equals the sum of <code>SucceededCount</code> plus <code>FailedCount</code>.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -677,10 +677,10 @@ pub struct DataRepositoryTaskStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteBackupRequest {
     /// <p>The ID of the backup you want to delete.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     pub backup_id: String,
     /// <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion. This is automatically filled on your behalf when using the AWS CLI or SDK.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
 }
@@ -690,11 +690,11 @@ pub struct DeleteBackupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteBackupResponse {
     /// <p>The ID of the backup deleted.</p>
-    #[serde(rename = "BackupId")]
+    #[serde(rename = "backupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup_id: Option<String>,
     /// <p>The lifecycle of the backup. Should be <code>DELETED</code>.</p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle: Option<String>,
 }
@@ -704,11 +704,11 @@ pub struct DeleteBackupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFileSystemLustreConfiguration {
     /// <p>Use if <code>SkipFinalBackup</code> is set to <code>false</code>, and you want to apply an array of tags to the final backup. If you have set the file system property <code>CopyTagsToBackups</code> to true, and you specify one or more <code>FinalBackupTags</code> when deleting a file system, Amazon FSx will not copy any existing file system tags to the backup.</p>
-    #[serde(rename = "FinalBackupTags")]
+    #[serde(rename = "finalBackupTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_backup_tags: Option<Vec<Tag>>,
     /// <p>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the file system you are deleting. By default, Amazon FSx will not take a final backup on your behalf when the <code>DeleteFileSystem</code> operation is invoked. (Default = true)</p>
-    #[serde(rename = "SkipFinalBackup")]
+    #[serde(rename = "skipFinalBackup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skip_final_backup: Option<bool>,
 }
@@ -718,11 +718,11 @@ pub struct DeleteFileSystemLustreConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFileSystemLustreResponse {
     /// <p>The ID of the final backup for this file system.</p>
-    #[serde(rename = "FinalBackupId")]
+    #[serde(rename = "finalBackupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_backup_id: Option<String>,
     /// <p>The set of tags applied to the final backup.</p>
-    #[serde(rename = "FinalBackupTags")]
+    #[serde(rename = "finalBackupTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_backup_tags: Option<Vec<Tag>>,
 }
@@ -732,16 +732,16 @@ pub struct DeleteFileSystemLustreResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFileSystemRequest {
     /// <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion. This is automatically filled on your behalf when using the AWS CLI or SDK.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The ID of the file system you want to delete.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
-    #[serde(rename = "LustreConfiguration")]
+    #[serde(rename = "lustreConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lustre_configuration: Option<DeleteFileSystemLustreConfiguration>,
-    #[serde(rename = "WindowsConfiguration")]
+    #[serde(rename = "windowsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub windows_configuration: Option<DeleteFileSystemWindowsConfiguration>,
 }
@@ -751,17 +751,17 @@ pub struct DeleteFileSystemRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFileSystemResponse {
     /// <p>The ID of the file system being deleted.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_id: Option<String>,
     /// <p>The file system lifecycle for the deletion request. Should be <code>DELETING</code>.</p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle: Option<String>,
-    #[serde(rename = "LustreResponse")]
+    #[serde(rename = "lustreResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lustre_response: Option<DeleteFileSystemLustreResponse>,
-    #[serde(rename = "WindowsResponse")]
+    #[serde(rename = "windowsResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub windows_response: Option<DeleteFileSystemWindowsResponse>,
 }
@@ -771,11 +771,11 @@ pub struct DeleteFileSystemResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFileSystemWindowsConfiguration {
     /// <p>A set of tags for your final backup.</p>
-    #[serde(rename = "FinalBackupTags")]
+    #[serde(rename = "finalBackupTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_backup_tags: Option<Vec<Tag>>,
     /// <p>By default, Amazon FSx for Windows takes a final backup on your behalf when the <code>DeleteFileSystem</code> operation is invoked. Doing this helps protect you from data loss, and we highly recommend taking the final backup. If you want to skip this backup, use this flag to do so.</p>
-    #[serde(rename = "SkipFinalBackup")]
+    #[serde(rename = "skipFinalBackup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skip_final_backup: Option<bool>,
 }
@@ -785,11 +785,11 @@ pub struct DeleteFileSystemWindowsConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFileSystemWindowsResponse {
     /// <p>The ID of the final backup for this file system.</p>
-    #[serde(rename = "FinalBackupId")]
+    #[serde(rename = "finalBackupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_backup_id: Option<String>,
     /// <p>The set of tags applied to the final backup.</p>
-    #[serde(rename = "FinalBackupTags")]
+    #[serde(rename = "finalBackupTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub final_backup_tags: Option<Vec<Tag>>,
 }
@@ -799,19 +799,19 @@ pub struct DeleteFileSystemWindowsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeBackupsRequest {
     /// <p>IDs of the backups you want to retrieve (String). This overrides any filters. If any IDs are not found, BackupNotFound will be thrown.</p>
-    #[serde(rename = "BackupIds")]
+    #[serde(rename = "backupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backup_ids: Option<Vec<String>>,
     /// <p>Filters structure. Supported names are file-system-id and backup-type.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Maximum number of backups to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Opaque pagination token returned from a previous <code>DescribeBackups</code> operation (String). If a token present, the action continues the list from where the returning call left off.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -821,11 +821,11 @@ pub struct DescribeBackupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeBackupsResponse {
     /// <p>An array of backups.</p>
-    #[serde(rename = "Backups")]
+    #[serde(rename = "backups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backups: Option<Vec<Backup>>,
     /// <p>This is present if there are more backups than returned in the response (String). You can use the <code>NextToken</code> value in the later request to fetch the backups. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -834,17 +834,17 @@ pub struct DescribeBackupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDataRepositoryTasksRequest {
     /// <p>(Optional) You can use filters to narrow the <code>DescribeDataRepositoryTasks</code> response to include just tasks for specific file systems, or tasks in a specific lifecycle state.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<DataRepositoryTaskFilter>>,
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>(Optional) IDs of the tasks whose descriptions you want to retrieve (String).</p>
-    #[serde(rename = "TaskIds")]
+    #[serde(rename = "taskIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_ids: Option<Vec<String>>,
 }
@@ -853,10 +853,10 @@ pub struct DescribeDataRepositoryTasksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDataRepositoryTasksResponse {
     /// <p>The collection of data repository task descriptions returned.</p>
-    #[serde(rename = "DataRepositoryTasks")]
+    #[serde(rename = "dataRepositoryTasks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_repository_tasks: Option<Vec<DataRepositoryTask>>,
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -865,18 +865,18 @@ pub struct DescribeDataRepositoryTasksResponse {
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFileSystemAliasesRequest {
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The ID of the file system to return the associated DNS aliases for (String).</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
     /// <p>Maximum number of DNS aliases to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Opaque pagination token returned from a previous <code>DescribeFileSystemAliases</code> operation (String). If a token is included in the request, the action continues the list from where the previous returning call left off.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -886,11 +886,11 @@ pub struct DescribeFileSystemAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFileSystemAliasesResponse {
     /// <p>An array of one or more DNS aliases currently associated with the specified file system.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<Alias>>,
     /// <p>Present if there are more DNS aliases than returned in the response (String). You can use the <code>NextToken</code> value in a later request to fetch additional descriptions. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -900,15 +900,15 @@ pub struct DescribeFileSystemAliasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFileSystemsRequest {
     /// <p>IDs of the file systems whose descriptions you want to retrieve (String).</p>
-    #[serde(rename = "FileSystemIds")]
+    #[serde(rename = "fileSystemIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_ids: Option<Vec<String>>,
     /// <p>Maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Opaque pagination token returned from a previous <code>DescribeFileSystems</code> operation (String). If a token present, the action continues the list from where the returning call left off.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -918,11 +918,11 @@ pub struct DescribeFileSystemsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFileSystemsResponse {
     /// <p>An array of file system descriptions.</p>
-    #[serde(rename = "FileSystems")]
+    #[serde(rename = "fileSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_systems: Option<Vec<FileSystem>>,
     /// <p>Present if there are more file systems than returned in the response (String). You can use the <code>NextToken</code> value in the later request to fetch the descriptions. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -932,13 +932,13 @@ pub struct DescribeFileSystemsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateFileSystemAliasesRequest {
     /// <p>An array of one or more DNS alias names to disassociate, or remove, from the file system.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     pub aliases: Vec<String>,
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>Specifies the file system from which to disassociate the DNS aliases.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
 }
 
@@ -947,7 +947,7 @@ pub struct DisassociateFileSystemAliasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateFileSystemAliasesResponse {
     /// <p>An array of one or more DNS aliases that Amazon FSx is attempting to disassociate from the file system.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<Alias>>,
 }
@@ -957,73 +957,73 @@ pub struct DisassociateFileSystemAliasesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FileSystem {
     /// <p>A list of administrative actions for the file system that are in process or waiting to be processed. Administrative actions describe changes to the Windows file system that you have initiated using the <code>UpdateFileSystem</code> action. </p>
-    #[serde(rename = "AdministrativeActions")]
+    #[serde(rename = "administrativeActions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub administrative_actions: Option<Vec<AdministrativeAction>>,
     /// <p>The time that the file system was created, in seconds (since 1970-01-01T00:00:00Z), also known as Unix time.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The DNS name for the file system.</p>
-    #[serde(rename = "DNSName")]
+    #[serde(rename = "dNSName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_name: Option<String>,
-    #[serde(rename = "FailureDetails")]
+    #[serde(rename = "failureDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_details: Option<FileSystemFailureDetails>,
     /// <p>The system-generated, unique 17-digit ID of the file system.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_id: Option<String>,
     /// <p>The type of Amazon FSx file system, either <code>LUSTRE</code> or <code>WINDOWS</code>.</p>
-    #[serde(rename = "FileSystemType")]
+    #[serde(rename = "fileSystemType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_type: Option<String>,
     /// <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data for Amazon FSx for Windows File Server file systems and persistent Amazon FSx for Lustre file systems at rest. In either case, if not specified, the Amazon FSx managed key is used. The scratch Amazon FSx for Lustre file systems are always encrypted at rest using Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the <i>AWS Key Management Service API Reference</i>.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p><p>The lifecycle status of the file system, following are the possible values and what they mean:</p> <ul> <li> <p> <code>AVAILABLE</code> - The file system is in a healthy state, and is reachable and available for use.</p> </li> <li> <p> <code>CREATING</code> - Amazon FSx is creating the new file system.</p> </li> <li> <p> <code>DELETING</code> - Amazon FSx is deleting an existing file system.</p> </li> <li> <p> <code>FAILED</code> - An existing file system has experienced an unrecoverable failure. When creating a new file system, Amazon FSx was unable to create the file system.</p> </li> <li> <p> <code>MISCONFIGURED</code> indicates that the file system is in a failed but recoverable state.</p> </li> <li> <p> <code>UPDATING</code> indicates that the file system is undergoing a customer initiated update.</p> </li> </ul></p>
-    #[serde(rename = "Lifecycle")]
+    #[serde(rename = "lifecycle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle: Option<String>,
-    #[serde(rename = "LustreConfiguration")]
+    #[serde(rename = "lustreConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lustre_configuration: Option<LustreFileSystemConfiguration>,
     /// <p>The IDs of the elastic network interface from which a specific file system is accessible. The elastic network interface is automatically created in the same VPC that the Amazon FSx file system was created in. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a> in the <i>Amazon EC2 User Guide.</i> </p> <p>For an Amazon FSx for Windows File Server file system, you can have one network interface ID. For an Amazon FSx for Lustre file system, you can have more than one.</p>
-    #[serde(rename = "NetworkInterfaceIds")]
+    #[serde(rename = "networkInterfaceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_interface_ids: Option<Vec<String>>,
     /// <p>The AWS account that created the file system. If the file system was created by an AWS Identity and Access Management (IAM) user, the AWS account to which the IAM user belongs is the owner.</p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the file system resource.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The storage capacity of the file system in gibibytes (GiB).</p>
-    #[serde(rename = "StorageCapacity")]
+    #[serde(rename = "storageCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_capacity: Option<i64>,
     /// <p>The storage type of the file system. Valid values are <code>SSD</code> and <code>HDD</code>. If set to <code>SSD</code>, the file system uses solid state drive storage. If set to <code>HDD</code>, the file system uses hard disk drive storage. </p>
-    #[serde(rename = "StorageType")]
+    #[serde(rename = "storageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_type: Option<String>,
     /// <p>Specifies the IDs of the subnets that the file system is accessible from. For Windows <code>MULTI_AZ_1</code> file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the <code>PreferredSubnetID</code> property. All other file systems have only one subnet ID.</p> <p>For Lustre file systems, and Single-AZ Windows file systems, this is the ID of the subnet that contains the endpoint for the file system. For <code>MULTI_AZ_1</code> Windows file systems, the endpoint for the file system is available in the <code>PreferredSubnetID</code>.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>The tags to associate with the file system. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The ID of the primary VPC for the file system.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
     /// <p>The configuration for this Microsoft Windows file system.</p>
-    #[serde(rename = "WindowsConfiguration")]
+    #[serde(rename = "windowsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub windows_configuration: Option<WindowsFileSystemConfiguration>,
 }
@@ -1033,7 +1033,7 @@ pub struct FileSystem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FileSystemFailureDetails {
     /// <p>A message describing any failures that occurred during file system creation.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1043,11 +1043,11 @@ pub struct FileSystemFailureDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p>The name for this filter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The values of the filter. These are all the values for any of the applied filters.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -1057,15 +1057,15 @@ pub struct Filter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>Maximum number of tags to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Opaque pagination token returned from a previous <code>ListTagsForResource</code> operation (String). If a token present, the action continues the list from where the returning call left off.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ARN of the Amazon FSx resource that will have its tags listed.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -1074,11 +1074,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>This is present if there are more tags than returned in the response (String). You can use the <code>NextToken</code> value in the later request to fetch the tags. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of tags on the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1087,41 +1087,41 @@ pub struct ListTagsForResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LustreFileSystemConfiguration {
-    #[serde(rename = "AutomaticBackupRetentionDays")]
+    #[serde(rename = "automaticBackupRetentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic_backup_retention_days: Option<i64>,
     /// <p>A boolean flag indicating whether tags on the file system should be copied to backups. If it's set to true, all tags on the file system are copied to all automatic backups and any user-initiated backups where the user doesn't specify any tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value. (Default = false)</p>
-    #[serde(rename = "CopyTagsToBackups")]
+    #[serde(rename = "copyTagsToBackups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags_to_backups: Option<bool>,
-    #[serde(rename = "DailyAutomaticBackupStartTime")]
+    #[serde(rename = "dailyAutomaticBackupStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub daily_automatic_backup_start_time: Option<String>,
     /// <p>The data compression configuration for the file system. <code>DataCompressionType</code> can have the following values:</p> <ul> <li> <p> <code>NONE</code> - Data compression is turned off for the file system.</p> </li> <li> <p> <code>LZ4</code> - Data compression is turned on with the LZ4 algorithm.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
-    #[serde(rename = "DataCompressionType")]
+    #[serde(rename = "dataCompressionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_compression_type: Option<String>,
-    #[serde(rename = "DataRepositoryConfiguration")]
+    #[serde(rename = "dataRepositoryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_repository_configuration: Option<DataRepositoryConfiguration>,
     /// <p>The deployment type of the FSX for Lustre file system. <i>Scratch deployment type</i> is designed for temporary storage and shorter-term processing of data.</p> <p> <code>SCRATCH_1</code> and <code>SCRATCH_2</code> deployment types are best suited for when you need temporary storage and shorter-term processing of data. The <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst throughput capacity than <code>SCRATCH_1</code>.</p> <p>The <code>PERSISTENT_1</code> deployment type is used for longer-term storage and workloads and encryption of data in transit. To learn more about deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html"> FSx for Lustre Deployment Options</a>. (Default = <code>SCRATCH_1</code>)</p>
-    #[serde(rename = "DeploymentType")]
+    #[serde(rename = "deploymentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_type: Option<String>,
     /// <p>The type of drive cache used by PERSISTENT_1 file systems that are provisioned with HDD storage devices. This parameter is required when storage type is HDD. Set to <code>READ</code>, improve the performance for frequently accessed files and allows 20% of the total storage capacity of the file system to be cached. </p> <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
-    #[serde(rename = "DriveCacheType")]
+    #[serde(rename = "driveCacheType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub drive_cache_type: Option<String>,
     /// <p>You use the <code>MountName</code> value when mounting the file system.</p> <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>". For <code>SCRATCH_2</code> and <code>PERSISTENT_1</code> deployment types, this value is a string that is unique within an AWS Region. </p>
-    #[serde(rename = "MountName")]
+    #[serde(rename = "mountName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_name: Option<String>,
     /// <p> Per unit storage throughput represents the megabytes per second of read or write throughput per 1 tebibyte of storage provisioned. File system throughput capacity is equal to Storage capacity (TiB) * PerUnitStorageThroughput (MB/s/TiB). This option is only valid for <code>PERSISTENT_1</code> deployment types. </p> <p>Valid values for SSD storage: 50, 100, 200. Valid values for HDD storage: 12, 40. </p>
-    #[serde(rename = "PerUnitStorageThroughput")]
+    #[serde(rename = "perUnitStorageThroughput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub per_unit_storage_throughput: Option<i64>,
     /// <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-    #[serde(rename = "WeeklyMaintenanceStartTime")]
+    #[serde(rename = "weeklyMaintenanceStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weekly_maintenance_start_time: Option<String>,
 }
@@ -1131,23 +1131,23 @@ pub struct LustreFileSystemConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SelfManagedActiveDirectoryAttributes {
     /// <p>A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory.</p>
-    #[serde(rename = "DnsIps")]
+    #[serde(rename = "dnsIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_ips: Option<Vec<String>>,
     /// <p>The fully qualified domain name of the self-managed AD directory.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>The name of the domain group whose members have administrative privileges for the FSx file system.</p>
-    #[serde(rename = "FileSystemAdministratorsGroup")]
+    #[serde(rename = "fileSystemAdministratorsGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_administrators_group: Option<String>,
     /// <p>The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server instance is joined.</p>
-    #[serde(rename = "OrganizationalUnitDistinguishedName")]
+    #[serde(rename = "organizationalUnitDistinguishedName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organizational_unit_distinguished_name: Option<String>,
     /// <p>The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -1157,24 +1157,24 @@ pub struct SelfManagedActiveDirectoryAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SelfManagedActiveDirectoryConfiguration {
     /// <p>A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. </p>
-    #[serde(rename = "DnsIps")]
+    #[serde(rename = "dnsIps")]
     pub dns_ips: Vec<String>,
     /// <p>The fully qualified domain name of the self-managed AD directory, such as <code>corp.example.com</code>.</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>(Optional) The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, setting audit controls (audit ACLs) on files and folders, and administering the file system remotely by using the FSx Remote PowerShell. The group that you specify must already exist in your domain. If you don't provide one, your AD domain's Domain Admins group is used.</p>
-    #[serde(rename = "FileSystemAdministratorsGroup")]
+    #[serde(rename = "fileSystemAdministratorsGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system_administrators_group: Option<String>,
     /// <p><p>(Optional) The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. Amazon FSx only accepts OU as the direct parent of the file system. An example is <code>OU=FSx,DC=yourdomain,DC=corp,DC=com</code>. To learn more, see <a href="https://tools.ietf.org/html/rfc2253">RFC 2253</a>. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. </p> <important> <p>Only Organizational Unit (OU) objects can be the direct parent of the file system that you&#39;re creating.</p> </important></p>
-    #[serde(rename = "OrganizationalUnitDistinguishedName")]
+    #[serde(rename = "organizationalUnitDistinguishedName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organizational_unit_distinguished_name: Option<String>,
     /// <p>The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This account must have the permission to join computers to the domain in the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>, or in the default location of your AD domain.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -1183,15 +1183,15 @@ pub struct SelfManagedActiveDirectoryConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SelfManagedActiveDirectoryConfigurationUpdates {
     /// <p>A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory.</p>
-    #[serde(rename = "DnsIps")]
+    #[serde(rename = "dnsIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_ips: Option<Vec<String>>,
     /// <p>The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This account must have the permission to join computers to the domain in the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -1200,10 +1200,10 @@ pub struct SelfManagedActiveDirectoryConfigurationUpdates {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>A value that specifies the <code>TagKey</code>, the name of the tag. Tag keys must be unique for the resource to which they are attached.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>A value that specifies the <code>TagValue</code>, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of <code>finances : April</code> and also of <code>payroll : April</code>.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1212,10 +1212,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to tag.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A list of tags for the resource. If a tag with a given key already exists, the value is replaced by the one specified in this parameter.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1229,10 +1229,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the Amazon FSx resource to untag.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A list of keys of tags on the resource to untag. In case the tag key doesn't exist, the call will still succeed to be idempotent.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1246,21 +1246,21 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFileSystemLustreConfiguration {
     /// <p> (Optional) When you create your file system, your existing S3 objects appear as file and directory listings. Use this property to choose how Amazon FSx keeps your file and directory listing up to date as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can have the following values:</p> <ul> <li> <p> <code>NONE</code> - (Default) AutoImport is off. Amazon FSx only updates file and directory listings from the linked S3 bucket when the file system is created. FSx does not update the file and directory listing for any new or changed objects after choosing this option.</p> </li> <li> <p> <code>NEW</code> - AutoImport is on. Amazon FSx automatically imports directory listings of any new objects added to the linked S3 bucket that do not currently exist in the FSx file system. </p> </li> <li> <p> <code>NEW_CHANGED</code> - AutoImport is on. Amazon FSx automatically imports file and directory listings of any new objects added to the S3 bucket and any existing objects that are changed in the S3 bucket after you choose this option. </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html">Automatically import updates from your S3 bucket</a>.</p>
-    #[serde(rename = "AutoImportPolicy")]
+    #[serde(rename = "autoImportPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_import_policy: Option<String>,
-    #[serde(rename = "AutomaticBackupRetentionDays")]
+    #[serde(rename = "automaticBackupRetentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic_backup_retention_days: Option<i64>,
-    #[serde(rename = "DailyAutomaticBackupStartTime")]
+    #[serde(rename = "dailyAutomaticBackupStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub daily_automatic_backup_start_time: Option<String>,
     /// <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code> can have the following values:</p> <ul> <li> <p> <code>NONE</code> - Data compression is turned off for the file system.</p> </li> <li> <p> <code>LZ4</code> - Data compression is turned on with the LZ4 algorithm.</p> </li> </ul> <p>If you don't use <code>DataCompressionType</code>, the file system retains its current data compression configuration.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
-    #[serde(rename = "DataCompressionType")]
+    #[serde(rename = "dataCompressionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_compression_type: Option<String>,
     /// <p>(Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-    #[serde(rename = "WeeklyMaintenanceStartTime")]
+    #[serde(rename = "weeklyMaintenanceStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weekly_maintenance_start_time: Option<String>,
 }
@@ -1270,21 +1270,21 @@ pub struct UpdateFileSystemLustreConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFileSystemRequest {
     /// <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent updates. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>Identifies the file system that you are updating.</p>
-    #[serde(rename = "FileSystemId")]
+    #[serde(rename = "fileSystemId")]
     pub file_system_id: String,
-    #[serde(rename = "LustreConfiguration")]
+    #[serde(rename = "lustreConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lustre_configuration: Option<UpdateFileSystemLustreConfiguration>,
     /// <p>Use this parameter to increase the storage capacity of an Amazon FSx file system. Specifies the storage capacity target value, GiB, to increase the storage capacity for the file system that you're updating. You cannot make a storage capacity increase request if there is an existing storage capacity increase request in progress.</p> <p>For Windows file systems, the storage capacity target value must be at least 10 percent (%) greater than the current storage capacity value. In order to increase storage capacity, the file system must have at least 16 MB/s of throughput capacity.</p> <p>For Lustre file systems, the storage capacity target value can be the following:</p> <ul> <li> <p>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid values are in multiples of 2400 GiB. The value must be greater than the current storage capacity.</p> </li> <li> <p>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB for 12 MB/s/TiB file systems and multiples of 1800 GiB for 40 MB/s/TiB file systems. The values must be greater than the current storage capacity.</p> </li> <li> <p>For <code>SCRATCH_1</code> file systems, you cannot increase the storage capacity.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p>
-    #[serde(rename = "StorageCapacity")]
+    #[serde(rename = "storageCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_capacity: Option<i64>,
     /// <p>The configuration updates for an Amazon FSx for Windows File Server file system.</p>
-    #[serde(rename = "WindowsConfiguration")]
+    #[serde(rename = "windowsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub windows_configuration: Option<UpdateFileSystemWindowsConfiguration>,
 }
@@ -1294,7 +1294,7 @@ pub struct UpdateFileSystemRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFileSystemResponse {
     /// <p>A description of the file system that was updated.</p>
-    #[serde(rename = "FileSystem")]
+    #[serde(rename = "fileSystem")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_system: Option<FileSystem>,
 }
@@ -1304,28 +1304,28 @@ pub struct UpdateFileSystemResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFileSystemWindowsConfiguration {
     /// <p>The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system..</p>
-    #[serde(rename = "AuditLogConfiguration")]
+    #[serde(rename = "auditLogConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_log_configuration: Option<WindowsAuditLogCreateConfiguration>,
     /// <p>The number of days to retain automatic daily backups. Setting this to zero (0) disables automatic daily backups. You can retain automatic daily backups for a maximum of 90 days. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups">Working with Automatic Daily Backups</a>.</p>
-    #[serde(rename = "AutomaticBackupRetentionDays")]
+    #[serde(rename = "automaticBackupRetentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic_backup_retention_days: Option<i64>,
     /// <p>The preferred time to start the daily automatic backup, in the UTC time zone, for example, <code>02:00</code> </p>
-    #[serde(rename = "DailyAutomaticBackupStartTime")]
+    #[serde(rename = "dailyAutomaticBackupStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub daily_automatic_backup_start_time: Option<String>,
     /// <p>The configuration Amazon FSx uses to join the Windows File Server instance to the self-managed Microsoft AD directory. You cannot make a self-managed Microsoft AD update request if there is an existing self-managed Microsoft AD update request in progress.</p>
-    #[serde(rename = "SelfManagedActiveDirectoryConfiguration")]
+    #[serde(rename = "selfManagedActiveDirectoryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub self_managed_active_directory_configuration:
         Option<SelfManagedActiveDirectoryConfigurationUpdates>,
     /// <p>Sets the target value for a file system's throughput capacity, in MB/s, that you are updating the file system to. Valid values are 8, 16, 32, 64, 128, 256, 512, 1024, 2048. You cannot make a throughput capacity update request if there is an existing throughput capacity update request in progress. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-throughput-capacity.html">Managing Throughput Capacity</a>.</p>
-    #[serde(rename = "ThroughputCapacity")]
+    #[serde(rename = "throughputCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub throughput_capacity: Option<i64>,
     /// <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone. Where d is the weekday number, from 1 through 7, with 1 = Monday and 7 = Sunday.</p>
-    #[serde(rename = "WeeklyMaintenanceStartTime")]
+    #[serde(rename = "weeklyMaintenanceStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weekly_maintenance_start_time: Option<String>,
 }
@@ -1335,14 +1335,14 @@ pub struct UpdateFileSystemWindowsConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WindowsAuditLogConfiguration {
     /// <p>The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN.</p> <p>The name of the Amazon CloudWatch Logs log group must begin with the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p> <p>The destination ARN (either CloudWatch Logs log group or Kinesis Data Firehose delivery stream) must be in the same AWS partition, AWS region, and AWS account as your Amazon FSx file system.</p>
-    #[serde(rename = "AuditLogDestination")]
+    #[serde(rename = "auditLogDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_log_destination: Option<String>,
     /// <p><p>Sets which attempt type is logged by Amazon FSx for file and folder accesses.</p> <ul> <li> <p> <code>SUCCESS<em>ONLY</code> - only successful attempts to access files or folders are logged.</p> </li> <li> <p> <code>FAILURE</em>ONLY</code> - only failed attempts to access files or folders are logged.</p> </li> <li> <p> <code>SUCCESS<em>AND</em>FAILURE</code> - both successful attempts and failed attempts to access files or folders are logged.</p> </li> <li> <p> <code>DISABLED</code> - access auditing of files and folders is turned off.</p> </li> </ul></p>
-    #[serde(rename = "FileAccessAuditLogLevel")]
+    #[serde(rename = "fileAccessAuditLogLevel")]
     pub file_access_audit_log_level: String,
     /// <p><p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p> <ul> <li> <p> <code>SUCCESS<em>ONLY</code> - only successful attempts to access file shares are logged.</p> </li> <li> <p> <code>FAILURE</em>ONLY</code> - only failed attempts to access file shares are logged.</p> </li> <li> <p> <code>SUCCESS<em>AND</em>FAILURE</code> - both successful attempts and failed attempts to access file shares are logged.</p> </li> <li> <p> <code>DISABLED</code> - access auditing of file shares is turned off.</p> </li> </ul></p>
-    #[serde(rename = "FileShareAccessAuditLogLevel")]
+    #[serde(rename = "fileShareAccessAuditLogLevel")]
     pub file_share_access_audit_log_level: String,
 }
 
@@ -1351,14 +1351,14 @@ pub struct WindowsAuditLogConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct WindowsAuditLogCreateConfiguration {
     /// <p><p>The Amazon Resource Name (ARN) that specifies the destination of the audit logs.</p> <p>The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN, with the following requirements:</p> <ul> <li> <p>The destination ARN that you provide (either CloudWatch Logs log group or Kinesis Data Firehose delivery stream) must be in the same AWS partition, AWS region, and AWS account as your Amazon FSx file system.</p> </li> <li> <p>The name of the Amazon CloudWatch Logs log group must begin with the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p> </li> <li> <p>If you do not provide a destination in <code>AuditLogDestination</code>, Amazon FSx will create and use a log stream in the CloudWatch Logs <code>/aws/fsx/windows</code> log group.</p> </li> <li> <p>If <code>AuditLogDestination</code> is provided and the resource does not exist, the request will fail with a <code>BadRequest</code> error.</p> </li> <li> <p>If <code>FileAccessAuditLogLevel</code> and <code>FileShareAccessAuditLogLevel</code> are both set to <code>DISABLED</code>, you cannot specify a destination in <code>AuditLogDestination</code>.</p> </li> </ul></p>
-    #[serde(rename = "AuditLogDestination")]
+    #[serde(rename = "auditLogDestination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_log_destination: Option<String>,
     /// <p><p>Sets which attempt type is logged by Amazon FSx for file and folder accesses.</p> <ul> <li> <p> <code>SUCCESS<em>ONLY</code> - only successful attempts to access files or folders are logged.</p> </li> <li> <p> <code>FAILURE</em>ONLY</code> - only failed attempts to access files or folders are logged.</p> </li> <li> <p> <code>SUCCESS<em>AND</em>FAILURE</code> - both successful attempts and failed attempts to access files or folders are logged.</p> </li> <li> <p> <code>DISABLED</code> - access auditing of files and folders is turned off.</p> </li> </ul></p>
-    #[serde(rename = "FileAccessAuditLogLevel")]
+    #[serde(rename = "fileAccessAuditLogLevel")]
     pub file_access_audit_log_level: String,
     /// <p><p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p> <ul> <li> <p> <code>SUCCESS<em>ONLY</code> - only successful attempts to access file shares are logged.</p> </li> <li> <p> <code>FAILURE</em>ONLY</code> - only failed attempts to access file shares are logged.</p> </li> <li> <p> <code>SUCCESS<em>AND</em>FAILURE</code> - both successful attempts and failed attempts to access file shares are logged.</p> </li> <li> <p> <code>DISABLED</code> - access auditing of file shares is turned off.</p> </li> </ul></p>
-    #[serde(rename = "FileShareAccessAuditLogLevel")]
+    #[serde(rename = "fileShareAccessAuditLogLevel")]
     pub file_share_access_audit_log_level: String,
 }
 
@@ -1367,57 +1367,57 @@ pub struct WindowsAuditLogCreateConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WindowsFileSystemConfiguration {
     /// <p>The ID for an existing AWS Managed Microsoft Active Directory instance that the file system is joined to.</p>
-    #[serde(rename = "ActiveDirectoryId")]
+    #[serde(rename = "activeDirectoryId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_directory_id: Option<String>,
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<Alias>>,
     /// <p>The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.</p>
-    #[serde(rename = "AuditLogConfiguration")]
+    #[serde(rename = "auditLogConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_log_configuration: Option<WindowsAuditLogConfiguration>,
     /// <p>The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.</p>
-    #[serde(rename = "AutomaticBackupRetentionDays")]
+    #[serde(rename = "automaticBackupRetentionDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automatic_backup_retention_days: Option<i64>,
     /// <p>A boolean flag indicating whether tags on the file system should be copied to backups. This value defaults to false. If it's set to true, all tags on the file system are copied to all automatic backups and any user-initiated backups where the user doesn't specify any tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.</p>
-    #[serde(rename = "CopyTagsToBackups")]
+    #[serde(rename = "copyTagsToBackups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags_to_backups: Option<bool>,
     /// <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
-    #[serde(rename = "DailyAutomaticBackupStartTime")]
+    #[serde(rename = "dailyAutomaticBackupStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub daily_automatic_backup_start_time: Option<String>,
     /// <p>Specifies the file system deployment type, valid values are the following:</p> <ul> <li> <p> <code>MULTI_AZ_1</code> - Specifies a high availability file system that is configured for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability, and supports SSD and HDD storage.</p> </li> <li> <p> <code>SINGLE_AZ_1</code> - (Default) Specifies a file system that is configured for single AZ redundancy, only supports SSD storage.</p> </li> <li> <p> <code>SINGLE_AZ_2</code> - Latest generation Single AZ file system. Specifies a file system that is configured for single AZ redundancy and supports SSD and HDD storage.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">Single-AZ and Multi-AZ File Systems</a>.</p>
-    #[serde(rename = "DeploymentType")]
+    #[serde(rename = "deploymentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_type: Option<String>,
     /// <p>The list of maintenance operations in progress for this file system.</p>
-    #[serde(rename = "MaintenanceOperationsInProgress")]
+    #[serde(rename = "maintenanceOperationsInProgress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub maintenance_operations_in_progress: Option<Vec<String>>,
     /// <p>For <code>MULTI_AZ_1</code> deployment types, the IP address of the primary, or preferred, file server.</p> <p>Use this IP address when mounting the file system on Linux SMB clients or Windows SMB clients that are not joined to a Microsoft Active Directory. Applicable for all Windows file system deployment types. This IP address is temporarily unavailable when the file system is undergoing maintenance. For Linux and Windows SMB clients that are joined to an Active Directory, use the file system's DNSName instead. For more information on mapping and mounting file shares, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/accessing-file-shares.html">Accessing File Shares</a>.</p>
-    #[serde(rename = "PreferredFileServerIp")]
+    #[serde(rename = "preferredFileServerIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_file_server_ip: Option<String>,
     /// <p>For <code>MULTI_AZ_1</code> deployment types, it specifies the ID of the subnet where the preferred file server is located. Must be one of the two subnet IDs specified in <code>SubnetIds</code> property. Amazon FSx serves traffic from this subnet except in the event of a failover to the secondary file server.</p> <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this value is the same as that for <code>SubnetIDs</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html#single-multi-az-resources">Availability and durability: Single-AZ and Multi-AZ file systems</a>.</p>
-    #[serde(rename = "PreferredSubnetId")]
+    #[serde(rename = "preferredSubnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_subnet_id: Option<String>,
     /// <p>For <code>MULTI_AZ_1</code> deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell.</p> <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this is the DNS name of the file system.</p> <p>This endpoint is temporarily unavailable when the file system is undergoing maintenance.</p>
-    #[serde(rename = "RemoteAdministrationEndpoint")]
+    #[serde(rename = "remoteAdministrationEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_administration_endpoint: Option<String>,
-    #[serde(rename = "SelfManagedActiveDirectoryConfiguration")]
+    #[serde(rename = "selfManagedActiveDirectoryConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub self_managed_active_directory_configuration: Option<SelfManagedActiveDirectoryAttributes>,
     /// <p>The throughput of the Amazon FSx file system, measured in megabytes per second.</p>
-    #[serde(rename = "ThroughputCapacity")]
+    #[serde(rename = "throughputCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub throughput_capacity: Option<i64>,
     /// <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-    #[serde(rename = "WeeklyMaintenanceStartTime")]
+    #[serde(rename = "weeklyMaintenanceStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weekly_maintenance_start_time: Option<String>,
 }

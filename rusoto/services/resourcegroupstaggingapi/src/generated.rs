@@ -55,15 +55,15 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComplianceDetails {
     /// <p>Whether a resource is compliant with the effective tag policy.</p>
-    #[serde(rename = "ComplianceStatus")]
+    #[serde(rename = "complianceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_status: Option<bool>,
     /// <p>These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values. </p>
-    #[serde(rename = "KeysWithNoncompliantValues")]
+    #[serde(rename = "keysWithNoncompliantValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub keys_with_noncompliant_values: Option<Vec<String>>,
     /// <p>These tag keys on the resource are noncompliant with the effective tag policy.</p>
-    #[serde(rename = "NoncompliantKeys")]
+    #[serde(rename = "noncompliantKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub noncompliant_keys: Option<Vec<String>>,
 }
@@ -76,15 +76,15 @@ pub struct DescribeReportCreationInput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReportCreationOutput {
     /// <p>Details of the common errors that all operations return.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The path to the Amazon S3 bucket where the report was stored on creation.</p>
-    #[serde(rename = "S3Location")]
+    #[serde(rename = "s3Location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_location: Option<String>,
     /// <p><p>Reports the status of the operation.</p> <p>The operation status can be one of the following:</p> <ul> <li> <p> <code>RUNNING</code> - Report creation is in progress.</p> </li> <li> <p> <code>SUCCEEDED</code> - Report creation is complete. You can open the report from the Amazon S3 bucket that you specified when you ran <code>StartReportCreation</code>.</p> </li> <li> <p> <code>FAILED</code> - Report creation timed out or the Amazon S3 bucket is not accessible. </p> </li> <li> <p> <code>NO REPORT</code> - No report was generated in the last 90 days.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -94,15 +94,15 @@ pub struct DescribeReportCreationOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailureInfo {
     /// <p>The code of the common error. Valid values include <code>InternalServiceException</code>, <code>InvalidParameterException</code>, and any valid error code returned by the AWS service that hosts the resource that you want to tag.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The message of the common error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The HTTP status code of the common error.</p>
-    #[serde(rename = "StatusCode")]
+    #[serde(rename = "statusCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_code: Option<i64>,
 }
@@ -111,31 +111,31 @@ pub struct FailureInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetComplianceSummaryInput {
     /// <p>Specifies a list of attributes to group the counts of noncompliant resources by. If supplied, the counts are sorted by those attributes.</p>
-    #[serde(rename = "GroupBy")]
+    #[serde(rename = "groupBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_by: Option<Vec<String>>,
     /// <p>Specifies the maximum number of results to be returned in each page. A query can return fewer than this maximum, even if there are more results still to return. You should always check the <code>PaginationToken</code> response value to see if there are more results. You can specify a minimum of 1 and a maximum value of 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>Specifies a list of AWS Regions to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources in the specified Regions.</p>
-    #[serde(rename = "RegionFilters")]
+    #[serde(rename = "regionFilters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region_filters: Option<Vec<String>>,
     /// <p>Specifies that you want the response to include information for only resources of the specified types. The format of each resource type is <code>service[:resourceType]</code>. For example, specifying a resource type of <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p> <p>The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the <i>AWS General Reference</i> for the following:</p> <ul> <li> <p>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p> </li> <li> <p>For resource type strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example ARNs</a>.</p> </li> <li> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p> </li> </ul> <p>You can specify multiple resource types by using a comma separated array. The array can include up to 100 items. Note that the length constraint requirement applies to each resource type filter. </p>
-    #[serde(rename = "ResourceTypeFilters")]
+    #[serde(rename = "resourceTypeFilters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type_filters: Option<Vec<String>>,
     /// <p>Specifies that you want the response to include information for only resources that have tags with the specified tag keys. If you use this parameter, the count of returned noncompliant resources includes only resources that have the specified tag keys.</p>
-    #[serde(rename = "TagKeyFilters")]
+    #[serde(rename = "tagKeyFilters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_key_filters: Option<Vec<String>>,
     /// <p>Specifies target identifiers (usually, specific account IDs) to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources with the specified target IDs.</p>
-    #[serde(rename = "TargetIdFilters")]
+    #[serde(rename = "targetIdFilters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_id_filters: Option<Vec<String>>,
 }
@@ -144,11 +144,11 @@ pub struct GetComplianceSummaryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetComplianceSummaryOutput {
     /// <p>A string that indicates that there is more data available than this response contains. To receive the next part of the response, specify this response value as the <code>PaginationToken</code> value in the request for the next page.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>A table that shows counts of noncompliant resources.</p>
-    #[serde(rename = "SummaryList")]
+    #[serde(rename = "summaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary_list: Option<Vec<Summary>>,
 }
@@ -157,35 +157,35 @@ pub struct GetComplianceSummaryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResourcesInput {
     /// <p>Specifies whether to exclude resources that are compliant with the tag policy. Set this to <code>true</code> if you are interested in retrieving information on noncompliant resources only.</p> <p>You can use this parameter only if the <code>IncludeComplianceDetails</code> parameter is also set to <code>true</code>.</p>
-    #[serde(rename = "ExcludeCompliantResources")]
+    #[serde(rename = "excludeCompliantResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_compliant_resources: Option<bool>,
     /// <p>Specifies whether to include details regarding the compliance with the effective tag policy. Set this to <code>true</code> to determine whether resources are compliant with the tag policy and to get details.</p>
-    #[serde(rename = "IncludeComplianceDetails")]
+    #[serde(rename = "includeComplianceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub include_compliance_details: Option<bool>,
     /// <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>Specifies a list of ARNs of resources for which you want to retrieve tag data. You can't specify both this parameter and any of the pagination parameters (<code>ResourcesPerPage</code>, <code>TagsPerPage</code>, <code>PaginationToken</code>) in the same request. If you specify both, you get an <code>Invalid Parameter</code> exception.</p> <p>If a resource specified by this parameter doesn't exist, it doesn't generate an error; it simply isn't included in the response.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
-    #[serde(rename = "ResourceARNList")]
+    #[serde(rename = "resourceARNList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn_list: Option<Vec<String>>,
     /// <p>Specifies the resource types that you want included in the response. The format of each resource type is <code>service[:resourceType]</code>. For example, specifying a resource type of <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p> <p>The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the <i>AWS General Reference</i> for the following:</p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p> <p>You can specify multiple resource types by using an array. The array can include up to 100 items. Note that the length constraint requirement applies to each resource type filter. </p>
-    #[serde(rename = "ResourceTypeFilters")]
+    #[serde(rename = "resourceTypeFilters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type_filters: Option<Vec<String>>,
     /// <p>Specifies the maximum number of results to be returned in each page. A query can return fewer than this maximum, even if there are more results still to return. You should always check the <code>PaginationToken</code> response value to see if there are more results. You can specify a minimum of 1 and a maximum value of 100.</p>
-    #[serde(rename = "ResourcesPerPage")]
+    #[serde(rename = "resourcesPerPage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources_per_page: Option<i64>,
     /// <p><p>Specifies a list of TagFilters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. Each <code>TagFilter</code> must contain a key with values optional. A request can include up to 50 keys, and each key can include up to 20 values. </p> <p>Note the following when deciding how to use TagFilters:</p> <ul> <li> <p>If you <i>don&#39;t</i> specify a <code>TagFilter</code>, the response includes all resources that are currently tagged or ever had a tag. Resources that currently don&#39;t have tags are shown with an empty tag set, like this: <code>&quot;Tags&quot;: []</code>.</p> </li> <li> <p>If you specify more than one filter in a single request, the response returns only those resources that satisfy all filters.</p> </li> <li> <p>If you specify a filter that contains more than one value for a key, the response returns resources that match any of the specified values for that key.</p> </li> <li> <p>If you don&#39;t specify any values for a key, the response returns resources that are tagged with that key and any or no value.</p> <p>For example, for the following filters: <code>filter1= {keyA,{value1}}</code>, <code>filter2={keyB,{value2,value3,value4}}</code>, <code>filter3= {keyC}</code>:</p> <ul> <li> <p> <code>GetResources({filter1})</code> returns resources tagged with <code>key1=value1</code> </p> </li> <li> <p> <code>GetResources({filter2})</code> returns resources tagged with <code>key2=value2</code> or <code>key2=value3</code> or <code>key2=value4</code> </p> </li> <li> <p> <code>GetResources({filter3})</code> returns resources tagged with any tag with the key <code>key3</code>, and with any or no value</p> </li> <li> <p> <code>GetResources({filter1,filter2,filter3})</code> returns resources tagged with <code>(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)</code> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "TagFilters")]
+    #[serde(rename = "tagFilters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_filters: Option<Vec<TagFilter>>,
     /// <p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p> <p>A limit that restricts the number of tags (key and value pairs) returned by <code>GetResources</code> in paginated output. A resource with no tags is counted as having one tag (one key and value pair).</p> <p> <code>GetResources</code> does not split a resource and its associated tags across pages. If the specified <code>TagsPerPage</code> would cause such a break, a <code>PaginationToken</code> is returned in place of the affected resource and its tags. Use that token in another request to get the remaining data. For example, if you specify a <code>TagsPerPage</code> of <code>100</code> and the account has 22 resources with 10 tags each (meaning that each resource has 10 key and value pairs), the output will consist of three pages. The first page displays the first 10 resources, each with its 10 tags. The second page displays the next 10 resources, each with its 10 tags. The third page displays the remaining 2 resources, each with its 10 tags.</p> <p>You can set <code>TagsPerPage</code> to a minimum of 100 items up to a maximum of 500 items.</p>
-    #[serde(rename = "TagsPerPage")]
+    #[serde(rename = "tagsPerPage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_per_page: Option<i64>,
 }
@@ -194,11 +194,11 @@ pub struct GetResourcesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResourcesOutput {
     /// <p>A string that indicates that there is more data available than this response contains. To receive the next part of the response, specify this response value as the <code>PaginationToken</code> value in the request for the next page.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>A list of resource ARNs and the tags (keys and values) associated with those ARNs.</p>
-    #[serde(rename = "ResourceTagMappingList")]
+    #[serde(rename = "resourceTagMappingList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_tag_mapping_list: Option<Vec<ResourceTagMapping>>,
 }
@@ -207,7 +207,7 @@ pub struct GetResourcesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTagKeysInput {
     /// <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
 }
@@ -216,11 +216,11 @@ pub struct GetTagKeysInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTagKeysOutput {
     /// <p>A string that indicates that there is more data available than this response contains. To receive the next part of the response, specify this response value as the <code>PaginationToken</code> value in the request for the next page.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>A list of all tag keys in the AWS account.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_keys: Option<Vec<String>>,
 }
@@ -229,10 +229,10 @@ pub struct GetTagKeysOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTagValuesInput {
     /// <p>Specifies the tag key for which you want to list all existing values that are currently used in the specified AWS Region for the calling AWS account.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
 }
@@ -241,11 +241,11 @@ pub struct GetTagValuesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTagValuesOutput {
     /// <p>A string that indicates that there is more data available than this response contains. To receive the next part of the response, specify this response value as the <code>PaginationToken</code> value in the request for the next page.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>A list of all tag values for the specified key currently used in the specified AWS Region for the calling AWS account.</p>
-    #[serde(rename = "TagValues")]
+    #[serde(rename = "tagValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_values: Option<Vec<String>>,
 }
@@ -255,15 +255,15 @@ pub struct GetTagValuesOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceTagMapping {
     /// <p>Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.</p>
-    #[serde(rename = "ComplianceDetails")]
+    #[serde(rename = "complianceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compliance_details: Option<ComplianceDetails>,
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The tags that have been applied to one or more AWS resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -272,7 +272,7 @@ pub struct ResourceTagMapping {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartReportCreationInput {
     /// <p>The name of the Amazon S3 bucket where the report will be stored; for example:</p> <p> <code>awsexamplebucket</code> </p> <p>For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     pub s3_bucket: String,
 }
 
@@ -285,27 +285,27 @@ pub struct StartReportCreationOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Summary {
     /// <p>The timestamp that shows when this summary was generated in this Region. </p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<String>,
     /// <p>The count of noncompliant resources.</p>
-    #[serde(rename = "NonCompliantResources")]
+    #[serde(rename = "nonCompliantResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_compliant_resources: Option<i64>,
     /// <p>The AWS Region that the summary applies to.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The AWS resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The account identifier or the root identifier of the organization. If you don't know the root ID, you can call the AWS Organizations <a href="http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">ListRoots</a> API.</p>
-    #[serde(rename = "TargetId")]
+    #[serde(rename = "targetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_id: Option<String>,
     /// <p>Whether the target is an account, an OU, or the organization root.</p>
-    #[serde(rename = "TargetIdType")]
+    #[serde(rename = "targetIdType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_id_type: Option<String>,
 }
@@ -315,10 +315,10 @@ pub struct Summary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Tag {
     /// <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -327,11 +327,11 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagFilter {
     /// <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -340,10 +340,10 @@ pub struct TagFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourcesInput {
     /// <p>Specifies the list of ARNs of the resources that you want to apply tags to.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
-    #[serde(rename = "ResourceARNList")]
+    #[serde(rename = "resourceARNList")]
     pub resource_arn_list: Vec<String>,
     /// <p>Specifies a list of tags that you want to add to the specified resources. A tag consists of a key and a value that you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -351,7 +351,7 @@ pub struct TagResourcesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagResourcesOutput {
     /// <p>A map containing a key-value pair for each failed item that couldn't be tagged. The key is the ARN of the failed resource. The value is a <code>FailureInfo</code> object that contains an error code, a status code, and an error message. If there are no errors, the <code>FailedResourcesMap</code> is empty.</p>
-    #[serde(rename = "FailedResourcesMap")]
+    #[serde(rename = "failedResourcesMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_resources_map: Option<::std::collections::HashMap<String, FailureInfo>>,
 }
@@ -360,10 +360,10 @@ pub struct TagResourcesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourcesInput {
     /// <p>Specifies a list of ARNs of the resources that you want to remove tags from.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
-    #[serde(rename = "ResourceARNList")]
+    #[serde(rename = "resourceARNList")]
     pub resource_arn_list: Vec<String>,
     /// <p>Specifies a list of tag keys that you want to remove from the specified resources.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -371,7 +371,7 @@ pub struct UntagResourcesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UntagResourcesOutput {
     /// <p>A map containing a key-value pair for each failed item that couldn't be untagged. The key is the ARN of the failed resource. The value is a <code>FailureInfo</code> object that contains an error code, a status code, and an error message. If there are no errors, the <code>FailedResourcesMap</code> is empty.</p>
-    #[serde(rename = "FailedResourcesMap")]
+    #[serde(rename = "failedResourcesMap")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_resources_map: Option<::std::collections::HashMap<String, FailureInfo>>,
 }

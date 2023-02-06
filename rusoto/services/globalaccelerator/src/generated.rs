@@ -56,39 +56,39 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Accelerator {
     /// <p>The Amazon Resource Name (ARN) of the accelerator.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_arn: Option<String>,
     /// <p>The date and time that the accelerator was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p> <p>The naming convention for the DNS name is the following: A lowercase letter a, followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example: a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing"> Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "DnsName")]
+    #[serde(rename = "dnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_name: Option<String>,
     /// <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The value for the address type must be IPv4. </p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
     /// <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
-    #[serde(rename = "IpSets")]
+    #[serde(rename = "ipSets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_sets: Option<Vec<IpSet>>,
     /// <p>The date and time that the accelerator was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the accelerator. The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Describes the deployment status of the accelerator.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -98,15 +98,15 @@ pub struct Accelerator {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AcceleratorAttributes {
     /// <p>Indicates whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "FlowLogsEnabled")]
+    #[serde(rename = "flowLogsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_enabled: Option<bool>,
     /// <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket.</p>
-    #[serde(rename = "FlowLogsS3Bucket")]
+    #[serde(rename = "flowLogsS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_bucket: Option<String>,
     /// <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>.</p> <p>If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p> <p>s3-bucket_name//AWSLogs/aws_account_id</p>
-    #[serde(rename = "FlowLogsS3Prefix")]
+    #[serde(rename = "flowLogsS3Prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_prefix: Option<String>,
 }
@@ -115,10 +115,10 @@ pub struct AcceleratorAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddCustomRoutingEndpointsRequest {
     /// <p>The list of endpoint objects to add to a custom routing accelerator.</p>
-    #[serde(rename = "EndpointConfigurations")]
+    #[serde(rename = "endpointConfigurations")]
     pub endpoint_configurations: Vec<CustomRoutingEndpointConfiguration>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
 }
 
@@ -126,11 +126,11 @@ pub struct AddCustomRoutingEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddCustomRoutingEndpointsResponse {
     /// <p>The endpoint objects added to the custom routing accelerator.</p>
-    #[serde(rename = "EndpointDescriptions")]
+    #[serde(rename = "endpointDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_descriptions: Option<Vec<CustomRoutingEndpointDescription>>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_arn: Option<String>,
 }
@@ -139,7 +139,7 @@ pub struct AddCustomRoutingEndpointsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdvertiseByoipCidrRequest {
     /// <p>The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.</p>
-    #[serde(rename = "Cidr")]
+    #[serde(rename = "cidr")]
     pub cidr: String,
 }
 
@@ -147,7 +147,7 @@ pub struct AdvertiseByoipCidrRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdvertiseByoipCidrResponse {
     /// <p>Information about the address range.</p>
-    #[serde(rename = "ByoipCidr")]
+    #[serde(rename = "byoipCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub byoip_cidr: Option<ByoipCidr>,
 }
@@ -156,22 +156,22 @@ pub struct AdvertiseByoipCidrResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AllowCustomRoutingTrafficRequest {
     /// <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint can receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p> <p>When set to TRUE, <i>all</i> destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p> <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that are allowed to receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group.</p> <p>The default value is FALSE.</p>
-    #[serde(rename = "AllowAllTrafficToEndpoint")]
+    #[serde(rename = "allowAllTrafficToEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_all_traffic_to_endpoint: Option<bool>,
     /// <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to allow to receive traffic. The IP addresses must be a subset of the IP addresses that you specified for the endpoint group.</p> <p> <code>DestinationAddresses</code> is required if <code>AllowAllTrafficToEndpoint</code> is <code>FALSE</code> or is not specified.</p>
-    #[serde(rename = "DestinationAddresses")]
+    #[serde(rename = "destinationAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_addresses: Option<Vec<String>>,
     /// <p>A list of specific Amazon EC2 instance ports (destination ports) that you want to allow to receive traffic.</p>
-    #[serde(rename = "DestinationPorts")]
+    #[serde(rename = "destinationPorts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_ports: Option<Vec<i64>>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
     /// <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     pub endpoint_id: String,
 }
 
@@ -180,15 +180,15 @@ pub struct AllowCustomRoutingTrafficRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ByoipCidr {
     /// <p>The address range, in CIDR notation.</p>
-    #[serde(rename = "Cidr")]
+    #[serde(rename = "cidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cidr: Option<String>,
     /// <p>A history of status changes for an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP).</p>
-    #[serde(rename = "Events")]
+    #[serde(rename = "events")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events: Option<Vec<ByoipCidrEvent>>,
     /// <p>The state of the address pool.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -198,11 +198,11 @@ pub struct ByoipCidr {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ByoipCidrEvent {
     /// <p>A string that contains an <code>Event</code> message describing changes that you make in the status of an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP).</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>A timestamp when you make a status change for an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP).</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
 }
@@ -212,10 +212,10 @@ pub struct ByoipCidrEvent {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CidrAuthorizationContext {
     /// <p>The plain-text authorization message for the prefix and account.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     pub message: String,
     /// <p>The signed authorization message for the prefix and account.</p>
-    #[serde(rename = "Signature")]
+    #[serde(rename = "signature")]
     pub signature: String,
 }
 
@@ -223,25 +223,25 @@ pub struct CidrAuthorizationContext {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAcceleratorRequest {
     /// <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of an accelerator.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The value for the address type must be IPv4.</p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
     /// <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p> <p>Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only one IP address from your IP address range, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool.</p> <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new accelerator with the new addresses.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "IpAddresses")]
+    #[serde(rename = "ipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_addresses: Option<Vec<String>>,
     /// <p>The name of an accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Create tags for an accelerator.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -250,7 +250,7 @@ pub struct CreateAcceleratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAcceleratorResponse {
     /// <p>The accelerator that is created by specifying a listener and the supported IP address types.</p>
-    #[serde(rename = "Accelerator")]
+    #[serde(rename = "accelerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator: Option<Accelerator>,
 }
@@ -259,25 +259,25 @@ pub struct CreateAcceleratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCustomRoutingAcceleratorRequest {
     /// <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The value for the address type must be IPv4.</p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
     /// <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p> <p>Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only one IP address from your IP address range, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool.</p> <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new accelerator with the new addresses.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own IP addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "IpAddresses")]
+    #[serde(rename = "ipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_addresses: Option<Vec<String>>,
     /// <p>The name of a custom routing accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Create tags for an accelerator.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -286,7 +286,7 @@ pub struct CreateCustomRoutingAcceleratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCustomRoutingAcceleratorResponse {
     /// <p>The accelerator that is created.</p>
-    #[serde(rename = "Accelerator")]
+    #[serde(rename = "accelerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator: Option<CustomRoutingAccelerator>,
 }
@@ -295,16 +295,16 @@ pub struct CreateCustomRoutingAcceleratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCustomRoutingEndpointGroupRequest {
     /// <p>Sets the port range and protocol for all endpoints (virtual private cloud subnets) in a custom routing endpoint group to accept client traffic on.</p>
-    #[serde(rename = "DestinationConfigurations")]
+    #[serde(rename = "destinationConfigurations")]
     pub destination_configurations: Vec<CustomRoutingDestinationConfiguration>,
     /// <p>The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a specific Region.</p>
-    #[serde(rename = "EndpointGroupRegion")]
+    #[serde(rename = "endpointGroupRegion")]
     pub endpoint_group_region: String,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The Amazon Resource Name (ARN) of the listener for a custom routing endpoint.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
 }
 
@@ -312,7 +312,7 @@ pub struct CreateCustomRoutingEndpointGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCustomRoutingEndpointGroupResponse {
     /// <p>The information about the endpoint group created for a custom routing accelerator.</p>
-    #[serde(rename = "EndpointGroup")]
+    #[serde(rename = "endpointGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group: Option<CustomRoutingEndpointGroup>,
 }
@@ -321,13 +321,13 @@ pub struct CreateCustomRoutingEndpointGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCustomRoutingListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The port range to support for connections from clients to your accelerator.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About endpoints for custom routing accelerators</a>.</p>
-    #[serde(rename = "PortRanges")]
+    #[serde(rename = "portRanges")]
     pub port_ranges: Vec<PortRange>,
 }
 
@@ -335,7 +335,7 @@ pub struct CreateCustomRoutingListenerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCustomRoutingListenerResponse {
     /// <p>The listener that you've created for a custom routing accelerator.</p>
-    #[serde(rename = "Listener")]
+    #[serde(rename = "listener")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener: Option<CustomRoutingListener>,
 }
@@ -344,44 +344,44 @@ pub struct CreateCustomRoutingListenerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEndpointGroupRequest {
     /// <p>The list of endpoint objects.</p>
-    #[serde(rename = "EndpointConfigurations")]
+    #[serde(rename = "endpointConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_configurations: Option<Vec<EndpointConfiguration>>,
     /// <p>The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a specific Region.</p>
-    #[serde(rename = "EndpointGroupRegion")]
+    #[serde(rename = "endpointGroupRegion")]
     pub endpoint_group_region: String,
     /// <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
-    #[serde(rename = "HealthCheckIntervalSeconds")]
+    #[serde(rename = "healthCheckIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_interval_seconds: Option<i64>,
     /// <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).</p>
-    #[serde(rename = "HealthCheckPath")]
+    #[serde(rename = "healthCheckPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_path: Option<String>,
     /// <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.</p>
-    #[serde(rename = "HealthCheckPort")]
+    #[serde(rename = "healthCheckPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_port: Option<i64>,
     /// <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.</p>
-    #[serde(rename = "HealthCheckProtocol")]
+    #[serde(rename = "healthCheckProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_protocol: Option<String>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The Amazon Resource Name (ARN) of the listener.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
     /// <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html"> Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "PortOverrides")]
+    #[serde(rename = "portOverrides")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_overrides: Option<Vec<PortOverride>>,
     /// <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.</p>
-    #[serde(rename = "ThresholdCount")]
+    #[serde(rename = "thresholdCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threshold_count: Option<i64>,
     /// <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. </p> <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p> <p>The default value is 100.</p>
-    #[serde(rename = "TrafficDialPercentage")]
+    #[serde(rename = "trafficDialPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub traffic_dial_percentage: Option<f32>,
 }
@@ -390,7 +390,7 @@ pub struct CreateEndpointGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateEndpointGroupResponse {
     /// <p>The information about the endpoint group that was created.</p>
-    #[serde(rename = "EndpointGroup")]
+    #[serde(rename = "endpointGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group: Option<EndpointGroup>,
 }
@@ -399,20 +399,20 @@ pub struct CreateEndpointGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of your accelerator.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>
-    #[serde(rename = "ClientAffinity")]
+    #[serde(rename = "clientAffinity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_affinity: Option<String>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The list of port ranges to support for connections from clients to your accelerator.</p>
-    #[serde(rename = "PortRanges")]
+    #[serde(rename = "portRanges")]
     pub port_ranges: Vec<PortRange>,
     /// <p>The protocol for connections from clients to your accelerator.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     pub protocol: String,
 }
 
@@ -420,7 +420,7 @@ pub struct CreateListenerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateListenerResponse {
     /// <p>The listener that you've created.</p>
-    #[serde(rename = "Listener")]
+    #[serde(rename = "listener")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener: Option<Listener>,
 }
@@ -430,39 +430,39 @@ pub struct CreateListenerResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomRoutingAccelerator {
     /// <p>The Amazon Resource Name (ARN) of the custom routing accelerator.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_arn: Option<String>,
     /// <p>The date and time that the accelerator was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p> <p>The naming convention for the DNS name is the following: A lowercase letter a, followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example: a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing"> Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "DnsName")]
+    #[serde(rename = "dnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_name: Option<String>,
     /// <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The value for the address type must be IPv4.</p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
     /// <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
-    #[serde(rename = "IpSets")]
+    #[serde(rename = "ipSets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_sets: Option<Vec<IpSet>>,
     /// <p>The date and time that the accelerator was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>The name of the accelerator. The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Describes the deployment status of the accelerator.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -472,15 +472,15 @@ pub struct CustomRoutingAccelerator {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomRoutingAcceleratorAttributes {
     /// <p>Indicates whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "FlowLogsEnabled")]
+    #[serde(rename = "flowLogsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_enabled: Option<bool>,
     /// <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket.</p>
-    #[serde(rename = "FlowLogsS3Bucket")]
+    #[serde(rename = "flowLogsS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_bucket: Option<String>,
     /// <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>.</p> <p>If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p> <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
-    #[serde(rename = "FlowLogsS3Prefix")]
+    #[serde(rename = "flowLogsS3Prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_prefix: Option<String>,
 }
@@ -490,13 +490,13 @@ pub struct CustomRoutingAcceleratorAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CustomRoutingDestinationConfiguration {
     /// <p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
-    #[serde(rename = "FromPort")]
+    #[serde(rename = "fromPort")]
     pub from_port: i64,
     /// <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     pub protocols: Vec<String>,
     /// <p>The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
-    #[serde(rename = "ToPort")]
+    #[serde(rename = "toPort")]
     pub to_port: i64,
 }
 
@@ -505,15 +505,15 @@ pub struct CustomRoutingDestinationConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomRoutingDestinationDescription {
     /// <p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
-    #[serde(rename = "FromPort")]
+    #[serde(rename = "fromPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_port: Option<i64>,
     /// <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols: Option<Vec<String>>,
     /// <p>The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
-    #[serde(rename = "ToPort")]
+    #[serde(rename = "toPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub to_port: Option<i64>,
 }
@@ -523,7 +523,7 @@ pub struct CustomRoutingDestinationDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CustomRoutingEndpointConfiguration {
     /// <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID. </p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_id: Option<String>,
 }
@@ -533,7 +533,7 @@ pub struct CustomRoutingEndpointConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomRoutingEndpointDescription {
     /// <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID. </p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_id: Option<String>,
 }
@@ -543,19 +543,19 @@ pub struct CustomRoutingEndpointDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomRoutingEndpointGroup {
     /// <p>For a custom routing accelerator, describes the port range and protocol for all endpoints (virtual private cloud subnets) in an endpoint group to accept client traffic on.</p>
-    #[serde(rename = "DestinationDescriptions")]
+    #[serde(rename = "destinationDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_descriptions: Option<Vec<CustomRoutingDestinationDescription>>,
     /// <p>For a custom routing accelerator, describes the endpoints (virtual private cloud subnets) in an endpoint group to accept client traffic on.</p>
-    #[serde(rename = "EndpointDescriptions")]
+    #[serde(rename = "endpointDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_descriptions: Option<Vec<CustomRoutingEndpointDescription>>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_arn: Option<String>,
     /// <p>The AWS Region where the endpoint group is located.</p>
-    #[serde(rename = "EndpointGroupRegion")]
+    #[serde(rename = "endpointGroupRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_region: Option<String>,
 }
@@ -565,11 +565,11 @@ pub struct CustomRoutingEndpointGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CustomRoutingListener {
     /// <p>The Amazon Resource Name (ARN) of the listener.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener_arn: Option<String>,
     /// <p>The port range to support for connections from clients to your accelerator.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About endpoints for custom routing accelerators</a>.</p>
-    #[serde(rename = "PortRanges")]
+    #[serde(rename = "portRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_ranges: Option<Vec<PortRange>>,
 }
@@ -578,7 +578,7 @@ pub struct CustomRoutingListener {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAcceleratorRequest {
     /// <p>The Amazon Resource Name (ARN) of an accelerator.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
 }
 
@@ -586,7 +586,7 @@ pub struct DeleteAcceleratorRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCustomRoutingAcceleratorRequest {
     /// <p>The Amazon Resource Name (ARN) of the custom routing accelerator to delete.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
 }
 
@@ -594,7 +594,7 @@ pub struct DeleteCustomRoutingAcceleratorRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCustomRoutingEndpointGroupRequest {
     /// <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
 }
 
@@ -602,7 +602,7 @@ pub struct DeleteCustomRoutingEndpointGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCustomRoutingListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener to delete.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
 }
 
@@ -610,7 +610,7 @@ pub struct DeleteCustomRoutingListenerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEndpointGroupRequest {
     /// <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
 }
 
@@ -618,7 +618,7 @@ pub struct DeleteEndpointGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
 }
 
@@ -626,22 +626,22 @@ pub struct DeleteListenerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DenyCustomRoutingTrafficRequest {
     /// <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint <i>cannot</i> receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p> <p>When set to TRUE, <i>no</i> destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p> <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that cannot receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group.</p> <p>The default value is FALSE.</p>
-    #[serde(rename = "DenyAllTrafficToEndpoint")]
+    #[serde(rename = "denyAllTrafficToEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deny_all_traffic_to_endpoint: Option<bool>,
     /// <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to prevent from receiving traffic. The IP addresses must be a subset of the IP addresses allowed for the VPC subnet associated with the endpoint group.</p>
-    #[serde(rename = "DestinationAddresses")]
+    #[serde(rename = "destinationAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_addresses: Option<Vec<String>>,
     /// <p>A list of specific Amazon EC2 instance ports (destination ports) in a subnet endpoint that you want to prevent from receiving traffic.</p>
-    #[serde(rename = "DestinationPorts")]
+    #[serde(rename = "destinationPorts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_ports: Option<Vec<i64>>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
     /// <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     pub endpoint_id: String,
 }
 
@@ -649,7 +649,7 @@ pub struct DenyCustomRoutingTrafficRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeprovisionByoipCidrRequest {
     /// <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p>
-    #[serde(rename = "Cidr")]
+    #[serde(rename = "cidr")]
     pub cidr: String,
 }
 
@@ -657,7 +657,7 @@ pub struct DeprovisionByoipCidrRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeprovisionByoipCidrResponse {
     /// <p>Information about the address range.</p>
-    #[serde(rename = "ByoipCidr")]
+    #[serde(rename = "byoipCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub byoip_cidr: Option<ByoipCidr>,
 }
@@ -666,7 +666,7 @@ pub struct DeprovisionByoipCidrResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAcceleratorAttributesRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
 }
 
@@ -674,7 +674,7 @@ pub struct DescribeAcceleratorAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAcceleratorAttributesResponse {
     /// <p>The attributes of the accelerator.</p>
-    #[serde(rename = "AcceleratorAttributes")]
+    #[serde(rename = "acceleratorAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_attributes: Option<AcceleratorAttributes>,
 }
@@ -683,7 +683,7 @@ pub struct DescribeAcceleratorAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAcceleratorRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
 }
 
@@ -691,7 +691,7 @@ pub struct DescribeAcceleratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAcceleratorResponse {
     /// <p>The description of the accelerator.</p>
-    #[serde(rename = "Accelerator")]
+    #[serde(rename = "accelerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator: Option<Accelerator>,
 }
@@ -700,7 +700,7 @@ pub struct DescribeAcceleratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCustomRoutingAcceleratorAttributesRequest {
     /// <p>The Amazon Resource Name (ARN) of the custom routing accelerator to describe the attributes for.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
 }
 
@@ -708,7 +708,7 @@ pub struct DescribeCustomRoutingAcceleratorAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCustomRoutingAcceleratorAttributesResponse {
     /// <p>The attributes of the custom routing accelerator.</p>
-    #[serde(rename = "AcceleratorAttributes")]
+    #[serde(rename = "acceleratorAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_attributes: Option<CustomRoutingAcceleratorAttributes>,
 }
@@ -717,7 +717,7 @@ pub struct DescribeCustomRoutingAcceleratorAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCustomRoutingAcceleratorRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
 }
 
@@ -725,7 +725,7 @@ pub struct DescribeCustomRoutingAcceleratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCustomRoutingAcceleratorResponse {
     /// <p>The description of the custom routing accelerator.</p>
-    #[serde(rename = "Accelerator")]
+    #[serde(rename = "accelerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator: Option<CustomRoutingAccelerator>,
 }
@@ -734,7 +734,7 @@ pub struct DescribeCustomRoutingAcceleratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCustomRoutingEndpointGroupRequest {
     /// <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
 }
 
@@ -742,7 +742,7 @@ pub struct DescribeCustomRoutingEndpointGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCustomRoutingEndpointGroupResponse {
     /// <p>The description of an endpoint group for a custom routing accelerator.</p>
-    #[serde(rename = "EndpointGroup")]
+    #[serde(rename = "endpointGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group: Option<CustomRoutingEndpointGroup>,
 }
@@ -751,7 +751,7 @@ pub struct DescribeCustomRoutingEndpointGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCustomRoutingListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
 }
 
@@ -759,7 +759,7 @@ pub struct DescribeCustomRoutingListenerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCustomRoutingListenerResponse {
     /// <p>The description of a listener for a custom routing accelerator.</p>
-    #[serde(rename = "Listener")]
+    #[serde(rename = "listener")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener: Option<CustomRoutingListener>,
 }
@@ -768,7 +768,7 @@ pub struct DescribeCustomRoutingListenerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEndpointGroupRequest {
     /// <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
 }
 
@@ -776,7 +776,7 @@ pub struct DescribeEndpointGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEndpointGroupResponse {
     /// <p>The description of an endpoint group.</p>
-    #[serde(rename = "EndpointGroup")]
+    #[serde(rename = "endpointGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group: Option<EndpointGroup>,
 }
@@ -785,7 +785,7 @@ pub struct DescribeEndpointGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
 }
 
@@ -793,7 +793,7 @@ pub struct DescribeListenerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeListenerResponse {
     /// <p>The description of a listener.</p>
-    #[serde(rename = "Listener")]
+    #[serde(rename = "listener")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener: Option<Listener>,
 }
@@ -803,35 +803,35 @@ pub struct DescribeListenerResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DestinationPortMapping {
     /// <p>The Amazon Resource Name (ARN) of the custom routing accelerator that you have port mappings for.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_arn: Option<String>,
     /// <p>The IP address/port combinations (sockets) that map to a given destination socket address.</p>
-    #[serde(rename = "AcceleratorSocketAddresses")]
+    #[serde(rename = "acceleratorSocketAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_socket_addresses: Option<Vec<SocketAddress>>,
     /// <p>The endpoint IP address/port combination for traffic received on the accelerator socket address.</p>
-    #[serde(rename = "DestinationSocketAddress")]
+    #[serde(rename = "destinationSocketAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_socket_address: Option<SocketAddress>,
     /// <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
-    #[serde(rename = "DestinationTrafficState")]
+    #[serde(rename = "destinationTrafficState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_traffic_state: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_arn: Option<String>,
     /// <p>The AWS Region for the endpoint group.</p>
-    #[serde(rename = "EndpointGroupRegion")]
+    #[serde(rename = "endpointGroupRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_region: Option<String>,
     /// <p>The ID for the virtual private cloud (VPC) subnet.</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_id: Option<String>,
     /// <p>The IP address type, which must be IPv4.</p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
 }
@@ -841,15 +841,15 @@ pub struct DestinationPortMapping {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EndpointConfiguration {
     /// <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. The value is true or false. The default value is true for new accelerators. </p> <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html"> Preserve Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "ClientIPPreservationEnabled")]
+    #[serde(rename = "clientIPPreservationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_ip_preservation_enabled: Option<bool>,
     /// <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active when you add it as an endpoint.</p> <p>An Application Load Balancer can be either internal or internet-facing.</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_id: Option<String>,
     /// <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "Weight")]
+    #[serde(rename = "weight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weight: Option<i64>,
 }
@@ -859,23 +859,23 @@ pub struct EndpointConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EndpointDescription {
     /// <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. The value is true or false. The default value is true for new accelerators. </p> <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html"> Viewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "ClientIPPreservationEnabled")]
+    #[serde(rename = "clientIPPreservationEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_ip_preservation_enabled: Option<bool>,
     /// <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p> <p>An Application Load Balancer can be either internal or internet-facing.</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_id: Option<String>,
     /// <p>Returns a null result.</p>
-    #[serde(rename = "HealthReason")]
+    #[serde(rename = "healthReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_reason: Option<String>,
     /// <p>The health status of the endpoint.</p>
-    #[serde(rename = "HealthState")]
+    #[serde(rename = "healthState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_state: Option<String>,
     /// <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the <i>AWS Global Accelerator Developer Guide</i>. </p>
-    #[serde(rename = "Weight")]
+    #[serde(rename = "weight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weight: Option<i64>,
 }
@@ -885,43 +885,43 @@ pub struct EndpointDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EndpointGroup {
     /// <p>The list of endpoint objects.</p>
-    #[serde(rename = "EndpointDescriptions")]
+    #[serde(rename = "endpointDescriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_descriptions: Option<Vec<EndpointDescription>>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_arn: Option<String>,
     /// <p>The AWS Region where the endpoint group is located.</p>
-    #[serde(rename = "EndpointGroupRegion")]
+    #[serde(rename = "endpointGroupRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_region: Option<String>,
     /// <p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>
-    #[serde(rename = "HealthCheckIntervalSeconds")]
+    #[serde(rename = "healthCheckIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_interval_seconds: Option<i64>,
     /// <p>If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).</p>
-    #[serde(rename = "HealthCheckPath")]
+    #[serde(rename = "healthCheckPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_path: Option<String>,
     /// <p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p> <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a list, Global Accelerator uses the first specified port in the list of ports.</p>
-    #[serde(rename = "HealthCheckPort")]
+    #[serde(rename = "healthCheckPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_port: Option<i64>,
     /// <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default value is TCP.</p>
-    #[serde(rename = "HealthCheckProtocol")]
+    #[serde(rename = "healthCheckProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_protocol: Option<String>,
     /// <p>Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you to map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on. </p>
-    #[serde(rename = "PortOverrides")]
+    #[serde(rename = "portOverrides")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_overrides: Option<Vec<PortOverride>>,
     /// <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.</p>
-    #[serde(rename = "ThresholdCount")]
+    #[serde(rename = "thresholdCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threshold_count: Option<i64>,
     /// <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. </p> <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p> <p>The default value is 100.</p>
-    #[serde(rename = "TrafficDialPercentage")]
+    #[serde(rename = "trafficDialPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub traffic_dial_percentage: Option<f32>,
 }
@@ -931,11 +931,11 @@ pub struct EndpointGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IpSet {
     /// <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
-    #[serde(rename = "IpAddresses")]
+    #[serde(rename = "ipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_addresses: Option<Vec<String>>,
     /// <p>The types of IP addresses included in this IP set.</p>
-    #[serde(rename = "IpFamily")]
+    #[serde(rename = "ipFamily")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_family: Option<String>,
 }
@@ -944,11 +944,11 @@ pub struct IpSet {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAcceleratorsRequest {
     /// <p>The number of Global Accelerator objects that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -957,11 +957,11 @@ pub struct ListAcceleratorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAcceleratorsResponse {
     /// <p>The list of accelerators for a customer account.</p>
-    #[serde(rename = "Accelerators")]
+    #[serde(rename = "accelerators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerators: Option<Vec<Accelerator>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -970,11 +970,11 @@ pub struct ListAcceleratorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListByoipCidrsRequest {
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -983,11 +983,11 @@ pub struct ListByoipCidrsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListByoipCidrsResponse {
     /// <p>Information about your address ranges.</p>
-    #[serde(rename = "ByoipCidrs")]
+    #[serde(rename = "byoipCidrs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub byoip_cidrs: Option<Vec<ByoipCidr>>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -996,11 +996,11 @@ pub struct ListByoipCidrsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCustomRoutingAcceleratorsRequest {
     /// <p>The number of custom routing Global Accelerator objects that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1009,11 +1009,11 @@ pub struct ListCustomRoutingAcceleratorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCustomRoutingAcceleratorsResponse {
     /// <p>The list of custom routing accelerators for a customer account.</p>
-    #[serde(rename = "Accelerators")]
+    #[serde(rename = "accelerators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerators: Option<Vec<CustomRoutingAccelerator>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1022,14 +1022,14 @@ pub struct ListCustomRoutingAcceleratorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCustomRoutingEndpointGroupsRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener to list endpoint groups for.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
     /// <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1038,11 +1038,11 @@ pub struct ListCustomRoutingEndpointGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCustomRoutingEndpointGroupsResponse {
     /// <p>The list of the endpoint groups associated with a listener for a custom routing accelerator.</p>
-    #[serde(rename = "EndpointGroups")]
+    #[serde(rename = "endpointGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_groups: Option<Vec<CustomRoutingEndpointGroup>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1051,14 +1051,14 @@ pub struct ListCustomRoutingEndpointGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCustomRoutingListenersRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to list listeners for.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1067,11 +1067,11 @@ pub struct ListCustomRoutingListenersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCustomRoutingListenersResponse {
     /// <p>The list of listeners for a custom routing accelerator.</p>
-    #[serde(rename = "Listeners")]
+    #[serde(rename = "listeners")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listeners: Option<Vec<CustomRoutingListener>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1080,17 +1080,17 @@ pub struct ListCustomRoutingListenersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCustomRoutingPortMappingsByDestinationRequest {
     /// <p>The endpoint IP address in a virtual private cloud (VPC) subnet for which you want to receive back port mappings.</p>
-    #[serde(rename = "DestinationAddress")]
+    #[serde(rename = "destinationAddress")]
     pub destination_address: String,
     /// <p>The ID for the virtual private cloud (VPC) subnet.</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     pub endpoint_id: String,
     /// <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1099,11 +1099,11 @@ pub struct ListCustomRoutingPortMappingsByDestinationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCustomRoutingPortMappingsByDestinationResponse {
     /// <p>The port mappings for the endpoint IP address that you specified in the request.</p>
-    #[serde(rename = "DestinationPortMappings")]
+    #[serde(rename = "destinationPortMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_port_mappings: Option<Vec<DestinationPortMapping>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1112,18 +1112,18 @@ pub struct ListCustomRoutingPortMappingsByDestinationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCustomRoutingPortMappingsRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to list the custom routing port mappings for.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group to list the custom routing port mappings for.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_arn: Option<String>,
     /// <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1132,11 +1132,11 @@ pub struct ListCustomRoutingPortMappingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCustomRoutingPortMappingsResponse {
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The port mappings for a custom routing accelerator.</p>
-    #[serde(rename = "PortMappings")]
+    #[serde(rename = "portMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_mappings: Option<Vec<PortMapping>>,
 }
@@ -1145,14 +1145,14 @@ pub struct ListCustomRoutingPortMappingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEndpointGroupsRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
     /// <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1161,11 +1161,11 @@ pub struct ListEndpointGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEndpointGroupsResponse {
     /// <p>The list of the endpoint groups associated with a listener.</p>
-    #[serde(rename = "EndpointGroups")]
+    #[serde(rename = "endpointGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_groups: Option<Vec<EndpointGroup>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1174,14 +1174,14 @@ pub struct ListEndpointGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListListenersRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1190,11 +1190,11 @@ pub struct ListListenersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListListenersResponse {
     /// <p>The list of listeners for an accelerator.</p>
-    #[serde(rename = "Listeners")]
+    #[serde(rename = "listeners")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listeners: Option<Vec<Listener>>,
     /// <p>The token for the next set of results. You receive this token from a previous call.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1203,7 +1203,7 @@ pub struct ListListenersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1211,7 +1211,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>Root level tag for the Tags parameters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1221,19 +1221,19 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Listener {
     /// <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>
-    #[serde(rename = "ClientAffinity")]
+    #[serde(rename = "clientAffinity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_affinity: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the listener.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener_arn: Option<String>,
     /// <p>The list of port ranges for the connections from clients to the accelerator.</p>
-    #[serde(rename = "PortRanges")]
+    #[serde(rename = "portRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_ranges: Option<Vec<PortRange>>,
     /// <p>The protocol for the connections from clients to the accelerator.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
 }
@@ -1243,27 +1243,27 @@ pub struct Listener {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PortMapping {
     /// <p>The accelerator port.</p>
-    #[serde(rename = "AcceleratorPort")]
+    #[serde(rename = "acceleratorPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_port: Option<i64>,
     /// <p>The EC2 instance IP address and port number in the virtual private cloud (VPC) subnet.</p>
-    #[serde(rename = "DestinationSocketAddress")]
+    #[serde(rename = "destinationSocketAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_socket_address: Option<SocketAddress>,
     /// <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
-    #[serde(rename = "DestinationTrafficState")]
+    #[serde(rename = "destinationTrafficState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_traffic_state: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group_arn: Option<String>,
     /// <p>The IP address of the VPC subnet (the subnet ID).</p>
-    #[serde(rename = "EndpointId")]
+    #[serde(rename = "endpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_id: Option<String>,
     /// <p>The protocols supported by the endpoint group.</p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols: Option<Vec<String>>,
 }
@@ -1272,11 +1272,11 @@ pub struct PortMapping {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PortOverride {
     /// <p>The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.</p>
-    #[serde(rename = "EndpointPort")]
+    #[serde(rename = "endpointPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_port: Option<i64>,
     /// <p>The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.</p>
-    #[serde(rename = "ListenerPort")]
+    #[serde(rename = "listenerPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener_port: Option<i64>,
 }
@@ -1285,11 +1285,11 @@ pub struct PortOverride {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PortRange {
     /// <p>The first port in the range of ports, inclusive.</p>
-    #[serde(rename = "FromPort")]
+    #[serde(rename = "fromPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from_port: Option<i64>,
     /// <p>The last port in the range of ports, inclusive.</p>
-    #[serde(rename = "ToPort")]
+    #[serde(rename = "toPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub to_port: Option<i64>,
 }
@@ -1298,10 +1298,10 @@ pub struct PortRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProvisionByoipCidrRequest {
     /// <p>The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
-    #[serde(rename = "Cidr")]
+    #[serde(rename = "cidr")]
     pub cidr: String,
     /// <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. </p>
-    #[serde(rename = "CidrAuthorizationContext")]
+    #[serde(rename = "cidrAuthorizationContext")]
     pub cidr_authorization_context: CidrAuthorizationContext,
 }
 
@@ -1309,7 +1309,7 @@ pub struct ProvisionByoipCidrRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionByoipCidrResponse {
     /// <p>Information about the address range.</p>
-    #[serde(rename = "ByoipCidr")]
+    #[serde(rename = "byoipCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub byoip_cidr: Option<ByoipCidr>,
 }
@@ -1318,10 +1318,10 @@ pub struct ProvisionByoipCidrResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveCustomRoutingEndpointsRequest {
     /// <p>The Amazon Resource Name (ARN) of the endpoint group to remove endpoints from.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
     /// <p>The IDs for the endpoints. For custom routing accelerators, endpoint IDs are the virtual private cloud (VPC) subnet IDs. </p>
-    #[serde(rename = "EndpointIds")]
+    #[serde(rename = "endpointIds")]
     pub endpoint_ids: Vec<String>,
 }
 
@@ -1330,11 +1330,11 @@ pub struct RemoveCustomRoutingEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SocketAddress {
     /// <p>The IP address for the socket address.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address: Option<String>,
     /// <p>The port for the socket address.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
 }
@@ -1343,10 +1343,10 @@ pub struct SocketAddress {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>A string that contains a <code>Tag</code> key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>A string that contains a <code>Tag</code> value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1354,10 +1354,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to add to a resource. A tag consists of a key and a value that you define.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1369,10 +1369,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag key pairs that you want to remove from the specified resources.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1384,18 +1384,18 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAcceleratorAttributesRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>Update whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "FlowLogsEnabled")]
+    #[serde(rename = "flowLogsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_enabled: Option<bool>,
     /// <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket.</p>
-    #[serde(rename = "FlowLogsS3Bucket")]
+    #[serde(rename = "flowLogsS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_bucket: Option<String>,
     /// <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p> <p>If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p> <p>s3-bucket_name//AWSLogs/aws_account_id</p>
-    #[serde(rename = "FlowLogsS3Prefix")]
+    #[serde(rename = "flowLogsS3Prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_prefix: Option<String>,
 }
@@ -1404,7 +1404,7 @@ pub struct UpdateAcceleratorAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAcceleratorAttributesResponse {
     /// <p>Updated attributes for the accelerator.</p>
-    #[serde(rename = "AcceleratorAttributes")]
+    #[serde(rename = "acceleratorAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_attributes: Option<AcceleratorAttributes>,
 }
@@ -1413,18 +1413,18 @@ pub struct UpdateAcceleratorAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAcceleratorRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The IP address type, which must be IPv4.</p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
     /// <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1433,7 +1433,7 @@ pub struct UpdateAcceleratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAcceleratorResponse {
     /// <p>Information about the updated accelerator.</p>
-    #[serde(rename = "Accelerator")]
+    #[serde(rename = "accelerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator: Option<Accelerator>,
 }
@@ -1442,18 +1442,18 @@ pub struct UpdateAcceleratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCustomRoutingAcceleratorAttributesRequest {
     /// <p>The Amazon Resource Name (ARN) of the custom routing accelerator to update attributes for.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>Update whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "FlowLogsEnabled")]
+    #[serde(rename = "flowLogsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_enabled: Option<bool>,
     /// <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket.</p>
-    #[serde(rename = "FlowLogsS3Bucket")]
+    #[serde(rename = "flowLogsS3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_bucket: Option<String>,
     /// <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p> <p>If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p> <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
-    #[serde(rename = "FlowLogsS3Prefix")]
+    #[serde(rename = "flowLogsS3Prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_logs_s3_prefix: Option<String>,
 }
@@ -1462,7 +1462,7 @@ pub struct UpdateCustomRoutingAcceleratorAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateCustomRoutingAcceleratorAttributesResponse {
     /// <p>Updated custom routing accelerator.</p>
-    #[serde(rename = "AcceleratorAttributes")]
+    #[serde(rename = "acceleratorAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator_attributes: Option<CustomRoutingAcceleratorAttributes>,
 }
@@ -1471,18 +1471,18 @@ pub struct UpdateCustomRoutingAcceleratorAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCustomRoutingAcceleratorRequest {
     /// <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
-    #[serde(rename = "AcceleratorArn")]
+    #[serde(rename = "acceleratorArn")]
     pub accelerator_arn: String,
     /// <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The value for the address type must be IPv4.</p>
-    #[serde(rename = "IpAddressType")]
+    #[serde(rename = "ipAddressType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_type: Option<String>,
     /// <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1491,7 +1491,7 @@ pub struct UpdateCustomRoutingAcceleratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateCustomRoutingAcceleratorResponse {
     /// <p>Information about the updated custom routing accelerator.</p>
-    #[serde(rename = "Accelerator")]
+    #[serde(rename = "accelerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accelerator: Option<CustomRoutingAccelerator>,
 }
@@ -1500,10 +1500,10 @@ pub struct UpdateCustomRoutingAcceleratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCustomRoutingListenerRequest {
     /// <p>The Amazon Resource Name (ARN) of the listener to update.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
     /// <p>The updated port range to support for connections from clients to your accelerator. If you remove ports that are currently being used by a subnet endpoint, the call fails.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About endpoints for custom routing accelerators</a>.</p>
-    #[serde(rename = "PortRanges")]
+    #[serde(rename = "portRanges")]
     pub port_ranges: Vec<PortRange>,
 }
 
@@ -1511,7 +1511,7 @@ pub struct UpdateCustomRoutingListenerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateCustomRoutingListenerResponse {
     /// <p>Information for the updated listener for a custom routing accelerator.</p>
-    #[serde(rename = "Listener")]
+    #[serde(rename = "listener")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener: Option<CustomRoutingListener>,
 }
@@ -1520,38 +1520,38 @@ pub struct UpdateCustomRoutingListenerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEndpointGroupRequest {
     /// <p>The list of endpoint objects. A resource must be valid and active when you add it as an endpoint.</p>
-    #[serde(rename = "EndpointConfigurations")]
+    #[serde(rename = "endpointConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_configurations: Option<Vec<EndpointConfiguration>>,
     /// <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-    #[serde(rename = "EndpointGroupArn")]
+    #[serde(rename = "endpointGroupArn")]
     pub endpoint_group_arn: String,
     /// <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
-    #[serde(rename = "HealthCheckIntervalSeconds")]
+    #[serde(rename = "healthCheckIntervalSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_interval_seconds: Option<i64>,
     /// <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).</p>
-    #[serde(rename = "HealthCheckPath")]
+    #[serde(rename = "healthCheckPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_path: Option<String>,
     /// <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses the first port in the list.</p>
-    #[serde(rename = "HealthCheckPort")]
+    #[serde(rename = "healthCheckPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_port: Option<i64>,
     /// <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.</p>
-    #[serde(rename = "HealthCheckProtocol")]
+    #[serde(rename = "healthCheckProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub health_check_protocol: Option<String>,
     /// <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html"> Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-    #[serde(rename = "PortOverrides")]
+    #[serde(rename = "portOverrides")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_overrides: Option<Vec<PortOverride>>,
     /// <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.</p>
-    #[serde(rename = "ThresholdCount")]
+    #[serde(rename = "thresholdCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub threshold_count: Option<i64>,
     /// <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. </p> <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p> <p>The default value is 100.</p>
-    #[serde(rename = "TrafficDialPercentage")]
+    #[serde(rename = "trafficDialPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub traffic_dial_percentage: Option<f32>,
 }
@@ -1560,7 +1560,7 @@ pub struct UpdateEndpointGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateEndpointGroupResponse {
     /// <p>The information about the endpoint group that was updated.</p>
-    #[serde(rename = "EndpointGroup")]
+    #[serde(rename = "endpointGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_group: Option<EndpointGroup>,
 }
@@ -1569,18 +1569,18 @@ pub struct UpdateEndpointGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateListenerRequest {
     /// <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>
-    #[serde(rename = "ClientAffinity")]
+    #[serde(rename = "clientAffinity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_affinity: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the listener to update.</p>
-    #[serde(rename = "ListenerArn")]
+    #[serde(rename = "listenerArn")]
     pub listener_arn: String,
     /// <p>The updated list of port ranges for the connections from clients to the accelerator.</p>
-    #[serde(rename = "PortRanges")]
+    #[serde(rename = "portRanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_ranges: Option<Vec<PortRange>>,
     /// <p>The updated protocol for the connections from clients to the accelerator.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
 }
@@ -1589,7 +1589,7 @@ pub struct UpdateListenerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateListenerResponse {
     /// <p>Information for the updated listener.</p>
-    #[serde(rename = "Listener")]
+    #[serde(rename = "listener")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener: Option<Listener>,
 }
@@ -1598,7 +1598,7 @@ pub struct UpdateListenerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct WithdrawByoipCidrRequest {
     /// <p>The address range, in CIDR notation.</p>
-    #[serde(rename = "Cidr")]
+    #[serde(rename = "cidr")]
     pub cidr: String,
 }
 
@@ -1606,7 +1606,7 @@ pub struct WithdrawByoipCidrRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct WithdrawByoipCidrResponse {
     /// <p>Information about the address pool.</p>
-    #[serde(rename = "ByoipCidr")]
+    #[serde(rename = "byoipCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub byoip_cidr: Option<ByoipCidr>,
 }

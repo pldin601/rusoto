@@ -55,27 +55,27 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateFirewallRuleGroupRequest {
     /// <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p>The unique identifier of the firewall rule group. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
     /// <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. When you create the association, the default setting is <code>DISABLED</code>. </p>
-    #[serde(rename = "MutationProtection")]
+    #[serde(rename = "mutationProtection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutation_protection: Option<String>,
     /// <p>A name that lets you identify the association, to manage and use it.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting. </p> <p>You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You can change the priority setting for a rule group association after you create it.</p> <p>The allowed values for <code>Priority</code> are between 100 and 9900.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
     /// <p>A list of the tag keys and values that you want to associate with the rule group association. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The unique identifier of the VPC that you want to associate with the rule group. </p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     pub vpc_id: String,
 }
 
@@ -83,7 +83,7 @@ pub struct AssociateFirewallRuleGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateFirewallRuleGroupResponse {
     /// <p>The association that you just created. The association has an ID that you can use to identify it in other requests, like update and delete.</p>
-    #[serde(rename = "FirewallRuleGroupAssociation")]
+    #[serde(rename = "firewallRuleGroupAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_association: Option<FirewallRuleGroupAssociation>,
 }
@@ -92,10 +92,10 @@ pub struct AssociateFirewallRuleGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateResolverEndpointIpAddressRequest {
     /// <p>Either the IPv4 address that you want to add to a Resolver endpoint or a subnet ID. If you specify a subnet ID, Resolver chooses an IP address for you from the available IPs in the specified subnet.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     pub ip_address: IpAddressUpdate,
     /// <p>The ID of the Resolver endpoint that you want to associate IP addresses with.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     pub resolver_endpoint_id: String,
 }
 
@@ -103,7 +103,7 @@ pub struct AssociateResolverEndpointIpAddressRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateResolverEndpointIpAddressResponse {
     /// <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>
-    #[serde(rename = "ResolverEndpoint")]
+    #[serde(rename = "resolverEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint: Option<ResolverEndpoint>,
 }
@@ -112,10 +112,10 @@ pub struct AssociateResolverEndpointIpAddressResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateResolverQueryLogConfigRequest {
     /// <p>The ID of the query logging configuration that you want to associate a VPC with.</p>
-    #[serde(rename = "ResolverQueryLogConfigId")]
+    #[serde(rename = "resolverQueryLogConfigId")]
     pub resolver_query_log_config_id: String,
     /// <p><p>The ID of an Amazon VPC that you want this query logging configuration to log queries for.</p> <note> <p>The VPCs and the query logging configuration must be in the same Region.</p> </note></p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -123,7 +123,7 @@ pub struct AssociateResolverQueryLogConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateResolverQueryLogConfigResponse {
     /// <p>A complex type that contains settings for a specified association between an Amazon VPC and a query logging configuration.</p>
-    #[serde(rename = "ResolverQueryLogConfigAssociation")]
+    #[serde(rename = "resolverQueryLogConfigAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config_association: Option<ResolverQueryLogConfigAssociation>,
 }
@@ -132,14 +132,14 @@ pub struct AssociateResolverQueryLogConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateResolverRuleRequest {
     /// <p>A name for the association that you're creating between a Resolver rule and a VPC.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the Resolver rule that you want to associate with the VPC. To list the existing Resolver rules, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>.</p>
-    #[serde(rename = "ResolverRuleId")]
+    #[serde(rename = "resolverRuleId")]
     pub resolver_rule_id: String,
     /// <p>The ID of the VPC that you want to associate the Resolver rule with.</p>
-    #[serde(rename = "VPCId")]
+    #[serde(rename = "vPCId")]
     pub vpc_id: String,
 }
 
@@ -147,7 +147,7 @@ pub struct AssociateResolverRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateResolverRuleResponse {
     /// <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverRuleAssociation")]
+    #[serde(rename = "resolverRuleAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule_association: Option<ResolverRuleAssociation>,
 }
@@ -156,13 +156,13 @@ pub struct AssociateResolverRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFirewallDomainListRequest {
     /// <p>A unique string that identifies the request and that allows you to retry failed requests without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p>A name that lets you identify the domain list to manage and use it.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of the tag keys and values that you want to associate with the domain list. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -171,7 +171,7 @@ pub struct CreateFirewallDomainListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFirewallDomainListResponse {
     /// <p>The domain list that you just created.</p>
-    #[serde(rename = "FirewallDomainList")]
+    #[serde(rename = "firewallDomainList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_domain_list: Option<FirewallDomainList>,
 }
@@ -180,13 +180,13 @@ pub struct CreateFirewallDomainListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFirewallRuleGroupRequest {
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p>A name that lets you identify the rule group, to manage and use it.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of the tag keys and values that you want to associate with the rule group. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -195,7 +195,7 @@ pub struct CreateFirewallRuleGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFirewallRuleGroupResponse {
     /// <p>A collection of rules used to filter DNS network traffic. </p>
-    #[serde(rename = "FirewallRuleGroup")]
+    #[serde(rename = "firewallRuleGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group: Option<FirewallRuleGroup>,
 }
@@ -204,38 +204,38 @@ pub struct CreateFirewallRuleGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFirewallRuleRequest {
     /// <p><p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list:</p> <ul> <li> <p> <code>ALLOW</code> - Permit the request to go through.</p> </li> <li> <p> <code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</p> </li> <li> <p> <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule&#39;s <code>BlockResponse</code>. </p> </li> </ul></p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p> <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideDnsType")]
+    #[serde(rename = "blockOverrideDnsType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_dns_type: Option<String>,
     /// <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p> <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideDomain")]
+    #[serde(rename = "blockOverrideDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_domain: Option<String>,
     /// <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p> <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideTtl")]
+    #[serde(rename = "blockOverrideTtl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_ttl: Option<i64>,
     /// <p>The way that you want DNS Firewall to block the request, used with the rule action setting <code>BLOCK</code>. </p> <ul> <li> <p> <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p> </li> <li> <p> <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p> </li> <li> <p> <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p> </li> </ul> <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
-    #[serde(rename = "BlockResponse")]
+    #[serde(rename = "blockResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_response: Option<String>,
     /// <p>A unique string that identifies the request and that allows you to retry failed requests without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p>The ID of the domain list that you want to use in the rule. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
     /// <p>The unique identifier of the firewall rule group where you want to create the rule. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
     /// <p>A name that lets you identify the rule in the rule group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p> <p>You must specify a unique priority for each rule in a rule group. To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You can change the priority setting for the rules in a rule group at any time.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
 }
 
@@ -243,7 +243,7 @@ pub struct CreateFirewallRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFirewallRuleResponse {
     /// <p>The firewall rule that you just created. </p>
-    #[serde(rename = "FirewallRule")]
+    #[serde(rename = "firewallRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule: Option<FirewallRule>,
 }
@@ -252,23 +252,23 @@ pub struct CreateFirewallRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateResolverEndpointRequest {
     /// <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p><p>Specify the applicable value:</p> <ul> <li> <p> <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network</p> </li> <li> <p> <code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC to your network</p> </li> </ul></p>
-    #[serde(rename = "Direction")]
+    #[serde(rename = "direction")]
     pub direction: String,
     /// <p>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC. </p>
-    #[serde(rename = "IpAddresses")]
+    #[serde(rename = "ipAddresses")]
     pub ip_addresses: Vec<IpAddressRequest>,
     /// <p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify must include one or more inbound rules (for inbound Resolver endpoints) or outbound rules (for outbound Resolver endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     pub security_group_ids: Vec<String>,
     /// <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -277,7 +277,7 @@ pub struct CreateResolverEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateResolverEndpointResponse {
     /// <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverEndpoint")]
+    #[serde(rename = "resolverEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint: Option<ResolverEndpoint>,
 }
@@ -286,16 +286,16 @@ pub struct CreateResolverEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateResolverQueryLogConfigRequest {
     /// <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p><p>The ARN of the resource that you want Resolver to send query logs. You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream. Examples of valid values include the following:</p> <ul> <li> <p> <b>S3 bucket</b>: </p> <p> <code>arn:aws:s3:::examplebucket</code> </p> <p>You can optionally append a file prefix to the end of the ARN.</p> <p> <code>arn:aws:s3:::examplebucket/development/</code> </p> </li> <li> <p> <b>CloudWatch Logs log group</b>: </p> <p> <code>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</code> </p> </li> <li> <p> <b>Kinesis Data Firehose delivery stream</b>:</p> <p> <code>arn:aws:kinesis:us-east-2:0123456789:stream/my<em>stream</em>name</code> </p> </li> </ul></p>
-    #[serde(rename = "DestinationArn")]
+    #[serde(rename = "destinationArn")]
     pub destination_arn: String,
     /// <p>The name that you want to give the query logging configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of the tag keys and values that you want to associate with the query logging configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -304,7 +304,7 @@ pub struct CreateResolverQueryLogConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateResolverQueryLogConfigResponse {
     /// <p>Information about the <code>CreateResolverQueryLogConfig</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverQueryLogConfig")]
+    #[serde(rename = "resolverQueryLogConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config: Option<ResolverQueryLogConfig>,
 }
@@ -313,28 +313,28 @@ pub struct CreateResolverQueryLogConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateResolverRuleRequest {
     /// <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     pub creator_request_id: String,
     /// <p>DNS queries for this domain name are forwarded to the IP addresses that you specify in <code>TargetIps</code>. If a query matches multiple Resolver rules (example.com and www.example.com), outbound DNS queries are routed using the Resolver rule that contains the most specific domain name (www.example.com).</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     pub domain_name: String,
     /// <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the outbound Resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in <code>TargetIps</code>.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint_id: Option<String>,
     /// <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p> <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify <code>SYSTEM</code>.</p> <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code> for <code>RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and specify <code>SYSTEM</code> for <code>RuleType</code>.</p> <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
-    #[serde(rename = "RuleType")]
+    #[serde(rename = "ruleType")]
     pub rule_type: String,
     /// <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a space.</p> <p> <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
-    #[serde(rename = "TargetIps")]
+    #[serde(rename = "targetIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_ips: Option<Vec<TargetAddress>>,
 }
@@ -343,7 +343,7 @@ pub struct CreateResolverRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateResolverRuleResponse {
     /// <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverRule")]
+    #[serde(rename = "resolverRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule: Option<ResolverRule>,
 }
@@ -352,7 +352,7 @@ pub struct CreateResolverRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFirewallDomainListRequest {
     /// <p>The ID of the domain list that you want to delete. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
 }
 
@@ -360,7 +360,7 @@ pub struct DeleteFirewallDomainListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFirewallDomainListResponse {
     /// <p>The domain list that you just deleted. </p>
-    #[serde(rename = "FirewallDomainList")]
+    #[serde(rename = "firewallDomainList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_domain_list: Option<FirewallDomainList>,
 }
@@ -369,7 +369,7 @@ pub struct DeleteFirewallDomainListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFirewallRuleGroupRequest {
     /// <p>The unique identifier of the firewall rule group that you want to delete. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
 }
 
@@ -377,7 +377,7 @@ pub struct DeleteFirewallRuleGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFirewallRuleGroupResponse {
     /// <p>A collection of rules used to filter DNS network traffic. </p>
-    #[serde(rename = "FirewallRuleGroup")]
+    #[serde(rename = "firewallRuleGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group: Option<FirewallRuleGroup>,
 }
@@ -386,10 +386,10 @@ pub struct DeleteFirewallRuleGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFirewallRuleRequest {
     /// <p>The ID of the domain list that's used in the rule. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
     /// <p>The unique identifier of the firewall rule group that you want to delete the rule from. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
 }
 
@@ -397,7 +397,7 @@ pub struct DeleteFirewallRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFirewallRuleResponse {
     /// <p>The specification for the firewall rule that you just deleted.</p>
-    #[serde(rename = "FirewallRule")]
+    #[serde(rename = "firewallRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule: Option<FirewallRule>,
 }
@@ -406,7 +406,7 @@ pub struct DeleteFirewallRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResolverEndpointRequest {
     /// <p>The ID of the Resolver endpoint that you want to delete.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     pub resolver_endpoint_id: String,
 }
 
@@ -414,7 +414,7 @@ pub struct DeleteResolverEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteResolverEndpointResponse {
     /// <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverEndpoint")]
+    #[serde(rename = "resolverEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint: Option<ResolverEndpoint>,
 }
@@ -423,7 +423,7 @@ pub struct DeleteResolverEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResolverQueryLogConfigRequest {
     /// <p>The ID of the query logging configuration that you want to delete.</p>
-    #[serde(rename = "ResolverQueryLogConfigId")]
+    #[serde(rename = "resolverQueryLogConfigId")]
     pub resolver_query_log_config_id: String,
 }
 
@@ -431,7 +431,7 @@ pub struct DeleteResolverQueryLogConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteResolverQueryLogConfigResponse {
     /// <p>Information about the query logging configuration that you deleted, including the status of the request.</p>
-    #[serde(rename = "ResolverQueryLogConfig")]
+    #[serde(rename = "resolverQueryLogConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config: Option<ResolverQueryLogConfig>,
 }
@@ -440,7 +440,7 @@ pub struct DeleteResolverQueryLogConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResolverRuleRequest {
     /// <p>The ID of the Resolver rule that you want to delete.</p>
-    #[serde(rename = "ResolverRuleId")]
+    #[serde(rename = "resolverRuleId")]
     pub resolver_rule_id: String,
 }
 
@@ -448,7 +448,7 @@ pub struct DeleteResolverRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteResolverRuleResponse {
     /// <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverRule")]
+    #[serde(rename = "resolverRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule: Option<ResolverRule>,
 }
@@ -457,7 +457,7 @@ pub struct DeleteResolverRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateFirewallRuleGroupRequest {
     /// <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
-    #[serde(rename = "FirewallRuleGroupAssociationId")]
+    #[serde(rename = "firewallRuleGroupAssociationId")]
     pub firewall_rule_group_association_id: String,
 }
 
@@ -465,7 +465,7 @@ pub struct DisassociateFirewallRuleGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateFirewallRuleGroupResponse {
     /// <p>The firewall rule group association that you just removed. </p>
-    #[serde(rename = "FirewallRuleGroupAssociation")]
+    #[serde(rename = "firewallRuleGroupAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_association: Option<FirewallRuleGroupAssociation>,
 }
@@ -474,10 +474,10 @@ pub struct DisassociateFirewallRuleGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateResolverEndpointIpAddressRequest {
     /// <p>The IPv4 address that you want to remove from a Resolver endpoint.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     pub ip_address: IpAddressUpdate,
     /// <p>The ID of the Resolver endpoint that you want to disassociate an IP address from.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     pub resolver_endpoint_id: String,
 }
 
@@ -485,7 +485,7 @@ pub struct DisassociateResolverEndpointIpAddressRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateResolverEndpointIpAddressResponse {
     /// <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>
-    #[serde(rename = "ResolverEndpoint")]
+    #[serde(rename = "resolverEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint: Option<ResolverEndpoint>,
 }
@@ -494,10 +494,10 @@ pub struct DisassociateResolverEndpointIpAddressResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateResolverQueryLogConfigRequest {
     /// <p>The ID of the query logging configuration that you want to disassociate a specified VPC from.</p>
-    #[serde(rename = "ResolverQueryLogConfigId")]
+    #[serde(rename = "resolverQueryLogConfigId")]
     pub resolver_query_log_config_id: String,
     /// <p>The ID of the Amazon VPC that you want to disassociate from a specified query logging configuration.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -505,7 +505,7 @@ pub struct DisassociateResolverQueryLogConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateResolverQueryLogConfigResponse {
     /// <p>A complex type that contains settings for the association that you deleted between an Amazon VPC and a query logging configuration.</p>
-    #[serde(rename = "ResolverQueryLogConfigAssociation")]
+    #[serde(rename = "resolverQueryLogConfigAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config_association: Option<ResolverQueryLogConfigAssociation>,
 }
@@ -514,10 +514,10 @@ pub struct DisassociateResolverQueryLogConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateResolverRuleRequest {
     /// <p>The ID of the Resolver rule that you want to disassociate from the specified VPC.</p>
-    #[serde(rename = "ResolverRuleId")]
+    #[serde(rename = "resolverRuleId")]
     pub resolver_rule_id: String,
     /// <p>The ID of the VPC that you want to disassociate the Resolver rule from.</p>
-    #[serde(rename = "VPCId")]
+    #[serde(rename = "vPCId")]
     pub vpc_id: String,
 }
 
@@ -525,7 +525,7 @@ pub struct DisassociateResolverRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DisassociateResolverRuleResponse {
     /// <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>
-    #[serde(rename = "ResolverRuleAssociation")]
+    #[serde(rename = "resolverRuleAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule_association: Option<ResolverRuleAssociation>,
 }
@@ -535,11 +535,11 @@ pub struct DisassociateResolverRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p><p>The name of the parameter that you want to use to filter objects.</p> <p>The valid values for <code>Name</code> depend on the action that you&#39;re including the filter in, <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>, <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>, <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>, <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigs.html">ListResolverQueryLogConfigs</a>, or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigAssociations.html">ListResolverQueryLogConfigAssociations</a>.</p> <note> <p>In early versions of Resolver, values for <code>Name</code> were listed as uppercase, with underscore (<em>) delimiters. For example, <code>CreatorRequestId</code> was originally listed as <code>CREATOR</em>REQUEST<em>ID</code>. Uppercase values for <code>Name</code> are still supported.</p> </note> <p> <b>ListResolverEndpoints</b> </p> <p>Valid values for <code>Name</code> include the following:</p> <ul> <li> <p> <code>CreatorRequestId</code>: The value that you specified when you created the Resolver endpoint.</p> </li> <li> <p> <code>Direction</code>: Whether you want to return inbound or outbound Resolver endpoints. If you specify <code>DIRECTION</code> for <code>Name</code>, specify <code>INBOUND</code> or <code>OUTBOUND</code> for <code>Values</code>.</p> </li> <li> <p> <code>HostVpcId</code>: The ID of the VPC that inbound DNS queries pass through on the way from your network to your VPCs in a region, or the VPC that outbound queries pass through on the way from your VPCs to your network. In a &lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API</em>route53resolver<em>CreateResolverEndpoint.html&quot;&gt;CreateResolverEndpoint</a> request, <code>SubnetId</code> indirectly identifies the VPC. In a &lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API</em>route53resolver<em>GetResolverEndpoint.html&quot;&gt;GetResolverEndpoint</a> request, the VPC ID for a Resolver endpoint is returned in the <code>HostVPCId</code> element. </p> </li> <li> <p> <code>IpAddressCount</code>: The number of IP addresses that you have associated with the Resolver endpoint.</p> </li> <li> <p> <code>Name</code>: The name of the Resolver endpoint.</p> </li> <li> <p> <code>SecurityGroupIds</code>: The IDs of the VPC security groups that you specified when you created the Resolver endpoint.</p> </li> <li> <p> <code>Status</code>: The status of the Resolver endpoint. If you specify <code>Status</code> for <code>Name</code>, specify one of the following status codes for <code>Values</code>: <code>CREATING</code>, <code>OPERATIONAL</code>, <code>UPDATING</code>, <code>AUTO</em>RECOVERING</code>, <code>ACTION<em>NEEDED</code>, or <code>DELETING</code>. For more information, see <code>Status</code> in &lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API</em>route53resolver<em>ResolverEndpoint.html&quot;&gt;ResolverEndpoint</a>.</p> </li> </ul> <p> <b>ListResolverRules</b> </p> <p>Valid values for <code>Name</code> include the following:</p> <ul> <li> <p> <code>CreatorRequestId</code>: The value that you specified when you created the Resolver rule.</p> </li> <li> <p> <code>DomainName</code>: The domain name for which Resolver is forwarding DNS queries to your network. In the value that you specify for <code>Values</code>, include a trailing dot (.) after the domain name. For example, if the domain name is example.com, specify the following value. Note the &quot;.&quot; after <code>com</code>:</p> <p> <code>example.com.</code> </p> </li> <li> <p> <code>Name</code>: The name of the Resolver rule.</p> </li> <li> <p> <code>ResolverEndpointId</code>: The ID of the Resolver endpoint that the Resolver rule is associated with.</p> <note> <p>You can filter on the Resolver endpoint only for rules that have a value of <code>FORWARD</code> for <code>RuleType</code>.</p> </note> </li> <li> <p> <code>Status</code>: The status of the Resolver rule. If you specify <code>Status</code> for <code>Name</code>, specify one of the following status codes for <code>Values</code>: <code>COMPLETE</code>, <code>DELETING</code>, <code>UPDATING</code>, or <code>FAILED</code>.</p> </li> <li> <p> <code>Type</code>: The type of the Resolver rule. If you specify <code>TYPE</code> for <code>Name</code>, specify <code>FORWARD</code> or <code>SYSTEM</code> for <code>Values</code>.</p> </li> </ul> <p> <b>ListResolverRuleAssociations</b> </p> <p>Valid values for <code>Name</code> include the following:</p> <ul> <li> <p> <code>Name</code>: The name of the Resolver rule association.</p> </li> <li> <p> <code>ResolverRuleId</code>: The ID of the Resolver rule that is associated with one or more VPCs.</p> </li> <li> <p> <code>Status</code>: The status of the Resolver rule association. If you specify <code>Status</code> for <code>Name</code>, specify one of the following status codes for <code>Values</code>: <code>CREATING</code>, <code>COMPLETE</code>, <code>DELETING</code>, or <code>FAILED</code>.</p> </li> <li> <p> <code>VPCId</code>: The ID of the VPC that the Resolver rule is associated with.</p> </li> </ul> <p> <b>ListResolverQueryLogConfigs</b> </p> <p>Valid values for <code>Name</code> include the following:</p> <ul> <li> <p> <code>Arn</code>: The ARN for the query logging configuration.</p> </li> <li> <p> <code>AssociationCount</code>: The number of VPCs that are associated with the query logging configuration.</p> </li> <li> <p> <code>CreationTime</code>: The date and time that the query logging configuration was created, in Unix time format and Coordinated Universal Time (UTC). </p> </li> <li> <p> <code>CreatorRequestId</code>: A unique string that identifies the request that created the query logging configuration.</p> </li> <li> <p> <code>Destination</code>: The AWS service that you want to forward query logs to. Valid values include the following:</p> <ul> <li> <p> <code>S3</code> </p> </li> <li> <p> <code>CloudWatchLogs</code> </p> </li> <li> <p> <code>KinesisFirehose</code> </p> </li> </ul> </li> <li> <p> <code>DestinationArn</code>: The ARN of the location that Resolver is sending query logs to. This value can be the ARN for an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.</p> </li> <li> <p> <code>Id</code>: The ID of the query logging configuration</p> </li> <li> <p> <code>Name</code>: The name of the query logging configuration</p> </li> <li> <p> <code>OwnerId</code>: The AWS account ID for the account that created the query logging configuration.</p> </li> <li> <p> <code>ShareStatus</code>: An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account. Valid values include: <code>NOT</em>SHARED</code>, <code>SHARED<em>WITH</em>ME</code>, or <code>SHARED<em>BY</em>ME</code>.</p> </li> <li> <p> <code>Status</code>: The status of the query logging configuration. If you specify <code>Status</code> for <code>Name</code>, specify the applicable status code for <code>Values</code>: <code>CREATING</code>, <code>CREATED</code>, <code>DELETING</code>, or <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfig.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfig-Status">Status</a>. </p> </li> </ul> <p> <b>ListResolverQueryLogConfigAssociations</b> </p> <p>Valid values for <code>Name</code> include the following:</p> <ul> <li> <p> <code>CreationTime</code>: The date and time that the VPC was associated with the query logging configuration, in Unix time format and Coordinated Universal Time (UTC).</p> </li> <li> <p> <code>Error</code>: If the value of <code>Status</code> is <code>FAILED</code>, specify the cause: <code>DESTINATION<em>NOT</em>FOUND</code> or <code>ACCESS<em>DENIED</code>.</p> </li> <li> <p> <code>Id</code>: The ID of the query logging association.</p> </li> <li> <p> <code>ResolverQueryLogConfigId</code>: The ID of the query logging configuration that a VPC is associated with.</p> </li> <li> <p> <code>ResourceId</code>: The ID of the Amazon VPC that is associated with the query logging configuration.</p> </li> <li> <p> <code>Status</code>: The status of the query logging association. If you specify <code>Status</code> for <code>Name</code>, specify the applicable status code for <code>Values</code>: <code>CREATING</code>, <code>CREATED</code>, <code>DELETING</code>, or <code>FAILED</code>. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API</em>route53resolver<em>ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver</em>ResolverQueryLogConfigAssociation-Status&quot;&gt;Status</a>. </p> </li> </ul></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as Resolver endpoints or Resolver rules, the value of the parameter that you want to use to filter objects. For example, to list only inbound Resolver endpoints, specify <code>Direction</code> for <code>Name</code> and specify <code>INBOUND</code> for <code>Values</code>.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -549,19 +549,19 @@ pub struct Filter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallConfig {
     /// <p>Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. </p> <ul> <li> <p>By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall returns a failure error when it is unable to properly evaluate a query. </p> </li> <li> <p>If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. </p> </li> </ul> <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
-    #[serde(rename = "FirewallFailOpen")]
+    #[serde(rename = "firewallFailOpen")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_fail_open: Option<String>,
     /// <p>The ID of the firewall configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The AWS account ID of the owner of the VPC that this firewall configuration applies to.</p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>The ID of the VPC that this firewall configuration applies to.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
 }
@@ -571,43 +571,43 @@ pub struct FirewallConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallDomainList {
     /// <p>The Amazon Resource Name (ARN) of the firewall domain list.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC). </p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The number of domain names that are specified in the domain list.</p>
-    #[serde(rename = "DomainCount")]
+    #[serde(rename = "domainCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_count: Option<i64>,
     /// <p>The ID of the domain list. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
-    #[serde(rename = "ManagedOwnerName")]
+    #[serde(rename = "managedOwnerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_owner_name: Option<String>,
     /// <p>The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC). </p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>The name of the domain list. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the domain list. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Additional information about the status of the list, if available.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -617,23 +617,23 @@ pub struct FirewallDomainList {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallDomainListMetadata {
     /// <p>The Amazon Resource Name (ARN) of the firewall domain list metadata.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The ID of the domain list. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
-    #[serde(rename = "ManagedOwnerName")]
+    #[serde(rename = "managedOwnerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_owner_name: Option<String>,
     /// <p>The name of the domain list. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -643,51 +643,51 @@ pub struct FirewallDomainListMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallRule {
     /// <p><p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list:</p> <ul> <li> <p> <code>ALLOW</code> - Permit the request to go through.</p> </li> <li> <p> <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p> </li> <li> <p> <code>BLOCK</code> - Disallow the request. If this is specified, additional handling details are provided in the rule&#39;s <code>BlockResponse</code> setting. </p> </li> </ul></p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideDnsType")]
+    #[serde(rename = "blockOverrideDnsType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_dns_type: Option<String>,
     /// <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideDomain")]
+    #[serde(rename = "blockOverrideDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_domain: Option<String>,
     /// <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideTtl")]
+    #[serde(rename = "blockOverrideTtl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_ttl: Option<i64>,
     /// <p><p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p> <ul> <li> <p> <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p> </li> <li> <p> <code>NXDOMAIN</code> - Respond indicating that the domain name that&#39;s in the query doesn&#39;t exist.</p> </li> <li> <p> <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule&#39;s <code>BlockOverride*</code> settings. </p> </li> </ul></p>
-    #[serde(rename = "BlockResponse")]
+    #[serde(rename = "blockResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_response: Option<String>,
     /// <p>The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC). </p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The ID of the domain list that's used in the rule. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_domain_list_id: Option<String>,
     /// <p>The unique identifier of the firewall rule group of the rule. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_id: Option<String>,
     /// <p>The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>The name of the rule. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The priority of the rule in the rule group. This value must be unique within the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
 }
@@ -697,47 +697,47 @@ pub struct FirewallRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallRuleGroup {
     /// <p>The ARN (Amazon Resource Name) of the rule group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC). </p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The ID of the rule group. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>The name of the rule group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you. </p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>The number of rules in the rule group.</p>
-    #[serde(rename = "RuleCount")]
+    #[serde(rename = "ruleCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_count: Option<i64>,
     /// <p>Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
-    #[serde(rename = "ShareStatus")]
+    #[serde(rename = "shareStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_status: Option<String>,
     /// <p>The status of the domain list. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Additional information about the status of the rule group, if available.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -747,55 +747,55 @@ pub struct FirewallRuleGroup {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallRuleGroupAssociation {
     /// <p>The Amazon Resource Name (ARN) of the firewall rule group association.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC). </p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The unique identifier of the firewall rule group. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_id: Option<String>,
     /// <p>The identifier for the association.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The owner of the association, used only for associations that are not managed by you. If you use AWS Firewall Manager to manage your DNS Firewalls, then this reports Firewall Manager as the managed owner.</p>
-    #[serde(rename = "ManagedOwnerName")]
+    #[serde(rename = "managedOwnerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_owner_name: Option<String>,
     /// <p>The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
-    #[serde(rename = "MutationProtection")]
+    #[serde(rename = "mutationProtection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutation_protection: Option<String>,
     /// <p>The name of the association.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>The current status of the association.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Additional information about the status of the response, if available.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The unique identifier of the VPC that is associated with the rule group. </p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -805,27 +805,27 @@ pub struct FirewallRuleGroupAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FirewallRuleGroupMetadata {
     /// <p>The ARN (Amazon Resource Name) of the rule group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The ID of the rule group. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the rule group.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you. </p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
-    #[serde(rename = "ShareStatus")]
+    #[serde(rename = "shareStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_status: Option<String>,
 }
@@ -834,7 +834,7 @@ pub struct FirewallRuleGroupMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFirewallConfigRequest {
     /// <p>The ID of the VPC from Amazon VPC that the configuration is for.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -842,7 +842,7 @@ pub struct GetFirewallConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFirewallConfigResponse {
     /// <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC from AmazonVPC. </p>
-    #[serde(rename = "FirewallConfig")]
+    #[serde(rename = "firewallConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_config: Option<FirewallConfig>,
 }
@@ -851,7 +851,7 @@ pub struct GetFirewallConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFirewallDomainListRequest {
     /// <p>The ID of the domain list. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
 }
 
@@ -859,7 +859,7 @@ pub struct GetFirewallDomainListRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFirewallDomainListResponse {
     /// <p>The domain list that you requested. </p>
-    #[serde(rename = "FirewallDomainList")]
+    #[serde(rename = "firewallDomainList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_domain_list: Option<FirewallDomainList>,
 }
@@ -868,7 +868,7 @@ pub struct GetFirewallDomainListResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFirewallRuleGroupAssociationRequest {
     /// <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
-    #[serde(rename = "FirewallRuleGroupAssociationId")]
+    #[serde(rename = "firewallRuleGroupAssociationId")]
     pub firewall_rule_group_association_id: String,
 }
 
@@ -876,7 +876,7 @@ pub struct GetFirewallRuleGroupAssociationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFirewallRuleGroupAssociationResponse {
     /// <p>The association that you requested. </p>
-    #[serde(rename = "FirewallRuleGroupAssociation")]
+    #[serde(rename = "firewallRuleGroupAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_association: Option<FirewallRuleGroupAssociation>,
 }
@@ -885,7 +885,7 @@ pub struct GetFirewallRuleGroupAssociationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFirewallRuleGroupPolicyRequest {
     /// <p>The ARN (Amazon Resource Name) for the rule group.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -893,7 +893,7 @@ pub struct GetFirewallRuleGroupPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFirewallRuleGroupPolicyResponse {
     /// <p>The AWS Identity and Access Management (AWS IAM) policy for sharing the specified rule group. You can use the policy to share the rule group using AWS Resource Access Manager (AWS RAM). </p>
-    #[serde(rename = "FirewallRuleGroupPolicy")]
+    #[serde(rename = "firewallRuleGroupPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_policy: Option<String>,
 }
@@ -902,7 +902,7 @@ pub struct GetFirewallRuleGroupPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetFirewallRuleGroupRequest {
     /// <p>The unique identifier of the firewall rule group. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
 }
 
@@ -910,7 +910,7 @@ pub struct GetFirewallRuleGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetFirewallRuleGroupResponse {
     /// <p>A collection of rules used to filter DNS network traffic. </p>
-    #[serde(rename = "FirewallRuleGroup")]
+    #[serde(rename = "firewallRuleGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group: Option<FirewallRuleGroup>,
 }
@@ -919,7 +919,7 @@ pub struct GetFirewallRuleGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverDnssecConfigRequest {
     /// <p>The ID of the virtual private cloud (VPC) for the DNSSEC validation status.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -927,7 +927,7 @@ pub struct GetResolverDnssecConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverDnssecConfigResponse {
     /// <p>The information about a configuration for DNSSEC validation.</p>
-    #[serde(rename = "ResolverDNSSECConfig")]
+    #[serde(rename = "resolverDNSSECConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_dnssec_config: Option<ResolverDnssecConfig>,
 }
@@ -936,7 +936,7 @@ pub struct GetResolverDnssecConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverEndpointRequest {
     /// <p>The ID of the Resolver endpoint that you want to get information about.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     pub resolver_endpoint_id: String,
 }
 
@@ -944,7 +944,7 @@ pub struct GetResolverEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverEndpointResponse {
     /// <p>Information about the Resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>
-    #[serde(rename = "ResolverEndpoint")]
+    #[serde(rename = "resolverEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint: Option<ResolverEndpoint>,
 }
@@ -953,7 +953,7 @@ pub struct GetResolverEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverQueryLogConfigAssociationRequest {
     /// <p>The ID of the Resolver query logging configuration association that you want to get information about.</p>
-    #[serde(rename = "ResolverQueryLogConfigAssociationId")]
+    #[serde(rename = "resolverQueryLogConfigAssociationId")]
     pub resolver_query_log_config_association_id: String,
 }
 
@@ -961,7 +961,7 @@ pub struct GetResolverQueryLogConfigAssociationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverQueryLogConfigAssociationResponse {
     /// <p>Information about the Resolver query logging configuration association that you specified in a <code>GetQueryLogConfigAssociation</code> request.</p>
-    #[serde(rename = "ResolverQueryLogConfigAssociation")]
+    #[serde(rename = "resolverQueryLogConfigAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config_association: Option<ResolverQueryLogConfigAssociation>,
 }
@@ -970,7 +970,7 @@ pub struct GetResolverQueryLogConfigAssociationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverQueryLogConfigPolicyRequest {
     /// <p>The ARN of the query logging configuration that you want to get the query logging policy for.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -978,7 +978,7 @@ pub struct GetResolverQueryLogConfigPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverQueryLogConfigPolicyResponse {
     /// <p>Information about the query logging policy for the query logging configuration that you specified in a <code>GetResolverQueryLogConfigPolicy</code> request.</p>
-    #[serde(rename = "ResolverQueryLogConfigPolicy")]
+    #[serde(rename = "resolverQueryLogConfigPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config_policy: Option<String>,
 }
@@ -987,7 +987,7 @@ pub struct GetResolverQueryLogConfigPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverQueryLogConfigRequest {
     /// <p>The ID of the Resolver query logging configuration that you want to get information about.</p>
-    #[serde(rename = "ResolverQueryLogConfigId")]
+    #[serde(rename = "resolverQueryLogConfigId")]
     pub resolver_query_log_config_id: String,
 }
 
@@ -995,7 +995,7 @@ pub struct GetResolverQueryLogConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverQueryLogConfigResponse {
     /// <p>Information about the Resolver query logging configuration that you specified in a <code>GetQueryLogConfig</code> request.</p>
-    #[serde(rename = "ResolverQueryLogConfig")]
+    #[serde(rename = "resolverQueryLogConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config: Option<ResolverQueryLogConfig>,
 }
@@ -1004,7 +1004,7 @@ pub struct GetResolverQueryLogConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverRuleAssociationRequest {
     /// <p>The ID of the Resolver rule association that you want to get information about.</p>
-    #[serde(rename = "ResolverRuleAssociationId")]
+    #[serde(rename = "resolverRuleAssociationId")]
     pub resolver_rule_association_id: String,
 }
 
@@ -1012,7 +1012,7 @@ pub struct GetResolverRuleAssociationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverRuleAssociationResponse {
     /// <p>Information about the Resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>
-    #[serde(rename = "ResolverRuleAssociation")]
+    #[serde(rename = "resolverRuleAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule_association: Option<ResolverRuleAssociation>,
 }
@@ -1021,7 +1021,7 @@ pub struct GetResolverRuleAssociationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverRulePolicyRequest {
     /// <p>The ID of the Resolver rule that you want to get the Resolver rule policy for.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
 }
 
@@ -1029,7 +1029,7 @@ pub struct GetResolverRulePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverRulePolicyResponse {
     /// <p>The Resolver rule policy for the rule that you specified in a <code>GetResolverRulePolicy</code> request.</p>
-    #[serde(rename = "ResolverRulePolicy")]
+    #[serde(rename = "resolverRulePolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule_policy: Option<String>,
 }
@@ -1038,7 +1038,7 @@ pub struct GetResolverRulePolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetResolverRuleRequest {
     /// <p>The ID of the Resolver rule that you want to get information about.</p>
-    #[serde(rename = "ResolverRuleId")]
+    #[serde(rename = "resolverRuleId")]
     pub resolver_rule_id: String,
 }
 
@@ -1046,7 +1046,7 @@ pub struct GetResolverRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetResolverRuleResponse {
     /// <p>Information about the Resolver rule that you specified in a <code>GetResolverRule</code> request.</p>
-    #[serde(rename = "ResolverRule")]
+    #[serde(rename = "resolverRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule: Option<ResolverRule>,
 }
@@ -1055,13 +1055,13 @@ pub struct GetResolverRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportFirewallDomainsRequest {
     /// <p>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (Amazon S3) that contains the list of domains to import.</p> <p>The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The file must be a text file and must contain a single domain per line.</p>
-    #[serde(rename = "DomainFileUrl")]
+    #[serde(rename = "domainFileUrl")]
     pub domain_file_url: String,
     /// <p>The ID of the domain list that you want to modify with the import operation.</p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
     /// <p>What you want DNS Firewall to do with the domains that are listed in the file. This must be set to <code>REPLACE</code>, which updates the domain list to exactly match the list in the file. </p>
-    #[serde(rename = "Operation")]
+    #[serde(rename = "operation")]
     pub operation: String,
 }
 
@@ -1069,19 +1069,19 @@ pub struct ImportFirewallDomainsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportFirewallDomainsResponse {
     /// <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the domain list. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p> </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Additional information about the status of the list, if available.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -1091,11 +1091,11 @@ pub struct ImportFirewallDomainsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IpAddressRequest {
     /// <p>The IP address that you want to use for DNS queries.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip: Option<String>,
     /// <p>The ID of the subnet that contains the IP address. </p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     pub subnet_id: String,
 }
 
@@ -1104,31 +1104,31 @@ pub struct IpAddressRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IpAddressResponse {
     /// <p>The date and time that the IP address was created, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>One IP address that the Resolver endpoint uses for DNS queries.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip: Option<String>,
     /// <p>The ID of one IP address.</p>
-    #[serde(rename = "IpId")]
+    #[serde(rename = "ipId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_id: Option<String>,
     /// <p>The date and time that the IP address was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>A status code that gives the current status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>A message that provides additional information about the status of the request.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The ID of one subnet.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
 }
@@ -1138,15 +1138,15 @@ pub struct IpAddressResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IpAddressUpdate {
     /// <p>The new IP address.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip: Option<String>,
     /// <p> <i>Only when removing an IP address from a Resolver endpoint</i>: The ID of the IP address that you want to remove. To get this ID, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>.</p>
-    #[serde(rename = "IpId")]
+    #[serde(rename = "ipId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_id: Option<String>,
     /// <p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
 }
@@ -1155,11 +1155,11 @@ pub struct IpAddressUpdate {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFirewallConfigsRequest {
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1168,11 +1168,11 @@ pub struct ListFirewallConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFirewallConfigsResponse {
     /// <p>The configurations for the firewall behavior provided by DNS Firewall for VPCs from Amazon Virtual Private Cloud (Amazon VPC). </p>
-    #[serde(rename = "FirewallConfigs")]
+    #[serde(rename = "firewallConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_configs: Option<Vec<FirewallConfig>>,
     /// <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1181,11 +1181,11 @@ pub struct ListFirewallConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFirewallDomainListsRequest {
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1194,11 +1194,11 @@ pub struct ListFirewallDomainListsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFirewallDomainListsResponse {
     /// <p>A list of the domain lists that you have defined. </p> <p>This might be a partial list of the domain lists that you've defined. For information, see <code>MaxResults</code>. </p>
-    #[serde(rename = "FirewallDomainLists")]
+    #[serde(rename = "firewallDomainLists")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_domain_lists: Option<Vec<FirewallDomainListMetadata>>,
     /// <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1207,14 +1207,14 @@ pub struct ListFirewallDomainListsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFirewallDomainsRequest {
     /// <p>The ID of the domain list whose domains you want to retrieve. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1223,11 +1223,11 @@ pub struct ListFirewallDomainsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFirewallDomainsResponse {
     /// <p>A list of the domains in the firewall domain list. </p> <p>This might be a partial list of the domains that you've defined in the domain list. For information, see <code>MaxResults</code>. </p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domains: Option<Vec<String>>,
     /// <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1236,27 +1236,27 @@ pub struct ListFirewallDomainsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFirewallRuleGroupAssociationsRequest {
     /// <p>The unique identifier of the firewall rule group that you want to retrieve the associations for. Leave this blank to retrieve associations for any rule group. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_id: Option<String>,
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting. </p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The unique identifier of the VPC that you want to retrieve the associations for. Leave this blank to retrieve associations for any VPC. </p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -1265,11 +1265,11 @@ pub struct ListFirewallRuleGroupAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFirewallRuleGroupAssociationsResponse {
     /// <p>A list of your firewall rule group associations.</p> <p>This might be a partial list of the associations that you have defined. For information, see <code>MaxResults</code>. </p>
-    #[serde(rename = "FirewallRuleGroupAssociations")]
+    #[serde(rename = "firewallRuleGroupAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_associations: Option<Vec<FirewallRuleGroupAssociation>>,
     /// <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1278,11 +1278,11 @@ pub struct ListFirewallRuleGroupAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFirewallRuleGroupsRequest {
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1291,11 +1291,11 @@ pub struct ListFirewallRuleGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFirewallRuleGroupsResponse {
     /// <p>A list of your firewall rule groups.</p> <p>This might be a partial list of the rule groups that you have defined. For information, see <code>MaxResults</code>. </p>
-    #[serde(rename = "FirewallRuleGroups")]
+    #[serde(rename = "firewallRuleGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_groups: Option<Vec<FirewallRuleGroupMetadata>>,
     /// <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1304,22 +1304,22 @@ pub struct ListFirewallRuleGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFirewallRulesRequest {
     /// <p><p>Optional additional filter for the rules to retrieve.</p> <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list:</p> <ul> <li> <p> <code>ALLOW</code> - Permit the request to go through.</p> </li> <li> <p> <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p> </li> <li> <p> <code>BLOCK</code> - Disallow the request. If this is specified, additional handling details are provided in the rule&#39;s <code>BlockResponse</code> setting. </p> </li> </ul></p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The unique identifier of the firewall rule group that you want to retrieve the rules for. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
     /// <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Optional additional filter for the rules to retrieve.</p> <p>The setting that determines the processing order of the rules in a rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
 }
@@ -1328,11 +1328,11 @@ pub struct ListFirewallRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFirewallRulesResponse {
     /// <p>A list of the rules that you have defined. </p> <p>This might be a partial list of the firewall rules that you've defined. For information, see <code>MaxResults</code>. </p>
-    #[serde(rename = "FirewallRules")]
+    #[serde(rename = "firewallRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rules: Option<Vec<FirewallRule>>,
     /// <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1341,15 +1341,15 @@ pub struct ListFirewallRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverDnssecConfigsRequest {
     /// <p>An optional specification to return a subset of objects.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p> <i>Optional</i>: An integer that specifies the maximum number of DNSSEC configuration results that you want Amazon Route 53 to return. If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configuration per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>(Optional) If the current AWS account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code> to get the second and subsequent pages of results.</p> <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p> <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1358,11 +1358,11 @@ pub struct ListResolverDnssecConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverDnssecConfigsResponse {
     /// <p>If a response includes the last of the DNSSEC configurations that are associated with the current AWS account, <code>NextToken</code> doesn't appear in the response.</p> <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a> request. Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in <code>NextToken</code> in the next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array that contains one <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResolverDnssecConfig.html">ResolverDnssecConfig</a> element for each configuration for DNSSEC validation that is associated with the current AWS account.</p>
-    #[serde(rename = "ResolverDnssecConfigs")]
+    #[serde(rename = "resolverDnssecConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_dnssec_configs: Option<Vec<ResolverDnssecConfig>>,
 }
@@ -1371,15 +1371,15 @@ pub struct ListResolverDnssecConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverEndpointIpAddressesRequest {
     /// <p>The maximum number of IP addresses that you want to return in the response to a <code>ListResolverEndpointIpAddresses</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 IP addresses. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p> <p>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another <code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The ID of the Resolver endpoint that you want to get IP addresses for.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     pub resolver_endpoint_id: String,
 }
 
@@ -1387,15 +1387,15 @@ pub struct ListResolverEndpointIpAddressesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverEndpointIpAddressesResponse {
     /// <p>Information about the IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).</p>
-    #[serde(rename = "IpAddresses")]
+    #[serde(rename = "ipAddresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_addresses: Option<Vec<IpAddressResponse>>,
     /// <p>The value that you specified for <code>MaxResults</code> in the request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the specified endpoint has more than <code>MaxResults</code> IP addresses, you can submit another <code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1404,15 +1404,15 @@ pub struct ListResolverEndpointIpAddressesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverEndpointsRequest {
     /// <p><p>An optional specification to return a subset of Resolver endpoints, such as all inbound Resolver endpoints.</p> <note> <p>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of Resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 Resolver endpoints. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request to get the next group of Resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1421,15 +1421,15 @@ pub struct ListResolverEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverEndpointsResponse {
     /// <p>The value that you specified for <code>MaxResults</code> in the request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If more than <code>MaxResults</code> IP addresses match the specified criteria, you can submit another <code>ListResolverEndpoint</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>
-    #[serde(rename = "ResolverEndpoints")]
+    #[serde(rename = "resolverEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoints: Option<Vec<ResolverEndpoint>>,
 }
@@ -1438,23 +1438,23 @@ pub struct ListResolverEndpointsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverQueryLogConfigAssociationsRequest {
     /// <p><p>An optional specification to return a subset of query logging associations.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of query logging associations that you want to return in the response to a <code>ListResolverQueryLogConfigAssociations</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 query logging associations. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListResolverQueryLogConfigAssociations</code> request, omit this value.</p> <p>If there are more than <code>MaxResults</code> query logging associations that match the values that you specify for <code>Filters</code>, you can submit another <code>ListResolverQueryLogConfigAssociations</code> request to get the next group of associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>The element that you want Resolver to sort query logging associations by. </p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p> </note> <p>Valid values include the following elements:</p> <ul> <li> <p> <code>CreationTime</code>: The ID of the query logging association.</p> </li> <li> <p> <code>Error</code>: If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause: </p> <ul> <li> <p> <code>DESTINATION<em>NOT</em>FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p> <code>ACCESS_DENIED</code>: Permissions don&#39;t allow sending logs to the destination.</p> </li> </ul> <p>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code> is null.</p> </li> <li> <p> <code>Id</code>: The ID of the query logging association</p> </li> <li> <p> <code>ResolverQueryLogConfigId</code>: The ID of the query logging configuration</p> </li> <li> <p> <code>ResourceId</code>: The ID of the VPC that is associated with the query logging configuration</p> </li> <li> <p> <code>Status</code>: The current status of the configuration. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p> </li> <li> <p> <code>CREATED</code>: The association between an Amazon VPC and a query logging configuration was successfully created. Resolver is logging queries that originate in the specified VPC.</p> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this query logging association.</p> </li> <li> <p> <code>FAILED</code>: Resolver either couldn&#39;t create or couldn&#39;t delete the query logging association. Here are two common causes:</p> <ul> <li> <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p>Permissions don&#39;t allow sending logs to the destination.</p> </li> </ul> </li> </ul> </li> </ul></p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
     /// <p><p>If you specified a value for <code>SortBy</code>, the order that you want query logging associations to be listed in, <code>ASCENDING</code> or <code>DESCENDING</code>.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -1463,19 +1463,19 @@ pub struct ListResolverQueryLogConfigAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverQueryLogConfigAssociationsResponse {
     /// <p>If there are more than <code>MaxResults</code> query logging associations, you can submit another <code>ListResolverQueryLogConfigAssociations</code> request to get the next group of associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list that contains one <code>ResolverQueryLogConfigAssociations</code> element for each query logging association that matches the values that you specified for <code>Filter</code>.</p>
-    #[serde(rename = "ResolverQueryLogConfigAssociations")]
+    #[serde(rename = "resolverQueryLogConfigAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config_associations: Option<Vec<ResolverQueryLogConfigAssociation>>,
     /// <p>The total number of query logging associations that were created by the current account in the specified Region. This count can differ from the number of associations that are returned in a <code>ListResolverQueryLogConfigAssociations</code> response, depending on the values that you specify in the request.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
     /// <p>The total number of query logging associations that were created by the current account in the specified Region and that match the filters that were specified in the <code>ListResolverQueryLogConfigAssociations</code> request. For the total number of associations that were created by the current account in the specified Region, see <code>TotalCount</code>.</p>
-    #[serde(rename = "TotalFilteredCount")]
+    #[serde(rename = "totalFilteredCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_filtered_count: Option<i64>,
 }
@@ -1484,23 +1484,23 @@ pub struct ListResolverQueryLogConfigAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverQueryLogConfigsRequest {
     /// <p><p>An optional specification to return a subset of query logging configurations.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of query logging configurations that you want to return in the response to a <code>ListResolverQueryLogConfigs</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 query logging configurations. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListResolverQueryLogConfigs</code> request, omit this value.</p> <p>If there are more than <code>MaxResults</code> query logging configurations that match the values that you specify for <code>Filters</code>, you can submit another <code>ListResolverQueryLogConfigs</code> request to get the next group of configurations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p><p>The element that you want Resolver to sort query logging configurations by. </p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p> </note> <p>Valid values include the following elements:</p> <ul> <li> <p> <code>Arn</code>: The ARN of the query logging configuration</p> </li> <li> <p> <code>AssociationCount</code>: The number of VPCs that are associated with the specified configuration </p> </li> <li> <p> <code>CreationTime</code>: The date and time that Resolver returned when the configuration was created</p> </li> <li> <p> <code>CreatorRequestId</code>: The value that was specified for <code>CreatorRequestId</code> when the configuration was created</p> </li> <li> <p> <code>DestinationArn</code>: The location that logs are sent to</p> </li> <li> <p> <code>Id</code>: The ID of the configuration</p> </li> <li> <p> <code>Name</code>: The name of the configuration</p> </li> <li> <p> <code>OwnerId</code>: The AWS account number of the account that created the configuration</p> </li> <li> <p> <code>ShareStatus</code>: Whether the configuration is shared with other AWS accounts or shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p> </li> <li> <p> <code>Status</code>: The current status of the configuration. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating the query logging configuration.</p> </li> <li> <p> <code>CREATED</code>: The query logging configuration was successfully created. Resolver is logging queries that originate in the specified VPC.</p> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this query logging configuration.</p> </li> <li> <p> <code>FAILED</code>: Resolver either couldn&#39;t create or couldn&#39;t delete the query logging configuration. Here are two common causes:</p> <ul> <li> <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p>Permissions don&#39;t allow sending logs to the destination.</p> </li> </ul> </li> </ul> </li> </ul></p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
     /// <p><p>If you specified a value for <code>SortBy</code>, the order that you want query logging configurations to be listed in, <code>ASCENDING</code> or <code>DESCENDING</code>.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -1509,19 +1509,19 @@ pub struct ListResolverQueryLogConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverQueryLogConfigsResponse {
     /// <p>If there are more than <code>MaxResults</code> query logging configurations, you can submit another <code>ListResolverQueryLogConfigs</code> request to get the next group of configurations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list that contains one <code>ResolverQueryLogConfig</code> element for each query logging configuration that matches the values that you specified for <code>Filter</code>.</p>
-    #[serde(rename = "ResolverQueryLogConfigs")]
+    #[serde(rename = "resolverQueryLogConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_configs: Option<Vec<ResolverQueryLogConfig>>,
     /// <p>The total number of query logging configurations that were created by the current account in the specified Region. This count can differ from the number of query logging configurations that are returned in a <code>ListResolverQueryLogConfigs</code> response, depending on the values that you specify in the request.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
     /// <p>The total number of query logging configurations that were created by the current account in the specified Region and that match the filters that were specified in the <code>ListResolverQueryLogConfigs</code> request. For the total number of query logging configurations that were created by the current account in the specified Region, see <code>TotalCount</code>.</p>
-    #[serde(rename = "TotalFilteredCount")]
+    #[serde(rename = "totalFilteredCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_filtered_count: Option<i64>,
 }
@@ -1530,15 +1530,15 @@ pub struct ListResolverQueryLogConfigsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverRuleAssociationsRequest {
     /// <p><p>An optional specification to return a subset of Resolver rules, such as Resolver rules that are associated with the same VPC ID.</p> <note> <p>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request to get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1547,15 +1547,15 @@ pub struct ListResolverRuleAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverRuleAssociationsResponse {
     /// <p>The value that you specified for <code>MaxResults</code> in the request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another <code>ListResolverRuleAssociation</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The associations that were created between Resolver rules and VPCs using the current AWS account, and that match the specified filters, if any.</p>
-    #[serde(rename = "ResolverRuleAssociations")]
+    #[serde(rename = "resolverRuleAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule_associations: Option<Vec<ResolverRuleAssociation>>,
 }
@@ -1564,15 +1564,15 @@ pub struct ListResolverRuleAssociationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResolverRulesRequest {
     /// <p><p>An optional specification to return a subset of Resolver rules, such as all Resolver rules that are associated with the same Resolver endpoint.</p> <note> <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>The maximum number of Resolver rules that you want to return in the response to a <code>ListResolverRules</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 Resolver rules.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListResolverRules</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> Resolver rules, you can submit another <code>ListResolverRules</code> request to get the next group of Resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1581,15 +1581,15 @@ pub struct ListResolverRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResolverRulesResponse {
     /// <p>The value that you specified for <code>MaxResults</code> in the request.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If more than <code>MaxResults</code> Resolver rules match the specified criteria, you can submit another <code>ListResolverRules</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Resolver rules that were created using the current AWS account and that match the specified filters, if any.</p>
-    #[serde(rename = "ResolverRules")]
+    #[serde(rename = "resolverRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rules: Option<Vec<ResolverRule>>,
 }
@@ -1598,15 +1598,15 @@ pub struct ListResolverRulesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The maximum number of tags that you want to return in the response to a <code>ListTagsForResource</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 tags.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For the first <code>ListTagsForResource</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request to get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the resource that you want to list tags for.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1614,11 +1614,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>If more than <code>MaxResults</code> tags match the specified criteria, you can submit another <code>ListTagsForResource</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1627,10 +1627,10 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutFirewallRuleGroupPolicyRequest {
     /// <p>The ARN (Amazon Resource Name) for the rule group that you want to share.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The AWS Identity and Access Management (AWS IAM) policy to attach to the rule group.</p>
-    #[serde(rename = "FirewallRuleGroupPolicy")]
+    #[serde(rename = "firewallRuleGroupPolicy")]
     pub firewall_rule_group_policy: String,
 }
 
@@ -1638,7 +1638,7 @@ pub struct PutFirewallRuleGroupPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutFirewallRuleGroupPolicyResponse {
     /// <p><p/></p>
-    #[serde(rename = "ReturnValue")]
+    #[serde(rename = "returnValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub return_value: Option<bool>,
 }
@@ -1647,10 +1647,10 @@ pub struct PutFirewallRuleGroupPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResolverQueryLogConfigPolicyRequest {
     /// <p>The Amazon Resource Name (ARN) of the account that you want to share rules with.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>An AWS Identity and Access Management policy statement that lists the query logging configurations that you want to share with another AWS account and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Actions</code> section of the statement:</p> <ul> <li> <p> <code>route53resolver:AssociateResolverQueryLogConfig</code> </p> </li> <li> <p> <code>route53resolver:DisassociateResolverQueryLogConfig</code> </p> </li> <li> <p> <code>route53resolver:ListResolverQueryLogConfigAssociations</code> </p> </li> <li> <p> <code>route53resolver:ListResolverQueryLogConfigs</code> </p> </li> </ul> <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the query logging configurations that you want to share with the account that you specified in <code>Arn</code>. </p>
-    #[serde(rename = "ResolverQueryLogConfigPolicy")]
+    #[serde(rename = "resolverQueryLogConfigPolicy")]
     pub resolver_query_log_config_policy: String,
 }
 
@@ -1659,7 +1659,7 @@ pub struct PutResolverQueryLogConfigPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutResolverQueryLogConfigPolicyResponse {
     /// <p>Whether the <code>PutResolverQueryLogConfigPolicy</code> request was successful.</p>
-    #[serde(rename = "ReturnValue")]
+    #[serde(rename = "returnValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub return_value: Option<bool>,
 }
@@ -1668,10 +1668,10 @@ pub struct PutResolverQueryLogConfigPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutResolverRulePolicyRequest {
     /// <p>The Amazon Resource Name (ARN) of the rule that you want to share with another account.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>An AWS Identity and Access Management policy statement that lists the rules that you want to share with another AWS account and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Action</code> section of the statement:</p> <ul> <li> <p> <code>route53resolver:GetResolverRule</code> </p> </li> <li> <p> <code>route53resolver:AssociateResolverRule</code> </p> </li> <li> <p> <code>route53resolver:DisassociateResolverRule</code> </p> </li> <li> <p> <code>route53resolver:ListResolverRules</code> </p> </li> <li> <p> <code>route53resolver:ListResolverRuleAssociations</code> </p> </li> </ul> <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN that you specified in <code>Arn</code>.</p>
-    #[serde(rename = "ResolverRulePolicy")]
+    #[serde(rename = "resolverRulePolicy")]
     pub resolver_rule_policy: String,
 }
 
@@ -1680,7 +1680,7 @@ pub struct PutResolverRulePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutResolverRulePolicyResponse {
     /// <p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>
-    #[serde(rename = "ReturnValue")]
+    #[serde(rename = "returnValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub return_value: Option<bool>,
 }
@@ -1690,19 +1690,19 @@ pub struct PutResolverRulePolicyResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolverDnssecConfig {
     /// <p>The ID for a configuration for DNSSEC validation.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.</p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>The ID of the virtual private cloud (VPC) that you're configuring the DNSSEC validation status for.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p><p>The validation status for a DNSSEC configuration. The status can be one of the following:</p> <ul> <li> <p> <b>ENABLING:</b> DNSSEC validation is being enabled but is not complete.</p> </li> <li> <p> <b>ENABLED:</b> DNSSEC validation is enabled.</p> </li> <li> <p> <b>DISABLING:</b> DNSSEC validation is being disabled but is not complete.</p> </li> <li> <p> <b>DISABLED</b> DNSSEC validation is disabled.</p> </li> </ul></p>
-    #[serde(rename = "ValidationStatus")]
+    #[serde(rename = "validationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validation_status: Option<String>,
 }
@@ -1712,51 +1712,51 @@ pub struct ResolverDnssecConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolverEndpoint {
     /// <p>The ARN (Amazon Resource Name) for the Resolver endpoint.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the endpoint was created, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string that identifies the request that created the Resolver endpoint. The <code>CreatorRequestId</code> allows failed requests to be retried without the risk of running the operation twice.</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p><p>Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:</p> <ul> <li> <p> <code>INBOUND</code>: allows DNS queries to your VPC from your network</p> </li> <li> <p> <code>OUTBOUND</code>: allows DNS queries from your VPC to your network</p> </li> </ul></p>
-    #[serde(rename = "Direction")]
+    #[serde(rename = "direction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub direction: Option<String>,
     /// <p>The ID of the VPC that you want to create the Resolver endpoint in.</p>
-    #[serde(rename = "HostVPCId")]
+    #[serde(rename = "hostVPCId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host_vpc_id: Option<String>,
     /// <p>The ID of the Resolver endpoint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The number of IP addresses that the Resolver endpoint can use for DNS queries.</p>
-    #[serde(rename = "IpAddressCount")]
+    #[serde(rename = "ipAddressCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address_count: Option<i64>,
     /// <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>The name that you assigned to the Resolver endpoint when you submitted a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a> request.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p><p>A code that specifies the current status of the Resolver endpoint. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating and configuring one or more Amazon VPC network interfaces for this endpoint.</p> </li> <li> <p> <code>OPERATIONAL</code>: The Amazon VPC network interfaces for this endpoint are correctly configured and able to pass inbound or outbound DNS queries between your network and Resolver.</p> </li> <li> <p> <code>UPDATING</code>: Resolver is associating or disassociating one or more network interfaces with this endpoint.</p> </li> <li> <p> <code>AUTO<em>RECOVERING</code>: Resolver is trying to recover one or more of the network interfaces that are associated with this endpoint. During the recovery process, the endpoint functions with limited capacity because of the limit on the number of DNS queries per IP address (per network interface). For the current limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-resolver">Limits on Route 53 Resolver</a>.</p> </li> <li> <p> <code>ACTION</em>NEEDED</code>: This endpoint is unhealthy, and Resolver can&#39;t automatically recover it. To resolve the problem, we recommend that you check each IP address that you associated with the endpoint. For each IP address that isn&#39;t available, add another IP address and then delete the IP address that isn&#39;t available. (An endpoint must always include at least two IP addresses.) A status of <code>ACTION_NEEDED</code> can have a variety of causes. Here are two common causes:</p> <ul> <li> <p>One or more of the network interfaces that are associated with the endpoint were deleted using Amazon VPC.</p> </li> <li> <p>The network interface couldn&#39;t be created for some reason that&#39;s outside the control of Resolver.</p> </li> </ul> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this endpoint and the associated network interfaces.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>A detailed description of the status of the Resolver endpoint.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -1766,43 +1766,43 @@ pub struct ResolverEndpoint {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolverQueryLogConfig {
     /// <p>The ARN for the query logging configuration.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The number of VPCs that are associated with the query logging configuration.</p>
-    #[serde(rename = "AssociationCount")]
+    #[serde(rename = "associationCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_count: Option<i64>,
     /// <p>The date and time that the query logging configuration was created, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string that identifies the request that created the query logging configuration. The <code>CreatorRequestId</code> allows failed requests to be retried without the risk of running the operation twice.</p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.</p>
-    #[serde(rename = "DestinationArn")]
+    #[serde(rename = "destinationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_arn: Option<String>,
     /// <p>The ID for the query logging configuration.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the query logging configuration. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AWS account ID for the account that created the query logging configuration. </p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
-    #[serde(rename = "ShareStatus")]
+    #[serde(rename = "shareStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_status: Option<String>,
     /// <p><p>The status of the specified query logging configuration. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating the query logging configuration.</p> </li> <li> <p> <code>CREATED</code>: The query logging configuration was successfully created. Resolver is logging queries that originate in the specified VPC.</p> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this query logging configuration.</p> </li> <li> <p> <code>FAILED</code>: Resolver can&#39;t deliver logs to the location that is specified in the query logging configuration. Here are two common causes:</p> <ul> <li> <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p>Permissions don&#39;t allow sending logs to the destination.</p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1812,31 +1812,31 @@ pub struct ResolverQueryLogConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolverQueryLogConfigAssociation {
     /// <p>The date and time that the VPC was associated with the query logging configuration, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause:</p> <ul> <li> <p> <code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p> <code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</p> </li> </ul> <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<String>,
     /// <p>Contains additional information about the error. If the value or <code>Error</code> is null, the value of <code>ErrorMessage</code> also is null.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The ID of the query logging association.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the query logging configuration that a VPC is associated with.</p>
-    #[serde(rename = "ResolverQueryLogConfigId")]
+    #[serde(rename = "resolverQueryLogConfigId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_query_log_config_id: Option<String>,
     /// <p>The ID of the Amazon VPC that is associated with the query logging configuration.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p><p>The status of the specified query logging association. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p> </li> <li> <p> <code>CREATED</code>: The association between an Amazon VPC and a query logging configuration was successfully created. Resolver is logging queries that originate in the specified VPC.</p> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this query logging association.</p> </li> <li> <p> <code>FAILED</code>: Resolver either couldn&#39;t create or couldn&#39;t delete the query logging association.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1846,59 +1846,59 @@ pub struct ResolverQueryLogConfigAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolverRule {
     /// <p>The ARN (Amazon Resource Name) for the Resolver rule specified by <code>Id</code>.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the Resolver rule was created, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<String>,
     /// <p>A unique string that you specified when you created the Resolver rule. <code>CreatorRequestId</code> identifies the request and allows failed requests to be retried without the risk of running the operation twice. </p>
-    #[serde(rename = "CreatorRequestId")]
+    #[serde(rename = "creatorRequestId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creator_request_id: Option<String>,
     /// <p>DNS queries for this domain name are forwarded to the IP addresses that are specified in <code>TargetIps</code>. If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).</p>
-    #[serde(rename = "DomainName")]
+    #[serde(rename = "domainName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_name: Option<String>,
     /// <p>The ID that Resolver assigned to the Resolver rule when you created it.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The date and time that the Resolver rule was last updated, in Unix time format and Coordinated Universal Time (UTC).</p>
-    #[serde(rename = "ModificationTime")]
+    #[serde(rename = "modificationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modification_time: Option<String>,
     /// <p>The name for the Resolver rule, which you specified when you created the Resolver rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.</p>
-    #[serde(rename = "OwnerId")]
+    #[serde(rename = "ownerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_id: Option<String>,
     /// <p>The ID of the endpoint that the rule is associated with.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint_id: Option<String>,
     /// <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p> <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify <code>SYSTEM</code>.</p> <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code> for <code>RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and specify <code>SYSTEM</code> for <code>RuleType</code>.</p> <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
-    #[serde(rename = "RuleType")]
+    #[serde(rename = "ruleType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_type: Option<String>,
     /// <p>Whether the rule is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.</p>
-    #[serde(rename = "ShareStatus")]
+    #[serde(rename = "shareStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_status: Option<String>,
     /// <p>A code that specifies the current status of the Resolver rule.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>A detailed description of the status of a Resolver rule.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.</p>
-    #[serde(rename = "TargetIps")]
+    #[serde(rename = "targetIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_ips: Option<Vec<TargetAddress>>,
 }
@@ -1908,27 +1908,27 @@ pub struct ResolverRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResolverRuleAssociation {
     /// <p>The ID of the association between a Resolver rule and a VPC. Resolver assigns this value when you submit an <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a> request.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of an association between a Resolver rule and a VPC.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the Resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</p>
-    #[serde(rename = "ResolverRuleId")]
+    #[serde(rename = "resolverRuleId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule_id: Option<String>,
     /// <p>A code that specifies the current status of the association between a Resolver rule and a VPC.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>A detailed description of the status of the association between a Resolver rule and a VPC.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The ID of the VPC that you associated the Resolver rule with.</p>
-    #[serde(rename = "VPCId")]
+    #[serde(rename = "vPCId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -1938,15 +1938,15 @@ pub struct ResolverRuleAssociation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResolverRuleConfig {
     /// <p>The new name for the Resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the new outbound Resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in <code>TargetIps</code>.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint_id: Option<String>,
     /// <p>For DNS queries that originate in your VPC, the new IP addresses that you want to route outbound DNS queries to.</p>
-    #[serde(rename = "TargetIps")]
+    #[serde(rename = "targetIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_ips: Option<Vec<TargetAddress>>,
 }
@@ -1955,10 +1955,10 @@ pub struct ResolverRuleConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes, the value of <code>Key</code> might be <code>account-id</code>.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value for the tag. For example, if <code>Key</code> is <code>account-id</code>, then <code>Value</code> might be the ID of the customer account that you're creating the resource for.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1966,10 +1966,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p><p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command: </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a> </p> </li> </ul></p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags that you want to add to the specified resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1981,10 +1981,10 @@ pub struct TagResourceResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TargetAddress {
     /// <p>One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     pub ip: String,
     /// <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
 }
@@ -1993,10 +1993,10 @@ pub struct TargetAddress {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p><p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command: </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a> </p> </li> </ul></p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags that you want to remove to the specified resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2008,10 +2008,10 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFirewallConfigRequest {
     /// <p>Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. </p> <ul> <li> <p>By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. </p> </li> <li> <p>If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. </p> </li> </ul> <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
-    #[serde(rename = "FirewallFailOpen")]
+    #[serde(rename = "firewallFailOpen")]
     pub firewall_fail_open: String,
     /// <p>The ID of the VPC that the configuration is for.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -2019,7 +2019,7 @@ pub struct UpdateFirewallConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFirewallConfigResponse {
     /// <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC. </p>
-    #[serde(rename = "FirewallConfig")]
+    #[serde(rename = "firewallConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_config: Option<FirewallConfig>,
 }
@@ -2028,13 +2028,13 @@ pub struct UpdateFirewallConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFirewallDomainsRequest {
     /// <p><p>A list of domains to use in the update operation.</p> <p>Each domain specification in your domain list must satisfy the following requirements: </p> <ul> <li> <p>It can optionally start with <code>*</code> (asterisk).</p> </li> <li> <p>With the exception of the optional starting asterisk, it must only contain the following characters: <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> (hyphen).</p> </li> <li> <p>It must be from 1-255 characters in length. </p> </li> </ul></p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     pub domains: Vec<String>,
     /// <p>The ID of the domain list whose domains you want to update. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
     /// <p><p>What you want DNS Firewall to do with the domains that you are providing: </p> <ul> <li> <p> <code>ADD</code> - Add the domains to the ones that are already in the domain list. </p> </li> <li> <p> <code>REMOVE</code> - Search the domain list for the domains and remove them from the list.</p> </li> <li> <p> <code>REPLACE</code> - Update the domain list to exactly match the list that you are providing. </p> </li> </ul></p>
-    #[serde(rename = "Operation")]
+    #[serde(rename = "operation")]
     pub operation: String,
 }
 
@@ -2042,19 +2042,19 @@ pub struct UpdateFirewallDomainsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFirewallDomainsResponse {
     /// <p>The ID of the firewall domain list that DNS Firewall just updated.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the domain list. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p> </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Additional information about the status of the list, if available.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
 }
@@ -2063,18 +2063,18 @@ pub struct UpdateFirewallDomainsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFirewallRuleGroupAssociationRequest {
     /// <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
-    #[serde(rename = "FirewallRuleGroupAssociationId")]
+    #[serde(rename = "firewallRuleGroupAssociationId")]
     pub firewall_rule_group_association_id: String,
     /// <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
-    #[serde(rename = "MutationProtection")]
+    #[serde(rename = "mutationProtection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutation_protection: Option<String>,
     /// <p>The name of the rule group association.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting. </p> <p>You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 100, 200, and so on. You can change the priority setting for a rule group association after you create it.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
 }
@@ -2083,7 +2083,7 @@ pub struct UpdateFirewallRuleGroupAssociationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFirewallRuleGroupAssociationResponse {
     /// <p>The association that you just updated. </p>
-    #[serde(rename = "FirewallRuleGroupAssociation")]
+    #[serde(rename = "firewallRuleGroupAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule_group_association: Option<FirewallRuleGroupAssociation>,
 }
@@ -2092,37 +2092,37 @@ pub struct UpdateFirewallRuleGroupAssociationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFirewallRuleRequest {
     /// <p><p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list:</p> <ul> <li> <p> <code>ALLOW</code> - Permit the request to go through.</p> </li> <li> <p> <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p> </li> <li> <p> <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule&#39;s <code>BlockResponse</code>. </p> </li> </ul></p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideDnsType")]
+    #[serde(rename = "blockOverrideDnsType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_dns_type: Option<String>,
     /// <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideDomain")]
+    #[serde(rename = "blockOverrideDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_domain: Option<String>,
     /// <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-    #[serde(rename = "BlockOverrideTtl")]
+    #[serde(rename = "blockOverrideTtl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_override_ttl: Option<i64>,
     /// <p><p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p> <ul> <li> <p> <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p> </li> <li> <p> <code>NXDOMAIN</code> - Respond indicating that the domain name that&#39;s in the query doesn&#39;t exist.</p> </li> <li> <p> <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule&#39;s <code>BlockOverride*</code> settings. </p> </li> </ul></p>
-    #[serde(rename = "BlockResponse")]
+    #[serde(rename = "blockResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_response: Option<String>,
     /// <p>The ID of the domain list to use in the rule. </p>
-    #[serde(rename = "FirewallDomainListId")]
+    #[serde(rename = "firewallDomainListId")]
     pub firewall_domain_list_id: String,
     /// <p>The unique identifier of the firewall rule group for the rule. </p>
-    #[serde(rename = "FirewallRuleGroupId")]
+    #[serde(rename = "firewallRuleGroupId")]
     pub firewall_rule_group_id: String,
     /// <p>The name of the rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p> <p>You must specify a unique priority for each rule in a rule group. To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You can change the priority setting for the rules in a rule group at any time.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
 }
@@ -2131,7 +2131,7 @@ pub struct UpdateFirewallRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFirewallRuleResponse {
     /// <p>The firewall rule that you just updated. </p>
-    #[serde(rename = "FirewallRule")]
+    #[serde(rename = "firewallRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub firewall_rule: Option<FirewallRule>,
 }
@@ -2140,10 +2140,10 @@ pub struct UpdateFirewallRuleResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateResolverDnssecConfigRequest {
     /// <p>The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The new value that you are specifying for DNSSEC validation for the VPC. The value can be <code>ENABLE</code> or <code>DISABLE</code>. Be aware that it can take time for a validation status change to be completed.</p>
-    #[serde(rename = "Validation")]
+    #[serde(rename = "validation")]
     pub validation: String,
 }
 
@@ -2151,7 +2151,7 @@ pub struct UpdateResolverDnssecConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateResolverDnssecConfigResponse {
     /// <p>A complex type that contains settings for the specified DNSSEC configuration.</p>
-    #[serde(rename = "ResolverDNSSECConfig")]
+    #[serde(rename = "resolverDNSSECConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_dnssec_config: Option<ResolverDnssecConfig>,
 }
@@ -2160,11 +2160,11 @@ pub struct UpdateResolverDnssecConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateResolverEndpointRequest {
     /// <p>The name of the Resolver endpoint that you want to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The ID of the Resolver endpoint that you want to update.</p>
-    #[serde(rename = "ResolverEndpointId")]
+    #[serde(rename = "resolverEndpointId")]
     pub resolver_endpoint_id: String,
 }
 
@@ -2172,7 +2172,7 @@ pub struct UpdateResolverEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateResolverEndpointResponse {
     /// <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>
-    #[serde(rename = "ResolverEndpoint")]
+    #[serde(rename = "resolverEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_endpoint: Option<ResolverEndpoint>,
 }
@@ -2181,10 +2181,10 @@ pub struct UpdateResolverEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateResolverRuleRequest {
     /// <p>The new settings for the Resolver rule.</p>
-    #[serde(rename = "Config")]
+    #[serde(rename = "config")]
     pub config: ResolverRuleConfig,
     /// <p>The ID of the Resolver rule that you want to update.</p>
-    #[serde(rename = "ResolverRuleId")]
+    #[serde(rename = "resolverRuleId")]
     pub resolver_rule_id: String,
 }
 
@@ -2192,7 +2192,7 @@ pub struct UpdateResolverRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateResolverRuleResponse {
     /// <p>The response to an <code>UpdateResolverRule</code> request.</p>
-    #[serde(rename = "ResolverRule")]
+    #[serde(rename = "resolverRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolver_rule: Option<ResolverRule>,
 }

@@ -29,13 +29,13 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AssetDestinationEntry {
     /// <p>The unique identifier for the asset.</p>
-    #[serde(rename = "AssetId")]
+    #[serde(rename = "assetId")]
     pub asset_id: String,
     /// <p>The S3 bucket that is the destination for the asset.</p>
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     pub bucket: String,
     /// <p>The name of the object in Amazon S3 for the asset.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
 }
@@ -43,7 +43,7 @@ pub struct AssetDestinationEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssetDetails {
-    #[serde(rename = "S3SnapshotAsset")]
+    #[serde(rename = "s3SnapshotAsset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_snapshot_asset: Option<S3SnapshotAsset>,
 }
@@ -53,35 +53,35 @@ pub struct AssetDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssetEntry {
     /// <p>The ARN for the asset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>Information about the asset, including its size.</p>
-    #[serde(rename = "AssetDetails")]
+    #[serde(rename = "assetDetails")]
     pub asset_details: AssetDetails,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     pub asset_type: String,
     /// <p>The date and time that the asset was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     pub created_at: f64,
     /// <p>The unique identifier for the data set associated with this asset.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for the asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The unique identifier for the revision associated with this asset.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
     /// <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     pub updated_at: f64,
 }
 
@@ -89,10 +89,10 @@ pub struct AssetEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AssetSourceEntry {
     /// <p>The S3 bucket that's part of the source of the asset.</p>
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     pub bucket: String,
     /// <p>The name of the object in Amazon S3 for the asset.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
 }
 
@@ -100,7 +100,7 @@ pub struct AssetSourceEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelJobRequest {
     /// <p>The unique identifier for a job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -109,16 +109,16 @@ pub struct CancelJobRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDataSetRequest {
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     pub asset_type: String,
     /// <p>A description for the data set. This value can be up to 16,348 characters long.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>The name of the data set.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -127,47 +127,47 @@ pub struct CreateDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDataSetResponse {
     /// <p>The ARN for the data set.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_type: Option<String>,
     /// <p>The date and time that the data set was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description for the data set.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The unique identifier for the data set.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the data set.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,
     /// <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-    #[serde(rename = "OriginDetails")]
+    #[serde(rename = "originDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_details: Option<OriginDetails>,
     /// <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The tags for the data set.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -177,10 +177,10 @@ pub struct CreateDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateJobRequest {
     /// <p>The details for the CreateJob request.</p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     pub details: RequestDetails,
     /// <p>The type of job to be created.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -188,35 +188,35 @@ pub struct CreateJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateJobResponse {
     /// <p>The ARN for the job.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the job was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Details about the job.</p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<ResponseDetails>,
     /// <p>The errors associated with jobs.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<JobError>>,
     /// <p>The unique identifier for the job.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The state of the job.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The job type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The date and time that the job was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -226,14 +226,14 @@ pub struct CreateJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateRevisionRequest {
     /// <p>An optional comment about the revision.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -242,39 +242,39 @@ pub struct CreateRevisionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateRevisionResponse {
     /// <p>The ARN for the revision</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An optional comment about the revision.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The date and time that the revision was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The unique identifier for the data set associated with this revision.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-    #[serde(rename = "Finalized")]
+    #[serde(rename = "finalized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finalized: Option<bool>,
     /// <p>The unique identifier for the revision.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The tags for the revision.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -284,36 +284,36 @@ pub struct CreateRevisionResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataSetEntry {
     /// <p>The ARN for the data set.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     pub asset_type: String,
     /// <p>The date and time that the data set was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     pub created_at: f64,
     /// <p>The description for the data set.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>The unique identifier for the data set.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The name of the data set.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     pub origin: String,
     /// <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-    #[serde(rename = "OriginDetails")]
+    #[serde(rename = "originDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_details: Option<OriginDetails>,
     /// <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     pub updated_at: f64,
 }
 
@@ -321,13 +321,13 @@ pub struct DataSetEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAssetRequest {
     /// <p>The unique identifier for an asset.</p>
-    #[serde(rename = "AssetId")]
+    #[serde(rename = "assetId")]
     pub asset_id: String,
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -335,7 +335,7 @@ pub struct DeleteAssetRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDataSetRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
 }
 
@@ -343,21 +343,21 @@ pub struct DeleteDataSetRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteRevisionRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Details {
-    #[serde(rename = "ImportAssetFromSignedUrlJobErrorDetails")]
+    #[serde(rename = "importAssetFromSignedUrlJobErrorDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_asset_from_signed_url_job_error_details:
         Option<ImportAssetFromSignedUrlJobErrorDetails>,
-    #[serde(rename = "ImportAssetsFromS3JobErrorDetails")]
+    #[serde(rename = "importAssetsFromS3JobErrorDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_assets_from_s3_job_error_details: Option<Vec<AssetSourceEntry>>,
 }
@@ -367,13 +367,13 @@ pub struct Details {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExportAssetToSignedUrlRequestDetails {
     /// <p>The unique identifier for the asset that is exported to a signed URL.</p>
-    #[serde(rename = "AssetId")]
+    #[serde(rename = "assetId")]
     pub asset_id: String,
     /// <p>The unique identifier for the data set associated with this export job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for the revision associated with this export request.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -382,20 +382,20 @@ pub struct ExportAssetToSignedUrlRequestDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExportAssetToSignedUrlResponseDetails {
     /// <p>The unique identifier for the asset associated with this export job.</p>
-    #[serde(rename = "AssetId")]
+    #[serde(rename = "assetId")]
     pub asset_id: String,
     /// <p>The unique identifier for the data set associated with this export job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for the revision associated with this export response.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
     /// <p>The signed URL for the export request.</p>
-    #[serde(rename = "SignedUrl")]
+    #[serde(rename = "signedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_url: Option<String>,
     /// <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
-    #[serde(rename = "SignedUrlExpiresAt")]
+    #[serde(rename = "signedUrlExpiresAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_url_expires_at: Option<f64>,
 }
@@ -405,17 +405,17 @@ pub struct ExportAssetToSignedUrlResponseDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExportAssetsToS3RequestDetails {
     /// <p>The destination for the asset.</p>
-    #[serde(rename = "AssetDestinations")]
+    #[serde(rename = "assetDestinations")]
     pub asset_destinations: Vec<AssetDestinationEntry>,
     /// <p>The unique identifier for the data set associated with this export job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>Encryption configuration for the export job.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<ExportServerSideEncryption>,
     /// <p>The unique identifier for the revision associated with this export request.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -424,17 +424,17 @@ pub struct ExportAssetsToS3RequestDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExportAssetsToS3ResponseDetails {
     /// <p>The destination in Amazon S3 where the asset is exported.</p>
-    #[serde(rename = "AssetDestinations")]
+    #[serde(rename = "assetDestinations")]
     pub asset_destinations: Vec<AssetDestinationEntry>,
     /// <p>The unique identifier for the data set associated with this export job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>Encryption configuration of the export job.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<ExportServerSideEncryption>,
     /// <p>The unique identifier for the revision associated with this export response.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -443,14 +443,14 @@ pub struct ExportAssetsToS3ResponseDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExportRevisionsToS3RequestDetails {
     /// <p>The unique identifier for the data set associated with this export job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>Encryption configuration for the export job.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<ExportServerSideEncryption>,
     /// <p>The destination for the revision.</p>
-    #[serde(rename = "RevisionDestinations")]
+    #[serde(rename = "revisionDestinations")]
     pub revision_destinations: Vec<RevisionDestinationEntry>,
 }
 
@@ -459,14 +459,14 @@ pub struct ExportRevisionsToS3RequestDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExportRevisionsToS3ResponseDetails {
     /// <p>The unique identifier for the data set associated with this export job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>Encryption configuration of the export job.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<ExportServerSideEncryption>,
     /// <p>The destination in Amazon S3 where the revision is exported.</p>
-    #[serde(rename = "RevisionDestinations")]
+    #[serde(rename = "revisionDestinations")]
     pub revision_destinations: Vec<RevisionDestinationEntry>,
 }
 
@@ -474,11 +474,11 @@ pub struct ExportRevisionsToS3ResponseDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ExportServerSideEncryption {
     /// <p>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
-    #[serde(rename = "KmsKeyArn")]
+    #[serde(rename = "kmsKeyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -486,13 +486,13 @@ pub struct ExportServerSideEncryption {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAssetRequest {
     /// <p>The unique identifier for an asset.</p>
-    #[serde(rename = "AssetId")]
+    #[serde(rename = "assetId")]
     pub asset_id: String,
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -500,43 +500,43 @@ pub struct GetAssetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAssetResponse {
     /// <p>The ARN for the asset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Information about the asset, including its size.</p>
-    #[serde(rename = "AssetDetails")]
+    #[serde(rename = "assetDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_details: Option<AssetDetails>,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_type: Option<String>,
     /// <p>The date and time that the asset was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The unique identifier for the data set associated with this asset.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The unique identifier for the asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique identifier for the revision associated with this asset.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -545,7 +545,7 @@ pub struct GetAssetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDataSetRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
 }
 
@@ -553,47 +553,47 @@ pub struct GetDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataSetResponse {
     /// <p>The ARN for the data set.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_type: Option<String>,
     /// <p>The date and time that the data set was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description for the data set.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The unique identifier for the data set.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the data set.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,
     /// <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-    #[serde(rename = "OriginDetails")]
+    #[serde(rename = "originDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_details: Option<OriginDetails>,
     /// <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The tags for the data set.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -602,7 +602,7 @@ pub struct GetDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobRequest {
     /// <p>The unique identifier for a job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -610,35 +610,35 @@ pub struct GetJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobResponse {
     /// <p>The ARN for the job.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the job was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Details about the job.</p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<ResponseDetails>,
     /// <p>The errors associated with jobs.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<JobError>>,
     /// <p>The unique identifier for the job.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The state of the job.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The job type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The date and time that the job was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -647,10 +647,10 @@ pub struct GetJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRevisionRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -658,39 +658,39 @@ pub struct GetRevisionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRevisionResponse {
     /// <p>The ARN for the revision</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An optional comment about the revision.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The date and time that the revision was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The unique identifier for the data set associated with this revision.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-    #[serde(rename = "Finalized")]
+    #[serde(rename = "finalized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finalized: Option<bool>,
     /// <p>The unique identifier for the revision.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The tags for the revision.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -698,7 +698,7 @@ pub struct GetRevisionResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportAssetFromSignedUrlJobErrorDetails {
-    #[serde(rename = "AssetName")]
+    #[serde(rename = "assetName")]
     pub asset_name: String,
 }
 
@@ -707,16 +707,16 @@ pub struct ImportAssetFromSignedUrlJobErrorDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportAssetFromSignedUrlRequestDetails {
     /// <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name.</p>
-    #[serde(rename = "AssetName")]
+    #[serde(rename = "assetName")]
     pub asset_name: String,
     /// <p>The unique identifier for the data set associated with this import job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
-    #[serde(rename = "Md5Hash")]
+    #[serde(rename = "md5Hash")]
     pub md_5_hash: String,
     /// <p>The unique identifier for the revision associated with this import request.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -725,24 +725,24 @@ pub struct ImportAssetFromSignedUrlRequestDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportAssetFromSignedUrlResponseDetails {
     /// <p>The name for the asset associated with this import response.</p>
-    #[serde(rename = "AssetName")]
+    #[serde(rename = "assetName")]
     pub asset_name: String,
     /// <p>The unique identifier for the data set associated with this import job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
-    #[serde(rename = "Md5Hash")]
+    #[serde(rename = "md5Hash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub md_5_hash: Option<String>,
     /// <p>The unique identifier for the revision associated with this import response.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
     /// <p>The signed URL.</p>
-    #[serde(rename = "SignedUrl")]
+    #[serde(rename = "signedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_url: Option<String>,
     /// <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
-    #[serde(rename = "SignedUrlExpiresAt")]
+    #[serde(rename = "signedUrlExpiresAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_url_expires_at: Option<f64>,
 }
@@ -752,13 +752,13 @@ pub struct ImportAssetFromSignedUrlResponseDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportAssetsFromS3RequestDetails {
     /// <p>Is a list of S3 bucket and object key pairs.</p>
-    #[serde(rename = "AssetSources")]
+    #[serde(rename = "assetSources")]
     pub asset_sources: Vec<AssetSourceEntry>,
     /// <p>The unique identifier for the data set associated with this import job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for the revision associated with this import request.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -767,13 +767,13 @@ pub struct ImportAssetsFromS3RequestDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportAssetsFromS3ResponseDetails {
     /// <p>Is a list of Amazon S3 bucket and object key pairs.</p>
-    #[serde(rename = "AssetSources")]
+    #[serde(rename = "assetSources")]
     pub asset_sources: Vec<AssetSourceEntry>,
     /// <p>The unique identifier for the data set associated with this import job.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The unique identifier for the revision associated with this import response.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -782,29 +782,29 @@ pub struct ImportAssetsFromS3ResponseDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobEntry {
     /// <p>The ARN for the job.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The date and time that the job was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     pub created_at: f64,
     /// <p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     pub details: ResponseDetails,
     /// <p>Errors for jobs.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<JobError>>,
     /// <p>The unique identifier for the job.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The state of the job.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
     /// <p>The job type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>The date and time that the job was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     pub updated_at: f64,
 }
 
@@ -813,28 +813,28 @@ pub struct JobEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobError {
     /// <p>The code for the job error.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     pub code: String,
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<Details>,
     /// <p>The name of the limit that was reached.</p>
-    #[serde(rename = "LimitName")]
+    #[serde(rename = "limitName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_name: Option<String>,
     /// <p>The value of the exceeded limit.</p>
-    #[serde(rename = "LimitValue")]
+    #[serde(rename = "limitValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_value: Option<f64>,
     /// <p>The message related to the job error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     pub message: String,
     /// <p>The unique identifier for the resource related to the error.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The type of resource related to the error.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -843,14 +843,14 @@ pub struct JobError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDataSetRevisionsRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The maximum number of results returned by a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -859,11 +859,11 @@ pub struct ListDataSetRevisionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDataSetRevisionsResponse {
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The asset objects listed by the request.</p>
-    #[serde(rename = "Revisions")]
+    #[serde(rename = "revisions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revisions: Option<Vec<RevisionEntry>>,
 }
@@ -872,15 +872,15 @@ pub struct ListDataSetRevisionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDataSetsRequest {
     /// <p>The maximum number of results returned by a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,
 }
@@ -889,11 +889,11 @@ pub struct ListDataSetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDataSetsResponse {
     /// <p>The data set objects listed by the request.</p>
-    #[serde(rename = "DataSets")]
+    #[serde(rename = "dataSets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sets: Option<Vec<DataSetEntry>>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -902,19 +902,19 @@ pub struct ListDataSetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListJobsRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The maximum number of results returned by a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
 }
@@ -923,11 +923,11 @@ pub struct ListJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListJobsResponse {
     /// <p>The jobs listed by the request.</p>
-    #[serde(rename = "Jobs")]
+    #[serde(rename = "jobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub jobs: Option<Vec<JobEntry>>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -936,18 +936,18 @@ pub struct ListJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRevisionAssetsRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The maximum number of results returned by a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -955,11 +955,11 @@ pub struct ListRevisionAssetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRevisionAssetsResponse {
     /// <p>The asset objects listed by the request.</p>
-    #[serde(rename = "Assets")]
+    #[serde(rename = "assets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assets: Option<Vec<AssetEntry>>,
     /// <p>The token value retrieved from a previous call to access the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -968,7 +968,7 @@ pub struct ListRevisionAssetsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -976,7 +976,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A label that consists of a customer-defined key and an optional value.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -984,7 +984,7 @@ pub struct ListTagsForResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OriginDetails {
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
 }
 
@@ -993,23 +993,23 @@ pub struct OriginDetails {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RequestDetails {
     /// <p>Details about the export to signed URL request.</p>
-    #[serde(rename = "ExportAssetToSignedUrl")]
+    #[serde(rename = "exportAssetToSignedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_asset_to_signed_url: Option<ExportAssetToSignedUrlRequestDetails>,
     /// <p>Details about the export to Amazon S3 request.</p>
-    #[serde(rename = "ExportAssetsToS3")]
+    #[serde(rename = "exportAssetsToS3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_assets_to_s3: Option<ExportAssetsToS3RequestDetails>,
     /// <p>Details about the export to Amazon S3 request.</p>
-    #[serde(rename = "ExportRevisionsToS3")]
+    #[serde(rename = "exportRevisionsToS3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_revisions_to_s3: Option<ExportRevisionsToS3RequestDetails>,
     /// <p>Details about the import from signed URL request.</p>
-    #[serde(rename = "ImportAssetFromSignedUrl")]
+    #[serde(rename = "importAssetFromSignedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_asset_from_signed_url: Option<ImportAssetFromSignedUrlRequestDetails>,
     /// <p>Details about the import from Amazon S3 request.</p>
-    #[serde(rename = "ImportAssetsFromS3")]
+    #[serde(rename = "importAssetsFromS3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_assets_from_s3: Option<ImportAssetsFromS3RequestDetails>,
 }
@@ -1019,23 +1019,23 @@ pub struct RequestDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResponseDetails {
     /// <p>Details for the export to signed URL response.</p>
-    #[serde(rename = "ExportAssetToSignedUrl")]
+    #[serde(rename = "exportAssetToSignedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_asset_to_signed_url: Option<ExportAssetToSignedUrlResponseDetails>,
     /// <p>Details for the export to Amazon S3 response.</p>
-    #[serde(rename = "ExportAssetsToS3")]
+    #[serde(rename = "exportAssetsToS3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_assets_to_s3: Option<ExportAssetsToS3ResponseDetails>,
     /// <p>Details for the export revisions to Amazon S3 response.</p>
-    #[serde(rename = "ExportRevisionsToS3")]
+    #[serde(rename = "exportRevisionsToS3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub export_revisions_to_s3: Option<ExportRevisionsToS3ResponseDetails>,
     /// <p>Details for the import from signed URL response.</p>
-    #[serde(rename = "ImportAssetFromSignedUrl")]
+    #[serde(rename = "importAssetFromSignedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_asset_from_signed_url: Option<ImportAssetFromSignedUrlResponseDetails>,
     /// <p>Details for the import from Amazon S3 response.</p>
-    #[serde(rename = "ImportAssetsFromS3")]
+    #[serde(rename = "importAssetsFromS3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub import_assets_from_s3: Option<ImportAssetsFromS3ResponseDetails>,
 }
@@ -1044,14 +1044,14 @@ pub struct ResponseDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RevisionDestinationEntry {
     /// <p>The S3 bucket that is the destination for the assets in the revision.</p>
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     pub bucket: String,
     /// <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
-    #[serde(rename = "KeyPattern")]
+    #[serde(rename = "keyPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_pattern: Option<String>,
     /// <p>The unique identifier for the revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -1060,31 +1060,31 @@ pub struct RevisionDestinationEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RevisionEntry {
     /// <p>The ARN for the revision.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>An optional comment about the revision.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The date and time that the revision was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     pub created_at: f64,
     /// <p>The unique identifier for the data set associated with this revision.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-    #[serde(rename = "Finalized")]
+    #[serde(rename = "finalized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finalized: Option<bool>,
     /// <p>The unique identifier for the revision.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     pub updated_at: f64,
 }
 
@@ -1093,7 +1093,7 @@ pub struct RevisionEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct S3SnapshotAsset {
     /// <p>The size of the S3 object that is the object.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     pub size: f64,
 }
 
@@ -1101,7 +1101,7 @@ pub struct S3SnapshotAsset {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartJobRequest {
     /// <p>The unique identifier for a job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -1114,10 +1114,10 @@ pub struct StartJobResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A label that consists of a customer-defined key and an optional value.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -1125,10 +1125,10 @@ pub struct TagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The key tags.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1137,16 +1137,16 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAssetRequest {
     /// <p>The unique identifier for an asset.</p>
-    #[serde(rename = "AssetId")]
+    #[serde(rename = "assetId")]
     pub asset_id: String,
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -1154,43 +1154,43 @@ pub struct UpdateAssetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateAssetResponse {
     /// <p>The ARN for the asset.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Information about the asset, including its size.</p>
-    #[serde(rename = "AssetDetails")]
+    #[serde(rename = "assetDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_details: Option<AssetDetails>,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_type: Option<String>,
     /// <p>The date and time that the asset was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The unique identifier for the data set associated with this asset.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>The unique identifier for the asset.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique identifier for the revision associated with this asset.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision_id: Option<String>,
     /// <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -1200,14 +1200,14 @@ pub struct UpdateAssetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataSetRequest {
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>The description for the data set.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the data set.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1216,43 +1216,43 @@ pub struct UpdateDataSetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDataSetResponse {
     /// <p>The ARN for the data set.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-    #[serde(rename = "AssetType")]
+    #[serde(rename = "assetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub asset_type: Option<String>,
     /// <p>The date and time that the data set was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The description for the data set.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The unique identifier for the data set.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the data set.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-    #[serde(rename = "Origin")]
+    #[serde(rename = "origin")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,
     /// <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-    #[serde(rename = "OriginDetails")]
+    #[serde(rename = "originDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub origin_details: Option<OriginDetails>,
     /// <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }
@@ -1262,18 +1262,18 @@ pub struct UpdateDataSetResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRevisionRequest {
     /// <p>An optional comment about the revision.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The unique identifier for a data set.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     pub data_set_id: String,
     /// <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p>
-    #[serde(rename = "Finalized")]
+    #[serde(rename = "finalized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finalized: Option<bool>,
     /// <p>The unique identifier for a revision.</p>
-    #[serde(rename = "RevisionId")]
+    #[serde(rename = "revisionId")]
     pub revision_id: String,
 }
 
@@ -1281,35 +1281,35 @@ pub struct UpdateRevisionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateRevisionResponse {
     /// <p>The ARN for the revision.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An optional comment about the revision.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>The date and time that the revision was created, in ISO 8601 format.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The unique identifier for the data set associated with this revision.</p>
-    #[serde(rename = "DataSetId")]
+    #[serde(rename = "dataSetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_set_id: Option<String>,
     /// <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-    #[serde(rename = "Finalized")]
+    #[serde(rename = "finalized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub finalized: Option<bool>,
     /// <p>The unique identifier for the revision.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-    #[serde(rename = "SourceId")]
+    #[serde(rename = "sourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_id: Option<String>,
     /// <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
-    #[serde(rename = "UpdatedAt")]
+    #[serde(rename = "updatedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<f64>,
 }

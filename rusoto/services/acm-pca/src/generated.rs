@@ -54,59 +54,59 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ASN1Subject {
     /// <p>For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit. </p> <p>Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.</p>
-    #[serde(rename = "CommonName")]
+    #[serde(rename = "commonName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub common_name: Option<String>,
     /// <p>Two-digit code that specifies the country in which the certificate subject located.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
     /// <p>Disambiguating information for the certificate subject.</p>
-    #[serde(rename = "DistinguishedNameQualifier")]
+    #[serde(rename = "distinguishedNameQualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distinguished_name_qualifier: Option<String>,
     /// <p>Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.</p>
-    #[serde(rename = "GenerationQualifier")]
+    #[serde(rename = "generationQualifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub generation_qualifier: Option<String>,
     /// <p>First name.</p>
-    #[serde(rename = "GivenName")]
+    #[serde(rename = "givenName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub given_name: Option<String>,
     /// <p>Concatenation that typically contains the first letter of the <b>GivenName</b>, the first letter of the middle name if one exists, and the first letter of the <b>Surname</b>.</p>
-    #[serde(rename = "Initials")]
+    #[serde(rename = "initials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initials: Option<String>,
     /// <p>The locality (such as a city or town) in which the certificate subject is located.</p>
-    #[serde(rename = "Locality")]
+    #[serde(rename = "locality")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locality: Option<String>,
     /// <p>Legal name of the organization with which the certificate subject is affiliated. </p>
-    #[serde(rename = "Organization")]
+    #[serde(rename = "organization")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization: Option<String>,
     /// <p>A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.</p>
-    #[serde(rename = "OrganizationalUnit")]
+    #[serde(rename = "organizationalUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organizational_unit: Option<String>,
     /// <p>Typically a shortened version of a longer <b>GivenName</b>. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.</p>
-    #[serde(rename = "Pseudonym")]
+    #[serde(rename = "pseudonym")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pseudonym: Option<String>,
     /// <p>The certificate serial number.</p>
-    #[serde(rename = "SerialNumber")]
+    #[serde(rename = "serialNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serial_number: Option<String>,
     /// <p>State in which the subject of the certificate is located.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.</p>
-    #[serde(rename = "Surname")]
+    #[serde(rename = "surname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub surname: Option<String>,
     /// <p>A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.</p>
-    #[serde(rename = "Title")]
+    #[serde(rename = "title")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
 }
@@ -115,10 +115,10 @@ pub struct ASN1Subject {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccessDescription {
     /// <p>The location of <code>AccessDescription</code> information.</p>
-    #[serde(rename = "AccessLocation")]
+    #[serde(rename = "accessLocation")]
     pub access_location: GeneralName,
     /// <p>The type and format of <code>AccessDescription</code> information.</p>
-    #[serde(rename = "AccessMethod")]
+    #[serde(rename = "accessMethod")]
     pub access_method: AccessMethod,
 }
 
@@ -126,11 +126,11 @@ pub struct AccessDescription {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccessMethod {
     /// <p>Specifies the <code>AccessMethod</code>.</p>
-    #[serde(rename = "AccessMethodType")]
+    #[serde(rename = "accessMethodType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_method_type: Option<String>,
     /// <p>An object identifier (OID) specifying the <code>AccessMethod</code>. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
-    #[serde(rename = "CustomObjectIdentifier")]
+    #[serde(rename = "customObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_object_identifier: Option<String>,
 }
@@ -140,10 +140,10 @@ pub struct AccessMethod {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ApiPassthrough {
     /// <p>Specifies X.509 extension information for a certificate.</p>
-    #[serde(rename = "Extensions")]
+    #[serde(rename = "extensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extensions: Option<Extensions>,
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject: Option<ASN1Subject>,
 }
@@ -153,59 +153,59 @@ pub struct ApiPassthrough {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CertificateAuthority {
     /// <p>Amazon Resource Name (ARN) for your private certificate authority (CA). The format is <code> <i>12345678-1234-1234-1234-123456789012</i> </code>.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Your private CA configuration.</p>
-    #[serde(rename = "CertificateAuthorityConfiguration")]
+    #[serde(rename = "certificateAuthorityConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_configuration: Option<CertificateAuthorityConfiguration>,
     /// <p>Date and time at which your private CA was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Reason the request to create your private CA failed.</p>
-    #[serde(rename = "FailureReason")]
+    #[serde(rename = "failureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_reason: Option<String>,
     /// <p>Defines a cryptographic key management compliance standard used for handling CA keys. </p> <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p> <p>Note: AWS Region ap-northeast-3 supports only FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter and value when creating a CA in that Region. Specifying a different value (or no value) results in an <code>InvalidArgsException</code> with the message "A certificate authority cannot be created in this region with the specified security standard."</p>
-    #[serde(rename = "KeyStorageSecurityStandard")]
+    #[serde(rename = "keyStorageSecurityStandard")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_storage_security_standard: Option<String>,
     /// <p>Date and time at which your private CA was last updated.</p>
-    #[serde(rename = "LastStateChangeAt")]
+    #[serde(rename = "lastStateChangeAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_state_change_at: Option<f64>,
     /// <p>Date and time after which your private CA certificate is not valid.</p>
-    #[serde(rename = "NotAfter")]
+    #[serde(rename = "notAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_after: Option<f64>,
     /// <p>Date and time before which your private CA certificate is not valid.</p>
-    #[serde(rename = "NotBefore")]
+    #[serde(rename = "notBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub not_before: Option<f64>,
     /// <p>The AWS account ID that owns the certificate authority.</p>
-    #[serde(rename = "OwnerAccount")]
+    #[serde(rename = "ownerAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_account: Option<String>,
     /// <p>The period during which a deleted CA can be restored. For more information, see the <code>PermanentDeletionTimeInDays</code> parameter of the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html">DeleteCertificateAuthorityRequest</a> action. </p>
-    #[serde(rename = "RestorableUntil")]
+    #[serde(rename = "restorableUntil")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub restorable_until: Option<f64>,
     /// <p>Information about the certificate revocation list (CRL) created and maintained by your private CA. </p>
-    #[serde(rename = "RevocationConfiguration")]
+    #[serde(rename = "revocationConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revocation_configuration: Option<RevocationConfiguration>,
     /// <p>Serial number of your private CA.</p>
-    #[serde(rename = "Serial")]
+    #[serde(rename = "serial")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub serial: Option<String>,
     /// <p>Status of your private CA.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Type of your private CA.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -214,17 +214,17 @@ pub struct CertificateAuthority {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CertificateAuthorityConfiguration {
     /// <p>Specifies information to be added to the extension section of the certificate signing request (CSR).</p>
-    #[serde(rename = "CsrExtensions")]
+    #[serde(rename = "csrExtensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csr_extensions: Option<CsrExtensions>,
     /// <p>Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.</p>
-    #[serde(rename = "KeyAlgorithm")]
+    #[serde(rename = "keyAlgorithm")]
     pub key_algorithm: String,
     /// <p>Name of the algorithm your private CA uses to sign certificate requests.</p> <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter used to sign certificates when they are issued.</p>
-    #[serde(rename = "SigningAlgorithm")]
+    #[serde(rename = "signingAlgorithm")]
     pub signing_algorithm: String,
     /// <p>Structure that contains X.500 distinguished name information for your private CA.</p>
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     pub subject: ASN1Subject,
 }
 
@@ -232,13 +232,13 @@ pub struct CertificateAuthorityConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCertificateAuthorityAuditReportRequest {
     /// <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
-    #[serde(rename = "AuditReportResponseFormat")]
+    #[serde(rename = "auditReportResponseFormat")]
     pub audit_report_response_format: String,
     /// <p>The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>.</p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>The name of the S3 bucket that will contain the audit report.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     pub s3_bucket_name: String,
 }
 
@@ -246,11 +246,11 @@ pub struct CreateCertificateAuthorityAuditReportRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCertificateAuthorityAuditReportResponse {
     /// <p>An alphanumeric string that contains a report identifier.</p>
-    #[serde(rename = "AuditReportId")]
+    #[serde(rename = "auditReportId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_report_id: Option<String>,
     /// <p>The <b>key</b> that uniquely identifies the report file in your S3 bucket.</p>
-    #[serde(rename = "S3Key")]
+    #[serde(rename = "s3Key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key: Option<String>,
 }
@@ -259,25 +259,25 @@ pub struct CreateCertificateAuthorityAuditReportResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateCertificateAuthorityRequest {
     /// <p>Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.</p>
-    #[serde(rename = "CertificateAuthorityConfiguration")]
+    #[serde(rename = "certificateAuthorityConfiguration")]
     pub certificate_authority_configuration: CertificateAuthorityConfiguration,
     /// <p>The type of the certificate authority.</p>
-    #[serde(rename = "CertificateAuthorityType")]
+    #[serde(rename = "certificateAuthorityType")]
     pub certificate_authority_type: String,
     /// <p>Custom string that can be used to distinguish between calls to the <b>CreateCertificateAuthority</b> action. Idempotency tokens for <b>CreateCertificateAuthority</b> time out after five minutes. Therefore, if you call <b>CreateCertificateAuthority</b> multiple times with the same idempotency token within five minutes, ACM Private CA recognizes that you are requesting only certificate authority and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificate authorities.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idempotency_token: Option<String>,
     /// <p>Specifies a cryptographic key management compliance standard used for handling CA keys.</p> <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p> <p>Note: <code>FIPS_140_2_LEVEL_3_OR_HIGHER</code> is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide <code>FIPS_140_2_LEVEL_2_OR_HIGHER</code> as the argument for <code>KeyStorageSecurityStandard</code>. Failure to do this results in an <code>InvalidArgsException</code> with the message, "A certificate authority cannot be created in this region with the specified security standard."</p>
-    #[serde(rename = "KeyStorageSecurityStandard")]
+    #[serde(rename = "keyStorageSecurityStandard")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_storage_security_standard: Option<String>,
     /// <p>Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the <b>CRL Distribution Points</b> extension of your CA certificate. For more information, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a> structure. </p>
-    #[serde(rename = "RevocationConfiguration")]
+    #[serde(rename = "revocationConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revocation_configuration: Option<RevocationConfiguration>,
     /// <p>Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM Tags</a>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -286,7 +286,7 @@ pub struct CreateCertificateAuthorityRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateCertificateAuthorityResponse {
     /// <p>If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This is of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn: Option<String>,
 }
@@ -295,16 +295,16 @@ pub struct CreateCertificateAuthorityResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePermissionRequest {
     /// <p>The actions that the specified AWS service principal can use. These include <code>IssueCertificate</code>, <code>GetCertificate</code>, and <code>ListPermissions</code>.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     pub actions: Vec<String>,
     /// <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>The AWS service or identity that receives the permission. At this time, the only valid principal is <code>acm.amazonaws.com</code>.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: String,
     /// <p>The ID of the calling account.</p>
-    #[serde(rename = "SourceAccount")]
+    #[serde(rename = "sourceAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_account: Option<String>,
 }
@@ -313,22 +313,22 @@ pub struct CreatePermissionRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CrlConfiguration {
     /// <p>Name inserted into the certificate <b>CRL Distribution Points</b> extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.</p>
-    #[serde(rename = "CustomCname")]
+    #[serde(rename = "customCname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_cname: Option<String>,
     /// <p>Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action or for an existing CA when you call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action. </p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
     /// <p>Validity period of the CRL in days.</p>
-    #[serde(rename = "ExpirationInDays")]
+    #[serde(rename = "expirationInDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_in_days: Option<i64>,
     /// <p>Name of the S3 bucket that contains the CRL. If you do not provide a value for the <b>CustomCname</b> argument, the name of your S3 bucket is placed into the <b>CRL Distribution Points</b> extension of the issued certificate. You can change the name of your bucket by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action. You must specify a <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies">bucket policy</a> that allows ACM Private CA to write the CRL to your bucket.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access. </p> <p>If no value is specified, the default is <code>PUBLIC_READ</code>.</p> <p> <i>Note:</i> This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as <code>BUCKET_OWNER_FULL_CONTROL</code>, and not doing so results in an error. If you have disabled BPA in S3, then you can specify either <code>BUCKET_OWNER_FULL_CONTROL</code> or <code>PUBLIC_READ</code> as the value.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa">Blocking public access to the S3 bucket</a>.</p>
-    #[serde(rename = "S3ObjectAcl")]
+    #[serde(rename = "s3ObjectAcl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object_acl: Option<String>,
 }
@@ -337,11 +337,11 @@ pub struct CrlConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CsrExtensions {
     /// <p>Indicates the purpose of the certificate and of the key contained in the certificate.</p>
-    #[serde(rename = "KeyUsage")]
+    #[serde(rename = "keyUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_usage: Option<KeyUsage>,
     /// <p>For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.2.2.2">Subject Information Access</a> in RFC 5280.</p>
-    #[serde(rename = "SubjectInformationAccess")]
+    #[serde(rename = "subjectInformationAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject_information_access: Option<Vec<AccessDescription>>,
 }
@@ -350,10 +350,10 @@ pub struct CsrExtensions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteCertificateAuthorityRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.</p>
-    #[serde(rename = "PermanentDeletionTimeInDays")]
+    #[serde(rename = "permanentDeletionTimeInDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permanent_deletion_time_in_days: Option<i64>,
 }
@@ -362,13 +362,13 @@ pub struct DeleteCertificateAuthorityRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePermissionRequest {
     /// <p>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is <code>acm.amazonaws.com</code> </p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     pub principal: String,
     /// <p>The AWS account that calls this action.</p>
-    #[serde(rename = "SourceAccount")]
+    #[serde(rename = "sourceAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_account: Option<String>,
 }
@@ -377,7 +377,7 @@ pub struct DeletePermissionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePolicyRequest {
     /// <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted. You can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. The ARN value must have the form <code>arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab</code>. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -385,10 +385,10 @@ pub struct DeletePolicyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCertificateAuthorityAuditReportRequest {
     /// <p>The report ID returned by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action.</p>
-    #[serde(rename = "AuditReportId")]
+    #[serde(rename = "auditReportId")]
     pub audit_report_id: String,
     /// <p>The Amazon Resource Name (ARN) of the private CA. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
 }
 
@@ -396,19 +396,19 @@ pub struct DescribeCertificateAuthorityAuditReportRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCertificateAuthorityAuditReportResponse {
     /// <p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>
-    #[serde(rename = "AuditReportStatus")]
+    #[serde(rename = "auditReportStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub audit_report_status: Option<String>,
     /// <p>The date and time at which the report was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>Name of the S3 bucket that contains the report.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>S3 <b>key</b> that uniquely identifies the report file in your S3 bucket.</p>
-    #[serde(rename = "S3Key")]
+    #[serde(rename = "s3Key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_key: Option<String>,
 }
@@ -417,7 +417,7 @@ pub struct DescribeCertificateAuthorityAuditReportResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCertificateAuthorityRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
 }
 
@@ -425,7 +425,7 @@ pub struct DescribeCertificateAuthorityRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCertificateAuthorityResponse {
     /// <p>A <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html">CertificateAuthority</a> structure that contains information about your private CA.</p>
-    #[serde(rename = "CertificateAuthority")]
+    #[serde(rename = "certificateAuthority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority: Option<CertificateAuthority>,
 }
@@ -434,11 +434,11 @@ pub struct DescribeCertificateAuthorityResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EdiPartyName {
     /// <p>Specifies the name assigner.</p>
-    #[serde(rename = "NameAssigner")]
+    #[serde(rename = "nameAssigner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_assigner: Option<String>,
     /// <p>Specifies the party name.</p>
-    #[serde(rename = "PartyName")]
+    #[serde(rename = "partyName")]
     pub party_name: String,
 }
 
@@ -447,11 +447,11 @@ pub struct EdiPartyName {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExtendedKeyUsage {
     /// <p>Specifies a custom <code>ExtendedKeyUsage</code> with an object identifier (OID).</p>
-    #[serde(rename = "ExtendedKeyUsageObjectIdentifier")]
+    #[serde(rename = "extendedKeyUsageObjectIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extended_key_usage_object_identifier: Option<String>,
     /// <p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.12">RFC 5280</a>.</p>
-    #[serde(rename = "ExtendedKeyUsageType")]
+    #[serde(rename = "extendedKeyUsageType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extended_key_usage_type: Option<String>,
 }
@@ -461,18 +461,18 @@ pub struct ExtendedKeyUsage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Extensions {
     /// <p>Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p> <p>In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.</p>
-    #[serde(rename = "CertificatePolicies")]
+    #[serde(rename = "certificatePolicies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_policies: Option<Vec<PolicyInformation>>,
     /// <p>Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the <code>KeyUsage</code> extension.</p>
-    #[serde(rename = "ExtendedKeyUsage")]
+    #[serde(rename = "extendedKeyUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extended_key_usage: Option<Vec<ExtendedKeyUsage>>,
-    #[serde(rename = "KeyUsage")]
+    #[serde(rename = "keyUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_usage: Option<KeyUsage>,
     /// <p>The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.</p>
-    #[serde(rename = "SubjectAlternativeNames")]
+    #[serde(rename = "subjectAlternativeNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subject_alternative_names: Option<Vec<GeneralName>>,
 }
@@ -480,35 +480,35 @@ pub struct Extensions {
 /// <p>Describes an ASN.1 X.400 <code>GeneralName</code> as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. Only one of the following naming options should be provided. Providing more than one option results in an <code>InvalidArgsException</code> error.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct GeneralName {
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_name: Option<ASN1Subject>,
     /// <p>Represents <code>GeneralName</code> as a DNS name.</p>
-    #[serde(rename = "DnsName")]
+    #[serde(rename = "dnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_name: Option<String>,
     /// <p>Represents <code>GeneralName</code> as an <code>EdiPartyName</code> object.</p>
-    #[serde(rename = "EdiPartyName")]
+    #[serde(rename = "ediPartyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub edi_party_name: Option<EdiPartyName>,
     /// <p>Represents <code>GeneralName</code> as an IPv4 or IPv6 address.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address: Option<String>,
     /// <p>Represents <code>GeneralName</code> using an <code>OtherName</code> object.</p>
-    #[serde(rename = "OtherName")]
+    #[serde(rename = "otherName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub other_name: Option<OtherName>,
     /// <p> Represents <code>GeneralName</code> as an object identifier (OID).</p>
-    #[serde(rename = "RegisteredId")]
+    #[serde(rename = "registeredId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registered_id: Option<String>,
     /// <p>Represents <code>GeneralName</code> as an <a href="https://tools.ietf.org/html/rfc822">RFC 822</a> email address.</p>
-    #[serde(rename = "Rfc822Name")]
+    #[serde(rename = "rfc822Name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rfc_822_name: Option<String>,
     /// <p>Represents <code>GeneralName</code> as a URI.</p>
-    #[serde(rename = "UniformResourceIdentifier")]
+    #[serde(rename = "uniformResourceIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uniform_resource_identifier: Option<String>,
 }
@@ -517,7 +517,7 @@ pub struct GeneralName {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCertificateAuthorityCertificateRequest {
     /// <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
 }
 
@@ -525,11 +525,11 @@ pub struct GetCertificateAuthorityCertificateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCertificateAuthorityCertificateResponse {
     /// <p>Base64-encoded certificate authority (CA) certificate.</p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
     /// <p>Base64-encoded certificate chain that includes any intermediate certificates and chains up to root certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. If this is a root CA, the value will be null.</p>
-    #[serde(rename = "CertificateChain")]
+    #[serde(rename = "certificateChain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_chain: Option<String>,
 }
@@ -538,7 +538,7 @@ pub struct GetCertificateAuthorityCertificateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCertificateAuthorityCsrRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
 }
 
@@ -546,7 +546,7 @@ pub struct GetCertificateAuthorityCsrRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCertificateAuthorityCsrResponse {
     /// <p>The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.</p>
-    #[serde(rename = "Csr")]
+    #[serde(rename = "csr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csr: Option<String>,
 }
@@ -555,10 +555,10 @@ pub struct GetCertificateAuthorityCsrResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCertificateRequest {
     /// <p>The ARN of the issued certificate. The ARN contains the certificate serial number and must be in the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>/certificate/<i>286535153982981100925020015808220737245</i> </code> </p>
-    #[serde(rename = "CertificateArn")]
+    #[serde(rename = "certificateArn")]
     pub certificate_arn: String,
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
 }
 
@@ -566,11 +566,11 @@ pub struct GetCertificateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCertificateResponse {
     /// <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code> parameter.</p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
     /// <p>The base64 PEM-encoded certificate chain that chains up to the root CA certificate that you used to sign your private CA certificate. </p>
-    #[serde(rename = "CertificateChain")]
+    #[serde(rename = "certificateChain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_chain: Option<String>,
 }
@@ -579,7 +579,7 @@ pub struct GetCertificateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetPolicyRequest {
     /// <p>The Amazon Resource Number (ARN) of the private CA that will have its policy retrieved. You can find the CA's ARN by calling the ListCertificateAuthorities action. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -587,7 +587,7 @@ pub struct GetPolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetPolicyResponse {
     /// <p>The policy attached to the private CA as a JSON document.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
 }
@@ -596,7 +596,7 @@ pub struct GetPolicyResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportCertificateAuthorityCertificateRequest {
     /// <p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.</p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -604,10 +604,10 @@ pub struct ImportCertificateAuthorityCertificateRequest {
     )]
     pub certificate: bytes::Bytes,
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding. </p> <p>This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.</p>
-    #[serde(rename = "CertificateChain")]
+    #[serde(rename = "certificateChain")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -621,14 +621,14 @@ pub struct ImportCertificateAuthorityCertificateRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct IssueCertificateRequest {
     /// <p>Specifies X.509 certificate information to be included in the issued certificate. An <code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must be selected, or else this parameter is ignored. For more information about using these templates, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate Templates</a>.</p> <p>If conflicting or duplicate certificate information is supplied during certificate issuance, ACM Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of operation rules</a> to determine what information is used.</p>
-    #[serde(rename = "ApiPassthrough")]
+    #[serde(rename = "apiPassthrough")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_passthrough: Option<ApiPassthrough>,
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>The certificate signing request (CSR) for the certificate you want to issue. As an example, you can use the following OpenSSL command to create the CSR and a 2048 bit RSA private key. </p> <p> <code>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code> </p> <p>If you have a configuration file, you can then use the following OpenSSL command. The <code>usr_cert</code> block in the configuration file contains your X509 version 3 extensions. </p> <p> <code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code> </p> <p>Note: A CSR must provide either a <i>subject name</i> or a <i>subject alternative name</i> or the request will be rejected. </p>
-    #[serde(rename = "Csr")]
+    #[serde(rename = "csr")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -636,21 +636,21 @@ pub struct IssueCertificateRequest {
     )]
     pub csr: bytes::Bytes,
     /// <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute. Therefore, if you call <b>IssueCertificate</b> multiple times with the same idempotency token within one minute, ACM Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idempotency_token: Option<String>,
     /// <p>The name of the algorithm that will be used to sign the certificate to be issued. </p> <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</p>
-    #[serde(rename = "SigningAlgorithm")]
+    #[serde(rename = "signingAlgorithm")]
     pub signing_algorithm: String,
     /// <p>Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the <code>EndEntityCertificate/V1</code> template. For CA certificates, you should choose the shortest path length that meets your needs. The path length is indicated by the PathLen<i>N</i> portion of the ARN, where <i>N</i> is the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth">CA depth</a>.</p> <p>Note: The CA depth configured on a subordinate CA certificate must not exceed the limit set by its parents in the CA hierarchy.</p> <p>For a list of <code>TemplateArn</code> values supported by ACM Private CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate Templates</a>.</p>
-    #[serde(rename = "TemplateArn")]
+    #[serde(rename = "templateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub template_arn: Option<String>,
     /// <p>Information describing the end of the validity period of the certificate. This parameter sets the “Not After” date for the certificate.</p> <p>Certificate validity is the period of time during which a certificate is valid. Validity can be expressed as an explicit date and time when the certificate expires, or as a span of time after issuance, stated in days, months, or years. For more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC 5280. </p> <p>This value is unaffected when <code>ValidityNotBefore</code> is also specified. For example, if <code>Validity</code> is set to 20 days in the future, the certificate will expire 20 days from issuance time regardless of the <code>ValidityNotBefore</code> value.</p> <p>The end of the validity period configured on a certificate must not exceed the limit set on its parents in the CA hierarchy.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     pub validity: Validity,
     /// <p>Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.</p> <p>By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The <code>ValidityNotBefore</code> parameter can be used to customize the “Not Before” value. </p> <p>Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code> parameter is optional.</p> <p>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time, using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html">Validity</a> in this API reference and <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC 5280.</p>
-    #[serde(rename = "ValidityNotBefore")]
+    #[serde(rename = "validityNotBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity_not_before: Option<Validity>,
 }
@@ -659,7 +659,7 @@ pub struct IssueCertificateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IssueCertificateResponse {
     /// <p>The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>/certificate/<i>286535153982981100925020015808220737245</i> </code> </p>
-    #[serde(rename = "CertificateArn")]
+    #[serde(rename = "certificateArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_arn: Option<String>,
 }
@@ -668,39 +668,39 @@ pub struct IssueCertificateResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KeyUsage {
     /// <p>Key can be used to sign CRLs.</p>
-    #[serde(rename = "CRLSign")]
+    #[serde(rename = "cRLSign")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crl_sign: Option<bool>,
     /// <p>Key can be used to decipher data.</p>
-    #[serde(rename = "DataEncipherment")]
+    #[serde(rename = "dataEncipherment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_encipherment: Option<bool>,
     /// <p>Key can be used only to decipher data.</p>
-    #[serde(rename = "DecipherOnly")]
+    #[serde(rename = "decipherOnly")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decipher_only: Option<bool>,
     /// <p> Key can be used for digital signing.</p>
-    #[serde(rename = "DigitalSignature")]
+    #[serde(rename = "digitalSignature")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub digital_signature: Option<bool>,
     /// <p>Key can be used only to encipher data.</p>
-    #[serde(rename = "EncipherOnly")]
+    #[serde(rename = "encipherOnly")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encipher_only: Option<bool>,
     /// <p>Key can be used in a key-agreement protocol.</p>
-    #[serde(rename = "KeyAgreement")]
+    #[serde(rename = "keyAgreement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_agreement: Option<bool>,
     /// <p>Key can be used to sign certificates.</p>
-    #[serde(rename = "KeyCertSign")]
+    #[serde(rename = "keyCertSign")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_cert_sign: Option<bool>,
     /// <p>Key can be used to encipher data.</p>
-    #[serde(rename = "KeyEncipherment")]
+    #[serde(rename = "keyEncipherment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_encipherment: Option<bool>,
     /// <p>Key can be used for non-repudiation.</p>
-    #[serde(rename = "NonRepudiation")]
+    #[serde(rename = "nonRepudiation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_repudiation: Option<bool>,
 }
@@ -709,15 +709,15 @@ pub struct KeyUsage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCertificateAuthoritiesRequest {
     /// <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the <code>NextToken</code> parameter from the response you just received.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.</p>
-    #[serde(rename = "ResourceOwner")]
+    #[serde(rename = "resourceOwner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_owner: Option<String>,
 }
@@ -726,11 +726,11 @@ pub struct ListCertificateAuthoritiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCertificateAuthoritiesResponse {
     /// <p>Summary information about each certificate authority you have created.</p>
-    #[serde(rename = "CertificateAuthorities")]
+    #[serde(rename = "certificateAuthorities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authorities: Option<Vec<CertificateAuthority>>,
     /// <p>When the list is truncated, this value is present and should be used for the <code>NextToken</code> parameter in a subsequent pagination request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -739,14 +739,14 @@ pub struct ListCertificateAuthoritiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPermissionsRequest {
     /// <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must be of the form: <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code> You can get a private CA's ARN by running the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <b>NextToken</b> element is sent in the response. Use this <b>NextToken</b> value in a subsequent request to retrieve additional items.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -755,11 +755,11 @@ pub struct ListPermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPermissionsResponse {
     /// <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.</p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<Permission>>,
 }
@@ -768,14 +768,14 @@ pub struct ListPermissionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <b>NextToken</b> element is sent in the response. Use this <b>NextToken</b> value in a subsequent request to retrieve additional items.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -784,11 +784,11 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResponse {
     /// <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The tags associated with your private CA.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -797,10 +797,10 @@ pub struct ListTagsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OtherName {
     /// <p>Specifies an OID. </p>
-    #[serde(rename = "TypeId")]
+    #[serde(rename = "typeId")]
     pub type_id: String,
     /// <p>Specifies an OID value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -809,27 +809,27 @@ pub struct OtherName {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Permission {
     /// <p>The private CA actions that can be performed by the designated AWS service.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub actions: Option<Vec<String>>,
     /// <p>The Amazon Resource Number (ARN) of the private CA from which the permission was issued.</p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate_authority_arn: Option<String>,
     /// <p>The time at which the permission was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>The name of the policy that is associated with the permission.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<String>,
     /// <p>The AWS service or entity that holds the permission. At this time, the only valid principal is <code>acm.amazonaws.com</code>.</p>
-    #[serde(rename = "Principal")]
+    #[serde(rename = "principal")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal: Option<String>,
     /// <p>The ID of the account that assigned the permission.</p>
-    #[serde(rename = "SourceAccount")]
+    #[serde(rename = "sourceAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_account: Option<String>,
 }
@@ -839,10 +839,10 @@ pub struct Permission {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PolicyInformation {
     /// <p>Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
-    #[serde(rename = "CertPolicyId")]
+    #[serde(rename = "certPolicyId")]
     pub cert_policy_id: String,
     /// <p>Modifies the given <code>CertPolicyId</code> with a qualifier. ACM Private CA supports the certification practice statement (CPS) qualifier.</p>
-    #[serde(rename = "PolicyQualifiers")]
+    #[serde(rename = "policyQualifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_qualifiers: Option<Vec<PolicyQualifierInfo>>,
 }
@@ -852,10 +852,10 @@ pub struct PolicyInformation {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PolicyQualifierInfo {
     /// <p>Identifies the qualifier modifying a <code>CertPolicyId</code>.</p>
-    #[serde(rename = "PolicyQualifierId")]
+    #[serde(rename = "policyQualifierId")]
     pub policy_qualifier_id: String,
     /// <p>Defines the qualifier type. ACM Private CA supports the use of a URI for a CPS qualifier in this field.</p>
-    #[serde(rename = "Qualifier")]
+    #[serde(rename = "qualifier")]
     pub qualifier: Qualifier,
 }
 
@@ -863,10 +863,10 @@ pub struct PolicyQualifierInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutPolicyRequest {
     /// <p>The path and file name of a JSON-formatted IAM policy to attach to the specified private CA resource. If this policy does not contain all required statements or if it includes any statement that is not allowed, the <code>PutPolicy</code> action returns an <code>InvalidPolicyException</code>. For information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     pub policy: String,
     /// <p><p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p> <p/></p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -875,7 +875,7 @@ pub struct PutPolicyRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Qualifier {
     /// <p>Contains a pointer to a certification practice statement (CPS) published by the CA.</p>
-    #[serde(rename = "CpsUri")]
+    #[serde(rename = "cpsUri")]
     pub cps_uri: String,
 }
 
@@ -883,7 +883,7 @@ pub struct Qualifier {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RestoreCertificateAuthorityRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
 }
 
@@ -891,7 +891,7 @@ pub struct RestoreCertificateAuthorityRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RevocationConfiguration {
     /// <p>Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.</p>
-    #[serde(rename = "CrlConfiguration")]
+    #[serde(rename = "crlConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub crl_configuration: Option<CrlConfiguration>,
 }
@@ -900,13 +900,13 @@ pub struct RevocationConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RevokeCertificateRequest {
     /// <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The <b>GetCertificate</b> action retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509 -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial number from the console or use the <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a> action in the <i>AWS Certificate Manager API Reference</i>. </p>
-    #[serde(rename = "CertificateSerial")]
+    #[serde(rename = "certificateSerial")]
     pub certificate_serial: String,
     /// <p>Specifies why you revoked the certificate.</p>
-    #[serde(rename = "RevocationReason")]
+    #[serde(rename = "revocationReason")]
     pub revocation_reason: String,
 }
 
@@ -914,10 +914,10 @@ pub struct RevokeCertificateRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>Key (name) of the tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>Value of the tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -926,10 +926,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagCertificateAuthorityRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>List of tags to be associated with the CA.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -937,10 +937,10 @@ pub struct TagCertificateAuthorityRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagCertificateAuthorityRequest {
     /// <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>List of tags to be removed from the CA.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -948,14 +948,14 @@ pub struct UntagCertificateAuthorityRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateCertificateAuthorityRequest {
     /// <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
-    #[serde(rename = "CertificateAuthorityArn")]
+    #[serde(rename = "certificateAuthorityArn")]
     pub certificate_authority_arn: String,
     /// <p>Revocation information for your private CA.</p>
-    #[serde(rename = "RevocationConfiguration")]
+    #[serde(rename = "revocationConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revocation_configuration: Option<RevocationConfiguration>,
     /// <p>Status of your private CA.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -965,10 +965,10 @@ pub struct UpdateCertificateAuthorityRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Validity {
     /// <p>Determines how <i>ACM Private CA</i> interprets the <code>Value</code> parameter, an integer. Supported validity types include those listed below. Type definitions with values include a sample input value and the resulting output. </p> <p> <code>END_DATE</code>: The specific date and time when the certificate will expire, expressed using UTCTime (YYMMDDHHMMSS) or GeneralizedTime (YYYYMMDDHHMMSS) format. When UTCTime is used, if the year field (YY) is greater than or equal to 50, the year is interpreted as 19YY. If the year field is less than 50, the year is interpreted as 20YY.</p> <ul> <li> <p>Sample input value: 491231235959 (UTCTime format)</p> </li> <li> <p>Output expiration date/time: 12/31/2049 23:59:59</p> </li> </ul> <p> <code>ABSOLUTE</code>: The specific date and time when the validity of a certificate will start or expire, expressed in seconds since the Unix Epoch. </p> <ul> <li> <p>Sample input value: 2524608000</p> </li> <li> <p>Output expiration date/time: 01/01/2050 00:00:00</p> </li> </ul> <p> <code>DAYS</code>, <code>MONTHS</code>, <code>YEARS</code>: The relative time from the moment of issuance until the certificate will expire, expressed in days, months, or years. </p> <p>Example if <code>DAYS</code>, issued on 10/12/2020 at 12:34:54 UTC:</p> <ul> <li> <p>Sample input value: 90</p> </li> <li> <p>Output expiration date: 01/10/2020 12:34:54 UTC</p> </li> </ul> <p>The minimum validity duration for a certificate using relative time (<code>DAYS</code>) is one day. The minimum validity for a certificate using absolute time (<code>ABSOLUTE</code> or <code>END_DATE</code>) is one second.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>A long integer interpreted according to the value of <code>Type</code>, below.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: i64,
 }
 

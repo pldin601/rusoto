@@ -54,59 +54,59 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Address {
     /// <p>The unique ID for an address.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
     /// <p>The city in an address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "City")]
+    #[serde(rename = "city")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub city: Option<String>,
     /// <p>The name of the company to receive a Snow device at an address.</p>
-    #[serde(rename = "Company")]
+    #[serde(rename = "company")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub company: Option<String>,
     /// <p>The country in an address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
     /// <p>If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.</p>
-    #[serde(rename = "IsRestricted")]
+    #[serde(rename = "isRestricted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_restricted: Option<bool>,
     /// <p>This field is no longer used and the value is ignored.</p>
-    #[serde(rename = "Landmark")]
+    #[serde(rename = "landmark")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub landmark: Option<String>,
     /// <p>The name of a person to receive a Snow device at an address.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The phone number associated with an address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "PhoneNumber")]
+    #[serde(rename = "phoneNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<String>,
     /// <p>The postal code in an address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "PostalCode")]
+    #[serde(rename = "postalCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub postal_code: Option<String>,
     /// <p>This field is no longer used and the value is ignored.</p>
-    #[serde(rename = "PrefectureOrDistrict")]
+    #[serde(rename = "prefectureOrDistrict")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prefecture_or_district: Option<String>,
     /// <p>The state or province in an address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "StateOrProvince")]
+    #[serde(rename = "stateOrProvince")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_or_province: Option<String>,
     /// <p>The first line in a street address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "Street1")]
+    #[serde(rename = "street1")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub street_1: Option<String>,
     /// <p>The second line in a street address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "Street2")]
+    #[serde(rename = "street2")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub street_2: Option<String>,
     /// <p>The third line in a street address that a Snow device is to be delivered to.</p>
-    #[serde(rename = "Street3")]
+    #[serde(rename = "street3")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub street_3: Option<String>,
 }
@@ -115,7 +115,7 @@ pub struct Address {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelClusterRequest {
     /// <p>The 39-character ID for the cluster that you want to cancel, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
 }
 
@@ -127,7 +127,7 @@ pub struct CancelClusterResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelJobRequest {
     /// <p>The 39-character job ID for the job that you want to cancel, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -140,19 +140,19 @@ pub struct CancelJobResult {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClusterListEntry {
     /// <p>The 39-character ID for the cluster that you want to list, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>The current state of this cluster. For information about the state of a specific node, see <a>JobListEntry$JobState</a>.</p>
-    #[serde(rename = "ClusterState")]
+    #[serde(rename = "clusterState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_state: Option<String>,
     /// <p>The creation date for this cluster.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>Defines an optional description of the cluster, for example <code>Environmental Data Cluster-01</code>.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -162,63 +162,63 @@ pub struct ClusterListEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClusterMetadata {
     /// <p>The automatically generated ID for a specific address.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
     /// <p>The automatically generated ID for a cluster.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>The current status of the cluster.</p>
-    #[serde(rename = "ClusterState")]
+    #[serde(rename = "clusterState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_state: Option<String>,
     /// <p>The creation date for this cluster.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The optional description of the cluster.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.</p>
-    #[serde(rename = "ForwardingAddressId")]
+    #[serde(rename = "forwardingAddressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forwarding_address_id: Option<String>,
     /// <p>The type of job for this cluster. Currently, the only job type supported for clusters is <code>LOCAL_USE</code>.</p>
-    #[serde(rename = "JobType")]
+    #[serde(rename = "jobType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_type: Option<String>,
     /// <p>The <code>KmsKeyARN</code> Amazon Resource Name (ARN) associated with this cluster. This ARN was created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS Key Management Service (AWS KMS).</p>
-    #[serde(rename = "KmsKeyARN")]
+    #[serde(rename = "kmsKeyARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.</p>
-    #[serde(rename = "Notification")]
+    #[serde(rename = "notification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification: Option<Notification>,
     /// <p>Represents metadata and configuration settings for services on an AWS Snow Family device.</p>
-    #[serde(rename = "OnDeviceServiceConfiguration")]
+    #[serde(rename = "onDeviceServiceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_device_service_configuration: Option<OnDeviceServiceConfiguration>,
     /// <p>The arrays of <a>JobResource</a> objects that can include updated <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<JobResource>,
     /// <p>The role ARN associated with this cluster. This ARN was created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in AWS Identity and Access Management (IAM).</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p><p>The shipping speed for each node in this cluster. This speed doesn&#39;t dictate how soon you&#39;ll get each device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:</p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the US, you have access to one-day shipping and two-day shipping.</p> </li> </ul></p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_option: Option<String>,
     /// <p><p>The type of AWS Snow device to use for this cluster. </p> <note> <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p> </note></p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_type: Option<String>,
     /// <p>The tax documents required in your AWS Region.</p>
-    #[serde(rename = "TaxDocuments")]
+    #[serde(rename = "taxDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tax_documents: Option<TaxDocuments>,
 }
@@ -228,11 +228,11 @@ pub struct ClusterMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CompatibleImage {
     /// <p>The unique identifier for an individual Snow device AMI.</p>
-    #[serde(rename = "AmiId")]
+    #[serde(rename = "amiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ami_id: Option<String>,
     /// <p>The optional name of a compatible image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -241,7 +241,7 @@ pub struct CompatibleImage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAddressRequest {
     /// <p>The address that you want the Snow device shipped to.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     pub address: Address,
 }
 
@@ -249,7 +249,7 @@ pub struct CreateAddressRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAddressResult {
     /// <p>The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snow device for that job shipped to.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
 }
@@ -258,49 +258,49 @@ pub struct CreateAddressResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateClusterRequest {
     /// <p>The ID for the address that you want the cluster shipped to.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     pub address_id: String,
     /// <p>An optional description of this specific cluster, for example <code>Environmental Data Cluster-01</code>.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The forwarding address ID for a cluster. This field is not supported in most regions.</p>
-    #[serde(rename = "ForwardingAddressId")]
+    #[serde(rename = "forwardingAddressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forwarding_address_id: Option<String>,
     /// <p>The type of job for this cluster. Currently, the only job type supported for clusters is <code>LOCAL_USE</code>.</p> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "JobType")]
+    #[serde(rename = "jobType")]
     pub job_type: String,
     /// <p>The <code>KmsKeyARN</code> value that you want to associate with this cluster. <code>KmsKeyARN</code> values are created by using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS Key Management Service (AWS KMS). </p>
-    #[serde(rename = "KmsKeyARN")]
+    #[serde(rename = "kmsKeyARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.</p>
-    #[serde(rename = "Notification")]
+    #[serde(rename = "notification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification: Option<Notification>,
     /// <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
-    #[serde(rename = "OnDeviceServiceConfiguration")]
+    #[serde(rename = "onDeviceServiceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_device_service_configuration: Option<OnDeviceServiceConfiguration>,
     /// <p>Allows you to securely operate and manage Snow devices in a cluster remotely from outside of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will automatically be available when the device arrives at your location. Otherwise, you need to use the Snowball Client to manage the device.</p>
-    #[serde(rename = "RemoteManagement")]
+    #[serde(rename = "remoteManagement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_management: Option<String>,
     /// <p>The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language. </p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     pub resources: JobResource,
     /// <p>The <code>RoleARN</code> that you want to associate with this cluster. <code>RoleArn</code> values are created by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in AWS Identity and Access Management (IAM).</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     pub role_arn: String,
     /// <p><p>The shipping speed for each node in this cluster. This speed doesn&#39;t dictate how soon you&#39;ll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows: </p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the United States of America (US), you have access to one-day shipping and two-day shipping.</p> </li> </ul> <ul> <li> <p>In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the US, you have access to one-day shipping and two-day shipping.</p> </li> </ul></p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     pub shipping_option: String,
     /// <p>The type of AWS Snow Family device to use for this cluster. </p> <note> <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p> </note> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     pub snowball_type: String,
     /// <p>The tax documents required in your AWS Region.</p>
-    #[serde(rename = "TaxDocuments")]
+    #[serde(rename = "taxDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tax_documents: Option<TaxDocuments>,
 }
@@ -309,7 +309,7 @@ pub struct CreateClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateClusterResult {
     /// <p>The automatically generated ID for a cluster.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
 }
@@ -318,71 +318,71 @@ pub struct CreateClusterResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateJobRequest {
     /// <p>The ID for the address that you want the Snow device shipped to.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
     /// <p>The ID of a cluster. If you're creating a job for a node in a cluster, you need to provide only this <code>clusterId</code> value. The other job attributes are inherited from the cluster.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>Defines an optional description of this specific job, for example <code>Important Photos 2016-08-11</code>.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Defines the device configuration for an AWS Snowcone job.</p> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "DeviceConfiguration")]
+    #[serde(rename = "deviceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_configuration: Option<DeviceConfiguration>,
     /// <p>The forwarding address ID for a job. This field is not supported in most Regions.</p>
-    #[serde(rename = "ForwardingAddressId")]
+    #[serde(rename = "forwardingAddressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forwarding_address_id: Option<String>,
     /// <p>Defines the type of job that you're creating. </p>
-    #[serde(rename = "JobType")]
+    #[serde(rename = "jobType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_type: Option<String>,
     /// <p>The <code>KmsKeyARN</code> that you want to associate with this job. <code>KmsKeyARN</code>s are created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> AWS Key Management Service (KMS) API action.</p>
-    #[serde(rename = "KmsKeyARN")]
+    #[serde(rename = "kmsKeyARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The ID of the long-term pricing type for the device.</p>
-    #[serde(rename = "LongTermPricingId")]
+    #[serde(rename = "longTermPricingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_id: Option<String>,
     /// <p>Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for this job.</p>
-    #[serde(rename = "Notification")]
+    #[serde(rename = "notification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification: Option<Notification>,
     /// <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
-    #[serde(rename = "OnDeviceServiceConfiguration")]
+    #[serde(rename = "onDeviceServiceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_device_service_configuration: Option<OnDeviceServiceConfiguration>,
     /// <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will automatically be available when the device arrives at your location. Otherwise, you need to use the Snowball Client to manage the device.</p>
-    #[serde(rename = "RemoteManagement")]
+    #[serde(rename = "remoteManagement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_management: Option<String>,
     /// <p>Defines the Amazon S3 buckets associated with this job.</p> <p>With <code>IMPORT</code> jobs, you specify the bucket or buckets that your transferred data will be imported into.</p> <p>With <code>EXPORT</code> jobs, you specify the bucket or buckets that your transferred data will be exported from. Optionally, you can also specify a <code>KeyRange</code> value. If you choose to export a range, you define the length of the range by providing either an inclusive <code>BeginMarker</code> value, an inclusive <code>EndMarker</code> value, or both. Ranges are UTF-8 binary sorted.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<JobResource>,
     /// <p>The <code>RoleARN</code> that you want to associate with this job. <code>RoleArn</code>s are created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> AWS Identity and Access Management (IAM) API action.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p><p>The shipping speed for this job. This speed doesn&#39;t dictate how soon you&#39;ll get the Snow device, rather it represents how quickly the Snow device moves to its destination while in transit. Regional shipping speeds are as follows:</p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the US, you have access to one-day shipping and two-day shipping.</p> </li> </ul></p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_option: Option<String>,
     /// <p>If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.</p> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "SnowballCapacityPreference")]
+    #[serde(rename = "snowballCapacityPreference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_capacity_preference: Option<String>,
     /// <p>The type of AWS Snow Family device to use for this job. </p> <note> <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p> </note> <p>The type of AWS Snow device to use for this job. Currently, the only supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball Edge Device Options</a> in the Snowball Edge Developer Guide.</p> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_type: Option<String>,
     /// <p>The tax documents required in your AWS Region.</p>
-    #[serde(rename = "TaxDocuments")]
+    #[serde(rename = "taxDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tax_documents: Option<TaxDocuments>,
 }
@@ -391,7 +391,7 @@ pub struct CreateJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateJobResult {
     /// <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -400,14 +400,14 @@ pub struct CreateJobResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLongTermPricingRequest {
     /// <p>Specifies whether the current long-term pricing type for the device should be renewed.</p>
-    #[serde(rename = "IsLongTermPricingAutoRenew")]
+    #[serde(rename = "isLongTermPricingAutoRenew")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_long_term_pricing_auto_renew: Option<bool>,
     /// <p>The type of long-term pricing option you want for the device, either 1-year or 3-year long-term pricing.</p>
-    #[serde(rename = "LongTermPricingType")]
+    #[serde(rename = "longTermPricingType")]
     pub long_term_pricing_type: String,
     /// <p>The type of AWS Snow Family device to use for the long-term pricing job.</p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_type: Option<String>,
 }
@@ -416,7 +416,7 @@ pub struct CreateLongTermPricingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLongTermPricingResult {
     /// <p>The ID of the long-term pricing type for the device.</p>
-    #[serde(rename = "LongTermPricingId")]
+    #[serde(rename = "longTermPricingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_id: Option<String>,
 }
@@ -425,10 +425,10 @@ pub struct CreateLongTermPricingResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateReturnShippingLabelRequest {
     /// <p>The ID for a job that you want to create the return shipping label for; for example, <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:</p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_option: Option<String>,
 }
@@ -437,7 +437,7 @@ pub struct CreateReturnShippingLabelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateReturnShippingLabelResult {
     /// <p>The status information of the task on a Snow device that is being returned to AWS.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -447,19 +447,19 @@ pub struct CreateReturnShippingLabelResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DataTransfer {
     /// <p>The number of bytes transferred between a Snow device and Amazon S3.</p>
-    #[serde(rename = "BytesTransferred")]
+    #[serde(rename = "bytesTransferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_transferred: Option<i64>,
     /// <p>The number of objects transferred between a Snow device and Amazon S3.</p>
-    #[serde(rename = "ObjectsTransferred")]
+    #[serde(rename = "objectsTransferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub objects_transferred: Option<i64>,
     /// <p>The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.</p>
-    #[serde(rename = "TotalBytes")]
+    #[serde(rename = "totalBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_bytes: Option<i64>,
     /// <p>The total number of objects for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.</p>
-    #[serde(rename = "TotalObjects")]
+    #[serde(rename = "totalObjects")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_objects: Option<i64>,
 }
@@ -468,7 +468,7 @@ pub struct DataTransfer {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAddressRequest {
     /// <p>The automatically generated ID for a specific address.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     pub address_id: String,
 }
 
@@ -476,7 +476,7 @@ pub struct DescribeAddressRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAddressResult {
     /// <p>The address that you want the Snow device(s) associated with a specific job to be shipped to.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<Address>,
 }
@@ -485,11 +485,11 @@ pub struct DescribeAddressResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAddressesRequest {
     /// <p>The number of <code>ADDRESS</code> objects to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ADDRESS</code> objects, you have the option of specifying a value for <code>NextToken</code> as the starting point for your list of returned addresses.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -498,11 +498,11 @@ pub struct DescribeAddressesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAddressesResult {
     /// <p>The Snow device shipping addresses that were created for this account.</p>
-    #[serde(rename = "Addresses")]
+    #[serde(rename = "addresses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub addresses: Option<Vec<Address>>,
     /// <p>HTTP requests are stateless. If you use the automatically generated <code>NextToken</code> value in your next <code>DescribeAddresses</code> call, your list of returned addresses will start from this point in the array.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -511,7 +511,7 @@ pub struct DescribeAddressesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeClusterRequest {
     /// <p>The automatically generated ID for a cluster.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
 }
 
@@ -519,7 +519,7 @@ pub struct DescribeClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeClusterResult {
     /// <p>Information about a specific cluster, including shipping information, cluster status, and other important metadata.</p>
-    #[serde(rename = "ClusterMetadata")]
+    #[serde(rename = "clusterMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_metadata: Option<ClusterMetadata>,
 }
@@ -528,7 +528,7 @@ pub struct DescribeClusterResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeJobRequest {
     /// <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -536,11 +536,11 @@ pub struct DescribeJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeJobResult {
     /// <p>Information about a specific job, including shipping information, job status, and other important metadata.</p>
-    #[serde(rename = "JobMetadata")]
+    #[serde(rename = "jobMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_metadata: Option<JobMetadata>,
     /// <p>Information about a specific job part (in the case of an export job), including shipping information, job status, and other important metadata.</p>
-    #[serde(rename = "SubJobMetadata")]
+    #[serde(rename = "subJobMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sub_job_metadata: Option<Vec<JobMetadata>>,
 }
@@ -549,7 +549,7 @@ pub struct DescribeJobResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeReturnShippingLabelRequest {
     /// <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -557,11 +557,11 @@ pub struct DescribeReturnShippingLabelRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReturnShippingLabelResult {
     /// <p>The expiration date of the current return shipping label.</p>
-    #[serde(rename = "ExpirationDate")]
+    #[serde(rename = "expirationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_date: Option<f64>,
     /// <p>The status information of the task on a Snow device that is being returned to AWS.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -570,7 +570,7 @@ pub struct DescribeReturnShippingLabelResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeviceConfiguration {
     /// <p>Returns information about the device configuration for an AWS Snowcone job.</p>
-    #[serde(rename = "SnowconeDeviceConfiguration")]
+    #[serde(rename = "snowconeDeviceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowcone_device_configuration: Option<SnowconeDeviceConfiguration>,
 }
@@ -579,10 +579,10 @@ pub struct DeviceConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Ec2AmiResource {
     /// <p>The ID of the AMI in Amazon EC2.</p>
-    #[serde(rename = "AmiId")]
+    #[serde(rename = "amiId")]
     pub ami_id: String,
     /// <p>The ID of the AMI on the Snow device.</p>
-    #[serde(rename = "SnowballAmiId")]
+    #[serde(rename = "snowballAmiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_ami_id: Option<String>,
 }
@@ -591,7 +591,7 @@ pub struct Ec2AmiResource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EventTriggerDefinition {
     /// <p>The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.</p>
-    #[serde(rename = "EventResourceARN")]
+    #[serde(rename = "eventResourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_resource_arn: Option<String>,
 }
@@ -600,7 +600,7 @@ pub struct EventTriggerDefinition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobManifestRequest {
     /// <p>The ID for a job that you want to get the manifest file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -608,7 +608,7 @@ pub struct GetJobManifestRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobManifestResult {
     /// <p>The Amazon S3 presigned URL for the manifest file associated with the specified <code>JobId</code> value.</p>
-    #[serde(rename = "ManifestURI")]
+    #[serde(rename = "manifestURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manifest_uri: Option<String>,
 }
@@ -617,7 +617,7 @@ pub struct GetJobManifestResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetJobUnlockCodeRequest {
     /// <p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -625,7 +625,7 @@ pub struct GetJobUnlockCodeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetJobUnlockCodeResult {
     /// <p>The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code> value can be accessed for up to 360 days after the job has been created.</p>
-    #[serde(rename = "UnlockCode")]
+    #[serde(rename = "unlockCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unlock_code: Option<String>,
 }
@@ -638,11 +638,11 @@ pub struct GetSnowballUsageRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSnowballUsageResult {
     /// <p>The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).</p>
-    #[serde(rename = "SnowballLimit")]
+    #[serde(rename = "snowballLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_limit: Option<i64>,
     /// <p>The number of Snow devices that this account is currently using.</p>
-    #[serde(rename = "SnowballsInUse")]
+    #[serde(rename = "snowballsInUse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowballs_in_use: Option<i64>,
 }
@@ -651,7 +651,7 @@ pub struct GetSnowballUsageResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSoftwareUpdatesRequest {
     /// <p>The ID for a job that you want to get the software update file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -659,7 +659,7 @@ pub struct GetSoftwareUpdatesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSoftwareUpdatesResult {
     /// <p>The Amazon S3 presigned URL for the update file associated with the specified <code>JobId</code> value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to <code>GetSoftwareUpdates</code>.</p>
-    #[serde(rename = "UpdatesURI")]
+    #[serde(rename = "updatesURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updates_uri: Option<String>,
 }
@@ -668,7 +668,7 @@ pub struct GetSoftwareUpdatesResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct INDTaxDocuments {
     /// <p>The Goods and Services Tax (GST) documents required in AWS Regions in India.</p>
-    #[serde(rename = "GSTIN")]
+    #[serde(rename = "gSTIN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gstin: Option<String>,
 }
@@ -678,31 +678,31 @@ pub struct INDTaxDocuments {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobListEntry {
     /// <p>The creation date for this job.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The optional description of this specific job, for example <code>Important Photos 2016-08-11</code>.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A value that indicates that this job is a main job. A main job represents a successful request to create an export job. Main jobs aren't associated with any Snowballs. Instead, each main job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular main job are listed, because they are created after the main job is created.</p>
-    #[serde(rename = "IsMaster")]
+    #[serde(rename = "isMaster")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_master: Option<bool>,
     /// <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The current state of this job.</p>
-    #[serde(rename = "JobState")]
+    #[serde(rename = "jobState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_state: Option<String>,
     /// <p>The type of job.</p>
-    #[serde(rename = "JobType")]
+    #[serde(rename = "jobType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_type: Option<String>,
     /// <p>The type of device used with this job.</p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_type: Option<String>,
 }
@@ -712,15 +712,15 @@ pub struct JobListEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobLogs {
     /// <p>A link to an Amazon S3 presigned URL where the job completion report is located.</p>
-    #[serde(rename = "JobCompletionReportURI")]
+    #[serde(rename = "jobCompletionReportURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_completion_report_uri: Option<String>,
     /// <p>A link to an Amazon S3 presigned URL where the job failure log is located.</p>
-    #[serde(rename = "JobFailureLogURI")]
+    #[serde(rename = "jobFailureLogURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_failure_log_uri: Option<String>,
     /// <p>A link to an Amazon S3 presigned URL where the job success log is located.</p>
-    #[serde(rename = "JobSuccessLogURI")]
+    #[serde(rename = "jobSuccessLogURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_success_log_uri: Option<String>,
 }
@@ -730,90 +730,90 @@ pub struct JobLogs {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct JobMetadata {
     /// <p>The ID for the address that you want the Snow device shipped to.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
     /// <p>The 39-character ID for the cluster, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_id: Option<String>,
     /// <p>The creation date for this job.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a <code>JobState</code> value of <code>InProgress</code>, for both import and export jobs.</p>
-    #[serde(rename = "DataTransferProgress")]
+    #[serde(rename = "dataTransferProgress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transfer_progress: Option<DataTransfer>,
     /// <p>The description of the job, provided at job creation.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "DeviceConfiguration")]
+    #[serde(rename = "deviceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_configuration: Option<DeviceConfiguration>,
     /// <p>The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.</p>
-    #[serde(rename = "ForwardingAddressId")]
+    #[serde(rename = "forwardingAddressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forwarding_address_id: Option<String>,
     /// <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.</p>
-    #[serde(rename = "JobLogInfo")]
+    #[serde(rename = "jobLogInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_log_info: Option<JobLogs>,
     /// <p>The current status of the jobs.</p>
-    #[serde(rename = "JobState")]
+    #[serde(rename = "jobState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_state: Option<String>,
     /// <p>The type of job.</p>
-    #[serde(rename = "JobType")]
+    #[serde(rename = "jobType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_type: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS KMS.</p>
-    #[serde(rename = "KmsKeyARN")]
+    #[serde(rename = "kmsKeyARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_arn: Option<String>,
     /// <p>The ID of the long-term pricing type for the device.</p>
-    #[serde(rename = "LongTermPricingId")]
+    #[serde(rename = "longTermPricingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_id: Option<String>,
     /// <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The <code>Notification</code> object is returned as a part of the response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data type.</p>
-    #[serde(rename = "Notification")]
+    #[serde(rename = "notification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification: Option<Notification>,
     /// <p>Represents metadata and configuration settings for services on an AWS Snow Family device.</p>
-    #[serde(rename = "OnDeviceServiceConfiguration")]
+    #[serde(rename = "onDeviceServiceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_device_service_configuration: Option<OnDeviceServiceConfiguration>,
     /// <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will automatically be available when the device arrives at your location. Otherwise, you need to use the Snowball Client to manage the device.</p>
-    #[serde(rename = "RemoteManagement")]
+    #[serde(rename = "remoteManagement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_management: Option<String>,
     /// <p>An array of <code>S3Resource</code> objects. Each <code>S3Resource</code> object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<JobResource>,
     /// <p>The role ARN associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in AWS Identity and Access Management (IAM).</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.</p>
-    #[serde(rename = "ShippingDetails")]
+    #[serde(rename = "shippingDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_details: Option<ShippingDetails>,
     /// <p>The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.</p> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "SnowballCapacityPreference")]
+    #[serde(rename = "snowballCapacityPreference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_capacity_preference: Option<String>,
     /// <p>The type of device used with this job.</p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_type: Option<String>,
     /// <p>The metadata associated with the tax documents required in your AWS Region.</p>
-    #[serde(rename = "TaxDocuments")]
+    #[serde(rename = "taxDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tax_documents: Option<TaxDocuments>,
 }
@@ -822,15 +822,15 @@ pub struct JobMetadata {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct JobResource {
     /// <p>The Amazon Machine Images (AMIs) associated with this job.</p>
-    #[serde(rename = "Ec2AmiResources")]
+    #[serde(rename = "ec2AmiResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_ami_resources: Option<Vec<Ec2AmiResource>>,
     /// <p>The Python-language Lambda functions for this job.</p>
-    #[serde(rename = "LambdaResources")]
+    #[serde(rename = "lambdaResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_resources: Option<Vec<LambdaResource>>,
     /// <p>An array of <code>S3Resource</code> objects.</p>
-    #[serde(rename = "S3Resources")]
+    #[serde(rename = "s3Resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_resources: Option<Vec<S3Resource>>,
 }
@@ -839,11 +839,11 @@ pub struct JobResource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KeyRange {
     /// <p>The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.</p>
-    #[serde(rename = "BeginMarker")]
+    #[serde(rename = "beginMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub begin_marker: Option<String>,
     /// <p>The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.</p>
-    #[serde(rename = "EndMarker")]
+    #[serde(rename = "endMarker")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_marker: Option<String>,
 }
@@ -852,11 +852,11 @@ pub struct KeyRange {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LambdaResource {
     /// <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
-    #[serde(rename = "EventTriggers")]
+    #[serde(rename = "eventTriggers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_triggers: Option<Vec<EventTriggerDefinition>>,
     /// <p>An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource.</p>
-    #[serde(rename = "LambdaArn")]
+    #[serde(rename = "lambdaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_arn: Option<String>,
 }
@@ -865,14 +865,14 @@ pub struct LambdaResource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListClusterJobsRequest {
     /// <p>The 39-character ID for the cluster that you want to list, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
     /// <p>The number of <code>JobListEntry</code> objects to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -881,11 +881,11 @@ pub struct ListClusterJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListClusterJobsResult {
     /// <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. </p>
-    #[serde(rename = "JobListEntries")]
+    #[serde(rename = "jobListEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_list_entries: Option<Vec<JobListEntry>>,
     /// <p>HTTP requests are stateless. If you use the automatically generated <code>NextToken</code> value in your next <code>ListClusterJobsResult</code> call, your list of returned jobs will start from this point in the array.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -894,11 +894,11 @@ pub struct ListClusterJobsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListClustersRequest {
     /// <p>The number of <code>ClusterListEntry</code> objects to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ClusterListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -907,11 +907,11 @@ pub struct ListClustersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListClustersResult {
     /// <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other important status information.</p>
-    #[serde(rename = "ClusterListEntries")]
+    #[serde(rename = "clusterListEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cluster_list_entries: Option<Vec<ClusterListEntry>>,
     /// <p>HTTP requests are stateless. If you use the automatically generated <code>NextToken</code> value in your next <code>ClusterListEntry</code> call, your list of returned clusters will start from this point in the array.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -920,11 +920,11 @@ pub struct ListClustersResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListCompatibleImagesRequest {
     /// <p>The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for <code>NextToken</code> as the starting point for your list of returned images.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -933,11 +933,11 @@ pub struct ListCompatibleImagesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListCompatibleImagesResult {
     /// <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for a Snow device AMI.</p>
-    #[serde(rename = "CompatibleImages")]
+    #[serde(rename = "compatibleImages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compatible_images: Option<Vec<CompatibleImage>>,
     /// <p>Because HTTP requests are stateless, this is the starting point for your next list of returned images.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -946,11 +946,11 @@ pub struct ListCompatibleImagesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListJobsRequest {
     /// <p>The number of <code>JobListEntry</code> objects to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -959,11 +959,11 @@ pub struct ListJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListJobsResult {
     /// <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. </p>
-    #[serde(rename = "JobListEntries")]
+    #[serde(rename = "jobListEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_list_entries: Option<Vec<JobListEntry>>,
     /// <p>HTTP requests are stateless. If you use this automatically generated <code>NextToken</code> value in your next <code>ListJobs</code> call, your returned <code>JobListEntry</code> objects will start from this point in the array.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -972,11 +972,11 @@ pub struct ListJobsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLongTermPricingRequest {
     /// <p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Because HTTP requests are stateless, this is the starting point for your next list of <code>ListLongTermPricing</code> to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -985,11 +985,11 @@ pub struct ListLongTermPricingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLongTermPricingResult {
     /// <p>Each <code>LongTermPricingEntry</code> object contains a status, ID, and other information about the <code>LongTermPricing</code> type. </p>
-    #[serde(rename = "LongTermPricingEntries")]
+    #[serde(rename = "longTermPricingEntries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_entries: Option<Vec<LongTermPricingListEntry>>,
     /// <p>Because HTTP requests are stateless, this is the starting point for your next list of returned <code>ListLongTermPricing</code> list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -999,43 +999,43 @@ pub struct ListLongTermPricingResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LongTermPricingListEntry {
     /// <p>The current active jobs on the device the long-term pricing type.</p>
-    #[serde(rename = "CurrentActiveJob")]
+    #[serde(rename = "currentActiveJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_active_job: Option<String>,
     /// <p>If set to <code>true</code>, specifies that the current long-term pricing type for the device should be automatically renewed before the long-term pricing contract expires.</p>
-    #[serde(rename = "IsLongTermPricingAutoRenew")]
+    #[serde(rename = "isLongTermPricingAutoRenew")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_long_term_pricing_auto_renew: Option<bool>,
     /// <p>The IDs of the jobs that are associated with a long-term pricing type.</p>
-    #[serde(rename = "JobIds")]
+    #[serde(rename = "jobIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_ids: Option<Vec<String>>,
     /// <p>The end date the long-term pricing contract.</p>
-    #[serde(rename = "LongTermPricingEndDate")]
+    #[serde(rename = "longTermPricingEndDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_end_date: Option<f64>,
     /// <p>The ID of the long-term pricing type for the device.</p>
-    #[serde(rename = "LongTermPricingId")]
+    #[serde(rename = "longTermPricingId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_id: Option<String>,
     /// <p>The start date of the long-term pricing contract.</p>
-    #[serde(rename = "LongTermPricingStartDate")]
+    #[serde(rename = "longTermPricingStartDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_start_date: Option<f64>,
     /// <p>The status of the long-term pricing type.</p>
-    #[serde(rename = "LongTermPricingStatus")]
+    #[serde(rename = "longTermPricingStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_status: Option<String>,
     /// <p>The type of long-term pricing that was selected for the device.</p>
-    #[serde(rename = "LongTermPricingType")]
+    #[serde(rename = "longTermPricingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub long_term_pricing_type: Option<String>,
     /// <p>A new device that replaces a device that is ordered with long-term pricing.</p>
-    #[serde(rename = "ReplacementJob")]
+    #[serde(rename = "replacementJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement_job: Option<String>,
     /// <p>The type of AWS Snow Family device associated with this long-term pricing job.</p>
-    #[serde(rename = "SnowballType")]
+    #[serde(rename = "snowballType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_type: Option<String>,
 }
@@ -1044,11 +1044,11 @@ pub struct LongTermPricingListEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NFSOnDeviceServiceConfiguration {
     /// <p>The maximum NFS storage for one Snowball Family device.</p>
-    #[serde(rename = "StorageLimit")]
+    #[serde(rename = "storageLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_limit: Option<i64>,
     /// <p>The scale unit of the NFS storage on the device.</p> <p>Valid values: TB.</p>
-    #[serde(rename = "StorageUnit")]
+    #[serde(rename = "storageUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_unit: Option<String>,
 }
@@ -1057,15 +1057,15 @@ pub struct NFSOnDeviceServiceConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Notification {
     /// <p>The list of job states that will trigger a notification for this job.</p>
-    #[serde(rename = "JobStatesToNotify")]
+    #[serde(rename = "jobStatesToNotify")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_states_to_notify: Option<Vec<String>>,
     /// <p>Any change in job state will trigger a notification for this job.</p>
-    #[serde(rename = "NotifyAll")]
+    #[serde(rename = "notifyAll")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notify_all: Option<bool>,
     /// <p>The new SNS <code>TopicArn</code> that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a> Amazon SNS API action.</p> <p>You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a> Amazon Simple Notification Service (Amazon SNS) API action.</p>
-    #[serde(rename = "SnsTopicARN")]
+    #[serde(rename = "snsTopicARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
 }
@@ -1074,7 +1074,7 @@ pub struct Notification {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OnDeviceServiceConfiguration {
     /// <p>Represents the NFS service on a Snow Family device.</p>
-    #[serde(rename = "NFSOnDeviceService")]
+    #[serde(rename = "nFSOnDeviceService")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nfs_on_device_service: Option<NFSOnDeviceServiceConfiguration>,
 }
@@ -1083,15 +1083,15 @@ pub struct OnDeviceServiceConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Resource {
     /// <p>The Amazon Resource Name (ARN) of an Amazon S3 bucket.</p>
-    #[serde(rename = "BucketArn")]
+    #[serde(rename = "bucketArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket_arn: Option<String>,
     /// <p>For export jobs, you can provide an optional <code>KeyRange</code> within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or both. Ranges are UTF-8 binary sorted.</p>
-    #[serde(rename = "KeyRange")]
+    #[serde(rename = "keyRange")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_range: Option<KeyRange>,
     /// <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
-    #[serde(rename = "TargetOnDeviceServices")]
+    #[serde(rename = "targetOnDeviceServices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_on_device_services: Option<Vec<TargetOnDeviceService>>,
 }
@@ -1101,11 +1101,11 @@ pub struct S3Resource {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Shipment {
     /// <p>Status information for a shipment.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it.</p> <p>For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.</p>
-    #[serde(rename = "TrackingNumber")]
+    #[serde(rename = "trackingNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tracking_number: Option<String>,
 }
@@ -1115,15 +1115,15 @@ pub struct Shipment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ShippingDetails {
     /// <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being returned to AWS for a particular job.</p>
-    #[serde(rename = "InboundShipment")]
+    #[serde(rename = "inboundShipment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inbound_shipment: Option<Shipment>,
     /// <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being delivered to the address that you specified for a particular job.</p>
-    #[serde(rename = "OutboundShipment")]
+    #[serde(rename = "outboundShipment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outbound_shipment: Option<Shipment>,
     /// <p><p>The shipping speed for a particular job. This speed doesn&#39;t dictate how soon you&#39;ll get the Snow device from the job&#39;s creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:</p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snow devices are delivered in one to seven days.</p> </li> <li> <p>In the United States of America (US), you have access to one-day shipping and two-day shipping.</p> </li> </ul></p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_option: Option<String>,
 }
@@ -1132,7 +1132,7 @@ pub struct ShippingDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SnowconeDeviceConfiguration {
     /// <p>Configures the wireless connection for the AWS Snowcone device.</p>
-    #[serde(rename = "WirelessConnection")]
+    #[serde(rename = "wirelessConnection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wireless_connection: Option<WirelessConnection>,
 }
@@ -1141,11 +1141,11 @@ pub struct SnowconeDeviceConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TargetOnDeviceService {
     /// <p>Specifies the name of the service on the Snow Family device that your transferred data will be exported from or imported into.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
     /// <p>Specifies whether the data is being imported or exported. You can import or export the data, or use it locally on the device.</p>
-    #[serde(rename = "TransferOption")]
+    #[serde(rename = "transferOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transfer_option: Option<String>,
 }
@@ -1153,7 +1153,7 @@ pub struct TargetOnDeviceService {
 /// <p>The tax documents required in your AWS Region.</p>
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TaxDocuments {
-    #[serde(rename = "IND")]
+    #[serde(rename = "iND")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ind: Option<INDTaxDocuments>,
 }
@@ -1162,38 +1162,38 @@ pub struct TaxDocuments {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateClusterRequest {
     /// <p>The ID of the updated <a>Address</a> object.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
     /// <p>The cluster ID of the cluster that you want to update, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "ClusterId")]
+    #[serde(rename = "clusterId")]
     pub cluster_id: String,
     /// <p>The updated description of this cluster.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The updated ID for the forwarding address for a cluster. This field is not supported in most regions.</p>
-    #[serde(rename = "ForwardingAddressId")]
+    #[serde(rename = "forwardingAddressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forwarding_address_id: Option<String>,
     /// <p>The new or updated <a>Notification</a> object.</p>
-    #[serde(rename = "Notification")]
+    #[serde(rename = "notification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification: Option<Notification>,
     /// <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
-    #[serde(rename = "OnDeviceServiceConfiguration")]
+    #[serde(rename = "onDeviceServiceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_device_service_configuration: Option<OnDeviceServiceConfiguration>,
     /// <p>The updated arrays of <a>JobResource</a> objects that can include updated <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<JobResource>,
     /// <p>The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in AWS Identity and Access Management (IAM).</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The updated shipping option value of this cluster's <a>ShippingDetails</a> object.</p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_option: Option<String>,
 }
@@ -1206,42 +1206,42 @@ pub struct UpdateClusterResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateJobRequest {
     /// <p>The ID of the updated <a>Address</a> object.</p>
-    #[serde(rename = "AddressId")]
+    #[serde(rename = "addressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address_id: Option<String>,
     /// <p>The updated description of this job's <a>JobMetadata</a> object.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The updated ID for the forwarding address for a job. This field is not supported in most regions.</p>
-    #[serde(rename = "ForwardingAddressId")]
+    #[serde(rename = "forwardingAddressId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forwarding_address_id: Option<String>,
     /// <p>The job ID of the job that you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The new or updated <a>Notification</a> object.</p>
-    #[serde(rename = "Notification")]
+    #[serde(rename = "notification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification: Option<Notification>,
     /// <p>Specifies the service or services on the Snow Family device that your transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
-    #[serde(rename = "OnDeviceServiceConfiguration")]
+    #[serde(rename = "onDeviceServiceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_device_service_configuration: Option<OnDeviceServiceConfiguration>,
     /// <p>The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object. </p>
-    #[serde(rename = "Resources")]
+    #[serde(rename = "resources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resources: Option<JobResource>,
     /// <p>The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>AWS Identity and Access Management (IAM) API action.</p>
-    #[serde(rename = "RoleARN")]
+    #[serde(rename = "roleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The updated shipping option value of this job's <a>ShippingDetails</a> object.</p>
-    #[serde(rename = "ShippingOption")]
+    #[serde(rename = "shippingOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping_option: Option<String>,
     /// <p>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a> object. The 50 TB Snowballs are only available in the US regions.</p> <p>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
-    #[serde(rename = "SnowballCapacityPreference")]
+    #[serde(rename = "snowballCapacityPreference")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snowball_capacity_preference: Option<String>,
 }
@@ -1254,10 +1254,10 @@ pub struct UpdateJobResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateJobShipmentStateRequest {
     /// <p>The job ID of the job whose shipment date you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The state of a device when it is being shipped. </p> <p>Set to <code>RECEIVED</code> when the device arrives at your location.</p> <p>Set to <code>RETURNED</code> when you have returned the device to AWS.</p>
-    #[serde(rename = "ShipmentState")]
+    #[serde(rename = "shipmentState")]
     pub shipment_state: String,
 }
 
@@ -1269,14 +1269,14 @@ pub struct UpdateJobShipmentStateResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLongTermPricingRequest {
     /// <p>If set to <code>true</code>, specifies that the current long-term pricing type for the device should be automatically renewed before the long-term pricing contract expires.</p>
-    #[serde(rename = "IsLongTermPricingAutoRenew")]
+    #[serde(rename = "isLongTermPricingAutoRenew")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_long_term_pricing_auto_renew: Option<bool>,
     /// <p>The ID of the long-term pricing type for the device.</p>
-    #[serde(rename = "LongTermPricingId")]
+    #[serde(rename = "longTermPricingId")]
     pub long_term_pricing_id: String,
     /// <p>Specifies that a device that is ordered with long-term pricing should be replaced with a new device.</p>
-    #[serde(rename = "ReplacementJob")]
+    #[serde(rename = "replacementJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement_job: Option<String>,
 }
@@ -1289,7 +1289,7 @@ pub struct UpdateLongTermPricingResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WirelessConnection {
     /// <p>Enables the Wi-Fi adapter on an AWS Snowcone device.</p>
-    #[serde(rename = "IsWifiEnabled")]
+    #[serde(rename = "isWifiEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_wifi_enabled: Option<bool>,
 }

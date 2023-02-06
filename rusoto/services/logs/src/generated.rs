@@ -221,7 +221,7 @@ pub struct DeleteSubscriptionFilterRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDestinationsRequest {
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    #[serde(rename = "DestinationNamePrefix")]
+    #[serde(rename = "destinationNamePrefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_name_prefix: Option<String>,
     /// <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>

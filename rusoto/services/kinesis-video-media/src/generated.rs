@@ -28,14 +28,14 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMediaInput {
     /// <p>Identifies the starting chunk to get from the specified stream. </p>
-    #[serde(rename = "StartSelector")]
+    #[serde(rename = "startSelector")]
     pub start_selector: StartSelector,
     /// <p>The ARN of the stream from where you want to get the media content. If you don't specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The Kinesis video stream name from where you want to get the media content. If you don't specify the <code>streamName</code>, you must specify the <code>streamARN</code>.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -53,18 +53,18 @@ pub struct GetMediaOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSelector {
     /// <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to start returning the fragments. </p>
-    #[serde(rename = "AfterFragmentNumber")]
+    #[serde(rename = "afterFragmentNumber")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub after_fragment_number: Option<String>,
     /// <p>Continuation token that Kinesis Video Streams returned in the previous <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk identified by the continuation token.</p>
-    #[serde(rename = "ContinuationToken")]
+    #[serde(rename = "continuationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub continuation_token: Option<String>,
     /// <p><p>Identifies the fragment on the Kinesis video stream where you want to start getting the data from.</p> <ul> <li> <p>NOW - Start with the latest chunk on the stream.</p> </li> <li> <p>EARLIEST - Start with earliest available chunk on the stream.</p> </li> <li> <p>FRAGMENT<em>NUMBER - Start with the chunk after a specific fragment. You must also specify the <code>AfterFragmentNumber</code> parameter.</p> </li> <li> <p>PRODUCER</em>TIMESTAMP or SERVER<em>TIMESTAMP - Start with the chunk containing a fragment with the specified producer or server timestamp. You specify the timestamp by adding <code>StartTimestamp</code>.</p> </li> <li> <p> CONTINUATION</em>TOKEN - Read using the specified continuation token. </p> </li> </ul> <note> <p>If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the <code>startSelectorType</code>, you don&#39;t provide any additional information in the <code>startSelector</code>.</p> </note></p>
-    #[serde(rename = "StartSelectorType")]
+    #[serde(rename = "startSelectorType")]
     pub start_selector_type: String,
     /// <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then starts with the chunk containing the fragment that has the specified timestamp.</p>
-    #[serde(rename = "StartTimestamp")]
+    #[serde(rename = "startTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_timestamp: Option<f64>,
 }

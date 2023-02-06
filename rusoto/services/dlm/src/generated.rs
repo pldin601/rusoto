@@ -29,10 +29,10 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Action {
     /// <p>The rule for copying shared snapshots across Regions.</p>
-    #[serde(rename = "CrossRegionCopy")]
+    #[serde(rename = "crossRegionCopy")]
     pub cross_region_copy: Vec<CrossRegionCopyAction>,
     /// <p>A descriptive name for the action.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -40,19 +40,19 @@ pub struct Action {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLifecyclePolicyRequest {
     /// <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
-    #[serde(rename = "ExecutionRoleArn")]
+    #[serde(rename = "executionRoleArn")]
     pub execution_role_arn: String,
     /// <p>The configuration details of the lifecycle policy.</p>
-    #[serde(rename = "PolicyDetails")]
+    #[serde(rename = "policyDetails")]
     pub policy_details: PolicyDetails,
     /// <p>The desired activation state of the lifecycle policy after creation.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
     /// <p>The tags to apply to the lifecycle policy during creation.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -61,7 +61,7 @@ pub struct CreateLifecyclePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLifecyclePolicyResponse {
     /// <p>The identifier of the lifecycle policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
 }
@@ -70,23 +70,23 @@ pub struct CreateLifecyclePolicyResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CreateRule {
     /// <p>The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
-    #[serde(rename = "CronExpression")]
+    #[serde(rename = "cronExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cron_expression: Option<String>,
     /// <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.</p>
-    #[serde(rename = "Interval")]
+    #[serde(rename = "interval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval: Option<i64>,
     /// <p>The interval unit.</p>
-    #[serde(rename = "IntervalUnit")]
+    #[serde(rename = "intervalUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval_unit: Option<String>,
     /// <p>Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify <code>CLOUD</code>. To create snapshots on the same Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>. If you omit this parameter, <code>CLOUD</code> is used by default.</p> <p>If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. </p> <p>If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.</p>
-    #[serde(rename = "Location")]
+    #[serde(rename = "location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p> <p>The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.</p>
-    #[serde(rename = "Times")]
+    #[serde(rename = "times")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub times: Option<Vec<String>>,
 }
@@ -95,13 +95,13 @@ pub struct CreateRule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CrossRegionCopyAction {
     /// <p>The encryption settings for the copied snapshot.</p>
-    #[serde(rename = "EncryptionConfiguration")]
+    #[serde(rename = "encryptionConfiguration")]
     pub encryption_configuration: EncryptionConfiguration,
-    #[serde(rename = "RetainRule")]
+    #[serde(rename = "retainRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retain_rule: Option<CrossRegionCopyRetainRule>,
     /// <p>The target Region.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     pub target: String,
 }
 
@@ -109,11 +109,11 @@ pub struct CrossRegionCopyAction {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CrossRegionCopyRetainRule {
     /// <p>The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
-    #[serde(rename = "Interval")]
+    #[serde(rename = "interval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval: Option<i64>,
     /// <p>The unit of time for time-based retention.</p>
-    #[serde(rename = "IntervalUnit")]
+    #[serde(rename = "intervalUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval_unit: Option<String>,
 }
@@ -122,26 +122,26 @@ pub struct CrossRegionCopyRetainRule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CrossRegionCopyRule {
     /// <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used.</p>
-    #[serde(rename = "CmkArn")]
+    #[serde(rename = "cmkArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmk_arn: Option<String>,
     /// <p>Copy all user-defined tags from the source snapshot to the copied snapshot.</p>
-    #[serde(rename = "CopyTags")]
+    #[serde(rename = "copyTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags: Option<bool>,
     /// <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.</p>
-    #[serde(rename = "Encrypted")]
+    #[serde(rename = "encrypted")]
     pub encrypted: bool,
     /// <p>The retention rule.</p>
-    #[serde(rename = "RetainRule")]
+    #[serde(rename = "retainRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retain_rule: Option<CrossRegionCopyRetainRule>,
     /// <p>The Amazon Resource Name (ARN) of the target AWS Outpost for the snapshot copies.</p> <p>If you specify an ARN, you must omit <b>TargetRegion</b>. You cannot specify a target Region and a target Outpost in the same rule.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<String>,
     /// <p>The target Region for the snapshot copies.</p> <p>If you specify a target Region, you must omit <b>Target</b>. You cannot specify a target Region and a target Outpost in the same rule.</p>
-    #[serde(rename = "TargetRegion")]
+    #[serde(rename = "targetRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_region: Option<String>,
 }
@@ -150,7 +150,7 @@ pub struct CrossRegionCopyRule {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLifecyclePolicyRequest {
     /// <p>The identifier of the lifecycle policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
 }
 
@@ -162,11 +162,11 @@ pub struct DeleteLifecyclePolicyResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EncryptionConfiguration {
     /// <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used.</p>
-    #[serde(rename = "CmkArn")]
+    #[serde(rename = "cmkArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cmk_arn: Option<String>,
     /// <p>To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.</p>
-    #[serde(rename = "Encrypted")]
+    #[serde(rename = "encrypted")]
     pub encrypted: bool,
 }
 
@@ -174,13 +174,13 @@ pub struct EncryptionConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EventParameters {
     /// <p>The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.</p> <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code> configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code> are shared with your account.</p>
-    #[serde(rename = "DescriptionRegex")]
+    #[serde(rename = "descriptionRegex")]
     pub description_regex: String,
     /// <p>The type of event. Currently, only snapshot sharing events are supported.</p>
-    #[serde(rename = "EventType")]
+    #[serde(rename = "eventType")]
     pub event_type: String,
     /// <p>The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.</p>
-    #[serde(rename = "SnapshotOwner")]
+    #[serde(rename = "snapshotOwner")]
     pub snapshot_owner: Vec<String>,
 }
 
@@ -188,11 +188,11 @@ pub struct EventParameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EventSource {
     /// <p>Information about the event.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<EventParameters>,
     /// <p>The source of the event. Currently only managed AWS CloudWatch Events rules are supported.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -200,18 +200,18 @@ pub struct EventSource {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FastRestoreRule {
     /// <p>The Availability Zones in which to enable fast snapshot restore.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     pub availability_zones: Vec<String>,
     /// <p>The number of snapshots to be enabled with fast snapshot restore.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>The amount of time to enable fast snapshot restore. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
-    #[serde(rename = "Interval")]
+    #[serde(rename = "interval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval: Option<i64>,
     /// <p>The unit of time for enabling fast snapshot restore.</p>
-    #[serde(rename = "IntervalUnit")]
+    #[serde(rename = "intervalUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval_unit: Option<String>,
 }
@@ -220,23 +220,23 @@ pub struct FastRestoreRule {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLifecyclePoliciesRequest {
     /// <p>The identifiers of the data lifecycle policies.</p>
-    #[serde(rename = "PolicyIds")]
+    #[serde(rename = "policyIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_ids: Option<Vec<String>>,
     /// <p>The resource type.</p>
-    #[serde(rename = "ResourceTypes")]
+    #[serde(rename = "resourceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_types: Option<Vec<String>>,
     /// <p>The activation state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags to add to objects created by the policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p> <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
-    #[serde(rename = "TagsToAdd")]
+    #[serde(rename = "tagsToAdd")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_to_add: Option<Vec<String>>,
     /// <p>The target tag for a policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p>
-    #[serde(rename = "TargetTags")]
+    #[serde(rename = "targetTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_tags: Option<Vec<String>>,
 }
@@ -245,7 +245,7 @@ pub struct GetLifecyclePoliciesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLifecyclePoliciesResponse {
     /// <p>Summary information about the lifecycle policies.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<Vec<LifecyclePolicySummary>>,
 }
@@ -254,7 +254,7 @@ pub struct GetLifecyclePoliciesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLifecyclePolicyRequest {
     /// <p>The identifier of the lifecycle policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
 }
 
@@ -262,7 +262,7 @@ pub struct GetLifecyclePolicyRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLifecyclePolicyResponse {
     /// <p>Detailed information about the lifecycle policy.</p>
-    #[serde(rename = "Policy")]
+    #[serde(rename = "policy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy: Option<LifecyclePolicy>,
 }
@@ -272,43 +272,43 @@ pub struct GetLifecyclePolicyResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LifecyclePolicy {
     /// <p>The local date and time when the lifecycle policy was created.</p>
-    #[serde(rename = "DateCreated")]
+    #[serde(rename = "dateCreated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_created: Option<f64>,
     /// <p>The local date and time when the lifecycle policy was last modified.</p>
-    #[serde(rename = "DateModified")]
+    #[serde(rename = "dateModified")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub date_modified: Option<f64>,
     /// <p>The description of the lifecycle policy.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
-    #[serde(rename = "ExecutionRoleArn")]
+    #[serde(rename = "executionRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_role_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the policy.</p>
-    #[serde(rename = "PolicyArn")]
+    #[serde(rename = "policyArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_arn: Option<String>,
     /// <p>The configuration of the lifecycle policy</p>
-    #[serde(rename = "PolicyDetails")]
+    #[serde(rename = "policyDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_details: Option<PolicyDetails>,
     /// <p>The identifier of the lifecycle policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The activation state of the lifecycle policy.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The description of the status.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -318,23 +318,23 @@ pub struct LifecyclePolicy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LifecyclePolicySummary {
     /// <p>The description of the lifecycle policy.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the lifecycle policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     /// <p>The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy manages the lifecycle of Amazon EBS snapshots. <code>IMAGE_MANAGEMENT</code> indicates that the policy manages the lifecycle of EBS-backed AMIs.</p>
-    #[serde(rename = "PolicyType")]
+    #[serde(rename = "policyType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_type: Option<String>,
     /// <p>The activation state of the lifecycle policy.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -343,7 +343,7 @@ pub struct LifecyclePolicySummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -351,7 +351,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>Information about the tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -360,11 +360,11 @@ pub struct ListTagsForResourceResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Parameters {
     /// <p>[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html">CreateSnapshots</a>. The default is false.</p>
-    #[serde(rename = "ExcludeBootVolume")]
+    #[serde(rename = "excludeBootVolume")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exclude_boot_volume: Option<bool>,
     /// <p>Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. <code>true</code> indicates that targeted instances are not rebooted when the policy runs. <code>false</code> indicates that target instances are rebooted when the policy runs. The default is <code>true</code> (instances are not rebooted).</p>
-    #[serde(rename = "NoReboot")]
+    #[serde(rename = "noReboot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub no_reboot: Option<bool>,
 }
@@ -373,35 +373,35 @@ pub struct Parameters {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PolicyDetails {
     /// <p>The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.</p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub actions: Option<Vec<Action>>,
     /// <p>The event that triggers the event-based policy. </p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>
-    #[serde(rename = "EventSource")]
+    #[serde(rename = "eventSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_source: Option<EventSource>,
     /// <p>A set of optional parameters for snapshot and AMI lifecycle policies. </p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Parameters>,
     /// <p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.</p> <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
-    #[serde(rename = "PolicyType")]
+    #[serde(rename = "policyType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_type: Option<String>,
     /// <p>The location of the resources to backup. If the source resources are located in an AWS Region, specify <code>CLOUD</code>. If the source resources are located on an AWS Outpost in your account, specify <code>OUTPOST</code>. </p> <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account.</p>
-    #[serde(rename = "ResourceLocations")]
+    #[serde(rename = "resourceLocations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_locations: Option<Vec<String>>,
     /// <p>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME </code>to create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume snapshots from the volumes for an instance.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
-    #[serde(rename = "ResourceTypes")]
+    #[serde(rename = "resourceTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_types: Option<Vec<String>>,
     /// <p>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
-    #[serde(rename = "Schedules")]
+    #[serde(rename = "schedules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedules: Option<Vec<Schedule>>,
     /// <p>The single tag that identifies targeted resources for this policy.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
-    #[serde(rename = "TargetTags")]
+    #[serde(rename = "targetTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_tags: Option<Vec<Tag>>,
 }
@@ -410,15 +410,15 @@ pub struct PolicyDetails {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RetainRule {
     /// <p>The number of snapshots to retain for each volume, up to a maximum of 1000.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
-    #[serde(rename = "Interval")]
+    #[serde(rename = "interval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval: Option<i64>,
     /// <p>The unit of time for time-based retention.</p>
-    #[serde(rename = "IntervalUnit")]
+    #[serde(rename = "intervalUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval_unit: Option<String>,
 }
@@ -427,39 +427,39 @@ pub struct RetainRule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Schedule {
     /// <p>Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.</p>
-    #[serde(rename = "CopyTags")]
+    #[serde(rename = "copyTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_tags: Option<bool>,
     /// <p>The creation rule.</p>
-    #[serde(rename = "CreateRule")]
+    #[serde(rename = "createRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_rule: Option<CreateRule>,
     /// <p>The rule for cross-Region snapshot copies.</p> <p>You can only specify cross-Region copy rules for policies that create snapshots in a Region. If the policy creates snapshots on an Outpost, then you cannot copy the snapshots to a Region or to an Outpost. If the policy creates snapshots in a Region, then snapshots can be copied to up to three Regions or Outposts.</p>
-    #[serde(rename = "CrossRegionCopyRules")]
+    #[serde(rename = "crossRegionCopyRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cross_region_copy_rules: Option<Vec<CrossRegionCopyRule>>,
     /// <p>The rule for enabling fast snapshot restore.</p>
-    #[serde(rename = "FastRestoreRule")]
+    #[serde(rename = "fastRestoreRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fast_restore_rule: Option<FastRestoreRule>,
     /// <p>The name of the schedule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The retention rule.</p>
-    #[serde(rename = "RetainRule")]
+    #[serde(rename = "retainRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retain_rule: Option<RetainRule>,
     /// <p>The rule for sharing snapshots with other AWS accounts.</p>
-    #[serde(rename = "ShareRules")]
+    #[serde(rename = "shareRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_rules: Option<Vec<ShareRule>>,
     /// <p>The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.</p>
-    #[serde(rename = "TagsToAdd")]
+    #[serde(rename = "tagsToAdd")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags_to_add: Option<Vec<Tag>>,
     /// <p>A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable tags are only valid for EBS Snapshot Management – Instance policies.</p>
-    #[serde(rename = "VariableTags")]
+    #[serde(rename = "variableTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub variable_tags: Option<Vec<Tag>>,
 }
@@ -468,14 +468,14 @@ pub struct Schedule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ShareRule {
     /// <p>The IDs of the AWS accounts with which to share the snapshots.</p>
-    #[serde(rename = "TargetAccounts")]
+    #[serde(rename = "targetAccounts")]
     pub target_accounts: Vec<String>,
     /// <p>The period after which snapshots that are shared with other AWS accounts are automatically unshared.</p>
-    #[serde(rename = "UnshareInterval")]
+    #[serde(rename = "unshareInterval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unshare_interval: Option<i64>,
     /// <p>The unit of time for the automatic unsharing interval.</p>
-    #[serde(rename = "UnshareIntervalUnit")]
+    #[serde(rename = "unshareIntervalUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unshare_interval_unit: Option<String>,
 }
@@ -484,10 +484,10 @@ pub struct ShareRule {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The tag key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The tag value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -495,10 +495,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -510,10 +510,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -525,22 +525,22 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLifecyclePolicyRequest {
     /// <p>A description of the lifecycle policy.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
-    #[serde(rename = "ExecutionRoleArn")]
+    #[serde(rename = "executionRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_role_arn: Option<String>,
     /// <p>The configuration of the lifecycle policy. You cannot update the policy type or the resource type.</p>
-    #[serde(rename = "PolicyDetails")]
+    #[serde(rename = "policyDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policy_details: Option<PolicyDetails>,
     /// <p>The identifier of the lifecycle policy.</p>
-    #[serde(rename = "PolicyId")]
+    #[serde(rename = "policyId")]
     pub policy_id: String,
     /// <p>The desired activation state of the lifecycle policy after creation.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }

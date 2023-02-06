@@ -54,10 +54,10 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AugmentedManifestsListItem {
     /// <p>The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.</p> <p>If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.</p> <p>If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.</p>
-    #[serde(rename = "AttributeNames")]
+    #[serde(rename = "attributeNames")]
     pub attribute_names: Vec<String>,
     /// <p>The Amazon S3 location of the augmented manifest file.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -66,11 +66,11 @@ pub struct AugmentedManifestsListItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectDominantLanguageItemResult {
     /// <p>The zero-based index of the document in the input list.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
     /// <p>One or more <a>DominantLanguage</a> objects describing the dominant languages in the document.</p>
-    #[serde(rename = "Languages")]
+    #[serde(rename = "languages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub languages: Option<Vec<DominantLanguage>>,
 }
@@ -79,7 +79,7 @@ pub struct BatchDetectDominantLanguageItemResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetectDominantLanguageRequest {
     /// <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "TextList")]
+    #[serde(rename = "textList")]
     pub text_list: Vec<String>,
 }
 
@@ -87,10 +87,10 @@ pub struct BatchDetectDominantLanguageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectDominantLanguageResponse {
     /// <p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>
-    #[serde(rename = "ErrorList")]
+    #[serde(rename = "errorList")]
     pub error_list: Vec<BatchItemError>,
     /// <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
-    #[serde(rename = "ResultList")]
+    #[serde(rename = "resultList")]
     pub result_list: Vec<BatchDetectDominantLanguageItemResult>,
 }
 
@@ -99,11 +99,11 @@ pub struct BatchDetectDominantLanguageResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectEntitiesItemResult {
     /// <p>One or more <a>Entity</a> objects, one for each entity detected in the document.</p>
-    #[serde(rename = "Entities")]
+    #[serde(rename = "entities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entities: Option<Vec<Entity>>,
     /// <p>The zero-based index of the document in the input list.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
 }
@@ -112,10 +112,10 @@ pub struct BatchDetectEntitiesItemResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetectEntitiesRequest {
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "TextList")]
+    #[serde(rename = "textList")]
     pub text_list: Vec<String>,
 }
 
@@ -123,10 +123,10 @@ pub struct BatchDetectEntitiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectEntitiesResponse {
     /// <p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>
-    #[serde(rename = "ErrorList")]
+    #[serde(rename = "errorList")]
     pub error_list: Vec<BatchItemError>,
     /// <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
-    #[serde(rename = "ResultList")]
+    #[serde(rename = "resultList")]
     pub result_list: Vec<BatchDetectEntitiesItemResult>,
 }
 
@@ -135,11 +135,11 @@ pub struct BatchDetectEntitiesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectKeyPhrasesItemResult {
     /// <p>The zero-based index of the document in the input list.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
     /// <p>One or more <a>KeyPhrase</a> objects, one for each key phrase detected in the document.</p>
-    #[serde(rename = "KeyPhrases")]
+    #[serde(rename = "keyPhrases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_phrases: Option<Vec<KeyPhrase>>,
 }
@@ -148,10 +148,10 @@ pub struct BatchDetectKeyPhrasesItemResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetectKeyPhrasesRequest {
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "TextList")]
+    #[serde(rename = "textList")]
     pub text_list: Vec<String>,
 }
 
@@ -159,10 +159,10 @@ pub struct BatchDetectKeyPhrasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectKeyPhrasesResponse {
     /// <p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>
-    #[serde(rename = "ErrorList")]
+    #[serde(rename = "errorList")]
     pub error_list: Vec<BatchItemError>,
     /// <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
-    #[serde(rename = "ResultList")]
+    #[serde(rename = "resultList")]
     pub result_list: Vec<BatchDetectKeyPhrasesItemResult>,
 }
 
@@ -171,15 +171,15 @@ pub struct BatchDetectKeyPhrasesResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectSentimentItemResult {
     /// <p>The zero-based index of the document in the input list.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
     /// <p>The sentiment detected in the document.</p>
-    #[serde(rename = "Sentiment")]
+    #[serde(rename = "sentiment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sentiment: Option<String>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.</p>
-    #[serde(rename = "SentimentScore")]
+    #[serde(rename = "sentimentScore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sentiment_score: Option<SentimentScore>,
 }
@@ -188,10 +188,10 @@ pub struct BatchDetectSentimentItemResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetectSentimentRequest {
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "TextList")]
+    #[serde(rename = "textList")]
     pub text_list: Vec<String>,
 }
 
@@ -199,10 +199,10 @@ pub struct BatchDetectSentimentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectSentimentResponse {
     /// <p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>
-    #[serde(rename = "ErrorList")]
+    #[serde(rename = "errorList")]
     pub error_list: Vec<BatchItemError>,
     /// <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
-    #[serde(rename = "ResultList")]
+    #[serde(rename = "resultList")]
     pub result_list: Vec<BatchDetectSentimentItemResult>,
 }
 
@@ -211,11 +211,11 @@ pub struct BatchDetectSentimentResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectSyntaxItemResult {
     /// <p>The zero-based index of the document in the input list.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
     /// <p>The syntax tokens for the words in the document, one token for each word.</p>
-    #[serde(rename = "SyntaxTokens")]
+    #[serde(rename = "syntaxTokens")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub syntax_tokens: Option<Vec<SyntaxToken>>,
 }
@@ -224,10 +224,10 @@ pub struct BatchDetectSyntaxItemResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDetectSyntaxRequest {
     /// <p>The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "TextList")]
+    #[serde(rename = "textList")]
     pub text_list: Vec<String>,
 }
 
@@ -235,10 +235,10 @@ pub struct BatchDetectSyntaxRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDetectSyntaxResponse {
     /// <p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>
-    #[serde(rename = "ErrorList")]
+    #[serde(rename = "errorList")]
     pub error_list: Vec<BatchItemError>,
     /// <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
-    #[serde(rename = "ResultList")]
+    #[serde(rename = "resultList")]
     pub result_list: Vec<BatchDetectSyntaxItemResult>,
 }
 
@@ -247,15 +247,15 @@ pub struct BatchDetectSyntaxResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchItemError {
     /// <p>The numeric error code of the error.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>A text description of the error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The zero-based index of the document in the input list.</p>
-    #[serde(rename = "Index")]
+    #[serde(rename = "index")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub index: Option<i64>,
 }
@@ -265,35 +265,35 @@ pub struct BatchItemError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClassifierEvaluationMetrics {
     /// <p>The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.</p>
-    #[serde(rename = "Accuracy")]
+    #[serde(rename = "accuracy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accuracy: Option<f64>,
     /// <p>A measure of how accurate the classifier results are for the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>
-    #[serde(rename = "F1Score")]
+    #[serde(rename = "f1Score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub f1_score: Option<f64>,
     /// <p>Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.</p>
-    #[serde(rename = "HammingLoss")]
+    #[serde(rename = "hammingLoss")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hamming_loss: Option<f64>,
     /// <p>A measure of how accurate the classifier results are for the test data. It is a combination of the <code>Micro Precision</code> and <code>Micro Recall</code> values. The <code>Micro F1Score</code> is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.</p>
-    #[serde(rename = "MicroF1Score")]
+    #[serde(rename = "microF1Score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub micro_f1_score: Option<f64>,
     /// <p>A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.</p>
-    #[serde(rename = "MicroPrecision")]
+    #[serde(rename = "microPrecision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub micro_precision: Option<f64>,
     /// <p>A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.</p>
-    #[serde(rename = "MicroRecall")]
+    #[serde(rename = "microRecall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub micro_recall: Option<f64>,
     /// <p>A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.</p>
-    #[serde(rename = "Precision")]
+    #[serde(rename = "precision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precision: Option<f64>,
     /// <p>A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. </p>
-    #[serde(rename = "Recall")]
+    #[serde(rename = "recall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recall: Option<f64>,
 }
@@ -303,19 +303,19 @@ pub struct ClassifierEvaluationMetrics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClassifierMetadata {
     /// <p> Describes the result metrics for the test data associated with an documentation classifier.</p>
-    #[serde(rename = "EvaluationMetrics")]
+    #[serde(rename = "evaluationMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_metrics: Option<ClassifierEvaluationMetrics>,
     /// <p>The number of labels in the input data. </p>
-    #[serde(rename = "NumberOfLabels")]
+    #[serde(rename = "numberOfLabels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_labels: Option<i64>,
     /// <p>The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.</p>
-    #[serde(rename = "NumberOfTestDocuments")]
+    #[serde(rename = "numberOfTestDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_test_documents: Option<i64>,
     /// <p>The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.</p>
-    #[serde(rename = "NumberOfTrainedDocuments")]
+    #[serde(rename = "numberOfTrainedDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_trained_documents: Option<i64>,
 }
@@ -324,10 +324,10 @@ pub struct ClassifierMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ClassifyDocumentRequest {
     /// <p>The Amazon Resource Number (ARN) of the endpoint.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     pub endpoint_arn: String,
     /// <p>The document text to be analyzed.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -335,11 +335,11 @@ pub struct ClassifyDocumentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ClassifyDocumentResponse {
     /// <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
-    #[serde(rename = "Classes")]
+    #[serde(rename = "classes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classes: Option<Vec<DocumentClass>>,
     /// <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<DocumentLabel>>,
 }
@@ -348,10 +348,10 @@ pub struct ClassifyDocumentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ContainsPiiEntitiesRequest {
     /// <p>The language of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Creates a new document classification request to analyze a single document in real-time, returning personally identifiable information (PII) entity labels.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -359,7 +359,7 @@ pub struct ContainsPiiEntitiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ContainsPiiEntitiesResponse {
     /// <p>The labels used in the document being analyzed. Individual labels represent personally identifiable information (PII) entity types.</p>
-    #[serde(rename = "Labels")]
+    #[serde(rename = "labels")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<EntityLabel>>,
 }
@@ -368,43 +368,43 @@ pub struct ContainsPiiEntitiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDocumentClassifierRequest {
     /// <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>The name of the document classifier.</p>
-    #[serde(rename = "DocumentClassifierName")]
+    #[serde(rename = "documentClassifierName")]
     pub document_classifier_name: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: DocumentClassifierInputDataConfig,
     /// <p>The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "ModelKmsKeyId")]
+    #[serde(rename = "modelKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_kms_key_id: Option<String>,
     /// <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<DocumentClassifierOutputDataConfig>,
     /// <p>Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -413,7 +413,7 @@ pub struct CreateDocumentClassifierRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDocumentClassifierResponse {
     /// <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classifier_arn: Option<String>,
 }
@@ -422,24 +422,24 @@ pub struct CreateDocumentClassifierResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEndpointRequest {
     /// <p>An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a <code>ResourceInUseException</code>. </p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
-    #[serde(rename = "DesiredInferenceUnits")]
+    #[serde(rename = "desiredInferenceUnits")]
     pub desired_inference_units: i64,
     /// <p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource. </p>
-    #[serde(rename = "EndpointName")]
+    #[serde(rename = "endpointName")]
     pub endpoint_name: String,
     /// <p>The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.</p>
-    #[serde(rename = "ModelArn")]
+    #[serde(rename = "modelArn")]
     pub model_arn: String,
     /// <p>Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -448,7 +448,7 @@ pub struct CreateEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateEndpointResponse {
     /// <p>The Amazon Resource Number (ARN) of the endpoint being created.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_arn: Option<String>,
 }
@@ -457,35 +457,35 @@ pub struct CreateEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateEntityRecognizerRequest {
     /// <p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same region as the entity recognizer being created. </p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: EntityRecognizerInputDataConfig,
     /// <p> You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "ModelKmsKeyId")]
+    #[serde(rename = "modelKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_kms_key_id: Option<String>,
     /// <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>
-    #[serde(rename = "RecognizerName")]
+    #[serde(rename = "recognizerName")]
     pub recognizer_name: String,
     /// <p>Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -494,7 +494,7 @@ pub struct CreateEntityRecognizerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateEntityRecognizerResponse {
     /// <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_recognizer_arn: Option<String>,
 }
@@ -503,7 +503,7 @@ pub struct CreateEntityRecognizerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDocumentClassifierRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     pub document_classifier_arn: String,
 }
 
@@ -515,7 +515,7 @@ pub struct DeleteDocumentClassifierResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEndpointRequest {
     /// <p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     pub endpoint_arn: String,
 }
 
@@ -527,7 +527,7 @@ pub struct DeleteEndpointResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteEntityRecognizerRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     pub entity_recognizer_arn: String,
 }
 
@@ -539,7 +539,7 @@ pub struct DeleteEntityRecognizerResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDocumentClassificationJobRequest {
     /// <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -547,7 +547,7 @@ pub struct DescribeDocumentClassificationJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDocumentClassificationJobResponse {
     /// <p>An object that describes the properties associated with the document classification job.</p>
-    #[serde(rename = "DocumentClassificationJobProperties")]
+    #[serde(rename = "documentClassificationJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classification_job_properties: Option<DocumentClassificationJobProperties>,
 }
@@ -556,7 +556,7 @@ pub struct DescribeDocumentClassificationJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDocumentClassifierRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the document classifier. The operation returns this identifier in its response.</p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     pub document_classifier_arn: String,
 }
 
@@ -564,7 +564,7 @@ pub struct DescribeDocumentClassifierRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDocumentClassifierResponse {
     /// <p>An object that contains the properties associated with a document classifier.</p>
-    #[serde(rename = "DocumentClassifierProperties")]
+    #[serde(rename = "documentClassifierProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classifier_properties: Option<DocumentClassifierProperties>,
 }
@@ -573,7 +573,7 @@ pub struct DescribeDocumentClassifierResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDominantLanguageDetectionJobRequest {
     /// <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -581,7 +581,7 @@ pub struct DescribeDominantLanguageDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDominantLanguageDetectionJobResponse {
     /// <p>An object that contains the properties associated with a dominant language detection job.</p>
-    #[serde(rename = "DominantLanguageDetectionJobProperties")]
+    #[serde(rename = "dominantLanguageDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dominant_language_detection_job_properties: Option<DominantLanguageDetectionJobProperties>,
 }
@@ -590,7 +590,7 @@ pub struct DescribeDominantLanguageDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEndpointRequest {
     /// <p>The Amazon Resource Number (ARN) of the endpoint being described.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     pub endpoint_arn: String,
 }
 
@@ -598,7 +598,7 @@ pub struct DescribeEndpointRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEndpointResponse {
     /// <p>Describes information associated with the specific endpoint.</p>
-    #[serde(rename = "EndpointProperties")]
+    #[serde(rename = "endpointProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_properties: Option<EndpointProperties>,
 }
@@ -607,7 +607,7 @@ pub struct DescribeEndpointResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEntitiesDetectionJobRequest {
     /// <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -615,7 +615,7 @@ pub struct DescribeEntitiesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEntitiesDetectionJobResponse {
     /// <p>An object that contains the properties associated with an entities detection job.</p>
-    #[serde(rename = "EntitiesDetectionJobProperties")]
+    #[serde(rename = "entitiesDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entities_detection_job_properties: Option<EntitiesDetectionJobProperties>,
 }
@@ -624,7 +624,7 @@ pub struct DescribeEntitiesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEntityRecognizerRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     pub entity_recognizer_arn: String,
 }
 
@@ -632,7 +632,7 @@ pub struct DescribeEntityRecognizerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEntityRecognizerResponse {
     /// <p>Describes information associated with an entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerProperties")]
+    #[serde(rename = "entityRecognizerProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_recognizer_properties: Option<EntityRecognizerProperties>,
 }
@@ -641,7 +641,7 @@ pub struct DescribeEntityRecognizerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEventsDetectionJobRequest {
     /// <p>The identifier of the events detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -649,7 +649,7 @@ pub struct DescribeEventsDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEventsDetectionJobResponse {
     /// <p>An object that contains the properties associated with an event detection job.</p>
-    #[serde(rename = "EventsDetectionJobProperties")]
+    #[serde(rename = "eventsDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events_detection_job_properties: Option<EventsDetectionJobProperties>,
 }
@@ -658,7 +658,7 @@ pub struct DescribeEventsDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeKeyPhrasesDetectionJobRequest {
     /// <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -666,7 +666,7 @@ pub struct DescribeKeyPhrasesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeKeyPhrasesDetectionJobResponse {
     /// <p>An object that contains the properties associated with a key phrases detection job. </p>
-    #[serde(rename = "KeyPhrasesDetectionJobProperties")]
+    #[serde(rename = "keyPhrasesDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_phrases_detection_job_properties: Option<KeyPhrasesDetectionJobProperties>,
 }
@@ -675,14 +675,14 @@ pub struct DescribeKeyPhrasesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePiiEntitiesDetectionJobRequest {
     /// <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePiiEntitiesDetectionJobResponse {
-    #[serde(rename = "PiiEntitiesDetectionJobProperties")]
+    #[serde(rename = "piiEntitiesDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pii_entities_detection_job_properties: Option<PiiEntitiesDetectionJobProperties>,
 }
@@ -691,7 +691,7 @@ pub struct DescribePiiEntitiesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSentimentDetectionJobRequest {
     /// <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -699,7 +699,7 @@ pub struct DescribeSentimentDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSentimentDetectionJobResponse {
     /// <p>An object that contains the properties associated with a sentiment detection job.</p>
-    #[serde(rename = "SentimentDetectionJobProperties")]
+    #[serde(rename = "sentimentDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sentiment_detection_job_properties: Option<SentimentDetectionJobProperties>,
 }
@@ -708,7 +708,7 @@ pub struct DescribeSentimentDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTopicsDetectionJobRequest {
     /// <p>The identifier assigned by the user to the detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -716,7 +716,7 @@ pub struct DescribeTopicsDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTopicsDetectionJobResponse {
     /// <p>The list of properties for the requested job.</p>
-    #[serde(rename = "TopicsDetectionJobProperties")]
+    #[serde(rename = "topicsDetectionJobProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics_detection_job_properties: Option<TopicsDetectionJobProperties>,
 }
@@ -725,7 +725,7 @@ pub struct DescribeTopicsDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectDominantLanguageRequest {
     /// <p>A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -733,7 +733,7 @@ pub struct DetectDominantLanguageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectDominantLanguageResponse {
     /// <p>The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <a href="https://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>
-    #[serde(rename = "Languages")]
+    #[serde(rename = "languages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub languages: Option<Vec<DominantLanguage>>,
 }
@@ -742,15 +742,15 @@ pub struct DetectDominantLanguageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectEntitiesRequest {
     /// <p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p> <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_arn: Option<String>,
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p> <p>If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -758,7 +758,7 @@ pub struct DetectEntitiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectEntitiesResponse {
     /// <p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p> <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a>how-entities</a>.</p>
-    #[serde(rename = "Entities")]
+    #[serde(rename = "entities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entities: Option<Vec<Entity>>,
 }
@@ -767,10 +767,10 @@ pub struct DetectEntitiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectKeyPhrasesRequest {
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -778,7 +778,7 @@ pub struct DetectKeyPhrasesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectKeyPhrasesResponse {
     /// <p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>
-    #[serde(rename = "KeyPhrases")]
+    #[serde(rename = "keyPhrases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_phrases: Option<Vec<KeyPhrase>>,
 }
@@ -787,10 +787,10 @@ pub struct DetectKeyPhrasesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectPiiEntitiesRequest {
     /// <p>The language of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -798,7 +798,7 @@ pub struct DetectPiiEntitiesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectPiiEntitiesResponse {
     /// <p>A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.</p>
-    #[serde(rename = "Entities")]
+    #[serde(rename = "entities")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entities: Option<Vec<PiiEntity>>,
 }
@@ -807,10 +807,10 @@ pub struct DetectPiiEntitiesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectSentimentRequest {
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -818,11 +818,11 @@ pub struct DetectSentimentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectSentimentResponse {
     /// <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>
-    #[serde(rename = "Sentiment")]
+    #[serde(rename = "sentiment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sentiment: Option<String>,
     /// <p>An object that lists the sentiments, and their corresponding confidence levels.</p>
-    #[serde(rename = "SentimentScore")]
+    #[serde(rename = "sentimentScore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sentiment_score: Option<SentimentScore>,
 }
@@ -831,10 +831,10 @@ pub struct DetectSentimentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectSyntaxRequest {
     /// <p>The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     pub text: String,
 }
 
@@ -842,7 +842,7 @@ pub struct DetectSyntaxRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectSyntaxResponse {
     /// <p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>
-    #[serde(rename = "SyntaxTokens")]
+    #[serde(rename = "syntaxTokens")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub syntax_tokens: Option<Vec<SyntaxToken>>,
 }
@@ -852,11 +852,11 @@ pub struct DetectSyntaxResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentClass {
     /// <p>The name of the class.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The confidence score that Amazon Comprehend has this class correctly attributed.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
 }
@@ -866,19 +866,19 @@ pub struct DocumentClass {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DocumentClassificationJobFilter {
     /// <p>Filters on the name of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -888,51 +888,51 @@ pub struct DocumentClassificationJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentClassificationJobProperties {
     /// <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classifier_arn: Option<String>,
     /// <p>The time that the document classification job completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration that you supplied when you created the document classification job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the document classification job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name that you assigned to the document classification job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the document classification job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>A description of the status of the job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output data configuration that you supplied when you created the document classification job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the document classification job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -942,15 +942,15 @@ pub struct DocumentClassificationJobProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DocumentClassifierFilter {
     /// <p>Filters the list of classifiers based on status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Filters the list of classifiers based on the time that the classifier was submitted for processing. Returns only classifiers submitted after the specified time. Classifiers are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of classifiers based on the time that the classifier was submitted for processing. Returns only classifiers submitted before the specified time. Classifiers are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -959,19 +959,19 @@ pub struct DocumentClassifierFilter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DocumentClassifierInputDataConfig {
     /// <p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>
-    #[serde(rename = "AugmentedManifests")]
+    #[serde(rename = "augmentedManifests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub augmented_manifests: Option<Vec<AugmentedManifestsListItem>>,
     /// <p>The format of your training data:</p> <ul> <li> <p> <code>COMPREHEND_CSV</code>: A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the <code>S3Uri</code> parameter in your request.</p> </li> <li> <p> <code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels. </p> <p>If you use this value, you must provide the <code>AugmentedManifests</code> parameter in your request.</p> </li> </ul> <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the default.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_format: Option<String>,
     /// <p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>
-    #[serde(rename = "LabelDelimiter")]
+    #[serde(rename = "labelDelimiter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub label_delimiter: Option<String>,
     /// <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p> <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_uri: Option<String>,
 }
@@ -980,11 +980,11 @@ pub struct DocumentClassifierInputDataConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DocumentClassifierOutputDataConfig {
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>KMS Key Alias: <code>&quot;alias/ExampleAlias&quot;</code> </p> </li> <li> <p>ARN of a KMS Key Alias: <code>&quot;arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>When you use the <code>OutputDataConfig</code> object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.</p> <p>When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the confusion matrix.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_uri: Option<String>,
 }
@@ -994,67 +994,67 @@ pub struct DocumentClassifierOutputDataConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentClassifierProperties {
     /// <p>Information about the document classifier, including the number of documents used for training the classifier, the number of documents used for test the classifier, and an accuracy rating.</p>
-    #[serde(rename = "ClassifierMetadata")]
+    #[serde(rename = "classifierMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub classifier_metadata: Option<ClassifierMetadata>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classifier_arn: Option<String>,
     /// <p>The time that training the document classifier completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration that you supplied when you created the document classifier for training.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<DocumentClassifierInputDataConfig>,
     /// <p>The language code for the language of the documents that the classifier was trained on.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>Additional information about the status of the classifier.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "ModelKmsKeyId")]
+    #[serde(rename = "modelKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_kms_key_id: Option<String>,
     /// <p> Provides output results configuration parameters for custom classifier jobs.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<DocumentClassifierOutputDataConfig>,
     /// <p>The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The time that the document classifier was submitted for training.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p>The time that training of the document classifier was completed. Indicates the time when the training completes on documentation classifiers. You are billed for the time interval between this time and the value of TrainingStartTime.</p>
-    #[serde(rename = "TrainingEndTime")]
+    #[serde(rename = "trainingEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_end_time: Option<f64>,
     /// <p>Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime. </p>
-    #[serde(rename = "TrainingStartTime")]
+    #[serde(rename = "trainingStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_start_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1064,11 +1064,11 @@ pub struct DocumentClassifierProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentLabel {
     /// <p>The name of the label.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The confidence score that Amazon Comprehend has this label correctly attributed.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
 }
@@ -1078,11 +1078,11 @@ pub struct DocumentLabel {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DominantLanguage {
     /// <p>The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <a href="https://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
 }
@@ -1092,19 +1092,19 @@ pub struct DominantLanguage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DominantLanguageDetectionJobFilter {
     /// <p>Filters on the name of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -1114,47 +1114,47 @@ pub struct DominantLanguageDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DominantLanguageDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the dominant language detection job completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration that you supplied when you created the dominant language detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the dominant language detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name that you assigned to the dominant language detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the dominant language detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>A description for the status of a job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output data configuration that you supplied when you created the dominant language detection job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the dominant language detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1164,19 +1164,19 @@ pub struct DominantLanguageDetectionJobProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EndpointFilter {
     /// <p>Specifies a date after which the returned endpoint or endpoints were created.</p>
-    #[serde(rename = "CreationTimeAfter")]
+    #[serde(rename = "creationTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time_after: Option<f64>,
     /// <p>Specifies a date before which the returned endpoint or endpoints were created.</p>
-    #[serde(rename = "CreationTimeBefore")]
+    #[serde(rename = "creationTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time_before: Option<f64>,
     /// <p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>
-    #[serde(rename = "ModelArn")]
+    #[serde(rename = "modelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_arn: Option<String>,
     /// <p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1186,39 +1186,39 @@ pub struct EndpointFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EndpointProperties {
     /// <p>The creation date and time of the endpoint.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The number of inference units currently used by the model using this endpoint.</p>
-    #[serde(rename = "CurrentInferenceUnits")]
+    #[serde(rename = "currentInferenceUnits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_inference_units: Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
-    #[serde(rename = "DesiredInferenceUnits")]
+    #[serde(rename = "desiredInferenceUnits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_inference_units: Option<i64>,
     /// <p>The Amazon Resource Number (ARN) of the endpoint.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_arn: Option<String>,
     /// <p>The date and time that the endpoint was last modified.</p>
-    #[serde(rename = "LastModifiedTime")]
+    #[serde(rename = "lastModifiedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<f64>,
     /// <p>Specifies a reason for failure in cases of <code>Failed</code> status.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>
-    #[serde(rename = "ModelArn")]
+    #[serde(rename = "modelArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_arn: Option<String>,
     /// <p>Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be <code>Ready</code> status before making inference requests.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1228,19 +1228,19 @@ pub struct EndpointProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EntitiesDetectionJobFilter {
     /// <p>Filters on the name of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -1250,55 +1250,55 @@ pub struct EntitiesDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntitiesDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the entities detection job completed</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_recognizer_arn: Option<String>,
     /// <p>The input data configuration that you supplied when you created the entities detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the entities detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name that you assigned the entities detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the entities detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The language code of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>A description of the status of a job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output data configuration that you supplied when you created the entities detection job. </p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the entities detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1308,23 +1308,23 @@ pub struct EntitiesDetectionJobProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Entity {
     /// <p>A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
-    #[serde(rename = "BeginOffset")]
+    #[serde(rename = "beginOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub begin_offset: Option<i64>,
     /// <p>A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. </p>
-    #[serde(rename = "EndOffset")]
+    #[serde(rename = "endOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_offset: Option<i64>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
     /// <p>The text of the entity.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     /// <p>The entity's type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1334,11 +1334,11 @@ pub struct Entity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntityLabel {
     /// <p>The name of the label.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
 }
@@ -1347,7 +1347,7 @@ pub struct EntityLabel {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EntityRecognizerAnnotations {
     /// <p> Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -1355,7 +1355,7 @@ pub struct EntityRecognizerAnnotations {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EntityRecognizerDocuments {
     /// <p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -1363,7 +1363,7 @@ pub struct EntityRecognizerDocuments {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EntityRecognizerEntityList {
     /// <p>Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -1372,15 +1372,15 @@ pub struct EntityRecognizerEntityList {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntityRecognizerEvaluationMetrics {
     /// <p>A measure of how accurate the recognizer results are for the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>
-    #[serde(rename = "F1Score")]
+    #[serde(rename = "f1Score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub f1_score: Option<f64>,
     /// <p>A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. </p>
-    #[serde(rename = "Precision")]
+    #[serde(rename = "precision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precision: Option<f64>,
     /// <p>A measure of how complete the recognizer results are for the test data. High recall means that the recognizer returned most of the relevant results.</p>
-    #[serde(rename = "Recall")]
+    #[serde(rename = "recall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recall: Option<f64>,
 }
@@ -1390,15 +1390,15 @@ pub struct EntityRecognizerEvaluationMetrics {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EntityRecognizerFilter {
     /// <p>The status of an entity recognizer.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -1407,27 +1407,27 @@ pub struct EntityRecognizerFilter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EntityRecognizerInputDataConfig {
     /// <p>The S3 location of the CSV file that annotates your training documents.</p>
-    #[serde(rename = "Annotations")]
+    #[serde(rename = "annotations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotations: Option<EntityRecognizerAnnotations>,
     /// <p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>
-    #[serde(rename = "AugmentedManifests")]
+    #[serde(rename = "augmentedManifests")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub augmented_manifests: Option<Vec<AugmentedManifestsListItem>>,
     /// <p>The format of your training data:</p> <ul> <li> <p> <code>COMPREHEND_CSV</code>: A CSV file that supplements your training documents. The CSV file contains information about the custom entities that your trained model will detect. The required format of the file depends on whether you are providing annotations or an entity list.</p> <p>If you use this value, you must provide your CSV file by using either the <code>Annotations</code> or <code>EntityList</code> parameters. You must provide your training documents by using the <code>Documents</code> parameter.</p> </li> <li> <p> <code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its labels. Each label annotates a named entity in the training document. </p> <p>If you use this value, you must provide the <code>AugmentedManifests</code> parameter in your request.</p> </li> </ul> <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the default.</p>
-    #[serde(rename = "DataFormat")]
+    #[serde(rename = "dataFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_format: Option<String>,
     /// <p>The S3 location of the folder that contains the training documents for your custom entity recognizer.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>
-    #[serde(rename = "Documents")]
+    #[serde(rename = "documents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub documents: Option<EntityRecognizerDocuments>,
     /// <p>The S3 location of the CSV file that has the entity list for your custom entity recognizer.</p>
-    #[serde(rename = "EntityList")]
+    #[serde(rename = "entityList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_list: Option<EntityRecognizerEntityList>,
     /// <p>The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.</p> <p>A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma). </p>
-    #[serde(rename = "EntityTypes")]
+    #[serde(rename = "entityTypes")]
     pub entity_types: Vec<EntityTypesListItem>,
 }
 
@@ -1436,19 +1436,19 @@ pub struct EntityRecognizerInputDataConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntityRecognizerMetadata {
     /// <p>Entity types from the metadata of an entity recognizer.</p>
-    #[serde(rename = "EntityTypes")]
+    #[serde(rename = "entityTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_types: Option<Vec<EntityRecognizerMetadataEntityTypesListItem>>,
     /// <p>Detailed information about the accuracy of an entity recognizer.</p>
-    #[serde(rename = "EvaluationMetrics")]
+    #[serde(rename = "evaluationMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_metrics: Option<EntityRecognizerEvaluationMetrics>,
     /// <p> The number of documents in the input data that were used to test the entity recognizer. Typically this is 10 to 20 percent of the input documents.</p>
-    #[serde(rename = "NumberOfTestDocuments")]
+    #[serde(rename = "numberOfTestDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_test_documents: Option<i64>,
     /// <p> The number of documents in the input data that were used to train the entity recognizer. Typically this is 80 to 90 percent of the input documents.</p>
-    #[serde(rename = "NumberOfTrainedDocuments")]
+    #[serde(rename = "numberOfTrainedDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_trained_documents: Option<i64>,
 }
@@ -1458,15 +1458,15 @@ pub struct EntityRecognizerMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntityRecognizerMetadataEntityTypesListItem {
     /// <p>Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types. </p>
-    #[serde(rename = "EvaluationMetrics")]
+    #[serde(rename = "evaluationMetrics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation_metrics: Option<EntityTypesEvaluationMetrics>,
     /// <p>Indicates the number of times the given entity type was seen in the training data. </p>
-    #[serde(rename = "NumberOfTrainMentions")]
+    #[serde(rename = "numberOfTrainMentions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_train_mentions: Option<i64>,
     /// <p>Type of entity from the list of entity types in the metadata of an entity recognizer. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1476,59 +1476,59 @@ pub struct EntityRecognizerMetadataEntityTypesListItem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntityRecognizerProperties {
     /// <p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the recognizer creation completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_recognizer_arn: Option<String>,
     /// <p>The input data properties of an entity recognizer.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<EntityRecognizerInputDataConfig>,
     /// <p> The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p> A description of the status of the recognizer.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats: </p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "ModelKmsKeyId")]
+    #[serde(rename = "modelKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub model_kms_key_id: Option<String>,
     /// <p> Provides information about an entity recognizer.</p>
-    #[serde(rename = "RecognizerMetadata")]
+    #[serde(rename = "recognizerMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recognizer_metadata: Option<EntityRecognizerMetadata>,
     /// <p>Provides the status of the entity recognizer.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The time that the recognizer was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p>The time that training of the entity recognizer was completed.</p>
-    #[serde(rename = "TrainingEndTime")]
+    #[serde(rename = "trainingEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_end_time: Option<f64>,
     /// <p>The time that training of the entity recognizer started.</p>
-    #[serde(rename = "TrainingStartTime")]
+    #[serde(rename = "trainingStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub training_start_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1538,15 +1538,15 @@ pub struct EntityRecognizerProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntityTypesEvaluationMetrics {
     /// <p>A measure of how accurate the recognizer results are for a specific entity type in the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>
-    #[serde(rename = "F1Score")]
+    #[serde(rename = "f1Score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub f1_score: Option<f64>,
     /// <p>A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. </p>
-    #[serde(rename = "Precision")]
+    #[serde(rename = "precision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precision: Option<f64>,
     /// <p>A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer returned most of the relevant results.</p>
-    #[serde(rename = "Recall")]
+    #[serde(rename = "recall")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recall: Option<f64>,
 }
@@ -1555,7 +1555,7 @@ pub struct EntityTypesEvaluationMetrics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EntityTypesListItem {
     /// <p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p> <p>Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1564,19 +1564,19 @@ pub struct EntityTypesListItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EventsDetectionJobFilter {
     /// <p>Filters on the name of the events detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -1586,47 +1586,47 @@ pub struct EventsDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventsDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the events detection job completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration that you supplied when you created the events detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the events detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name you assigned the events detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the events detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The language code of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>A description of the status of the events detection job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output data configuration that you supplied when you created the events detection job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the events detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p>The types of events that are detected by the job.</p>
-    #[serde(rename = "TargetEventTypes")]
+    #[serde(rename = "targetEventTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_event_types: Option<Vec<String>>,
 }
@@ -1635,11 +1635,11 @@ pub struct EventsDetectionJobProperties {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InputDataConfig {
     /// <p><p>Specifies how the text in an input file should be processed:</p> <ul> <li> <p> <code>ONE<em>DOC</em>PER<em>FILE</code> - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.</p> </li> <li> <p> <code>ONE</em>DOC<em>PER</em>LINE</code> - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p> </li> </ul></p>
-    #[serde(rename = "InputFormat")]
+    #[serde(rename = "inputFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_format: Option<String>,
     /// <p>The Amazon S3 URI for the input data. The URI must be in same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of data files. </p> <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -1648,19 +1648,19 @@ pub struct InputDataConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KeyPhrase {
     /// <p>A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
-    #[serde(rename = "BeginOffset")]
+    #[serde(rename = "beginOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub begin_offset: Option<i64>,
     /// <p>A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A <code>code point</code> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
-    #[serde(rename = "EndOffset")]
+    #[serde(rename = "endOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_offset: Option<i64>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
     /// <p>The text of a key noun phrase.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
 }
@@ -1670,19 +1670,19 @@ pub struct KeyPhrase {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct KeyPhrasesDetectionJobFilter {
     /// <p>Filters on the name of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -1692,51 +1692,51 @@ pub struct KeyPhrasesDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct KeyPhrasesDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the key phrases detection job completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration that you supplied when you created the key phrases detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the key phrases detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name that you assigned the key phrases detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the key phrases detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The language code of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>A description of the status of a job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output data configuration that you supplied when you created the key phrases detection job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the key phrases detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1745,15 +1745,15 @@ pub struct KeyPhrasesDetectionJobProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDocumentClassificationJobsRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<DocumentClassificationJobFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1762,12 +1762,12 @@ pub struct ListDocumentClassificationJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDocumentClassificationJobsResponse {
     /// <p>A list containing the properties of each job returned.</p>
-    #[serde(rename = "DocumentClassificationJobPropertiesList")]
+    #[serde(rename = "documentClassificationJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classification_job_properties_list:
         Option<Vec<DocumentClassificationJobProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1776,15 +1776,15 @@ pub struct ListDocumentClassificationJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDocumentClassifiersRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<DocumentClassifierFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1793,11 +1793,11 @@ pub struct ListDocumentClassifiersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDocumentClassifiersResponse {
     /// <p>A list containing the properties of each job returned.</p>
-    #[serde(rename = "DocumentClassifierPropertiesList")]
+    #[serde(rename = "documentClassifierPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_classifier_properties_list: Option<Vec<DocumentClassifierProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1806,15 +1806,15 @@ pub struct ListDocumentClassifiersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDominantLanguageDetectionJobsRequest {
     /// <p>Filters that jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<DominantLanguageDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1823,12 +1823,12 @@ pub struct ListDominantLanguageDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDominantLanguageDetectionJobsResponse {
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "DominantLanguageDetectionJobPropertiesList")]
+    #[serde(rename = "dominantLanguageDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dominant_language_detection_job_properties_list:
         Option<Vec<DominantLanguageDetectionJobProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1837,15 +1837,15 @@ pub struct ListDominantLanguageDetectionJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEndpointsRequest {
     /// <p>Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<EndpointFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1854,11 +1854,11 @@ pub struct ListEndpointsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEndpointsResponse {
     /// <p>Displays a list of endpoint properties being retrieved by the service in response to the request.</p>
-    #[serde(rename = "EndpointPropertiesList")]
+    #[serde(rename = "endpointPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_properties_list: Option<Vec<EndpointProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1867,15 +1867,15 @@ pub struct ListEndpointsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEntitiesDetectionJobsRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<EntitiesDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1884,11 +1884,11 @@ pub struct ListEntitiesDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEntitiesDetectionJobsResponse {
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "EntitiesDetectionJobPropertiesList")]
+    #[serde(rename = "entitiesDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entities_detection_job_properties_list: Option<Vec<EntitiesDetectionJobProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1897,15 +1897,15 @@ pub struct ListEntitiesDetectionJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEntityRecognizersRequest {
     /// <p>Filters the list of entities returned. You can filter on <code>Status</code>, <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<EntityRecognizerFilter>,
     /// <p> The maximum number of results to return on each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1914,11 +1914,11 @@ pub struct ListEntityRecognizersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEntityRecognizersResponse {
     /// <p>The list of properties of an entity recognizer.</p>
-    #[serde(rename = "EntityRecognizerPropertiesList")]
+    #[serde(rename = "entityRecognizerPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_recognizer_properties_list: Option<Vec<EntityRecognizerProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1927,15 +1927,15 @@ pub struct ListEntityRecognizersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEventsDetectionJobsRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<EventsDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1944,11 +1944,11 @@ pub struct ListEventsDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEventsDetectionJobsResponse {
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "EventsDetectionJobPropertiesList")]
+    #[serde(rename = "eventsDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub events_detection_job_properties_list: Option<Vec<EventsDetectionJobProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1957,15 +1957,15 @@ pub struct ListEventsDetectionJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListKeyPhrasesDetectionJobsRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<KeyPhrasesDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1974,11 +1974,11 @@ pub struct ListKeyPhrasesDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListKeyPhrasesDetectionJobsResponse {
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "KeyPhrasesDetectionJobPropertiesList")]
+    #[serde(rename = "keyPhrasesDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_phrases_detection_job_properties_list: Option<Vec<KeyPhrasesDetectionJobProperties>>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1987,15 +1987,15 @@ pub struct ListKeyPhrasesDetectionJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPiiEntitiesDetectionJobsRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<PiiEntitiesDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2004,11 +2004,11 @@ pub struct ListPiiEntitiesDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPiiEntitiesDetectionJobsResponse {
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "PiiEntitiesDetectionJobPropertiesList")]
+    #[serde(rename = "piiEntitiesDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pii_entities_detection_job_properties_list: Option<Vec<PiiEntitiesDetectionJobProperties>>,
 }
@@ -2017,15 +2017,15 @@ pub struct ListPiiEntitiesDetectionJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSentimentDetectionJobsRequest {
     /// <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<SentimentDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2034,11 +2034,11 @@ pub struct ListSentimentDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSentimentDetectionJobsResponse {
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "SentimentDetectionJobPropertiesList")]
+    #[serde(rename = "sentimentDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sentiment_detection_job_properties_list: Option<Vec<SentimentDetectionJobProperties>>,
 }
@@ -2047,7 +2047,7 @@ pub struct ListSentimentDetectionJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2055,11 +2055,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2068,15 +2068,15 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTopicsDetectionJobsRequest {
     /// <p>Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<TopicsDetectionJobFilter>,
     /// <p>The maximum number of results to return in each page. The default is 100.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2085,11 +2085,11 @@ pub struct ListTopicsDetectionJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTopicsDetectionJobsResponse {
     /// <p>Identifies the next page of results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list containing the properties of each job that is returned.</p>
-    #[serde(rename = "TopicsDetectionJobPropertiesList")]
+    #[serde(rename = "topicsDetectionJobPropertiesList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub topics_detection_job_properties_list: Option<Vec<TopicsDetectionJobProperties>>,
 }
@@ -2098,11 +2098,11 @@ pub struct ListTopicsDetectionJobsResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OutputDataConfig {
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>KMS Key Alias: <code>&quot;alias/ExampleAlias&quot;</code> </p> </li> <li> <p>ARN of a KMS Key Alias: <code>&quot;arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.</p> <p>When the topic detection job is finished, the service creates an output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the ouput of the operation.</p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -2111,11 +2111,11 @@ pub struct OutputDataConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PartOfSpeechTag {
     /// <p>The confidence that Amazon Comprehend has that the part of speech was correctly identified.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
     /// <p>Identifies the part of speech that the token represents.</p>
-    #[serde(rename = "Tag")]
+    #[serde(rename = "tag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag: Option<String>,
 }
@@ -2125,19 +2125,19 @@ pub struct PartOfSpeechTag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PiiEntitiesDetectionJobFilter {
     /// <p>Filters on the name of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -2147,51 +2147,51 @@ pub struct PiiEntitiesDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PiiEntitiesDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the PII entities detection job completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input properties for a PII entities detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the PII entities detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name that you assigned the PII entities detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the PII entities detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The language code of the input documents</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>A description of the status of a job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mode: Option<String>,
     /// <p>The output data configuration that you supplied when you created the PII entities detection job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<PiiOutputDataConfig>,
     /// <p>Provides configuration parameters for PII entity redaction.</p> <p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>
-    #[serde(rename = "RedactionConfig")]
+    #[serde(rename = "redactionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redaction_config: Option<RedactionConfig>,
     /// <p>The time that the PII entities detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
 }
@@ -2201,19 +2201,19 @@ pub struct PiiEntitiesDetectionJobProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PiiEntity {
     /// <p>A character offset in the input text that shows where the PII entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
-    #[serde(rename = "BeginOffset")]
+    #[serde(rename = "beginOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub begin_offset: Option<i64>,
     /// <p>A character offset in the input text that shows where the PII entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
-    #[serde(rename = "EndOffset")]
+    #[serde(rename = "endOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_offset: Option<i64>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-    #[serde(rename = "Score")]
+    #[serde(rename = "score")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub score: Option<f32>,
     /// <p>The entity's type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2223,11 +2223,11 @@ pub struct PiiEntity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PiiOutputDataConfig {
     /// <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p>
-    #[serde(rename = "S3Uri")]
+    #[serde(rename = "s3Uri")]
     pub s3_uri: String,
 }
 
@@ -2235,15 +2235,15 @@ pub struct PiiOutputDataConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RedactionConfig {
     /// <p>A character that replaces each character in the redacted PII entity.</p>
-    #[serde(rename = "MaskCharacter")]
+    #[serde(rename = "maskCharacter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mask_character: Option<String>,
     /// <p>Specifies whether the PII entity is redacted with the mask character or the entity type.</p>
-    #[serde(rename = "MaskMode")]
+    #[serde(rename = "maskMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mask_mode: Option<String>,
     /// <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.</p>
-    #[serde(rename = "PiiEntityTypes")]
+    #[serde(rename = "piiEntityTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pii_entity_types: Option<Vec<String>>,
 }
@@ -2253,19 +2253,19 @@ pub struct RedactionConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SentimentDetectionJobFilter {
     /// <p>Filters on the name of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -2275,51 +2275,51 @@ pub struct SentimentDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SentimentDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the sentiment detection job ended.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration that you supplied when you created the sentiment detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the sentiment detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name that you assigned to the sentiment detection job</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the sentiment detection job. If the status is <code>FAILED</code>, the <code>Messages</code> field shows the reason for the failure.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>The language code of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub language_code: Option<String>,
     /// <p>A description of the status of a job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The output data configuration that you supplied when you created the sentiment detection job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the sentiment detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2329,19 +2329,19 @@ pub struct SentimentDetectionJobProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SentimentScore {
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>MIXED</code> sentiment.</p>
-    #[serde(rename = "Mixed")]
+    #[serde(rename = "mixed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mixed: Option<f32>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>NEGATIVE</code> sentiment.</p>
-    #[serde(rename = "Negative")]
+    #[serde(rename = "negative")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub negative: Option<f32>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>NEUTRAL</code> sentiment.</p>
-    #[serde(rename = "Neutral")]
+    #[serde(rename = "neutral")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub neutral: Option<f32>,
     /// <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>POSITIVE</code> sentiment.</p>
-    #[serde(rename = "Positive")]
+    #[serde(rename = "positive")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub positive: Option<f32>,
 }
@@ -2350,31 +2350,31 @@ pub struct SentimentScore {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDocumentClassificationJobRequest {
     /// <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>The Amazon Resource Name (ARN) of the document classifier to use to process the job.</p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     pub document_classifier_arn: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Specifies where to send the output files.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2383,11 +2383,11 @@ pub struct StartDocumentClassificationJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartDocumentClassificationJobResponse {
     /// <p>The identifier generated for the job. To get the status of the job, use this identifier with the operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job:</p> <ul> <li> <p>SUBMITTED - The job has been received and queued for processing.</p> </li> <li> <p>IN<em>PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. For details, use the operation.</p> </li> <li> <p>STOP</em>REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.</p> </li> <li> <p>STOPPED - The job was successfully stopped without completing.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2396,28 +2396,28 @@ pub struct StartDocumentClassificationJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDominantLanguageDetectionJobRequest {
     /// <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>An identifier for the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Specifies where to send the output files.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2426,11 +2426,11 @@ pub struct StartDominantLanguageDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartDominantLanguageDetectionJobResponse {
     /// <p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job. </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the operation.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2439,35 +2439,35 @@ pub struct StartDominantLanguageDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartEntitiesDetectionJobRequest {
     /// <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity recognition job.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_recognizer_arn: Option<String>,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The language of the input documents. All documents must be in the same language. You can specify any of the languages supported by Amazon Comprehend. If custom entities recognition is used, this parameter is ignored and the language used for training the model is used instead.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Specifies where to send the output files.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2476,11 +2476,11 @@ pub struct StartEntitiesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartEntitiesDetectionJobResponse {
     /// <p>The identifier generated for the job. To get the status of job, use this identifier with the operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job. </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN<em>PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the operation.</p> </li> <li> <p>STOP</em>REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.</p> </li> <li> <p>STOPPED - The job was successfully stopped without completing.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2489,27 +2489,27 @@ pub struct StartEntitiesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartEventsDetectionJobRequest {
     /// <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the events detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The language code of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Specifies where to send the output files.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p>The types of events to detect in the input documents.</p>
-    #[serde(rename = "TargetEventTypes")]
+    #[serde(rename = "targetEventTypes")]
     pub target_event_types: Vec<String>,
 }
 
@@ -2517,11 +2517,11 @@ pub struct StartEventsDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartEventsDetectionJobResponse {
     /// <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The status of the events detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2530,31 +2530,31 @@ pub struct StartEventsDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartKeyPhrasesDetectionJobRequest {
     /// <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Specifies where to send the output files.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2563,11 +2563,11 @@ pub struct StartKeyPhrasesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartKeyPhrasesDetectionJobResponse {
     /// <p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job. </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the operation.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2576,30 +2576,30 @@ pub struct StartKeyPhrasesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartPiiEntitiesDetectionJobRequest {
     /// <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>The input properties for a PII entities detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The language of the input documents.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>
-    #[serde(rename = "Mode")]
+    #[serde(rename = "mode")]
     pub mode: String,
     /// <p>Provides conﬁguration parameters for the output of PII entity detection jobs.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p>Provides configuration parameters for PII entity redaction.</p> <p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>
-    #[serde(rename = "RedactionConfig")]
+    #[serde(rename = "redactionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redaction_config: Option<RedactionConfig>,
 }
@@ -2608,11 +2608,11 @@ pub struct StartPiiEntitiesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartPiiEntitiesDetectionJobResponse {
     /// <p>The identifier generated for the job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The status of the job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2621,31 +2621,31 @@ pub struct StartPiiEntitiesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartSentimentDetectionJobRequest {
     /// <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
-    #[serde(rename = "LanguageCode")]
+    #[serde(rename = "languageCode")]
     pub language_code: String,
     /// <p>Specifies where to send the output files. </p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2654,11 +2654,11 @@ pub struct StartSentimentDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartSentimentDetectionJobResponse {
     /// <p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job. </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the operation.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2667,32 +2667,32 @@ pub struct StartSentimentDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTopicsDetectionJobRequest {
     /// <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     pub data_access_role_arn: String,
     /// <p>Specifies the format and location of the input data for the job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     pub input_data_config: InputDataConfig,
     /// <p>The identifier of the job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The number of topics to detect.</p>
-    #[serde(rename = "NumberOfTopics")]
+    #[serde(rename = "numberOfTopics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_topics: Option<i64>,
     /// <p>Specifies where to send the output files. The output is a compressed archive with two files, <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code> that lists the documents associated with each topic</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     pub output_data_config: OutputDataConfig,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2701,11 +2701,11 @@ pub struct StartTopicsDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTopicsDetectionJobResponse {
     /// <p>The identifier generated for the job. To get the status of the job, use this identifier with the <code>DescribeTopicDetectionJob</code> operation.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p><p>The status of the job: </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the <code>DescribeTopicDetectionJob</code> operation.</p> </li> </ul></p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2714,7 +2714,7 @@ pub struct StartTopicsDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopDominantLanguageDetectionJobRequest {
     /// <p>The identifier of the dominant language detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -2722,11 +2722,11 @@ pub struct StopDominantLanguageDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopDominantLanguageDetectionJobResponse {
     /// <p>The identifier of the dominant language detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopDominantLanguageDetectionJob</code> operation.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2735,7 +2735,7 @@ pub struct StopDominantLanguageDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopEntitiesDetectionJobRequest {
     /// <p>The identifier of the entities detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -2743,11 +2743,11 @@ pub struct StopEntitiesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopEntitiesDetectionJobResponse {
     /// <p>The identifier of the entities detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopEntitiesDetectionJob</code> operation.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2756,7 +2756,7 @@ pub struct StopEntitiesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopEventsDetectionJobRequest {
     /// <p>The identifier of the events detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -2764,11 +2764,11 @@ pub struct StopEventsDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopEventsDetectionJobResponse {
     /// <p>The identifier of the events detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The status of the events detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2777,7 +2777,7 @@ pub struct StopEventsDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopKeyPhrasesDetectionJobRequest {
     /// <p>The identifier of the key phrases detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -2785,11 +2785,11 @@ pub struct StopKeyPhrasesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopKeyPhrasesDetectionJobResponse {
     /// <p>The identifier of the key phrases detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopKeyPhrasesDetectionJob</code> operation.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2798,7 +2798,7 @@ pub struct StopKeyPhrasesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopPiiEntitiesDetectionJobRequest {
     /// <p>The identifier of the PII entities detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -2806,11 +2806,11 @@ pub struct StopPiiEntitiesDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopPiiEntitiesDetectionJobResponse {
     /// <p>The identifier of the PII entities detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The status of the PII entities detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2819,7 +2819,7 @@ pub struct StopPiiEntitiesDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopSentimentDetectionJobRequest {
     /// <p>The identifier of the sentiment detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
 }
 
@@ -2827,11 +2827,11 @@ pub struct StopSentimentDetectionJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopSentimentDetectionJobResponse {
     /// <p>The identifier of the sentiment detection job to stop.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopSentimentDetectionJob</code> operation.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
 }
@@ -2840,7 +2840,7 @@ pub struct StopSentimentDetectionJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopTrainingDocumentClassifierRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.</p>
-    #[serde(rename = "DocumentClassifierArn")]
+    #[serde(rename = "documentClassifierArn")]
     pub document_classifier_arn: String,
 }
 
@@ -2852,7 +2852,7 @@ pub struct StopTrainingDocumentClassifierResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopTrainingEntityRecognizerRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.</p>
-    #[serde(rename = "EntityRecognizerArn")]
+    #[serde(rename = "entityRecognizerArn")]
     pub entity_recognizer_arn: String,
 }
 
@@ -2865,23 +2865,23 @@ pub struct StopTrainingEntityRecognizerResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SyntaxToken {
     /// <p>The zero-based offset from the beginning of the source text to the first character in the word.</p>
-    #[serde(rename = "BeginOffset")]
+    #[serde(rename = "beginOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub begin_offset: Option<i64>,
     /// <p>The zero-based offset from the beginning of the source text to the last character in the word.</p>
-    #[serde(rename = "EndOffset")]
+    #[serde(rename = "endOffset")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_offset: Option<i64>,
     /// <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a>how-syntax</a>.</p>
-    #[serde(rename = "PartOfSpeech")]
+    #[serde(rename = "partOfSpeech")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub part_of_speech: Option<PartOfSpeechTag>,
     /// <p>The word that was recognized in the source text.</p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     /// <p>A unique identifier for a token.</p>
-    #[serde(rename = "TokenId")]
+    #[serde(rename = "tokenId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_id: Option<i64>,
 }
@@ -2890,10 +2890,10 @@ pub struct SyntaxToken {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.” </p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p> The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department. </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2902,10 +2902,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2918,19 +2918,19 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TopicsDetectionJobFilter {
     /// <p><p/></p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.</p>
-    #[serde(rename = "SubmitTimeAfter")]
+    #[serde(rename = "submitTimeAfter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_after: Option<f64>,
     /// <p>Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.</p>
-    #[serde(rename = "SubmitTimeBefore")]
+    #[serde(rename = "submitTimeBefore")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time_before: Option<f64>,
 }
@@ -2940,51 +2940,51 @@ pub struct TopicsDetectionJobFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TopicsDetectionJobProperties {
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data. </p>
-    #[serde(rename = "DataAccessRoleArn")]
+    #[serde(rename = "dataAccessRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_access_role_arn: Option<String>,
     /// <p>The time that the topic detection job was completed.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The input data configuration supplied when you created the topic detection job.</p>
-    #[serde(rename = "InputDataConfig")]
+    #[serde(rename = "inputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_data_config: Option<InputDataConfig>,
     /// <p>The identifier assigned to the topic detection job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The name of the topic detection job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The current status of the topic detection job. If the status is <code>Failed</code>, the reason for the failure is shown in the <code>Message</code> field.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>A description for the status of a job.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The number of topics to detect supplied when you created the topic detection job. The default is 10. </p>
-    #[serde(rename = "NumberOfTopics")]
+    #[serde(rename = "numberOfTopics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_topics: Option<i64>,
     /// <p>The output data configuration supplied when you created the topic detection job.</p>
-    #[serde(rename = "OutputDataConfig")]
+    #[serde(rename = "outputDataConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_data_config: Option<OutputDataConfig>,
     /// <p>The time that the topic detection job was submitted for processing.</p>
-    #[serde(rename = "SubmitTime")]
+    #[serde(rename = "submitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub submit_time: Option<f64>,
     /// <p><p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>&quot;1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>&quot;arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&quot;</code> </p> </li> </ul></p>
-    #[serde(rename = "VolumeKmsKeyId")]
+    #[serde(rename = "volumeKmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_kms_key_id: Option<String>,
     /// <p>Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -2993,10 +2993,10 @@ pub struct TopicsDetectionJobProperties {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags. </p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The initial part of a key-value pair that forms a tag being removed from a given resource. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. Keys must be unique and cannot be duplicated for a particular resource. </p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -3008,10 +3008,10 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEndpointRequest {
     /// <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
-    #[serde(rename = "DesiredInferenceUnits")]
+    #[serde(rename = "desiredInferenceUnits")]
     pub desired_inference_units: i64,
     /// <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
-    #[serde(rename = "EndpointArn")]
+    #[serde(rename = "endpointArn")]
     pub endpoint_arn: String,
 }
 
@@ -3023,10 +3023,10 @@ pub struct UpdateEndpointResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VpcConfig {
     /// <p>The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups for your VPC</a>. </p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     pub security_group_ids: Vec<String>,
     /// <p>The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and Subnets</a>. </p>
-    #[serde(rename = "Subnets")]
+    #[serde(rename = "subnets")]
     pub subnets: Vec<String>,
 }
 

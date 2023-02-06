@@ -54,7 +54,7 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountRecoverySettingType {
     /// <p>The list of <code>RecoveryOptionTypes</code>.</p>
-    #[serde(rename = "RecoveryMechanisms")]
+    #[serde(rename = "recoveryMechanisms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recovery_mechanisms: Option<Vec<RecoveryOptionType>>,
 }
@@ -63,10 +63,10 @@ pub struct AccountRecoverySettingType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountTakeoverActionType {
     /// <p><p>The event action.</p> <ul> <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> <li> <p> <code>MFA<em>IF</em>CONFIGURED</code> Throw MFA challenge if user has configured it, else allow the request.</p> </li> <li> <p> <code>MFA<em>REQUIRED</code> Throw MFA challenge if user has configured it, else block the request.</p> </li> <li> <p> <code>NO</em>ACTION</code> Allow the user sign-in.</p> </li> </ul></p>
-    #[serde(rename = "EventAction")]
+    #[serde(rename = "eventAction")]
     pub event_action: String,
     /// <p>Flag specifying whether to send a notification.</p>
-    #[serde(rename = "Notify")]
+    #[serde(rename = "notify")]
     pub notify: bool,
 }
 
@@ -74,15 +74,15 @@ pub struct AccountTakeoverActionType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountTakeoverActionsType {
     /// <p>Action to take for a high risk.</p>
-    #[serde(rename = "HighAction")]
+    #[serde(rename = "highAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub high_action: Option<AccountTakeoverActionType>,
     /// <p>Action to take for a low risk.</p>
-    #[serde(rename = "LowAction")]
+    #[serde(rename = "lowAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub low_action: Option<AccountTakeoverActionType>,
     /// <p>Action to take for a medium risk.</p>
-    #[serde(rename = "MediumAction")]
+    #[serde(rename = "mediumAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub medium_action: Option<AccountTakeoverActionType>,
 }
@@ -91,10 +91,10 @@ pub struct AccountTakeoverActionsType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccountTakeoverRiskConfigurationType {
     /// <p>Account takeover risk configuration actions</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     pub actions: AccountTakeoverActionsType,
     /// <p>The notify configuration used to construct email notifications.</p>
-    #[serde(rename = "NotifyConfiguration")]
+    #[serde(rename = "notifyConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notify_configuration: Option<NotifyConfigurationType>,
 }
@@ -104,10 +104,10 @@ pub struct AccountTakeoverRiskConfigurationType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddCustomAttributesRequest {
     /// <p>An array of custom attributes, such as Mutable and Name.</p>
-    #[serde(rename = "CustomAttributes")]
+    #[serde(rename = "customAttributes")]
     pub custom_attributes: Vec<SchemaAttributeType>,
     /// <p>The user pool ID for the user pool where you want to add custom attributes.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -120,13 +120,13 @@ pub struct AddCustomAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminAddUserToGroupRequest {
     /// <p>The group name.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The username for the user.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -135,14 +135,14 @@ pub struct AdminAddUserToGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminConfirmSignUpRequest {
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the AWS Lambda function that is specified for the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. In this payload, the <code>clientMetadata</code> attribute provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in AWS Lambda, you can process the ClientMetadata value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The user pool ID for which you want to confirm user registration.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name for which you want to confirm user registration.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -155,15 +155,15 @@ pub struct AdminConfirmSignUpResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AdminCreateUserConfigType {
     /// <p>Set to <code>True</code> if only the administrator is allowed to create user profiles. Set to <code>False</code> if users can sign themselves up via an app.</p>
-    #[serde(rename = "AllowAdminCreateUserOnly")]
+    #[serde(rename = "allowAdminCreateUserOnly")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_admin_create_user_only: Option<bool>,
     /// <p>The message template to be used for the welcome message to new users.</p> <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
-    #[serde(rename = "InviteMessageTemplate")]
+    #[serde(rename = "inviteMessageTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invite_message_template: Option<MessageTemplateType>,
     /// <p><p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>&quot;RESEND&quot;</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7. </p> <note> <p>If you set a value for <code>TemporaryPasswordValidityDays</code> in <code>PasswordPolicy</code>, that value will be used and <code>UnusedAccountValidityDays</code> will be deprecated for that user pool. </p> </note></p>
-    #[serde(rename = "UnusedAccountValidityDays")]
+    #[serde(rename = "unusedAccountValidityDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unused_account_validity_days: Option<i64>,
 }
@@ -173,37 +173,37 @@ pub struct AdminCreateUserConfigType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminCreateUserRequest {
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the <i>pre sign-up</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specify <code>"EMAIL"</code> if email will be used to send the welcome message. Specify <code>"SMS"</code> if the phone number will be used. The default value is <code>"SMS"</code>. More than one value can be specified.</p>
-    #[serde(rename = "DesiredDeliveryMediums")]
+    #[serde(rename = "desiredDeliveryMediums")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_delivery_mediums: Option<Vec<String>>,
     /// <p>This parameter is only used if the <code>phone_number_verified</code> or <code>email_verified</code> attribute is set to <code>True</code>. Otherwise, it is ignored.</p> <p>If this parameter is set to <code>True</code> and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to <code>False</code>, the API throws an <code>AliasExistsException</code> error if the alias already exists. The default value is <code>False</code>.</p>
-    #[serde(rename = "ForceAliasCreation")]
+    #[serde(rename = "forceAliasCreation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_alias_creation: Option<bool>,
     /// <p>Set to <code>"RESEND"</code> to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to <code>"SUPPRESS"</code> to suppress sending the message. Only one value can be specified.</p>
-    #[serde(rename = "MessageAction")]
+    #[serde(rename = "messageAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_action: Option<String>,
     /// <p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p> <p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p> <p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter.</p>
-    #[serde(rename = "TemporaryPassword")]
+    #[serde(rename = "temporaryPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub temporary_password: Option<String>,
     /// <p><p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (when creating a user pool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>To send a message inviting the user to sign up, you must specify the user&#39;s email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to <code>AdminCreateUser</code>, you can set the <code>email<em>verified</code> attribute to <code>True</code>, and you can set the <code>phone</em>number<em>verified</code> attribute to <code>True</code>. (You can also do this by calling &lt;a href=&quot;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API</em>AdminUpdateUserAttributes.html&quot;&gt;AdminUpdateUserAttributes</a>.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email<em>verified</code> attribute is set to <code>True</code>, or if <code>&quot;EMAIL&quot;</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> <li> <p> <b>phone</em>number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone<em>number</em>verified</code> attribute is set to <code>True</code>, or if <code>&quot;SMS&quot;</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> </ul></p>
-    #[serde(rename = "UserAttributes")]
+    #[serde(rename = "userAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_attributes: Option<Vec<AttributeType>>,
     /// <p>The user pool ID for the user pool where the user will be created.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
     /// <p>The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.</p> <p>To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.</p> <p>The user's validation data is not persisted.</p>
-    #[serde(rename = "ValidationData")]
+    #[serde(rename = "validationData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validation_data: Option<Vec<AttributeType>>,
 }
@@ -213,7 +213,7 @@ pub struct AdminCreateUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminCreateUserResponse {
     /// <p>The newly created user.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<UserType>,
 }
@@ -223,13 +223,13 @@ pub struct AdminCreateUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminDeleteUserAttributesRequest {
     /// <p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    #[serde(rename = "UserAttributeNames")]
+    #[serde(rename = "userAttributeNames")]
     pub user_attribute_names: Vec<String>,
     /// <p>The user pool ID for the user pool where you want to delete user attributes.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user from which you would like to delete attributes.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -243,10 +243,10 @@ pub struct AdminDeleteUserAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminDeleteUserRequest {
     /// <p>The user pool ID for the user pool where you want to delete the user.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user you wish to delete.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -254,10 +254,10 @@ pub struct AdminDeleteUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminDisableProviderForUserRequest {
     /// <p>The user to be disabled.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     pub user: ProviderUserIdentifierType,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -270,10 +270,10 @@ pub struct AdminDisableProviderForUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminDisableUserRequest {
     /// <p>The user pool ID for the user pool where you want to disable the user.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user you wish to disable.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -287,10 +287,10 @@ pub struct AdminDisableUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminEnableUserRequest {
     /// <p>The user pool ID for the user pool where you want to enable the user.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user you wish to enable.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -304,13 +304,13 @@ pub struct AdminEnableUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminForgetDeviceRequest {
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -319,13 +319,13 @@ pub struct AdminForgetDeviceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminGetDeviceRequest {
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -334,7 +334,7 @@ pub struct AdminGetDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminGetDeviceResponse {
     /// <p>The device.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     pub device: DeviceType,
 }
 
@@ -343,10 +343,10 @@ pub struct AdminGetDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminGetUserRequest {
     /// <p>The user pool ID for the user pool where you want to get information about the user.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user you wish to retrieve.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -355,39 +355,39 @@ pub struct AdminGetUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminGetUserResponse {
     /// <p>Indicates that the status is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p> <i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
-    #[serde(rename = "MFAOptions")]
+    #[serde(rename = "mFAOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_options: Option<Vec<MFAOptionType>>,
     /// <p>The user's preferred MFA setting.</p>
-    #[serde(rename = "PreferredMfaSetting")]
+    #[serde(rename = "preferredMfaSetting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_mfa_setting: Option<String>,
     /// <p>An array of name-value pairs representing user attributes.</p>
-    #[serde(rename = "UserAttributes")]
+    #[serde(rename = "userAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_attributes: Option<Vec<AttributeType>>,
     /// <p>The date the user was created.</p>
-    #[serde(rename = "UserCreateDate")]
+    #[serde(rename = "userCreateDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_create_date: Option<f64>,
     /// <p>The date the user was last modified.</p>
-    #[serde(rename = "UserLastModifiedDate")]
+    #[serde(rename = "userLastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_last_modified_date: Option<f64>,
     /// <p>The MFA options that are enabled for the user. The possible values in this list are <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
-    #[serde(rename = "UserMFASettingList")]
+    #[serde(rename = "userMFASettingList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_mfa_setting_list: Option<Vec<String>>,
     /// <p><p>The user status. Can be one of the following:</p> <ul> <li> <p>UNCONFIRMED - User has been created but not confirmed.</p> </li> <li> <p>CONFIRMED - User has been confirmed.</p> </li> <li> <p>ARCHIVED - User is no longer active.</p> </li> <li> <p>COMPROMISED - User is disabled due to a potential security threat.</p> </li> <li> <p>UNKNOWN - User status is not known.</p> </li> <li> <p>RESET<em>REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.</p> </li> <li> <p>FORCE</em>CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else. </p> </li> </ul></p>
-    #[serde(rename = "UserStatus")]
+    #[serde(rename = "userStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_status: Option<String>,
     /// <p>The user name of the user about whom you are receiving information.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -396,29 +396,29 @@ pub struct AdminGetUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminInitiateAuthRequest {
     /// <p>The analytics metadata for collecting Amazon Pinpoint metrics for <code>AdminInitiateAuth</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p><p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH<em>TOKEN</em>AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER<em>SRP</em>AUTH</code> will take in <code>USERNAME</code> and <code>SRP<em>A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER</em>PASSWORD<em>AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER</em>SRP<em>AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH</em>TOKEN<em>AUTH</code>/<code>REFRESH</em>TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM<em>AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN</em>NO<em>SRP</em>AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> <li> <p> <code>USER<em>PASSWORD</em>AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> <li> <p> <code>ADMIN<em>USER</em>PASSWORD<em>AUTH</code>: Admin-based user password authentication. This replaces the <code>ADMIN</em>NO<em>SRP</em>AUTH</code> authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords.</p> </li> </ul></p>
-    #[serde(rename = "AuthFlow")]
+    #[serde(rename = "authFlow")]
     pub auth_flow: String,
     /// <p><p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER<em>SRP</em>AUTH</code>: <code>USERNAME</code> (required), <code>SRP<em>A</code> (required), <code>SECRET</em>HASH</code> (required if the app client is configured with a client secret), <code>DEVICE<em>KEY</code>.</p> </li> <li> <p>For <code>REFRESH</em>TOKEN<em>AUTH/REFRESH</em>TOKEN</code>: <code>REFRESH<em>TOKEN</code> (required), <code>SECRET</em>HASH</code> (required if the app client is configured with a client secret), <code>DEVICE<em>KEY</code>.</p> </li> <li> <p>For <code>ADMIN</em>NO<em>SRP</em>AUTH</code>: <code>USERNAME</code> (required), <code>SECRET<em>HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE</em>KEY</code>.</p> </li> <li> <p>For <code>CUSTOM<em>AUTH</code>: <code>USERNAME</code> (required), <code>SECRET</em>HASH</code> (if app client is configured with client secret), <code>DEVICE<em>KEY</code>. To start the authentication flow with password verification, include <code>ChallengeName: SRP</em>A</code> and <code>SRP<em>A: (The SRP</em>A Value)</code>.</p> </li> </ul></p>
-    #[serde(rename = "AuthParameters")]
+    #[serde(rename = "authParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auth_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The app client ID.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers.</p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminInitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:</p> <ul> <li> <p>Pre signup</p> </li> <li> <p>Pre authentication</p> </li> <li> <p>User migration</p> </li> </ul> <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a <code>validationData</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminInitiateAuth request. In your function code in AWS Lambda, you can process the <code>validationData</code> value to enhance your workflow for your specific needs.</p> <p>When you use the AdminInitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:</p> <ul> <li> <p>Post authentication</p> </li> <li> <p>Custom message</p> </li> <li> <p>Pre token generation</p> </li> <li> <p>Create auth challenge</p> </li> <li> <p>Define auth challenge</p> </li> <li> <p>Verify auth challenge</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "ContextData")]
+    #[serde(rename = "contextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub context_data: Option<ContextDataType>,
     /// <p>The ID of the Amazon Cognito user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -427,19 +427,19 @@ pub struct AdminInitiateAuthRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminInitiateAuthResponse {
     /// <p>The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>
-    #[serde(rename = "AuthenticationResult")]
+    #[serde(rename = "authenticationResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_result: Option<AuthenticationResultType>,
     /// <p><p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p> <ul> <li> <p> <code>MFA<em>SETUP</code>: If MFA is required, users who do not have at least one of the MFA methods set up are presented with an <code>MFA</em>SETUP</code> challenge. The user must set up at least one MFA type to continue to authenticate.</p> </li> <li> <p> <code>SELECT<em>MFA</em>TYPE</code>: Selects the MFA type. Valid MFA options are <code>SMS<em>MFA</code> for text SMS MFA, and <code>SOFTWARE</em>TOKEN<em>MFA</code> for TOTP software token MFA.</p> </li> <li> <p> <code>SMS</em>MFA</code>: Next challenge is to supply an <code>SMS<em>MFA</em>CODE</code>, delivered via SMS.</p> </li> <li> <p> <code>PASSWORD<em>VERIFIER</code>: Next challenge is to supply <code>PASSWORD</em>CLAIM<em>SIGNATURE</code>, <code>PASSWORD</em>CLAIM<em>SECRET</em>BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p> </li> <li> <p> <code>CUSTOM<em>CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p> </li> <li> <p> <code>DEVICE</em>SRP<em>AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p> </li> <li> <p> <code>DEVICE</em>PASSWORD<em>VERIFIER</code>: Similar to <code>PASSWORD</em>VERIFIER</code>, but for devices only.</p> </li> <li> <p> <code>ADMIN<em>NO</em>SRP<em>AUTH</code>: This is returned if you need to authenticate with <code>USERNAME</code> and <code>PASSWORD</code> directly. An app client must be enabled to use this flow.</p> </li> <li> <p> <code>NEW</em>PASSWORD<em>REQUIRED</code>: For users who are required to change their passwords after successful first login. This challenge should be passed with <code>NEW</em>PASSWORD</code> and any other required attributes.</p> </li> <li> <p> <code>MFA<em>SETUP</code>: For users who are required to setup an MFA factor before they can sign-in. The MFA types enabled for the user pool will be listed in the challenge parameters <code>MFA</em>CAN<em>SETUP</code> value. </p> <p> To setup software token MFA, use the session returned here from <code>InitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>, and use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> with challenge name <code>MFA</em>SETUP</code> to complete sign-in. To setup SMS MFA, users will need help from an administrator to add a phone number to their account and then call <code>InitiateAuth</code> again to restart sign-in.</p> </li> </ul></p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_name: Option<String>,
     /// <p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p> <p>The value of the <code>USER_ID_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>
-    #[serde(rename = "ChallengeParameters")]
+    #[serde(rename = "challengeParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. If <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>AdminRespondToAuthChallenge</code> API call.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
 }
@@ -448,13 +448,13 @@ pub struct AdminInitiateAuthResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminLinkProviderForUserRequest {
     /// <p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.</p> <p>For a native username + password user, the <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> should be the username in the user pool. For a federated user, it should be the provider-specific <code>user_id</code>.</p> <p>The <code>ProviderAttributeName</code> of the <code>DestinationUser</code> is ignored.</p> <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p>
-    #[serde(rename = "DestinationUser")]
+    #[serde(rename = "destinationUser")]
     pub destination_user: ProviderUserIdentifierType,
     /// <p>An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p> <p>If the <code>SourceUser</code> is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. For social identity providers, the <code>ProviderName</code> will be <code>Facebook</code>, <code>Google</code>, or <code>LoginWithAmazon</code>, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for <code>id</code>, <code>sub</code>, and <code>user_id</code>, respectively. The <code>ProviderAttributeValue</code> for the user must be the same value as the <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social identity provider token.</p> <p/> <p>For SAML, the <code>ProviderAttributeName</code> can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the <code>ProviderAttributeName</code>. If you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.</p>
-    #[serde(rename = "SourceUser")]
+    #[serde(rename = "sourceUser")]
     pub source_user: ProviderUserIdentifierType,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -467,18 +467,18 @@ pub struct AdminLinkProviderForUserResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminListDevicesRequest {
     /// <p>The limit of the devices request.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -487,11 +487,11 @@ pub struct AdminListDevicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminListDevicesResponse {
     /// <p>The devices in the list of devices response.</p>
-    #[serde(rename = "Devices")]
+    #[serde(rename = "devices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub devices: Option<Vec<DeviceType>>,
     /// <p>The pagination token.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
 }
@@ -500,18 +500,18 @@ pub struct AdminListDevicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminListGroupsForUserRequest {
     /// <p>The limit of the request to list groups.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The username for the user.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -519,11 +519,11 @@ pub struct AdminListGroupsForUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminListGroupsForUserResponse {
     /// <p>The groups that the user belongs to.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<GroupType>>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -532,18 +532,18 @@ pub struct AdminListGroupsForUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminListUserAuthEventsRequest {
     /// <p>The maximum number of authentication events to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user pool username or an alias.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -551,11 +551,11 @@ pub struct AdminListUserAuthEventsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminListUserAuthEventsResponse {
     /// <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>, <code>CreationDate</code>, <code>EventRisk</code>, and <code>EventResponse</code>.</p>
-    #[serde(rename = "AuthEvents")]
+    #[serde(rename = "authEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auth_events: Option<Vec<AuthEventType>>,
     /// <p>A pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -564,13 +564,13 @@ pub struct AdminListUserAuthEventsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminRemoveUserFromGroupRequest {
     /// <p>The group name.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The username for the user.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -579,14 +579,14 @@ pub struct AdminRemoveUserFromGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminResetUserPasswordRequest {
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminResetUserPassword API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminResetUserPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The user pool ID for the user pool where you want to reset the user's password.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user whose password you wish to reset.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -600,33 +600,33 @@ pub struct AdminResetUserPasswordResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminRespondToAuthChallengeRequest {
     /// <p>The analytics metadata for collecting Amazon Pinpoint metrics for <code>AdminRespondToAuthChallenge</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     pub challenge_name: String,
     /// <p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p> <ul> <li> <p> <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> <li> <p> <code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you need to use the session value returned by <code>VerifySoftwareToken</code> in the <code>Session</code> parameter.</p> </li> </ul> <p>The value of the <code>USERNAME</code> attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the <code>AdminInitiateAuth</code> response includes the actual username value in the <code>USERNAMEUSER_ID_FOR_SRP</code> attribute, even if you specified an alias in your call to <code>AdminInitiateAuth</code>.</p>
-    #[serde(rename = "ChallengeResponses")]
+    #[serde(rename = "challengeResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_responses: Option<::std::collections::HashMap<String, String>>,
     /// <p>The app client ID.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, <i>post authentication</i>, <i>user migration</i>, <i>pre token generation</i>, <i>define auth challenge</i>, <i>create auth challenge</i>, and <i>verify auth challenge response</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "ContextData")]
+    #[serde(rename = "contextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub context_data: Option<ContextDataType>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
     /// <p>The ID of the Amazon Cognito user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -635,19 +635,19 @@ pub struct AdminRespondToAuthChallengeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AdminRespondToAuthChallengeResponse {
     /// <p>The result returned by the server in response to the authentication request.</p>
-    #[serde(rename = "AuthenticationResult")]
+    #[serde(rename = "authenticationResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_result: Option<AuthenticationResultType>,
     /// <p>The name of the challenge. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_name: Option<String>,
     /// <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
-    #[serde(rename = "ChallengeParameters")]
+    #[serde(rename = "challengeParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
 }
@@ -656,18 +656,18 @@ pub struct AdminRespondToAuthChallengeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminSetUserMFAPreferenceRequest {
     /// <p>The SMS text message MFA settings.</p>
-    #[serde(rename = "SMSMfaSettings")]
+    #[serde(rename = "sMSMfaSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_mfa_settings: Option<SMSMfaSettingsType>,
     /// <p>The time-based one-time password software token MFA settings.</p>
-    #[serde(rename = "SoftwareTokenMfaSettings")]
+    #[serde(rename = "softwareTokenMfaSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_token_mfa_settings: Option<SoftwareTokenMfaSettingsType>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user pool username or alias.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -679,17 +679,17 @@ pub struct AdminSetUserMFAPreferenceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminSetUserPasswordRequest {
     /// <p>The password for the user.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p> <code>True</code> if the password is permanent, <code>False</code> if it is temporary.</p>
-    #[serde(rename = "Permanent")]
+    #[serde(rename = "permanent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permanent: Option<bool>,
     /// <p>The user pool ID for the user pool where you want to set the user's password.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user whose password you wish to set.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -702,13 +702,13 @@ pub struct AdminSetUserPasswordResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminSetUserSettingsRequest {
     /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
-    #[serde(rename = "MFAOptions")]
+    #[serde(rename = "mFAOptions")]
     pub mfa_options: Vec<MFAOptionType>,
     /// <p>The ID of the user pool that contains the user that you are setting options for.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user that you are setting options for.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -721,16 +721,16 @@ pub struct AdminSetUserSettingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminUpdateAuthEventFeedbackRequest {
     /// <p>The authentication event ID.</p>
-    #[serde(rename = "EventId")]
+    #[serde(rename = "eventId")]
     pub event_id: String,
     /// <p>The authentication event feedback value.</p>
-    #[serde(rename = "FeedbackValue")]
+    #[serde(rename = "feedbackValue")]
     pub feedback_value: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user pool username.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -743,17 +743,17 @@ pub struct AdminUpdateAuthEventFeedbackResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminUpdateDeviceStatusRequest {
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
     /// <p>The status indicating whether a device has been remembered or not.</p>
-    #[serde(rename = "DeviceRememberedStatus")]
+    #[serde(rename = "deviceRememberedStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_remembered_status: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -767,17 +767,17 @@ pub struct AdminUpdateDeviceStatusResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminUpdateUserAttributesRequest {
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminUpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    #[serde(rename = "UserAttributes")]
+    #[serde(rename = "userAttributes")]
     pub user_attributes: Vec<AttributeType>,
     /// <p>The user pool ID for the user pool where you want to update user attributes.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name of the user for whom you want to update user attributes.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -791,10 +791,10 @@ pub struct AdminUpdateUserAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AdminUserGlobalSignOutRequest {
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -807,23 +807,23 @@ pub struct AdminUserGlobalSignOutResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AnalyticsConfigurationType {
     /// <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon Cognito publishes events to the pinpoint project declared by the app ARN.</p>
-    #[serde(rename = "ApplicationArn")]
+    #[serde(rename = "applicationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_arn: Option<String>,
     /// <p>The application ID for an Amazon Pinpoint application.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The external ID.</p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_id: Option<String>,
     /// <p>The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.</p>
-    #[serde(rename = "UserDataShared")]
+    #[serde(rename = "userDataShared")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_data_shared: Option<bool>,
 }
@@ -833,7 +833,7 @@ pub struct AnalyticsConfigurationType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AnalyticsMetadataType {
     /// <p>The endpoint ID.</p>
-    #[serde(rename = "AnalyticsEndpointId")]
+    #[serde(rename = "analyticsEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_endpoint_id: Option<String>,
 }
@@ -842,11 +842,11 @@ pub struct AnalyticsMetadataType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateSoftwareTokenRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
 }
@@ -855,11 +855,11 @@ pub struct AssociateSoftwareTokenRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AssociateSoftwareTokenResponse {
     /// <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.</p>
-    #[serde(rename = "SecretCode")]
+    #[serde(rename = "secretCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_code: Option<String>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
 }
@@ -868,10 +868,10 @@ pub struct AssociateSoftwareTokenResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AttributeType {
     /// <p>The name of the attribute.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The value of the attribute.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -881,35 +881,35 @@ pub struct AttributeType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AuthEventType {
     /// <p>The challenge responses.</p>
-    #[serde(rename = "ChallengeResponses")]
+    #[serde(rename = "challengeResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_responses: Option<Vec<ChallengeResponseType>>,
     /// <p>The creation date</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.</p>
-    #[serde(rename = "EventContextData")]
+    #[serde(rename = "eventContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_context_data: Option<EventContextDataType>,
     /// <p>A flag specifying the user feedback captured at the time of an event request is good or bad. </p>
-    #[serde(rename = "EventFeedback")]
+    #[serde(rename = "eventFeedback")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_feedback: Option<EventFeedbackType>,
     /// <p>The event ID.</p>
-    #[serde(rename = "EventId")]
+    #[serde(rename = "eventId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_id: Option<String>,
     /// <p>The event response.</p>
-    #[serde(rename = "EventResponse")]
+    #[serde(rename = "eventResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_response: Option<String>,
     /// <p>The event risk.</p>
-    #[serde(rename = "EventRisk")]
+    #[serde(rename = "eventRisk")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_risk: Option<EventRiskType>,
     /// <p>The event type.</p>
-    #[serde(rename = "EventType")]
+    #[serde(rename = "eventType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type: Option<String>,
 }
@@ -919,27 +919,27 @@ pub struct AuthEventType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AuthenticationResultType {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>The expiration period of the authentication result in seconds.</p>
-    #[serde(rename = "ExpiresIn")]
+    #[serde(rename = "expiresIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expires_in: Option<i64>,
     /// <p>The ID token.</p>
-    #[serde(rename = "IdToken")]
+    #[serde(rename = "idToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_token: Option<String>,
     /// <p>The new device metadata from an authentication result.</p>
-    #[serde(rename = "NewDeviceMetadata")]
+    #[serde(rename = "newDeviceMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub new_device_metadata: Option<NewDeviceMetadataType>,
     /// <p>The refresh token.</p>
-    #[serde(rename = "RefreshToken")]
+    #[serde(rename = "refreshToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token: Option<String>,
     /// <p>The token type.</p>
-    #[serde(rename = "TokenType")]
+    #[serde(rename = "tokenType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_type: Option<String>,
 }
@@ -949,11 +949,11 @@ pub struct AuthenticationResultType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChallengeResponseType {
     /// <p>The challenge name</p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_name: Option<String>,
     /// <p>The challenge response.</p>
-    #[serde(rename = "ChallengeResponse")]
+    #[serde(rename = "challengeResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_response: Option<String>,
 }
@@ -963,13 +963,13 @@ pub struct ChallengeResponseType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ChangePasswordRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The old password.</p>
-    #[serde(rename = "PreviousPassword")]
+    #[serde(rename = "previousPassword")]
     pub previous_password: String,
     /// <p>The new password.</p>
-    #[serde(rename = "ProposedPassword")]
+    #[serde(rename = "proposedPassword")]
     pub proposed_password: String,
 }
 
@@ -983,15 +983,15 @@ pub struct ChangePasswordResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CodeDeliveryDetailsType {
     /// <p>The attribute name.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_name: Option<String>,
     /// <p>The delivery medium (email message or phone number).</p>
-    #[serde(rename = "DeliveryMedium")]
+    #[serde(rename = "deliveryMedium")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_medium: Option<String>,
     /// <p>The destination for the code delivery details.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<String>,
 }
@@ -1000,7 +1000,7 @@ pub struct CodeDeliveryDetailsType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CompromisedCredentialsActionsType {
     /// <p>The event action.</p>
-    #[serde(rename = "EventAction")]
+    #[serde(rename = "eventAction")]
     pub event_action: String,
 }
 
@@ -1008,10 +1008,10 @@ pub struct CompromisedCredentialsActionsType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CompromisedCredentialsRiskConfigurationType {
     /// <p>The compromised credentials risk configuration actions.</p>
-    #[serde(rename = "Actions")]
+    #[serde(rename = "actions")]
     pub actions: CompromisedCredentialsActionsType,
     /// <p>Perform the action for these events. The default is to perform all events if no event filter is specified.</p>
-    #[serde(rename = "EventFilter")]
+    #[serde(rename = "eventFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_filter: Option<Vec<String>>,
 }
@@ -1021,17 +1021,17 @@ pub struct CompromisedCredentialsRiskConfigurationType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfirmDeviceRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
     /// <p>The device name.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The configuration of the device secret verifier.</p>
-    #[serde(rename = "DeviceSecretVerifierConfig")]
+    #[serde(rename = "deviceSecretVerifierConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_secret_verifier_config: Option<DeviceSecretVerifierConfigType>,
 }
@@ -1041,7 +1041,7 @@ pub struct ConfirmDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConfirmDeviceResponse {
     /// <p>Indicates whether the user confirmation is necessary to confirm the device response.</p>
-    #[serde(rename = "UserConfirmationNecessary")]
+    #[serde(rename = "userConfirmationNecessary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_confirmation_necessary: Option<bool>,
 }
@@ -1051,32 +1051,32 @@ pub struct ConfirmDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfirmForgotPasswordRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ConfirmForgotPassword</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The app client ID of the app associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmForgotPassword API action, Amazon Cognito invokes the function that is assigned to the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmForgotPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
-    #[serde(rename = "ConfirmationCode")]
+    #[serde(rename = "confirmationCode")]
     pub confirmation_code: String,
     /// <p>The password sent by a user's request to retrieve a forgotten password.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
-    #[serde(rename = "SecretHash")]
+    #[serde(rename = "secretHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_hash: Option<String>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
     /// <p>The user name of the user for whom you want to enter a code to retrieve a forgotten password.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -1090,33 +1090,33 @@ pub struct ConfirmForgotPasswordResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ConfirmSignUpRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ConfirmSignUp</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The ID of the app client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmSignUp API action, Amazon Cognito invokes the function that is assigned to the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmSignUp request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The confirmation code sent by a user's request to confirm registration.</p>
-    #[serde(rename = "ConfirmationCode")]
+    #[serde(rename = "confirmationCode")]
     pub confirmation_code: String,
     /// <p>Boolean to be specified to force user confirmation irrespective of existing alias. By default set to <code>False</code>. If this parameter is set to <code>True</code> and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to <code>False</code>, the API will throw an <b>AliasExistsException</b> error.</p>
-    #[serde(rename = "ForceAliasCreation")]
+    #[serde(rename = "forceAliasCreation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force_alias_creation: Option<bool>,
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
-    #[serde(rename = "SecretHash")]
+    #[serde(rename = "secretHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_hash: Option<String>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
     /// <p>The user name of the user whose registration you wish to confirm.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -1130,20 +1130,20 @@ pub struct ConfirmSignUpResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ContextDataType {
     /// <p>Encoded data containing device fingerprinting details, collected using the Amazon Cognito context data collection library.</p>
-    #[serde(rename = "EncodedData")]
+    #[serde(rename = "encodedData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encoded_data: Option<String>,
     /// <p>HttpHeaders received on your server in same order.</p>
-    #[serde(rename = "HttpHeaders")]
+    #[serde(rename = "httpHeaders")]
     pub http_headers: Vec<HttpHeader>,
     /// <p>Source IP address of your user.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     pub ip_address: String,
     /// <p>Your server endpoint where this API is invoked.</p>
-    #[serde(rename = "ServerName")]
+    #[serde(rename = "serverName")]
     pub server_name: String,
     /// <p>Your server path where this API is invoked. </p>
-    #[serde(rename = "ServerPath")]
+    #[serde(rename = "serverPath")]
     pub server_path: String,
 }
 
@@ -1151,22 +1151,22 @@ pub struct ContextDataType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGroupRequest {
     /// <p>A string containing the description of the group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the group. Must be unique.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>
-    #[serde(rename = "Precedence")]
+    #[serde(rename = "precedence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precedence: Option<i64>,
     /// <p>The role ARN for the group.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1174,7 +1174,7 @@ pub struct CreateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGroupResponse {
     /// <p>The group object for the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<GroupType>,
 }
@@ -1183,24 +1183,24 @@ pub struct CreateGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateIdentityProviderRequest {
     /// <p>A mapping of identity provider attributes to standard and custom user pool attributes.</p>
-    #[serde(rename = "AttributeMapping")]
+    #[serde(rename = "attributeMapping")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_mapping: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of identity provider identifiers.</p>
-    #[serde(rename = "IdpIdentifiers")]
+    #[serde(rename = "idpIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idp_identifiers: Option<Vec<String>>,
     /// <p><p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p> <ul> <li> <p>For Google and Login with Amazon:</p> <ul> <li> <p>client<em>id</p> </li> <li> <p>client</em>secret</p> </li> <li> <p>authorize<em>scopes</p> </li> </ul> </li> <li> <p>For Facebook:</p> <ul> <li> <p>client</em>id</p> </li> <li> <p>client<em>secret</p> </li> <li> <p>authorize</em>scopes</p> </li> <li> <p>api<em>version</p> </li> </ul> </li> <li> <p>For Sign in with Apple:</p> <ul> <li> <p>client</em>id</p> </li> <li> <p>team<em>id</p> </li> <li> <p>key</em>id</p> </li> <li> <p>private<em>key</p> </li> <li> <p>authorize</em>scopes</p> </li> </ul> </li> <li> <p>For OIDC providers:</p> <ul> <li> <p>client<em>id</p> </li> <li> <p>client</em>secret</p> </li> <li> <p>attributes<em>request</em>method</p> </li> <li> <p>oidc<em>issuer</p> </li> <li> <p>authorize</em>scopes</p> </li> <li> <p>authorize<em>url <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> <li> <p>token<em>url <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> <li> <p>attributes<em>url <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> <li> <p>jwks<em>uri <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> </ul> </li> <li> <p>For SAML providers:</p> <ul> <li> <p>MetadataFile OR MetadataURL</p> </li> <li> <p>IDPSignout <i>optional</i> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "ProviderDetails")]
+    #[serde(rename = "providerDetails")]
     pub provider_details: ::std::collections::HashMap<String, String>,
     /// <p>The identity provider name.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     pub provider_name: String,
     /// <p>The identity provider type.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     pub provider_type: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1208,7 +1208,7 @@ pub struct CreateIdentityProviderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateIdentityProviderResponse {
     /// <p>The newly created identity provider object.</p>
-    #[serde(rename = "IdentityProvider")]
+    #[serde(rename = "identityProvider")]
     pub identity_provider: IdentityProviderType,
 }
 
@@ -1216,17 +1216,17 @@ pub struct CreateIdentityProviderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateResourceServerRequest {
     /// <p>A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, <code>https://my-weather-api.example.com</code>.</p>
-    #[serde(rename = "Identifier")]
+    #[serde(rename = "identifier")]
     pub identifier: String,
     /// <p>A friendly name for the resource server.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A list of scopes. Each scope is map, where the keys are <code>name</code> and <code>description</code>.</p>
-    #[serde(rename = "Scopes")]
+    #[serde(rename = "scopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scopes: Option<Vec<ResourceServerScopeType>>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1234,7 +1234,7 @@ pub struct CreateResourceServerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateResourceServerResponse {
     /// <p>The newly created resource server.</p>
-    #[serde(rename = "ResourceServer")]
+    #[serde(rename = "resourceServer")]
     pub resource_server: ResourceServerType,
 }
 
@@ -1243,13 +1243,13 @@ pub struct CreateResourceServerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserImportJobRequest {
     /// <p>The role ARN for the Amazon CloudWatch Logging role for the user import job.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     pub cloud_watch_logs_role_arn: String,
     /// <p>The job name for the user import job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     pub job_name: String,
     /// <p>The user pool ID for the user pool that the users are being imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1258,7 +1258,7 @@ pub struct CreateUserImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserImportJobResponse {
     /// <p>The job object that represents the user import job.</p>
-    #[serde(rename = "UserImportJob")]
+    #[serde(rename = "userImportJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_import_job: Option<UserImportJobType>,
 }
@@ -1268,81 +1268,81 @@ pub struct CreateUserImportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserPoolClientRequest {
     /// <p>The time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in TokenValidityUnits.</p>
-    #[serde(rename = "AccessTokenValidity")]
+    #[serde(rename = "accessTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token_validity: Option<i64>,
     /// <p>The allowed OAuth flows.</p> <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p> <p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
-    #[serde(rename = "AllowedOAuthFlows")]
+    #[serde(rename = "allowedOAuthFlows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_flows: Option<Vec<String>>,
     /// <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
-    #[serde(rename = "AllowedOAuthFlowsUserPoolClient")]
+    #[serde(rename = "allowedOAuthFlowsUserPoolClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_flows_user_pool_client: Option<bool>,
     /// <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created in Resource Servers are also supported.</p>
-    #[serde(rename = "AllowedOAuthScopes")]
+    #[serde(rename = "allowedOAuthScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_scopes: Option<Vec<String>>,
     /// <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p> <note> <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p> </note></p>
-    #[serde(rename = "AnalyticsConfiguration")]
+    #[serde(rename = "analyticsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_configuration: Option<AnalyticsConfigurationType>,
     /// <p>A list of allowed redirect (callback) URLs for the identity providers.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>
-    #[serde(rename = "CallbackURLs")]
+    #[serde(rename = "callbackURLs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub callback_ur_ls: Option<Vec<String>>,
     /// <p>The client name for the user pool client you would like to create.</p>
-    #[serde(rename = "ClientName")]
+    #[serde(rename = "clientName")]
     pub client_name: String,
     /// <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>
-    #[serde(rename = "DefaultRedirectURI")]
+    #[serde(rename = "defaultRedirectURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_redirect_uri: Option<String>,
     /// <p>Enables or disables token revocation. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p> <p>If you don't include this parameter, token revocation is automatically enabled for the new user pool client.</p>
-    #[serde(rename = "EnableTokenRevocation")]
+    #[serde(rename = "enableTokenRevocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_token_revocation: Option<bool>,
     /// <p><p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW<em></code> prefix are deprecated in favor of new names with the <code>ALLOW</em></code> prefix. Note that values with <code>ALLOW<em></code> prefix cannot be used along with values without <code>ALLOW</em></code> prefix.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ALLOW<em>ADMIN</em>USER<em>PASSWORD</em>AUTH</code>: Enable admin based user password authentication flow <code>ADMIN<em>USER</em>PASSWORD<em>AUTH</code>. This setting replaces the <code>ADMIN</em>NO<em>SRP</em>AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW<em>CUSTOM</em>AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW<em>USER</em>PASSWORD<em>AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW</em>USER<em>SRP</em>AUTH</code>: Enable SRP based authentication.</p> </li> <li> <p> <code>ALLOW<em>REFRESH</em>TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul></p>
-    #[serde(rename = "ExplicitAuthFlows")]
+    #[serde(rename = "explicitAuthFlows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub explicit_auth_flows: Option<Vec<String>>,
     /// <p>Boolean to specify whether you want to generate a secret for the user pool client being created.</p>
-    #[serde(rename = "GenerateSecret")]
+    #[serde(rename = "generateSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub generate_secret: Option<bool>,
     /// <p>The time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in TokenValidityUnits.</p>
-    #[serde(rename = "IdTokenValidity")]
+    #[serde(rename = "idTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_token_validity: Option<i64>,
     /// <p>A list of allowed logout URLs for the identity providers.</p>
-    #[serde(rename = "LogoutURLs")]
+    #[serde(rename = "logoutURLs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logout_ur_ls: Option<Vec<String>>,
     /// <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ENABLED</code> - This prevents user existence-related errors.</p> </li> <li> <p> <code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p> </li> </ul> <note> <p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p> </note></p>
-    #[serde(rename = "PreventUserExistenceErrors")]
+    #[serde(rename = "preventUserExistenceErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prevent_user_existence_errors: Option<String>,
     /// <p>The read attributes.</p>
-    #[serde(rename = "ReadAttributes")]
+    #[serde(rename = "readAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_attributes: Option<Vec<String>>,
     /// <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
-    #[serde(rename = "RefreshTokenValidity")]
+    #[serde(rename = "refreshTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token_validity: Option<i64>,
     /// <p>A list of provider names for the identity providers that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code> and <code>LoginWithAmazon</code>.</p>
-    #[serde(rename = "SupportedIdentityProviders")]
+    #[serde(rename = "supportedIdentityProviders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_identity_providers: Option<Vec<String>>,
     /// <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
-    #[serde(rename = "TokenValidityUnits")]
+    #[serde(rename = "tokenValidityUnits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_validity_units: Option<TokenValidityUnitsType>,
     /// <p>The user pool ID for the user pool where you want to create a user pool client.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user pool attributes that the app client can write to.</p> <p>If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
-    #[serde(rename = "WriteAttributes")]
+    #[serde(rename = "writeAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub write_attributes: Option<Vec<String>>,
 }
@@ -1352,7 +1352,7 @@ pub struct CreateUserPoolClientRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserPoolClientResponse {
     /// <p>The user pool client that was just created.</p>
-    #[serde(rename = "UserPoolClient")]
+    #[serde(rename = "userPoolClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_client: Option<UserPoolClientType>,
 }
@@ -1361,14 +1361,14 @@ pub struct CreateUserPoolClientResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserPoolDomainRequest {
     /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p> <p>Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.</p> <p>For more information about the hosted domain and custom domains, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">Configuring a User Pool Domain</a>.</p>
-    #[serde(rename = "CustomDomainConfig")]
+    #[serde(rename = "customDomainConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_domain_config: Option<CustomDomainConfigType>,
     /// <p>The domain string.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1376,7 +1376,7 @@ pub struct CreateUserPoolDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserPoolDomainResponse {
     /// <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.</p>
-    #[serde(rename = "CloudFrontDomain")]
+    #[serde(rename = "cloudFrontDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_front_domain: Option<String>,
 }
@@ -1386,86 +1386,86 @@ pub struct CreateUserPoolDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserPoolRequest {
     /// <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
-    #[serde(rename = "AccountRecoverySetting")]
+    #[serde(rename = "accountRecoverySetting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_recovery_setting: Option<AccountRecoverySettingType>,
     /// <p>The configuration for <code>AdminCreateUser</code> requests.</p>
-    #[serde(rename = "AdminCreateUserConfig")]
+    #[serde(rename = "adminCreateUserConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_create_user_config: Option<AdminCreateUserConfigType>,
     /// <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or <b>preferred_username</b>.</p>
-    #[serde(rename = "AliasAttributes")]
+    #[serde(rename = "aliasAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_attributes: Option<Vec<String>>,
     /// <p>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</p>
-    #[serde(rename = "AutoVerifiedAttributes")]
+    #[serde(rename = "autoVerifiedAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_verified_attributes: Option<Vec<String>>,
     /// <p>The device configuration.</p>
-    #[serde(rename = "DeviceConfiguration")]
+    #[serde(rename = "deviceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_configuration: Option<DeviceConfigurationType>,
     /// <p>The email configuration.</p>
-    #[serde(rename = "EmailConfiguration")]
+    #[serde(rename = "emailConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_configuration: Option<EmailConfigurationType>,
     /// <p>A string representing the email verification message. EmailVerificationMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
-    #[serde(rename = "EmailVerificationMessage")]
+    #[serde(rename = "emailVerificationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_verification_message: Option<String>,
     /// <p>A string representing the email verification subject. EmailVerificationSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
-    #[serde(rename = "EmailVerificationSubject")]
+    #[serde(rename = "emailVerificationSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_verification_subject: Option<String>,
     /// <p><p>The Lambda trigger configuration information for the new user pool.</p> <note> <p>In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you will need to make an extra call to add permission for these event sources to invoke your Lambda function.</p> <p/> <p>For more information on using the Lambda API to add permission, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html"> AddPermission </a>. </p> <p>For adding permission using the AWS CLI, see <a href="https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html"> add-permission </a>.</p> </note></p>
-    #[serde(rename = "LambdaConfig")]
+    #[serde(rename = "lambdaConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_config: Option<LambdaConfigType>,
     /// <p>Specifies MFA configuration details.</p>
-    #[serde(rename = "MfaConfiguration")]
+    #[serde(rename = "mfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_configuration: Option<String>,
     /// <p>The policies associated with the new user pool.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<UserPoolPolicyType>,
     /// <p>A string used to name the user pool.</p>
-    #[serde(rename = "PoolName")]
+    #[serde(rename = "poolName")]
     pub pool_name: String,
     /// <p>An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.</p>
-    #[serde(rename = "Schema")]
+    #[serde(rename = "schema")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema: Option<Vec<SchemaAttributeType>>,
     /// <p>A string representing the SMS authentication message.</p>
-    #[serde(rename = "SmsAuthenticationMessage")]
+    #[serde(rename = "smsAuthenticationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_authentication_message: Option<String>,
     /// <p>The SMS configuration.</p>
-    #[serde(rename = "SmsConfiguration")]
+    #[serde(rename = "smsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_configuration: Option<SmsConfigurationType>,
     /// <p>A string representing the SMS verification message.</p>
-    #[serde(rename = "SmsVerificationMessage")]
+    #[serde(rename = "smsVerificationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_verification_message: Option<String>,
     /// <p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
-    #[serde(rename = "UserPoolAddOns")]
+    #[serde(rename = "userPoolAddOns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_add_ons: Option<UserPoolAddOnsType>,
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    #[serde(rename = "UserPoolTags")]
+    #[serde(rename = "userPoolTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>
-    #[serde(rename = "UsernameAttributes")]
+    #[serde(rename = "usernameAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username_attributes: Option<Vec<String>>,
     /// <p>You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
-    #[serde(rename = "UsernameConfiguration")]
+    #[serde(rename = "usernameConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username_configuration: Option<UsernameConfigurationType>,
     /// <p>The template for the verification message that the user sees when the app requests permission to access the user's information.</p>
-    #[serde(rename = "VerificationMessageTemplate")]
+    #[serde(rename = "verificationMessageTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verification_message_template: Option<VerificationMessageTemplateType>,
 }
@@ -1475,7 +1475,7 @@ pub struct CreateUserPoolRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserPoolResponse {
     /// <p>A container for the user pool details.</p>
-    #[serde(rename = "UserPool")]
+    #[serde(rename = "userPool")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool: Option<UserPoolType>,
 }
@@ -1484,7 +1484,7 @@ pub struct CreateUserPoolResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CustomDomainConfigType {
     /// <p>The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
-    #[serde(rename = "CertificateArn")]
+    #[serde(rename = "certificateArn")]
     pub certificate_arn: String,
 }
 
@@ -1492,10 +1492,10 @@ pub struct CustomDomainConfigType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CustomEmailLambdaVersionConfigType {
     /// <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.</p>
-    #[serde(rename = "LambdaArn")]
+    #[serde(rename = "lambdaArn")]
     pub lambda_arn: String,
     /// <p>The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is <code>V1_0</code>.</p>
-    #[serde(rename = "LambdaVersion")]
+    #[serde(rename = "lambdaVersion")]
     pub lambda_version: String,
 }
 
@@ -1503,10 +1503,10 @@ pub struct CustomEmailLambdaVersionConfigType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CustomSMSLambdaVersionConfigType {
     /// <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.</p>
-    #[serde(rename = "LambdaArn")]
+    #[serde(rename = "lambdaArn")]
     pub lambda_arn: String,
     /// <p>The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</p>
-    #[serde(rename = "LambdaVersion")]
+    #[serde(rename = "lambdaVersion")]
     pub lambda_version: String,
 }
 
@@ -1514,10 +1514,10 @@ pub struct CustomSMSLambdaVersionConfigType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGroupRequest {
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1525,10 +1525,10 @@ pub struct DeleteGroupRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteIdentityProviderRequest {
     /// <p>The identity provider name.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     pub provider_name: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1536,10 +1536,10 @@ pub struct DeleteIdentityProviderRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteResourceServerRequest {
     /// <p>The identifier for the resource server.</p>
-    #[serde(rename = "Identifier")]
+    #[serde(rename = "identifier")]
     pub identifier: String,
     /// <p>The user pool ID for the user pool that hosts the resource server.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1548,10 +1548,10 @@ pub struct DeleteResourceServerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserAttributesRequest {
     /// <p>The access token used in the request to delete user attributes.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    #[serde(rename = "UserAttributeNames")]
+    #[serde(rename = "userAttributeNames")]
     pub user_attribute_names: Vec<String>,
 }
 
@@ -1565,10 +1565,10 @@ pub struct DeleteUserAttributesResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserPoolClientRequest {
     /// <p>The app client ID of the app associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p>The user pool ID for the user pool where you want to delete the client.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1576,10 +1576,10 @@ pub struct DeleteUserPoolClientRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserPoolDomainRequest {
     /// <p>The domain string.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1592,7 +1592,7 @@ pub struct DeleteUserPoolDomainResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserPoolRequest {
     /// <p>The user pool ID for the user pool you want to delete.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1601,7 +1601,7 @@ pub struct DeleteUserPoolRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The access token from a request to delete a user.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
 }
 
@@ -1609,10 +1609,10 @@ pub struct DeleteUserRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeIdentityProviderRequest {
     /// <p>The identity provider name.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     pub provider_name: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1620,7 +1620,7 @@ pub struct DescribeIdentityProviderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeIdentityProviderResponse {
     /// <p>The identity provider that was deleted.</p>
-    #[serde(rename = "IdentityProvider")]
+    #[serde(rename = "identityProvider")]
     pub identity_provider: IdentityProviderType,
 }
 
@@ -1628,10 +1628,10 @@ pub struct DescribeIdentityProviderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeResourceServerRequest {
     /// <p>The identifier for the resource server</p>
-    #[serde(rename = "Identifier")]
+    #[serde(rename = "identifier")]
     pub identifier: String,
     /// <p>The user pool ID for the user pool that hosts the resource server.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1639,7 +1639,7 @@ pub struct DescribeResourceServerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeResourceServerResponse {
     /// <p>The resource server.</p>
-    #[serde(rename = "ResourceServer")]
+    #[serde(rename = "resourceServer")]
     pub resource_server: ResourceServerType,
 }
 
@@ -1647,11 +1647,11 @@ pub struct DescribeResourceServerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRiskConfigurationRequest {
     /// <p>The app client ID.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1659,7 +1659,7 @@ pub struct DescribeRiskConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRiskConfigurationResponse {
     /// <p>The risk configuration.</p>
-    #[serde(rename = "RiskConfiguration")]
+    #[serde(rename = "riskConfiguration")]
     pub risk_configuration: RiskConfigurationType,
 }
 
@@ -1668,10 +1668,10 @@ pub struct DescribeRiskConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserImportJobRequest {
     /// <p>The job ID for the user import job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The user pool ID for the user pool that the users are being imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1680,7 +1680,7 @@ pub struct DescribeUserImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserImportJobResponse {
     /// <p>The job object that represents the user import job.</p>
-    #[serde(rename = "UserImportJob")]
+    #[serde(rename = "userImportJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_import_job: Option<UserImportJobType>,
 }
@@ -1690,10 +1690,10 @@ pub struct DescribeUserImportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserPoolClientRequest {
     /// <p>The app client ID of the app associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p>The user pool ID for the user pool you want to describe.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1702,7 +1702,7 @@ pub struct DescribeUserPoolClientRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserPoolClientResponse {
     /// <p>The user pool client from a server response to describe the user pool client.</p>
-    #[serde(rename = "UserPoolClient")]
+    #[serde(rename = "userPoolClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_client: Option<UserPoolClientType>,
 }
@@ -1711,7 +1711,7 @@ pub struct DescribeUserPoolClientResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserPoolDomainRequest {
     /// <p>The domain string.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
 }
 
@@ -1719,7 +1719,7 @@ pub struct DescribeUserPoolDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserPoolDomainResponse {
     /// <p>A domain description object containing information about the domain.</p>
-    #[serde(rename = "DomainDescription")]
+    #[serde(rename = "domainDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_description: Option<DomainDescriptionType>,
 }
@@ -1729,7 +1729,7 @@ pub struct DescribeUserPoolDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserPoolRequest {
     /// <p>The user pool ID for the user pool you want to describe.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1738,7 +1738,7 @@ pub struct DescribeUserPoolRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserPoolResponse {
     /// <p>The container of metadata returned by the server to describe the pool.</p>
-    #[serde(rename = "UserPool")]
+    #[serde(rename = "userPool")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool: Option<UserPoolType>,
 }
@@ -1747,11 +1747,11 @@ pub struct DescribeUserPoolResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeviceConfigurationType {
     /// <p>Indicates whether a challenge is required on a new device. Only applicable to a new device.</p>
-    #[serde(rename = "ChallengeRequiredOnNewDevice")]
+    #[serde(rename = "challengeRequiredOnNewDevice")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_required_on_new_device: Option<bool>,
     /// <p>If true, a device is only remembered on user prompt.</p>
-    #[serde(rename = "DeviceOnlyRememberedOnUserPrompt")]
+    #[serde(rename = "deviceOnlyRememberedOnUserPrompt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_only_remembered_on_user_prompt: Option<bool>,
 }
@@ -1761,11 +1761,11 @@ pub struct DeviceConfigurationType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeviceSecretVerifierConfigType {
     /// <p>The password verifier.</p>
-    #[serde(rename = "PasswordVerifier")]
+    #[serde(rename = "passwordVerifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password_verifier: Option<String>,
     /// <p>The salt.</p>
-    #[serde(rename = "Salt")]
+    #[serde(rename = "salt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub salt: Option<String>,
 }
@@ -1775,23 +1775,23 @@ pub struct DeviceSecretVerifierConfigType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeviceType {
     /// <p>The device attributes.</p>
-    #[serde(rename = "DeviceAttributes")]
+    #[serde(rename = "deviceAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_attributes: Option<Vec<AttributeType>>,
     /// <p>The creation date of the device.</p>
-    #[serde(rename = "DeviceCreateDate")]
+    #[serde(rename = "deviceCreateDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_create_date: Option<f64>,
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_key: Option<String>,
     /// <p>The date in which the device was last authenticated.</p>
-    #[serde(rename = "DeviceLastAuthenticatedDate")]
+    #[serde(rename = "deviceLastAuthenticatedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_last_authenticated_date: Option<f64>,
     /// <p>The last modified date of the device.</p>
-    #[serde(rename = "DeviceLastModifiedDate")]
+    #[serde(rename = "deviceLastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_last_modified_date: Option<f64>,
 }
@@ -1801,35 +1801,35 @@ pub struct DeviceType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DomainDescriptionType {
     /// <p>The AWS account ID for the user pool owner.</p>
-    #[serde(rename = "AWSAccountId")]
+    #[serde(rename = "aWSAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_account_id: Option<String>,
     /// <p>The ARN of the CloudFront distribution.</p>
-    #[serde(rename = "CloudFrontDistribution")]
+    #[serde(rename = "cloudFrontDistribution")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_front_distribution: Option<String>,
     /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
-    #[serde(rename = "CustomDomainConfig")]
+    #[serde(rename = "customDomainConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_domain_config: Option<CustomDomainConfigType>,
     /// <p>The domain string.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The S3 bucket where the static files for this domain are stored.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket: Option<String>,
     /// <p>The domain status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
     /// <p>The app version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1838,23 +1838,23 @@ pub struct DomainDescriptionType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EmailConfigurationType {
     /// <p><p>The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails: </p> <ul> <li> <p>Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.</p> </li> <li> <p>IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.</p> </li> </ul></p>
-    #[serde(rename = "ConfigurationSet")]
+    #[serde(rename = "configurationSet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_set: Option<String>,
     /// <p><p>Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:</p> <dl> <dt>COGNITO<em>DEFAULT</dt> <dd> <p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p> <p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <p>The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p> <p> If EmailSendingAccount is COGNITO</em>DEFAULT, the following parameters aren&#39;t allowed:</p> <ul> <li> <p>EmailVerificationMessage</p> </li> <li> <p>EmailVerificationSubject</p> </li> <li> <p>InviteMessageTemplate.EmailMessage</p> </li> <li> <p>InviteMessageTemplate.EmailSubject</p> </li> <li> <p>VerificationMessageTemplate.EmailMessage</p> </li> <li> <p>VerificationMessageTemplate.EmailMessageByLink</p> </li> <li> <p>VerificationMessageTemplate.EmailSubject,</p> </li> <li> <p>VerificationMessageTemplate.EmailSubjectByLink</p> </li> </ul> <note> <p>DEVELOPER EmailSendingAccount is required.</p> </note> </dd> <dt>DEVELOPER</dt> <dd> <p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.</p> <p>If you use this option, you must provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p> <p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </dd> </dl></p>
-    #[serde(rename = "EmailSendingAccount")]
+    #[serde(rename = "emailSendingAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_sending_account: Option<String>,
     /// <p>Identifies either the sender’s email address or the sender’s name with their email address. For example, <code>testuser@example.com</code> or <code>Test User &lt;testuser@example.com&gt;</code>. This address will appear before the body of the email.</p>
-    #[serde(rename = "From")]
+    #[serde(rename = "from")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from: Option<String>,
     /// <p>The destination to which the receiver of the email should reply to.</p>
-    #[serde(rename = "ReplyToEmailAddress")]
+    #[serde(rename = "replyToEmailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reply_to_email_address: Option<String>,
     /// <p><p>The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email address is used in one of the following ways, depending on the value that you specify for the <code>EmailSendingAccount</code> parameter:</p> <ul> <li> <p>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account.</p> </li> <li> <p>If you specify <code>DEVELOPER</code>, Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.</p> </li> </ul></p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
 }
@@ -1864,23 +1864,23 @@ pub struct EmailConfigurationType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventContextDataType {
     /// <p>The user's city.</p>
-    #[serde(rename = "City")]
+    #[serde(rename = "city")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub city: Option<String>,
     /// <p>The user's country.</p>
-    #[serde(rename = "Country")]
+    #[serde(rename = "country")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
     /// <p>The user's device name.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The user's IP address.</p>
-    #[serde(rename = "IpAddress")]
+    #[serde(rename = "ipAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip_address: Option<String>,
     /// <p>The user's time zone.</p>
-    #[serde(rename = "Timezone")]
+    #[serde(rename = "timezone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timezone: Option<String>,
 }
@@ -1890,14 +1890,14 @@ pub struct EventContextDataType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventFeedbackType {
     /// <p>The event feedback date.</p>
-    #[serde(rename = "FeedbackDate")]
+    #[serde(rename = "feedbackDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_date: Option<f64>,
     /// <p>The event feedback value.</p>
-    #[serde(rename = "FeedbackValue")]
+    #[serde(rename = "feedbackValue")]
     pub feedback_value: String,
     /// <p>The provider.</p>
-    #[serde(rename = "Provider")]
+    #[serde(rename = "provider")]
     pub provider: String,
 }
 
@@ -1906,15 +1906,15 @@ pub struct EventFeedbackType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EventRiskType {
     /// <p>Indicates whether compromised credentials were detected during an authentication event.</p>
-    #[serde(rename = "CompromisedCredentialsDetected")]
+    #[serde(rename = "compromisedCredentialsDetected")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compromised_credentials_detected: Option<bool>,
     /// <p>The risk decision.</p>
-    #[serde(rename = "RiskDecision")]
+    #[serde(rename = "riskDecision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub risk_decision: Option<String>,
     /// <p>The risk level.</p>
-    #[serde(rename = "RiskLevel")]
+    #[serde(rename = "riskLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub risk_level: Option<String>,
 }
@@ -1924,11 +1924,11 @@ pub struct EventRiskType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ForgetDeviceRequest {
     /// <p>The access token for the forgotten device request.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
 }
 
@@ -1937,26 +1937,26 @@ pub struct ForgetDeviceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ForgotPasswordRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ForgotPassword</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The ID of the client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ForgotPassword API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>user migration</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ForgotPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
-    #[serde(rename = "SecretHash")]
+    #[serde(rename = "secretHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_hash: Option<String>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
     /// <p>The user name of the user for whom you want to enter a code to reset a forgotten password.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -1965,7 +1965,7 @@ pub struct ForgotPasswordRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ForgotPasswordResponse {
     /// <p>The code delivery details returned by the server in response to the request to reset a password.</p>
-    #[serde(rename = "CodeDeliveryDetails")]
+    #[serde(rename = "codeDeliveryDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_delivery_details: Option<CodeDeliveryDetailsType>,
 }
@@ -1975,7 +1975,7 @@ pub struct ForgotPasswordResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetCSVHeaderRequest {
     /// <p>The user pool ID for the user pool that the users are to be imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -1984,11 +1984,11 @@ pub struct GetCSVHeaderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetCSVHeaderResponse {
     /// <p>The header information for the .csv file for the user import job.</p>
-    #[serde(rename = "CSVHeader")]
+    #[serde(rename = "cSVHeader")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub csv_header: Option<Vec<String>>,
     /// <p>The user pool ID for the user pool that the users are to be imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -1998,11 +1998,11 @@ pub struct GetCSVHeaderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDeviceRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
 }
 
@@ -2011,7 +2011,7 @@ pub struct GetDeviceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDeviceResponse {
     /// <p>The device.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     pub device: DeviceType,
 }
 
@@ -2019,10 +2019,10 @@ pub struct GetDeviceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGroupRequest {
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2030,7 +2030,7 @@ pub struct GetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGroupResponse {
     /// <p>The group object for the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<GroupType>,
 }
@@ -2039,10 +2039,10 @@ pub struct GetGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetIdentityProviderByIdentifierRequest {
     /// <p>The identity provider ID.</p>
-    #[serde(rename = "IdpIdentifier")]
+    #[serde(rename = "idpIdentifier")]
     pub idp_identifier: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2050,7 +2050,7 @@ pub struct GetIdentityProviderByIdentifierRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetIdentityProviderByIdentifierResponse {
     /// <p>The identity provider object.</p>
-    #[serde(rename = "IdentityProvider")]
+    #[serde(rename = "identityProvider")]
     pub identity_provider: IdentityProviderType,
 }
 
@@ -2059,7 +2059,7 @@ pub struct GetIdentityProviderByIdentifierResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSigningCertificateRequest {
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2068,7 +2068,7 @@ pub struct GetSigningCertificateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSigningCertificateResponse {
     /// <p>The signing certificate.</p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
 }
@@ -2077,11 +2077,11 @@ pub struct GetSigningCertificateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUICustomizationRequest {
     /// <p>The client ID for the client app.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2089,7 +2089,7 @@ pub struct GetUICustomizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUICustomizationResponse {
     /// <p>The UI customization information.</p>
-    #[serde(rename = "UICustomization")]
+    #[serde(rename = "uICustomization")]
     pub ui_customization: UICustomizationType,
 }
 
@@ -2098,13 +2098,13 @@ pub struct GetUICustomizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserAttributeVerificationCodeRequest {
     /// <p>The access token returned by the server response to get the user attribute verification code.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The attribute name returned by the server response to get the user attribute verification code.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     pub attribute_name: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the GetUserAttributeVerificationCode API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2114,7 +2114,7 @@ pub struct GetUserAttributeVerificationCodeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserAttributeVerificationCodeResponse {
     /// <p>The code delivery details returned by the server in response to the request to get the user attribute verification code.</p>
-    #[serde(rename = "CodeDeliveryDetails")]
+    #[serde(rename = "codeDeliveryDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_delivery_details: Option<CodeDeliveryDetailsType>,
 }
@@ -2123,7 +2123,7 @@ pub struct GetUserAttributeVerificationCodeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserPoolMfaConfigRequest {
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2131,15 +2131,15 @@ pub struct GetUserPoolMfaConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserPoolMfaConfigResponse {
     /// <p><p>The multi-factor (MFA) configuration. Valid values include:</p> <ul> <li> <p> <code>OFF</code> MFA will not be used for any users.</p> </li> <li> <p> <code>ON</code> MFA is required for all users to sign in.</p> </li> <li> <p> <code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor enabled.</p> </li> </ul></p>
-    #[serde(rename = "MfaConfiguration")]
+    #[serde(rename = "mfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_configuration: Option<String>,
     /// <p>The SMS text message multi-factor (MFA) configuration.</p>
-    #[serde(rename = "SmsMfaConfiguration")]
+    #[serde(rename = "smsMfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_mfa_configuration: Option<SmsMfaConfigType>,
     /// <p>The software token multi-factor (MFA) configuration.</p>
-    #[serde(rename = "SoftwareTokenMfaConfiguration")]
+    #[serde(rename = "softwareTokenMfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_token_mfa_configuration: Option<SoftwareTokenMfaConfigType>,
 }
@@ -2149,7 +2149,7 @@ pub struct GetUserPoolMfaConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetUserRequest {
     /// <p>The access token returned by the server response to get information about the user.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
 }
 
@@ -2158,22 +2158,22 @@ pub struct GetUserRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetUserResponse {
     /// <p> <i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
-    #[serde(rename = "MFAOptions")]
+    #[serde(rename = "mFAOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_options: Option<Vec<MFAOptionType>>,
     /// <p>The user's preferred MFA setting.</p>
-    #[serde(rename = "PreferredMfaSetting")]
+    #[serde(rename = "preferredMfaSetting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_mfa_setting: Option<String>,
     /// <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    #[serde(rename = "UserAttributes")]
+    #[serde(rename = "userAttributes")]
     pub user_attributes: Vec<AttributeType>,
     /// <p>The MFA options that are enabled for the user. The possible values in this list are <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
-    #[serde(rename = "UserMFASettingList")]
+    #[serde(rename = "userMFASettingList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_mfa_setting_list: Option<Vec<String>>,
     /// <p>The user name of the user you wish to retrieve from the get user request.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -2182,7 +2182,7 @@ pub struct GetUserResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GlobalSignOutRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
 }
 
@@ -2196,31 +2196,31 @@ pub struct GlobalSignOutResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupType {
     /// <p>The date the group was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>A string containing the description of the group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>The date the group was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens. Groups with higher <code>Precedence</code> values take precedence over groups with lower <code>Precedence</code> values or with null <code>Precedence</code> values.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>
-    #[serde(rename = "Precedence")]
+    #[serde(rename = "precedence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precedence: Option<i64>,
     /// <p>The role ARN for the group.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -2244,35 +2244,35 @@ pub struct HttpHeader {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IdentityProviderType {
     /// <p>A mapping of identity provider attributes to standard and custom user pool attributes.</p>
-    #[serde(rename = "AttributeMapping")]
+    #[serde(rename = "attributeMapping")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_mapping: Option<::std::collections::HashMap<String, String>>,
     /// <p>The date the identity provider was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>A list of identity provider identifiers.</p>
-    #[serde(rename = "IdpIdentifiers")]
+    #[serde(rename = "idpIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idp_identifiers: Option<Vec<String>>,
     /// <p>The date the identity provider was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p><p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p> <ul> <li> <p>For Google and Login with Amazon:</p> <ul> <li> <p>client<em>id</p> </li> <li> <p>client</em>secret</p> </li> <li> <p>authorize<em>scopes</p> </li> </ul> </li> <li> <p>For Facebook:</p> <ul> <li> <p>client</em>id</p> </li> <li> <p>client<em>secret</p> </li> <li> <p>authorize</em>scopes</p> </li> <li> <p>api<em>version</p> </li> </ul> </li> <li> <p>For Sign in with Apple:</p> <ul> <li> <p>client</em>id</p> </li> <li> <p>team<em>id</p> </li> <li> <p>key</em>id</p> </li> <li> <p>private<em>key</p> </li> <li> <p>authorize</em>scopes</p> </li> </ul> </li> <li> <p>For OIDC providers:</p> <ul> <li> <p>client<em>id</p> </li> <li> <p>client</em>secret</p> </li> <li> <p>attributes<em>request</em>method</p> </li> <li> <p>oidc<em>issuer</p> </li> <li> <p>authorize</em>scopes</p> </li> <li> <p>authorize<em>url <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> <li> <p>token<em>url <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> <li> <p>attributes<em>url <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> <li> <p>jwks<em>uri <i>if not available from discovery URL specified by oidc</em>issuer key</i> </p> </li> </ul> </li> <li> <p>For SAML providers:</p> <ul> <li> <p>MetadataFile OR MetadataURL</p> </li> <li> <p>IDPSignOut <i>optional</i> </p> </li> </ul> </li> </ul></p>
-    #[serde(rename = "ProviderDetails")]
+    #[serde(rename = "providerDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_details: Option<::std::collections::HashMap<String, String>>,
     /// <p>The identity provider name.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_name: Option<String>,
     /// <p>The identity provider type.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -2282,25 +2282,25 @@ pub struct IdentityProviderType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InitiateAuthRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>InitiateAuth</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> <li> <p> <code>ADMIN_USER_PASSWORD_AUTH</code>: Admin-based user password authentication. This replaces the <code>ADMIN_NO_SRP_AUTH</code> authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords.</p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
-    #[serde(rename = "AuthFlow")]
+    #[serde(rename = "authFlow")]
     pub auth_flow: String,
     /// <p><p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER<em>SRP</em>AUTH</code>: <code>USERNAME</code> (required), <code>SRP<em>A</code> (required), <code>SECRET</em>HASH</code> (required if the app client is configured with a client secret), <code>DEVICE<em>KEY</code>.</p> </li> <li> <p>For <code>REFRESH</em>TOKEN<em>AUTH/REFRESH</em>TOKEN</code>: <code>REFRESH<em>TOKEN</code> (required), <code>SECRET</em>HASH</code> (required if the app client is configured with a client secret), <code>DEVICE<em>KEY</code>.</p> </li> <li> <p>For <code>CUSTOM</em>AUTH</code>: <code>USERNAME</code> (required), <code>SECRET<em>HASH</code> (if app client is configured with client secret), <code>DEVICE</em>KEY</code>. To start the authentication flow with password verification, include <code>ChallengeName: SRP<em>A</code> and <code>SRP</em>A: (The SRP_A Value)</code>.</p> </li> </ul></p>
-    #[serde(rename = "AuthParameters")]
+    #[serde(rename = "authParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auth_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The app client ID.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers.</p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the InitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:</p> <ul> <li> <p>Pre signup</p> </li> <li> <p>Pre authentication</p> </li> <li> <p>User migration</p> </li> </ul> <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a <code>validationData</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS Lambda, you can process the <code>validationData</code> value to enhance your workflow for your specific needs.</p> <p>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:</p> <ul> <li> <p>Post authentication</p> </li> <li> <p>Custom message</p> </li> <li> <p>Pre token generation</p> </li> <li> <p>Create auth challenge</p> </li> <li> <p>Define auth challenge</p> </li> <li> <p>Verify auth challenge</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
 }
@@ -2310,19 +2310,19 @@ pub struct InitiateAuthRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InitiateAuthResponse {
     /// <p>The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>
-    #[serde(rename = "AuthenticationResult")]
+    #[serde(rename = "authenticationResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_result: Option<AuthenticationResultType>,
     /// <p><p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p> <p>Valid values include the following. Note that all of these challenges require <code>USERNAME</code> and <code>SECRET<em>HASH</code> (if applicable) in the parameters.</p> <ul> <li> <p> <code>SMS</em>MFA</code>: Next challenge is to supply an <code>SMS<em>MFA</em>CODE</code>, delivered via SMS.</p> </li> <li> <p> <code>PASSWORD<em>VERIFIER</code>: Next challenge is to supply <code>PASSWORD</em>CLAIM<em>SIGNATURE</code>, <code>PASSWORD</em>CLAIM<em>SECRET</em>BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p> </li> <li> <p> <code>CUSTOM<em>CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p> </li> <li> <p> <code>DEVICE</em>SRP<em>AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p> </li> <li> <p> <code>DEVICE</em>PASSWORD<em>VERIFIER</code>: Similar to <code>PASSWORD</em>VERIFIER</code>, but for devices only.</p> </li> <li> <p> <code>NEW<em>PASSWORD</em>REQUIRED</code>: For users who are required to change their passwords after successful first login. This challenge should be passed with <code>NEW<em>PASSWORD</code> and any other required attributes.</p> </li> <li> <p> <code>MFA</em>SETUP</code>: For users who are required to setup an MFA factor before they can sign-in. The MFA types enabled for the user pool will be listed in the challenge parameters <code>MFA<em>CAN</em>SETUP</code> value. </p> <p> To setup software token MFA, use the session returned here from <code>InitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>, and use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in. To setup SMS MFA, users will need help from an administrator to add a phone number to their account and then call <code>InitiateAuth</code> again to restart sign-in.</p> </li> </ul></p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_name: Option<String>,
     /// <p>The challenge parameters. These are returned to you in the <code>InitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>RespondToAuthChallenge</code>). </p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p>
-    #[serde(rename = "ChallengeParameters")]
+    #[serde(rename = "challengeParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
 }
@@ -2331,55 +2331,55 @@ pub struct InitiateAuthResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LambdaConfigType {
     /// <p>Creates an authentication challenge.</p>
-    #[serde(rename = "CreateAuthChallenge")]
+    #[serde(rename = "createAuthChallenge")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_auth_challenge: Option<String>,
     /// <p>A custom email sender AWS Lambda trigger.</p>
-    #[serde(rename = "CustomEmailSender")]
+    #[serde(rename = "customEmailSender")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_email_sender: Option<CustomEmailLambdaVersionConfigType>,
     /// <p>A custom Message AWS Lambda trigger.</p>
-    #[serde(rename = "CustomMessage")]
+    #[serde(rename = "customMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_message: Option<String>,
     /// <p>A custom SMS sender AWS Lambda trigger.</p>
-    #[serde(rename = "CustomSMSSender")]
+    #[serde(rename = "customSMSSender")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_sms_sender: Option<CustomSMSLambdaVersionConfigType>,
     /// <p>Defines the authentication challenge.</p>
-    #[serde(rename = "DefineAuthChallenge")]
+    #[serde(rename = "defineAuthChallenge")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub define_auth_challenge: Option<String>,
     /// <p>The Amazon Resource Name of Key Management Service <a href="/kms/latest/developerguide/concepts.html#master_keys">Customer master keys</a> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</p>
-    #[serde(rename = "KMSKeyID")]
+    #[serde(rename = "kMSKeyID")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>A post-authentication AWS Lambda trigger.</p>
-    #[serde(rename = "PostAuthentication")]
+    #[serde(rename = "postAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub post_authentication: Option<String>,
     /// <p>A post-confirmation AWS Lambda trigger.</p>
-    #[serde(rename = "PostConfirmation")]
+    #[serde(rename = "postConfirmation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub post_confirmation: Option<String>,
     /// <p>A pre-authentication AWS Lambda trigger.</p>
-    #[serde(rename = "PreAuthentication")]
+    #[serde(rename = "preAuthentication")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pre_authentication: Option<String>,
     /// <p>A pre-registration AWS Lambda trigger.</p>
-    #[serde(rename = "PreSignUp")]
+    #[serde(rename = "preSignUp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pre_sign_up: Option<String>,
     /// <p>A Lambda trigger that is invoked before token generation.</p>
-    #[serde(rename = "PreTokenGeneration")]
+    #[serde(rename = "preTokenGeneration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pre_token_generation: Option<String>,
     /// <p>The user migration Lambda config type.</p>
-    #[serde(rename = "UserMigration")]
+    #[serde(rename = "userMigration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_migration: Option<String>,
     /// <p>Verifies the authentication challenge response.</p>
-    #[serde(rename = "VerifyAuthChallengeResponse")]
+    #[serde(rename = "verifyAuthChallengeResponse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verify_auth_challenge_response: Option<String>,
 }
@@ -2389,14 +2389,14 @@ pub struct LambdaConfigType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDevicesRequest {
     /// <p>The access tokens for the request to list devices.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The limit of the device request.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The pagination token for the list request.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
 }
@@ -2406,11 +2406,11 @@ pub struct ListDevicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDevicesResponse {
     /// <p>The devices returned in the list devices response.</p>
-    #[serde(rename = "Devices")]
+    #[serde(rename = "devices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub devices: Option<Vec<DeviceType>>,
     /// <p>The pagination token for the list device response.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
 }
@@ -2419,15 +2419,15 @@ pub struct ListDevicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGroupsRequest {
     /// <p>The limit of the request to list groups.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2435,11 +2435,11 @@ pub struct ListGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGroupsResponse {
     /// <p>The group objects for the groups.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<GroupType>>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2448,15 +2448,15 @@ pub struct ListGroupsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListIdentityProvidersRequest {
     /// <p>The maximum number of identity providers to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2464,11 +2464,11 @@ pub struct ListIdentityProvidersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListIdentityProvidersResponse {
     /// <p>A pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of identity provider objects.</p>
-    #[serde(rename = "Providers")]
+    #[serde(rename = "providers")]
     pub providers: Vec<ProviderDescription>,
 }
 
@@ -2476,15 +2476,15 @@ pub struct ListIdentityProvidersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourceServersRequest {
     /// <p>The maximum number of resource servers to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>A pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2492,11 +2492,11 @@ pub struct ListResourceServersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourceServersResponse {
     /// <p>A pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The resource servers.</p>
-    #[serde(rename = "ResourceServers")]
+    #[serde(rename = "resourceServers")]
     pub resource_servers: Vec<ResourceServerType>,
 }
 
@@ -2504,7 +2504,7 @@ pub struct ListResourceServersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2512,7 +2512,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The tags that are assigned to the user pool.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2522,14 +2522,14 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUserImportJobsRequest {
     /// <p>The maximum number of import jobs you want the request to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     pub max_results: i64,
     /// <p>An identifier that was returned from the previous call to <code>ListUserImportJobs</code>, which can be used to return the next set of import jobs in the list.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>The user pool ID for the user pool that the users are being imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2538,11 +2538,11 @@ pub struct ListUserImportJobsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUserImportJobsResponse {
     /// <p>An identifier that can be used to return the next set of user import jobs in the list.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>The user import jobs.</p>
-    #[serde(rename = "UserImportJobs")]
+    #[serde(rename = "userImportJobs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_import_jobs: Option<Vec<UserImportJobType>>,
 }
@@ -2552,15 +2552,15 @@ pub struct ListUserImportJobsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUserPoolClientsRequest {
     /// <p>The maximum number of results you want the request to return when listing the user pool clients.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID for the user pool where you want to list user pool clients.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2569,11 +2569,11 @@ pub struct ListUserPoolClientsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUserPoolClientsResponse {
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool clients in the response that lists user pool clients.</p>
-    #[serde(rename = "UserPoolClients")]
+    #[serde(rename = "userPoolClients")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_clients: Option<Vec<UserPoolClientDescription>>,
 }
@@ -2583,10 +2583,10 @@ pub struct ListUserPoolClientsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUserPoolsRequest {
     /// <p>The maximum number of results you want the request to return when listing the user pools.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     pub max_results: i64,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -2596,11 +2596,11 @@ pub struct ListUserPoolsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUserPoolsResponse {
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pools from the response to list users.</p>
-    #[serde(rename = "UserPools")]
+    #[serde(rename = "userPools")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pools: Option<Vec<UserPoolDescriptionType>>,
 }
@@ -2609,18 +2609,18 @@ pub struct ListUserPoolsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersInGroupRequest {
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The limit of the request to list users.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2628,11 +2628,11 @@ pub struct ListUsersInGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersInGroupResponse {
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The users returned in the request to list users.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<UserType>>,
 }
@@ -2642,23 +2642,23 @@ pub struct ListUsersInGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsersRequest {
     /// <p>An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is null, all attributes are returned.</p>
-    #[serde(rename = "AttributesToGet")]
+    #[serde(rename = "attributesToGet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes_to_get: Option<Vec<String>>,
     /// <p>A filter string of the form "<i>AttributeName</i> <i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "<code>family_name</code> = \"Reddy\"".</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code> = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code> ^= \"Jon\"". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p> </li> <li> <p> <code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code> </p> </li> <li> <p> <code>sub</code> </p> </li> </ul> <p>Custom attributes are not searchable.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<String>,
     /// <p>Maximum number of users to be returned.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>The user pool ID for the user pool on which the search should be performed.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -2667,11 +2667,11 @@ pub struct ListUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsersResponse {
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    #[serde(rename = "PaginationToken")]
+    #[serde(rename = "paginationToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination_token: Option<String>,
     /// <p>The users returned in the request to list users.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<UserType>>,
 }
@@ -2680,11 +2680,11 @@ pub struct ListUsersResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MFAOptionType {
     /// <p>The attribute name of the MFA option type. The only valid value is <code>phone_number</code>.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_name: Option<String>,
     /// <p>The delivery medium to send the MFA code. You can use this parameter to set only the <code>SMS</code> delivery medium value.</p>
-    #[serde(rename = "DeliveryMedium")]
+    #[serde(rename = "deliveryMedium")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delivery_medium: Option<String>,
 }
@@ -2693,15 +2693,15 @@ pub struct MFAOptionType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MessageTemplateType {
     /// <p>The message template for email messages. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
-    #[serde(rename = "EmailMessage")]
+    #[serde(rename = "emailMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_message: Option<String>,
     /// <p>The subject line for email messages. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
-    #[serde(rename = "EmailSubject")]
+    #[serde(rename = "emailSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_subject: Option<String>,
     /// <p>The message template for SMS messages.</p>
-    #[serde(rename = "SMSMessage")]
+    #[serde(rename = "sMSMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_message: Option<String>,
 }
@@ -2711,11 +2711,11 @@ pub struct MessageTemplateType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NewDeviceMetadataType {
     /// <p>The device group key.</p>
-    #[serde(rename = "DeviceGroupKey")]
+    #[serde(rename = "deviceGroupKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_group_key: Option<String>,
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_key: Option<String>,
 }
@@ -2724,27 +2724,27 @@ pub struct NewDeviceMetadataType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NotifyConfigurationType {
     /// <p>Email template used when a detected risk event is blocked.</p>
-    #[serde(rename = "BlockEmail")]
+    #[serde(rename = "blockEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_email: Option<NotifyEmailType>,
     /// <p>The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.</p>
-    #[serde(rename = "From")]
+    #[serde(rename = "from")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub from: Option<String>,
     /// <p>The MFA email template used when MFA is challenged as part of a detected risk.</p>
-    #[serde(rename = "MfaEmail")]
+    #[serde(rename = "mfaEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_email: Option<NotifyEmailType>,
     /// <p>The email template used when a detected risk event is allowed.</p>
-    #[serde(rename = "NoActionEmail")]
+    #[serde(rename = "noActionEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub no_action_email: Option<NotifyEmailType>,
     /// <p>The destination to which the receiver of an email should reply to.</p>
-    #[serde(rename = "ReplyTo")]
+    #[serde(rename = "replyTo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reply_to: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the <code>From</code> parameter.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     pub source_arn: String,
 }
 
@@ -2752,14 +2752,14 @@ pub struct NotifyConfigurationType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NotifyEmailType {
     /// <p>The HTML body.</p>
-    #[serde(rename = "HtmlBody")]
+    #[serde(rename = "htmlBody")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub html_body: Option<String>,
     /// <p>The subject.</p>
-    #[serde(rename = "Subject")]
+    #[serde(rename = "subject")]
     pub subject: String,
     /// <p>The text body.</p>
-    #[serde(rename = "TextBody")]
+    #[serde(rename = "textBody")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_body: Option<String>,
 }
@@ -2768,11 +2768,11 @@ pub struct NotifyEmailType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NumberAttributeConstraintsType {
     /// <p>The maximum value of an attribute that is of the number data type.</p>
-    #[serde(rename = "MaxValue")]
+    #[serde(rename = "maxValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_value: Option<String>,
     /// <p>The minimum value of an attribute that is of the number data type.</p>
-    #[serde(rename = "MinValue")]
+    #[serde(rename = "minValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_value: Option<String>,
 }
@@ -2781,27 +2781,27 @@ pub struct NumberAttributeConstraintsType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct PasswordPolicyType {
     /// <p>The minimum length of the password policy that you have set. Cannot be less than 6.</p>
-    #[serde(rename = "MinimumLength")]
+    #[serde(rename = "minimumLength")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum_length: Option<i64>,
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.</p>
-    #[serde(rename = "RequireLowercase")]
+    #[serde(rename = "requireLowercase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_lowercase: Option<bool>,
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one number in their password.</p>
-    #[serde(rename = "RequireNumbers")]
+    #[serde(rename = "requireNumbers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_numbers: Option<bool>,
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.</p>
-    #[serde(rename = "RequireSymbols")]
+    #[serde(rename = "requireSymbols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_symbols: Option<bool>,
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.</p>
-    #[serde(rename = "RequireUppercase")]
+    #[serde(rename = "requireUppercase")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub require_uppercase: Option<bool>,
     /// <p><p>In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.</p> <note> <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you will no longer be able to set the deprecated <code>UnusedAccountValidityDays</code> value for that user pool.</p> </note></p>
-    #[serde(rename = "TemporaryPasswordValidityDays")]
+    #[serde(rename = "temporaryPasswordValidityDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub temporary_password_validity_days: Option<i64>,
 }
@@ -2811,19 +2811,19 @@ pub struct PasswordPolicyType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProviderDescription {
     /// <p>The date the provider was added to the user pool.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The date the provider was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>The identity provider name.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_name: Option<String>,
     /// <p>The identity provider type.</p>
-    #[serde(rename = "ProviderType")]
+    #[serde(rename = "providerType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_type: Option<String>,
 }
@@ -2833,15 +2833,15 @@ pub struct ProviderDescription {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProviderUserIdentifierType {
     /// <p>The name of the provider attribute to link to, for example, <code>NameID</code>.</p>
-    #[serde(rename = "ProviderAttributeName")]
+    #[serde(rename = "providerAttributeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_attribute_name: Option<String>,
     /// <p>The value of the provider attribute to link to, for example, <code>xxxxx_account</code>.</p>
-    #[serde(rename = "ProviderAttributeValue")]
+    #[serde(rename = "providerAttributeValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_attribute_value: Option<String>,
     /// <p>The name of the provider, for example, Facebook, Google, or Login with Amazon.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_name: Option<String>,
 }
@@ -2850,10 +2850,10 @@ pub struct ProviderUserIdentifierType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RecoveryOptionType {
     /// <p>Specifies the recovery method for a user.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>A positive integer specifying priority of a method with 1 being the highest priority.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
 }
 
@@ -2862,26 +2862,26 @@ pub struct RecoveryOptionType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ResendConfirmationCodeRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ResendConfirmationCode</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The ID of the client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
-    #[serde(rename = "SecretHash")]
+    #[serde(rename = "secretHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_hash: Option<String>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
     /// <p>The user name of the user to whom you wish to resend a confirmation code.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -2890,7 +2890,7 @@ pub struct ResendConfirmationCodeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResendConfirmationCodeResponse {
     /// <p>The code delivery details returned by the server in response to the request to resend the confirmation code.</p>
-    #[serde(rename = "CodeDeliveryDetails")]
+    #[serde(rename = "codeDeliveryDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_delivery_details: Option<CodeDeliveryDetailsType>,
 }
@@ -2899,10 +2899,10 @@ pub struct ResendConfirmationCodeResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ResourceServerScopeType {
     /// <p>A description of the scope.</p>
-    #[serde(rename = "ScopeDescription")]
+    #[serde(rename = "scopeDescription")]
     pub scope_description: String,
     /// <p>The name of the scope.</p>
-    #[serde(rename = "ScopeName")]
+    #[serde(rename = "scopeName")]
     pub scope_name: String,
 }
 
@@ -2911,19 +2911,19 @@ pub struct ResourceServerScopeType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceServerType {
     /// <p>The identifier for the resource server.</p>
-    #[serde(rename = "Identifier")]
+    #[serde(rename = "identifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub identifier: Option<String>,
     /// <p>The name of the resource server.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of scopes that are defined for the resource server.</p>
-    #[serde(rename = "Scopes")]
+    #[serde(rename = "scopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scopes: Option<Vec<ResourceServerScopeType>>,
     /// <p>The user pool ID for the user pool that hosts the resource server.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -2933,29 +2933,29 @@ pub struct ResourceServerType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RespondToAuthChallengeRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>RespondToAuthChallenge</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     pub challenge_name: String,
     /// <p><p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p> <note> <p> <code>SECRET<em>HASH</code> (if app client is configured with client secret) applies to all inputs below (including <code>SOFTWARE</em>TOKEN<em>MFA</code>).</p> </note> <ul> <li> <p> <code>SMS</em>MFA</code>: <code>SMS<em>MFA</em>CODE</code>, <code>USERNAME</code>.</p> </li> <li> <p> <code>PASSWORD<em>VERIFIER</code>: <code>PASSWORD</em>CLAIM<em>SIGNATURE</code>, <code>PASSWORD</em>CLAIM<em>SECRET</em>BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>.</p> </li> <li> <p> <code>NEW<em>PASSWORD</em>REQUIRED</code>: <code>NEW<em>PASSWORD</code>, any other required attributes, <code>USERNAME</code>. </p> </li> <li> <p> <code>SOFTWARE</em>TOKEN<em>MFA</code>: <code>USERNAME</code> and <code>SOFTWARE</em>TOKEN<em>MFA</em>CODE</code> are required attributes.</p> </li> <li> <p> <code>DEVICE<em>SRP</em>AUTH</code> requires <code>USERNAME</code>, <code>DEVICE<em>KEY</code>, <code>SRP</em>A</code> (and <code>SECRET<em>HASH</code>).</p> </li> <li> <p> <code>DEVICE</em>PASSWORD<em>VERIFIER</code> requires everything that <code>PASSWORD</em>VERIFIER</code> requires plus <code>DEVICE<em>KEY</code>.</p> </li> <li> <p> <code>MFA</em>SETUP</code> requires <code>USERNAME</code>, plus you need to use the session value returned by <code>VerifySoftwareToken</code> in the <code>Session</code> parameter.</p> </li> </ul></p>
-    #[serde(rename = "ChallengeResponses")]
+    #[serde(rename = "challengeResponses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_responses: Option<::std::collections::HashMap<String, String>>,
     /// <p>The app client ID.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the RespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>post authentication</i>, <i>pre token generation</i>, <i>define auth challenge</i>, <i>create auth challenge</i>, and <i>verify auth challenge</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your RespondToAuthChallenge request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
 }
@@ -2965,19 +2965,19 @@ pub struct RespondToAuthChallengeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RespondToAuthChallengeResponse {
     /// <p>The result returned by the server in response to the request to respond to the authentication challenge.</p>
-    #[serde(rename = "AuthenticationResult")]
+    #[serde(rename = "authenticationResult")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_result: Option<AuthenticationResultType>,
     /// <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
-    #[serde(rename = "ChallengeName")]
+    #[serde(rename = "challengeName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_name: Option<String>,
     /// <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
-    #[serde(rename = "ChallengeParameters")]
+    #[serde(rename = "challengeParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub challenge_parameters: Option<::std::collections::HashMap<String, String>>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
 }
@@ -2986,14 +2986,14 @@ pub struct RespondToAuthChallengeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RevokeTokenRequest {
     /// <p>The client ID for the token that you want to revoke.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p>The secret for the client ID. This is required only if the client ID has a secret.</p>
-    #[serde(rename = "ClientSecret")]
+    #[serde(rename = "clientSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_secret: Option<String>,
     /// <p>The token that you want to revoke.</p>
-    #[serde(rename = "Token")]
+    #[serde(rename = "token")]
     pub token: String,
 }
 
@@ -3006,28 +3006,28 @@ pub struct RevokeTokenResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RiskConfigurationType {
     /// <p>The account takeover risk configuration object including the <code>NotifyConfiguration</code> object and <code>Actions</code> to take in the case of an account takeover.</p>
-    #[serde(rename = "AccountTakeoverRiskConfiguration")]
+    #[serde(rename = "accountTakeoverRiskConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_takeover_risk_configuration: Option<AccountTakeoverRiskConfigurationType>,
     /// <p>The app client ID.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The compromised credentials risk configuration object including the <code>EventFilter</code> and the <code>EventAction</code> </p>
-    #[serde(rename = "CompromisedCredentialsRiskConfiguration")]
+    #[serde(rename = "compromisedCredentialsRiskConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compromised_credentials_risk_configuration:
         Option<CompromisedCredentialsRiskConfigurationType>,
     /// <p>The last modified date.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>The configuration to override the risk decision.</p>
-    #[serde(rename = "RiskExceptionConfiguration")]
+    #[serde(rename = "riskExceptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub risk_exception_configuration: Option<RiskExceptionConfigurationType>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -3036,11 +3036,11 @@ pub struct RiskConfigurationType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RiskExceptionConfigurationType {
     /// <p>Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.</p>
-    #[serde(rename = "BlockedIPRangeList")]
+    #[serde(rename = "blockedIPRangeList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocked_ip_range_list: Option<Vec<String>>,
     /// <p>Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.</p>
-    #[serde(rename = "SkippedIPRangeList")]
+    #[serde(rename = "skippedIPRangeList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skipped_ip_range_list: Option<Vec<String>>,
 }
@@ -3050,11 +3050,11 @@ pub struct RiskExceptionConfigurationType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SMSMfaSettingsType {
     /// <p>Specifies whether SMS text message MFA is enabled. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Specifies whether SMS is the preferred MFA method.</p>
-    #[serde(rename = "PreferredMfa")]
+    #[serde(rename = "preferredMfa")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_mfa: Option<bool>,
 }
@@ -3063,31 +3063,31 @@ pub struct SMSMfaSettingsType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SchemaAttributeType {
     /// <p>The attribute data type.</p>
-    #[serde(rename = "AttributeDataType")]
+    #[serde(rename = "attributeDataType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_data_type: Option<String>,
     /// <p><note> <p>We recommend that you use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes">WriteAttributes</a> in the user pool client to control how attributes can be mutated for new use cases instead of using <code>DeveloperOnlyAttribute</code>.</p> </note> <p>Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, <code>DeveloperOnlyAttribute</code> can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.</p></p>
-    #[serde(rename = "DeveloperOnlyAttribute")]
+    #[serde(rename = "developerOnlyAttribute")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub developer_only_attribute: Option<bool>,
     /// <p>Specifies whether the value of the attribute can be changed.</p> <p>For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
-    #[serde(rename = "Mutable")]
+    #[serde(rename = "mutable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mutable: Option<bool>,
     /// <p>A schema attribute of the name type.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Specifies the constraints for an attribute of the number type.</p>
-    #[serde(rename = "NumberAttributeConstraints")]
+    #[serde(rename = "numberAttributeConstraints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_attribute_constraints: Option<NumberAttributeConstraintsType>,
     /// <p>Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.</p>
-    #[serde(rename = "Required")]
+    #[serde(rename = "required")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub required: Option<bool>,
     /// <p>Specifies the constraints for an attribute of the string type.</p>
-    #[serde(rename = "StringAttributeConstraints")]
+    #[serde(rename = "stringAttributeConstraints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_attribute_constraints: Option<StringAttributeConstraintsType>,
 }
@@ -3096,24 +3096,24 @@ pub struct SchemaAttributeType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetRiskConfigurationRequest {
     /// <p>The account takeover risk configuration.</p>
-    #[serde(rename = "AccountTakeoverRiskConfiguration")]
+    #[serde(rename = "accountTakeoverRiskConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_takeover_risk_configuration: Option<AccountTakeoverRiskConfigurationType>,
     /// <p>The app client ID. If <code>ClientId</code> is null, then the risk configuration is mapped to <code>userPoolId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.</p> <p>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The compromised credentials risk configuration.</p>
-    #[serde(rename = "CompromisedCredentialsRiskConfiguration")]
+    #[serde(rename = "compromisedCredentialsRiskConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compromised_credentials_risk_configuration:
         Option<CompromisedCredentialsRiskConfigurationType>,
     /// <p>The configuration to override the risk decision.</p>
-    #[serde(rename = "RiskExceptionConfiguration")]
+    #[serde(rename = "riskExceptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub risk_exception_configuration: Option<RiskExceptionConfigurationType>,
     /// <p>The user pool ID. </p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3121,7 +3121,7 @@ pub struct SetRiskConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SetRiskConfigurationResponse {
     /// <p>The risk configuration.</p>
-    #[serde(rename = "RiskConfiguration")]
+    #[serde(rename = "riskConfiguration")]
     pub risk_configuration: RiskConfigurationType,
 }
 
@@ -3129,15 +3129,15 @@ pub struct SetRiskConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetUICustomizationRequest {
     /// <p>The CSS values in the UI customization.</p>
-    #[serde(rename = "CSS")]
+    #[serde(rename = "cSS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub css: Option<String>,
     /// <p>The client ID for the client app.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The uploaded logo image for the UI customization.</p>
-    #[serde(rename = "ImageFile")]
+    #[serde(rename = "imageFile")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -3146,7 +3146,7 @@ pub struct SetUICustomizationRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_file: Option<bytes::Bytes>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3154,7 +3154,7 @@ pub struct SetUICustomizationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SetUICustomizationResponse {
     /// <p>The UI customization information.</p>
-    #[serde(rename = "UICustomization")]
+    #[serde(rename = "uICustomization")]
     pub ui_customization: UICustomizationType,
 }
 
@@ -3162,14 +3162,14 @@ pub struct SetUICustomizationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetUserMFAPreferenceRequest {
     /// <p>The access token for the user.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The SMS text message multi-factor authentication (MFA) settings.</p>
-    #[serde(rename = "SMSMfaSettings")]
+    #[serde(rename = "sMSMfaSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_mfa_settings: Option<SMSMfaSettingsType>,
     /// <p>The time-based one-time password software token MFA settings.</p>
-    #[serde(rename = "SoftwareTokenMfaSettings")]
+    #[serde(rename = "softwareTokenMfaSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_token_mfa_settings: Option<SoftwareTokenMfaSettingsType>,
 }
@@ -3182,19 +3182,19 @@ pub struct SetUserMFAPreferenceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetUserPoolMfaConfigRequest {
     /// <p><p>The MFA configuration. Users who don&#39;t have an MFA factor set up won&#39;t be able to sign-in if you set the MfaConfiguration value to ‘ON’. See <a href="cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor Authentication (MFA) to a User Pool</a> to learn more. Valid values include:</p> <ul> <li> <p> <code>OFF</code> MFA will not be used for any users.</p> </li> <li> <p> <code>ON</code> MFA is required for all users to sign in.</p> </li> <li> <p> <code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor enabled.</p> </li> </ul></p>
-    #[serde(rename = "MfaConfiguration")]
+    #[serde(rename = "mfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_configuration: Option<String>,
     /// <p>The SMS text message MFA configuration.</p>
-    #[serde(rename = "SmsMfaConfiguration")]
+    #[serde(rename = "smsMfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_mfa_configuration: Option<SmsMfaConfigType>,
     /// <p>The software token MFA configuration.</p>
-    #[serde(rename = "SoftwareTokenMfaConfiguration")]
+    #[serde(rename = "softwareTokenMfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_token_mfa_configuration: Option<SoftwareTokenMfaConfigType>,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3202,15 +3202,15 @@ pub struct SetUserPoolMfaConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SetUserPoolMfaConfigResponse {
     /// <p><p>The MFA configuration. Valid values include:</p> <ul> <li> <p> <code>OFF</code> MFA will not be used for any users.</p> </li> <li> <p> <code>ON</code> MFA is required for all users to sign in.</p> </li> <li> <p> <code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor enabled.</p> </li> </ul></p>
-    #[serde(rename = "MfaConfiguration")]
+    #[serde(rename = "mfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_configuration: Option<String>,
     /// <p>The SMS text message MFA configuration.</p>
-    #[serde(rename = "SmsMfaConfiguration")]
+    #[serde(rename = "smsMfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_mfa_configuration: Option<SmsMfaConfigType>,
     /// <p>The software token MFA configuration.</p>
-    #[serde(rename = "SoftwareTokenMfaConfiguration")]
+    #[serde(rename = "softwareTokenMfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub software_token_mfa_configuration: Option<SoftwareTokenMfaConfigType>,
 }
@@ -3220,10 +3220,10 @@ pub struct SetUserPoolMfaConfigResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetUserSettingsRequest {
     /// <p>The access token for the set user settings request.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
-    #[serde(rename = "MFAOptions")]
+    #[serde(rename = "mFAOptions")]
     pub mfa_options: Vec<MFAOptionType>,
 }
 
@@ -3237,36 +3237,36 @@ pub struct SetUserSettingsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SignUpRequest {
     /// <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>SignUp</code> calls.</p>
-    #[serde(rename = "AnalyticsMetadata")]
+    #[serde(rename = "analyticsMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_metadata: Option<AnalyticsMetadataType>,
     /// <p>The ID of the client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The password of the user you wish to register.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
-    #[serde(rename = "SecretHash")]
+    #[serde(rename = "secretHash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_hash: Option<String>,
     /// <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    #[serde(rename = "UserAttributes")]
+    #[serde(rename = "userAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_attributes: Option<Vec<AttributeType>>,
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "UserContextData")]
+    #[serde(rename = "userContextData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_context_data: Option<UserContextDataType>,
     /// <p>The user name of the user you wish to register.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
     /// <p>The validation data in the request to register a user.</p>
-    #[serde(rename = "ValidationData")]
+    #[serde(rename = "validationData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validation_data: Option<Vec<AttributeType>>,
 }
@@ -3276,14 +3276,14 @@ pub struct SignUpRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SignUpResponse {
     /// <p>The code delivery details returned by the server response to the user registration request.</p>
-    #[serde(rename = "CodeDeliveryDetails")]
+    #[serde(rename = "codeDeliveryDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_delivery_details: Option<CodeDeliveryDetailsType>,
     /// <p>A response from the server indicating that a user registration has been confirmed.</p>
-    #[serde(rename = "UserConfirmed")]
+    #[serde(rename = "userConfirmed")]
     pub user_confirmed: bool,
     /// <p>The UUID of the authenticated user. This is not the same as <code>username</code>.</p>
-    #[serde(rename = "UserSub")]
+    #[serde(rename = "userSub")]
     pub user_sub: String,
 }
 
@@ -3291,11 +3291,11 @@ pub struct SignUpResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SmsConfigurationType {
     /// <p>The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an <code>ExternalId</code>, the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the <code>ExternalID</code>. If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the <code>ExternalId</code>.</p> <p>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How to use an external ID when granting access to your AWS resources to a third party</a> </p>
-    #[serde(rename = "ExternalId")]
+    #[serde(rename = "externalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub external_id: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending limit</a>. </p>
-    #[serde(rename = "SnsCallerArn")]
+    #[serde(rename = "snsCallerArn")]
     pub sns_caller_arn: String,
 }
 
@@ -3303,11 +3303,11 @@ pub struct SmsConfigurationType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SmsMfaConfigType {
     /// <p>The SMS authentication message that will be sent to users with the code they need to sign in. The message must contain the ‘{####}’ placeholder, which will be replaced with the code. If the message is not included, and default message will be used.</p>
-    #[serde(rename = "SmsAuthenticationMessage")]
+    #[serde(rename = "smsAuthenticationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_authentication_message: Option<String>,
     /// <p>The SMS configuration.</p>
-    #[serde(rename = "SmsConfiguration")]
+    #[serde(rename = "smsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_configuration: Option<SmsConfigurationType>,
 }
@@ -3316,7 +3316,7 @@ pub struct SmsMfaConfigType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SoftwareTokenMfaConfigType {
     /// <p>Specifies whether software token MFA is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
 }
@@ -3326,11 +3326,11 @@ pub struct SoftwareTokenMfaConfigType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SoftwareTokenMfaSettingsType {
     /// <p>Specifies whether software token MFA is enabled. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>Specifies whether software token MFA is the preferred MFA method.</p>
-    #[serde(rename = "PreferredMfa")]
+    #[serde(rename = "preferredMfa")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preferred_mfa: Option<bool>,
 }
@@ -3340,10 +3340,10 @@ pub struct SoftwareTokenMfaSettingsType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartUserImportJobRequest {
     /// <p>The job ID for the user import job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The user pool ID for the user pool that the users are being imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3352,7 +3352,7 @@ pub struct StartUserImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartUserImportJobResponse {
     /// <p>The job object that represents the user import job.</p>
-    #[serde(rename = "UserImportJob")]
+    #[serde(rename = "userImportJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_import_job: Option<UserImportJobType>,
 }
@@ -3362,10 +3362,10 @@ pub struct StartUserImportJobResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopUserImportJobRequest {
     /// <p>The job ID for the user import job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The user pool ID for the user pool that the users are being imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3374,7 +3374,7 @@ pub struct StopUserImportJobRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopUserImportJobResponse {
     /// <p>The job object that represents the user import job.</p>
-    #[serde(rename = "UserImportJob")]
+    #[serde(rename = "userImportJob")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_import_job: Option<UserImportJobType>,
 }
@@ -3383,11 +3383,11 @@ pub struct StopUserImportJobResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StringAttributeConstraintsType {
     /// <p>The maximum length.</p>
-    #[serde(rename = "MaxLength")]
+    #[serde(rename = "maxLength")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_length: Option<String>,
     /// <p>The minimum length.</p>
-    #[serde(rename = "MinLength")]
+    #[serde(rename = "minLength")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_length: Option<String>,
 }
@@ -3396,10 +3396,10 @@ pub struct StringAttributeConstraintsType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to assign to the user pool.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -3411,15 +3411,15 @@ pub struct TagResourceResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TokenValidityUnitsType {
     /// <p> A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.</p>
-    #[serde(rename = "IdToken")]
+    #[serde(rename = "idToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_token: Option<String>,
     /// <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.</p>
-    #[serde(rename = "RefreshToken")]
+    #[serde(rename = "refreshToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token: Option<String>,
 }
@@ -3429,31 +3429,31 @@ pub struct TokenValidityUnitsType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UICustomizationType {
     /// <p>The CSS values in the UI customization.</p>
-    #[serde(rename = "CSS")]
+    #[serde(rename = "cSS")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub css: Option<String>,
     /// <p>The CSS version number.</p>
-    #[serde(rename = "CSSVersion")]
+    #[serde(rename = "cSSVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub css_version: Option<String>,
     /// <p>The client ID for the client app.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The creation date for the UI customization.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The logo image for the UI customization.</p>
-    #[serde(rename = "ImageUrl")]
+    #[serde(rename = "imageUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_url: Option<String>,
     /// <p>The last-modified date for the UI customization.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -3462,10 +3462,10 @@ pub struct UICustomizationType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The keys of the tags to remove from the user pool.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -3477,19 +3477,19 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAuthEventFeedbackRequest {
     /// <p>The event ID.</p>
-    #[serde(rename = "EventId")]
+    #[serde(rename = "eventId")]
     pub event_id: String,
     /// <p>The feedback token.</p>
-    #[serde(rename = "FeedbackToken")]
+    #[serde(rename = "feedbackToken")]
     pub feedback_token: String,
     /// <p>The authentication event feedback value.</p>
-    #[serde(rename = "FeedbackValue")]
+    #[serde(rename = "feedbackValue")]
     pub feedback_value: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The user pool username.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     pub username: String,
 }
 
@@ -3502,13 +3502,13 @@ pub struct UpdateAuthEventFeedbackResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDeviceStatusRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The device key.</p>
-    #[serde(rename = "DeviceKey")]
+    #[serde(rename = "deviceKey")]
     pub device_key: String,
     /// <p>The status of whether a device is remembered.</p>
-    #[serde(rename = "DeviceRememberedStatus")]
+    #[serde(rename = "deviceRememberedStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_remembered_status: Option<String>,
 }
@@ -3522,22 +3522,22 @@ pub struct UpdateDeviceStatusResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGroupRequest {
     /// <p>A string containing the new description of the group.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p>The new precedence value for the group. For more information about this parameter, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
-    #[serde(rename = "Precedence")]
+    #[serde(rename = "precedence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub precedence: Option<i64>,
     /// <p>The new role ARN for the group. This is used for setting the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the token.</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3545,7 +3545,7 @@ pub struct UpdateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateGroupResponse {
     /// <p>The group object for the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<GroupType>,
 }
@@ -3554,22 +3554,22 @@ pub struct UpdateGroupResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateIdentityProviderRequest {
     /// <p>The identity provider attribute mapping to be changed.</p>
-    #[serde(rename = "AttributeMapping")]
+    #[serde(rename = "attributeMapping")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute_mapping: Option<::std::collections::HashMap<String, String>>,
     /// <p>A list of identity provider identifiers.</p>
-    #[serde(rename = "IdpIdentifiers")]
+    #[serde(rename = "idpIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idp_identifiers: Option<Vec<String>>,
     /// <p>The identity provider details to be updated, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>
-    #[serde(rename = "ProviderDetails")]
+    #[serde(rename = "providerDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_details: Option<::std::collections::HashMap<String, String>>,
     /// <p>The identity provider name.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     pub provider_name: String,
     /// <p>The user pool ID.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3577,7 +3577,7 @@ pub struct UpdateIdentityProviderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateIdentityProviderResponse {
     /// <p>The identity provider object.</p>
-    #[serde(rename = "IdentityProvider")]
+    #[serde(rename = "identityProvider")]
     pub identity_provider: IdentityProviderType,
 }
 
@@ -3585,17 +3585,17 @@ pub struct UpdateIdentityProviderResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateResourceServerRequest {
     /// <p>The identifier for the resource server.</p>
-    #[serde(rename = "Identifier")]
+    #[serde(rename = "identifier")]
     pub identifier: String,
     /// <p>The name of the resource server.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The scope values to be set for the resource server.</p>
-    #[serde(rename = "Scopes")]
+    #[serde(rename = "scopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scopes: Option<Vec<ResourceServerScopeType>>,
     /// <p>The user pool ID for the user pool.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3603,7 +3603,7 @@ pub struct UpdateResourceServerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateResourceServerResponse {
     /// <p>The resource server.</p>
-    #[serde(rename = "ResourceServer")]
+    #[serde(rename = "resourceServer")]
     pub resource_server: ResourceServerType,
 }
 
@@ -3612,14 +3612,14 @@ pub struct UpdateResourceServerResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserAttributesRequest {
     /// <p>The access token for the request to update user attributes.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p><p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don&#39;t use it to provide sensitive information.</p> </li> </ul> </note></p>
-    #[serde(rename = "ClientMetadata")]
+    #[serde(rename = "clientMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    #[serde(rename = "UserAttributes")]
+    #[serde(rename = "userAttributes")]
     pub user_attributes: Vec<AttributeType>,
 }
 
@@ -3628,7 +3628,7 @@ pub struct UpdateUserAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserAttributesResponse {
     /// <p>The code delivery details list from the server for the request to update user attributes.</p>
-    #[serde(rename = "CodeDeliveryDetailsList")]
+    #[serde(rename = "codeDeliveryDetailsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code_delivery_details_list: Option<Vec<CodeDeliveryDetailsType>>,
 }
@@ -3638,81 +3638,81 @@ pub struct UpdateUserAttributesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserPoolClientRequest {
     /// <p>The time limit, after which the access token is no longer valid and cannot be used.</p>
-    #[serde(rename = "AccessTokenValidity")]
+    #[serde(rename = "accessTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token_validity: Option<i64>,
     /// <p>The allowed OAuth flows.</p> <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p> <p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
-    #[serde(rename = "AllowedOAuthFlows")]
+    #[serde(rename = "allowedOAuthFlows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_flows: Option<Vec<String>>,
     /// <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
-    #[serde(rename = "AllowedOAuthFlowsUserPoolClient")]
+    #[serde(rename = "allowedOAuthFlowsUserPoolClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_flows_user_pool_client: Option<bool>,
     /// <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created in Resource Servers are also supported.</p>
-    #[serde(rename = "AllowedOAuthScopes")]
+    #[serde(rename = "allowedOAuthScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_scopes: Option<Vec<String>>,
     /// <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p> <note> <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p> </note></p>
-    #[serde(rename = "AnalyticsConfiguration")]
+    #[serde(rename = "analyticsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_configuration: Option<AnalyticsConfigurationType>,
     /// <p>A list of allowed redirect (callback) URLs for the identity providers.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>
-    #[serde(rename = "CallbackURLs")]
+    #[serde(rename = "callbackURLs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub callback_ur_ls: Option<Vec<String>>,
     /// <p>The ID of the client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     pub client_id: String,
     /// <p>The client name from the update user pool client request.</p>
-    #[serde(rename = "ClientName")]
+    #[serde(rename = "clientName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_name: Option<String>,
     /// <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>
-    #[serde(rename = "DefaultRedirectURI")]
+    #[serde(rename = "defaultRedirectURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_redirect_uri: Option<String>,
     /// <p>Enables or disables token revocation. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
-    #[serde(rename = "EnableTokenRevocation")]
+    #[serde(rename = "enableTokenRevocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_token_revocation: Option<bool>,
     /// <p><p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW<em></code> prefix are deprecated in favor of new names with the <code>ALLOW</em></code> prefix. Note that values with <code>ALLOW<em></code> prefix cannot be used along with values without <code>ALLOW</em></code> prefix.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ALLOW<em>ADMIN</em>USER<em>PASSWORD</em>AUTH</code>: Enable admin based user password authentication flow <code>ADMIN<em>USER</em>PASSWORD<em>AUTH</code>. This setting replaces the <code>ADMIN</em>NO<em>SRP</em>AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW<em>CUSTOM</em>AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW<em>USER</em>PASSWORD<em>AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW</em>USER<em>SRP</em>AUTH</code>: Enable SRP based authentication.</p> </li> <li> <p> <code>ALLOW<em>REFRESH</em>TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul></p>
-    #[serde(rename = "ExplicitAuthFlows")]
+    #[serde(rename = "explicitAuthFlows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub explicit_auth_flows: Option<Vec<String>>,
     /// <p>The time limit, after which the ID token is no longer valid and cannot be used.</p>
-    #[serde(rename = "IdTokenValidity")]
+    #[serde(rename = "idTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_token_validity: Option<i64>,
     /// <p>A list of allowed logout URLs for the identity providers.</p>
-    #[serde(rename = "LogoutURLs")]
+    #[serde(rename = "logoutURLs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logout_ur_ls: Option<Vec<String>>,
     /// <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ENABLED</code> - This prevents user existence-related errors.</p> </li> <li> <p> <code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p> </li> </ul> <note> <p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p> </note></p>
-    #[serde(rename = "PreventUserExistenceErrors")]
+    #[serde(rename = "preventUserExistenceErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prevent_user_existence_errors: Option<String>,
     /// <p>The read-only attributes of the user pool.</p>
-    #[serde(rename = "ReadAttributes")]
+    #[serde(rename = "readAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_attributes: Option<Vec<String>>,
     /// <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
-    #[serde(rename = "RefreshTokenValidity")]
+    #[serde(rename = "refreshTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token_validity: Option<i64>,
     /// <p>A list of provider names for the identity providers that are supported on this client.</p>
-    #[serde(rename = "SupportedIdentityProviders")]
+    #[serde(rename = "supportedIdentityProviders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_identity_providers: Option<Vec<String>>,
     /// <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
-    #[serde(rename = "TokenValidityUnits")]
+    #[serde(rename = "tokenValidityUnits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_validity_units: Option<TokenValidityUnitsType>,
     /// <p>The user pool ID for the user pool where you want to update the user pool client.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The writeable attributes of the user pool.</p>
-    #[serde(rename = "WriteAttributes")]
+    #[serde(rename = "writeAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub write_attributes: Option<Vec<String>>,
 }
@@ -3722,7 +3722,7 @@ pub struct UpdateUserPoolClientRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserPoolClientResponse {
     /// <p>The user pool client value from the response from the server when an update user pool client request is made.</p>
-    #[serde(rename = "UserPoolClient")]
+    #[serde(rename = "userPoolClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_client: Option<UserPoolClientType>,
 }
@@ -3732,13 +3732,13 @@ pub struct UpdateUserPoolClientResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserPoolDomainRequest {
     /// <p>The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.</p>
-    #[serde(rename = "CustomDomainConfig")]
+    #[serde(rename = "customDomainConfig")]
     pub custom_domain_config: CustomDomainConfigType,
     /// <p>The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: <code>auth.example.com</code>. </p> <p>This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     pub domain: String,
     /// <p>The ID of the user pool that is associated with the custom domain that you are updating the certificate for.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
 }
 
@@ -3747,7 +3747,7 @@ pub struct UpdateUserPoolDomainRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateUserPoolDomainResponse {
     /// <p>The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom domain to your user pool.</p>
-    #[serde(rename = "CloudFrontDomain")]
+    #[serde(rename = "cloudFrontDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_front_domain: Option<String>,
 }
@@ -3757,70 +3757,70 @@ pub struct UpdateUserPoolDomainResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserPoolRequest {
     /// <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
-    #[serde(rename = "AccountRecoverySetting")]
+    #[serde(rename = "accountRecoverySetting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_recovery_setting: Option<AccountRecoverySettingType>,
     /// <p>The configuration for <code>AdminCreateUser</code> requests.</p>
-    #[serde(rename = "AdminCreateUserConfig")]
+    #[serde(rename = "adminCreateUserConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_create_user_config: Option<AdminCreateUserConfigType>,
     /// <p>The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.</p>
-    #[serde(rename = "AutoVerifiedAttributes")]
+    #[serde(rename = "autoVerifiedAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_verified_attributes: Option<Vec<String>>,
     /// <p>Device configuration.</p>
-    #[serde(rename = "DeviceConfiguration")]
+    #[serde(rename = "deviceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_configuration: Option<DeviceConfigurationType>,
     /// <p>Email configuration.</p>
-    #[serde(rename = "EmailConfiguration")]
+    #[serde(rename = "emailConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_configuration: Option<EmailConfigurationType>,
     /// <p>The contents of the email verification message.</p>
-    #[serde(rename = "EmailVerificationMessage")]
+    #[serde(rename = "emailVerificationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_verification_message: Option<String>,
     /// <p>The subject of the email verification message.</p>
-    #[serde(rename = "EmailVerificationSubject")]
+    #[serde(rename = "emailVerificationSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_verification_subject: Option<String>,
     /// <p>The AWS Lambda configuration information from the request to update the user pool.</p>
-    #[serde(rename = "LambdaConfig")]
+    #[serde(rename = "lambdaConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_config: Option<LambdaConfigType>,
     /// <p><p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p> </li> <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you are initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA &quot;ON&quot; for existing user pools. </p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> </ul></p>
-    #[serde(rename = "MfaConfiguration")]
+    #[serde(rename = "mfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_configuration: Option<String>,
     /// <p>A container with the policies you wish to update in a user pool.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<UserPoolPolicyType>,
     /// <p>The contents of the SMS authentication message.</p>
-    #[serde(rename = "SmsAuthenticationMessage")]
+    #[serde(rename = "smsAuthenticationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_authentication_message: Option<String>,
     /// <p>SMS configuration.</p>
-    #[serde(rename = "SmsConfiguration")]
+    #[serde(rename = "smsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_configuration: Option<SmsConfigurationType>,
     /// <p>A container with information about the SMS verification message.</p>
-    #[serde(rename = "SmsVerificationMessage")]
+    #[serde(rename = "smsVerificationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_verification_message: Option<String>,
     /// <p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
-    #[serde(rename = "UserPoolAddOns")]
+    #[serde(rename = "userPoolAddOns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_add_ons: Option<UserPoolAddOnsType>,
     /// <p>The user pool ID for the user pool you want to update.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     pub user_pool_id: String,
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    #[serde(rename = "UserPoolTags")]
+    #[serde(rename = "userPoolTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The template for verification messages.</p>
-    #[serde(rename = "VerificationMessageTemplate")]
+    #[serde(rename = "verificationMessageTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verification_message_template: Option<VerificationMessageTemplateType>,
 }
@@ -3835,7 +3835,7 @@ pub struct UpdateUserPoolResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UserContextDataType {
     /// <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
-    #[serde(rename = "EncodedData")]
+    #[serde(rename = "encodedData")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encoded_data: Option<String>,
 }
@@ -3845,55 +3845,55 @@ pub struct UserContextDataType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserImportJobType {
     /// <p>The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.</p>
-    #[serde(rename = "CloudWatchLogsRoleArn")]
+    #[serde(rename = "cloudWatchLogsRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_role_arn: Option<String>,
     /// <p>The date when the user import job was completed.</p>
-    #[serde(rename = "CompletionDate")]
+    #[serde(rename = "completionDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completion_date: Option<f64>,
     /// <p>The message returned when the user import job is completed.</p>
-    #[serde(rename = "CompletionMessage")]
+    #[serde(rename = "completionMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completion_message: Option<String>,
     /// <p>The date the user import job was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The number of users that could not be imported.</p>
-    #[serde(rename = "FailedUsers")]
+    #[serde(rename = "failedUsers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_users: Option<i64>,
     /// <p>The number of users that were successfully imported.</p>
-    #[serde(rename = "ImportedUsers")]
+    #[serde(rename = "importedUsers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub imported_users: Option<i64>,
     /// <p>The job ID for the user import job.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     /// <p>The job name for the user import job.</p>
-    #[serde(rename = "JobName")]
+    #[serde(rename = "jobName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
     /// <p>The pre-signed URL to be used to upload the <code>.csv</code> file.</p>
-    #[serde(rename = "PreSignedUrl")]
+    #[serde(rename = "preSignedUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pre_signed_url: Option<String>,
     /// <p>The number of users that were skipped.</p>
-    #[serde(rename = "SkippedUsers")]
+    #[serde(rename = "skippedUsers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub skipped_users: Option<i64>,
     /// <p>The date when the user import job was started.</p>
-    #[serde(rename = "StartDate")]
+    #[serde(rename = "startDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_date: Option<f64>,
     /// <p><p>The status of the user import job. One of the following:</p> <ul> <li> <p> <code>Created</code> - The job was created but not started.</p> </li> <li> <p> <code>Pending</code> - A transition state. You have started the job, but it has not begun importing users yet.</p> </li> <li> <p> <code>InProgress</code> - The job has started, and users are being imported.</p> </li> <li> <p> <code>Stopping</code> - You have stopped the job, but the job has not stopped importing users yet.</p> </li> <li> <p> <code>Stopped</code> - You have stopped the job, and the job has stopped importing users.</p> </li> <li> <p> <code>Succeeded</code> - The job has completed successfully.</p> </li> <li> <p> <code>Failed</code> - The job has stopped due to an error.</p> </li> <li> <p> <code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The user pool ID for the user pool that the users are being imported into.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -3902,7 +3902,7 @@ pub struct UserImportJobType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserPoolAddOnsType {
     /// <p>The advanced security mode.</p>
-    #[serde(rename = "AdvancedSecurityMode")]
+    #[serde(rename = "advancedSecurityMode")]
     pub advanced_security_mode: String,
 }
 
@@ -3911,15 +3911,15 @@ pub struct UserPoolAddOnsType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserPoolClientDescription {
     /// <p>The ID of the client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The client name from the user pool client description.</p>
-    #[serde(rename = "ClientName")]
+    #[serde(rename = "clientName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_name: Option<String>,
     /// <p>The user pool ID for the user pool where you want to describe the user pool client.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
 }
@@ -3929,95 +3929,95 @@ pub struct UserPoolClientDescription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserPoolClientType {
     /// <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.</p>
-    #[serde(rename = "AccessTokenValidity")]
+    #[serde(rename = "accessTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token_validity: Option<i64>,
     /// <p>The allowed OAuth flows.</p> <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p> <p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
-    #[serde(rename = "AllowedOAuthFlows")]
+    #[serde(rename = "allowedOAuthFlows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_flows: Option<Vec<String>>,
     /// <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
-    #[serde(rename = "AllowedOAuthFlowsUserPoolClient")]
+    #[serde(rename = "allowedOAuthFlowsUserPoolClient")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_flows_user_pool_client: Option<bool>,
     /// <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created in Resource Servers are also supported.</p>
-    #[serde(rename = "AllowedOAuthScopes")]
+    #[serde(rename = "allowedOAuthScopes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_o_auth_scopes: Option<Vec<String>>,
     /// <p><p>The Amazon Pinpoint analytics configuration for the user pool client.</p> <note> <p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p> </note></p>
-    #[serde(rename = "AnalyticsConfiguration")]
+    #[serde(rename = "analyticsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_configuration: Option<AnalyticsConfigurationType>,
     /// <p>A list of allowed redirect (callback) URLs for the identity providers.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>
-    #[serde(rename = "CallbackURLs")]
+    #[serde(rename = "callbackURLs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub callback_ur_ls: Option<Vec<String>>,
     /// <p>The ID of the client associated with the user pool.</p>
-    #[serde(rename = "ClientId")]
+    #[serde(rename = "clientId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
     /// <p>The client name from the user pool request of the client type.</p>
-    #[serde(rename = "ClientName")]
+    #[serde(rename = "clientName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_name: Option<String>,
     /// <p>The client secret from the user pool request of the client type.</p>
-    #[serde(rename = "ClientSecret")]
+    #[serde(rename = "clientSecret")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_secret: Option<String>,
     /// <p>The date the user pool client was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>
-    #[serde(rename = "DefaultRedirectURI")]
+    #[serde(rename = "defaultRedirectURI")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_redirect_uri: Option<String>,
     /// <p>Indicates whether token revocation is enabled for the user pool client. When you create a new user pool client, token revocation is enabled by default. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
-    #[serde(rename = "EnableTokenRevocation")]
+    #[serde(rename = "enableTokenRevocation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_token_revocation: Option<bool>,
     /// <p><p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW<em></code> prefix are deprecated in favor of new names with the <code>ALLOW</em></code> prefix. Note that values with <code>ALLOW<em></code> prefix cannot be used along with values without <code>ALLOW</em></code> prefix.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ALLOW<em>ADMIN</em>USER<em>PASSWORD</em>AUTH</code>: Enable admin based user password authentication flow <code>ADMIN<em>USER</em>PASSWORD<em>AUTH</code>. This setting replaces the <code>ADMIN</em>NO<em>SRP</em>AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW<em>CUSTOM</em>AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW<em>USER</em>PASSWORD<em>AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW</em>USER<em>SRP</em>AUTH</code>: Enable SRP based authentication.</p> </li> <li> <p> <code>ALLOW<em>REFRESH</em>TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul></p>
-    #[serde(rename = "ExplicitAuthFlows")]
+    #[serde(rename = "explicitAuthFlows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub explicit_auth_flows: Option<Vec<String>>,
     /// <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.</p>
-    #[serde(rename = "IdTokenValidity")]
+    #[serde(rename = "idTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id_token_validity: Option<i64>,
     /// <p>The date the user pool client was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>A list of allowed logout URLs for the identity providers.</p>
-    #[serde(rename = "LogoutURLs")]
+    #[serde(rename = "logoutURLs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logout_ur_ls: Option<Vec<String>>,
     /// <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ENABLED</code> - This prevents user existence-related errors.</p> </li> <li> <p> <code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p> </li> </ul> <note> <p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p> </note></p>
-    #[serde(rename = "PreventUserExistenceErrors")]
+    #[serde(rename = "preventUserExistenceErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prevent_user_existence_errors: Option<String>,
     /// <p>The Read-only attributes.</p>
-    #[serde(rename = "ReadAttributes")]
+    #[serde(rename = "readAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub read_attributes: Option<Vec<String>>,
     /// <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
-    #[serde(rename = "RefreshTokenValidity")]
+    #[serde(rename = "refreshTokenValidity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub refresh_token_validity: Option<i64>,
     /// <p>A list of provider names for the identity providers that are supported on this client.</p>
-    #[serde(rename = "SupportedIdentityProviders")]
+    #[serde(rename = "supportedIdentityProviders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported_identity_providers: Option<Vec<String>>,
     /// <p>The time units used to specify the token validity times of their respective token.</p>
-    #[serde(rename = "TokenValidityUnits")]
+    #[serde(rename = "tokenValidityUnits")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_validity_units: Option<TokenValidityUnitsType>,
     /// <p>The user pool ID for the user pool client.</p>
-    #[serde(rename = "UserPoolId")]
+    #[serde(rename = "userPoolId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_id: Option<String>,
     /// <p>The writeable attributes.</p>
-    #[serde(rename = "WriteAttributes")]
+    #[serde(rename = "writeAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub write_attributes: Option<Vec<String>>,
 }
@@ -4027,27 +4027,27 @@ pub struct UserPoolClientType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserPoolDescriptionType {
     /// <p>The date the user pool description was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>The ID in a user pool description.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The AWS Lambda configuration information in a user pool description.</p>
-    #[serde(rename = "LambdaConfig")]
+    #[serde(rename = "lambdaConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_config: Option<LambdaConfigType>,
     /// <p>The date the user pool description was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p>The name in a user pool description.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The user pool status in a user pool description.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -4056,7 +4056,7 @@ pub struct UserPoolDescriptionType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserPoolPolicyType {
     /// <p>The password policy.</p>
-    #[serde(rename = "PasswordPolicy")]
+    #[serde(rename = "passwordPolicy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password_policy: Option<PasswordPolicyType>,
 }
@@ -4066,127 +4066,127 @@ pub struct UserPoolPolicyType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserPoolType {
     /// <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
-    #[serde(rename = "AccountRecoverySetting")]
+    #[serde(rename = "accountRecoverySetting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_recovery_setting: Option<AccountRecoverySettingType>,
     /// <p>The configuration for <code>AdminCreateUser</code> requests.</p>
-    #[serde(rename = "AdminCreateUserConfig")]
+    #[serde(rename = "adminCreateUserConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub admin_create_user_config: Option<AdminCreateUserConfigType>,
     /// <p>Specifies the attributes that are aliased in a user pool.</p>
-    #[serde(rename = "AliasAttributes")]
+    #[serde(rename = "aliasAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alias_attributes: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) for the user pool.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>Specifies the attributes that are auto-verified in a user pool.</p>
-    #[serde(rename = "AutoVerifiedAttributes")]
+    #[serde(rename = "autoVerifiedAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_verified_attributes: Option<Vec<String>>,
     /// <p>The date the user pool was created.</p>
-    #[serde(rename = "CreationDate")]
+    #[serde(rename = "creationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_date: Option<f64>,
     /// <p>A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: <code>auth.example.com</code>.</p> <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
-    #[serde(rename = "CustomDomain")]
+    #[serde(rename = "customDomain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_domain: Option<String>,
     /// <p>The device configuration.</p>
-    #[serde(rename = "DeviceConfiguration")]
+    #[serde(rename = "deviceConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_configuration: Option<DeviceConfigurationType>,
     /// <p>Holds the domain prefix if the user pool has a domain associated with it.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The email configuration.</p>
-    #[serde(rename = "EmailConfiguration")]
+    #[serde(rename = "emailConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_configuration: Option<EmailConfigurationType>,
     /// <p>The reason why the email configuration cannot send the messages to your users.</p>
-    #[serde(rename = "EmailConfigurationFailure")]
+    #[serde(rename = "emailConfigurationFailure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_configuration_failure: Option<String>,
     /// <p>The contents of the email verification message.</p>
-    #[serde(rename = "EmailVerificationMessage")]
+    #[serde(rename = "emailVerificationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_verification_message: Option<String>,
     /// <p>The subject of the email verification message.</p>
-    #[serde(rename = "EmailVerificationSubject")]
+    #[serde(rename = "emailVerificationSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_verification_subject: Option<String>,
     /// <p>A number estimating the size of the user pool.</p>
-    #[serde(rename = "EstimatedNumberOfUsers")]
+    #[serde(rename = "estimatedNumberOfUsers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_number_of_users: Option<i64>,
     /// <p>The ID of the user pool.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The AWS Lambda triggers associated with the user pool.</p>
-    #[serde(rename = "LambdaConfig")]
+    #[serde(rename = "lambdaConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lambda_config: Option<LambdaConfigType>,
     /// <p>The date the user pool was last modified.</p>
-    #[serde(rename = "LastModifiedDate")]
+    #[serde(rename = "lastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_modified_date: Option<f64>,
     /// <p><p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p> </li> <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> </ul></p>
-    #[serde(rename = "MfaConfiguration")]
+    #[serde(rename = "mfaConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_configuration: Option<String>,
     /// <p>The name of the user pool.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The policies associated with the user pool.</p>
-    #[serde(rename = "Policies")]
+    #[serde(rename = "policies")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub policies: Option<UserPoolPolicyType>,
     /// <p>A container with the schema attributes of a user pool.</p>
-    #[serde(rename = "SchemaAttributes")]
+    #[serde(rename = "schemaAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schema_attributes: Option<Vec<SchemaAttributeType>>,
     /// <p>The contents of the SMS authentication message.</p>
-    #[serde(rename = "SmsAuthenticationMessage")]
+    #[serde(rename = "smsAuthenticationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_authentication_message: Option<String>,
     /// <p>The SMS configuration.</p>
-    #[serde(rename = "SmsConfiguration")]
+    #[serde(rename = "smsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_configuration: Option<SmsConfigurationType>,
     /// <p><p>The reason why the SMS configuration cannot send the messages to your users.</p> <p>This message might include comma-separated values to describe why your SMS configuration can&#39;t send messages to user pool end users.</p> <ul> <li> <p>InvalidSmsRoleAccessPolicyException - The IAM role which Cognito uses to send SMS messages is not properly configured. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html">SmsConfigurationType</a>.</p> </li> <li> <p>SNSSandbox - The AWS account is in SNS Sandbox and messages won’t reach unverified end users. This parameter won’t get populated with SNSSandbox if the IAM user creating the user pool doesn’t have SNS permissions. To learn how to move your AWS account out of the sandbox, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html">Moving out of the SMS sandbox</a>.</p> </li> </ul></p>
-    #[serde(rename = "SmsConfigurationFailure")]
+    #[serde(rename = "smsConfigurationFailure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_configuration_failure: Option<String>,
     /// <p>The contents of the SMS verification message.</p>
-    #[serde(rename = "SmsVerificationMessage")]
+    #[serde(rename = "smsVerificationMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_verification_message: Option<String>,
     /// <p>The status of a user pool.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The user pool add-ons.</p>
-    #[serde(rename = "UserPoolAddOns")]
+    #[serde(rename = "userPoolAddOns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_add_ons: Option<UserPoolAddOnsType>,
     /// <p>The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    #[serde(rename = "UserPoolTags")]
+    #[serde(rename = "userPoolTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_pool_tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>
-    #[serde(rename = "UsernameAttributes")]
+    #[serde(rename = "usernameAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username_attributes: Option<Vec<String>>,
     /// <p>You can choose to enable case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
-    #[serde(rename = "UsernameConfiguration")]
+    #[serde(rename = "usernameConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username_configuration: Option<UsernameConfigurationType>,
     /// <p>The template for verification messages.</p>
-    #[serde(rename = "VerificationMessageTemplate")]
+    #[serde(rename = "verificationMessageTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verification_message_template: Option<VerificationMessageTemplateType>,
 }
@@ -4196,31 +4196,31 @@ pub struct UserPoolType {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserType {
     /// <p>A container with information about the user type attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<Vec<AttributeType>>,
     /// <p>Specifies whether the user is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The MFA options for the user.</p>
-    #[serde(rename = "MFAOptions")]
+    #[serde(rename = "mFAOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mfa_options: Option<Vec<MFAOptionType>>,
     /// <p>The creation date of the user.</p>
-    #[serde(rename = "UserCreateDate")]
+    #[serde(rename = "userCreateDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_create_date: Option<f64>,
     /// <p>The last modified date of the user.</p>
-    #[serde(rename = "UserLastModifiedDate")]
+    #[serde(rename = "userLastModifiedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_last_modified_date: Option<f64>,
     /// <p><p>The user status. Can be one of the following:</p> <ul> <li> <p>UNCONFIRMED - User has been created but not confirmed.</p> </li> <li> <p>CONFIRMED - User has been confirmed.</p> </li> <li> <p>ARCHIVED - User is no longer active.</p> </li> <li> <p>COMPROMISED - User is disabled due to a potential security threat.</p> </li> <li> <p>UNKNOWN - User status is not known.</p> </li> <li> <p>RESET<em>REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.</p> </li> <li> <p>FORCE</em>CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else. </p> </li> </ul></p>
-    #[serde(rename = "UserStatus")]
+    #[serde(rename = "userStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_status: Option<String>,
     /// <p>The user name of the user you wish to describe.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -4229,7 +4229,7 @@ pub struct UserType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UsernameConfigurationType {
     /// <p><p>Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.</p> <p>Valid values include:</p> <ul> <li> <p> <b> <code>True</code> </b>: Enables case sensitivity for all username input. When this option is set to <code>True</code>, users must sign in using the exact capitalization of their given username. For example, “UserName”. This is the default value.</p> </li> <li> <p> <b> <code>False</code> </b>: Enables case insensitivity for all username input. For example, when this option is set to <code>False</code>, users will be able to sign in using either &quot;username&quot; or &quot;Username&quot;. This option also enables both <code>preferred_username</code> and <code>email</code> alias to be case insensitive, in addition to the <code>username</code> attribute.</p> </li> </ul></p>
-    #[serde(rename = "CaseSensitive")]
+    #[serde(rename = "caseSensitive")]
     pub case_sensitive: bool,
 }
 
@@ -4237,27 +4237,27 @@ pub struct UsernameConfigurationType {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VerificationMessageTemplateType {
     /// <p>The default email option.</p>
-    #[serde(rename = "DefaultEmailOption")]
+    #[serde(rename = "defaultEmailOption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_email_option: Option<String>,
     /// <p>The email message template. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER. </p>
-    #[serde(rename = "EmailMessage")]
+    #[serde(rename = "emailMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_message: Option<String>,
     /// <p>The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
-    #[serde(rename = "EmailMessageByLink")]
+    #[serde(rename = "emailMessageByLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_message_by_link: Option<String>,
     /// <p>The subject line for the email message template. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
-    #[serde(rename = "EmailSubject")]
+    #[serde(rename = "emailSubject")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_subject: Option<String>,
     /// <p>The subject line for the email message template for sending a confirmation link to the user. EmailSubjectByLink is allowed only <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
-    #[serde(rename = "EmailSubjectByLink")]
+    #[serde(rename = "emailSubjectByLink")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_subject_by_link: Option<String>,
     /// <p>The SMS message template.</p>
-    #[serde(rename = "SmsMessage")]
+    #[serde(rename = "smsMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sms_message: Option<String>,
 }
@@ -4266,19 +4266,19 @@ pub struct VerificationMessageTemplateType {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VerifySoftwareTokenRequest {
     /// <p>The access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
     /// <p>The friendly device name.</p>
-    #[serde(rename = "FriendlyDeviceName")]
+    #[serde(rename = "friendlyDeviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub friendly_device_name: Option<String>,
     /// <p>The session which should be passed both ways in challenge-response calls to the service.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
     /// <p>The one time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken"</a>.</p>
-    #[serde(rename = "UserCode")]
+    #[serde(rename = "userCode")]
     pub user_code: String,
 }
 
@@ -4286,11 +4286,11 @@ pub struct VerifySoftwareTokenRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VerifySoftwareTokenResponse {
     /// <p>The session which should be passed both ways in challenge-response calls to the service.</p>
-    #[serde(rename = "Session")]
+    #[serde(rename = "session")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session: Option<String>,
     /// <p>The status of the verify software token.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -4300,13 +4300,13 @@ pub struct VerifySoftwareTokenResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VerifyUserAttributeRequest {
     /// <p>Represents the access token of the request to verify user attributes.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     pub access_token: String,
     /// <p>The attribute name in the request to verify user attributes.</p>
-    #[serde(rename = "AttributeName")]
+    #[serde(rename = "attributeName")]
     pub attribute_name: String,
     /// <p>The verification code in the request to verify user attributes.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     pub code: String,
 }
 

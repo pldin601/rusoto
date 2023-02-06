@@ -63,13 +63,13 @@ pub struct AssociateServiceQuotaTemplateResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
     /// <p>The AWS Region.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     pub aws_region: String,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -90,11 +90,11 @@ pub struct DisassociateServiceQuotaTemplateResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorReason {
     /// <p><p>Service Quotas returns the following error values:</p> <ul> <li> <p> <code>DEPENDENCY<em>ACCESS</em>DENIED<em>ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the service or quota.</p> </li> <li> <p> <code>DEPENDENCY</em>THROTTLING<em>ERROR</code> - The service is throttling Service Quotas.</p> </li> <li> <p> <code>DEPENDENCY</em>SERVICE<em>ERROR</code> - The service is not available.</p> </li> <li> <p> <code>SERVICE</em>QUOTA<em>NOT</em>AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li> </ul></p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -103,10 +103,10 @@ pub struct ErrorReason {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAWSDefaultServiceQuotaRequest {
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -114,7 +114,7 @@ pub struct GetAWSDefaultServiceQuotaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAWSDefaultServiceQuotaResponse {
     /// <p>Information about the quota.</p>
-    #[serde(rename = "Quota")]
+    #[serde(rename = "quota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota: Option<ServiceQuota>,
 }
@@ -127,7 +127,7 @@ pub struct GetAssociationForServiceQuotaTemplateRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAssociationForServiceQuotaTemplateResponse {
     /// <p>The association status. If the status is <code>ASSOCIATED</code>, the quota increase requests in the template are automatically applied to new accounts in your organization.</p>
-    #[serde(rename = "ServiceQuotaTemplateAssociationStatus")]
+    #[serde(rename = "serviceQuotaTemplateAssociationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_quota_template_association_status: Option<String>,
 }
@@ -136,7 +136,7 @@ pub struct GetAssociationForServiceQuotaTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetRequestedServiceQuotaChangeRequest {
     /// <p>The ID of the quota increase request.</p>
-    #[serde(rename = "RequestId")]
+    #[serde(rename = "requestId")]
     pub request_id: String,
 }
 
@@ -144,7 +144,7 @@ pub struct GetRequestedServiceQuotaChangeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetRequestedServiceQuotaChangeResponse {
     /// <p>Information about the quota increase request.</p>
-    #[serde(rename = "RequestedQuota")]
+    #[serde(rename = "requestedQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_quota: Option<RequestedServiceQuotaChange>,
 }
@@ -153,13 +153,13 @@ pub struct GetRequestedServiceQuotaChangeResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetServiceQuotaIncreaseRequestFromTemplateRequest {
     /// <p>The AWS Region.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     pub aws_region: String,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -167,7 +167,7 @@ pub struct GetServiceQuotaIncreaseRequestFromTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetServiceQuotaIncreaseRequestFromTemplateResponse {
     /// <p>Information about the quota increase request.</p>
-    #[serde(rename = "ServiceQuotaIncreaseRequestInTemplate")]
+    #[serde(rename = "serviceQuotaIncreaseRequestInTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_quota_increase_request_in_template: Option<ServiceQuotaIncreaseRequestInTemplate>,
 }
@@ -176,10 +176,10 @@ pub struct GetServiceQuotaIncreaseRequestFromTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetServiceQuotaRequest {
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -187,7 +187,7 @@ pub struct GetServiceQuotaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetServiceQuotaResponse {
     /// <p>Information about the quota.</p>
-    #[serde(rename = "Quota")]
+    #[serde(rename = "quota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota: Option<ServiceQuota>,
 }
@@ -196,15 +196,15 @@ pub struct GetServiceQuotaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAWSDefaultServiceQuotasRequest {
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, if any, make another call with the token returned from this call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -212,11 +212,11 @@ pub struct ListAWSDefaultServiceQuotasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAWSDefaultServiceQuotasResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quotas.</p>
-    #[serde(rename = "Quotas")]
+    #[serde(rename = "quotas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quotas: Option<Vec<ServiceQuota>>,
 }
@@ -225,21 +225,21 @@ pub struct ListAWSDefaultServiceQuotasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, if any, make another call with the token returned from this call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
     /// <p>The status value of the quota increase request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -248,11 +248,11 @@ pub struct ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quota increase requests.</p>
-    #[serde(rename = "RequestedQuotas")]
+    #[serde(rename = "requestedQuotas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_quotas: Option<Vec<RequestedServiceQuotaChange>>,
 }
@@ -261,19 +261,19 @@ pub struct ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRequestedServiceQuotaChangeHistoryRequest {
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, if any, make another call with the token returned from this call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
     /// <p>The status of the quota increase request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -282,11 +282,11 @@ pub struct ListRequestedServiceQuotaChangeHistoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRequestedServiceQuotaChangeHistoryResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quota increase requests.</p>
-    #[serde(rename = "RequestedQuotas")]
+    #[serde(rename = "requestedQuotas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_quotas: Option<Vec<RequestedServiceQuotaChange>>,
 }
@@ -295,19 +295,19 @@ pub struct ListRequestedServiceQuotaChangeHistoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServiceQuotaIncreaseRequestsInTemplateRequest {
     /// <p>The AWS Region.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, if any, make another call with the token returned from this call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
 }
@@ -316,11 +316,11 @@ pub struct ListServiceQuotaIncreaseRequestsInTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServiceQuotaIncreaseRequestsInTemplateResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quota increase requests.</p>
-    #[serde(rename = "ServiceQuotaIncreaseRequestInTemplateList")]
+    #[serde(rename = "serviceQuotaIncreaseRequestInTemplateList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_quota_increase_request_in_template_list:
         Option<Vec<ServiceQuotaIncreaseRequestInTemplate>>,
@@ -330,15 +330,15 @@ pub struct ListServiceQuotaIncreaseRequestsInTemplateResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServiceQuotasRequest {
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, if any, make another call with the token returned from this call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -346,11 +346,11 @@ pub struct ListServiceQuotasRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServiceQuotasResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the quotas.</p>
-    #[serde(rename = "Quotas")]
+    #[serde(rename = "quotas")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quotas: Option<Vec<ServiceQuota>>,
 }
@@ -359,11 +359,11 @@ pub struct ListServiceQuotasResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServicesRequest {
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, if any, make another call with the token returned from this call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token for the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -372,11 +372,11 @@ pub struct ListServicesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServicesResponse {
     /// <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the services.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<ServiceInfo>>,
 }
@@ -385,7 +385,7 @@ pub struct ListServicesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> AWS CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> AWS API operation.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -393,7 +393,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A complex data type that contains zero or more tag elements.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -403,19 +403,19 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MetricInfo {
     /// <p>The metric dimension. This is a name/value pair that is part of the identity of a metric.</p>
-    #[serde(rename = "MetricDimensions")]
+    #[serde(rename = "metricDimensions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_dimensions: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the metric.</p>
-    #[serde(rename = "MetricName")]
+    #[serde(rename = "metricName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_name: Option<String>,
     /// <p>The namespace of the metric.</p>
-    #[serde(rename = "MetricNamespace")]
+    #[serde(rename = "metricNamespace")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_namespace: Option<String>,
     /// <p>The metric statistic that we recommend you use when determining quota usage.</p>
-    #[serde(rename = "MetricStatisticRecommendation")]
+    #[serde(rename = "metricStatisticRecommendation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metric_statistic_recommendation: Option<String>,
 }
@@ -424,16 +424,16 @@ pub struct MetricInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutServiceQuotaIncreaseRequestIntoTemplateRequest {
     /// <p>The AWS Region.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     pub aws_region: String,
     /// <p>The new, increased value for the quota.</p>
-    #[serde(rename = "DesiredValue")]
+    #[serde(rename = "desiredValue")]
     pub desired_value: f64,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -441,7 +441,7 @@ pub struct PutServiceQuotaIncreaseRequestIntoTemplateRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutServiceQuotaIncreaseRequestIntoTemplateResponse {
     /// <p>Information about the quota increase request.</p>
-    #[serde(rename = "ServiceQuotaIncreaseRequestInTemplate")]
+    #[serde(rename = "serviceQuotaIncreaseRequestInTemplate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_quota_increase_request_in_template: Option<ServiceQuotaIncreaseRequestInTemplate>,
 }
@@ -451,11 +451,11 @@ pub struct PutServiceQuotaIncreaseRequestIntoTemplateResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct QuotaPeriod {
     /// <p>The time unit.</p>
-    #[serde(rename = "PeriodUnit")]
+    #[serde(rename = "periodUnit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period_unit: Option<String>,
     /// <p>The value.</p>
-    #[serde(rename = "PeriodValue")]
+    #[serde(rename = "periodValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period_value: Option<i64>,
 }
@@ -464,13 +464,13 @@ pub struct QuotaPeriod {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RequestServiceQuotaIncreaseRequest {
     /// <p>The new, increased value for the quota.</p>
-    #[serde(rename = "DesiredValue")]
+    #[serde(rename = "desiredValue")]
     pub desired_value: f64,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     pub quota_code: String,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     pub service_code: String,
 }
 
@@ -478,7 +478,7 @@ pub struct RequestServiceQuotaIncreaseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RequestServiceQuotaIncreaseResponse {
     /// <p>Information about the quota increase request.</p>
-    #[serde(rename = "RequestedQuota")]
+    #[serde(rename = "requestedQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested_quota: Option<RequestedServiceQuotaChange>,
 }
@@ -488,59 +488,59 @@ pub struct RequestServiceQuotaIncreaseResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RequestedServiceQuotaChange {
     /// <p>The case ID.</p>
-    #[serde(rename = "CaseId")]
+    #[serde(rename = "caseId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub case_id: Option<String>,
     /// <p>The date and time when the quota increase request was received and the case ID was created.</p>
-    #[serde(rename = "Created")]
+    #[serde(rename = "created")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created: Option<f64>,
     /// <p>The new, increased value for the quota.</p>
-    #[serde(rename = "DesiredValue")]
+    #[serde(rename = "desiredValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_value: Option<f64>,
     /// <p>Indicates whether the quota is global.</p>
-    #[serde(rename = "GlobalQuota")]
+    #[serde(rename = "globalQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_quota: Option<bool>,
     /// <p>The unique identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The date and time of the most recent change.</p>
-    #[serde(rename = "LastUpdated")]
+    #[serde(rename = "lastUpdated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the quota.</p>
-    #[serde(rename = "QuotaArn")]
+    #[serde(rename = "quotaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_arn: Option<String>,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_code: Option<String>,
     /// <p>The quota name.</p>
-    #[serde(rename = "QuotaName")]
+    #[serde(rename = "quotaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_name: Option<String>,
     /// <p>The IAM identity of the requester.</p>
-    #[serde(rename = "Requester")]
+    #[serde(rename = "requester")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requester: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
     /// <p>The service name.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
     /// <p>The state of the quota increase request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The unit of measurement.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -550,11 +550,11 @@ pub struct RequestedServiceQuotaChange {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceInfo {
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
     /// <p>The service name.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
 }
@@ -564,51 +564,51 @@ pub struct ServiceInfo {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceQuota {
     /// <p>Indicates whether the quota value can be increased.</p>
-    #[serde(rename = "Adjustable")]
+    #[serde(rename = "adjustable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub adjustable: Option<bool>,
     /// <p>The error code and error reason.</p>
-    #[serde(rename = "ErrorReason")]
+    #[serde(rename = "errorReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_reason: Option<ErrorReason>,
     /// <p>Indicates whether the quota is global.</p>
-    #[serde(rename = "GlobalQuota")]
+    #[serde(rename = "globalQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_quota: Option<bool>,
     /// <p>The period of time.</p>
-    #[serde(rename = "Period")]
+    #[serde(rename = "period")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period: Option<QuotaPeriod>,
     /// <p>The Amazon Resource Name (ARN) of the quota.</p>
-    #[serde(rename = "QuotaArn")]
+    #[serde(rename = "quotaArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_arn: Option<String>,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_code: Option<String>,
     /// <p>The quota name.</p>
-    #[serde(rename = "QuotaName")]
+    #[serde(rename = "quotaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_name: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
     /// <p>The service name.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
     /// <p>The unit of measurement.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
     /// <p>Information about the measurement.</p>
-    #[serde(rename = "UsageMetric")]
+    #[serde(rename = "usageMetric")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_metric: Option<MetricInfo>,
     /// <p>The quota value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
 }
@@ -618,35 +618,35 @@ pub struct ServiceQuota {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceQuotaIncreaseRequestInTemplate {
     /// <p>The AWS Region.</p>
-    #[serde(rename = "AwsRegion")]
+    #[serde(rename = "awsRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aws_region: Option<String>,
     /// <p>The new, increased value of the quota.</p>
-    #[serde(rename = "DesiredValue")]
+    #[serde(rename = "desiredValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub desired_value: Option<f64>,
     /// <p>Indicates whether the quota is global.</p>
-    #[serde(rename = "GlobalQuota")]
+    #[serde(rename = "globalQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub global_quota: Option<bool>,
     /// <p>The quota identifier.</p>
-    #[serde(rename = "QuotaCode")]
+    #[serde(rename = "quotaCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_code: Option<String>,
     /// <p>The quota name.</p>
-    #[serde(rename = "QuotaName")]
+    #[serde(rename = "quotaName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub quota_name: Option<String>,
     /// <p>The service identifier.</p>
-    #[serde(rename = "ServiceCode")]
+    #[serde(rename = "serviceCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_code: Option<String>,
     /// <p>The service name.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
     /// <p>The unit of measurement.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unit: Option<String>,
 }
@@ -655,10 +655,10 @@ pub struct ServiceQuotaIncreaseRequestInTemplate {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>A string that contains a tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>A string that contains an optional tag value. The string length should be between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -666,10 +666,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the applied quota. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> AWS CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> AWS API operation.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The tags that you want to add to the resource.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -681,10 +681,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> AWS CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> AWS API operation.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The keys of the tags that you want to remove from the resource.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 

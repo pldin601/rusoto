@@ -55,10 +55,10 @@ use serde_json;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AccessEndpoint {
     /// <p>The type of interface endpoint.</p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     pub endpoint_type: String,
     /// <p>The identifier (ID) of the VPC in which the interface endpoint is used.</p>
-    #[serde(rename = "VpceId")]
+    #[serde(rename = "vpceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpce_id: Option<String>,
 }
@@ -68,31 +68,31 @@ pub struct AccessEndpoint {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Application {
     /// <p>The application name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>If there is a problem, the application can be disabled after image creation.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The URL for the application icon. This URL might be time-limited.</p>
-    #[serde(rename = "IconURL")]
+    #[serde(rename = "iconURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub icon_url: Option<String>,
     /// <p>The arguments that are passed to the application at launch.</p>
-    #[serde(rename = "LaunchParameters")]
+    #[serde(rename = "launchParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_parameters: Option<String>,
     /// <p>The path to the application executable in the instance.</p>
-    #[serde(rename = "LaunchPath")]
+    #[serde(rename = "launchPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_path: Option<String>,
     /// <p>Additional attributes that describe the application.</p>
-    #[serde(rename = "Metadata")]
+    #[serde(rename = "metadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<::std::collections::HashMap<String, String>>,
     /// <p>The name of the application.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -102,10 +102,10 @@ pub struct Application {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ApplicationSettings {
     /// <p>Enables or disables persistent application settings for users during their streaming sessions. </p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     pub enabled: bool,
     /// <p>The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack. </p>
-    #[serde(rename = "SettingsGroup")]
+    #[serde(rename = "settingsGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub settings_group: Option<String>,
 }
@@ -115,15 +115,15 @@ pub struct ApplicationSettings {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ApplicationSettingsResponse {
     /// <p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region. </p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
-    #[serde(rename = "SettingsGroup")]
+    #[serde(rename = "settingsGroup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub settings_group: Option<String>,
 }
@@ -132,10 +132,10 @@ pub struct ApplicationSettingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateFleetRequest {
     /// <p>The name of the fleet. </p>
-    #[serde(rename = "FleetName")]
+    #[serde(rename = "fleetName")]
     pub fleet_name: String,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
 }
 
@@ -147,7 +147,7 @@ pub struct AssociateFleetResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAssociateUserStackRequest {
     /// <p>The list of UserStackAssociation objects.</p>
-    #[serde(rename = "UserStackAssociations")]
+    #[serde(rename = "userStackAssociations")]
     pub user_stack_associations: Vec<UserStackAssociation>,
 }
 
@@ -164,7 +164,7 @@ pub struct BatchAssociateUserStackResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDisassociateUserStackRequest {
     /// <p>The list of UserStackAssociation objects.</p>
-    #[serde(rename = "UserStackAssociations")]
+    #[serde(rename = "userStackAssociations")]
     pub user_stack_associations: Vec<UserStackAssociation>,
 }
 
@@ -182,7 +182,7 @@ pub struct BatchDisassociateUserStackResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ComputeCapacity {
     /// <p>The desired number of streaming instances.</p>
-    #[serde(rename = "DesiredInstances")]
+    #[serde(rename = "desiredInstances")]
     pub desired_instances: i64,
 }
 
@@ -191,18 +191,18 @@ pub struct ComputeCapacity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ComputeCapacityStatus {
     /// <p>The number of currently available instances that can be used to stream sessions.</p>
-    #[serde(rename = "Available")]
+    #[serde(rename = "available")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub available: Option<i64>,
     /// <p>The desired number of streaming instances.</p>
-    #[serde(rename = "Desired")]
+    #[serde(rename = "desired")]
     pub desired: i64,
     /// <p>The number of instances in use for streaming.</p>
-    #[serde(rename = "InUse")]
+    #[serde(rename = "inUse")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub in_use: Option<i64>,
     /// <p>The total number of simultaneous streaming instances that are running.</p>
-    #[serde(rename = "Running")]
+    #[serde(rename = "running")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub running: Option<i64>,
 }
@@ -211,17 +211,17 @@ pub struct ComputeCapacityStatus {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CopyImageRequest {
     /// <p>The description that the image will have when it is copied to the destination.</p>
-    #[serde(rename = "DestinationImageDescription")]
+    #[serde(rename = "destinationImageDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_image_description: Option<String>,
     /// <p>The name that the image will have when it is copied to the destination.</p>
-    #[serde(rename = "DestinationImageName")]
+    #[serde(rename = "destinationImageName")]
     pub destination_image_name: String,
     /// <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
-    #[serde(rename = "DestinationRegion")]
+    #[serde(rename = "destinationRegion")]
     pub destination_region: String,
     /// <p>The name of the image to copy.</p>
-    #[serde(rename = "SourceImageName")]
+    #[serde(rename = "sourceImageName")]
     pub source_image_name: String,
 }
 
@@ -229,7 +229,7 @@ pub struct CopyImageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CopyImageResponse {
     /// <p>The name of the destination image.</p>
-    #[serde(rename = "DestinationImageName")]
+    #[serde(rename = "destinationImageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_image_name: Option<String>,
 }
@@ -238,13 +238,13 @@ pub struct CopyImageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDirectoryConfigRequest {
     /// <p>The fully qualified name of the directory (for example, corp.example.com).</p>
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     pub directory_name: String,
     /// <p>The distinguished names of the organizational units for computer accounts.</p>
-    #[serde(rename = "OrganizationalUnitDistinguishedNames")]
+    #[serde(rename = "organizationalUnitDistinguishedNames")]
     pub organizational_unit_distinguished_names: Vec<String>,
     /// <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
-    #[serde(rename = "ServiceAccountCredentials")]
+    #[serde(rename = "serviceAccountCredentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_account_credentials: Option<ServiceAccountCredentials>,
 }
@@ -253,7 +253,7 @@ pub struct CreateDirectoryConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDirectoryConfigResult {
     /// <p>Information about the directory configuration.</p>
-    #[serde(rename = "DirectoryConfig")]
+    #[serde(rename = "directoryConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_config: Option<DirectoryConfig>,
 }
@@ -262,68 +262,68 @@ pub struct CreateDirectoryConfigResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFleetRequest {
     /// <p>The desired capacity for the fleet.</p>
-    #[serde(rename = "ComputeCapacity")]
+    #[serde(rename = "computeCapacity")]
     pub compute_capacity: ComputeCapacity,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p> <p>Specify a value between 60 and 360000.</p>
-    #[serde(rename = "DisconnectTimeoutInSeconds")]
+    #[serde(rename = "disconnectTimeoutInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disconnect_timeout_in_seconds: Option<i64>,
     /// <p>The fleet name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
-    #[serde(rename = "DomainJoinInfo")]
+    #[serde(rename = "domainJoinInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_join_info: Option<DomainJoinInfo>,
     /// <p>Enables or disables default internet access for the fleet.</p>
-    #[serde(rename = "EnableDefaultInternetAccess")]
+    #[serde(rename = "enableDefaultInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_default_internet_access: Option<bool>,
     /// <p><p>The fleet type.</p> <dl> <dt>ALWAYS<em>ON</dt> <dd> <p>Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.</p> </dd> <dt>ON</em>DEMAND</dt> <dd> <p>Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.</p> </dd> </dl></p>
-    #[serde(rename = "FleetType")]
+    #[serde(rename = "fleetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fleet_type: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p><p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified before they are disconnected due to inactivity. If they try to reconnect to the streaming session before the time interval specified in <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected.</p> <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p> <note> <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don&#39;t do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p> </note></p>
-    #[serde(rename = "IdleDisconnectTimeoutInSeconds")]
+    #[serde(rename = "idleDisconnectTimeoutInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idle_disconnect_timeout_in_seconds: Option<i64>,
     /// <p>The ARN of the public, private, or shared image to use.</p>
-    #[serde(rename = "ImageArn")]
+    #[serde(rename = "imageArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_arn: Option<String>,
     /// <p>The name of the image used to create the fleet.</p>
-    #[serde(rename = "ImageName")]
+    #[serde(rename = "imageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_name: Option<String>,
     /// <p><p>The instance type to use when launching fleet instances. The following instance types are available:</p> <ul> <li> <p>stream.standard.small</p> </li> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.memory.z1d.large</p> </li> <li> <p>stream.memory.z1d.xlarge</p> </li> <li> <p>stream.memory.z1d.2xlarge</p> </li> <li> <p>stream.memory.z1d.3xlarge</p> </li> <li> <p>stream.memory.z1d.6xlarge</p> </li> <li> <p>stream.memory.z1d.12xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.xlarge</p> </li> <li> <p>stream.graphics.g4dn.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.4xlarge</p> </li> <li> <p>stream.graphics.g4dn.8xlarge</p> </li> <li> <p>stream.graphics.g4dn.12xlarge</p> </li> <li> <p>stream.graphics.g4dn.16xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul></p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     pub instance_type: String,
     /// <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p> <p>Specify a value between 600 and 360000.</p>
-    #[serde(rename = "MaxUserDurationInSeconds")]
+    #[serde(rename = "maxUserDurationInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_user_duration_in_seconds: Option<i64>,
     /// <p>A unique name for the fleet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p> <p>The default value is <code>APP</code>.</p>
-    #[serde(rename = "StreamView")]
+    #[serde(rename = "streamView")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_view: Option<String>,
     /// <p>The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p> <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The VPC configuration for the fleet.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -332,7 +332,7 @@ pub struct CreateFleetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFleetResult {
     /// <p>Information about the fleet.</p>
-    #[serde(rename = "Fleet")]
+    #[serde(rename = "fleet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fleet: Option<Fleet>,
 }
@@ -341,53 +341,53 @@ pub struct CreateFleetResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateImageBuilderRequest {
     /// <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
-    #[serde(rename = "AccessEndpoints")]
+    #[serde(rename = "accessEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_endpoints: Option<Vec<AccessEndpoint>>,
     /// <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
-    #[serde(rename = "AppstreamAgentVersion")]
+    #[serde(rename = "appstreamAgentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub appstream_agent_version: Option<String>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The image builder name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
-    #[serde(rename = "DomainJoinInfo")]
+    #[serde(rename = "domainJoinInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_join_info: Option<DomainJoinInfo>,
     /// <p>Enables or disables default internet access for the image builder.</p>
-    #[serde(rename = "EnableDefaultInternetAccess")]
+    #[serde(rename = "enableDefaultInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_default_internet_access: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p>The ARN of the public, private, or shared image to use.</p>
-    #[serde(rename = "ImageArn")]
+    #[serde(rename = "imageArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_arn: Option<String>,
     /// <p>The name of the image used to create the image builder.</p>
-    #[serde(rename = "ImageName")]
+    #[serde(rename = "imageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_name: Option<String>,
     /// <p><p>The instance type to use when launching the image builder. The following instance types are available:</p> <ul> <li> <p>stream.standard.small</p> </li> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.memory.z1d.large</p> </li> <li> <p>stream.memory.z1d.xlarge</p> </li> <li> <p>stream.memory.z1d.2xlarge</p> </li> <li> <p>stream.memory.z1d.3xlarge</p> </li> <li> <p>stream.memory.z1d.6xlarge</p> </li> <li> <p>stream.memory.z1d.12xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.xlarge</p> </li> <li> <p>stream.graphics.g4dn.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.4xlarge</p> </li> <li> <p>stream.graphics.g4dn.8xlarge</p> </li> <li> <p>stream.graphics.g4dn.12xlarge</p> </li> <li> <p>stream.graphics.g4dn.16xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul></p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     pub instance_type: String,
     /// <p>A unique name for the image builder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -396,7 +396,7 @@ pub struct CreateImageBuilderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateImageBuilderResult {
     /// <p>Information about the image builder.</p>
-    #[serde(rename = "ImageBuilder")]
+    #[serde(rename = "imageBuilder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder: Option<ImageBuilder>,
 }
@@ -405,10 +405,10 @@ pub struct CreateImageBuilderResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateImageBuilderStreamingURLRequest {
     /// <p>The name of the image builder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity: Option<i64>,
 }
@@ -417,11 +417,11 @@ pub struct CreateImageBuilderStreamingURLRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateImageBuilderStreamingURLResult {
     /// <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
-    #[serde(rename = "Expires")]
+    #[serde(rename = "expires")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expires: Option<f64>,
     /// <p>The URL to start the AppStream 2.0 streaming session.</p>
-    #[serde(rename = "StreamingURL")]
+    #[serde(rename = "streamingURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub streaming_url: Option<String>,
 }
@@ -430,46 +430,46 @@ pub struct CreateImageBuilderStreamingURLResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStackRequest {
     /// <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
-    #[serde(rename = "AccessEndpoints")]
+    #[serde(rename = "accessEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_endpoints: Option<Vec<AccessEndpoint>>,
     /// <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
-    #[serde(rename = "ApplicationSettings")]
+    #[serde(rename = "applicationSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_settings: Option<ApplicationSettings>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The stack name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
-    #[serde(rename = "EmbedHostDomains")]
+    #[serde(rename = "embedHostDomains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub embed_host_domains: Option<Vec<String>>,
     /// <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
-    #[serde(rename = "FeedbackURL")]
+    #[serde(rename = "feedbackURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_url: Option<String>,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The URL that users are redirected to after their streaming session ends.</p>
-    #[serde(rename = "RedirectURL")]
+    #[serde(rename = "redirectURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redirect_url: Option<String>,
     /// <p>The storage connectors to enable.</p>
-    #[serde(rename = "StorageConnectors")]
+    #[serde(rename = "storageConnectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_connectors: Option<Vec<StorageConnector>>,
     /// <p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p> <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
     /// <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
-    #[serde(rename = "UserSettings")]
+    #[serde(rename = "userSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_settings: Option<Vec<UserSetting>>,
 }
@@ -478,7 +478,7 @@ pub struct CreateStackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateStackResult {
     /// <p>Information about the stack.</p>
-    #[serde(rename = "Stack")]
+    #[serde(rename = "stack")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack: Option<Stack>,
 }
@@ -487,24 +487,24 @@ pub struct CreateStackResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStreamingURLRequest {
     /// <p>The name of the application to launch after the session starts. This is the name that you specified as <b>Name</b> in the Image Assistant. If your fleet is enabled for the <b>Desktop</b> stream view, you can also choose to launch directly to the operating system desktop. To do so, specify <b>Desktop</b>.</p>
-    #[serde(rename = "ApplicationId")]
+    #[serde(rename = "applicationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_id: Option<String>,
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "FleetName")]
+    #[serde(rename = "fleetName")]
     pub fleet_name: String,
     /// <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "SessionContext")]
+    #[serde(rename = "sessionContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub session_context: Option<String>,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
     /// <p>The identifier of the user.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
     /// <p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity: Option<i64>,
 }
@@ -513,11 +513,11 @@ pub struct CreateStreamingURLRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateStreamingURLResult {
     /// <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
-    #[serde(rename = "Expires")]
+    #[serde(rename = "expires")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expires: Option<f64>,
     /// <p>The URL to start the AppStream 2.0 streaming session.</p>
-    #[serde(rename = "StreamingURL")]
+    #[serde(rename = "streamingURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub streaming_url: Option<String>,
 }
@@ -569,11 +569,11 @@ pub struct CreateUsageReportSubscriptionRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUsageReportSubscriptionResult {
     /// <p>The Amazon S3 bucket where generated reports are stored.</p> <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The schedule for generating usage reports.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
 }
@@ -582,22 +582,22 @@ pub struct CreateUsageReportSubscriptionResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserRequest {
     /// <p>The authentication type for the user. You must specify USERPOOL. </p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p>The first name, or given name, of the user.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name, or surname, of the user.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p><p>The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent. </p> <note> <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p> </note></p>
-    #[serde(rename = "MessageAction")]
+    #[serde(rename = "messageAction")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_action: Option<String>,
     /// <p><p>The email address of the user.</p> <note> <p>Users&#39; email addresses are case-sensitive. During login, if they specify an email address that doesn&#39;t use the same capitalization as the email address specified when their user pool account was created, a &quot;user does not exist&quot; error message displays.</p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -609,7 +609,7 @@ pub struct CreateUserResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteDirectoryConfigRequest {
     /// <p>The name of the directory configuration.</p>
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     pub directory_name: String,
 }
 
@@ -621,7 +621,7 @@ pub struct DeleteDirectoryConfigResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFleetRequest {
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -633,7 +633,7 @@ pub struct DeleteFleetResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteImageBuilderRequest {
     /// <p>The name of the image builder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -641,7 +641,7 @@ pub struct DeleteImageBuilderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteImageBuilderResult {
     /// <p>Information about the image builder.</p>
-    #[serde(rename = "ImageBuilder")]
+    #[serde(rename = "imageBuilder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder: Option<ImageBuilder>,
 }
@@ -650,10 +650,10 @@ pub struct DeleteImageBuilderResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteImagePermissionsRequest {
     /// <p>The name of the private image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
-    #[serde(rename = "SharedAccountId")]
+    #[serde(rename = "sharedAccountId")]
     pub shared_account_id: String,
 }
 
@@ -665,7 +665,7 @@ pub struct DeleteImagePermissionsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteImageRequest {
     /// <p>The name of the image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -673,7 +673,7 @@ pub struct DeleteImageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteImageResult {
     /// <p>Information about the image.</p>
-    #[serde(rename = "Image")]
+    #[serde(rename = "image")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image: Option<Image>,
 }
@@ -682,7 +682,7 @@ pub struct DeleteImageResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStackRequest {
     /// <p>The name of the stack.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -702,10 +702,10 @@ pub struct DeleteUsageReportSubscriptionResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserRequest {
     /// <p>The authentication type for the user. You must specify USERPOOL.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p><p>The email address of the user.</p> <note> <p>Users&#39; email addresses are case-sensitive.</p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -717,15 +717,15 @@ pub struct DeleteUserResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDirectoryConfigsRequest {
     /// <p>The directory names.</p>
-    #[serde(rename = "DirectoryNames")]
+    #[serde(rename = "directoryNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_names: Option<Vec<String>>,
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -734,11 +734,11 @@ pub struct DescribeDirectoryConfigsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDirectoryConfigsResult {
     /// <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
-    #[serde(rename = "DirectoryConfigs")]
+    #[serde(rename = "directoryConfigs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_configs: Option<Vec<DirectoryConfig>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -747,11 +747,11 @@ pub struct DescribeDirectoryConfigsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFleetsRequest {
     /// <p>The names of the fleets to describe.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -760,11 +760,11 @@ pub struct DescribeFleetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFleetsResult {
     /// <p>Information about the fleets.</p>
-    #[serde(rename = "Fleets")]
+    #[serde(rename = "fleets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fleets: Option<Vec<Fleet>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -773,15 +773,15 @@ pub struct DescribeFleetsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeImageBuildersRequest {
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The names of the image builders to describe.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -790,11 +790,11 @@ pub struct DescribeImageBuildersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeImageBuildersResult {
     /// <p>Information about the image builders.</p>
-    #[serde(rename = "ImageBuilders")]
+    #[serde(rename = "imageBuilders")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builders: Option<Vec<ImageBuilder>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -803,18 +803,18 @@ pub struct DescribeImageBuildersResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeImagePermissionsRequest {
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
-    #[serde(rename = "SharedAwsAccountIds")]
+    #[serde(rename = "sharedAwsAccountIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shared_aws_account_ids: Option<Vec<String>>,
 }
@@ -823,15 +823,15 @@ pub struct DescribeImagePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeImagePermissionsResult {
     /// <p>The name of the private image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The permissions for a private image that you own. </p>
-    #[serde(rename = "SharedImagePermissionsList")]
+    #[serde(rename = "sharedImagePermissionsList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shared_image_permissions_list: Option<Vec<SharedImagePermissions>>,
 }
@@ -840,23 +840,23 @@ pub struct DescribeImagePermissionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeImagesRequest {
     /// <p>The ARNs of the public, private, and shared images to describe.</p>
-    #[serde(rename = "Arns")]
+    #[serde(rename = "arns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arns: Option<Vec<String>>,
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The names of the public or private images to describe.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The type of image (public, private, or shared) to describe. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -865,11 +865,11 @@ pub struct DescribeImagesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeImagesResult {
     /// <p>Information about the images.</p>
-    #[serde(rename = "Images")]
+    #[serde(rename = "images")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub images: Option<Vec<Image>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -878,25 +878,25 @@ pub struct DescribeImagesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSessionsRequest {
     /// <p>The authentication method. Specify <code>API</code> for a user authenticated using a streaming URL or <code>SAML</code> for a SAML federated user. The default is to authenticate users using a streaming URL.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_type: Option<String>,
     /// <p>The name of the fleet. This value is case-sensitive.</p>
-    #[serde(rename = "FleetName")]
+    #[serde(rename = "fleetName")]
     pub fleet_name: String,
     /// <p>The size of each page of results. The default value is 20 and the maximum value is 50.</p>
-    #[serde(rename = "Limit")]
+    #[serde(rename = "limit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the stack. This value is case-sensitive.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
     /// <p>The user identifier (ID). If you specify a user ID, you must also specify the authentication type.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
 }
@@ -905,11 +905,11 @@ pub struct DescribeSessionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSessionsResult {
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the streaming sessions.</p>
-    #[serde(rename = "Sessions")]
+    #[serde(rename = "sessions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sessions: Option<Vec<Session>>,
 }
@@ -918,11 +918,11 @@ pub struct DescribeSessionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStacksRequest {
     /// <p>The names of the stacks to describe.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -931,11 +931,11 @@ pub struct DescribeStacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStacksResult {
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the stacks.</p>
-    #[serde(rename = "Stacks")]
+    #[serde(rename = "stacks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stacks: Option<Vec<Stack>>,
 }
@@ -944,11 +944,11 @@ pub struct DescribeStacksResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUsageReportSubscriptionsRequest {
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -957,11 +957,11 @@ pub struct DescribeUsageReportSubscriptionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUsageReportSubscriptionsResult {
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the usage report subscription.</p>
-    #[serde(rename = "UsageReportSubscriptions")]
+    #[serde(rename = "usageReportSubscriptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_report_subscriptions: Option<Vec<UsageReportSubscription>>,
 }
@@ -970,23 +970,23 @@ pub struct DescribeUsageReportSubscriptionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserStackAssociationsRequest {
     /// <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_type: Option<String>,
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the stack that is associated with the user.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_name: Option<String>,
     /// <p><p>The email address of the user who is associated with the stack.</p> <note> <p>Users&#39; email addresses are case-sensitive.</p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -995,11 +995,11 @@ pub struct DescribeUserStackAssociationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserStackAssociationsResult {
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The UserStackAssociation objects.</p>
-    #[serde(rename = "UserStackAssociations")]
+    #[serde(rename = "userStackAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_stack_associations: Option<Vec<UserStackAssociation>>,
 }
@@ -1008,14 +1008,14 @@ pub struct DescribeUserStackAssociationsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUsersRequest {
     /// <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p>The maximum size of each page of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1024,11 +1024,11 @@ pub struct DescribeUsersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUsersResult {
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about users in the user pool.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<User>>,
 }
@@ -1038,18 +1038,18 @@ pub struct DescribeUsersResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DirectoryConfig {
     /// <p>The time the directory configuration was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The fully qualified name of the directory (for example, corp.example.com).</p>
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     pub directory_name: String,
     /// <p>The distinguished names of the organizational units for computer accounts.</p>
-    #[serde(rename = "OrganizationalUnitDistinguishedNames")]
+    #[serde(rename = "organizationalUnitDistinguishedNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organizational_unit_distinguished_names: Option<Vec<String>>,
     /// <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
-    #[serde(rename = "ServiceAccountCredentials")]
+    #[serde(rename = "serviceAccountCredentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_account_credentials: Option<ServiceAccountCredentials>,
 }
@@ -1058,10 +1058,10 @@ pub struct DirectoryConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisableUserRequest {
     /// <p>The authentication type for the user. You must specify USERPOOL.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p><p>The email address of the user.</p> <note> <p>Users&#39; email addresses are case-sensitive.</p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -1073,10 +1073,10 @@ pub struct DisableUserResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateFleetRequest {
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "FleetName")]
+    #[serde(rename = "fleetName")]
     pub fleet_name: String,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
 }
 
@@ -1088,11 +1088,11 @@ pub struct DisassociateFleetResult {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DomainJoinInfo {
     /// <p>The fully qualified name of the directory (for example, corp.example.com).</p>
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_name: Option<String>,
     /// <p>The distinguished name of the organizational unit for computer accounts.</p>
-    #[serde(rename = "OrganizationalUnitDistinguishedName")]
+    #[serde(rename = "organizationalUnitDistinguishedName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organizational_unit_distinguished_name: Option<String>,
 }
@@ -1101,10 +1101,10 @@ pub struct DomainJoinInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EnableUserRequest {
     /// <p>The authentication type for the user. You must specify USERPOOL.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p><p>The email address of the user.</p> <note> <p>Users&#39; email addresses are case-sensitive. During login, if they specify an email address that doesn&#39;t use the same capitalization as the email address specified when their user pool account was created, a &quot;user does not exist&quot; error message displays. </p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -1116,7 +1116,7 @@ pub struct EnableUserResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExpireSessionRequest {
     /// <p>The identifier of the streaming session.</p>
-    #[serde(rename = "SessionId")]
+    #[serde(rename = "sessionId")]
     pub session_id: String,
 }
 
@@ -1129,78 +1129,78 @@ pub struct ExpireSessionResult {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Fleet {
     /// <p>The Amazon Resource Name (ARN) for the fleet.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     pub arn: String,
     /// <p>The capacity status for the fleet.</p>
-    #[serde(rename = "ComputeCapacityStatus")]
+    #[serde(rename = "computeCapacityStatus")]
     pub compute_capacity_status: ComputeCapacityStatus,
     /// <p>The time the fleet was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p> <p>Specify a value between 60 and 360000.</p>
-    #[serde(rename = "DisconnectTimeoutInSeconds")]
+    #[serde(rename = "disconnectTimeoutInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disconnect_timeout_in_seconds: Option<i64>,
     /// <p>The fleet name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
-    #[serde(rename = "DomainJoinInfo")]
+    #[serde(rename = "domainJoinInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_join_info: Option<DomainJoinInfo>,
     /// <p>Indicates whether default internet access is enabled for the fleet.</p>
-    #[serde(rename = "EnableDefaultInternetAccess")]
+    #[serde(rename = "enableDefaultInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_default_internet_access: Option<bool>,
     /// <p>The fleet errors.</p>
-    #[serde(rename = "FleetErrors")]
+    #[serde(rename = "fleetErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fleet_errors: Option<Vec<FleetError>>,
     /// <p><p>The fleet type.</p> <dl> <dt>ALWAYS<em>ON</dt> <dd> <p>Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.</p> </dd> <dt>ON</em>DEMAND</dt> <dd> <p>Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.</p> </dd> </dl></p>
-    #[serde(rename = "FleetType")]
+    #[serde(rename = "fleetType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fleet_type: Option<String>,
     /// <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p><p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified before they are disconnected due to inactivity. If users try to reconnect to the streaming session before the time interval specified in <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected.</p> <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p> <note> <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don&#39;t do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p> </note></p>
-    #[serde(rename = "IdleDisconnectTimeoutInSeconds")]
+    #[serde(rename = "idleDisconnectTimeoutInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idle_disconnect_timeout_in_seconds: Option<i64>,
     /// <p>The ARN for the public, private, or shared image.</p>
-    #[serde(rename = "ImageArn")]
+    #[serde(rename = "imageArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_arn: Option<String>,
     /// <p>The name of the image used to create the fleet.</p>
-    #[serde(rename = "ImageName")]
+    #[serde(rename = "imageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_name: Option<String>,
     /// <p><p>The instance type to use when launching fleet instances. The following instance types are available:</p> <ul> <li> <p>stream.standard.small</p> </li> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.memory.z1d.large</p> </li> <li> <p>stream.memory.z1d.xlarge</p> </li> <li> <p>stream.memory.z1d.2xlarge</p> </li> <li> <p>stream.memory.z1d.3xlarge</p> </li> <li> <p>stream.memory.z1d.6xlarge</p> </li> <li> <p>stream.memory.z1d.12xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.xlarge</p> </li> <li> <p>stream.graphics.g4dn.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.4xlarge</p> </li> <li> <p>stream.graphics.g4dn.8xlarge</p> </li> <li> <p>stream.graphics.g4dn.12xlarge</p> </li> <li> <p>stream.graphics.g4dn.16xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul></p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     pub instance_type: String,
     /// <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p> <p>Specify a value between 600 and 360000.</p>
-    #[serde(rename = "MaxUserDurationInSeconds")]
+    #[serde(rename = "maxUserDurationInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_user_duration_in_seconds: Option<i64>,
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The current state for the fleet.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
     /// <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p> <p>The default value is <code>APP</code>.</p>
-    #[serde(rename = "StreamView")]
+    #[serde(rename = "streamView")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_view: Option<String>,
     /// <p>The VPC configuration for the fleet.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1210,11 +1210,11 @@ pub struct Fleet {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FleetError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -1224,70 +1224,70 @@ pub struct FleetError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Image {
     /// <p>The applications associated with the image.</p>
-    #[serde(rename = "Applications")]
+    #[serde(rename = "applications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub applications: Option<Vec<Application>>,
     /// <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
-    #[serde(rename = "AppstreamAgentVersion")]
+    #[serde(rename = "appstreamAgentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub appstream_agent_version: Option<String>,
     /// <p>The ARN of the image.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The ARN of the image from which this image was created.</p>
-    #[serde(rename = "BaseImageArn")]
+    #[serde(rename = "baseImageArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub base_image_arn: Option<String>,
     /// <p>The time the image was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The image name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
-    #[serde(rename = "ImageBuilderName")]
+    #[serde(rename = "imageBuilderName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder_name: Option<String>,
     /// <p>Indicates whether an image builder can be launched from this image.</p>
-    #[serde(rename = "ImageBuilderSupported")]
+    #[serde(rename = "imageBuilderSupported")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder_supported: Option<bool>,
     /// <p>Describes the errors that are returned when a new image can't be created.</p>
-    #[serde(rename = "ImageErrors")]
+    #[serde(rename = "imageErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_errors: Option<Vec<ResourceError>>,
     /// <p>The permissions to provide to the destination AWS account for the specified image.</p>
-    #[serde(rename = "ImagePermissions")]
+    #[serde(rename = "imagePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_permissions: Option<ImagePermissions>,
     /// <p>The name of the image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The operating system platform of the image.</p>
-    #[serde(rename = "Platform")]
+    #[serde(rename = "platform")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform: Option<String>,
     /// <p>The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.</p>
-    #[serde(rename = "PublicBaseImageReleasedDate")]
+    #[serde(rename = "publicBaseImageReleasedDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_base_image_released_date: Option<f64>,
     /// <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason why the last state change occurred.</p>
-    #[serde(rename = "StateChangeReason")]
+    #[serde(rename = "stateChangeReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_change_reason: Option<ImageStateChangeReason>,
     /// <p>Indicates whether the image is public or private.</p>
-    #[serde(rename = "Visibility")]
+    #[serde(rename = "visibility")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub visibility: Option<String>,
 }
@@ -1297,73 +1297,73 @@ pub struct Image {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImageBuilder {
     /// <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
-    #[serde(rename = "AccessEndpoints")]
+    #[serde(rename = "accessEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_endpoints: Option<Vec<AccessEndpoint>>,
     /// <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
-    #[serde(rename = "AppstreamAgentVersion")]
+    #[serde(rename = "appstreamAgentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub appstream_agent_version: Option<String>,
     /// <p>The ARN for the image builder.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time stamp when the image builder was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The image builder name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
-    #[serde(rename = "DomainJoinInfo")]
+    #[serde(rename = "domainJoinInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_join_info: Option<DomainJoinInfo>,
     /// <p>Enables or disables default internet access for the image builder.</p>
-    #[serde(rename = "EnableDefaultInternetAccess")]
+    #[serde(rename = "enableDefaultInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_default_internet_access: Option<bool>,
     /// <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p>The ARN of the image from which this builder was created.</p>
-    #[serde(rename = "ImageArn")]
+    #[serde(rename = "imageArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_arn: Option<String>,
     /// <p>The image builder errors.</p>
-    #[serde(rename = "ImageBuilderErrors")]
+    #[serde(rename = "imageBuilderErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder_errors: Option<Vec<ResourceError>>,
     /// <p><p>The instance type for the image builder. The following instance types are available:</p> <ul> <li> <p>stream.standard.small</p> </li> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.memory.z1d.large</p> </li> <li> <p>stream.memory.z1d.xlarge</p> </li> <li> <p>stream.memory.z1d.2xlarge</p> </li> <li> <p>stream.memory.z1d.3xlarge</p> </li> <li> <p>stream.memory.z1d.6xlarge</p> </li> <li> <p>stream.memory.z1d.12xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.xlarge</p> </li> <li> <p>stream.graphics.g4dn.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.4xlarge</p> </li> <li> <p>stream.graphics.g4dn.8xlarge</p> </li> <li> <p>stream.graphics.g4dn.12xlarge</p> </li> <li> <p>stream.graphics.g4dn.16xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul></p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <p>The name of the image builder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "NetworkAccessConfiguration")]
+    #[serde(rename = "networkAccessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_access_configuration: Option<NetworkAccessConfiguration>,
     /// <p>The operating system platform of the image builder.</p>
-    #[serde(rename = "Platform")]
+    #[serde(rename = "platform")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform: Option<String>,
     /// <p>The state of the image builder.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>The reason why the last state change occurred.</p>
-    #[serde(rename = "StateChangeReason")]
+    #[serde(rename = "stateChangeReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_change_reason: Option<ImageBuilderStateChangeReason>,
     /// <p>The VPC configuration of the image builder.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1373,11 +1373,11 @@ pub struct ImageBuilder {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImageBuilderStateChangeReason {
     /// <p>The state change reason code.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>The state change reason message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1400,11 +1400,11 @@ pub struct ImagePermissions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImageStateChangeReason {
     /// <p>The state change reason code.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>The state change reason message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1414,11 +1414,11 @@ pub struct ImageStateChangeReason {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LastReportGenerationExecutionError {
     /// <p>The error code for the error that is returned when a usage report can't be generated.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message for the error that is returned when a usage report can't be generated.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -1427,11 +1427,11 @@ pub struct LastReportGenerationExecutionError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAssociatedFleetsRequest {
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
 }
 
@@ -1439,11 +1439,11 @@ pub struct ListAssociatedFleetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAssociatedFleetsResult {
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1452,10 +1452,10 @@ pub struct ListAssociatedFleetsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAssociatedStacksRequest {
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "FleetName")]
+    #[serde(rename = "fleetName")]
     pub fleet_name: String,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1464,11 +1464,11 @@ pub struct ListAssociatedStacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAssociatedStacksResult {
     /// <p>The name of the stack.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1477,7 +1477,7 @@ pub struct ListAssociatedStacksResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1485,7 +1485,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The information about the tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1495,11 +1495,11 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct NetworkAccessConfiguration {
     /// <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
-    #[serde(rename = "EniId")]
+    #[serde(rename = "eniId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eni_id: Option<String>,
     /// <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
-    #[serde(rename = "EniPrivateIpAddress")]
+    #[serde(rename = "eniPrivateIpAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub eni_private_ip_address: Option<String>,
 }
@@ -1509,15 +1509,15 @@ pub struct NetworkAccessConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The time the error occurred.</p>
-    #[serde(rename = "ErrorTimestamp")]
+    #[serde(rename = "errorTimestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_timestamp: Option<f64>,
 }
@@ -1526,10 +1526,10 @@ pub struct ResourceError {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ServiceAccountCredentials {
     /// <p>The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.</p>
-    #[serde(rename = "AccountName")]
+    #[serde(rename = "accountName")]
     pub account_name: String,
     /// <p>The password for the account.</p>
-    #[serde(rename = "AccountPassword")]
+    #[serde(rename = "accountPassword")]
     pub account_password: String,
 }
 
@@ -1538,39 +1538,39 @@ pub struct ServiceAccountCredentials {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Session {
     /// <p>The authentication method. The user is authenticated using a streaming URL (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub authentication_type: Option<String>,
     /// <p>Specifies whether a user is connected to the streaming session.</p>
-    #[serde(rename = "ConnectionState")]
+    #[serde(rename = "connectionState")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_state: Option<String>,
     /// <p>The name of the fleet for the streaming session.</p>
-    #[serde(rename = "FleetName")]
+    #[serde(rename = "fleetName")]
     pub fleet_name: String,
     /// <p>The identifier of the streaming session.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The time when the streaming session is set to expire. This time is based on the <code>MaxUserDurationinSeconds</code> value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in <code>SessionMaxExpirationTime</code>, when the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.</p>
-    #[serde(rename = "MaxExpirationTime")]
+    #[serde(rename = "maxExpirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_expiration_time: Option<f64>,
     /// <p>The network details for the streaming session.</p>
-    #[serde(rename = "NetworkAccessConfiguration")]
+    #[serde(rename = "networkAccessConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_access_configuration: Option<NetworkAccessConfiguration>,
     /// <p>The name of the stack for the streaming session.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
     /// <p>The time when a streaming instance is dedicated for the user.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The current state of the streaming session.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     pub state: String,
     /// <p>The identifier of the user for whom the session was created.</p>
-    #[serde(rename = "UserId")]
+    #[serde(rename = "userId")]
     pub user_id: String,
 }
 
@@ -1591,54 +1591,54 @@ pub struct SharedImagePermissions {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Stack {
     /// <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
-    #[serde(rename = "AccessEndpoints")]
+    #[serde(rename = "accessEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_endpoints: Option<Vec<AccessEndpoint>>,
     /// <p>The persistent application settings for users of the stack.</p>
-    #[serde(rename = "ApplicationSettings")]
+    #[serde(rename = "applicationSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_settings: Option<ApplicationSettingsResponse>,
     /// <p>The ARN of the stack.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The time the stack was created.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The stack name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
-    #[serde(rename = "EmbedHostDomains")]
+    #[serde(rename = "embedHostDomains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub embed_host_domains: Option<Vec<String>>,
     /// <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
-    #[serde(rename = "FeedbackURL")]
+    #[serde(rename = "feedbackURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_url: Option<String>,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The URL that users are redirected to after their streaming session ends.</p>
-    #[serde(rename = "RedirectURL")]
+    #[serde(rename = "redirectURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redirect_url: Option<String>,
     /// <p>The errors for the stack.</p>
-    #[serde(rename = "StackErrors")]
+    #[serde(rename = "stackErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_errors: Option<Vec<StackError>>,
     /// <p>The storage connectors to enable.</p>
-    #[serde(rename = "StorageConnectors")]
+    #[serde(rename = "storageConnectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_connectors: Option<Vec<StorageConnector>>,
     /// <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
-    #[serde(rename = "UserSettings")]
+    #[serde(rename = "userSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_settings: Option<Vec<UserSetting>>,
 }
@@ -1648,11 +1648,11 @@ pub struct Stack {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StackError {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
 }
@@ -1661,7 +1661,7 @@ pub struct StackError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartFleetRequest {
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1673,11 +1673,11 @@ pub struct StartFleetResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartImageBuilderRequest {
     /// <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
-    #[serde(rename = "AppstreamAgentVersion")]
+    #[serde(rename = "appstreamAgentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub appstream_agent_version: Option<String>,
     /// <p>The name of the image builder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1685,7 +1685,7 @@ pub struct StartImageBuilderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartImageBuilderResult {
     /// <p>Information about the image builder.</p>
-    #[serde(rename = "ImageBuilder")]
+    #[serde(rename = "imageBuilder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder: Option<ImageBuilder>,
 }
@@ -1694,7 +1694,7 @@ pub struct StartImageBuilderResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopFleetRequest {
     /// <p>The name of the fleet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1706,7 +1706,7 @@ pub struct StopFleetResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopImageBuilderRequest {
     /// <p>The name of the image builder.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -1714,7 +1714,7 @@ pub struct StopImageBuilderRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopImageBuilderResult {
     /// <p>Information about the image builder.</p>
-    #[serde(rename = "ImageBuilder")]
+    #[serde(rename = "imageBuilder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_builder: Option<ImageBuilder>,
 }
@@ -1723,14 +1723,14 @@ pub struct StopImageBuilderResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StorageConnector {
     /// <p>The type of storage connector.</p>
-    #[serde(rename = "ConnectorType")]
+    #[serde(rename = "connectorType")]
     pub connector_type: String,
     /// <p>The names of the domains for the account.</p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domains: Option<Vec<String>>,
     /// <p>The ARN of the storage connector.</p>
-    #[serde(rename = "ResourceIdentifier")]
+    #[serde(rename = "resourceIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_identifier: Option<String>,
 }
@@ -1739,10 +1739,10 @@ pub struct StorageConnector {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -1754,10 +1754,10 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys for the tags to disassociate.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1769,14 +1769,14 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDirectoryConfigRequest {
     /// <p>The name of the Directory Config object.</p>
-    #[serde(rename = "DirectoryName")]
+    #[serde(rename = "directoryName")]
     pub directory_name: String,
     /// <p>The distinguished names of the organizational units for computer accounts.</p>
-    #[serde(rename = "OrganizationalUnitDistinguishedNames")]
+    #[serde(rename = "organizationalUnitDistinguishedNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organizational_unit_distinguished_names: Option<Vec<String>>,
     /// <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
-    #[serde(rename = "ServiceAccountCredentials")]
+    #[serde(rename = "serviceAccountCredentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_account_credentials: Option<ServiceAccountCredentials>,
 }
@@ -1785,7 +1785,7 @@ pub struct UpdateDirectoryConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateDirectoryConfigResult {
     /// <p>Information about the Directory Config object.</p>
-    #[serde(rename = "DirectoryConfig")]
+    #[serde(rename = "directoryConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub directory_config: Option<DirectoryConfig>,
 }
@@ -1794,67 +1794,67 @@ pub struct UpdateDirectoryConfigResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFleetRequest {
     /// <p>The fleet attributes to delete.</p>
-    #[serde(rename = "AttributesToDelete")]
+    #[serde(rename = "attributesToDelete")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes_to_delete: Option<Vec<String>>,
     /// <p>The desired capacity for the fleet.</p>
-    #[serde(rename = "ComputeCapacity")]
+    #[serde(rename = "computeCapacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compute_capacity: Option<ComputeCapacity>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p> <p>Specify a value between 60 and 360000.</p>
-    #[serde(rename = "DisconnectTimeoutInSeconds")]
+    #[serde(rename = "disconnectTimeoutInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disconnect_timeout_in_seconds: Option<i64>,
     /// <p>The fleet name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
-    #[serde(rename = "DomainJoinInfo")]
+    #[serde(rename = "domainJoinInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain_join_info: Option<DomainJoinInfo>,
     /// <p>Enables or disables default internet access for the fleet.</p>
-    #[serde(rename = "EnableDefaultInternetAccess")]
+    #[serde(rename = "enableDefaultInternetAccess")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_default_internet_access: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    #[serde(rename = "IamRoleArn")]
+    #[serde(rename = "iamRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
     /// <p><p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified before they are disconnected due to inactivity. If users try to reconnect to the streaming session before the time interval specified in <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected. </p> <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p> <note> <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don&#39;t do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p> </note></p>
-    #[serde(rename = "IdleDisconnectTimeoutInSeconds")]
+    #[serde(rename = "idleDisconnectTimeoutInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idle_disconnect_timeout_in_seconds: Option<i64>,
     /// <p>The ARN of the public, private, or shared image to use.</p>
-    #[serde(rename = "ImageArn")]
+    #[serde(rename = "imageArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_arn: Option<String>,
     /// <p>The name of the image used to create the fleet.</p>
-    #[serde(rename = "ImageName")]
+    #[serde(rename = "imageName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub image_name: Option<String>,
     /// <p><p>The instance type to use when launching fleet instances. The following instance types are available:</p> <ul> <li> <p>stream.standard.small</p> </li> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.memory.z1d.large</p> </li> <li> <p>stream.memory.z1d.xlarge</p> </li> <li> <p>stream.memory.z1d.2xlarge</p> </li> <li> <p>stream.memory.z1d.3xlarge</p> </li> <li> <p>stream.memory.z1d.6xlarge</p> </li> <li> <p>stream.memory.z1d.12xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.xlarge</p> </li> <li> <p>stream.graphics.g4dn.2xlarge</p> </li> <li> <p>stream.graphics.g4dn.4xlarge</p> </li> <li> <p>stream.graphics.g4dn.8xlarge</p> </li> <li> <p>stream.graphics.g4dn.12xlarge</p> </li> <li> <p>stream.graphics.g4dn.16xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul></p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p> <p>Specify a value between 600 and 360000.</p>
-    #[serde(rename = "MaxUserDurationInSeconds")]
+    #[serde(rename = "maxUserDurationInSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_user_duration_in_seconds: Option<i64>,
     /// <p>A unique name for the fleet.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p> <p>The default value is <code>APP</code>.</p>
-    #[serde(rename = "StreamView")]
+    #[serde(rename = "streamView")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_view: Option<String>,
     /// <p>The VPC configuration for the fleet.</p>
-    #[serde(rename = "VpcConfig")]
+    #[serde(rename = "vpcConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_config: Option<VpcConfig>,
 }
@@ -1863,7 +1863,7 @@ pub struct UpdateFleetRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFleetResult {
     /// <p>Information about the fleet.</p>
-    #[serde(rename = "Fleet")]
+    #[serde(rename = "fleet")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fleet: Option<Fleet>,
 }
@@ -1872,13 +1872,13 @@ pub struct UpdateFleetResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateImagePermissionsRequest {
     /// <p>The permissions for the image.</p>
-    #[serde(rename = "ImagePermissions")]
+    #[serde(rename = "imagePermissions")]
     pub image_permissions: ImagePermissions,
     /// <p>The name of the private image.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The 12-digit identifier of the AWS account for which you want add or update image permissions.</p>
-    #[serde(rename = "SharedAccountId")]
+    #[serde(rename = "sharedAccountId")]
     pub shared_account_id: String,
 }
 
@@ -1890,46 +1890,46 @@ pub struct UpdateImagePermissionsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateStackRequest {
     /// <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
-    #[serde(rename = "AccessEndpoints")]
+    #[serde(rename = "accessEndpoints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_endpoints: Option<Vec<AccessEndpoint>>,
     /// <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
-    #[serde(rename = "ApplicationSettings")]
+    #[serde(rename = "applicationSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub application_settings: Option<ApplicationSettings>,
     /// <p>The stack attributes to delete.</p>
-    #[serde(rename = "AttributesToDelete")]
+    #[serde(rename = "attributesToDelete")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes_to_delete: Option<Vec<String>>,
     /// <p>The description to display.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The stack name to display.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
-    #[serde(rename = "EmbedHostDomains")]
+    #[serde(rename = "embedHostDomains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub embed_host_domains: Option<Vec<String>>,
     /// <p>The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
-    #[serde(rename = "FeedbackURL")]
+    #[serde(rename = "feedbackURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub feedback_url: Option<String>,
     /// <p>The name of the stack.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The URL that users are redirected to after their streaming session ends.</p>
-    #[serde(rename = "RedirectURL")]
+    #[serde(rename = "redirectURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redirect_url: Option<String>,
     /// <p>The storage connectors to enable.</p>
-    #[serde(rename = "StorageConnectors")]
+    #[serde(rename = "storageConnectors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub storage_connectors: Option<Vec<StorageConnector>>,
     /// <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
-    #[serde(rename = "UserSettings")]
+    #[serde(rename = "userSettings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_settings: Option<Vec<UserSetting>>,
 }
@@ -1938,7 +1938,7 @@ pub struct UpdateStackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateStackResult {
     /// <p>Information about the stack.</p>
-    #[serde(rename = "Stack")]
+    #[serde(rename = "stack")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack: Option<Stack>,
 }
@@ -1948,19 +1948,19 @@ pub struct UpdateStackResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageReportSubscription {
     /// <p>The time when the last usage report was generated.</p>
-    #[serde(rename = "LastGeneratedReportDate")]
+    #[serde(rename = "lastGeneratedReportDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_generated_report_date: Option<f64>,
     /// <p>The Amazon S3 bucket where generated reports are stored.</p> <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
-    #[serde(rename = "S3BucketName")]
+    #[serde(rename = "s3BucketName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_name: Option<String>,
     /// <p>The schedule for generating usage reports.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<String>,
     /// <p>The errors that were returned if usage reports couldn't be generated.</p>
-    #[serde(rename = "SubscriptionErrors")]
+    #[serde(rename = "subscriptionErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscription_errors: Option<Vec<LastReportGenerationExecutionError>>,
 }
@@ -1970,34 +1970,34 @@ pub struct UsageReportSubscription {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct User {
     /// <p>The ARN of the user.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The authentication type for the user.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p>The date and time the user was created in the user pool.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Specifies whether the user in the user pool is enabled.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>The first name, or given name, of the user.</p>
-    #[serde(rename = "FirstName")]
+    #[serde(rename = "firstName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// <p>The last name, or surname, of the user.</p>
-    #[serde(rename = "LastName")]
+    #[serde(rename = "lastName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_name: Option<String>,
     /// <p><p>The status of the user in the user pool. The status can be one of the following:</p> <ul> <li> <p>UNCONFIRMED – The user is created but not confirmed.</p> </li> <li> <p>CONFIRMED – The user is confirmed.</p> </li> <li> <p>ARCHIVED – The user is no longer active.</p> </li> <li> <p>COMPROMISED – The user is disabled because of a potential security threat.</p> </li> <li> <p>UNKNOWN – The user status is not known.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p><p>The email address of the user.</p> <note> <p>Users&#39; email addresses are case-sensitive.</p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -2006,10 +2006,10 @@ pub struct User {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserSetting {
     /// <p>The action that is enabled or disabled.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     pub action: String,
     /// <p>Indicates whether the action is enabled or disabled.</p>
-    #[serde(rename = "Permission")]
+    #[serde(rename = "permission")]
     pub permission: String,
 }
 
@@ -2017,17 +2017,17 @@ pub struct UserSetting {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UserStackAssociation {
     /// <p>The authentication type for the user.</p>
-    #[serde(rename = "AuthenticationType")]
+    #[serde(rename = "authenticationType")]
     pub authentication_type: String,
     /// <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
-    #[serde(rename = "SendEmailNotification")]
+    #[serde(rename = "sendEmailNotification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub send_email_notification: Option<bool>,
     /// <p>The name of the stack that is associated with the user.</p>
-    #[serde(rename = "StackName")]
+    #[serde(rename = "stackName")]
     pub stack_name: String,
     /// <p><p>The email address of the user who is associated with the stack.</p> <note> <p>Users&#39; email addresses are case-sensitive.</p> </note></p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     pub user_name: String,
 }
 
@@ -2036,15 +2036,15 @@ pub struct UserStackAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserStackAssociationError {
     /// <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>Information about the user and associated stack.</p>
-    #[serde(rename = "UserStackAssociation")]
+    #[serde(rename = "userStackAssociation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_stack_association: Option<UserStackAssociation>,
 }
@@ -2053,11 +2053,11 @@ pub struct UserStackAssociationError {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VpcConfig {
     /// <p>The identifiers of the security groups for the fleet or image builder.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
 }

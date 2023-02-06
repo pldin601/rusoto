@@ -30,10 +30,10 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddFlowMediaStreamsRequest {
     /// <p>The Amazon Resource Name (ARN) of the flow.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The media streams that you want to add to the flow.</p>
-    #[serde(rename = "MediaStreams")]
+    #[serde(rename = "mediaStreams")]
     pub media_streams: Vec<AddMediaStreamRequest>,
 }
 
@@ -41,11 +41,11 @@ pub struct AddFlowMediaStreamsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddFlowMediaStreamsResponse {
     /// <p>The ARN of the flow that you added media streams to.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The media streams that you added to the flow.</p>
-    #[serde(rename = "MediaStreams")]
+    #[serde(rename = "mediaStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_streams: Option<Vec<MediaStream>>,
 }
@@ -55,10 +55,10 @@ pub struct AddFlowMediaStreamsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddFlowOutputsRequest {
     /// <p>The flow that you want to add outputs to.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>A list of outputs that you want to add.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     pub outputs: Vec<AddOutputRequest>,
 }
 
@@ -66,11 +66,11 @@ pub struct AddFlowOutputsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddFlowOutputsResponse {
     /// <p>The ARN of the flow that these outputs were added to.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The details of the newly added outputs.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<Output>>,
 }
@@ -80,10 +80,10 @@ pub struct AddFlowOutputsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddFlowSourcesRequest {
     /// <p>The flow that you want to mutate.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>A list of sources that you want to add.</p>
-    #[serde(rename = "Sources")]
+    #[serde(rename = "sources")]
     pub sources: Vec<SetSourceRequest>,
 }
 
@@ -91,11 +91,11 @@ pub struct AddFlowSourcesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddFlowSourcesResponse {
     /// <p>The ARN of the flow that these sources were added to.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The details of the newly added sources.</p>
-    #[serde(rename = "Sources")]
+    #[serde(rename = "sources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sources: Option<Vec<Source>>,
 }
@@ -105,10 +105,10 @@ pub struct AddFlowSourcesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddFlowVpcInterfacesRequest {
     /// <p>The flow that you want to mutate.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>A list of VPC interfaces that you want to add.</p>
-    #[serde(rename = "VpcInterfaces")]
+    #[serde(rename = "vpcInterfaces")]
     pub vpc_interfaces: Vec<VpcInterfaceRequest>,
 }
 
@@ -116,11 +116,11 @@ pub struct AddFlowVpcInterfacesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AddFlowVpcInterfacesResponse {
     /// <p>The ARN of the flow that these VPC interfaces were added to.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The details of the newly added VPC interfaces.</p>
-    #[serde(rename = "VpcInterfaces")]
+    #[serde(rename = "vpcInterfaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interfaces: Option<Vec<VpcInterface>>,
 }
@@ -130,28 +130,28 @@ pub struct AddFlowVpcInterfacesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddMediaStreamRequest {
     /// <p>The attributes that you want to assign to the new media stream.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<MediaStreamAttributesRequest>,
     /// <p>The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.</p>
-    #[serde(rename = "ClockRate")]
+    #[serde(rename = "clockRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clock_rate: Option<i64>,
     /// <p>A description that can help you quickly identify what your media stream is used for.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A unique identifier for the media stream.</p>
-    #[serde(rename = "MediaStreamId")]
+    #[serde(rename = "mediaStreamId")]
     pub media_stream_id: i64,
     /// <p>A name that helps you distinguish one media stream from another.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
     /// <p>The type of media stream.</p>
-    #[serde(rename = "MediaStreamType")]
+    #[serde(rename = "mediaStreamType")]
     pub media_stream_type: String,
     /// <p>The resolution of the video.</p>
-    #[serde(rename = "VideoFormat")]
+    #[serde(rename = "videoFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_format: Option<String>,
 }
@@ -161,58 +161,58 @@ pub struct AddMediaStreamRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AddOutputRequest {
     /// <p>The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-    #[serde(rename = "CidrAllowList")]
+    #[serde(rename = "cidrAllowList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cidr_allow_list: Option<Vec<String>>,
     /// <p>A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The IP address from which video will be sent to output destinations.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<String>,
     /// <p>The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<Encryption>,
     /// <p>The maximum latency in milliseconds for Zixi-based streams.</p>
-    #[serde(rename = "MaxLatency")]
+    #[serde(rename = "maxLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_latency: Option<i64>,
     /// <p>The media streams that are associated with the output, and the parameters for those associations.</p>
-    #[serde(rename = "MediaStreamOutputConfigurations")]
+    #[serde(rename = "mediaStreamOutputConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_output_configurations: Option<Vec<MediaStreamOutputConfigurationRequest>>,
     /// <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
-    #[serde(rename = "MinLatency")]
+    #[serde(rename = "minLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_latency: Option<i64>,
     /// <p>The name of the output. This value must be unique within the current flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The port to use when content is distributed to this output.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>The protocol to use for the output.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     pub protocol: String,
     /// <p>The remote ID for the Zixi-pull output stream.</p>
-    #[serde(rename = "RemoteId")]
+    #[serde(rename = "remoteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_id: Option<String>,
     /// <p>The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
-    #[serde(rename = "SmoothingLatency")]
+    #[serde(rename = "smoothingLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub smoothing_latency: Option<i64>,
     /// <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</p>
-    #[serde(rename = "StreamId")]
+    #[serde(rename = "streamId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_id: Option<String>,
     /// <p>The name of the VPC interface attachment to use for this output.</p>
-    #[serde(rename = "VpcInterfaceAttachment")]
+    #[serde(rename = "vpcInterfaceAttachment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_attachment: Option<VpcInterfaceAttachment>,
 }
@@ -222,35 +222,35 @@ pub struct AddOutputRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateFlowRequest {
     /// <p>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The entitlements that you want to grant on a flow.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements: Option<Vec<GrantEntitlementRequest>>,
     /// <p>The media streams that you want to add to the flow. You can associate these media streams with sources and outputs on the flow.</p>
-    #[serde(rename = "MediaStreams")]
+    #[serde(rename = "mediaStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_streams: Option<Vec<AddMediaStreamRequest>>,
     /// <p>The name of the flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The outputs that you want to add to this flow.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<AddOutputRequest>>,
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<SetSourceRequest>,
-    #[serde(rename = "SourceFailoverConfig")]
+    #[serde(rename = "sourceFailoverConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_failover_config: Option<FailoverConfig>,
-    #[serde(rename = "Sources")]
+    #[serde(rename = "sources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sources: Option<Vec<SetSourceRequest>>,
     /// <p>The VPC interfaces you want on the flow.</p>
-    #[serde(rename = "VpcInterfaces")]
+    #[serde(rename = "vpcInterfaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interfaces: Option<Vec<VpcInterfaceRequest>>,
 }
@@ -258,7 +258,7 @@ pub struct CreateFlowRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateFlowResponse {
-    #[serde(rename = "Flow")]
+    #[serde(rename = "flow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow: Option<Flow>,
 }
@@ -267,7 +267,7 @@ pub struct CreateFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteFlowRequest {
     /// <p>The ARN of the flow that you want to delete.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
 }
 
@@ -275,11 +275,11 @@ pub struct DeleteFlowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteFlowResponse {
     /// <p>The ARN of the flow that was deleted.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The status of the flow when the DeleteFlow process begins.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -288,17 +288,17 @@ pub struct DeleteFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeFlowRequest {
     /// <p>The ARN of the flow that you want to describe.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeFlowResponse {
-    #[serde(rename = "Flow")]
+    #[serde(rename = "flow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow: Option<Flow>,
-    #[serde(rename = "Messages")]
+    #[serde(rename = "messages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub messages: Option<Messages>,
 }
@@ -307,14 +307,14 @@ pub struct DescribeFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeOfferingRequest {
     /// <p>The Amazon Resource Name (ARN) of the offering.</p>
-    #[serde(rename = "OfferingArn")]
+    #[serde(rename = "offeringArn")]
     pub offering_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOfferingResponse {
-    #[serde(rename = "Offering")]
+    #[serde(rename = "offering")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub offering: Option<Offering>,
 }
@@ -323,14 +323,14 @@ pub struct DescribeOfferingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeReservationRequest {
     /// <p>The Amazon Resource Name (ARN) of the reservation.</p>
-    #[serde(rename = "ReservationArn")]
+    #[serde(rename = "reservationArn")]
     pub reservation_arn: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeReservationResponse {
-    #[serde(rename = "Reservation")]
+    #[serde(rename = "reservation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservation: Option<Reservation>,
 }
@@ -340,16 +340,16 @@ pub struct DescribeReservationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DestinationConfiguration {
     /// <p>The IP address where contents of the media stream will be sent.</p>
-    #[serde(rename = "DestinationIp")]
+    #[serde(rename = "destinationIp")]
     pub destination_ip: String,
     /// <p>The port to use when the content of the media stream is distributed to the output.</p>
-    #[serde(rename = "DestinationPort")]
+    #[serde(rename = "destinationPort")]
     pub destination_port: i64,
     /// <p>The VPC interface that is used for the media stream associated with the output.</p>
-    #[serde(rename = "Interface")]
+    #[serde(rename = "interface")]
     pub interface: Interface,
     /// <p>The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS protocol.</p>
-    #[serde(rename = "OutboundIp")]
+    #[serde(rename = "outboundIp")]
     pub outbound_ip: String,
 }
 
@@ -358,13 +358,13 @@ pub struct DestinationConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DestinationConfigurationRequest {
     /// <p>The IP address where you want MediaConnect to send contents of the media stream.</p>
-    #[serde(rename = "DestinationIp")]
+    #[serde(rename = "destinationIp")]
     pub destination_ip: String,
     /// <p>The port that you want MediaConnect to use when it distributes the media stream to the output.</p>
-    #[serde(rename = "DestinationPort")]
+    #[serde(rename = "destinationPort")]
     pub destination_port: i64,
     /// <p>The VPC interface that you want to use for the media stream associated with the output.</p>
-    #[serde(rename = "Interface")]
+    #[serde(rename = "interface")]
     pub interface: InterfaceRequest,
 }
 
@@ -373,10 +373,10 @@ pub struct DestinationConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EncodingParameters {
     /// <p>A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>
-    #[serde(rename = "CompressionFactor")]
+    #[serde(rename = "compressionFactor")]
     pub compression_factor: f64,
     /// <p>A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.</p>
-    #[serde(rename = "EncoderProfile")]
+    #[serde(rename = "encoderProfile")]
     pub encoder_profile: String,
 }
 
@@ -385,10 +385,10 @@ pub struct EncodingParameters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct EncodingParametersRequest {
     /// <p>A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>
-    #[serde(rename = "CompressionFactor")]
+    #[serde(rename = "compressionFactor")]
     pub compression_factor: f64,
     /// <p>A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.</p>
-    #[serde(rename = "EncoderProfile")]
+    #[serde(rename = "encoderProfile")]
     pub encoder_profile: String,
 }
 
@@ -396,38 +396,38 @@ pub struct EncodingParametersRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Encryption {
     /// <p>The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>
-    #[serde(rename = "Algorithm")]
+    #[serde(rename = "algorithm")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub algorithm: Option<String>,
     /// <p>A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.</p>
-    #[serde(rename = "ConstantInitializationVector")]
+    #[serde(rename = "constantInitializationVector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constant_initialization_vector: Option<String>,
     /// <p>The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
-    #[serde(rename = "KeyType")]
+    #[serde(rename = "keyType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_type: Option<String>,
     /// <p>The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.</p>
-    #[serde(rename = "SecretArn")]
+    #[serde(rename = "secretArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_arn: Option<String>,
     /// <p>The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -437,29 +437,29 @@ pub struct Encryption {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Entitlement {
     /// <p>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
-    #[serde(rename = "DataTransferSubscriberFeePercent")]
+    #[serde(rename = "dataTransferSubscriberFeePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transfer_subscriber_fee_percent: Option<i64>,
     /// <p>A description of the entitlement.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The type of encryption that will be used on the output that is associated with this entitlement.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<Encryption>,
     /// <p>The ARN of the entitlement.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     pub entitlement_arn: String,
     /// <p>An indication of whether the entitlement is enabled.</p>
-    #[serde(rename = "EntitlementStatus")]
+    #[serde(rename = "entitlementStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_status: Option<String>,
     /// <p>The name of the entitlement.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</p>
-    #[serde(rename = "Subscribers")]
+    #[serde(rename = "subscribers")]
     pub subscribers: Vec<String>,
 }
 
@@ -467,18 +467,18 @@ pub struct Entitlement {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FailoverConfig {
     /// <p>The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>
-    #[serde(rename = "FailoverMode")]
+    #[serde(rename = "failoverMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failover_mode: Option<String>,
     /// <p>Search window time to look for dash-7 packets</p>
-    #[serde(rename = "RecoveryWindow")]
+    #[serde(rename = "recoveryWindow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recovery_window: Option<i64>,
     /// <p>The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.</p>
-    #[serde(rename = "SourcePriority")]
+    #[serde(rename = "sourcePriority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_priority: Option<SourcePriority>,
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -488,45 +488,45 @@ pub struct FailoverConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Flow {
     /// <p>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     pub availability_zone: String,
     /// <p>A description of the flow. This value is not used or seen outside of the current AWS Elemental MediaConnect account.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The IP address from which video will be sent to output destinations.</p>
-    #[serde(rename = "EgressIp")]
+    #[serde(rename = "egressIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub egress_ip: Option<String>,
     /// <p>The entitlements in this flow.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     pub entitlements: Vec<Entitlement>,
     /// <p>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The media streams that are associated with the flow. After you associate a media stream with a source, you can also associate it with outputs on the flow.</p>
-    #[serde(rename = "MediaStreams")]
+    #[serde(rename = "mediaStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_streams: Option<Vec<MediaStream>>,
     /// <p>The name of the flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The outputs in this flow.</p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     pub outputs: Vec<Output>,
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     pub source: Source,
-    #[serde(rename = "SourceFailoverConfig")]
+    #[serde(rename = "sourceFailoverConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_failover_config: Option<FailoverConfig>,
-    #[serde(rename = "Sources")]
+    #[serde(rename = "sources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sources: Option<Vec<Source>>,
     /// <p>The current status of the flow.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>The VPC Interfaces for this flow.</p>
-    #[serde(rename = "VpcInterfaces")]
+    #[serde(rename = "vpcInterfaces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interfaces: Option<Vec<VpcInterface>>,
 }
@@ -536,31 +536,31 @@ pub struct Flow {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Fmtp {
     /// <p>The format of the audio channel.</p>
-    #[serde(rename = "ChannelOrder")]
+    #[serde(rename = "channelOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_order: Option<String>,
     /// <p>The format that is used for the representation of color.</p>
-    #[serde(rename = "Colorimetry")]
+    #[serde(rename = "colorimetry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub colorimetry: Option<String>,
     /// <p>The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.</p>
-    #[serde(rename = "ExactFramerate")]
+    #[serde(rename = "exactFramerate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exact_framerate: Option<String>,
     /// <p>The pixel aspect ratio (PAR) of the video.</p>
-    #[serde(rename = "Par")]
+    #[serde(rename = "par")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub par: Option<String>,
     /// <p>The encoding range of the video.</p>
-    #[serde(rename = "Range")]
+    #[serde(rename = "range")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub range: Option<String>,
     /// <p>The type of compression that was used to smooth the video’s appearance</p>
-    #[serde(rename = "ScanMode")]
+    #[serde(rename = "scanMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scan_mode: Option<String>,
     /// <p>The transfer characteristic system (TCS) that is used in the video.</p>
-    #[serde(rename = "Tcs")]
+    #[serde(rename = "tcs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tcs: Option<String>,
 }
@@ -570,31 +570,31 @@ pub struct Fmtp {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct FmtpRequest {
     /// <p>The format of the audio channel.</p>
-    #[serde(rename = "ChannelOrder")]
+    #[serde(rename = "channelOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_order: Option<String>,
     /// <p>The format that is used for the representation of color.</p>
-    #[serde(rename = "Colorimetry")]
+    #[serde(rename = "colorimetry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub colorimetry: Option<String>,
     /// <p>The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.</p>
-    #[serde(rename = "ExactFramerate")]
+    #[serde(rename = "exactFramerate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exact_framerate: Option<String>,
     /// <p>The pixel aspect ratio (PAR) of the video.</p>
-    #[serde(rename = "Par")]
+    #[serde(rename = "par")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub par: Option<String>,
     /// <p>The encoding range of the video.</p>
-    #[serde(rename = "Range")]
+    #[serde(rename = "range")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub range: Option<String>,
     /// <p>The type of compression that was used to smooth the video’s appearance.</p>
-    #[serde(rename = "ScanMode")]
+    #[serde(rename = "scanMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scan_mode: Option<String>,
     /// <p>The transfer characteristic system (TCS) that is used in the video.</p>
-    #[serde(rename = "Tcs")]
+    #[serde(rename = "tcs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tcs: Option<String>,
 }
@@ -604,27 +604,27 @@ pub struct FmtpRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GrantEntitlementRequest {
     /// <p>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
-    #[serde(rename = "DataTransferSubscriberFeePercent")]
+    #[serde(rename = "dataTransferSubscriberFeePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transfer_subscriber_fee_percent: Option<i64>,
     /// <p>A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The type of encryption that will be used on the output that is associated with this entitlement.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<Encryption>,
     /// <p>An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.</p>
-    #[serde(rename = "EntitlementStatus")]
+    #[serde(rename = "entitlementStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_status: Option<String>,
     /// <p>The name of the entitlement. This value must be unique within the current flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.</p>
-    #[serde(rename = "Subscribers")]
+    #[serde(rename = "subscribers")]
     pub subscribers: Vec<String>,
 }
 
@@ -633,10 +633,10 @@ pub struct GrantEntitlementRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GrantFlowEntitlementsRequest {
     /// <p>The list of entitlements that you want to grant.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     pub entitlements: Vec<GrantEntitlementRequest>,
     /// <p>The flow that you want to grant entitlements on.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
 }
 
@@ -644,11 +644,11 @@ pub struct GrantFlowEntitlementsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GrantFlowEntitlementsResponse {
     /// <p>The entitlements that were just granted.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements: Option<Vec<Entitlement>>,
     /// <p>The ARN of the flow that these entitlements were granted to.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
 }
@@ -658,13 +658,13 @@ pub struct GrantFlowEntitlementsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InputConfiguration {
     /// <p>The IP address that the flow listens on for incoming content for a media stream.</p>
-    #[serde(rename = "InputIp")]
+    #[serde(rename = "inputIp")]
     pub input_ip: String,
     /// <p>The port that the flow listens on for an incoming media stream.</p>
-    #[serde(rename = "InputPort")]
+    #[serde(rename = "inputPort")]
     pub input_port: i64,
     /// <p>The VPC interface where the media stream comes in from.</p>
-    #[serde(rename = "Interface")]
+    #[serde(rename = "interface")]
     pub interface: Interface,
 }
 
@@ -673,10 +673,10 @@ pub struct InputConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InputConfigurationRequest {
     /// <p>The port that you want the flow to listen on for an incoming media stream.</p>
-    #[serde(rename = "InputPort")]
+    #[serde(rename = "inputPort")]
     pub input_port: i64,
     /// <p>The VPC interface that you want to use for the incoming media stream.</p>
-    #[serde(rename = "Interface")]
+    #[serde(rename = "interface")]
     pub interface: InterfaceRequest,
 }
 
@@ -685,7 +685,7 @@ pub struct InputConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Interface {
     /// <p>The name of the VPC interface.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -694,7 +694,7 @@ pub struct Interface {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InterfaceRequest {
     /// <p>The name of the VPC interface.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -702,11 +702,11 @@ pub struct InterfaceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListEntitlementsRequest {
     /// <p>The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -715,11 +715,11 @@ pub struct ListEntitlementsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListEntitlementsResponse {
     /// <p>A list of entitlements that have been granted to you from other AWS accounts.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements: Option<Vec<ListedEntitlement>>,
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -728,11 +728,11 @@ pub struct ListEntitlementsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFlowsRequest {
     /// <p>The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -741,11 +741,11 @@ pub struct ListFlowsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFlowsResponse {
     /// <p>A list of flow summaries.</p>
-    #[serde(rename = "Flows")]
+    #[serde(rename = "flows")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flows: Option<Vec<ListedFlow>>,
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -754,11 +754,11 @@ pub struct ListFlowsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOfferingsRequest {
     /// <p>The maximum number of results to return per API request. For example, you submit a ListOfferings request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -767,11 +767,11 @@ pub struct ListOfferingsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOfferingsResponse {
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of offerings that are available to this account in the current AWS Region.</p>
-    #[serde(rename = "Offerings")]
+    #[serde(rename = "offerings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub offerings: Option<Vec<Offering>>,
 }
@@ -780,11 +780,11 @@ pub struct ListOfferingsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListReservationsRequest {
     /// <p>The maximum number of results to return per API request. For example, you submit a ListReservations request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -793,11 +793,11 @@ pub struct ListReservationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListReservationsResponse {
     /// <p>The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListReservations request a second time and specify the NextToken value.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of all reservations that have been purchased by this account in the current AWS Region.</p>
-    #[serde(rename = "Reservations")]
+    #[serde(rename = "reservations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservations: Option<Vec<Reservation>>,
 }
@@ -806,7 +806,7 @@ pub struct ListReservationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -814,7 +814,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -824,14 +824,14 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListedEntitlement {
     /// <p>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
-    #[serde(rename = "DataTransferSubscriberFeePercent")]
+    #[serde(rename = "dataTransferSubscriberFeePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transfer_subscriber_fee_percent: Option<i64>,
     /// <p>The ARN of the entitlement.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     pub entitlement_arn: String,
     /// <p>The name of the entitlement.</p>
-    #[serde(rename = "EntitlementName")]
+    #[serde(rename = "entitlementName")]
     pub entitlement_name: String,
 }
 
@@ -840,22 +840,22 @@ pub struct ListedEntitlement {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListedFlow {
     /// <p>The Availability Zone that the flow was created in.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     pub availability_zone: String,
     /// <p>A description of the flow.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     pub description: String,
     /// <p>The ARN of the flow.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The name of the flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).</p>
-    #[serde(rename = "SourceType")]
+    #[serde(rename = "sourceType")]
     pub source_type: String,
     /// <p>The current status of the flow.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
 }
 
@@ -864,31 +864,31 @@ pub struct ListedFlow {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MediaStream {
     /// <p>Attributes that are related to the media stream.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<MediaStreamAttributes>,
     /// <p>The sample rate for the stream. This value is measured in Hz.</p>
-    #[serde(rename = "ClockRate")]
+    #[serde(rename = "clockRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clock_rate: Option<i64>,
     /// <p>A description that can help you quickly identify what your media stream is used for.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.</p>
-    #[serde(rename = "Fmt")]
+    #[serde(rename = "fmt")]
     pub fmt: i64,
     /// <p>A unique identifier for the media stream.</p>
-    #[serde(rename = "MediaStreamId")]
+    #[serde(rename = "mediaStreamId")]
     pub media_stream_id: i64,
     /// <p>A name that helps you distinguish one media stream from another.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
     /// <p>The type of media stream.</p>
-    #[serde(rename = "MediaStreamType")]
+    #[serde(rename = "mediaStreamType")]
     pub media_stream_type: String,
     /// <p>The resolution of the video.</p>
-    #[serde(rename = "VideoFormat")]
+    #[serde(rename = "videoFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_format: Option<String>,
 }
@@ -898,10 +898,10 @@ pub struct MediaStream {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MediaStreamAttributes {
     /// <p>A set of parameters that define the media stream.</p>
-    #[serde(rename = "Fmtp")]
+    #[serde(rename = "fmtp")]
     pub fmtp: Fmtp,
     /// <p>The audio language, in a format that is recognized by the receiver.</p>
-    #[serde(rename = "Lang")]
+    #[serde(rename = "lang")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lang: Option<String>,
 }
@@ -911,11 +911,11 @@ pub struct MediaStreamAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MediaStreamAttributesRequest {
     /// <p>The settings that you want to use to define the media stream.</p>
-    #[serde(rename = "Fmtp")]
+    #[serde(rename = "fmtp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fmtp: Option<FmtpRequest>,
     /// <p>The audio language, in a format that is recognized by the receiver.</p>
-    #[serde(rename = "Lang")]
+    #[serde(rename = "lang")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lang: Option<String>,
 }
@@ -925,18 +925,18 @@ pub struct MediaStreamAttributesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MediaStreamOutputConfiguration {
     /// <p>The transport parameters that are associated with each outbound media stream.</p>
-    #[serde(rename = "DestinationConfigurations")]
+    #[serde(rename = "destinationConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_configurations: Option<Vec<DestinationConfiguration>>,
     /// <p>The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
-    #[serde(rename = "EncodingName")]
+    #[serde(rename = "encodingName")]
     pub encoding_name: String,
     /// <p>Encoding parameters</p>
-    #[serde(rename = "EncodingParameters")]
+    #[serde(rename = "encodingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encoding_parameters: Option<EncodingParameters>,
     /// <p>The name of the media stream.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
 }
 
@@ -945,18 +945,18 @@ pub struct MediaStreamOutputConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MediaStreamOutputConfigurationRequest {
     /// <p>The transport parameters that you want to associate with the media stream.</p>
-    #[serde(rename = "DestinationConfigurations")]
+    #[serde(rename = "destinationConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_configurations: Option<Vec<DestinationConfigurationRequest>>,
     /// <p>The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
-    #[serde(rename = "EncodingName")]
+    #[serde(rename = "encodingName")]
     pub encoding_name: String,
     /// <p>A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.</p>
-    #[serde(rename = "EncodingParameters")]
+    #[serde(rename = "encodingParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encoding_parameters: Option<EncodingParametersRequest>,
     /// <p>The name of the media stream that is associated with the output.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
 }
 
@@ -965,14 +965,14 @@ pub struct MediaStreamOutputConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MediaStreamSourceConfiguration {
     /// <p>The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
-    #[serde(rename = "EncodingName")]
+    #[serde(rename = "encodingName")]
     pub encoding_name: String,
     /// <p>The transport parameters that are associated with an incoming media stream.</p>
-    #[serde(rename = "InputConfigurations")]
+    #[serde(rename = "inputConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_configurations: Option<Vec<InputConfiguration>>,
     /// <p>The name of the media stream.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
 }
 
@@ -981,14 +981,14 @@ pub struct MediaStreamSourceConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct MediaStreamSourceConfigurationRequest {
     /// <p>The format you want to use to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
-    #[serde(rename = "EncodingName")]
+    #[serde(rename = "encodingName")]
     pub encoding_name: String,
     /// <p>The transport parameters that you want to associate with the media stream.</p>
-    #[serde(rename = "InputConfigurations")]
+    #[serde(rename = "inputConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub input_configurations: Option<Vec<InputConfigurationRequest>>,
     /// <p>The name of the media stream.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
 }
 
@@ -997,7 +997,7 @@ pub struct MediaStreamSourceConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Messages {
     /// <p>A list of errors that might have been generated from processes on this flow.</p>
-    #[serde(rename = "Errors")]
+    #[serde(rename = "errors")]
     pub errors: Vec<String>,
 }
 
@@ -1006,28 +1006,28 @@ pub struct Messages {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Offering {
     /// <p>The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.</p>
-    #[serde(rename = "CurrencyCode")]
+    #[serde(rename = "currencyCode")]
     pub currency_code: String,
     /// <p>The length of time that your reservation would be active.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     pub duration: i64,
     /// <p>The unit of measurement for the duration of the offering.</p>
-    #[serde(rename = "DurationUnits")]
+    #[serde(rename = "durationUnits")]
     pub duration_units: String,
     /// <p>The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.</p>
-    #[serde(rename = "OfferingArn")]
+    #[serde(rename = "offeringArn")]
     pub offering_arn: String,
     /// <p>A description of the offering.</p>
-    #[serde(rename = "OfferingDescription")]
+    #[serde(rename = "offeringDescription")]
     pub offering_description: String,
     /// <p>The cost of a single unit. This value, in combination with priceUnits, makes up the rate.</p>
-    #[serde(rename = "PricePerUnit")]
+    #[serde(rename = "pricePerUnit")]
     pub price_per_unit: String,
     /// <p>The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.</p>
-    #[serde(rename = "PriceUnits")]
+    #[serde(rename = "priceUnits")]
     pub price_units: String,
     /// <p>A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.</p>
-    #[serde(rename = "ResourceSpecification")]
+    #[serde(rename = "resourceSpecification")]
     pub resource_specification: ResourceSpecification,
 }
 
@@ -1036,53 +1036,53 @@ pub struct Offering {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Output {
     /// <p>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
-    #[serde(rename = "DataTransferSubscriberFeePercent")]
+    #[serde(rename = "dataTransferSubscriberFeePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transfer_subscriber_fee_percent: Option<i64>,
     /// <p>A description of the output.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The address where you want to send the output.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<String>,
     /// <p>The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<Encryption>,
     /// <p>The ARN of the entitlement on the originator&#39;&#39;s flow. This value is relevant only on entitled flows.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_arn: Option<String>,
     /// <p>The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol.</p>
-    #[serde(rename = "ListenerAddress")]
+    #[serde(rename = "listenerAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub listener_address: Option<String>,
     /// <p>The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.</p>
-    #[serde(rename = "MediaLiveInputArn")]
+    #[serde(rename = "mediaLiveInputArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_live_input_arn: Option<String>,
     /// <p>The configuration for each media stream that is associated with the output.</p>
-    #[serde(rename = "MediaStreamOutputConfigurations")]
+    #[serde(rename = "mediaStreamOutputConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_output_configurations: Option<Vec<MediaStreamOutputConfiguration>>,
     /// <p>The name of the output. This value must be unique within the current flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ARN of the output.</p>
-    #[serde(rename = "OutputArn")]
+    #[serde(rename = "outputArn")]
     pub output_arn: String,
     /// <p>The port to use when content is distributed to this output.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>Attributes related to the transport stream that are used in the output.</p>
-    #[serde(rename = "Transport")]
+    #[serde(rename = "transport")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transport: Option<Transport>,
     /// <p>The name of the VPC interface attachment to use for this output.</p>
-    #[serde(rename = "VpcInterfaceAttachment")]
+    #[serde(rename = "vpcInterfaceAttachment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_attachment: Option<VpcInterfaceAttachment>,
 }
@@ -1092,20 +1092,20 @@ pub struct Output {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PurchaseOfferingRequest {
     /// <p>The Amazon Resource Name (ARN) of the offering.</p>
-    #[serde(rename = "OfferingArn")]
+    #[serde(rename = "offeringArn")]
     pub offering_arn: String,
     /// <p>The name that you want to use for the reservation.</p>
-    #[serde(rename = "ReservationName")]
+    #[serde(rename = "reservationName")]
     pub reservation_name: String,
     /// <p>The date and time that you want the reservation to begin, in Coordinated Universal Time (UTC). You can specify any date and time between 12:00am on the first day of the current month to the current time on today&#39;s date, inclusive. Specify the start in a 24-hour notation. Use the following format: YYYY-MM-DDTHH:mm:SSZ, where T and Z are literal characters. For example, to specify 11:30pm on March 5, 2020, enter 2020-03-05T23:30:00Z.</p>
-    #[serde(rename = "Start")]
+    #[serde(rename = "start")]
     pub start: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PurchaseOfferingResponse {
-    #[serde(rename = "Reservation")]
+    #[serde(rename = "reservation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservation: Option<Reservation>,
 }
@@ -1114,10 +1114,10 @@ pub struct PurchaseOfferingResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveFlowMediaStreamRequest {
     /// <p>The Amazon Resource Name (ARN) of the flow.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The name of the media stream that you want to remove.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
 }
 
@@ -1125,11 +1125,11 @@ pub struct RemoveFlowMediaStreamRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveFlowMediaStreamResponse {
     /// <p>The Amazon Resource Name (ARN) of the flow.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The name of the media stream that was removed.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_name: Option<String>,
 }
@@ -1138,10 +1138,10 @@ pub struct RemoveFlowMediaStreamResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveFlowOutputRequest {
     /// <p>The flow that you want to remove an output from.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The ARN of the output that you want to remove.</p>
-    #[serde(rename = "OutputArn")]
+    #[serde(rename = "outputArn")]
     pub output_arn: String,
 }
 
@@ -1149,11 +1149,11 @@ pub struct RemoveFlowOutputRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveFlowOutputResponse {
     /// <p>The ARN of the flow that is associated with the output you removed.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The ARN of the output that was removed.</p>
-    #[serde(rename = "OutputArn")]
+    #[serde(rename = "outputArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_arn: Option<String>,
 }
@@ -1162,10 +1162,10 @@ pub struct RemoveFlowOutputResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveFlowSourceRequest {
     /// <p>The flow that you want to remove a source from.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The ARN of the source that you want to remove.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     pub source_arn: String,
 }
 
@@ -1173,11 +1173,11 @@ pub struct RemoveFlowSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveFlowSourceResponse {
     /// <p>The ARN of the flow that is associated with the source you removed.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The ARN of the source that was removed.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_arn: Option<String>,
 }
@@ -1186,10 +1186,10 @@ pub struct RemoveFlowSourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RemoveFlowVpcInterfaceRequest {
     /// <p>The flow that you want to remove a VPC interface from.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The name of the VPC interface that you want to remove.</p>
-    #[serde(rename = "VpcInterfaceName")]
+    #[serde(rename = "vpcInterfaceName")]
     pub vpc_interface_name: String,
 }
 
@@ -1197,15 +1197,15 @@ pub struct RemoveFlowVpcInterfaceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RemoveFlowVpcInterfaceResponse {
     /// <p>The ARN of the flow that is associated with the VPC interface you removed.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>IDs of network interfaces associated with the removed VPC interface that Media Connect was unable to remove.</p>
-    #[serde(rename = "NonDeletedNetworkInterfaceIds")]
+    #[serde(rename = "nonDeletedNetworkInterfaceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub non_deleted_network_interface_ids: Option<Vec<String>>,
     /// <p>The name of the VPC interface that was removed.</p>
-    #[serde(rename = "VpcInterfaceName")]
+    #[serde(rename = "vpcInterfaceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_name: Option<String>,
 }
@@ -1215,43 +1215,43 @@ pub struct RemoveFlowVpcInterfaceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Reservation {
     /// <p>The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.</p>
-    #[serde(rename = "CurrencyCode")]
+    #[serde(rename = "currencyCode")]
     pub currency_code: String,
     /// <p>The length of time that this reservation is active. MediaConnect defines this value in the offering.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     pub duration: i64,
     /// <p>The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.</p>
-    #[serde(rename = "DurationUnits")]
+    #[serde(rename = "durationUnits")]
     pub duration_units: String,
     /// <p>The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering&#39;s duration.</p>
-    #[serde(rename = "End")]
+    #[serde(rename = "end")]
     pub end: String,
     /// <p>The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.</p>
-    #[serde(rename = "OfferingArn")]
+    #[serde(rename = "offeringArn")]
     pub offering_arn: String,
     /// <p>A description of the offering. MediaConnect defines this value in the offering.</p>
-    #[serde(rename = "OfferingDescription")]
+    #[serde(rename = "offeringDescription")]
     pub offering_description: String,
     /// <p>The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.</p>
-    #[serde(rename = "PricePerUnit")]
+    #[serde(rename = "pricePerUnit")]
     pub price_per_unit: String,
     /// <p>The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.</p>
-    #[serde(rename = "PriceUnits")]
+    #[serde(rename = "priceUnits")]
     pub price_units: String,
     /// <p>The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.</p>
-    #[serde(rename = "ReservationArn")]
+    #[serde(rename = "reservationArn")]
     pub reservation_arn: String,
     /// <p>The name that you assigned to the reservation when you purchased the offering.</p>
-    #[serde(rename = "ReservationName")]
+    #[serde(rename = "reservationName")]
     pub reservation_name: String,
     /// <p>The status of your reservation.</p>
-    #[serde(rename = "ReservationState")]
+    #[serde(rename = "reservationState")]
     pub reservation_state: String,
     /// <p>A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.</p>
-    #[serde(rename = "ResourceSpecification")]
+    #[serde(rename = "resourceSpecification")]
     pub resource_specification: ResourceSpecification,
     /// <p>The day and time that the reservation becomes active. You set this value when you purchase the offering.</p>
-    #[serde(rename = "Start")]
+    #[serde(rename = "start")]
     pub start: String,
 }
 
@@ -1260,11 +1260,11 @@ pub struct Reservation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceSpecification {
     /// <p>The amount of outbound bandwidth that is discounted in the offering.</p>
-    #[serde(rename = "ReservedBitrate")]
+    #[serde(rename = "reservedBitrate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reserved_bitrate: Option<i64>,
     /// <p>The type of resource and the unit that is being billed for.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -1272,10 +1272,10 @@ pub struct ResourceSpecification {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RevokeFlowEntitlementRequest {
     /// <p>The ARN of the entitlement that you want to revoke.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     pub entitlement_arn: String,
     /// <p>The flow that you want to revoke an entitlement from.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
 }
 
@@ -1283,11 +1283,11 @@ pub struct RevokeFlowEntitlementRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RevokeFlowEntitlementResponse {
     /// <p>The ARN of the entitlement that was revoked.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_arn: Option<String>,
     /// <p>The ARN of the flow that the entitlement was revoked from.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
 }
@@ -1297,59 +1297,59 @@ pub struct RevokeFlowEntitlementResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetSourceRequest {
     /// <p>The type of encryption that is used on the content ingested from this source.</p>
-    #[serde(rename = "Decryption")]
+    #[serde(rename = "decryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decryption: Option<Encryption>,
     /// <p>A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator&#39;s flow.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_arn: Option<String>,
     /// <p>The port that the flow will be listening on for incoming content.</p>
-    #[serde(rename = "IngestPort")]
+    #[serde(rename = "ingestPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingest_port: Option<i64>,
     /// <p>The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</p>
-    #[serde(rename = "MaxBitrate")]
+    #[serde(rename = "maxBitrate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_bitrate: Option<i64>,
     /// <p>The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
-    #[serde(rename = "MaxLatency")]
+    #[serde(rename = "maxLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_latency: Option<i64>,
     /// <p>The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
-    #[serde(rename = "MaxSyncBuffer")]
+    #[serde(rename = "maxSyncBuffer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_sync_buffer: Option<i64>,
     /// <p>The media streams that are associated with the source, and the parameters for those associations.</p>
-    #[serde(rename = "MediaStreamSourceConfigurations")]
+    #[serde(rename = "mediaStreamSourceConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_source_configurations: Option<Vec<MediaStreamSourceConfigurationRequest>>,
     /// <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
-    #[serde(rename = "MinLatency")]
+    #[serde(rename = "minLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_latency: Option<i64>,
     /// <p>The name of the source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The protocol that is used by the source.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</p>
-    #[serde(rename = "StreamId")]
+    #[serde(rename = "streamId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_id: Option<String>,
     /// <p>The name of the VPC interface to use for this source.</p>
-    #[serde(rename = "VpcInterfaceName")]
+    #[serde(rename = "vpcInterfaceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_name: Option<String>,
     /// <p>The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-    #[serde(rename = "WhitelistCidr")]
+    #[serde(rename = "whitelistCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist_cidr: Option<String>,
 }
@@ -1359,49 +1359,49 @@ pub struct SetSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Source {
     /// <p>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
-    #[serde(rename = "DataTransferSubscriberFeePercent")]
+    #[serde(rename = "dataTransferSubscriberFeePercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_transfer_subscriber_fee_percent: Option<i64>,
     /// <p>The type of encryption that is used on the content ingested from this source.</p>
-    #[serde(rename = "Decryption")]
+    #[serde(rename = "decryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decryption: Option<Encryption>,
     /// <p>A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator&#39;s flow.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_arn: Option<String>,
     /// <p>The IP address that the flow will be listening on for incoming content.</p>
-    #[serde(rename = "IngestIp")]
+    #[serde(rename = "ingestIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingest_ip: Option<String>,
     /// <p>The port that the flow will be listening on for incoming content.</p>
-    #[serde(rename = "IngestPort")]
+    #[serde(rename = "ingestPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingest_port: Option<i64>,
     /// <p>The media streams that are associated with the source, and the parameters for those associations.</p>
-    #[serde(rename = "MediaStreamSourceConfigurations")]
+    #[serde(rename = "mediaStreamSourceConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_source_configurations: Option<Vec<MediaStreamSourceConfiguration>>,
     /// <p>The name of the source.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The ARN of the source.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     pub source_arn: String,
     /// <p>Attributes related to the transport stream that are used in the source.</p>
-    #[serde(rename = "Transport")]
+    #[serde(rename = "transport")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transport: Option<Transport>,
     /// <p>The name of the VPC interface that is used for this source.</p>
-    #[serde(rename = "VpcInterfaceName")]
+    #[serde(rename = "vpcInterfaceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_name: Option<String>,
     /// <p>The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-    #[serde(rename = "WhitelistCidr")]
+    #[serde(rename = "whitelistCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist_cidr: Option<String>,
 }
@@ -1410,7 +1410,7 @@ pub struct Source {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SourcePriority {
     /// <p>The name of the source you choose as the primary source for this flow.</p>
-    #[serde(rename = "PrimarySource")]
+    #[serde(rename = "primarySource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub primary_source: Option<String>,
 }
@@ -1419,7 +1419,7 @@ pub struct SourcePriority {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartFlowRequest {
     /// <p>The ARN of the flow that you want to start.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
 }
 
@@ -1427,11 +1427,11 @@ pub struct StartFlowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartFlowResponse {
     /// <p>The ARN of the flow that you started.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The status of the flow when the StartFlow process begins.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1440,7 +1440,7 @@ pub struct StartFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopFlowRequest {
     /// <p>The ARN of the flow that you want to stop.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
 }
 
@@ -1448,11 +1448,11 @@ pub struct StopFlowRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StopFlowResponse {
     /// <p>The ARN of the flow that you stopped.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The status of the flow when the StopFlow process begins.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1462,10 +1462,10 @@ pub struct StopFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource to which to add tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -1474,38 +1474,38 @@ pub struct TagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Transport {
     /// <p>The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-    #[serde(rename = "CidrAllowList")]
+    #[serde(rename = "cidrAllowList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cidr_allow_list: Option<Vec<String>>,
     /// <p>The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</p>
-    #[serde(rename = "MaxBitrate")]
+    #[serde(rename = "maxBitrate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_bitrate: Option<i64>,
     /// <p>The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
-    #[serde(rename = "MaxLatency")]
+    #[serde(rename = "maxLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_latency: Option<i64>,
     /// <p>The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
-    #[serde(rename = "MaxSyncBuffer")]
+    #[serde(rename = "maxSyncBuffer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_sync_buffer: Option<i64>,
     /// <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
-    #[serde(rename = "MinLatency")]
+    #[serde(rename = "minLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_latency: Option<i64>,
     /// <p>The protocol that is used by the source or output.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     pub protocol: String,
     /// <p>The remote ID for the Zixi-pull stream.</p>
-    #[serde(rename = "RemoteId")]
+    #[serde(rename = "remoteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_id: Option<String>,
     /// <p>The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
-    #[serde(rename = "SmoothingLatency")]
+    #[serde(rename = "smoothingLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub smoothing_latency: Option<i64>,
     /// <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</p>
-    #[serde(rename = "StreamId")]
+    #[serde(rename = "streamId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_id: Option<String>,
 }
@@ -1514,10 +1514,10 @@ pub struct Transport {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The keys of the tags to be removed.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1526,39 +1526,39 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateEncryption {
     /// <p>The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>
-    #[serde(rename = "Algorithm")]
+    #[serde(rename = "algorithm")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub algorithm: Option<String>,
     /// <p>A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.</p>
-    #[serde(rename = "ConstantInitializationVector")]
+    #[serde(rename = "constantInitializationVector")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constant_initialization_vector: Option<String>,
     /// <p>The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "DeviceId")]
+    #[serde(rename = "deviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_id: Option<String>,
     /// <p>The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
-    #[serde(rename = "KeyType")]
+    #[serde(rename = "keyType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_type: Option<String>,
     /// <p>The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arn: Option<String>,
     /// <p>The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.</p>
-    #[serde(rename = "SecretArn")]
+    #[serde(rename = "secretArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_arn: Option<String>,
     /// <p>The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }
@@ -1568,18 +1568,18 @@ pub struct UpdateEncryption {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFailoverConfig {
     /// <p>The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>
-    #[serde(rename = "FailoverMode")]
+    #[serde(rename = "failoverMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failover_mode: Option<String>,
     /// <p>Recovery window time to look for dash-7 packets</p>
-    #[serde(rename = "RecoveryWindow")]
+    #[serde(rename = "recoveryWindow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recovery_window: Option<i64>,
     /// <p>The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.</p>
-    #[serde(rename = "SourcePriority")]
+    #[serde(rename = "sourcePriority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_priority: Option<SourcePriority>,
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
 }
@@ -1589,25 +1589,25 @@ pub struct UpdateFailoverConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFlowEntitlementRequest {
     /// <p>A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The type of encryption that will be used on the output associated with this entitlement.</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<UpdateEncryption>,
     /// <p>The ARN of the entitlement that you want to update.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     pub entitlement_arn: String,
     /// <p>An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.</p>
-    #[serde(rename = "EntitlementStatus")]
+    #[serde(rename = "entitlementStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_status: Option<String>,
     /// <p>The flow that is associated with the entitlement that you want to update.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</p>
-    #[serde(rename = "Subscribers")]
+    #[serde(rename = "subscribers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subscribers: Option<Vec<String>>,
 }
@@ -1616,11 +1616,11 @@ pub struct UpdateFlowEntitlementRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFlowEntitlementResponse {
     /// <p>The new configuration of the entitlement that you updated.</p>
-    #[serde(rename = "Entitlement")]
+    #[serde(rename = "entitlement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement: Option<Entitlement>,
     /// <p>The ARN of the flow that this entitlement was granted on.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
 }
@@ -1630,29 +1630,29 @@ pub struct UpdateFlowEntitlementResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFlowMediaStreamRequest {
     /// <p>The attributes that you want to assign to the media stream.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<MediaStreamAttributesRequest>,
     /// <p>The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.</p>
-    #[serde(rename = "ClockRate")]
+    #[serde(rename = "clockRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clock_rate: Option<i64>,
     /// <p>Description</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the flow.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The name of the media stream that you want to update.</p>
-    #[serde(rename = "MediaStreamName")]
+    #[serde(rename = "mediaStreamName")]
     pub media_stream_name: String,
     /// <p>The type of media stream.</p>
-    #[serde(rename = "MediaStreamType")]
+    #[serde(rename = "mediaStreamType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_type: Option<String>,
     /// <p>The resolution of the video.</p>
-    #[serde(rename = "VideoFormat")]
+    #[serde(rename = "videoFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub video_format: Option<String>,
 }
@@ -1661,11 +1661,11 @@ pub struct UpdateFlowMediaStreamRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFlowMediaStreamResponse {
     /// <p>The ARN of the flow that is associated with the media stream that you updated.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The media stream that you updated.</p>
-    #[serde(rename = "MediaStream")]
+    #[serde(rename = "mediaStream")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream: Option<MediaStream>,
 }
@@ -1675,61 +1675,61 @@ pub struct UpdateFlowMediaStreamResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFlowOutputRequest {
     /// <p>The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-    #[serde(rename = "CidrAllowList")]
+    #[serde(rename = "cidrAllowList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cidr_allow_list: Option<Vec<String>>,
     /// <p>A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The IP address where you want to send the output.</p>
-    #[serde(rename = "Destination")]
+    #[serde(rename = "destination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination: Option<String>,
     /// <p>The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
-    #[serde(rename = "Encryption")]
+    #[serde(rename = "encryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption: Option<UpdateEncryption>,
     /// <p>The flow that is associated with the output that you want to update.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The maximum latency in milliseconds for Zixi-based streams.</p>
-    #[serde(rename = "MaxLatency")]
+    #[serde(rename = "maxLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_latency: Option<i64>,
     /// <p>The media streams that are associated with the output, and the parameters for those associations.</p>
-    #[serde(rename = "MediaStreamOutputConfigurations")]
+    #[serde(rename = "mediaStreamOutputConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_output_configurations: Option<Vec<MediaStreamOutputConfigurationRequest>>,
     /// <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
-    #[serde(rename = "MinLatency")]
+    #[serde(rename = "minLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_latency: Option<i64>,
     /// <p>The ARN of the output that you want to update.</p>
-    #[serde(rename = "OutputArn")]
+    #[serde(rename = "outputArn")]
     pub output_arn: String,
     /// <p>The port to use when content is distributed to this output.</p>
-    #[serde(rename = "Port")]
+    #[serde(rename = "port")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port: Option<i64>,
     /// <p>The protocol to use for the output.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The remote ID for the Zixi-pull stream.</p>
-    #[serde(rename = "RemoteId")]
+    #[serde(rename = "remoteId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_id: Option<String>,
     /// <p>The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
-    #[serde(rename = "SmoothingLatency")]
+    #[serde(rename = "smoothingLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub smoothing_latency: Option<i64>,
     /// <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</p>
-    #[serde(rename = "StreamId")]
+    #[serde(rename = "streamId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_id: Option<String>,
     /// <p>The name of the VPC interface attachment to use for this output.</p>
-    #[serde(rename = "VpcInterfaceAttachment")]
+    #[serde(rename = "vpcInterfaceAttachment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_attachment: Option<VpcInterfaceAttachment>,
 }
@@ -1738,11 +1738,11 @@ pub struct UpdateFlowOutputRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFlowOutputResponse {
     /// <p>The ARN of the flow that is associated with the updated output.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The new settings of the output that you updated.</p>
-    #[serde(rename = "Output")]
+    #[serde(rename = "output")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output: Option<Output>,
 }
@@ -1752,9 +1752,9 @@ pub struct UpdateFlowOutputResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFlowRequest {
     /// <p>The flow that you want to update.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
-    #[serde(rename = "SourceFailoverConfig")]
+    #[serde(rename = "sourceFailoverConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_failover_config: Option<UpdateFailoverConfig>,
 }
@@ -1762,7 +1762,7 @@ pub struct UpdateFlowRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFlowResponse {
-    #[serde(rename = "Flow")]
+    #[serde(rename = "flow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow: Option<Flow>,
 }
@@ -1772,61 +1772,61 @@ pub struct UpdateFlowResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateFlowSourceRequest {
     /// <p>The type of encryption used on the content ingested from this source.</p>
-    #[serde(rename = "Decryption")]
+    #[serde(rename = "decryption")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub decryption: Option<UpdateEncryption>,
     /// <p>A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator&#39;s flow.</p>
-    #[serde(rename = "EntitlementArn")]
+    #[serde(rename = "entitlementArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_arn: Option<String>,
     /// <p>The flow that is associated with the source that you want to update.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     pub flow_arn: String,
     /// <p>The port that the flow will be listening on for incoming content.</p>
-    #[serde(rename = "IngestPort")]
+    #[serde(rename = "ingestPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ingest_port: Option<i64>,
     /// <p>The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</p>
-    #[serde(rename = "MaxBitrate")]
+    #[serde(rename = "maxBitrate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_bitrate: Option<i64>,
     /// <p>The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
-    #[serde(rename = "MaxLatency")]
+    #[serde(rename = "maxLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_latency: Option<i64>,
     /// <p>The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
-    #[serde(rename = "MaxSyncBuffer")]
+    #[serde(rename = "maxSyncBuffer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_sync_buffer: Option<i64>,
     /// <p>The media streams that are associated with the source, and the parameters for those associations.</p>
-    #[serde(rename = "MediaStreamSourceConfigurations")]
+    #[serde(rename = "mediaStreamSourceConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_stream_source_configurations: Option<Vec<MediaStreamSourceConfigurationRequest>>,
     /// <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
-    #[serde(rename = "MinLatency")]
+    #[serde(rename = "minLatency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_latency: Option<i64>,
     /// <p>The protocol that is used by the source.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The ARN of the source that you want to update.</p>
-    #[serde(rename = "SourceArn")]
+    #[serde(rename = "sourceArn")]
     pub source_arn: String,
     /// <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</p>
-    #[serde(rename = "StreamId")]
+    #[serde(rename = "streamId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_id: Option<String>,
     /// <p>The name of the VPC interface to use for this source.</p>
-    #[serde(rename = "VpcInterfaceName")]
+    #[serde(rename = "vpcInterfaceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_name: Option<String>,
     /// <p>The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
-    #[serde(rename = "WhitelistCidr")]
+    #[serde(rename = "whitelistCidr")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub whitelist_cidr: Option<String>,
 }
@@ -1835,11 +1835,11 @@ pub struct UpdateFlowSourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateFlowSourceResponse {
     /// <p>The ARN of the flow that you want to update.</p>
-    #[serde(rename = "FlowArn")]
+    #[serde(rename = "flowArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub flow_arn: Option<String>,
     /// <p>The settings for the source of the flow.</p>
-    #[serde(rename = "Source")]
+    #[serde(rename = "source")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<Source>,
 }
@@ -1849,22 +1849,22 @@ pub struct UpdateFlowSourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct VpcInterface {
     /// <p>Immutable and has to be a unique against other VpcInterfaces in this Flow</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>IDs of the network interfaces created in customer&#39;s account by MediaConnect.</p>
-    #[serde(rename = "NetworkInterfaceIds")]
+    #[serde(rename = "networkInterfaceIds")]
     pub network_interface_ids: Vec<String>,
     /// <p>The type of network interface.</p>
-    #[serde(rename = "NetworkInterfaceType")]
+    #[serde(rename = "networkInterfaceType")]
     pub network_interface_type: String,
     /// <p>Role Arn MediaConnect can assumes to create ENIs in customer&#39;s account</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>Security Group IDs to be used on ENI.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     pub security_group_ids: Vec<String>,
     /// <p>Subnet must be in the AZ of the Flow</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     pub subnet_id: String,
 }
 
@@ -1872,7 +1872,7 @@ pub struct VpcInterface {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VpcInterfaceAttachment {
     /// <p>The name of the VPC interface to use for this output.</p>
-    #[serde(rename = "VpcInterfaceName")]
+    #[serde(rename = "vpcInterfaceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_interface_name: Option<String>,
 }
@@ -1882,20 +1882,20 @@ pub struct VpcInterfaceAttachment {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct VpcInterfaceRequest {
     /// <p>The name of the VPC Interface. This value must be unique within the current flow.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The type of network interface. If this value is not included in the request, MediaConnect uses ENA as the networkInterfaceType.</p>
-    #[serde(rename = "NetworkInterfaceType")]
+    #[serde(rename = "networkInterfaceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub network_interface_type: Option<String>,
     /// <p>Role Arn MediaConnect can assumes to create ENIs in customer&#39;s account</p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>Security Group IDs to be used on ENI.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     pub security_group_ids: Vec<String>,
     /// <p>Subnet must be in the AZ of the Flow</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     pub subnet_id: String,
 }
 

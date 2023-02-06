@@ -55,7 +55,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AcceptGrantRequest {
     /// <p>Amazon Resource Name (ARN) of the grant.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     pub grant_arn: String,
 }
 
@@ -63,15 +63,15 @@ pub struct AcceptGrantRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AcceptGrantResponse {
     /// <p>Grant ARN.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arn: Option<String>,
     /// <p>Grant status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Grant version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -81,7 +81,7 @@ pub struct AcceptGrantResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AutomatedDiscoveryInformation {
     /// <p>Time that automated discovery last ran.</p>
-    #[serde(rename = "LastRunTime")]
+    #[serde(rename = "lastRunTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_run_time: Option<f64>,
 }
@@ -90,10 +90,10 @@ pub struct AutomatedDiscoveryInformation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BorrowConfiguration {
     /// <p>Indicates whether early check-ins are allowed.</p>
-    #[serde(rename = "AllowEarlyCheckIn")]
+    #[serde(rename = "allowEarlyCheckIn")]
     pub allow_early_check_in: bool,
     /// <p>Maximum time for the borrow configuration, in minutes.</p>
-    #[serde(rename = "MaxTimeToLiveInMinutes")]
+    #[serde(rename = "maxTimeToLiveInMinutes")]
     pub max_time_to_live_in_minutes: i64,
 }
 
@@ -101,11 +101,11 @@ pub struct BorrowConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CheckInLicenseRequest {
     /// <p>License beneficiary.</p>
-    #[serde(rename = "Beneficiary")]
+    #[serde(rename = "beneficiary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub beneficiary: Option<String>,
     /// <p>License consumption token.</p>
-    #[serde(rename = "LicenseConsumptionToken")]
+    #[serde(rename = "licenseConsumptionToken")]
     pub license_consumption_token: String,
 }
 
@@ -117,23 +117,23 @@ pub struct CheckInLicenseResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CheckoutBorrowLicenseRequest {
     /// <p>Information about constraints.</p>
-    #[serde(rename = "CheckoutMetadata")]
+    #[serde(rename = "checkoutMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checkout_metadata: Option<Vec<Metadata>>,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384. For more information, see <a href="https://tools.ietf.org/html/rfc7518#section-3.5">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>
-    #[serde(rename = "DigitalSignatureMethod")]
+    #[serde(rename = "digitalSignatureMethod")]
     pub digital_signature_method: String,
     /// <p>License entitlements. Partial checkouts are not supported.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     pub entitlements: Vec<EntitlementData>,
     /// <p>Amazon Resource Name (ARN) of the license. The license must use the borrow consumption configuration.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>Node ID.</p>
-    #[serde(rename = "NodeId")]
+    #[serde(rename = "nodeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_id: Option<String>,
 }
@@ -142,35 +142,35 @@ pub struct CheckoutBorrowLicenseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CheckoutBorrowLicenseResponse {
     /// <p>Information about constraints.</p>
-    #[serde(rename = "CheckoutMetadata")]
+    #[serde(rename = "checkoutMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checkout_metadata: Option<Vec<Metadata>>,
     /// <p>Allowed license entitlements.</p>
-    #[serde(rename = "EntitlementsAllowed")]
+    #[serde(rename = "entitlementsAllowed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements_allowed: Option<Vec<EntitlementData>>,
     /// <p>Date and time at which the license checkout expires.</p>
-    #[serde(rename = "Expiration")]
+    #[serde(rename = "expiration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration: Option<String>,
     /// <p>Date and time at which the license checkout is issued.</p>
-    #[serde(rename = "IssuedAt")]
+    #[serde(rename = "issuedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issued_at: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arn: Option<String>,
     /// <p>License consumption token.</p>
-    #[serde(rename = "LicenseConsumptionToken")]
+    #[serde(rename = "licenseConsumptionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_consumption_token: Option<String>,
     /// <p>Node ID.</p>
-    #[serde(rename = "NodeId")]
+    #[serde(rename = "nodeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_id: Option<String>,
     /// <p>Signed token.</p>
-    #[serde(rename = "SignedToken")]
+    #[serde(rename = "signedToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_token: Option<String>,
 }
@@ -179,27 +179,27 @@ pub struct CheckoutBorrowLicenseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CheckoutLicenseRequest {
     /// <p>License beneficiary.</p>
-    #[serde(rename = "Beneficiary")]
+    #[serde(rename = "beneficiary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub beneficiary: Option<String>,
     /// <p>Checkout type.</p>
-    #[serde(rename = "CheckoutType")]
+    #[serde(rename = "checkoutType")]
     pub checkout_type: String,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>License entitlements.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     pub entitlements: Vec<EntitlementData>,
     /// <p>Key fingerprint identifying the license.</p>
-    #[serde(rename = "KeyFingerprint")]
+    #[serde(rename = "keyFingerprint")]
     pub key_fingerprint: String,
     /// <p>Node ID.</p>
-    #[serde(rename = "NodeId")]
+    #[serde(rename = "nodeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_id: Option<String>,
     /// <p>Product SKU.</p>
-    #[serde(rename = "ProductSKU")]
+    #[serde(rename = "productSKU")]
     pub product_sku: String,
 }
 
@@ -207,31 +207,31 @@ pub struct CheckoutLicenseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CheckoutLicenseResponse {
     /// <p>Checkout type.</p>
-    #[serde(rename = "CheckoutType")]
+    #[serde(rename = "checkoutType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub checkout_type: Option<String>,
     /// <p>Allowed license entitlements.</p>
-    #[serde(rename = "EntitlementsAllowed")]
+    #[serde(rename = "entitlementsAllowed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements_allowed: Option<Vec<EntitlementData>>,
     /// <p>Date and time at which the license checkout expires.</p>
-    #[serde(rename = "Expiration")]
+    #[serde(rename = "expiration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration: Option<String>,
     /// <p>Date and time at which the license checkout is issued.</p>
-    #[serde(rename = "IssuedAt")]
+    #[serde(rename = "issuedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issued_at: Option<String>,
     /// <p>License consumption token.</p>
-    #[serde(rename = "LicenseConsumptionToken")]
+    #[serde(rename = "licenseConsumptionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_consumption_token: Option<String>,
     /// <p>Node ID.</p>
-    #[serde(rename = "NodeId")]
+    #[serde(rename = "nodeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub node_id: Option<String>,
     /// <p>Signed token.</p>
-    #[serde(rename = "SignedToken")]
+    #[serde(rename = "signedToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signed_token: Option<String>,
 }
@@ -241,11 +241,11 @@ pub struct CheckoutLicenseResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConsumedLicenseSummary {
     /// <p>Number of licenses consumed by the resource.</p>
-    #[serde(rename = "ConsumedLicenses")]
+    #[serde(rename = "consumedLicenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_licenses: Option<i64>,
     /// <p>Resource type of the resource consuming a license.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -254,15 +254,15 @@ pub struct ConsumedLicenseSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ConsumptionConfiguration {
     /// <p>Details about a borrow configuration.</p>
-    #[serde(rename = "BorrowConfiguration")]
+    #[serde(rename = "borrowConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub borrow_configuration: Option<BorrowConfiguration>,
     /// <p>Details about a provisional configuration.</p>
-    #[serde(rename = "ProvisionalConfiguration")]
+    #[serde(rename = "provisionalConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisional_configuration: Option<ProvisionalConfiguration>,
     /// <p>Renewal frequency.</p>
-    #[serde(rename = "RenewType")]
+    #[serde(rename = "renewType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub renew_type: Option<String>,
 }
@@ -271,22 +271,22 @@ pub struct ConsumptionConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGrantRequest {
     /// <p>Allowed operations for the grant.</p>
-    #[serde(rename = "AllowedOperations")]
+    #[serde(rename = "allowedOperations")]
     pub allowed_operations: Vec<String>,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Grant name.</p>
-    #[serde(rename = "GrantName")]
+    #[serde(rename = "grantName")]
     pub grant_name: String,
     /// <p>Home Region of the grant.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     pub home_region: String,
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>The grant principals.</p>
-    #[serde(rename = "Principals")]
+    #[serde(rename = "principals")]
     pub principals: Vec<String>,
 }
 
@@ -294,15 +294,15 @@ pub struct CreateGrantRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGrantResponse {
     /// <p>Grant ARN.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arn: Option<String>,
     /// <p>Grant status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Grant version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -311,28 +311,28 @@ pub struct CreateGrantResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGrantVersionRequest {
     /// <p>Allowed operations for the grant.</p>
-    #[serde(rename = "AllowedOperations")]
+    #[serde(rename = "allowedOperations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_operations: Option<Vec<String>>,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Amazon Resource Name (ARN) of the grant.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     pub grant_arn: String,
     /// <p>Grant name.</p>
-    #[serde(rename = "GrantName")]
+    #[serde(rename = "grantName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_name: Option<String>,
     /// <p>Current version of the grant.</p>
-    #[serde(rename = "SourceVersion")]
+    #[serde(rename = "sourceVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_version: Option<String>,
     /// <p>Grant status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<String>,
 }
@@ -341,15 +341,15 @@ pub struct CreateGrantVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGrantVersionResponse {
     /// <p>Grant ARN.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arn: Option<String>,
     /// <p>Grant status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>New version of the grant.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -358,37 +358,37 @@ pub struct CreateGrantVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLicenseConfigurationRequest {
     /// <p>Description of the license configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>When true, disassociates a resource when software is uninstalled.</p>
-    #[serde(rename = "DisassociateWhenNotFound")]
+    #[serde(rename = "disassociateWhenNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disassociate_when_not_found: Option<bool>,
     /// <p>Number of licenses managed by the license configuration.</p>
-    #[serde(rename = "LicenseCount")]
+    #[serde(rename = "licenseCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count: Option<i64>,
     /// <p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit blocks the launch of new instances.</p>
-    #[serde(rename = "LicenseCountHardLimit")]
+    #[serde(rename = "licenseCountHardLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count_hard_limit: Option<bool>,
     /// <p>Dimension used to track the license inventory.</p>
-    #[serde(rename = "LicenseCountingType")]
+    #[serde(rename = "licenseCountingType")]
     pub license_counting_type: String,
     /// <p>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost). The available rules vary by dimension, as follows.</p> <ul> <li> <p> <code>Cores</code> dimension: <code>allowedTenancy</code> | <code>licenseAffinityToHost</code> | <code>maximumCores</code> | <code>minimumCores</code> </p> </li> <li> <p> <code>Instances</code> dimension: <code>allowedTenancy</code> | <code>maximumCores</code> | <code>minimumCores</code> | <code>maximumSockets</code> | <code>minimumSockets</code> | <code>maximumVcpus</code> | <code>minimumVcpus</code> </p> </li> <li> <p> <code>Sockets</code> dimension: <code>allowedTenancy</code> | <code>licenseAffinityToHost</code> | <code>maximumSockets</code> | <code>minimumSockets</code> </p> </li> <li> <p> <code>vCPUs</code> dimension: <code>allowedTenancy</code> | <code>honorVcpuOptimization</code> | <code>maximumVcpus</code> | <code>minimumVcpus</code> </p> </li> </ul> <p>The unit for <code>licenseAffinityToHost</code> is days and the range is 1 to 180. The possible values for <code>allowedTenancy</code> are <code>EC2-Default</code>, <code>EC2-DedicatedHost</code>, and <code>EC2-DedicatedInstance</code>. The possible values for <code>honorVcpuOptimization</code> are <code>True</code> and <code>False</code>.</p>
-    #[serde(rename = "LicenseRules")]
+    #[serde(rename = "licenseRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_rules: Option<Vec<String>>,
     /// <p>Name of the license configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Product information.</p>
-    #[serde(rename = "ProductInformationList")]
+    #[serde(rename = "productInformationList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_information_list: Option<Vec<ProductInformation>>,
     /// <p>Tags to add to the license configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -397,7 +397,7 @@ pub struct CreateLicenseConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLicenseConfigurationResponse {
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_arn: Option<String>,
 }
@@ -406,27 +406,27 @@ pub struct CreateLicenseConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLicenseManagerReportGeneratorRequest {
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Description of the report generator.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Defines the type of license configuration the report generator tracks.</p>
-    #[serde(rename = "ReportContext")]
+    #[serde(rename = "reportContext")]
     pub report_context: ReportContext,
     /// <p>Frequency by which reports are generated. Reports can be generated daily, monthly, or weekly.</p>
-    #[serde(rename = "ReportFrequency")]
+    #[serde(rename = "reportFrequency")]
     pub report_frequency: ReportFrequency,
     /// <p>Name of the report generator.</p>
-    #[serde(rename = "ReportGeneratorName")]
+    #[serde(rename = "reportGeneratorName")]
     pub report_generator_name: String,
     /// <p>Tags to add to the report generator.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p><p>Type of reports to generate. The following report types an be generated:</p> <ul> <li> <p>License configuration report - Reports on the number and details of consumed licenses for a license configuration.</p> </li> <li> <p>Resource report - Reports on the tracked licenses and resource consumption for a license configuration.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: Vec<String>,
 }
 
@@ -434,7 +434,7 @@ pub struct CreateLicenseManagerReportGeneratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLicenseManagerReportGeneratorResponse {
     /// <p>The Amazon Resource Number (ARN) of the new report generator.</p>
-    #[serde(rename = "LicenseManagerReportGeneratorArn")]
+    #[serde(rename = "licenseManagerReportGeneratorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_manager_report_generator_arn: Option<String>,
 }
@@ -443,38 +443,38 @@ pub struct CreateLicenseManagerReportGeneratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLicenseRequest {
     /// <p>License beneficiary.</p>
-    #[serde(rename = "Beneficiary")]
+    #[serde(rename = "beneficiary")]
     pub beneficiary: String,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Configuration for consumption of the license. Choose a provisional configuration for workloads running with continuous connectivity. Choose a borrow configuration for workloads with offline usage.</p>
-    #[serde(rename = "ConsumptionConfiguration")]
+    #[serde(rename = "consumptionConfiguration")]
     pub consumption_configuration: ConsumptionConfiguration,
     /// <p>License entitlements.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     pub entitlements: Vec<Entitlement>,
     /// <p>Home Region for the license.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     pub home_region: String,
     /// <p>License issuer.</p>
-    #[serde(rename = "Issuer")]
+    #[serde(rename = "issuer")]
     pub issuer: Issuer,
     /// <p>Information about the license.</p>
-    #[serde(rename = "LicenseMetadata")]
+    #[serde(rename = "licenseMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_metadata: Option<Vec<Metadata>>,
     /// <p>License name.</p>
-    #[serde(rename = "LicenseName")]
+    #[serde(rename = "licenseName")]
     pub license_name: String,
     /// <p>Product name.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     pub product_name: String,
     /// <p>Product SKU.</p>
-    #[serde(rename = "ProductSKU")]
+    #[serde(rename = "productSKU")]
     pub product_sku: String,
     /// <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     pub validity: DatetimeRange,
 }
 
@@ -482,15 +482,15 @@ pub struct CreateLicenseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLicenseResponse {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arn: Option<String>,
     /// <p>License status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>License version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -499,42 +499,42 @@ pub struct CreateLicenseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLicenseVersionRequest {
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Configuration for consumption of the license. Choose a provisional configuration for workloads running with continuous connectivity. Choose a borrow configuration for workloads with offline usage.</p>
-    #[serde(rename = "ConsumptionConfiguration")]
+    #[serde(rename = "consumptionConfiguration")]
     pub consumption_configuration: ConsumptionConfiguration,
     /// <p>License entitlements.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     pub entitlements: Vec<Entitlement>,
     /// <p>Home Region of the license.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     pub home_region: String,
     /// <p>License issuer.</p>
-    #[serde(rename = "Issuer")]
+    #[serde(rename = "issuer")]
     pub issuer: Issuer,
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>Information about the license.</p>
-    #[serde(rename = "LicenseMetadata")]
+    #[serde(rename = "licenseMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_metadata: Option<Vec<Metadata>>,
     /// <p>License name.</p>
-    #[serde(rename = "LicenseName")]
+    #[serde(rename = "licenseName")]
     pub license_name: String,
     /// <p>Product name.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     pub product_name: String,
     /// <p>Current version of the license.</p>
-    #[serde(rename = "SourceVersion")]
+    #[serde(rename = "sourceVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_version: Option<String>,
     /// <p>License status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     pub status: String,
     /// <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     pub validity: DatetimeRange,
 }
 
@@ -542,15 +542,15 @@ pub struct CreateLicenseVersionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLicenseVersionResponse {
     /// <p>License ARN.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arn: Option<String>,
     /// <p>License status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>New version of the license.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -559,21 +559,21 @@ pub struct CreateLicenseVersionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTokenRequest {
     /// <p>Idempotency token, valid for 10 minutes.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Token expiration, in days, counted from token creation. The default is 365 days.</p>
-    #[serde(rename = "ExpirationInDays")]
+    #[serde(rename = "expirationInDays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_in_days: Option<i64>,
     /// <p>Amazon Resource Name (ARN) of the license. The ARN is mapped to the aud claim of the JWT token.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>Amazon Resource Name (ARN) of the IAM roles to embed in the token. License Manager does not check whether the roles are in use.</p>
-    #[serde(rename = "RoleArns")]
+    #[serde(rename = "roleArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arns: Option<Vec<String>>,
     /// <p>Data specified by the caller to be included in the JWT token. The data is mapped to the amr claim of the JWT token.</p>
-    #[serde(rename = "TokenProperties")]
+    #[serde(rename = "tokenProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_properties: Option<Vec<String>>,
 }
@@ -582,15 +582,15 @@ pub struct CreateTokenRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTokenResponse {
     /// <p>Refresh token, encoded as a JWT token.</p>
-    #[serde(rename = "Token")]
+    #[serde(rename = "token")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token: Option<String>,
     /// <p>Token ID.</p>
-    #[serde(rename = "TokenId")]
+    #[serde(rename = "tokenId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_id: Option<String>,
     /// <p>Token type.</p>
-    #[serde(rename = "TokenType")]
+    #[serde(rename = "tokenType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_type: Option<String>,
 }
@@ -599,10 +599,10 @@ pub struct CreateTokenResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DatetimeRange {
     /// <p>Start of the time range.</p>
-    #[serde(rename = "Begin")]
+    #[serde(rename = "begin")]
     pub begin: String,
     /// <p>End of the time range.</p>
-    #[serde(rename = "End")]
+    #[serde(rename = "end")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end: Option<String>,
 }
@@ -611,13 +611,13 @@ pub struct DatetimeRange {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGrantRequest {
     /// <p>Amazon Resource Name (ARN) of the grant.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     pub grant_arn: String,
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<String>,
     /// <p>Current version of the grant.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     pub version: String,
 }
 
@@ -625,15 +625,15 @@ pub struct DeleteGrantRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteGrantResponse {
     /// <p>Grant ARN.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arn: Option<String>,
     /// <p>Grant status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Grant version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -642,7 +642,7 @@ pub struct DeleteGrantResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLicenseConfigurationRequest {
     /// <p>ID of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
 }
 
@@ -654,7 +654,7 @@ pub struct DeleteLicenseConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLicenseManagerReportGeneratorRequest {
     /// <p>Amazon Resource Number (ARN) of the report generator that will be deleted.</p>
-    #[serde(rename = "LicenseManagerReportGeneratorArn")]
+    #[serde(rename = "licenseManagerReportGeneratorArn")]
     pub license_manager_report_generator_arn: String,
 }
 
@@ -666,10 +666,10 @@ pub struct DeleteLicenseManagerReportGeneratorResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLicenseRequest {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>Current version of the license.</p>
-    #[serde(rename = "SourceVersion")]
+    #[serde(rename = "sourceVersion")]
     pub source_version: String,
 }
 
@@ -677,11 +677,11 @@ pub struct DeleteLicenseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteLicenseResponse {
     /// <p>Date on which the license is deleted.</p>
-    #[serde(rename = "DeletionDate")]
+    #[serde(rename = "deletionDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_date: Option<String>,
     /// <p>License status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -690,7 +690,7 @@ pub struct DeleteLicenseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTokenRequest {
     /// <p>Token ID.</p>
-    #[serde(rename = "TokenId")]
+    #[serde(rename = "tokenId")]
     pub token_id: String,
 }
 
@@ -702,25 +702,25 @@ pub struct DeleteTokenResponse {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Entitlement {
     /// <p>Indicates whether check-ins are allowed.</p>
-    #[serde(rename = "AllowCheckIn")]
+    #[serde(rename = "allowCheckIn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_check_in: Option<bool>,
     /// <p>Maximum entitlement count. Use if the unit is not None.</p>
-    #[serde(rename = "MaxCount")]
+    #[serde(rename = "maxCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_count: Option<i64>,
     /// <p>Entitlement name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Indicates whether overages are allowed.</p>
-    #[serde(rename = "Overage")]
+    #[serde(rename = "overage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub overage: Option<bool>,
     /// <p>Entitlement unit.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     pub unit: String,
     /// <p>Entitlement resource. Use only if the unit is None.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -729,13 +729,13 @@ pub struct Entitlement {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EntitlementData {
     /// <p>Entitlement data name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Entitlement data unit.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     pub unit: String,
     /// <p>Entitlement data value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -745,17 +745,17 @@ pub struct EntitlementData {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntitlementUsage {
     /// <p>Resource usage consumed.</p>
-    #[serde(rename = "ConsumedValue")]
+    #[serde(rename = "consumedValue")]
     pub consumed_value: String,
     /// <p>Maximum entitlement usage count.</p>
-    #[serde(rename = "MaxCount")]
+    #[serde(rename = "maxCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_count: Option<String>,
     /// <p>Entitlement usage name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Entitlement usage unit.</p>
-    #[serde(rename = "Unit")]
+    #[serde(rename = "unit")]
     pub unit: String,
 }
 
@@ -763,11 +763,11 @@ pub struct EntitlementUsage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExtendLicenseConsumptionRequest {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request. Provides an error response if you do not have the required permissions.</p>
-    #[serde(rename = "DryRun")]
+    #[serde(rename = "dryRun")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
     /// <p>License consumption token.</p>
-    #[serde(rename = "LicenseConsumptionToken")]
+    #[serde(rename = "licenseConsumptionToken")]
     pub license_consumption_token: String,
 }
 
@@ -775,11 +775,11 @@ pub struct ExtendLicenseConsumptionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExtendLicenseConsumptionResponse {
     /// <p>Date and time at which the license consumption expires.</p>
-    #[serde(rename = "Expiration")]
+    #[serde(rename = "expiration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration: Option<String>,
     /// <p>License consumption token.</p>
-    #[serde(rename = "LicenseConsumptionToken")]
+    #[serde(rename = "licenseConsumptionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_consumption_token: Option<String>,
 }
@@ -789,11 +789,11 @@ pub struct ExtendLicenseConsumptionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Filter {
     /// <p>Name of the filter. Filter names are case-sensitive.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Filter values. Filter values are case-sensitive.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -802,10 +802,10 @@ pub struct Filter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAccessTokenRequest {
     /// <p>Refresh token, encoded as a JWT token.</p>
-    #[serde(rename = "Token")]
+    #[serde(rename = "token")]
     pub token: String,
     /// <p>Token properties to validate against those present in the JWT token.</p>
-    #[serde(rename = "TokenProperties")]
+    #[serde(rename = "tokenProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_properties: Option<Vec<String>>,
 }
@@ -814,7 +814,7 @@ pub struct GetAccessTokenRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAccessTokenResponse {
     /// <p>Temporary access token.</p>
-    #[serde(rename = "AccessToken")]
+    #[serde(rename = "accessToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_token: Option<String>,
 }
@@ -823,10 +823,10 @@ pub struct GetAccessTokenResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGrantRequest {
     /// <p>Amazon Resource Name (ARN) of the grant.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     pub grant_arn: String,
     /// <p>Grant version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -835,7 +835,7 @@ pub struct GetGrantRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGrantResponse {
     /// <p>Grant details.</p>
-    #[serde(rename = "Grant")]
+    #[serde(rename = "grant")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant: Option<Grant>,
 }
@@ -844,7 +844,7 @@ pub struct GetGrantResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLicenseConfigurationRequest {
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
 }
 
@@ -852,71 +852,71 @@ pub struct GetLicenseConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLicenseConfigurationResponse {
     /// <p>Automated discovery information.</p>
-    #[serde(rename = "AutomatedDiscoveryInformation")]
+    #[serde(rename = "automatedDiscoveryInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automated_discovery_information: Option<AutomatedDiscoveryInformation>,
     /// <p>Summaries of the licenses consumed by resources.</p>
-    #[serde(rename = "ConsumedLicenseSummaryList")]
+    #[serde(rename = "consumedLicenseSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_license_summary_list: Option<Vec<ConsumedLicenseSummary>>,
     /// <p>Number of licenses assigned to resources.</p>
-    #[serde(rename = "ConsumedLicenses")]
+    #[serde(rename = "consumedLicenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_licenses: Option<i64>,
     /// <p>Description of the license configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>When true, disassociates a resource when software is uninstalled.</p>
-    #[serde(rename = "DisassociateWhenNotFound")]
+    #[serde(rename = "disassociateWhenNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disassociate_when_not_found: Option<bool>,
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_arn: Option<String>,
     /// <p>Unique ID for the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationId")]
+    #[serde(rename = "licenseConfigurationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_id: Option<String>,
     /// <p>Number of available licenses.</p>
-    #[serde(rename = "LicenseCount")]
+    #[serde(rename = "licenseCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count: Option<i64>,
     /// <p>Sets the number of available licenses as a hard limit.</p>
-    #[serde(rename = "LicenseCountHardLimit")]
+    #[serde(rename = "licenseCountHardLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count_hard_limit: Option<bool>,
     /// <p>Dimension on which the licenses are counted.</p>
-    #[serde(rename = "LicenseCountingType")]
+    #[serde(rename = "licenseCountingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_counting_type: Option<String>,
     /// <p>License rules.</p>
-    #[serde(rename = "LicenseRules")]
+    #[serde(rename = "licenseRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_rules: Option<Vec<String>>,
     /// <p>Summaries of the managed resources.</p>
-    #[serde(rename = "ManagedResourceSummaryList")]
+    #[serde(rename = "managedResourceSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_resource_summary_list: Option<Vec<ManagedResourceSummary>>,
     /// <p>Name of the license configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Account ID of the owner of the license configuration.</p>
-    #[serde(rename = "OwnerAccountId")]
+    #[serde(rename = "ownerAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_account_id: Option<String>,
     /// <p>Product information.</p>
-    #[serde(rename = "ProductInformationList")]
+    #[serde(rename = "productInformationList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_information_list: Option<Vec<ProductInformation>>,
     /// <p>License configuration status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Tags for the license configuration.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -925,7 +925,7 @@ pub struct GetLicenseConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLicenseManagerReportGeneratorRequest {
     /// <p>mazon Resource Number (ARN) of the report generator to retrieve information on.</p>
-    #[serde(rename = "LicenseManagerReportGeneratorArn")]
+    #[serde(rename = "licenseManagerReportGeneratorArn")]
     pub license_manager_report_generator_arn: String,
 }
 
@@ -933,7 +933,7 @@ pub struct GetLicenseManagerReportGeneratorRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLicenseManagerReportGeneratorResponse {
     /// <p>A report generator that creates periodic reports on your license configurations.</p>
-    #[serde(rename = "ReportGenerator")]
+    #[serde(rename = "reportGenerator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_generator: Option<ReportGenerator>,
 }
@@ -942,10 +942,10 @@ pub struct GetLicenseManagerReportGeneratorResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLicenseRequest {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>License version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -954,7 +954,7 @@ pub struct GetLicenseRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLicenseResponse {
     /// <p>License details.</p>
-    #[serde(rename = "License")]
+    #[serde(rename = "license")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license: Option<License>,
 }
@@ -963,7 +963,7 @@ pub struct GetLicenseResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetLicenseUsageRequest {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
 }
 
@@ -971,7 +971,7 @@ pub struct GetLicenseUsageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetLicenseUsageResponse {
     /// <p>License usage details.</p>
-    #[serde(rename = "LicenseUsage")]
+    #[serde(rename = "licenseUsage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_usage: Option<LicenseUsage>,
 }
@@ -984,23 +984,23 @@ pub struct GetServiceSettingsRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetServiceSettingsResponse {
     /// <p>Indicates whether cross-account discovery is enabled.</p>
-    #[serde(rename = "EnableCrossAccountsDiscovery")]
+    #[serde(rename = "enableCrossAccountsDiscovery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_cross_accounts_discovery: Option<bool>,
     /// <p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager management account provides member accounts with access to this share.</p>
-    #[serde(rename = "LicenseManagerResourceShareArn")]
+    #[serde(rename = "licenseManagerResourceShareArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_manager_resource_share_arn: Option<String>,
     /// <p>Indicates whether AWS Organizations is integrated with License Manager for cross-account discovery.</p>
-    #[serde(rename = "OrganizationConfiguration")]
+    #[serde(rename = "organizationConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_configuration: Option<OrganizationConfiguration>,
     /// <p>Regional S3 bucket path for storing reports, license trail event data, discovery data, and so on.</p>
-    #[serde(rename = "S3BucketArn")]
+    #[serde(rename = "s3BucketArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_arn: Option<String>,
     /// <p>SNS topic configured to receive notifications from License Manager.</p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
 }
@@ -1010,35 +1010,35 @@ pub struct GetServiceSettingsResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Grant {
     /// <p>Amazon Resource Name (ARN) of the grant.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     pub grant_arn: String,
     /// <p>Grant name.</p>
-    #[serde(rename = "GrantName")]
+    #[serde(rename = "grantName")]
     pub grant_name: String,
     /// <p>Grant status.</p>
-    #[serde(rename = "GrantStatus")]
+    #[serde(rename = "grantStatus")]
     pub grant_status: String,
     /// <p>Granted operations.</p>
-    #[serde(rename = "GrantedOperations")]
+    #[serde(rename = "grantedOperations")]
     pub granted_operations: Vec<String>,
     /// <p>The grantee principal ARN.</p>
-    #[serde(rename = "GranteePrincipalArn")]
+    #[serde(rename = "granteePrincipalArn")]
     pub grantee_principal_arn: String,
     /// <p>Home Region of the grant.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     pub home_region: String,
     /// <p>License ARN.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>Parent ARN.</p>
-    #[serde(rename = "ParentArn")]
+    #[serde(rename = "parentArn")]
     pub parent_arn: String,
     /// <p>Grant status reason.</p>
-    #[serde(rename = "StatusReason")]
+    #[serde(rename = "statusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_reason: Option<String>,
     /// <p>Grant version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     pub version: String,
 }
 
@@ -1047,63 +1047,63 @@ pub struct Grant {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GrantedLicense {
     /// <p>Granted license beneficiary.</p>
-    #[serde(rename = "Beneficiary")]
+    #[serde(rename = "beneficiary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub beneficiary: Option<String>,
     /// <p>Configuration for consumption of the license.</p>
-    #[serde(rename = "ConsumptionConfiguration")]
+    #[serde(rename = "consumptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumption_configuration: Option<ConsumptionConfiguration>,
     /// <p>Creation time of the granted license.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<String>,
     /// <p>License entitlements.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements: Option<Vec<Entitlement>>,
     /// <p>Home Region of the granted license.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
     /// <p>Granted license issuer.</p>
-    #[serde(rename = "Issuer")]
+    #[serde(rename = "issuer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issuer: Option<IssuerDetails>,
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arn: Option<String>,
     /// <p>Granted license metadata.</p>
-    #[serde(rename = "LicenseMetadata")]
+    #[serde(rename = "licenseMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_metadata: Option<Vec<Metadata>>,
     /// <p>License name.</p>
-    #[serde(rename = "LicenseName")]
+    #[serde(rename = "licenseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_name: Option<String>,
     /// <p>Product name.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>Product SKU.</p>
-    #[serde(rename = "ProductSKU")]
+    #[serde(rename = "productSKU")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_sku: Option<String>,
     /// <p>Granted license received metadata.</p>
-    #[serde(rename = "ReceivedMetadata")]
+    #[serde(rename = "receivedMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub received_metadata: Option<ReceivedMetadata>,
     /// <p>Granted license status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Date and time range during which the granted license is valid, in ISO8601-UTC format.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity: Option<DatetimeRange>,
     /// <p>Version of the granted license.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1113,13 +1113,13 @@ pub struct GrantedLicense {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InventoryFilter {
     /// <p>Condition of the filter.</p>
-    #[serde(rename = "Condition")]
+    #[serde(rename = "condition")]
     pub condition: String,
     /// <p>Name of the filter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Value of the filter.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1129,10 +1129,10 @@ pub struct InventoryFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Issuer {
     /// <p>Issuer name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>Asymmetric CMK from AWS Key Management Service. The CMK must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.</p>
-    #[serde(rename = "SignKey")]
+    #[serde(rename = "signKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sign_key: Option<String>,
 }
@@ -1142,15 +1142,15 @@ pub struct Issuer {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct IssuerDetails {
     /// <p>Issuer key fingerprint.</p>
-    #[serde(rename = "KeyFingerprint")]
+    #[serde(rename = "keyFingerprint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_fingerprint: Option<String>,
     /// <p>Issuer name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Asymmetric CMK from AWS Key Management Service. The CMK must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.</p>
-    #[serde(rename = "SignKey")]
+    #[serde(rename = "signKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sign_key: Option<String>,
 }
@@ -1160,59 +1160,59 @@ pub struct IssuerDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct License {
     /// <p>License beneficiary.</p>
-    #[serde(rename = "Beneficiary")]
+    #[serde(rename = "beneficiary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub beneficiary: Option<String>,
     /// <p>Configuration for consumption of the license.</p>
-    #[serde(rename = "ConsumptionConfiguration")]
+    #[serde(rename = "consumptionConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumption_configuration: Option<ConsumptionConfiguration>,
     /// <p>License creation time.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<String>,
     /// <p>License entitlements.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements: Option<Vec<Entitlement>>,
     /// <p>Home Region of the license.</p>
-    #[serde(rename = "HomeRegion")]
+    #[serde(rename = "homeRegion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub home_region: Option<String>,
     /// <p>License issuer.</p>
-    #[serde(rename = "Issuer")]
+    #[serde(rename = "issuer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub issuer: Option<IssuerDetails>,
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arn: Option<String>,
     /// <p>License metadata.</p>
-    #[serde(rename = "LicenseMetadata")]
+    #[serde(rename = "licenseMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_metadata: Option<Vec<Metadata>>,
     /// <p>License name.</p>
-    #[serde(rename = "LicenseName")]
+    #[serde(rename = "licenseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_name: Option<String>,
     /// <p>Product name.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>Product SKU.</p>
-    #[serde(rename = "ProductSKU")]
+    #[serde(rename = "productSKU")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_sku: Option<String>,
     /// <p>License status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
-    #[serde(rename = "Validity")]
+    #[serde(rename = "validity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub validity: Option<DatetimeRange>,
     /// <p>License version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1222,67 +1222,67 @@ pub struct License {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LicenseConfiguration {
     /// <p>Automated discovery information.</p>
-    #[serde(rename = "AutomatedDiscoveryInformation")]
+    #[serde(rename = "automatedDiscoveryInformation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub automated_discovery_information: Option<AutomatedDiscoveryInformation>,
     /// <p>Summaries for licenses consumed by various resources.</p>
-    #[serde(rename = "ConsumedLicenseSummaryList")]
+    #[serde(rename = "consumedLicenseSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_license_summary_list: Option<Vec<ConsumedLicenseSummary>>,
     /// <p>Number of licenses consumed. </p>
-    #[serde(rename = "ConsumedLicenses")]
+    #[serde(rename = "consumedLicenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_licenses: Option<i64>,
     /// <p>Description of the license configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>When true, disassociates a resource when software is uninstalled.</p>
-    #[serde(rename = "DisassociateWhenNotFound")]
+    #[serde(rename = "disassociateWhenNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disassociate_when_not_found: Option<bool>,
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_arn: Option<String>,
     /// <p>Unique ID of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationId")]
+    #[serde(rename = "licenseConfigurationId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_id: Option<String>,
     /// <p>Number of licenses managed by the license configuration.</p>
-    #[serde(rename = "LicenseCount")]
+    #[serde(rename = "licenseCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count: Option<i64>,
     /// <p>Number of available licenses as a hard limit.</p>
-    #[serde(rename = "LicenseCountHardLimit")]
+    #[serde(rename = "licenseCountHardLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count_hard_limit: Option<bool>,
     /// <p>Dimension to use to track the license inventory.</p>
-    #[serde(rename = "LicenseCountingType")]
+    #[serde(rename = "licenseCountingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_counting_type: Option<String>,
     /// <p>License rules.</p>
-    #[serde(rename = "LicenseRules")]
+    #[serde(rename = "licenseRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_rules: Option<Vec<String>>,
     /// <p>Summaries for managed resources.</p>
-    #[serde(rename = "ManagedResourceSummaryList")]
+    #[serde(rename = "managedResourceSummaryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub managed_resource_summary_list: Option<Vec<ManagedResourceSummary>>,
     /// <p>Name of the license configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Account ID of the license configuration's owner.</p>
-    #[serde(rename = "OwnerAccountId")]
+    #[serde(rename = "ownerAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner_account_id: Option<String>,
     /// <p>Product information.</p>
-    #[serde(rename = "ProductInformationList")]
+    #[serde(rename = "productInformationList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_information_list: Option<Vec<ProductInformation>>,
     /// <p>Status of the license configuration.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1292,23 +1292,23 @@ pub struct LicenseConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LicenseConfigurationAssociation {
     /// <p>Scope of AMI associations. The possible value is <code>cross-account</code>.</p>
-    #[serde(rename = "AmiAssociationScope")]
+    #[serde(rename = "amiAssociationScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ami_association_scope: Option<String>,
     /// <p>Time when the license configuration was associated with the resource.</p>
-    #[serde(rename = "AssociationTime")]
+    #[serde(rename = "associationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_time: Option<f64>,
     /// <p>Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ID of the AWS account that owns the resource consuming licenses.</p>
-    #[serde(rename = "ResourceOwnerId")]
+    #[serde(rename = "resourceOwnerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_owner_id: Option<String>,
     /// <p>Type of server resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1318,27 +1318,27 @@ pub struct LicenseConfigurationAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LicenseConfigurationUsage {
     /// <p>Time when the license configuration was initially associated with the resource.</p>
-    #[serde(rename = "AssociationTime")]
+    #[serde(rename = "associationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_time: Option<f64>,
     /// <p>Number of licenses consumed by the resource.</p>
-    #[serde(rename = "ConsumedLicenses")]
+    #[serde(rename = "consumedLicenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub consumed_licenses: Option<i64>,
     /// <p>Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ID of the account that owns the resource.</p>
-    #[serde(rename = "ResourceOwnerId")]
+    #[serde(rename = "resourceOwnerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_owner_id: Option<String>,
     /// <p>Status of the resource.</p>
-    #[serde(rename = "ResourceStatus")]
+    #[serde(rename = "resourceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_status: Option<String>,
     /// <p>Type of resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1348,35 +1348,35 @@ pub struct LicenseConfigurationUsage {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LicenseOperationFailure {
     /// <p>Error message.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>Failure time.</p>
-    #[serde(rename = "FailureTime")]
+    #[serde(rename = "failureTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failure_time: Option<f64>,
     /// <p>Reserved.</p>
-    #[serde(rename = "MetadataList")]
+    #[serde(rename = "metadataList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata_list: Option<Vec<Metadata>>,
     /// <p>Name of the operation.</p>
-    #[serde(rename = "OperationName")]
+    #[serde(rename = "operationName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_name: Option<String>,
     /// <p>The requester is "License Manager Automated Discovery".</p>
-    #[serde(rename = "OperationRequestedBy")]
+    #[serde(rename = "operationRequestedBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operation_requested_by: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ID of the AWS account that owns the resource.</p>
-    #[serde(rename = "ResourceOwnerId")]
+    #[serde(rename = "resourceOwnerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_owner_id: Option<String>,
     /// <p>Resource type.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1385,11 +1385,11 @@ pub struct LicenseOperationFailure {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LicenseSpecification {
     /// <p>Scope of AMI associations. The possible value is <code>cross-account</code>.</p>
-    #[serde(rename = "AmiAssociationScope")]
+    #[serde(rename = "amiAssociationScope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ami_association_scope: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
 }
 
@@ -1398,7 +1398,7 @@ pub struct LicenseSpecification {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LicenseUsage {
     /// <p>License entitlement usages.</p>
-    #[serde(rename = "EntitlementUsages")]
+    #[serde(rename = "entitlementUsages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlement_usages: Option<Vec<EntitlementUsage>>,
 }
@@ -1407,14 +1407,14 @@ pub struct LicenseUsage {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAssociationsForLicenseConfigurationRequest {
     /// <p>Amazon Resource Name (ARN) of a license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1423,11 +1423,11 @@ pub struct ListAssociationsForLicenseConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAssociationsForLicenseConfigurationResponse {
     /// <p>Information about the associations for the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationAssociations")]
+    #[serde(rename = "licenseConfigurationAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_associations: Option<Vec<LicenseConfigurationAssociation>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1436,19 +1436,19 @@ pub struct ListAssociationsForLicenseConfigurationResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListDistributedGrantsRequest {
     /// <p><p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>LicenseArn</code> </p> </li> <li> <p> <code>GrantStatus</code> </p> </li> <li> <p> <code>GranteePrincipalARN</code> </p> </li> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>LicenseIssuerName</code> </p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Amazon Resource Names (ARNs) of the grants.</p>
-    #[serde(rename = "GrantArns")]
+    #[serde(rename = "grantArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arns: Option<Vec<String>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1457,11 +1457,11 @@ pub struct ListDistributedGrantsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListDistributedGrantsResponse {
     /// <p>Distributed grant details.</p>
-    #[serde(rename = "Grants")]
+    #[serde(rename = "grants")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grants: Option<Vec<Grant>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1470,14 +1470,14 @@ pub struct ListDistributedGrantsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListFailuresForLicenseConfigurationOperationsRequest {
     /// <p>Amazon Resource Name of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1486,11 +1486,11 @@ pub struct ListFailuresForLicenseConfigurationOperationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListFailuresForLicenseConfigurationOperationsResponse {
     /// <p>License configuration operations that failed.</p>
-    #[serde(rename = "LicenseOperationFailureList")]
+    #[serde(rename = "licenseOperationFailureList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_operation_failure_list: Option<Vec<LicenseOperationFailure>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1499,19 +1499,19 @@ pub struct ListFailuresForLicenseConfigurationOperationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLicenseConfigurationsRequest {
     /// <p><p>Filters to scope the results. The following filters and logical operators are supported:</p> <ul> <li> <p> <code>licenseCountingType</code> - The dimension on which licenses are counted. Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>. Logical operators are <code>EQUALS</code> | <code>NOT<em>EQUALS</code>.</p> </li> <li> <p> <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used. Logical operators are <code>EQUALS</code> | <code>NOT</em>EQUALS</code>.</p> </li> <li> <p> <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Amazon Resource Names (ARN) of the license configurations.</p>
-    #[serde(rename = "LicenseConfigurationArns")]
+    #[serde(rename = "licenseConfigurationArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_arns: Option<Vec<String>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1520,11 +1520,11 @@ pub struct ListLicenseConfigurationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLicenseConfigurationsResponse {
     /// <p>Information about the license configurations.</p>
-    #[serde(rename = "LicenseConfigurations")]
+    #[serde(rename = "licenseConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configurations: Option<Vec<LicenseConfiguration>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1533,15 +1533,15 @@ pub struct ListLicenseConfigurationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLicenseManagerReportGeneratorsRequest {
     /// <p><p>Filters to scope the results. The following filters are supported: </p> <ul> <li> <p> <code>LicenseConfigurationArn</code> </p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1550,11 +1550,11 @@ pub struct ListLicenseManagerReportGeneratorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLicenseManagerReportGeneratorsResponse {
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A report generator that creates periodic reports on your license configurations.</p>
-    #[serde(rename = "ReportGenerators")]
+    #[serde(rename = "reportGenerators")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_generators: Option<Vec<ReportGenerator>>,
 }
@@ -1563,15 +1563,15 @@ pub struct ListLicenseManagerReportGeneratorsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLicenseSpecificationsForResourceRequest {
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1579,11 +1579,11 @@ pub struct ListLicenseSpecificationsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLicenseSpecificationsForResourceResponse {
     /// <p>License configurations associated with a resource.</p>
-    #[serde(rename = "LicenseSpecifications")]
+    #[serde(rename = "licenseSpecifications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_specifications: Option<Vec<LicenseSpecification>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1592,14 +1592,14 @@ pub struct ListLicenseSpecificationsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLicenseVersionsRequest {
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     pub license_arn: String,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1608,11 +1608,11 @@ pub struct ListLicenseVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLicenseVersionsResponse {
     /// <p>License details.</p>
-    #[serde(rename = "Licenses")]
+    #[serde(rename = "licenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub licenses: Option<Vec<License>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1621,19 +1621,19 @@ pub struct ListLicenseVersionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLicensesRequest {
     /// <p><p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>Beneficiary</code> </p> </li> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>Fingerprint</code> </p> </li> <li> <p> <code>Status</code> </p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Amazon Resource Names (ARNs) of the licenses.</p>
-    #[serde(rename = "LicenseArns")]
+    #[serde(rename = "licenseArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arns: Option<Vec<String>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1642,11 +1642,11 @@ pub struct ListLicensesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLicensesResponse {
     /// <p>License details.</p>
-    #[serde(rename = "Licenses")]
+    #[serde(rename = "licenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub licenses: Option<Vec<License>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1655,19 +1655,19 @@ pub struct ListLicensesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListReceivedGrantsRequest {
     /// <p><p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>LicenseIssuerName</code> </p> </li> <li> <p> <code>LicenseArn</code> </p> </li> <li> <p> <code>GrantStatus</code> </p> </li> <li> <p> <code>GranterAccountId</code> </p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Amazon Resource Names (ARNs) of the grants.</p>
-    #[serde(rename = "GrantArns")]
+    #[serde(rename = "grantArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arns: Option<Vec<String>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1676,11 +1676,11 @@ pub struct ListReceivedGrantsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListReceivedGrantsResponse {
     /// <p>Received grant details.</p>
-    #[serde(rename = "Grants")]
+    #[serde(rename = "grants")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grants: Option<Vec<Grant>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1689,19 +1689,19 @@ pub struct ListReceivedGrantsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListReceivedLicensesRequest {
     /// <p><p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>Fingerprint</code> </p> </li> <li> <p> <code>IssuerName</code> </p> </li> <li> <p> <code>Beneficiary</code> </p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Amazon Resource Names (ARNs) of the licenses.</p>
-    #[serde(rename = "LicenseArns")]
+    #[serde(rename = "licenseArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arns: Option<Vec<String>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1710,11 +1710,11 @@ pub struct ListReceivedLicensesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListReceivedLicensesResponse {
     /// <p>Received license details.</p>
-    #[serde(rename = "Licenses")]
+    #[serde(rename = "licenses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub licenses: Option<Vec<GrantedLicense>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1723,15 +1723,15 @@ pub struct ListReceivedLicensesResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourceInventoryRequest {
     /// <p><p>Filters to scope the results. The following filters and logical operators are supported:</p> <ul> <li> <p> <code>account<em>id</code> - The ID of the AWS account that owns the resource. Logical operators are <code>EQUALS</code> | <code>NOT</em>EQUALS</code>.</p> </li> <li> <p> <code>application<em>name</code> - The name of the application. Logical operators are <code>EQUALS</code> | <code>BEGINS</em>WITH</code>.</p> </li> <li> <p> <code>license<em>included</code> - The type of license included. Logical operators are <code>EQUALS</code> | <code>NOT</em>EQUALS</code>. Possible values are <code>sql-server-enterprise</code> | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p> </li> <li> <p> <code>platform</code> - The platform of the resource. Logical operators are <code>EQUALS</code> | <code>BEGINS<em>WITH</code>.</p> </li> <li> <p> <code>resource</em>id</code> - The ID of the resource. Logical operators are <code>EQUALS</code> | <code>NOT<em>EQUALS</code>.</p> </li> <li> <p> <code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Logical operators are <code>EQUALS</code> (single account) or <code>EQUALS</code> | <code>NOT</em>EQUALS</code> (cross account).</p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<InventoryFilter>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1740,11 +1740,11 @@ pub struct ListResourceInventoryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourceInventoryResponse {
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the resources.</p>
-    #[serde(rename = "ResourceInventoryList")]
+    #[serde(rename = "resourceInventoryList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_inventory_list: Option<Vec<ResourceInventory>>,
 }
@@ -1753,7 +1753,7 @@ pub struct ListResourceInventoryResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1761,7 +1761,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>Information about the tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1770,19 +1770,19 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTokensRequest {
     /// <p><p>Filters to scope the results. The following filter is supported:</p> <ul> <li> <p> <code>LicenseArns</code> </p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Token IDs.</p>
-    #[serde(rename = "TokenIds")]
+    #[serde(rename = "tokenIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_ids: Option<Vec<String>>,
 }
@@ -1791,11 +1791,11 @@ pub struct ListTokensRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTokensResponse {
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Received token details.</p>
-    #[serde(rename = "Tokens")]
+    #[serde(rename = "tokens")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tokens: Option<Vec<TokenData>>,
 }
@@ -1804,18 +1804,18 @@ pub struct ListTokensResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListUsageForLicenseConfigurationRequest {
     /// <p><p>Filters to scope the results. The following filters and logical operators are supported:</p> <ul> <li> <p> <code>resourceArn</code> - The ARN of the license configuration resource. Logical operators are <code>EQUALS</code> | <code>NOT<em>EQUALS</code>.</p> </li> <li> <p> <code>resourceType</code> - The resource type (<code>EC2</em>INSTANCE</code> | <code>EC2<em>HOST</code> | <code>EC2</em>AMI</code> | <code>SYSTEMS<em>MANAGER</em>MANAGED<em>INSTANCE</code>). Logical operators are <code>EQUALS</code> | <code>NOT</em>EQUALS</code>.</p> </li> <li> <p> <code>resourceAccount</code> - The ID of the account that owns the resource. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p> </li> </ul></p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<Filter>>,
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
     /// <p>Maximum number of results to return in a single call.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1824,11 +1824,11 @@ pub struct ListUsageForLicenseConfigurationRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListUsageForLicenseConfigurationResponse {
     /// <p>Information about the license configurations.</p>
-    #[serde(rename = "LicenseConfigurationUsageList")]
+    #[serde(rename = "licenseConfigurationUsageList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_usage_list: Option<Vec<LicenseConfigurationUsage>>,
     /// <p>Token for the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1838,11 +1838,11 @@ pub struct ListUsageForLicenseConfigurationResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ManagedResourceSummary {
     /// <p>Number of resources associated with licenses.</p>
-    #[serde(rename = "AssociationCount")]
+    #[serde(rename = "associationCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub association_count: Option<i64>,
     /// <p>Type of resource associated with a license.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -1851,11 +1851,11 @@ pub struct ManagedResourceSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Metadata {
     /// <p>The key name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1864,7 +1864,7 @@ pub struct Metadata {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OrganizationConfiguration {
     /// <p>Enables AWS Organization integration.</p>
-    #[serde(rename = "EnableIntegration")]
+    #[serde(rename = "enableIntegration")]
     pub enable_integration: bool,
 }
 
@@ -1872,10 +1872,10 @@ pub struct OrganizationConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ProductInformation {
     /// <p><p>A Product information filter consists of a <code>ProductInformationFilterComparator</code> which is a logical operator, a <code>ProductInformationFilterName</code> which specifies the type of filter being declared, and a <code>ProductInformationFilterValue</code> that specifies the value to filter on. </p> <p>Accepted values for <code>ProductInformationFilterName</code> are listed here along with descriptions and valid options for <code>ProductInformationFilterComparator</code>. </p> <p>The following filters and are supported when the resource type is <code>SSM<em>MANAGED</code>:</p> <ul> <li> <p> <code>Application Name</code> - The name of the application. Logical operator is <code>EQUALS</code>.</p> </li> <li> <p> <code>Application Publisher</code> - The publisher of the application. Logical operator is <code>EQUALS</code>.</p> </li> <li> <p> <code>Application Version</code> - The version of the application. Logical operator is <code>EQUALS</code>.</p> </li> <li> <p> <code>Platform Name</code> - The name of the platform. Logical operator is <code>EQUALS</code>.</p> </li> <li> <p> <code>Platform Type</code> - The platform type. Logical operator is <code>EQUALS</code>.</p> </li> <li> <p> <code>Tag:key</code> - The key of a tag attached to an AWS resource you wish to exclude from automated discovery. Logical operator is <code>NOT</em>EQUALS</code>. The key for your tag must be appended to <code>Tag:</code> following the example: <code>Tag:name-of-your-key</code>. <code>ProductInformationFilterValue</code> is optional if you are not using values for the key. </p> </li> <li> <p> <code>AccountId</code> - The 12-digit ID of an AWS account you wish to exclude from automated discovery. Logical operator is <code>NOT<em>EQUALS</code>.</p> </li> <li> <p> <code>License Included</code> - The type of license included. Logical operators are <code>EQUALS</code> and <code>NOT</em>EQUALS</code>. Possible values are: <code>sql-server-enterprise</code> | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p> </li> </ul> <p>The following filters and logical operators are supported when the resource type is <code>RDS</code>:</p> <ul> <li> <p> <code>Engine Edition</code> - The edition of the database engine. Logical operator is <code>EQUALS</code>. Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p> </li> <li> <p> <code>License Pack</code> - The license pack. Logical operator is <code>EQUALS</code>. Possible values are: <code>data guard</code> | <code>diagnostic pack sqlt</code> | <code>tuning pack sqlt</code> | <code>ols</code> | <code>olap</code>.</p> </li> </ul></p>
-    #[serde(rename = "ProductInformationFilterList")]
+    #[serde(rename = "productInformationFilterList")]
     pub product_information_filter_list: Vec<ProductInformationFilter>,
     /// <p>Resource type. The possible values are <code>SSM_MANAGED</code> | <code>RDS</code>.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     pub resource_type: String,
 }
 
@@ -1883,13 +1883,13 @@ pub struct ProductInformation {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ProductInformationFilter {
     /// <p>Logical operator.</p>
-    #[serde(rename = "ProductInformationFilterComparator")]
+    #[serde(rename = "productInformationFilterComparator")]
     pub product_information_filter_comparator: String,
     /// <p>Filter name.</p>
-    #[serde(rename = "ProductInformationFilterName")]
+    #[serde(rename = "productInformationFilterName")]
     pub product_information_filter_name: String,
     /// <p>Filter value.</p>
-    #[serde(rename = "ProductInformationFilterValue")]
+    #[serde(rename = "productInformationFilterValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_information_filter_value: Option<Vec<String>>,
 }
@@ -1898,7 +1898,7 @@ pub struct ProductInformationFilter {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ProvisionalConfiguration {
     /// <p>Maximum time for the provisional configuration, in minutes.</p>
-    #[serde(rename = "MaxTimeToLiveInMinutes")]
+    #[serde(rename = "maxTimeToLiveInMinutes")]
     pub max_time_to_live_in_minutes: i64,
 }
 
@@ -1907,14 +1907,14 @@ pub struct ProvisionalConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReceivedMetadata {
     /// <p>Allowed operations.</p>
-    #[serde(rename = "AllowedOperations")]
+    #[serde(rename = "allowedOperations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_operations: Option<Vec<String>>,
     /// <p>Received status.</p>
-    #[serde(rename = "ReceivedStatus")]
+    #[serde(rename = "receivedStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub received_status: Option<String>,
-    #[serde(rename = "ReceivedStatusReason")]
+    #[serde(rename = "receivedStatusReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub received_status_reason: Option<String>,
 }
@@ -1923,7 +1923,7 @@ pub struct ReceivedMetadata {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RejectGrantRequest {
     /// <p>Amazon Resource Name (ARN) of the grant.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     pub grant_arn: String,
 }
 
@@ -1931,15 +1931,15 @@ pub struct RejectGrantRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RejectGrantResponse {
     /// <p>Grant ARN.</p>
-    #[serde(rename = "GrantArn")]
+    #[serde(rename = "grantArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub grant_arn: Option<String>,
     /// <p>Grant status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Grant version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1970,55 +1970,55 @@ pub struct ReportFrequency {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReportGenerator {
     /// <p>Time the report was created.</p>
-    #[serde(rename = "CreateTime")]
+    #[serde(rename = "createTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub create_time: Option<String>,
     /// <p>Description of the report generator.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Time the last report was generated at.</p>
-    #[serde(rename = "LastReportGenerationTime")]
+    #[serde(rename = "lastReportGenerationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_report_generation_time: Option<String>,
     /// <p>Failure message for the last report generation attempt.</p>
-    #[serde(rename = "LastRunFailureReason")]
+    #[serde(rename = "lastRunFailureReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_run_failure_reason: Option<String>,
     /// <p>Status of the last report generation attempt.</p>
-    #[serde(rename = "LastRunStatus")]
+    #[serde(rename = "lastRunStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_run_status: Option<String>,
     /// <p>Amazon Resource Number (ARN) of the report generator.</p>
-    #[serde(rename = "LicenseManagerReportGeneratorArn")]
+    #[serde(rename = "licenseManagerReportGeneratorArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_manager_report_generator_arn: Option<String>,
     /// <p>License configuration type this generator reports on.</p>
-    #[serde(rename = "ReportContext")]
+    #[serde(rename = "reportContext")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_context: Option<ReportContext>,
     /// <p>The AWS account ID used to create the report generator.</p>
-    #[serde(rename = "ReportCreatorAccount")]
+    #[serde(rename = "reportCreatorAccount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_creator_account: Option<String>,
     /// <p>Details on how frequently reports are generated.</p>
-    #[serde(rename = "ReportFrequency")]
+    #[serde(rename = "reportFrequency")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_frequency: Option<ReportFrequency>,
     /// <p>Name of the report generator.</p>
-    #[serde(rename = "ReportGeneratorName")]
+    #[serde(rename = "reportGeneratorName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_generator_name: Option<String>,
     /// <p>Type of reports that are generated.</p>
-    #[serde(rename = "ReportType")]
+    #[serde(rename = "reportType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub report_type: Option<Vec<String>>,
     /// <p>Details of the S3 bucket that report generator reports are published to.</p>
-    #[serde(rename = "S3Location")]
+    #[serde(rename = "s3Location")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_location: Option<S3Location>,
     /// <p>Tags associated with the report generator.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2028,27 +2028,27 @@ pub struct ReportGenerator {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceInventory {
     /// <p>Platform of the resource.</p>
-    #[serde(rename = "Platform")]
+    #[serde(rename = "platform")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform: Option<String>,
     /// <p>Platform version of the resource in the inventory.</p>
-    #[serde(rename = "PlatformVersion")]
+    #[serde(rename = "platformVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform_version: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>ID of the resource.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
     /// <p>ID of the account that owns the resource.</p>
-    #[serde(rename = "ResourceOwningAccountId")]
+    #[serde(rename = "resourceOwningAccountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_owning_account_id: Option<String>,
     /// <p>Type of resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
 }
@@ -2071,11 +2071,11 @@ pub struct S3Location {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>Tag key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>Tag value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2084,10 +2084,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -2100,31 +2100,31 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TokenData {
     /// <p>Token expiration time, in ISO8601-UTC format.</p>
-    #[serde(rename = "ExpirationTime")]
+    #[serde(rename = "expirationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_time: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the license.</p>
-    #[serde(rename = "LicenseArn")]
+    #[serde(rename = "licenseArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_arn: Option<String>,
     /// <p>Amazon Resource Names (ARN) of the roles included in the token.</p>
-    #[serde(rename = "RoleArns")]
+    #[serde(rename = "roleArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role_arns: Option<Vec<String>>,
     /// <p>Token status. The possible values are <code>AVAILABLE</code> and <code>DELETED</code>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>Token ID.</p>
-    #[serde(rename = "TokenId")]
+    #[serde(rename = "tokenId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_id: Option<String>,
     /// <p>Data specified by the caller.</p>
-    #[serde(rename = "TokenProperties")]
+    #[serde(rename = "tokenProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_properties: Option<Vec<String>>,
     /// <p>Type of token generated. The supported value is <code>REFRESH_TOKEN</code>.</p>
-    #[serde(rename = "TokenType")]
+    #[serde(rename = "tokenType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub token_type: Option<String>,
 }
@@ -2133,10 +2133,10 @@ pub struct TokenData {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>Keys identifying the tags to remove.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2148,38 +2148,38 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLicenseConfigurationRequest {
     /// <p>New description of the license configuration.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>When true, disassociates a resource when software is uninstalled.</p>
-    #[serde(rename = "DisassociateWhenNotFound")]
+    #[serde(rename = "disassociateWhenNotFound")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disassociate_when_not_found: Option<bool>,
     /// <p>Amazon Resource Name (ARN) of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationArn")]
+    #[serde(rename = "licenseConfigurationArn")]
     pub license_configuration_arn: String,
     /// <p>New status of the license configuration.</p>
-    #[serde(rename = "LicenseConfigurationStatus")]
+    #[serde(rename = "licenseConfigurationStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_configuration_status: Option<String>,
     /// <p>New number of licenses managed by the license configuration.</p>
-    #[serde(rename = "LicenseCount")]
+    #[serde(rename = "licenseCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count: Option<i64>,
     /// <p>New hard limit of the number of available licenses.</p>
-    #[serde(rename = "LicenseCountHardLimit")]
+    #[serde(rename = "licenseCountHardLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_count_hard_limit: Option<bool>,
     /// <p>New license rule. The only rule that you can add after you create a license configuration is licenseAffinityToHost.</p>
-    #[serde(rename = "LicenseRules")]
+    #[serde(rename = "licenseRules")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub license_rules: Option<Vec<String>>,
     /// <p>New name of the license configuration.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>New product information.</p>
-    #[serde(rename = "ProductInformationList")]
+    #[serde(rename = "productInformationList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_information_list: Option<Vec<ProductInformation>>,
 }
@@ -2192,26 +2192,26 @@ pub struct UpdateLicenseConfigurationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLicenseManagerReportGeneratorRequest {
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>Description of the report generator.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Amazon Resource Number (ARN) of the report generator to update.</p>
-    #[serde(rename = "LicenseManagerReportGeneratorArn")]
+    #[serde(rename = "licenseManagerReportGeneratorArn")]
     pub license_manager_report_generator_arn: String,
     /// <p>?</p>
-    #[serde(rename = "ReportContext")]
+    #[serde(rename = "reportContext")]
     pub report_context: ReportContext,
     /// <p>Frequency by which reports are generated. The following options are avaiable:</p> <p>??? What are the APi value options?</p>
-    #[serde(rename = "ReportFrequency")]
+    #[serde(rename = "reportFrequency")]
     pub report_frequency: ReportFrequency,
     /// <p>Name of the report generator.</p>
-    #[serde(rename = "ReportGeneratorName")]
+    #[serde(rename = "reportGeneratorName")]
     pub report_generator_name: String,
     /// <p><p>Type of reports to generate. The following report types an be generated:</p> <ul> <li> <p>License configuration report - Reports on the number and details of consumed licenses for a license configuration.</p> </li> <li> <p>Resource report - Reports on the tracked licenses and resource consumption for a license configuration.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: Vec<String>,
 }
 
@@ -2223,15 +2223,15 @@ pub struct UpdateLicenseManagerReportGeneratorResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLicenseSpecificationsForResourceRequest {
     /// <p>ARNs of the license configurations to add.</p>
-    #[serde(rename = "AddLicenseSpecifications")]
+    #[serde(rename = "addLicenseSpecifications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_license_specifications: Option<Vec<LicenseSpecification>>,
     /// <p>ARNs of the license configurations to remove.</p>
-    #[serde(rename = "RemoveLicenseSpecifications")]
+    #[serde(rename = "removeLicenseSpecifications")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_license_specifications: Option<Vec<LicenseSpecification>>,
     /// <p>Amazon Resource Name (ARN) of the AWS resource.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2243,19 +2243,19 @@ pub struct UpdateLicenseSpecificationsForResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateServiceSettingsRequest {
     /// <p>Activates cross-account discovery.</p>
-    #[serde(rename = "EnableCrossAccountsDiscovery")]
+    #[serde(rename = "enableCrossAccountsDiscovery")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_cross_accounts_discovery: Option<bool>,
     /// <p>Enables integration with AWS Organizations for cross-account discovery.</p>
-    #[serde(rename = "OrganizationConfiguration")]
+    #[serde(rename = "organizationConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_configuration: Option<OrganizationConfiguration>,
     /// <p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is stored.</p>
-    #[serde(rename = "S3BucketArn")]
+    #[serde(rename = "s3BucketArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_bucket_arn: Option<String>,
     /// <p>Amazon Resource Name (ARN) of the Amazon SNS topic used for License Manager alerts.</p>
-    #[serde(rename = "SnsTopicArn")]
+    #[serde(rename = "snsTopicArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sns_topic_arn: Option<String>,
 }

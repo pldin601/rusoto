@@ -55,11 +55,11 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AgentVersion {
     /// <p>The configuration manager.</p>
-    #[serde(rename = "ConfigurationManager")]
+    #[serde(rename = "configurationManager")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_manager: Option<StackConfigurationManager>,
     /// <p>The agent version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -69,59 +69,59 @@ pub struct AgentVersion {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct App {
     /// <p>The app ID.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_id: Option<String>,
     /// <p>A <code>Source</code> object that describes the app repository.</p>
-    #[serde(rename = "AppSource")]
+    #[serde(rename = "appSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_source: Option<Source>,
     /// <p>The stack attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>When the app was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The app's data sources.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<Vec<DataSource>>,
     /// <p>A description of the app.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The app vhost settings with multiple domains separated by commas. For example: <code>'www.example.com, example.com'</code> </p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domains: Option<Vec<String>>,
     /// <p>Whether to enable SSL for the app.</p>
-    #[serde(rename = "EnableSsl")]
+    #[serde(rename = "enableSsl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_ssl: Option<bool>,
     /// <p><p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment"> Environment Variables</a>. </p> <note> <p>There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variable names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an &quot;Environment: is too large (maximum is 20 KB)&quot; message.</p> </note></p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment: Option<Vec<EnvironmentVariable>>,
     /// <p>The app name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The app's short name.</p>
-    #[serde(rename = "Shortname")]
+    #[serde(rename = "shortname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shortname: Option<String>,
     /// <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
-    #[serde(rename = "SslConfiguration")]
+    #[serde(rename = "sslConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssl_configuration: Option<SslConfiguration>,
     /// <p>The app stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>The app type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -130,10 +130,10 @@ pub struct App {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssignInstanceRequest {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     pub layer_ids: Vec<String>,
 }
 
@@ -141,11 +141,11 @@ pub struct AssignInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssignVolumeRequest {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The volume ID.</p>
-    #[serde(rename = "VolumeId")]
+    #[serde(rename = "volumeId")]
     pub volume_id: String,
 }
 
@@ -153,10 +153,10 @@ pub struct AssignVolumeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateElasticIpRequest {
     /// <p>The Elastic IP address.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     pub elastic_ip: String,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
 }
@@ -165,10 +165,10 @@ pub struct AssociateElasticIpRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AttachElasticLoadBalancerRequest {
     /// <p>The Elastic Load Balancing instance's name.</p>
-    #[serde(rename = "ElasticLoadBalancerName")]
+    #[serde(rename = "elasticLoadBalancerName")]
     pub elastic_load_balancer_name: String,
     /// <p>The ID of the layer to which the Elastic Load Balancing instance is to be attached.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     pub layer_id: String,
 }
 
@@ -176,31 +176,31 @@ pub struct AttachElasticLoadBalancerRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct AutoScalingThresholds {
     /// <p><p>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.</p> <note> <p>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>. You can either have AWS OpsWorks Stacks update the role for you when you first use this feature or you can edit the role manually. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing AWS OpsWorks Stacks to Act on Your Behalf</a>.</p> </note></p>
-    #[serde(rename = "Alarms")]
+    #[serde(rename = "alarms")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub alarms: Option<Vec<String>>,
     /// <p>The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.</p>
-    #[serde(rename = "CpuThreshold")]
+    #[serde(rename = "cpuThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cpu_threshold: Option<f64>,
     /// <p>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.</p>
-    #[serde(rename = "IgnoreMetricsTime")]
+    #[serde(rename = "ignoreMetricsTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ignore_metrics_time: Option<i64>,
     /// <p>The number of instances to add or remove when the load exceeds a threshold.</p>
-    #[serde(rename = "InstanceCount")]
+    #[serde(rename = "instanceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_count: Option<i64>,
     /// <p>The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load (computing)</a>.</p>
-    #[serde(rename = "LoadThreshold")]
+    #[serde(rename = "loadThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub load_threshold: Option<f64>,
     /// <p>The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.</p>
-    #[serde(rename = "MemoryThreshold")]
+    #[serde(rename = "memoryThreshold")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub memory_threshold: Option<f64>,
     /// <p>The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.</p>
-    #[serde(rename = "ThresholdsWaitTime")]
+    #[serde(rename = "thresholdsWaitTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub thresholds_wait_time: Option<i64>,
 }
@@ -209,19 +209,19 @@ pub struct AutoScalingThresholds {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct BlockDeviceMapping {
     /// <p>The device name that is exposed to the instance, such as <code>/dev/sdh</code>. For the root device, you can use the explicit device name or you can set this parameter to <code>ROOT_DEVICE</code> and AWS OpsWorks Stacks will provide the correct device name.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>An <code>EBSBlockDevice</code> that defines how to configure an Amazon EBS volume when the instance is launched.</p>
-    #[serde(rename = "Ebs")]
+    #[serde(rename = "ebs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs: Option<EbsBlockDevice>,
     /// <p>Suppresses the specified device included in the AMI's block device mapping.</p>
-    #[serde(rename = "NoDevice")]
+    #[serde(rename = "noDevice")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub no_device: Option<String>,
     /// <p>The virtual device name. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a>.</p>
-    #[serde(rename = "VirtualName")]
+    #[serde(rename = "virtualName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub virtual_name: Option<String>,
 }
@@ -230,11 +230,11 @@ pub struct BlockDeviceMapping {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ChefConfiguration {
     /// <p>The Berkshelf version.</p>
-    #[serde(rename = "BerkshelfVersion")]
+    #[serde(rename = "berkshelfVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub berkshelf_version: Option<String>,
     /// <p>Whether to enable Berkshelf.</p>
-    #[serde(rename = "ManageBerkshelf")]
+    #[serde(rename = "manageBerkshelf")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub manage_berkshelf: Option<bool>,
 }
@@ -243,89 +243,89 @@ pub struct ChefConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CloneStackRequest {
     /// <p><p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> <ul> <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack&#39;s instances as soon as they are available.</p> </li> <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack&#39;s instances.</p> </li> </ul> <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <a>DescribeAgentVersions</a>. AgentVersion cannot be set to Chef 12.2.</p> <note> <p>You can also specify an agent version when you create or update an instance, which overrides the stack&#39;s default setting.</p> </note></p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p>A list of stack attributes and values as key/value pairs to be added to the cloned stack.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "ChefConfiguration")]
+    #[serde(rename = "chefConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chef_configuration: Option<ChefConfiguration>,
     /// <p>A list of source stack app IDs to be included in the cloned stack.</p>
-    #[serde(rename = "CloneAppIds")]
+    #[serde(rename = "cloneAppIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clone_app_ids: Option<Vec<String>>,
     /// <p>Whether to clone the source stack's permissions.</p>
-    #[serde(rename = "ClonePermissions")]
+    #[serde(rename = "clonePermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clone_permissions: Option<bool>,
     /// <p>The configuration manager. When you clone a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.</p>
-    #[serde(rename = "ConfigurationManager")]
+    #[serde(rename = "configurationManager")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_manager: Option<StackConfigurationManager>,
     /// <p>Contains the information required to retrieve an app or cookbook from a repository. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Adding Apps</a> or <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
-    #[serde(rename = "CustomCookbooksSource")]
+    #[serde(rename = "customCookbooksSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_cookbooks_source: Option<Source>,
     /// <p>A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a> </p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>The cloned stack's default Availability Zone, which must be in the specified region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>. If you also specify a value for <code>DefaultSubnetId</code>, the subnet must be in the same zone. For more information, see the <code>VpcId</code> parameter description. </p>
-    #[serde(rename = "DefaultAvailabilityZone")]
+    #[serde(rename = "defaultAvailabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_availability_zone: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "DefaultInstanceProfileArn")]
+    #[serde(rename = "defaultInstanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_instance_profile_arn: Option<String>,
     /// <p><p>The stack&#39;s operating system, which must be set to one of the following.</p> <ul> <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> <li> <p> <code>CentOS Linux 7</code> </p> </li> <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> <li> <p> <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li> </ul> <p>The default option is the parent stack&#39;s operating system. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p> <note> <p>You can specify a different Linux operating system for the cloned stack, but you cannot change from Linux to Windows or Windows to Linux.</p> </note></p>
-    #[serde(rename = "DefaultOs")]
+    #[serde(rename = "defaultOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_os: Option<String>,
     /// <p>The default root device type. This value is used by default for all instances in the cloned stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
-    #[serde(rename = "DefaultRootDeviceType")]
+    #[serde(rename = "defaultRootDeviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_root_device_type: Option<String>,
     /// <p>A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name, AWS OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html"> Using SSH to Communicate with an Instance</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html"> Managing SSH Access</a>. You can override this setting by specifying a different key pair, or no key pair, when you <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html"> create an instance</a>. </p>
-    #[serde(rename = "DefaultSshKeyName")]
+    #[serde(rename = "defaultSshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_ssh_key_name: Option<String>,
     /// <p>The stack's default VPC subnet ID. This parameter is required if you specify a value for the <code>VpcId</code> parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for <code>DefaultAvailabilityZone</code>, the subnet must be in that zone. For information on default values and when this parameter is required, see the <code>VpcId</code> parameter description. </p>
-    #[serde(rename = "DefaultSubnetId")]
+    #[serde(rename = "defaultSubnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_subnet_id: Option<String>,
     /// <p>The stack's host name theme, with spaces are replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p> <ul> <li> <p> <code>Baked_Goods</code> </p> </li> <li> <p> <code>Clouds</code> </p> </li> <li> <p> <code>Europe_Cities</code> </p> </li> <li> <p> <code>Fruits</code> </p> </li> <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li> <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li> <li> <p> <code>Planets_and_Moons</code> </p> </li> <li> <p> <code>Roman_Deities</code> </p> </li> <li> <p> <code>Scottish_Islands</code> </p> </li> <li> <p> <code>US_Cities</code> </p> </li> <li> <p> <code>Wild_Cats</code> </p> </li> </ul> <p>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns a host name based on the current theme.</p>
-    #[serde(rename = "HostnameTheme")]
+    #[serde(rename = "hostnameTheme")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname_theme: Option<String>,
     /// <p>The cloned stack name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The cloned stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p><p>The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. If you create a stack by using the AWS OpsWorks Stacks console, it creates the role for you. You can obtain an existing stack&#39;s IAM ARN programmatically by calling <a>DescribePermissions</a>. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p> <note> <p>You must set this parameter to a valid service role ARN or the action will fail; there is no default value. You can specify the source stack&#39;s service role ARN, if you prefer, but you must do so explicitly.</p> </note></p>
-    #[serde(rename = "ServiceRoleArn")]
+    #[serde(rename = "serviceRoleArn")]
     pub service_role_arn: String,
     /// <p>The source stack ID.</p>
-    #[serde(rename = "SourceStackId")]
+    #[serde(rename = "sourceStackId")]
     pub source_stack_id: String,
     /// <p>Whether to use custom cookbooks.</p>
-    #[serde(rename = "UseCustomCookbooks")]
+    #[serde(rename = "useCustomCookbooks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_custom_cookbooks: Option<bool>,
     /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p> <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With <code>UseOpsworksSecurityGroups</code> you can instead provide your own custom security groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p> <ul> <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it but you cannot delete the built-in security group.</p> </li> <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate Amazon Elastic Compute Cloud (Amazon EC2) security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "UseOpsworksSecurityGroups")]
+    #[serde(rename = "useOpsworksSecurityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_opsworks_security_groups: Option<bool>,
     /// <p>The ID of the VPC that the cloned stack is to be launched into. It must be in the specified region. All instances are launched into this VPC, and you cannot change the ID later.</p> <ul> <li> <p>If your account supports EC2 Classic, the default value is no VPC.</p> </li> <li> <p>If your account does not support EC2 Classic, the default value is the default VPC for the specified region.</p> </li> </ul> <p>If the VPC ID corresponds to a default VPC and you have specified either the <code>DefaultAvailabilityZone</code> or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks Stacks infers the value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively. </p> <p>If you specify a nondefault VPC ID, note the following:</p> <ul> <li> <p>It must belong to a VPC in your account that is in the specified region.</p> </li> <li> <p>You must specify a value for <code>DefaultSubnetId</code>.</p> </li> </ul> <p>For more information about how to use AWS OpsWorks Stacks with a VPC, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running a Stack in a VPC</a>. For more information about default VPC and EC2 Classic, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>. </p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -335,7 +335,7 @@ pub struct CloneStackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CloneStackResult {
     /// <p>The cloned stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -344,11 +344,11 @@ pub struct CloneStackResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchLogsConfiguration {
     /// <p>Whether CloudWatch Logs is enabled for a layer.</p>
-    #[serde(rename = "Enabled")]
+    #[serde(rename = "enabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
     /// <p>A list of configuration options for CloudWatch Logs.</p>
-    #[serde(rename = "LogStreams")]
+    #[serde(rename = "logStreams")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_streams: Option<Vec<CloudWatchLogsLogStream>>,
 }
@@ -357,47 +357,47 @@ pub struct CloudWatchLogsConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct CloudWatchLogsLogStream {
     /// <p>Specifies the max number of log events in a batch, up to 10000. The default value is 1000.</p>
-    #[serde(rename = "BatchCount")]
+    #[serde(rename = "batchCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_count: Option<i64>,
     /// <p>Specifies the maximum size of log events in a batch, in bytes, up to 1048576 bytes. The default value is 32768 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p>
-    #[serde(rename = "BatchSize")]
+    #[serde(rename = "batchSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub batch_size: Option<i64>,
     /// <p>Specifies the time duration for the batching of log events. The minimum value is 5000ms and default value is 5000ms.</p>
-    #[serde(rename = "BufferDuration")]
+    #[serde(rename = "bufferDuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub buffer_duration: Option<i64>,
     /// <p>Specifies how the time stamp is extracted from logs. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html">CloudWatch Logs Agent Reference</a>.</p>
-    #[serde(rename = "DatetimeFormat")]
+    #[serde(rename = "datetimeFormat")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub datetime_format: Option<String>,
     /// <p>Specifies the encoding of the log file so that the file can be read correctly. The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.</p>
-    #[serde(rename = "Encoding")]
+    #[serde(rename = "encoding")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encoding: Option<String>,
     /// <p>Specifies log files that you want to push to CloudWatch Logs.</p> <p> <code>File</code> can point to a specific file or multiple files (by using wild card characters such as <code>/var/log/system.log*</code>). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as <code>access_log.2014-06-01-01</code>, <code>access_log.2014-06-01-02</code>, and so on by using a pattern like <code>access_log.*</code>. Don't use a wildcard to match multiple file types, such as <code>access_log_80</code> and <code>access_log_443</code>. To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.</p> <p>Zipped files are not supported.</p>
-    #[serde(rename = "File")]
+    #[serde(rename = "file")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file: Option<String>,
     /// <p>Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.</p>
-    #[serde(rename = "FileFingerprintLines")]
+    #[serde(rename = "fileFingerprintLines")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub file_fingerprint_lines: Option<String>,
     /// <p>Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file. This setting is only used if there is no state persisted for that log stream.</p>
-    #[serde(rename = "InitialPosition")]
+    #[serde(rename = "initialPosition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initial_position: Option<String>,
     /// <p>Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p>
-    #[serde(rename = "LogGroupName")]
+    #[serde(rename = "logGroupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_group_name: Option<String>,
     /// <p>Specifies the pattern for identifying the start of a log message.</p>
-    #[serde(rename = "MultiLineStartPattern")]
+    #[serde(rename = "multiLineStartPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub multi_line_start_pattern: Option<String>,
     /// <p>Specifies the time zone of log event time stamps.</p>
-    #[serde(rename = "TimeZone")]
+    #[serde(rename = "timeZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_zone: Option<String>,
 }
@@ -407,43 +407,43 @@ pub struct CloudWatchLogsLogStream {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Command {
     /// <p>Date and time when the command was acknowledged.</p>
-    #[serde(rename = "AcknowledgedAt")]
+    #[serde(rename = "acknowledgedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub acknowledged_at: Option<String>,
     /// <p>The command ID.</p>
-    #[serde(rename = "CommandId")]
+    #[serde(rename = "commandId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub command_id: Option<String>,
     /// <p>Date when the command completed.</p>
-    #[serde(rename = "CompletedAt")]
+    #[serde(rename = "completedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_at: Option<String>,
     /// <p>Date and time when the command was run.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The command deployment ID.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The command exit code.</p>
-    #[serde(rename = "ExitCode")]
+    #[serde(rename = "exitCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exit_code: Option<i64>,
     /// <p>The ID of the instance where the command was executed.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The URL of the command log.</p>
-    #[serde(rename = "LogUrl")]
+    #[serde(rename = "logUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_url: Option<String>,
     /// <p><p>The command status:</p> <ul> <li> <p>failed</p> </li> <li> <p>successful</p> </li> <li> <p>skipped</p> </li> <li> <p>pending</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p><p>The command type:</p> <ul> <li> <p> <code>configure</code> </p> </li> <li> <p> <code>deploy</code> </p> </li> <li> <p> <code>execute<em>recipes</code> </p> </li> <li> <p> <code>install</em>dependencies</code> </p> </li> <li> <p> <code>restart</code> </p> </li> <li> <p> <code>rollback</code> </p> </li> <li> <p> <code>setup</code> </p> </li> <li> <p> <code>start</code> </p> </li> <li> <p> <code>stop</code> </p> </li> <li> <p> <code>undeploy</code> </p> </li> <li> <p> <code>update<em>custom</em>cookbooks</code> </p> </li> <li> <p> <code>update_dependencies</code> </p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -452,49 +452,49 @@ pub struct Command {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAppRequest {
     /// <p>A <code>Source</code> object that specifies the app repository.</p>
-    #[serde(rename = "AppSource")]
+    #[serde(rename = "appSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_source: Option<Source>,
     /// <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>The app's data source.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<Vec<DataSource>>,
     /// <p>A description of the app.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The app virtual host settings, with multiple domains separated by commas. For example: <code>'www.example.com, example.com'</code> </p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domains: Option<Vec<String>>,
     /// <p>Whether to enable SSL for the app.</p>
-    #[serde(rename = "EnableSsl")]
+    #[serde(rename = "enableSsl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_ssl: Option<bool>,
     /// <p><p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment"> Environment Variables</a>.</p> <p>There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables&#39; names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, &quot;Environment: is too large (maximum is 20KB).&quot;</p> <note> <p>If you have specified one or more environment variables, you cannot modify the stack&#39;s Chef version.</p> </note></p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment: Option<Vec<EnvironmentVariable>>,
     /// <p>The app name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The app's short name.</p>
-    #[serde(rename = "Shortname")]
+    #[serde(rename = "shortname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shortname: Option<String>,
     /// <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
-    #[serde(rename = "SslConfiguration")]
+    #[serde(rename = "sslConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssl_configuration: Option<SslConfiguration>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
     /// <p>The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify <code>other</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -503,7 +503,7 @@ pub struct CreateAppRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAppResult {
     /// <p>The app ID.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_id: Option<String>,
 }
@@ -512,30 +512,30 @@ pub struct CreateAppResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateDeploymentRequest {
     /// <p>The app ID. This parameter is required for app deployments, but not for other deployment commands.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_id: Option<String>,
     /// <p>A <code>DeploymentCommand</code> object that specifies the deployment command and any associated arguments.</p>
-    #[serde(rename = "Command")]
+    #[serde(rename = "command")]
     pub command: DeploymentCommand,
     /// <p>A user-defined comment.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding Attributes With Custom JSON</a>.</p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>The instance IDs for the deployment targets.</p>
-    #[serde(rename = "InstanceIds")]
+    #[serde(rename = "instanceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_ids: Option<Vec<String>>,
     /// <p>The layer IDs for the deployment targets.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_ids: Option<Vec<String>>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -544,7 +544,7 @@ pub struct CreateDeploymentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateDeploymentResult {
     /// <p>The deployment ID, which can be used with other requests to identify the deployment.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
 }
@@ -553,72 +553,72 @@ pub struct CreateDeploymentResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateInstanceRequest {
     /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> <ul> <li> <p> <code>INHERIT</code> - Use the stack's default agent version setting.</p> </li> <li> <p> <i>version_number</i> - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance.</p> </li> </ul> <p>The default setting is <code>INHERIT</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <a>DescribeAgentVersions</a>. AgentVersion cannot be set to Chef 12.2.</p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p><p>A custom AMI ID to be used to create the instance. The AMI should be based on one of the supported operating systems. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> <note> <p>If you specify a custom AMI, you must set <code>Os</code> to <code>Custom</code>.</p> </note></p>
-    #[serde(rename = "AmiId")]
+    #[serde(rename = "amiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ami_id: Option<String>,
     /// <p>The instance architecture. The default option is <code>x86_64</code>. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and Types</a>.</p>
-    #[serde(rename = "Architecture")]
+    #[serde(rename = "architecture")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub architecture: Option<String>,
     /// <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
-    #[serde(rename = "AutoScalingType")]
+    #[serde(rename = "autoScalingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_scaling_type: Option<String>,
     /// <p>The instance Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block devices. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</p>
-    #[serde(rename = "BlockDeviceMappings")]
+    #[serde(rename = "blockDeviceMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_device_mappings: Option<Vec<BlockDeviceMapping>>,
     /// <p>Whether to create an Amazon EBS-optimized instance.</p>
-    #[serde(rename = "EbsOptimized")]
+    #[serde(rename = "ebsOptimized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_optimized: Option<bool>,
     /// <p>The instance host name.</p>
-    #[serde(rename = "Hostname")]
+    #[serde(rename = "hostname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// <p><p>Whether to install operating system and package updates when the instance boots. The default value is <code>true</code>. To control when updates are installed, set this value to <code>false</code>. You must then update your instances manually by using <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>We strongly recommend using the default value of <code>true</code> to ensure that your instances have the latest security updates.</p> </note></p>
-    #[serde(rename = "InstallUpdatesOnBoot")]
+    #[serde(rename = "installUpdatesOnBoot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub install_updates_on_boot: Option<bool>,
     /// <p>The instance type, such as <code>t2.micro</code>. For a list of supported instance types, open the stack in the console, choose <b>Instances</b>, and choose <b>+ Instance</b>. The <b>Size</b> list contains the currently supported types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and Types</a>. The parameter values that you use to specify the various types are in the <b>API Name</b> column of the <b>Available Instance Types</b> table.</p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     pub instance_type: String,
     /// <p>An array that contains the instance's layer IDs.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     pub layer_ids: Vec<String>,
     /// <p>The instance's operating system, which must be set to one of the following.</p> <ul> <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> <li> <p> <code>CentOS Linux 7</code> </p> </li> <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> <li> <p>A custom AMI: <code>Custom</code>.</p> </li> </ul> <p>For more information about the supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p> <p>The default option is the current Amazon Linux version. If you set this parameter to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter to specify the custom AMI that you want to use. Block device mappings are not supported if the value is <code>Custom</code>. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating Systems</a>For more information about how to use custom AMIs with AWS OpsWorks Stacks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p>
-    #[serde(rename = "Os")]
+    #[serde(rename = "os")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub os: Option<String>,
     /// <p>The instance root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
-    #[serde(rename = "RootDeviceType")]
+    #[serde(rename = "rootDeviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_device_type: Option<String>,
     /// <p>The instance's Amazon EC2 key-pair name.</p>
-    #[serde(rename = "SshKeyName")]
+    #[serde(rename = "sshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_key_name: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
     /// <p>The ID of the instance's subnet. If the stack is running in a VPC, you can use this parameter to override the stack's default subnet ID value and direct AWS OpsWorks Stacks to launch the instance in a different subnet.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The instance's tenancy option. The default option is no tenancy, or if the instance is running in a VPC, inherit tenancy settings from the VPC. The following are valid values for this parameter: <code>dedicated</code>, <code>default</code>, or <code>host</code>. Because there are costs associated with changes in tenancy options, we recommend that you research tenancy options before choosing them for your instances. For more information about dedicated hosts, see <a href="http://aws.amazon.com/ec2/dedicated-hosts/">Dedicated Hosts Overview</a> and <a href="http://aws.amazon.com/ec2/dedicated-hosts/">Amazon EC2 Dedicated Hosts</a>. For more information about dedicated instances, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> and <a href="http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/">Amazon EC2 Dedicated Instances</a>.</p>
-    #[serde(rename = "Tenancy")]
+    #[serde(rename = "tenancy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tenancy: Option<String>,
     /// <p>The instance's virtualization type, <code>paravirtual</code> or <code>hvm</code>.</p>
-    #[serde(rename = "VirtualizationType")]
+    #[serde(rename = "virtualizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub virtualization_type: Option<String>,
 }
@@ -628,7 +628,7 @@ pub struct CreateInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateInstanceResult {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
 }
@@ -637,71 +637,71 @@ pub struct CreateInstanceResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLayerRequest {
     /// <p>One or more user-defined key-value pairs to be added to the stack attributes.</p> <p>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's ARN.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP address</a> to the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit a Layer</a>.</p>
-    #[serde(rename = "AutoAssignElasticIps")]
+    #[serde(rename = "autoAssignElasticIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_assign_elastic_ips: Option<bool>,
     /// <p>For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit a Layer</a>.</p>
-    #[serde(rename = "AutoAssignPublicIps")]
+    #[serde(rename = "autoAssignPublicIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_assign_public_ips: Option<bool>,
     /// <p>Specifies CloudWatch Logs configuration options for the layer. For more information, see <a>CloudWatchLogsLogStream</a>.</p>
-    #[serde(rename = "CloudWatchLogsConfiguration")]
+    #[serde(rename = "cloudWatchLogsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_configuration: Option<CloudWatchLogsConfiguration>,
     /// <p>The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "CustomInstanceProfileArn")]
+    #[serde(rename = "customInstanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_instance_profile_arn: Option<String>,
     /// <p>A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html"> Using Custom JSON</a>. This feature is supported as of version 1.7.42 of the AWS CLI. </p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>A <code>LayerCustomRecipes</code> object that specifies the layer custom recipes.</p>
-    #[serde(rename = "CustomRecipes")]
+    #[serde(rename = "customRecipes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_recipes: Option<Recipes>,
     /// <p>An array containing the layer custom security group IDs.</p>
-    #[serde(rename = "CustomSecurityGroupIds")]
+    #[serde(rename = "customSecurityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_security_group_ids: Option<Vec<String>>,
     /// <p>Whether to disable auto healing for the layer.</p>
-    #[serde(rename = "EnableAutoHealing")]
+    #[serde(rename = "enableAutoHealing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_auto_healing: Option<bool>,
     /// <p><p>Whether to install operating system and package updates when the instance boots. The default value is <code>true</code>. To control when updates are installed, set this value to <code>false</code>. You must then update your instances manually by using <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>To ensure that your instances have the latest security updates, we strongly recommend using the default value of <code>true</code>.</p> </note></p>
-    #[serde(rename = "InstallUpdatesOnBoot")]
+    #[serde(rename = "installUpdatesOnBoot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub install_updates_on_boot: Option<bool>,
     /// <p>A <code>LifeCycleEventConfiguration</code> object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.</p>
-    #[serde(rename = "LifecycleEventConfiguration")]
+    #[serde(rename = "lifecycleEventConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle_event_configuration: Option<LifecycleEventConfiguration>,
     /// <p>The layer name, which is used by the console.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>An array of <code>Package</code> objects that describes the layer packages.</p>
-    #[serde(rename = "Packages")]
+    #[serde(rename = "packages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packages: Option<Vec<String>>,
     /// <p>For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.</p> <p>The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer Reference</a>.</p>
-    #[serde(rename = "Shortname")]
+    #[serde(rename = "shortname")]
     pub shortname: String,
     /// <p>The layer stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
     /// <p>The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
     /// <p>Whether to use Amazon EBS-optimized instances.</p>
-    #[serde(rename = "UseEbsOptimizedInstances")]
+    #[serde(rename = "useEbsOptimizedInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_ebs_optimized_instances: Option<bool>,
     /// <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
-    #[serde(rename = "VolumeConfigurations")]
+    #[serde(rename = "volumeConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_configurations: Option<Vec<VolumeConfiguration>>,
 }
@@ -711,7 +711,7 @@ pub struct CreateLayerRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLayerResult {
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_id: Option<String>,
 }
@@ -720,75 +720,75 @@ pub struct CreateLayerResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStackRequest {
     /// <p><p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> <ul> <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack&#39;s instances as soon as they are available.</p> </li> <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack&#39;s instances.</p> </li> </ul> <p>The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <a>DescribeAgentVersions</a>. AgentVersion cannot be set to Chef 12.2.</p> <note> <p>You can also specify an agent version when you create or update an instance, which overrides the stack&#39;s default setting.</p> </note></p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "ChefConfiguration")]
+    #[serde(rename = "chefConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chef_configuration: Option<ChefConfiguration>,
     /// <p>The configuration manager. When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.</p>
-    #[serde(rename = "ConfigurationManager")]
+    #[serde(rename = "configurationManager")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_manager: Option<StackConfigurationManager>,
     /// <p>Contains the information required to retrieve an app or cookbook from a repository. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Adding Apps</a> or <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
-    #[serde(rename = "CustomCookbooksSource")]
+    #[serde(rename = "customCookbooksSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_cookbooks_source: Option<Source>,
     /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>The stack's default Availability Zone, which must be in the specified region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>. If you also specify a value for <code>DefaultSubnetId</code>, the subnet must be in the same zone. For more information, see the <code>VpcId</code> parameter description. </p>
-    #[serde(rename = "DefaultAvailabilityZone")]
+    #[serde(rename = "defaultAvailabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_availability_zone: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "DefaultInstanceProfileArn")]
+    #[serde(rename = "defaultInstanceProfileArn")]
     pub default_instance_profile_arn: String,
     /// <p>The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.</p> <ul> <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> <li> <p> <code>CentOS Linux 7</code> </p> </li> <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html"> Using Custom AMIs</a>.</p> </li> </ul> <p>The default option is the current Amazon Linux version. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p>
-    #[serde(rename = "DefaultOs")]
+    #[serde(rename = "defaultOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_os: Option<String>,
     /// <p>The default root device type. This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is <code>instance-store</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
-    #[serde(rename = "DefaultRootDeviceType")]
+    #[serde(rename = "defaultRootDeviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_root_device_type: Option<String>,
     /// <p>A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name, AWS OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html"> Using SSH to Communicate with an Instance</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html"> Managing SSH Access</a>. You can override this setting by specifying a different key pair, or no key pair, when you <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html"> create an instance</a>. </p>
-    #[serde(rename = "DefaultSshKeyName")]
+    #[serde(rename = "defaultSshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_ssh_key_name: Option<String>,
     /// <p>The stack's default VPC subnet ID. This parameter is required if you specify a value for the <code>VpcId</code> parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for <code>DefaultAvailabilityZone</code>, the subnet must be in that zone. For information on default values and when this parameter is required, see the <code>VpcId</code> parameter description. </p>
-    #[serde(rename = "DefaultSubnetId")]
+    #[serde(rename = "defaultSubnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_subnet_id: Option<String>,
     /// <p>The stack's host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p> <ul> <li> <p> <code>Baked_Goods</code> </p> </li> <li> <p> <code>Clouds</code> </p> </li> <li> <p> <code>Europe_Cities</code> </p> </li> <li> <p> <code>Fruits</code> </p> </li> <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li> <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li> <li> <p> <code>Planets_and_Moons</code> </p> </li> <li> <p> <code>Roman_Deities</code> </p> </li> <li> <p> <code>Scottish_Islands</code> </p> </li> <li> <p> <code>US_Cities</code> </p> </li> <li> <p> <code>Wild_Cats</code> </p> </li> </ul> <p>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns a host name based on the current theme.</p>
-    #[serde(rename = "HostnameTheme")]
+    #[serde(rename = "hostnameTheme")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname_theme: Option<String>,
     /// <p>The stack name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p><p>The stack&#39;s AWS region, such as <code>ap-south-1</code>. For more information about Amazon regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p> <note> <p>In the AWS CLI, this API maps to the <code>--stack-region</code> parameter. If the <code>--stack-region</code> parameter and the AWS CLI common parameter <code>--region</code> are set to the same value, the stack uses a <i>regional</i> endpoint. If the <code>--stack-region</code> parameter is not set, but the AWS CLI <code>--region</code> parameter is, this also results in a stack with a <i>regional</i> endpoint. However, if the <code>--region</code> parameter is set to <code>us-east-1</code>, and the <code>--stack-region</code> parameter is set to one of the following, then the stack uses a legacy or <i>classic</i> region: <code>us-west-1, us-west-2, sa-east-1, eu-central-1, eu-west-1, ap-northeast-1, ap-southeast-1, ap-southeast-2</code>. In this case, the actual API endpoint of the stack is in <code>us-east-1</code>. Only the preceding regions are supported as classic regions in the <code>us-east-1</code> API endpoint. Because it is a best practice to choose the regional endpoint that is closest to where you manage AWS, we recommend that you use regional endpoints for new stacks. The AWS CLI common <code>--region</code> parameter always specifies a regional API endpoint; it cannot be used to specify a classic AWS OpsWorks Stacks region.</p> </note></p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     pub region: String,
     /// <p>The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "ServiceRoleArn")]
+    #[serde(rename = "serviceRoleArn")]
     pub service_role_arn: String,
     /// <p>Whether the stack uses custom cookbooks.</p>
-    #[serde(rename = "UseCustomCookbooks")]
+    #[serde(rename = "useCustomCookbooks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_custom_cookbooks: Option<bool>,
     /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p> <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With <code>UseOpsworksSecurityGroups</code> you can instead provide your own custom security groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p> <ul> <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li> <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "UseOpsworksSecurityGroups")]
+    #[serde(rename = "useOpsworksSecurityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_opsworks_security_groups: Option<bool>,
     /// <p>The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.</p> <ul> <li> <p>If your account supports EC2-Classic, the default value is <code>no VPC</code>.</p> </li> <li> <p>If your account does not support EC2-Classic, the default value is the default VPC for the specified region.</p> </li> </ul> <p>If the VPC ID corresponds to a default VPC and you have specified either the <code>DefaultAvailabilityZone</code> or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks Stacks infers the value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively.</p> <p>If you specify a nondefault VPC ID, note the following:</p> <ul> <li> <p>It must belong to a VPC in your account that is in the specified region.</p> </li> <li> <p>You must specify a value for <code>DefaultSubnetId</code>.</p> </li> </ul> <p>For more information about how to use AWS OpsWorks Stacks with a VPC, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running a Stack in a VPC</a>. For more information about default VPC and EC2-Classic, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>. </p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -798,7 +798,7 @@ pub struct CreateStackRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateStackResult {
     /// <p>The stack ID, which is an opaque string that you use to identify the stack when performing actions such as <code>DescribeStacks</code>.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -807,18 +807,18 @@ pub struct CreateStackResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateUserProfileRequest {
     /// <p>Whether users can specify their own SSH public key through the My Settings page. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting an IAM User's Public SSH Key</a>.</p>
-    #[serde(rename = "AllowSelfManagement")]
+    #[serde(rename = "allowSelfManagement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_self_management: Option<bool>,
     /// <p>The user's IAM ARN; this can also be a federated user's ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     pub iam_user_arn: String,
     /// <p>The user's public SSH key.</p>
-    #[serde(rename = "SshPublicKey")]
+    #[serde(rename = "sshPublicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key: Option<String>,
     /// <p>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, <code>my.name</code> will be changed to <code>myname</code>. If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name. </p>
-    #[serde(rename = "SshUsername")]
+    #[serde(rename = "sshUsername")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_username: Option<String>,
 }
@@ -828,7 +828,7 @@ pub struct CreateUserProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateUserProfileResult {
     /// <p>The user's IAM ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arn: Option<String>,
 }
@@ -837,15 +837,15 @@ pub struct CreateUserProfileResult {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DataSource {
     /// <p>The data source's ARN.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The database name.</p>
-    #[serde(rename = "DatabaseName")]
+    #[serde(rename = "databaseName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub database_name: Option<String>,
     /// <p>The data source's type, <code>AutoSelectOpsworksMysqlInstance</code>, <code>OpsworksMysqlInstance</code>, <code>RdsDbInstance</code>, or <code>None</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -854,7 +854,7 @@ pub struct DataSource {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAppRequest {
     /// <p>The app ID.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     pub app_id: String,
 }
 
@@ -862,15 +862,15 @@ pub struct DeleteAppRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteInstanceRequest {
     /// <p>Whether to delete the instance Elastic IP address.</p>
-    #[serde(rename = "DeleteElasticIp")]
+    #[serde(rename = "deleteElasticIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_elastic_ip: Option<bool>,
     /// <p>Whether to delete the instance's Amazon EBS volumes.</p>
-    #[serde(rename = "DeleteVolumes")]
+    #[serde(rename = "deleteVolumes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_volumes: Option<bool>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -878,7 +878,7 @@ pub struct DeleteInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLayerRequest {
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     pub layer_id: String,
 }
 
@@ -886,7 +886,7 @@ pub struct DeleteLayerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStackRequest {
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -894,7 +894,7 @@ pub struct DeleteStackRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteUserProfileRequest {
     /// <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     pub iam_user_arn: String,
 }
 
@@ -903,51 +903,51 @@ pub struct DeleteUserProfileRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Deployment {
     /// <p>The app ID.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_id: Option<String>,
     /// <p>Used to specify a stack or deployment command.</p>
-    #[serde(rename = "Command")]
+    #[serde(rename = "command")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub command: Option<DeploymentCommand>,
     /// <p>A user-defined comment.</p>
-    #[serde(rename = "Comment")]
+    #[serde(rename = "comment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comment: Option<String>,
     /// <p>Date when the deployment completed.</p>
-    #[serde(rename = "CompletedAt")]
+    #[serde(rename = "completedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_at: Option<String>,
     /// <p>Date when the deployment was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>The deployment ID.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The deployment duration.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<i64>,
     /// <p>The user's IAM ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arn: Option<String>,
     /// <p>The IDs of the target instances.</p>
-    #[serde(rename = "InstanceIds")]
+    #[serde(rename = "instanceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_ids: Option<Vec<String>>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p><p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li> <p>successful</p> </li> <li> <p>failed</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -956,11 +956,11 @@ pub struct Deployment {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeploymentCommand {
     /// <p>The arguments of those commands that take arguments. It should be set to a JSON object with the following format:</p> <p> <code>{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}</code> </p> <p>The <code>update_dependencies</code> command takes two arguments:</p> <ul> <li> <p> <code>upgrade_os_to</code> - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as <code>Amazon Linux 2016.09</code>. You must also set the <code>allow_reboot</code> argument to true.</p> </li> <li> <p> <code>allow_reboot</code> - Specifies whether to allow AWS OpsWorks Stacks to reboot the instances if necessary, after installing the updates. This argument can be set to either <code>true</code> or <code>false</code>. The default value is <code>false</code>.</p> </li> </ul> <p>For example, to upgrade an instance to Amazon Linux 2016.09, set <code>Args</code> to the following.</p> <p> <code> { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } </code> </p>
-    #[serde(rename = "Args")]
+    #[serde(rename = "args")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub args: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p><p>Specifies the operation. You can specify only one command.</p> <p>For stacks, the following commands are available:</p> <ul> <li> <p> <code>execute<em>recipes</code>: Execute one or more recipes. To specify the recipes, set an <code>Args</code> parameter named <code>recipes</code> to the list of recipes to be executed. For example, to execute <code>phpapp::appsetup</code>, set <code>Args</code> to <code>{&quot;recipes&quot;:[&quot;phpapp::appsetup&quot;]}</code>.</p> </li> <li> <p> <code>install</em>dependencies</code>: Install the stack&#39;s dependencies.</p> </li> <li> <p> <code>update<em>custom</em>cookbooks</code>: Update the stack&#39;s custom cookbooks.</p> </li> <li> <p> <code>update<em>dependencies</code>: Update the stack&#39;s dependencies.</p> </li> </ul> <note> <p>The update</em>dependencies and install_dependencies commands are supported only for Linux instances. You can run the commands successfully on Windows instances, but they do nothing.</p> </note> <p>For apps, the following commands are available:</p> <ul> <li> <p> <code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional <code>Args</code> parameter named <code>migrate</code>. Set <code>Args</code> to {&quot;migrate&quot;:[&quot;true&quot;]} to migrate the database. The default setting is {&quot;migrate&quot;:[&quot;false&quot;]}.</p> </li> <li> <p> <code>rollback</code> Roll the app back to the previous version. When you update an app, AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.</p> </li> <li> <p> <code>start</code>: Start the app&#39;s web or application server.</p> </li> <li> <p> <code>stop</code>: Stop the app&#39;s web or application server.</p> </li> <li> <p> <code>restart</code>: Restart the app&#39;s web or application server.</p> </li> <li> <p> <code>undeploy</code>: Undeploy the app.</p> </li> </ul></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -968,7 +968,7 @@ pub struct DeploymentCommand {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterEcsClusterRequest {
     /// <p>The cluster's Amazon Resource Number (ARN).</p>
-    #[serde(rename = "EcsClusterArn")]
+    #[serde(rename = "ecsClusterArn")]
     pub ecs_cluster_arn: String,
 }
 
@@ -976,7 +976,7 @@ pub struct DeregisterEcsClusterRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterElasticIpRequest {
     /// <p>The Elastic IP address.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     pub elastic_ip: String,
 }
 
@@ -984,7 +984,7 @@ pub struct DeregisterElasticIpRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterInstanceRequest {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -992,7 +992,7 @@ pub struct DeregisterInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterRdsDbInstanceRequest {
     /// <p>The Amazon RDS instance's ARN.</p>
-    #[serde(rename = "RdsDbInstanceArn")]
+    #[serde(rename = "rdsDbInstanceArn")]
     pub rds_db_instance_arn: String,
 }
 
@@ -1000,7 +1000,7 @@ pub struct DeregisterRdsDbInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeregisterVolumeRequest {
     /// <p>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.</p>
-    #[serde(rename = "VolumeId")]
+    #[serde(rename = "volumeId")]
     pub volume_id: String,
 }
 
@@ -1008,11 +1008,11 @@ pub struct DeregisterVolumeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAgentVersionsRequest {
     /// <p>The configuration manager.</p>
-    #[serde(rename = "ConfigurationManager")]
+    #[serde(rename = "configurationManager")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_manager: Option<StackConfigurationManager>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1022,7 +1022,7 @@ pub struct DescribeAgentVersionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAgentVersionsResult {
     /// <p>The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.</p>
-    #[serde(rename = "AgentVersions")]
+    #[serde(rename = "agentVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_versions: Option<Vec<AgentVersion>>,
 }
@@ -1031,11 +1031,11 @@ pub struct DescribeAgentVersionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAppsRequest {
     /// <p>An array of app IDs for the apps to be described. If you use this parameter, <code>DescribeApps</code> returns a description of the specified apps. Otherwise, it returns a description of every app.</p>
-    #[serde(rename = "AppIds")]
+    #[serde(rename = "appIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_ids: Option<Vec<String>>,
     /// <p>The app stack ID. If you use this parameter, <code>DescribeApps</code> returns a description of the apps in the specified stack.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1045,7 +1045,7 @@ pub struct DescribeAppsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAppsResult {
     /// <p>An array of <code>App</code> objects that describe the specified apps. </p>
-    #[serde(rename = "Apps")]
+    #[serde(rename = "apps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps: Option<Vec<App>>,
 }
@@ -1054,15 +1054,15 @@ pub struct DescribeAppsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCommandsRequest {
     /// <p>An array of command IDs. If you include this parameter, <code>DescribeCommands</code> returns a description of the specified commands. Otherwise, it returns a description of every command.</p>
-    #[serde(rename = "CommandIds")]
+    #[serde(rename = "commandIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub command_ids: Option<Vec<String>>,
     /// <p>The deployment ID. If you include this parameter, <code>DescribeCommands</code> returns a description of the commands associated with the specified deployment.</p>
-    #[serde(rename = "DeploymentId")]
+    #[serde(rename = "deploymentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_id: Option<String>,
     /// <p>The instance ID. If you include this parameter, <code>DescribeCommands</code> returns a description of the commands associated with the specified instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
 }
@@ -1072,7 +1072,7 @@ pub struct DescribeCommandsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCommandsResult {
     /// <p>An array of <code>Command</code> objects that describe each of the specified commands.</p>
-    #[serde(rename = "Commands")]
+    #[serde(rename = "commands")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub commands: Option<Vec<Command>>,
 }
@@ -1081,15 +1081,15 @@ pub struct DescribeCommandsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeDeploymentsRequest {
     /// <p>The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_id: Option<String>,
     /// <p>An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.</p>
-    #[serde(rename = "DeploymentIds")]
+    #[serde(rename = "deploymentIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployment_ids: Option<Vec<String>>,
     /// <p>The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1099,7 +1099,7 @@ pub struct DescribeDeploymentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeDeploymentsResult {
     /// <p>An array of <code>Deployment</code> objects that describe the deployments.</p>
-    #[serde(rename = "Deployments")]
+    #[serde(rename = "deployments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deployments: Option<Vec<Deployment>>,
 }
@@ -1108,19 +1108,19 @@ pub struct DescribeDeploymentsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeEcsClustersRequest {
     /// <p>A list of ARNs, one for each cluster to be described.</p>
-    #[serde(rename = "EcsClusterArns")]
+    #[serde(rename = "ecsClusterArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_cluster_arns: Option<Vec<String>>,
     /// <p>To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous paginated request did not return all of the remaining results, the response object's<code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call <code>DescribeEcsClusters</code> again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A stack ID. <code>DescribeEcsClusters</code> returns a description of the cluster that is registered with the stack.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1130,11 +1130,11 @@ pub struct DescribeEcsClustersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeEcsClustersResult {
     /// <p>A list of <code>EcsCluster</code> objects containing the cluster descriptions.</p>
-    #[serde(rename = "EcsClusters")]
+    #[serde(rename = "ecsClusters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_clusters: Option<Vec<EcsCluster>>,
     /// <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's <code>NextToken</code> parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to <code>null</code>.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1143,15 +1143,15 @@ pub struct DescribeEcsClustersResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeElasticIpsRequest {
     /// <p>The instance ID. If you include this parameter, <code>DescribeElasticIps</code> returns a description of the Elastic IP addresses associated with the specified instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>An array of Elastic IP addresses to be described. If you include this parameter, <code>DescribeElasticIps</code> returns a description of the specified Elastic IP addresses. Otherwise, it returns a description of every Elastic IP address.</p>
-    #[serde(rename = "Ips")]
+    #[serde(rename = "ips")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ips: Option<Vec<String>>,
     /// <p>A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns a description of the Elastic IP addresses that are registered with the specified stack.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1161,7 +1161,7 @@ pub struct DescribeElasticIpsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeElasticIpsResult {
     /// <p>An <code>ElasticIps</code> object that describes the specified Elastic IP addresses.</p>
-    #[serde(rename = "ElasticIps")]
+    #[serde(rename = "elasticIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elastic_ips: Option<Vec<ElasticIp>>,
 }
@@ -1170,11 +1170,11 @@ pub struct DescribeElasticIpsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeElasticLoadBalancersRequest {
     /// <p>A list of layer IDs. The action describes the Elastic Load Balancing instances for the specified layers.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_ids: Option<Vec<String>>,
     /// <p>A stack ID. The action describes the stack's Elastic Load Balancing instances.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1184,7 +1184,7 @@ pub struct DescribeElasticLoadBalancersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeElasticLoadBalancersResult {
     /// <p>A list of <code>ElasticLoadBalancer</code> objects that describe the specified Elastic Load Balancing instances.</p>
-    #[serde(rename = "ElasticLoadBalancers")]
+    #[serde(rename = "elasticLoadBalancers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elastic_load_balancers: Option<Vec<ElasticLoadBalancer>>,
 }
@@ -1193,15 +1193,15 @@ pub struct DescribeElasticLoadBalancersResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeInstancesRequest {
     /// <p>An array of instance IDs to be described. If you use this parameter, <code>DescribeInstances</code> returns a description of the specified instances. Otherwise, it returns a description of every instance.</p>
-    #[serde(rename = "InstanceIds")]
+    #[serde(rename = "instanceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_ids: Option<Vec<String>>,
     /// <p>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of the instances associated with the specified layer.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_id: Option<String>,
     /// <p>A stack ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of the instances associated with the specified stack.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1211,7 +1211,7 @@ pub struct DescribeInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeInstancesResult {
     /// <p>An array of <code>Instance</code> objects that describe the instances.</p>
-    #[serde(rename = "Instances")]
+    #[serde(rename = "instances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instances: Option<Vec<Instance>>,
 }
@@ -1220,11 +1220,11 @@ pub struct DescribeInstancesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLayersRequest {
     /// <p>An array of layer IDs that specify the layers to be described. If you omit this parameter, <code>DescribeLayers</code> returns a description of every layer in the specified stack.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_ids: Option<Vec<String>>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1234,7 +1234,7 @@ pub struct DescribeLayersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLayersResult {
     /// <p>An array of <code>Layer</code> objects that describe the layers.</p>
-    #[serde(rename = "Layers")]
+    #[serde(rename = "layers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layers: Option<Vec<Layer>>,
 }
@@ -1243,7 +1243,7 @@ pub struct DescribeLayersResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLoadBasedAutoScalingRequest {
     /// <p>An array of layer IDs.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     pub layer_ids: Vec<String>,
 }
 
@@ -1252,7 +1252,7 @@ pub struct DescribeLoadBasedAutoScalingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLoadBasedAutoScalingResult {
     /// <p>An array of <code>LoadBasedAutoScalingConfiguration</code> objects that describe each layer's configuration.</p>
-    #[serde(rename = "LoadBasedAutoScalingConfigurations")]
+    #[serde(rename = "loadBasedAutoScalingConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub load_based_auto_scaling_configurations: Option<Vec<LoadBasedAutoScalingConfiguration>>,
 }
@@ -1262,7 +1262,7 @@ pub struct DescribeLoadBasedAutoScalingResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeMyUserProfileResult {
     /// <p>A <code>UserProfile</code> object that describes the user's SSH information.</p>
-    #[serde(rename = "UserProfile")]
+    #[serde(rename = "userProfile")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_profile: Option<SelfUserProfile>,
 }
@@ -1272,7 +1272,7 @@ pub struct DescribeMyUserProfileResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeOperatingSystemsResponse {
     /// <p>Contains information in response to a <code>DescribeOperatingSystems</code> request.</p>
-    #[serde(rename = "OperatingSystems")]
+    #[serde(rename = "operatingSystems")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub operating_systems: Option<Vec<OperatingSystem>>,
 }
@@ -1281,11 +1281,11 @@ pub struct DescribeOperatingSystemsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePermissionsRequest {
     /// <p>The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arn: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1295,7 +1295,7 @@ pub struct DescribePermissionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePermissionsResult {
     /// <p><p>An array of <code>Permission</code> objects that describe the stack permissions.</p> <ul> <li> <p>If the request object contains only a stack ID, the array contains a <code>Permission</code> object with permissions for each of the stack IAM ARNs.</p> </li> <li> <p>If the request object contains only an IAM ARN, the array contains a <code>Permission</code> object with permissions for each of the user&#39;s stack IDs.</p> </li> <li> <p>If the request contains a stack ID and an IAM ARN, the array contains a single <code>Permission</code> object with permissions for the specified stack and IAM ARN.</p> </li> </ul></p>
-    #[serde(rename = "Permissions")]
+    #[serde(rename = "permissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<Permission>>,
 }
@@ -1304,15 +1304,15 @@ pub struct DescribePermissionsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRaidArraysRequest {
     /// <p>The instance ID. If you use this parameter, <code>DescribeRaidArrays</code> returns descriptions of the RAID arrays associated with the specified instance. </p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>An array of RAID array IDs. If you use this parameter, <code>DescribeRaidArrays</code> returns descriptions of the specified arrays. Otherwise, it returns a description of every array.</p>
-    #[serde(rename = "RaidArrayIds")]
+    #[serde(rename = "raidArrayIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_array_ids: Option<Vec<String>>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1322,7 +1322,7 @@ pub struct DescribeRaidArraysRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRaidArraysResult {
     /// <p>A <code>RaidArrays</code> object that describes the specified RAID arrays.</p>
-    #[serde(rename = "RaidArrays")]
+    #[serde(rename = "raidArrays")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_arrays: Option<Vec<RaidArray>>,
 }
@@ -1331,11 +1331,11 @@ pub struct DescribeRaidArraysResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRdsDbInstancesRequest {
     /// <p>An array containing the ARNs of the instances to be described.</p>
-    #[serde(rename = "RdsDbInstanceArns")]
+    #[serde(rename = "rdsDbInstanceArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rds_db_instance_arns: Option<Vec<String>>,
     /// <p>The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -1344,7 +1344,7 @@ pub struct DescribeRdsDbInstancesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRdsDbInstancesResult {
     /// <p>An a array of <code>RdsDbInstance</code> objects that describe the instances.</p>
-    #[serde(rename = "RdsDbInstances")]
+    #[serde(rename = "rdsDbInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rds_db_instances: Option<Vec<RdsDbInstance>>,
 }
@@ -1353,15 +1353,15 @@ pub struct DescribeRdsDbInstancesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeServiceErrorsRequest {
     /// <p>The instance ID. If you use this parameter, <code>DescribeServiceErrors</code> returns descriptions of the errors associated with the specified instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>An array of service error IDs. If you use this parameter, <code>DescribeServiceErrors</code> returns descriptions of the specified errors. Otherwise, it returns a description of every error.</p>
-    #[serde(rename = "ServiceErrorIds")]
+    #[serde(rename = "serviceErrorIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_error_ids: Option<Vec<String>>,
     /// <p>The stack ID. If you use this parameter, <code>DescribeServiceErrors</code> returns descriptions of the errors associated with the specified stack.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1371,7 +1371,7 @@ pub struct DescribeServiceErrorsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeServiceErrorsResult {
     /// <p>An array of <code>ServiceError</code> objects that describe the specified service errors.</p>
-    #[serde(rename = "ServiceErrors")]
+    #[serde(rename = "serviceErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_errors: Option<Vec<ServiceError>>,
 }
@@ -1380,7 +1380,7 @@ pub struct DescribeServiceErrorsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStackProvisioningParametersRequest {
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -1389,11 +1389,11 @@ pub struct DescribeStackProvisioningParametersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStackProvisioningParametersResult {
     /// <p>The AWS OpsWorks Stacks agent installer's URL.</p>
-    #[serde(rename = "AgentInstallerUrl")]
+    #[serde(rename = "agentInstallerUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_installer_url: Option<String>,
     /// <p>An embedded object that contains the provisioning parameters.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, String>>,
 }
@@ -1402,7 +1402,7 @@ pub struct DescribeStackProvisioningParametersResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStackSummaryRequest {
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -1411,7 +1411,7 @@ pub struct DescribeStackSummaryRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStackSummaryResult {
     /// <p>A <code>StackSummary</code> object that contains the results.</p>
-    #[serde(rename = "StackSummary")]
+    #[serde(rename = "stackSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_summary: Option<StackSummary>,
 }
@@ -1420,7 +1420,7 @@ pub struct DescribeStackSummaryResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStacksRequest {
     /// <p>An array of stack IDs that specify the stacks to be described. If you omit this parameter, <code>DescribeStacks</code> returns a description of every stack.</p>
-    #[serde(rename = "StackIds")]
+    #[serde(rename = "stackIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_ids: Option<Vec<String>>,
 }
@@ -1430,7 +1430,7 @@ pub struct DescribeStacksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStacksResult {
     /// <p>An array of <code>Stack</code> objects that describe the stacks.</p>
-    #[serde(rename = "Stacks")]
+    #[serde(rename = "stacks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stacks: Option<Vec<Stack>>,
 }
@@ -1439,7 +1439,7 @@ pub struct DescribeStacksResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTimeBasedAutoScalingRequest {
     /// <p>An array of instance IDs.</p>
-    #[serde(rename = "InstanceIds")]
+    #[serde(rename = "instanceIds")]
     pub instance_ids: Vec<String>,
 }
 
@@ -1448,7 +1448,7 @@ pub struct DescribeTimeBasedAutoScalingRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTimeBasedAutoScalingResult {
     /// <p>An array of <code>TimeBasedAutoScalingConfiguration</code> objects that describe the configuration for the specified instances.</p>
-    #[serde(rename = "TimeBasedAutoScalingConfigurations")]
+    #[serde(rename = "timeBasedAutoScalingConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_based_auto_scaling_configurations: Option<Vec<TimeBasedAutoScalingConfiguration>>,
 }
@@ -1457,7 +1457,7 @@ pub struct DescribeTimeBasedAutoScalingResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeUserProfilesRequest {
     /// <p>An array of IAM or federated user ARNs that identify the users to be described.</p>
-    #[serde(rename = "IamUserArns")]
+    #[serde(rename = "iamUserArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arns: Option<Vec<String>>,
 }
@@ -1467,7 +1467,7 @@ pub struct DescribeUserProfilesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeUserProfilesResult {
     /// <p>A <code>Users</code> object that describes the specified users.</p>
-    #[serde(rename = "UserProfiles")]
+    #[serde(rename = "userProfiles")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_profiles: Option<Vec<UserProfile>>,
 }
@@ -1476,19 +1476,19 @@ pub struct DescribeUserProfilesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeVolumesRequest {
     /// <p>The instance ID. If you use this parameter, <code>DescribeVolumes</code> returns descriptions of the volumes associated with the specified instance.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The RAID array ID. If you use this parameter, <code>DescribeVolumes</code> returns descriptions of the volumes associated with the specified RAID array.</p>
-    #[serde(rename = "RaidArrayId")]
+    #[serde(rename = "raidArrayId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_array_id: Option<String>,
     /// <p>A stack ID. The action describes the stack's registered Amazon EBS volumes.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>Am array of volume IDs. If you use this parameter, <code>DescribeVolumes</code> returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.</p>
-    #[serde(rename = "VolumeIds")]
+    #[serde(rename = "volumeIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_ids: Option<Vec<String>>,
 }
@@ -1498,7 +1498,7 @@ pub struct DescribeVolumesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeVolumesResult {
     /// <p>An array of volume IDs.</p>
-    #[serde(rename = "Volumes")]
+    #[serde(rename = "volumes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volumes: Option<Vec<Volume>>,
 }
@@ -1507,10 +1507,10 @@ pub struct DescribeVolumesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetachElasticLoadBalancerRequest {
     /// <p>The Elastic Load Balancing instance's name.</p>
-    #[serde(rename = "ElasticLoadBalancerName")]
+    #[serde(rename = "elasticLoadBalancerName")]
     pub elastic_load_balancer_name: String,
     /// <p>The ID of the layer that the Elastic Load Balancing instance is attached to.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     pub layer_id: String,
 }
 
@@ -1518,7 +1518,7 @@ pub struct DetachElasticLoadBalancerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateElasticIpRequest {
     /// <p>The Elastic IP address.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     pub elastic_ip: String,
 }
 
@@ -1526,23 +1526,23 @@ pub struct DisassociateElasticIpRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EbsBlockDevice {
     /// <p>Whether the volume is deleted on instance termination.</p>
-    #[serde(rename = "DeleteOnTermination")]
+    #[serde(rename = "deleteOnTermination")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delete_on_termination: Option<bool>,
     /// <p>The number of I/O operations per second (IOPS) that the volume supports. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
-    #[serde(rename = "Iops")]
+    #[serde(rename = "iops")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iops: Option<i64>,
     /// <p>The snapshot ID.</p>
-    #[serde(rename = "SnapshotId")]
+    #[serde(rename = "snapshotId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub snapshot_id: Option<String>,
     /// <p>The volume size, in GiB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
-    #[serde(rename = "VolumeSize")]
+    #[serde(rename = "volumeSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_size: Option<i64>,
     /// <p>The volume type. <code>gp2</code> for General Purpose (SSD) volumes, <code>io1</code> for Provisioned IOPS (SSD) volumes, <code>st1</code> for Throughput Optimized hard disk drives (HDD), <code>sc1</code> for Cold HDD,and <code>standard</code> for Magnetic volumes.</p> <p>If you specify the <code>io1</code> volume type, you must also specify a value for the <code>Iops</code> attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
-    #[serde(rename = "VolumeType")]
+    #[serde(rename = "volumeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_type: Option<String>,
 }
@@ -1552,19 +1552,19 @@ pub struct EbsBlockDevice {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EcsCluster {
     /// <p>The cluster's ARN.</p>
-    #[serde(rename = "EcsClusterArn")]
+    #[serde(rename = "ecsClusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_cluster_arn: Option<String>,
     /// <p>The cluster name.</p>
-    #[serde(rename = "EcsClusterName")]
+    #[serde(rename = "ecsClusterName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_cluster_name: Option<String>,
     /// <p>The time and date that the cluster was registered with the stack.</p>
-    #[serde(rename = "RegisteredAt")]
+    #[serde(rename = "registeredAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registered_at: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -1574,23 +1574,23 @@ pub struct EcsCluster {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ElasticIp {
     /// <p>The domain.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The ID of the instance that the address is attached to.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The IP address.</p>
-    #[serde(rename = "Ip")]
+    #[serde(rename = "ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip: Option<String>,
     /// <p>The name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The AWS region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
 }
@@ -1600,39 +1600,39 @@ pub struct ElasticIp {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ElasticLoadBalancer {
     /// <p>A list of Availability Zones.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<String>>,
     /// <p>The instance's public DNS name.</p>
-    #[serde(rename = "DnsName")]
+    #[serde(rename = "dnsName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dns_name: Option<String>,
     /// <p>A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.</p>
-    #[serde(rename = "Ec2InstanceIds")]
+    #[serde(rename = "ec2InstanceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_instance_ids: Option<Vec<String>>,
     /// <p>The Elastic Load Balancing instance's name.</p>
-    #[serde(rename = "ElasticLoadBalancerName")]
+    #[serde(rename = "elasticLoadBalancerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elastic_load_balancer_name: Option<String>,
     /// <p>The ID of the layer that the instance is attached to.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_id: Option<String>,
     /// <p>The instance's AWS region.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The ID of the stack that the instance is associated with.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>A list of subnet IDs, if the stack is running in a VPC.</p>
-    #[serde(rename = "SubnetIds")]
+    #[serde(rename = "subnetIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_ids: Option<Vec<String>>,
     /// <p>The VPC ID.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -1641,14 +1641,14 @@ pub struct ElasticLoadBalancer {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct EnvironmentVariable {
     /// <p>(Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>(Optional) Whether the variable's value will be returned by the <a>DescribeApps</a> action. To conceal an environment variable's value, set <code>Secure</code> to <code>true</code>. <code>DescribeApps</code> then returns <code>*****FILTERED*****</code> instead of the actual value. The default value for <code>Secure</code> is <code>false</code>. </p>
-    #[serde(rename = "Secure")]
+    #[serde(rename = "secure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secure: Option<bool>,
     /// <p>(Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1656,7 +1656,7 @@ pub struct EnvironmentVariable {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetHostnameSuggestionRequest {
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     pub layer_id: String,
 }
 
@@ -1665,11 +1665,11 @@ pub struct GetHostnameSuggestionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetHostnameSuggestionResult {
     /// <p>The generated host name.</p>
-    #[serde(rename = "Hostname")]
+    #[serde(rename = "hostname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_id: Option<String>,
 }
@@ -1678,10 +1678,10 @@ pub struct GetHostnameSuggestionResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GrantAccessRequest {
     /// <p>The instance's AWS OpsWorks Stacks ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.</p>
-    #[serde(rename = "ValidForInMinutes")]
+    #[serde(rename = "validForInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub valid_for_in_minutes: Option<i64>,
 }
@@ -1691,7 +1691,7 @@ pub struct GrantAccessRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GrantAccessResult {
     /// <p>A <code>TemporaryCredential</code> object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.</p>
-    #[serde(rename = "TemporaryCredential")]
+    #[serde(rename = "temporaryCredential")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub temporary_credential: Option<TemporaryCredential>,
 }
@@ -1701,167 +1701,167 @@ pub struct GrantAccessResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Instance {
     /// <p>The agent version. This parameter is set to <code>INHERIT</code> if the instance inherits the default stack setting or to a a version number for a fixed agent version.</p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p>A custom AMI ID to be used to create the instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Instances</a> </p>
-    #[serde(rename = "AmiId")]
+    #[serde(rename = "amiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ami_id: Option<String>,
     /// <p>The instance architecture: "i386" or "x86_64".</p>
-    #[serde(rename = "Architecture")]
+    #[serde(rename = "architecture")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub architecture: Option<String>,
     /// <p>The instance's Amazon Resource Number (ARN).</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>For load-based or time-based instances, the type.</p>
-    #[serde(rename = "AutoScalingType")]
+    #[serde(rename = "autoScalingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_scaling_type: Option<String>,
     /// <p>The instance Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block device mappings.</p>
-    #[serde(rename = "BlockDeviceMappings")]
+    #[serde(rename = "blockDeviceMappings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_device_mappings: Option<Vec<BlockDeviceMapping>>,
     /// <p>The time that the instance was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>Whether this is an Amazon EBS-optimized instance.</p>
-    #[serde(rename = "EbsOptimized")]
+    #[serde(rename = "ebsOptimized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_optimized: Option<bool>,
     /// <p>The ID of the associated Amazon EC2 instance.</p>
-    #[serde(rename = "Ec2InstanceId")]
+    #[serde(rename = "ec2InstanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_instance_id: Option<String>,
     /// <p>For container instances, the Amazon ECS cluster's ARN.</p>
-    #[serde(rename = "EcsClusterArn")]
+    #[serde(rename = "ecsClusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_cluster_arn: Option<String>,
     /// <p>For container instances, the instance's ARN.</p>
-    #[serde(rename = "EcsContainerInstanceArn")]
+    #[serde(rename = "ecsContainerInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_container_instance_arn: Option<String>,
     /// <p>The instance <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP address </a>.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elastic_ip: Option<String>,
     /// <p>The instance host name.</p>
-    #[serde(rename = "Hostname")]
+    #[serde(rename = "hostname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// <p>For registered instances, the infrastructure class: <code>ec2</code> or <code>on-premises</code>.</p>
-    #[serde(rename = "InfrastructureClass")]
+    #[serde(rename = "infrastructureClass")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub infrastructure_class: Option<String>,
     /// <p><p>Whether to install operating system and package updates when the instance boots. The default value is <code>true</code>. If this value is set to <code>false</code>, you must then update your instances manually by using <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>We strongly recommend using the default value of <code>true</code>, to ensure that your instances have the latest security updates.</p> </note></p>
-    #[serde(rename = "InstallUpdatesOnBoot")]
+    #[serde(rename = "installUpdatesOnBoot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub install_updates_on_boot: Option<bool>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The ARN of the instance's IAM profile. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "InstanceProfileArn")]
+    #[serde(rename = "instanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_profile_arn: Option<String>,
     /// <p>The instance type, such as <code>t2.micro</code>.</p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <p>The ID of the last service error. For more information, call <a>DescribeServiceErrors</a>.</p>
-    #[serde(rename = "LastServiceErrorId")]
+    #[serde(rename = "lastServiceErrorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_service_error_id: Option<String>,
     /// <p>An array containing the instance layer IDs.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_ids: Option<Vec<String>>,
     /// <p>The instance's operating system.</p>
-    #[serde(rename = "Os")]
+    #[serde(rename = "os")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub os: Option<String>,
     /// <p>The instance's platform.</p>
-    #[serde(rename = "Platform")]
+    #[serde(rename = "platform")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub platform: Option<String>,
     /// <p>The instance's private DNS name.</p>
-    #[serde(rename = "PrivateDns")]
+    #[serde(rename = "privateDns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_dns: Option<String>,
     /// <p>The instance's private IP address.</p>
-    #[serde(rename = "PrivateIp")]
+    #[serde(rename = "privateIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_ip: Option<String>,
     /// <p>The instance public DNS name.</p>
-    #[serde(rename = "PublicDns")]
+    #[serde(rename = "publicDns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_dns: Option<String>,
     /// <p>The instance public IP address.</p>
-    #[serde(rename = "PublicIp")]
+    #[serde(rename = "publicIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_ip: Option<String>,
     /// <p>For registered instances, who performed the registration.</p>
-    #[serde(rename = "RegisteredBy")]
+    #[serde(rename = "registeredBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registered_by: Option<String>,
     /// <p>The instance's reported AWS OpsWorks Stacks agent version.</p>
-    #[serde(rename = "ReportedAgentVersion")]
+    #[serde(rename = "reportedAgentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reported_agent_version: Option<String>,
     /// <p>For registered instances, the reported operating system.</p>
-    #[serde(rename = "ReportedOs")]
+    #[serde(rename = "reportedOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reported_os: Option<ReportedOs>,
     /// <p>The instance's root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
-    #[serde(rename = "RootDeviceType")]
+    #[serde(rename = "rootDeviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_device_type: Option<String>,
     /// <p>The root device volume ID.</p>
-    #[serde(rename = "RootDeviceVolumeId")]
+    #[serde(rename = "rootDeviceVolumeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_device_volume_id: Option<String>,
     /// <p>An array containing the instance security group IDs.</p>
-    #[serde(rename = "SecurityGroupIds")]
+    #[serde(rename = "securityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_ids: Option<Vec<String>>,
     /// <p>The SSH key's Deep Security Agent (DSA) fingerprint.</p>
-    #[serde(rename = "SshHostDsaKeyFingerprint")]
+    #[serde(rename = "sshHostDsaKeyFingerprint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_host_dsa_key_fingerprint: Option<String>,
     /// <p>The SSH key's RSA fingerprint.</p>
-    #[serde(rename = "SshHostRsaKeyFingerprint")]
+    #[serde(rename = "sshHostRsaKeyFingerprint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_host_rsa_key_fingerprint: Option<String>,
     /// <p>The instance's Amazon EC2 key-pair name.</p>
-    #[serde(rename = "SshKeyName")]
+    #[serde(rename = "sshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_key_name: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p><p>The instance status:</p> <ul> <li> <p> <code>booting</code> </p> </li> <li> <p> <code>connection<em>lost</code> </p> </li> <li> <p> <code>online</code> </p> </li> <li> <p> <code>pending</code> </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p> <code>requested</code> </p> </li> <li> <p> <code>running</em>setup</code> </p> </li> <li> <p> <code>setup<em>failed</code> </p> </li> <li> <p> <code>shutting</em>down</code> </p> </li> <li> <p> <code>start<em>failed</code> </p> </li> <li> <p> <code>stop</em>failed</code> </p> </li> <li> <p> <code>stopped</code> </p> </li> <li> <p> <code>stopping</code> </p> </li> <li> <p> <code>terminated</code> </p> </li> <li> <p> <code>terminating</code> </p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The instance's subnet ID; applicable only if the stack is running in a VPC.</p>
-    #[serde(rename = "SubnetId")]
+    #[serde(rename = "subnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,
     /// <p>The instance's tenancy option, such as <code>dedicated</code> or <code>host</code>.</p>
-    #[serde(rename = "Tenancy")]
+    #[serde(rename = "tenancy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tenancy: Option<String>,
     /// <p>The instance's virtualization type: <code>paravirtual</code> or <code>hvm</code>.</p>
-    #[serde(rename = "VirtualizationType")]
+    #[serde(rename = "virtualizationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub virtualization_type: Option<String>,
 }
@@ -1871,11 +1871,11 @@ pub struct Instance {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct InstanceIdentity {
     /// <p>A JSON document that contains the metadata.</p>
-    #[serde(rename = "Document")]
+    #[serde(rename = "document")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document: Option<String>,
     /// <p>A signature that can be used to verify the document's accuracy and authenticity.</p>
-    #[serde(rename = "Signature")]
+    #[serde(rename = "signature")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub signature: Option<String>,
 }
@@ -1885,83 +1885,83 @@ pub struct InstanceIdentity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstancesCount {
     /// <p>The number of instances in the Assigning state.</p>
-    #[serde(rename = "Assigning")]
+    #[serde(rename = "assigning")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assigning: Option<i64>,
     /// <p>The number of instances with <code>booting</code> status.</p>
-    #[serde(rename = "Booting")]
+    #[serde(rename = "booting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub booting: Option<i64>,
     /// <p>The number of instances with <code>connection_lost</code> status.</p>
-    #[serde(rename = "ConnectionLost")]
+    #[serde(rename = "connectionLost")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_lost: Option<i64>,
     /// <p>The number of instances in the Deregistering state.</p>
-    #[serde(rename = "Deregistering")]
+    #[serde(rename = "deregistering")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deregistering: Option<i64>,
     /// <p>The number of instances with <code>online</code> status.</p>
-    #[serde(rename = "Online")]
+    #[serde(rename = "online")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub online: Option<i64>,
     /// <p>The number of instances with <code>pending</code> status.</p>
-    #[serde(rename = "Pending")]
+    #[serde(rename = "pending")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pending: Option<i64>,
     /// <p>The number of instances with <code>rebooting</code> status.</p>
-    #[serde(rename = "Rebooting")]
+    #[serde(rename = "rebooting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rebooting: Option<i64>,
     /// <p>The number of instances in the Registered state.</p>
-    #[serde(rename = "Registered")]
+    #[serde(rename = "registered")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registered: Option<i64>,
     /// <p>The number of instances in the Registering state.</p>
-    #[serde(rename = "Registering")]
+    #[serde(rename = "registering")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub registering: Option<i64>,
     /// <p>The number of instances with <code>requested</code> status.</p>
-    #[serde(rename = "Requested")]
+    #[serde(rename = "requested")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requested: Option<i64>,
     /// <p>The number of instances with <code>running_setup</code> status.</p>
-    #[serde(rename = "RunningSetup")]
+    #[serde(rename = "runningSetup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub running_setup: Option<i64>,
     /// <p>The number of instances with <code>setup_failed</code> status.</p>
-    #[serde(rename = "SetupFailed")]
+    #[serde(rename = "setupFailed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub setup_failed: Option<i64>,
     /// <p>The number of instances with <code>shutting_down</code> status.</p>
-    #[serde(rename = "ShuttingDown")]
+    #[serde(rename = "shuttingDown")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shutting_down: Option<i64>,
     /// <p>The number of instances with <code>start_failed</code> status.</p>
-    #[serde(rename = "StartFailed")]
+    #[serde(rename = "startFailed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_failed: Option<i64>,
     /// <p>The number of instances with <code>stop_failed</code> status.</p>
-    #[serde(rename = "StopFailed")]
+    #[serde(rename = "stopFailed")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stop_failed: Option<i64>,
     /// <p>The number of instances with <code>stopped</code> status.</p>
-    #[serde(rename = "Stopped")]
+    #[serde(rename = "stopped")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stopped: Option<i64>,
     /// <p>The number of instances with <code>stopping</code> status.</p>
-    #[serde(rename = "Stopping")]
+    #[serde(rename = "stopping")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stopping: Option<i64>,
     /// <p>The number of instances with <code>terminated</code> status.</p>
-    #[serde(rename = "Terminated")]
+    #[serde(rename = "terminated")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminated: Option<i64>,
     /// <p>The number of instances with <code>terminating</code> status.</p>
-    #[serde(rename = "Terminating")]
+    #[serde(rename = "terminating")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub terminating: Option<i64>,
     /// <p>The number of instances in the Unassigning state.</p>
-    #[serde(rename = "Unassigning")]
+    #[serde(rename = "unassigning")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unassigning: Option<i64>,
 }
@@ -1971,95 +1971,95 @@ pub struct InstancesCount {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Layer {
     /// <p>The Amazon Resource Number (ARN) of a layer.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The layer attributes.</p> <p>For the <code>HaproxyStatsPassword</code>, <code>MysqlRootPassword</code>, and <code>GangliaPassword</code> attributes, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value</p> <p>For an ECS Cluster layer, AWS OpsWorks Stacks the <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP address</a> to the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit a Layer</a>.</p>
-    #[serde(rename = "AutoAssignElasticIps")]
+    #[serde(rename = "autoAssignElasticIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_assign_elastic_ips: Option<bool>,
     /// <p>For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit a Layer</a>.</p>
-    #[serde(rename = "AutoAssignPublicIps")]
+    #[serde(rename = "autoAssignPublicIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_assign_public_ips: Option<bool>,
     /// <p>The Amazon CloudWatch Logs configuration settings for the layer.</p>
-    #[serde(rename = "CloudWatchLogsConfiguration")]
+    #[serde(rename = "cloudWatchLogsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_configuration: Option<CloudWatchLogsConfiguration>,
     /// <p>Date when the layer was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "CustomInstanceProfileArn")]
+    #[serde(rename = "customInstanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_instance_profile_arn: Option<String>,
     /// <p>A JSON formatted string containing the layer's custom stack configuration and deployment attributes.</p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>A <code>LayerCustomRecipes</code> object that specifies the layer's custom recipes.</p>
-    #[serde(rename = "CustomRecipes")]
+    #[serde(rename = "customRecipes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_recipes: Option<Recipes>,
     /// <p>An array containing the layer's custom security group IDs.</p>
-    #[serde(rename = "CustomSecurityGroupIds")]
+    #[serde(rename = "customSecurityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_security_group_ids: Option<Vec<String>>,
     /// <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>, <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. You can also provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. <code>LayerCustomRecipes</code> specifies the custom recipes for a particular layer to be run in response to each of the five events.</p> <p>To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code> folder.</p>
-    #[serde(rename = "DefaultRecipes")]
+    #[serde(rename = "defaultRecipes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_recipes: Option<Recipes>,
     /// <p>An array containing the layer's security group names.</p>
-    #[serde(rename = "DefaultSecurityGroupNames")]
+    #[serde(rename = "defaultSecurityGroupNames")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_security_group_names: Option<Vec<String>>,
     /// <p>Whether auto healing is disabled for the layer.</p>
-    #[serde(rename = "EnableAutoHealing")]
+    #[serde(rename = "enableAutoHealing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_auto_healing: Option<bool>,
     /// <p><p>Whether to install operating system and package updates when the instance boots. The default value is <code>true</code>. If this value is set to <code>false</code>, you must then update your instances manually by using <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command or manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>We strongly recommend using the default value of <code>true</code>, to ensure that your instances have the latest security updates.</p> </note></p>
-    #[serde(rename = "InstallUpdatesOnBoot")]
+    #[serde(rename = "installUpdatesOnBoot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub install_updates_on_boot: Option<bool>,
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_id: Option<String>,
     /// <p>A <code>LifeCycleEventConfiguration</code> object that specifies the Shutdown event configuration.</p>
-    #[serde(rename = "LifecycleEventConfiguration")]
+    #[serde(rename = "lifecycleEventConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle_event_configuration: Option<LifecycleEventConfiguration>,
     /// <p>The layer name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An array of <code>Package</code> objects that describe the layer's packages.</p>
-    #[serde(rename = "Packages")]
+    #[serde(rename = "packages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packages: Option<Vec<String>>,
     /// <p>The layer short name.</p>
-    #[serde(rename = "Shortname")]
+    #[serde(rename = "shortname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shortname: Option<String>,
     /// <p>The layer stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>The layer type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>Whether the layer uses Amazon EBS-optimized instances.</p>
-    #[serde(rename = "UseEbsOptimizedInstances")]
+    #[serde(rename = "useEbsOptimizedInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_ebs_optimized_instances: Option<bool>,
     /// <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
-    #[serde(rename = "VolumeConfigurations")]
+    #[serde(rename = "volumeConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_configurations: Option<Vec<VolumeConfiguration>>,
 }
@@ -2068,7 +2068,7 @@ pub struct Layer {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct LifecycleEventConfiguration {
     /// <p>A <code>ShutdownEventConfiguration</code> object that specifies the Shutdown event configuration.</p>
-    #[serde(rename = "Shutdown")]
+    #[serde(rename = "shutdown")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shutdown: Option<ShutdownEventConfiguration>,
 }
@@ -2077,15 +2077,15 @@ pub struct LifecycleEventConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsRequest {
     /// <p>Do not use. A validation exception occurs if you add a <code>MaxResults</code> parameter to a <code>ListTagsRequest</code> call. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Do not use. A validation exception occurs if you add a <code>NextToken</code> parameter to a <code>ListTagsRequest</code> call. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The stack or layer's Amazon Resource Number (ARN).</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -2094,11 +2094,11 @@ pub struct ListTagsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsResult {
     /// <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's <code>NextToken</code> parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to <code>null</code>. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2108,19 +2108,19 @@ pub struct ListTagsResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LoadBasedAutoScalingConfiguration {
     /// <p>An <code>AutoScalingThresholds</code> object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.</p>
-    #[serde(rename = "DownScaling")]
+    #[serde(rename = "downScaling")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub down_scaling: Option<AutoScalingThresholds>,
     /// <p>Whether load-based auto scaling is enabled for the layer.</p>
-    #[serde(rename = "Enable")]
+    #[serde(rename = "enable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable: Option<bool>,
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_id: Option<String>,
     /// <p>An <code>AutoScalingThresholds</code> object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.</p>
-    #[serde(rename = "UpScaling")]
+    #[serde(rename = "upScaling")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub up_scaling: Option<AutoScalingThresholds>,
 }
@@ -2130,31 +2130,31 @@ pub struct LoadBasedAutoScalingConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OperatingSystem {
     /// <p>Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.</p>
-    #[serde(rename = "ConfigurationManagers")]
+    #[serde(rename = "configurationManagers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_managers: Option<Vec<OperatingSystemConfigurationManager>>,
     /// <p>The ID of a supported operating system, such as <code>Amazon Linux 2018.03</code>.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the operating system, such as <code>Amazon Linux 2018.03</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A short name for the operating system manufacturer.</p>
-    #[serde(rename = "ReportedName")]
+    #[serde(rename = "reportedName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reported_name: Option<String>,
     /// <p>The version of the operating system, including the release and edition, if applicable.</p>
-    #[serde(rename = "ReportedVersion")]
+    #[serde(rename = "reportedVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reported_version: Option<String>,
     /// <p>Indicates that an operating system is not supported for new instances.</p>
-    #[serde(rename = "Supported")]
+    #[serde(rename = "supported")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supported: Option<bool>,
     /// <p>The type of a supported operating system, either <code>Linux</code> or <code>Windows</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2164,11 +2164,11 @@ pub struct OperatingSystem {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct OperatingSystemConfigurationManager {
     /// <p>The name of the configuration manager, which is Chef.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The versions of the configuration manager that are supported by an operating system.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -2178,23 +2178,23 @@ pub struct OperatingSystemConfigurationManager {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Permission {
     /// <p>Whether the user can use SSH.</p>
-    #[serde(rename = "AllowSsh")]
+    #[serde(rename = "allowSsh")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_ssh: Option<bool>,
     /// <p>Whether the user can use <b>sudo</b>.</p>
-    #[serde(rename = "AllowSudo")]
+    #[serde(rename = "allowSudo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_sudo: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arn: Option<String>,
     /// <p>The user's permission level, which must be the following:</p> <ul> <li> <p> <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p> <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p> <code>iam_only</code> </p> </li> </ul> <p>For more information on the permissions associated with these levels, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User Permissions</a> </p>
-    #[serde(rename = "Level")]
+    #[serde(rename = "level")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level: Option<String>,
     /// <p>A stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -2204,55 +2204,55 @@ pub struct Permission {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RaidArray {
     /// <p>The array's Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>When the RAID array was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The array's Linux device. For example /dev/mdadm0.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<String>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>For PIOPS volumes, the IOPS per disk.</p>
-    #[serde(rename = "Iops")]
+    #[serde(rename = "iops")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iops: Option<i64>,
     /// <p>The array's mount point.</p>
-    #[serde(rename = "MountPoint")]
+    #[serde(rename = "mountPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_point: Option<String>,
     /// <p>The array name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The number of disks in the array.</p>
-    #[serde(rename = "NumberOfDisks")]
+    #[serde(rename = "numberOfDisks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_of_disks: Option<i64>,
     /// <p>The array ID.</p>
-    #[serde(rename = "RaidArrayId")]
+    #[serde(rename = "raidArrayId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_array_id: Option<String>,
     /// <p>The <a href="http://en.wikipedia.org/wiki/Standard_RAID_levels">RAID level</a>.</p>
-    #[serde(rename = "RaidLevel")]
+    #[serde(rename = "raidLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_level: Option<i64>,
     /// <p>The array's size.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size: Option<i64>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>The volume type, standard or PIOPS.</p>
-    #[serde(rename = "VolumeType")]
+    #[serde(rename = "volumeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_type: Option<String>,
 }
@@ -2262,39 +2262,39 @@ pub struct RaidArray {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RdsDbInstance {
     /// <p>The instance's address.</p>
-    #[serde(rename = "Address")]
+    #[serde(rename = "address")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
     /// <p>The DB instance identifier.</p>
-    #[serde(rename = "DbInstanceIdentifier")]
+    #[serde(rename = "dbInstanceIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub db_instance_identifier: Option<String>,
     /// <p>AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
-    #[serde(rename = "DbPassword")]
+    #[serde(rename = "dbPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub db_password: Option<String>,
     /// <p>The master user name.</p>
-    #[serde(rename = "DbUser")]
+    #[serde(rename = "dbUser")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub db_user: Option<String>,
     /// <p>The instance's database engine.</p>
-    #[serde(rename = "Engine")]
+    #[serde(rename = "engine")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub engine: Option<String>,
     /// <p>Set to <code>true</code> if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to <code>true</code>, you must deregister the instance, and then register it again.</p>
-    #[serde(rename = "MissingOnRds")]
+    #[serde(rename = "missingOnRds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub missing_on_rds: Option<bool>,
     /// <p>The instance's ARN.</p>
-    #[serde(rename = "RdsDbInstanceArn")]
+    #[serde(rename = "rdsDbInstanceArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rds_db_instance_arn: Option<String>,
     /// <p>The instance's AWS region.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The ID of the stack with which the instance is registered.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -2303,7 +2303,7 @@ pub struct RdsDbInstance {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RebootInstanceRequest {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -2311,23 +2311,23 @@ pub struct RebootInstanceRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Recipes {
     /// <p>An array of custom recipe names to be run following a <code>configure</code> event.</p>
-    #[serde(rename = "Configure")]
+    #[serde(rename = "configure")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configure: Option<Vec<String>>,
     /// <p>An array of custom recipe names to be run following a <code>deploy</code> event.</p>
-    #[serde(rename = "Deploy")]
+    #[serde(rename = "deploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deploy: Option<Vec<String>>,
     /// <p>An array of custom recipe names to be run following a <code>setup</code> event.</p>
-    #[serde(rename = "Setup")]
+    #[serde(rename = "setup")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub setup: Option<Vec<String>>,
     /// <p>An array of custom recipe names to be run following a <code>shutdown</code> event.</p>
-    #[serde(rename = "Shutdown")]
+    #[serde(rename = "shutdown")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shutdown: Option<Vec<String>>,
     /// <p>An array of custom recipe names to be run following a <code>undeploy</code> event.</p>
-    #[serde(rename = "Undeploy")]
+    #[serde(rename = "undeploy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub undeploy: Option<Vec<String>>,
 }
@@ -2336,10 +2336,10 @@ pub struct Recipes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterEcsClusterRequest {
     /// <p>The cluster's ARN.</p>
-    #[serde(rename = "EcsClusterArn")]
+    #[serde(rename = "ecsClusterArn")]
     pub ecs_cluster_arn: String,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2348,7 +2348,7 @@ pub struct RegisterEcsClusterRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterEcsClusterResult {
     /// <p>The cluster's ARN.</p>
-    #[serde(rename = "EcsClusterArn")]
+    #[serde(rename = "ecsClusterArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ecs_cluster_arn: Option<String>,
 }
@@ -2357,10 +2357,10 @@ pub struct RegisterEcsClusterResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterElasticIpRequest {
     /// <p>The Elastic IP address.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     pub elastic_ip: String,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2369,7 +2369,7 @@ pub struct RegisterElasticIpRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterElasticIpResult {
     /// <p>The Elastic IP address.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub elastic_ip: Option<String>,
 }
@@ -2378,31 +2378,31 @@ pub struct RegisterElasticIpResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterInstanceRequest {
     /// <p>The instance's hostname.</p>
-    #[serde(rename = "Hostname")]
+    #[serde(rename = "hostname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// <p>An InstanceIdentity object that contains the instance's identity.</p>
-    #[serde(rename = "InstanceIdentity")]
+    #[serde(rename = "instanceIdentity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_identity: Option<InstanceIdentity>,
     /// <p>The instance's private IP address.</p>
-    #[serde(rename = "PrivateIp")]
+    #[serde(rename = "privateIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_ip: Option<String>,
     /// <p>The instance's public IP address.</p>
-    #[serde(rename = "PublicIp")]
+    #[serde(rename = "publicIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub public_ip: Option<String>,
     /// <p>The instances public RSA key. This key is used to encrypt communication between the instance and the service.</p>
-    #[serde(rename = "RsaPublicKey")]
+    #[serde(rename = "rsaPublicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rsa_public_key: Option<String>,
     /// <p>The instances public RSA key fingerprint.</p>
-    #[serde(rename = "RsaPublicKeyFingerprint")]
+    #[serde(rename = "rsaPublicKeyFingerprint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rsa_public_key_fingerprint: Option<String>,
     /// <p>The ID of the stack that the instance is to be registered with.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2411,7 +2411,7 @@ pub struct RegisterInstanceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterInstanceResult {
     /// <p>The registered instance's AWS OpsWorks Stacks ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
 }
@@ -2420,16 +2420,16 @@ pub struct RegisterInstanceResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterRdsDbInstanceRequest {
     /// <p>The database password.</p>
-    #[serde(rename = "DbPassword")]
+    #[serde(rename = "dbPassword")]
     pub db_password: String,
     /// <p>The database's master user name.</p>
-    #[serde(rename = "DbUser")]
+    #[serde(rename = "dbUser")]
     pub db_user: String,
     /// <p>The Amazon RDS instance's ARN.</p>
-    #[serde(rename = "RdsDbInstanceArn")]
+    #[serde(rename = "rdsDbInstanceArn")]
     pub rds_db_instance_arn: String,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2437,11 +2437,11 @@ pub struct RegisterRdsDbInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RegisterVolumeRequest {
     /// <p>The Amazon EBS volume ID.</p>
-    #[serde(rename = "Ec2VolumeId")]
+    #[serde(rename = "ec2VolumeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_volume_id: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2450,7 +2450,7 @@ pub struct RegisterVolumeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RegisterVolumeResult {
     /// <p>The volume ID.</p>
-    #[serde(rename = "VolumeId")]
+    #[serde(rename = "volumeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_id: Option<String>,
 }
@@ -2460,15 +2460,15 @@ pub struct RegisterVolumeResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ReportedOs {
     /// <p>The operating system family.</p>
-    #[serde(rename = "Family")]
+    #[serde(rename = "family")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub family: Option<String>,
     /// <p>The operating system name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The operating system version.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -2478,19 +2478,19 @@ pub struct ReportedOs {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SelfUserProfile {
     /// <p>The user's IAM ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arn: Option<String>,
     /// <p>The user's name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The user's SSH public key.</p>
-    #[serde(rename = "SshPublicKey")]
+    #[serde(rename = "sshPublicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key: Option<String>,
     /// <p>The user's SSH user name.</p>
-    #[serde(rename = "SshUsername")]
+    #[serde(rename = "sshUsername")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_username: Option<String>,
 }
@@ -2500,27 +2500,27 @@ pub struct SelfUserProfile {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceError {
     /// <p>When the error occurred.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>A message that describes the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The error ID.</p>
-    #[serde(rename = "ServiceErrorId")]
+    #[serde(rename = "serviceErrorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_error_id: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>The error type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2529,18 +2529,18 @@ pub struct ServiceError {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetLoadBasedAutoScalingRequest {
     /// <p>An <code>AutoScalingThresholds</code> object with the downscaling threshold configuration. If the load falls below these thresholds for a specified amount of time, AWS OpsWorks Stacks stops a specified number of instances.</p>
-    #[serde(rename = "DownScaling")]
+    #[serde(rename = "downScaling")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub down_scaling: Option<AutoScalingThresholds>,
     /// <p>Enables load-based auto scaling for the layer.</p>
-    #[serde(rename = "Enable")]
+    #[serde(rename = "enable")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable: Option<bool>,
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     pub layer_id: String,
     /// <p>An <code>AutoScalingThresholds</code> object with the upscaling threshold configuration. If the load exceeds these thresholds for a specified amount of time, AWS OpsWorks Stacks starts a specified number of instances.</p>
-    #[serde(rename = "UpScaling")]
+    #[serde(rename = "upScaling")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub up_scaling: Option<AutoScalingThresholds>,
 }
@@ -2549,22 +2549,22 @@ pub struct SetLoadBasedAutoScalingRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetPermissionRequest {
     /// <p>The user is allowed to use SSH to communicate with the instance.</p>
-    #[serde(rename = "AllowSsh")]
+    #[serde(rename = "allowSsh")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_ssh: Option<bool>,
     /// <p>The user is allowed to use <b>sudo</b> to elevate privileges.</p>
-    #[serde(rename = "AllowSudo")]
+    #[serde(rename = "allowSudo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_sudo: Option<bool>,
     /// <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     pub iam_user_arn: String,
     /// <p>The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.</p> <ul> <li> <p> <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p> <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p> <code>iam_only</code> </p> </li> </ul> <p>For more information about the permissions associated with these levels, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User Permissions</a>.</p>
-    #[serde(rename = "Level")]
+    #[serde(rename = "level")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub level: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2572,11 +2572,11 @@ pub struct SetPermissionRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SetTimeBasedAutoScalingRequest {
     /// <p>An <code>AutoScalingSchedule</code> with the instance schedule.</p>
-    #[serde(rename = "AutoScalingSchedule")]
+    #[serde(rename = "autoScalingSchedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_scaling_schedule: Option<WeeklyAutoScalingSchedule>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -2584,11 +2584,11 @@ pub struct SetTimeBasedAutoScalingRequest {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct ShutdownEventConfiguration {
     /// <p>Whether to enable Elastic Load Balancing connection draining. For more information, see <a href="https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain">Connection Draining</a> </p>
-    #[serde(rename = "DelayUntilElbConnectionsDrained")]
+    #[serde(rename = "delayUntilElbConnectionsDrained")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub delay_until_elb_connections_drained: Option<bool>,
     /// <p>The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.</p>
-    #[serde(rename = "ExecutionTimeout")]
+    #[serde(rename = "executionTimeout")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub execution_timeout: Option<i64>,
 }
@@ -2597,27 +2597,27 @@ pub struct ShutdownEventConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Source {
     /// <p>When included in a request, the parameter depends on the repository type.</p> <ul> <li> <p>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For more information on how to safely handle IAM credentials, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p> <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.</p>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision: Option<String>,
     /// <p>In requests, the repository's SSH key.</p> <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
-    #[serde(rename = "SshKey")]
+    #[serde(rename = "sshKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_key: Option<String>,
     /// <p>The repository type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The source URL. The following is an example of an Amazon S3 source URL: <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p><p>This parameter depends on the repository type.</p> <ul> <li> <p>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM access key ID.</p> </li> <li> <p>For HTTP bundles, Git repositories, and Subversion repositories, set <code>Username</code> to the user name.</p> </li> </ul></p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
 }
@@ -2626,14 +2626,14 @@ pub struct Source {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SslConfiguration {
     /// <p>The contents of the certificate's domain.crt file.</p>
-    #[serde(rename = "Certificate")]
+    #[serde(rename = "certificate")]
     pub certificate: String,
     /// <p>Optional. Can be used to specify an intermediate certificate authority key or client authentication.</p>
-    #[serde(rename = "Chain")]
+    #[serde(rename = "chain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chain: Option<String>,
     /// <p>The private key; the contents of the certificate's domain.kex file.</p>
-    #[serde(rename = "PrivateKey")]
+    #[serde(rename = "privateKey")]
     pub private_key: String,
 }
 
@@ -2642,91 +2642,91 @@ pub struct SslConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Stack {
     /// <p>The agent version. This parameter is set to <code>LATEST</code> for auto-update. or a version number for a fixed agent version.</p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p>The stack's ARN.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The stack's attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "ChefConfiguration")]
+    #[serde(rename = "chefConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chef_configuration: Option<ChefConfiguration>,
     /// <p>The configuration manager.</p>
-    #[serde(rename = "ConfigurationManager")]
+    #[serde(rename = "configurationManager")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_manager: Option<StackConfigurationManager>,
     /// <p>The date when the stack was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
     /// <p>Contains the information required to retrieve an app or cookbook from a repository. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Adding Apps</a> or <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
-    #[serde(rename = "CustomCookbooksSource")]
+    #[serde(rename = "customCookbooksSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_cookbooks_source: Option<Source>,
     /// <p>A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>The stack's default Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "DefaultAvailabilityZone")]
+    #[serde(rename = "defaultAvailabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_availability_zone: Option<String>,
     /// <p>The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "DefaultInstanceProfileArn")]
+    #[serde(rename = "defaultInstanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_instance_profile_arn: Option<String>,
     /// <p>The stack's default operating system.</p>
-    #[serde(rename = "DefaultOs")]
+    #[serde(rename = "defaultOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_os: Option<String>,
     /// <p>The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
-    #[serde(rename = "DefaultRootDeviceType")]
+    #[serde(rename = "defaultRootDeviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_root_device_type: Option<String>,
     /// <p>A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.</p>
-    #[serde(rename = "DefaultSshKeyName")]
+    #[serde(rename = "defaultSshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_ssh_key_name: Option<String>,
     /// <p>The default subnet ID; applicable only if the stack is running in a VPC.</p>
-    #[serde(rename = "DefaultSubnetId")]
+    #[serde(rename = "defaultSubnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_subnet_id: Option<String>,
     /// <p>The stack host name theme, with spaces replaced by underscores.</p>
-    #[serde(rename = "HostnameTheme")]
+    #[serde(rename = "hostnameTheme")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname_theme: Option<String>,
     /// <p>The stack name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The stack AWS Identity and Access Management (IAM) role.</p>
-    #[serde(rename = "ServiceRoleArn")]
+    #[serde(rename = "serviceRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_role_arn: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
     /// <p>Whether the stack uses custom cookbooks.</p>
-    #[serde(rename = "UseCustomCookbooks")]
+    #[serde(rename = "useCustomCookbooks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_custom_cookbooks: Option<bool>,
     /// <p>Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p>
-    #[serde(rename = "UseOpsworksSecurityGroups")]
+    #[serde(rename = "useOpsworksSecurityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_opsworks_security_groups: Option<bool>,
     /// <p>The VPC ID; applicable only if the stack is running in a VPC.</p>
-    #[serde(rename = "VpcId")]
+    #[serde(rename = "vpcId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_id: Option<String>,
 }
@@ -2735,11 +2735,11 @@ pub struct Stack {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct StackConfigurationManager {
     /// <p>The name. This parameter must be set to "Chef".</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -2749,27 +2749,27 @@ pub struct StackConfigurationManager {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StackSummary {
     /// <p>The number of apps.</p>
-    #[serde(rename = "AppsCount")]
+    #[serde(rename = "appsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub apps_count: Option<i64>,
     /// <p>The stack's ARN.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>An <code>InstancesCount</code> object with the number of instances in each status.</p>
-    #[serde(rename = "InstancesCount")]
+    #[serde(rename = "instancesCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instances_count: Option<InstancesCount>,
     /// <p>The number of layers.</p>
-    #[serde(rename = "LayersCount")]
+    #[serde(rename = "layersCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layers_count: Option<i64>,
     /// <p>The stack name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_id: Option<String>,
 }
@@ -2778,7 +2778,7 @@ pub struct StackSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartInstanceRequest {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -2786,7 +2786,7 @@ pub struct StartInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartStackRequest {
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2794,11 +2794,11 @@ pub struct StartStackRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopInstanceRequest {
     /// <p>Specifies whether to force an instance to stop. If the instance's root device type is <code>ebs</code>, or EBS-backed, adding the <code>Force</code> parameter to the <code>StopInstances</code> API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of <i>only</i> the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.</p>
-    #[serde(rename = "Force")]
+    #[serde(rename = "force")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub force: Option<bool>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -2806,7 +2806,7 @@ pub struct StopInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StopStackRequest {
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
 }
 
@@ -2814,10 +2814,10 @@ pub struct StopStackRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The stack or layer's Amazon Resource Number (ARN).</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p><p>A map that contains tag keys and tag values that are attached to a stack or layer.</p> <ul> <li> <p>The key cannot be empty.</p> </li> <li> <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code> </p> </li> <li> <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code> </p> </li> <li> <p>Leading and trailing white spaces are trimmed from both the key and value.</p> </li> <li> <p>A maximum of 40 tags is allowed for any resource.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -2826,19 +2826,19 @@ pub struct TagResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TemporaryCredential {
     /// <p>The instance's AWS OpsWorks Stacks ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>The password.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The user name.</p>
-    #[serde(rename = "Username")]
+    #[serde(rename = "username")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub username: Option<String>,
     /// <p>The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.</p>
-    #[serde(rename = "ValidForInMinutes")]
+    #[serde(rename = "validForInMinutes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub valid_for_in_minutes: Option<i64>,
 }
@@ -2848,11 +2848,11 @@ pub struct TemporaryCredential {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TimeBasedAutoScalingConfiguration {
     /// <p>A <code>WeeklyAutoScalingSchedule</code> object with the instance schedule.</p>
-    #[serde(rename = "AutoScalingSchedule")]
+    #[serde(rename = "autoScalingSchedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_scaling_schedule: Option<WeeklyAutoScalingSchedule>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
 }
@@ -2861,7 +2861,7 @@ pub struct TimeBasedAutoScalingConfiguration {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UnassignInstanceRequest {
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
 }
 
@@ -2869,7 +2869,7 @@ pub struct UnassignInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UnassignVolumeRequest {
     /// <p>The volume ID.</p>
-    #[serde(rename = "VolumeId")]
+    #[serde(rename = "volumeId")]
     pub volume_id: String,
 }
 
@@ -2877,10 +2877,10 @@ pub struct UnassignVolumeRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The stack or layer's Amazon Resource Number (ARN).</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>A list of the keys of tags to be removed from a stack or layer.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -2888,46 +2888,46 @@ pub struct UntagResourceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAppRequest {
     /// <p>The app ID.</p>
-    #[serde(rename = "AppId")]
+    #[serde(rename = "appId")]
     pub app_id: String,
     /// <p>A <code>Source</code> object that specifies the app repository.</p>
-    #[serde(rename = "AppSource")]
+    #[serde(rename = "appSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub app_source: Option<Source>,
     /// <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>The app's data sources.</p>
-    #[serde(rename = "DataSources")]
+    #[serde(rename = "dataSources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_sources: Option<Vec<DataSource>>,
     /// <p>A description of the app.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The app's virtual host settings, with multiple domains separated by commas. For example: <code>'www.example.com, example.com'</code> </p>
-    #[serde(rename = "Domains")]
+    #[serde(rename = "domains")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domains: Option<Vec<String>>,
     /// <p>Whether SSL is enabled for the app.</p>
-    #[serde(rename = "EnableSsl")]
+    #[serde(rename = "enableSsl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_ssl: Option<bool>,
     /// <p><p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment"> Environment Variables</a>.</p> <p>There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables&#39; names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, &quot;Environment: is too large (maximum is 20 KB).&quot;</p> <note> <p>If you have specified one or more environment variables, you cannot modify the stack&#39;s Chef version.</p> </note></p>
-    #[serde(rename = "Environment")]
+    #[serde(rename = "environment")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub environment: Option<Vec<EnvironmentVariable>>,
     /// <p>The app name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
-    #[serde(rename = "SslConfiguration")]
+    #[serde(rename = "sslConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssl_configuration: Option<SslConfiguration>,
     /// <p>The app type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2936,10 +2936,10 @@ pub struct UpdateAppRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateElasticIpRequest {
     /// <p>The IP address for which you want to update the name.</p>
-    #[serde(rename = "ElasticIp")]
+    #[serde(rename = "elasticIp")]
     pub elastic_ip: String,
     /// <p>The new name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2948,50 +2948,50 @@ pub struct UpdateElasticIpRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateInstanceRequest {
     /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> <ul> <li> <p> <code>INHERIT</code> - Use the stack's default agent version setting.</p> </li> <li> <p> <i>version_number</i> - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, you must edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance.</p> </li> </ul> <p>The default setting is <code>INHERIT</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</p> <p>AgentVersion cannot be set to Chef 12.2.</p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p>The ID of the AMI that was used to create the instance. The value of this parameter must be the same AMI ID that the instance is already using. You cannot apply a new AMI to an instance by running UpdateInstance. UpdateInstance does not work on instances that are using custom AMIs. </p>
-    #[serde(rename = "AmiId")]
+    #[serde(rename = "amiId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ami_id: Option<String>,
     /// <p>The instance architecture. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and Types</a>.</p>
-    #[serde(rename = "Architecture")]
+    #[serde(rename = "architecture")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub architecture: Option<String>,
     /// <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
-    #[serde(rename = "AutoScalingType")]
+    #[serde(rename = "autoScalingType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_scaling_type: Option<String>,
     /// <p>This property cannot be updated.</p>
-    #[serde(rename = "EbsOptimized")]
+    #[serde(rename = "ebsOptimized")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ebs_optimized: Option<bool>,
     /// <p>The instance host name.</p>
-    #[serde(rename = "Hostname")]
+    #[serde(rename = "hostname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// <p><p>Whether to install operating system and package updates when the instance boots. The default value is <code>true</code>. To control when updates are installed, set this value to <code>false</code>. You must then update your instances manually by using <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>We strongly recommend using the default value of <code>true</code>, to ensure that your instances have the latest security updates.</p> </note></p>
-    #[serde(rename = "InstallUpdatesOnBoot")]
+    #[serde(rename = "installUpdatesOnBoot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub install_updates_on_boot: Option<bool>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     pub instance_id: String,
     /// <p>The instance type, such as <code>t2.micro</code>. For a list of supported instance types, open the stack in the console, choose <b>Instances</b>, and choose <b>+ Instance</b>. The <b>Size</b> list contains the currently supported types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and Types</a>. The parameter values that you use to specify the various types are in the <b>API Name</b> column of the <b>Available Instance Types</b> table.</p>
-    #[serde(rename = "InstanceType")]
+    #[serde(rename = "instanceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_type: Option<String>,
     /// <p>The instance's layer IDs.</p>
-    #[serde(rename = "LayerIds")]
+    #[serde(rename = "layerIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub layer_ids: Option<Vec<String>>,
     /// <p><p>The instance&#39;s operating system, which must be set to one of the following. You cannot update an instance that is using a custom AMI.</p> <ul> <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> <li> <p> <code>CentOS Linux 7</code> </p> </li> <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> </ul> <p>For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p> <p>The default option is the current Amazon Linux version. If you set this parameter to <code>Custom</code>, you must use the AmiId parameter to specify the custom AMI that you want to use. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating Systems</a>. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> <note> <p>You can specify a different Linux operating system for the updated stack, but you cannot change from Linux to Windows or Windows to Linux.</p> </note></p>
-    #[serde(rename = "Os")]
+    #[serde(rename = "os")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub os: Option<String>,
     /// <p>The instance's Amazon EC2 key name.</p>
-    #[serde(rename = "SshKeyName")]
+    #[serde(rename = "sshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_key_name: Option<String>,
 }
@@ -3000,70 +3000,70 @@ pub struct UpdateInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLayerRequest {
     /// <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP address</a> to the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit a Layer</a>.</p>
-    #[serde(rename = "AutoAssignElasticIps")]
+    #[serde(rename = "autoAssignElasticIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_assign_elastic_ips: Option<bool>,
     /// <p>For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit a Layer</a>.</p>
-    #[serde(rename = "AutoAssignPublicIps")]
+    #[serde(rename = "autoAssignPublicIps")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub auto_assign_public_ips: Option<bool>,
     /// <p>Specifies CloudWatch Logs configuration options for the layer. For more information, see <a>CloudWatchLogsLogStream</a>.</p>
-    #[serde(rename = "CloudWatchLogsConfiguration")]
+    #[serde(rename = "cloudWatchLogsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_logs_configuration: Option<CloudWatchLogsConfiguration>,
     /// <p>The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "CustomInstanceProfileArn")]
+    #[serde(rename = "customInstanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_instance_profile_arn: Option<String>,
     /// <p>A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html"> Using Custom JSON</a>. </p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>A <code>LayerCustomRecipes</code> object that specifies the layer's custom recipes.</p>
-    #[serde(rename = "CustomRecipes")]
+    #[serde(rename = "customRecipes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_recipes: Option<Recipes>,
     /// <p>An array containing the layer's custom security group IDs.</p>
-    #[serde(rename = "CustomSecurityGroupIds")]
+    #[serde(rename = "customSecurityGroupIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_security_group_ids: Option<Vec<String>>,
     /// <p>Whether to disable auto healing for the layer.</p>
-    #[serde(rename = "EnableAutoHealing")]
+    #[serde(rename = "enableAutoHealing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub enable_auto_healing: Option<bool>,
     /// <p><p>Whether to install operating system and package updates when the instance boots. The default value is <code>true</code>. To control when updates are installed, set this value to <code>false</code>. You must then update your instances manually by using <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command or manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>We strongly recommend using the default value of <code>true</code>, to ensure that your instances have the latest security updates.</p> </note></p>
-    #[serde(rename = "InstallUpdatesOnBoot")]
+    #[serde(rename = "installUpdatesOnBoot")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub install_updates_on_boot: Option<bool>,
     /// <p>The layer ID.</p>
-    #[serde(rename = "LayerId")]
+    #[serde(rename = "layerId")]
     pub layer_id: String,
     /// <p><p/></p>
-    #[serde(rename = "LifecycleEventConfiguration")]
+    #[serde(rename = "lifecycleEventConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lifecycle_event_configuration: Option<LifecycleEventConfiguration>,
     /// <p>The layer name, which is used by the console.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>An array of <code>Package</code> objects that describe the layer's packages.</p>
-    #[serde(rename = "Packages")]
+    #[serde(rename = "packages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packages: Option<Vec<String>>,
     /// <p>For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.</p> <p>The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer Reference</a> </p>
-    #[serde(rename = "Shortname")]
+    #[serde(rename = "shortname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shortname: Option<String>,
     /// <p>Whether to use Amazon EBS-optimized instances.</p>
-    #[serde(rename = "UseEbsOptimizedInstances")]
+    #[serde(rename = "useEbsOptimizedInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_ebs_optimized_instances: Option<bool>,
     /// <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
-    #[serde(rename = "VolumeConfigurations")]
+    #[serde(rename = "volumeConfigurations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_configurations: Option<Vec<VolumeConfiguration>>,
 }
@@ -3072,7 +3072,7 @@ pub struct UpdateLayerRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateMyUserProfileRequest {
     /// <p>The user's SSH public key.</p>
-    #[serde(rename = "SshPublicKey")]
+    #[serde(rename = "sshPublicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key: Option<String>,
 }
@@ -3081,15 +3081,15 @@ pub struct UpdateMyUserProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateRdsDbInstanceRequest {
     /// <p>The database password.</p>
-    #[serde(rename = "DbPassword")]
+    #[serde(rename = "dbPassword")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub db_password: Option<String>,
     /// <p>The master user name.</p>
-    #[serde(rename = "DbUser")]
+    #[serde(rename = "dbUser")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub db_user: Option<String>,
     /// <p>The Amazon RDS instance's ARN.</p>
-    #[serde(rename = "RdsDbInstanceArn")]
+    #[serde(rename = "rdsDbInstanceArn")]
     pub rds_db_instance_arn: String,
 }
 
@@ -3097,74 +3097,74 @@ pub struct UpdateRdsDbInstanceRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateStackRequest {
     /// <p><p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> <ul> <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack&#39;s instances as soon as they are available.</p> </li> <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack&#39;s instances.</p> </li> </ul> <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <a>DescribeAgentVersions</a>. AgentVersion cannot be set to Chef 12.2.</p> <note> <p>You can also specify an agent version when you create or update an instance, which overrides the stack&#39;s default setting.</p> </note></p>
-    #[serde(rename = "AgentVersion")]
+    #[serde(rename = "agentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>A <code>ChefConfiguration</code> object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "ChefConfiguration")]
+    #[serde(rename = "chefConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub chef_configuration: Option<ChefConfiguration>,
     /// <p>The configuration manager. When you update a stack, we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.</p>
-    #[serde(rename = "ConfigurationManager")]
+    #[serde(rename = "configurationManager")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub configuration_manager: Option<StackConfigurationManager>,
     /// <p>Contains the information required to retrieve an app or cookbook from a repository. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Adding Apps</a> or <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Cookbooks and Recipes</a>.</p>
-    #[serde(rename = "CustomCookbooksSource")]
+    #[serde(rename = "customCookbooksSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_cookbooks_source: Option<Source>,
     /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
-    #[serde(rename = "CustomJson")]
+    #[serde(rename = "customJson")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_json: Option<String>,
     /// <p>The stack's default Availability Zone, which must be in the stack's region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>. If you also specify a value for <code>DefaultSubnetId</code>, the subnet must be in the same zone. For more information, see <a>CreateStack</a>. </p>
-    #[serde(rename = "DefaultAvailabilityZone")]
+    #[serde(rename = "defaultAvailabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_availability_zone: Option<String>,
     /// <p>The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.</p>
-    #[serde(rename = "DefaultInstanceProfileArn")]
+    #[serde(rename = "defaultInstanceProfileArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_instance_profile_arn: Option<String>,
     /// <p>The stack's operating system, which must be set to one of the following:</p> <ul> <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> <li> <p> <code>CentOS Linux 7</code> </p> </li> <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li> </ul> <p>The default option is the stack's current operating system. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p>
-    #[serde(rename = "DefaultOs")]
+    #[serde(rename = "defaultOs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_os: Option<String>,
     /// <p>The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
-    #[serde(rename = "DefaultRootDeviceType")]
+    #[serde(rename = "defaultRootDeviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_root_device_type: Option<String>,
     /// <p>A default Amazon EC2 key-pair name. The default value is <code>none</code>. If you specify a key-pair name, AWS OpsWorks Stacks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html"> Using SSH to Communicate with an Instance</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html"> Managing SSH Access</a>. You can override this setting by specifying a different key pair, or no key pair, when you <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html"> create an instance</a>. </p>
-    #[serde(rename = "DefaultSshKeyName")]
+    #[serde(rename = "defaultSshKeyName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_ssh_key_name: Option<String>,
     /// <p>The stack's default VPC subnet ID. This parameter is required if you specify a value for the <code>VpcId</code> parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for <code>DefaultAvailabilityZone</code>, the subnet must be in that zone. For information on default values and when this parameter is required, see the <code>VpcId</code> parameter description. </p>
-    #[serde(rename = "DefaultSubnetId")]
+    #[serde(rename = "defaultSubnetId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_subnet_id: Option<String>,
     /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p> <ul> <li> <p> <code>Baked_Goods</code> </p> </li> <li> <p> <code>Clouds</code> </p> </li> <li> <p> <code>Europe_Cities</code> </p> </li> <li> <p> <code>Fruits</code> </p> </li> <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li> <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li> <li> <p> <code>Planets_and_Moons</code> </p> </li> <li> <p> <code>Roman_Deities</code> </p> </li> <li> <p> <code>Scottish_Islands</code> </p> </li> <li> <p> <code>US_Cities</code> </p> </li> <li> <p> <code>Wild_Cats</code> </p> </li> </ul> <p>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns a host name based on the current theme.</p>
-    #[serde(rename = "HostnameTheme")]
+    #[serde(rename = "hostnameTheme")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname_theme: Option<String>,
     /// <p>The stack's new name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>Do not use this parameter. You cannot update a stack's service role.</p>
-    #[serde(rename = "ServiceRoleArn")]
+    #[serde(rename = "serviceRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_role_arn: Option<String>,
     /// <p>The stack ID.</p>
-    #[serde(rename = "StackId")]
+    #[serde(rename = "stackId")]
     pub stack_id: String,
     /// <p>Whether the stack uses custom cookbooks.</p>
-    #[serde(rename = "UseCustomCookbooks")]
+    #[serde(rename = "useCustomCookbooks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_custom_cookbooks: Option<bool>,
     /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p> <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p> <ul> <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li> <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
-    #[serde(rename = "UseOpsworksSecurityGroups")]
+    #[serde(rename = "useOpsworksSecurityGroups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_opsworks_security_groups: Option<bool>,
 }
@@ -3173,18 +3173,18 @@ pub struct UpdateStackRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateUserProfileRequest {
     /// <p>Whether users can specify their own SSH public key through the My Settings page. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Managing User Permissions</a>.</p>
-    #[serde(rename = "AllowSelfManagement")]
+    #[serde(rename = "allowSelfManagement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_self_management: Option<bool>,
     /// <p>The user IAM ARN. This can also be a federated user's ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     pub iam_user_arn: String,
     /// <p>The user's new SSH public key.</p>
-    #[serde(rename = "SshPublicKey")]
+    #[serde(rename = "sshPublicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key: Option<String>,
     /// <p>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, <code>my.name</code> will be changed to <code>myname</code>. If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name. </p>
-    #[serde(rename = "SshUsername")]
+    #[serde(rename = "sshUsername")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_username: Option<String>,
 }
@@ -3193,15 +3193,15 @@ pub struct UpdateUserProfileRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateVolumeRequest {
     /// <p>The new mount point.</p>
-    #[serde(rename = "MountPoint")]
+    #[serde(rename = "mountPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_point: Option<String>,
     /// <p>The new name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The volume ID.</p>
-    #[serde(rename = "VolumeId")]
+    #[serde(rename = "volumeId")]
     pub volume_id: String,
 }
 
@@ -3210,23 +3210,23 @@ pub struct UpdateVolumeRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UserProfile {
     /// <p>Whether users can specify their own SSH public key through the My Settings page. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Managing User Permissions</a>.</p>
-    #[serde(rename = "AllowSelfManagement")]
+    #[serde(rename = "allowSelfManagement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allow_self_management: Option<bool>,
     /// <p>The user's IAM ARN.</p>
-    #[serde(rename = "IamUserArn")]
+    #[serde(rename = "iamUserArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iam_user_arn: Option<String>,
     /// <p>The user's name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The user's SSH public key.</p>
-    #[serde(rename = "SshPublicKey")]
+    #[serde(rename = "sshPublicKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_public_key: Option<String>,
     /// <p>The user's SSH user name.</p>
-    #[serde(rename = "SshUsername")]
+    #[serde(rename = "sshUsername")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ssh_username: Option<String>,
 }
@@ -3236,59 +3236,59 @@ pub struct UserProfile {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Volume {
     /// <p>The volume Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "AvailabilityZone")]
+    #[serde(rename = "availabilityZone")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zone: Option<String>,
     /// <p>The device name.</p>
-    #[serde(rename = "Device")]
+    #[serde(rename = "device")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device: Option<String>,
     /// <p>The Amazon EC2 volume ID.</p>
-    #[serde(rename = "Ec2VolumeId")]
+    #[serde(rename = "ec2VolumeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_volume_id: Option<String>,
     /// <p>Specifies whether an Amazon EBS volume is encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>.</p>
-    #[serde(rename = "Encrypted")]
+    #[serde(rename = "encrypted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encrypted: Option<bool>,
     /// <p>The instance ID.</p>
-    #[serde(rename = "InstanceId")]
+    #[serde(rename = "instanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
     /// <p>For PIOPS volumes, the IOPS per disk.</p>
-    #[serde(rename = "Iops")]
+    #[serde(rename = "iops")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iops: Option<i64>,
     /// <p>The volume mount point. For example, "/mnt/disk1".</p>
-    #[serde(rename = "MountPoint")]
+    #[serde(rename = "mountPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_point: Option<String>,
     /// <p>The volume name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The RAID array ID.</p>
-    #[serde(rename = "RaidArrayId")]
+    #[serde(rename = "raidArrayId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_array_id: Option<String>,
     /// <p>The AWS region. For more information about AWS regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p>The volume size.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub size: Option<i64>,
     /// <p>The value returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html">DescribeVolumes</a>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The volume ID.</p>
-    #[serde(rename = "VolumeId")]
+    #[serde(rename = "volumeId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_id: Option<String>,
     /// <p><p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html"> Amazon EBS Volume Types</a>.</p> <ul> <li> <p> <code>standard</code> - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.</p> </li> <li> <p> <code>io1</code> - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.</p> </li> <li> <p> <code>gp2</code> - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.</p> </li> <li> <p> <code>st1</code> - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.</p> </li> <li> <p> <code>sc1</code> - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.</p> </li> </ul></p>
-    #[serde(rename = "VolumeType")]
+    #[serde(rename = "volumeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_type: Option<String>,
 }
@@ -3297,28 +3297,28 @@ pub struct Volume {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VolumeConfiguration {
     /// <p>Specifies whether an Amazon EBS volume is encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>.</p>
-    #[serde(rename = "Encrypted")]
+    #[serde(rename = "encrypted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encrypted: Option<bool>,
     /// <p>For PIOPS volumes, the IOPS per disk.</p>
-    #[serde(rename = "Iops")]
+    #[serde(rename = "iops")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub iops: Option<i64>,
     /// <p>The volume mount point. For example "/dev/sdh".</p>
-    #[serde(rename = "MountPoint")]
+    #[serde(rename = "mountPoint")]
     pub mount_point: String,
     /// <p>The number of disks in the volume.</p>
-    #[serde(rename = "NumberOfDisks")]
+    #[serde(rename = "numberOfDisks")]
     pub number_of_disks: i64,
     /// <p>The volume <a href="http://en.wikipedia.org/wiki/Standard_RAID_levels">RAID level</a>.</p>
-    #[serde(rename = "RaidLevel")]
+    #[serde(rename = "raidLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raid_level: Option<i64>,
     /// <p>The volume size.</p>
-    #[serde(rename = "Size")]
+    #[serde(rename = "size")]
     pub size: i64,
     /// <p><p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html"> Amazon EBS Volume Types</a>.</p> <ul> <li> <p> <code>standard</code> - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.</p> </li> <li> <p> <code>io1</code> - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.</p> </li> <li> <p> <code>gp2</code> - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.</p> </li> <li> <p> <code>st1</code> - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.</p> </li> <li> <p> <code>sc1</code> - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.</p> </li> </ul></p>
-    #[serde(rename = "VolumeType")]
+    #[serde(rename = "volumeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_type: Option<String>,
 }
@@ -3327,31 +3327,31 @@ pub struct VolumeConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct WeeklyAutoScalingSchedule {
     /// <p>The schedule for Friday.</p>
-    #[serde(rename = "Friday")]
+    #[serde(rename = "friday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub friday: Option<::std::collections::HashMap<String, String>>,
     /// <p>The schedule for Monday.</p>
-    #[serde(rename = "Monday")]
+    #[serde(rename = "monday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub monday: Option<::std::collections::HashMap<String, String>>,
     /// <p>The schedule for Saturday.</p>
-    #[serde(rename = "Saturday")]
+    #[serde(rename = "saturday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub saturday: Option<::std::collections::HashMap<String, String>>,
     /// <p>The schedule for Sunday.</p>
-    #[serde(rename = "Sunday")]
+    #[serde(rename = "sunday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sunday: Option<::std::collections::HashMap<String, String>>,
     /// <p>The schedule for Thursday.</p>
-    #[serde(rename = "Thursday")]
+    #[serde(rename = "thursday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub thursday: Option<::std::collections::HashMap<String, String>>,
     /// <p>The schedule for Tuesday.</p>
-    #[serde(rename = "Tuesday")]
+    #[serde(rename = "tuesday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tuesday: Option<::std::collections::HashMap<String, String>>,
     /// <p>The schedule for Wednesday.</p>
-    #[serde(rename = "Wednesday")]
+    #[serde(rename = "wednesday")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub wednesday: Option<::std::collections::HashMap<String, String>>,
 }

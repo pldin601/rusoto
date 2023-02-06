@@ -55,14 +55,14 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AcceptPortfolioShareInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The type of shared portfolios to accept. The default is to accept imported portfolios.</p> <ul> <li> <p> <code>AWS_ORGANIZATIONS</code> - Accept portfolios shared by the management account of your organization.</p> </li> <li> <p> <code>IMPORTED</code> - Accept imported portfolios.</p> </li> <li> <p> <code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</p> </li> </ul> <p>For example, <code>aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code> </p>
-    #[serde(rename = "PortfolioShareType")]
+    #[serde(rename = "portfolioShareType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_type: Option<String>,
 }
@@ -76,11 +76,11 @@ pub struct AcceptPortfolioShareOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AccessLevelFilter {
     /// <p><p>The access level.</p> <ul> <li> <p> <code>Account</code> - Filter results based on the account.</p> </li> <li> <p> <code>Role</code> - Filter results based on the federated role of the specified user.</p> </li> <li> <p> <code>User</code> - Filter results based on the specified user.</p> </li> </ul></p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The user to which the access level applies. The only supported value is <code>Self</code>.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -89,10 +89,10 @@ pub struct AccessLevelFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateBudgetWithResourceInput {
     /// <p>The name of the budget you want to associate.</p>
-    #[serde(rename = "BudgetName")]
+    #[serde(rename = "budgetName")]
     pub budget_name: String,
     /// <p> The resource identifier. Either a portfolio-id or a product-id.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -104,17 +104,17 @@ pub struct AssociateBudgetWithResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociatePrincipalWithPortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The ARN of the principal (IAM user, role, or group).</p>
-    #[serde(rename = "PrincipalARN")]
+    #[serde(rename = "principalARN")]
     pub principal_arn: String,
     /// <p>The principal type. The supported value is <code>IAM</code>.</p>
-    #[serde(rename = "PrincipalType")]
+    #[serde(rename = "principalType")]
     pub principal_type: String,
 }
 
@@ -126,17 +126,17 @@ pub struct AssociatePrincipalWithPortfolioOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateProductWithPortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the source portfolio.</p>
-    #[serde(rename = "SourcePortfolioId")]
+    #[serde(rename = "sourcePortfolioId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_portfolio_id: Option<String>,
 }
@@ -149,17 +149,17 @@ pub struct AssociateProductWithPortfolioOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateServiceActionWithProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     pub service_action_id: String,
 }
 
@@ -171,10 +171,10 @@ pub struct AssociateServiceActionWithProvisioningArtifactOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AssociateTagOptionWithResourceInput {
     /// <p>The resource identifier.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "TagOptionId")]
+    #[serde(rename = "tagOptionId")]
     pub tag_option_id: String,
 }
 
@@ -186,11 +186,11 @@ pub struct AssociateTagOptionWithResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchAssociateServiceActionWithProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
-    #[serde(rename = "ServiceActionAssociations")]
+    #[serde(rename = "serviceActionAssociations")]
     pub service_action_associations: Vec<ServiceActionAssociation>,
 }
 
@@ -198,7 +198,7 @@ pub struct BatchAssociateServiceActionWithProvisioningArtifactInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchAssociateServiceActionWithProvisioningArtifactOutput {
     /// <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
-    #[serde(rename = "FailedServiceActionAssociations")]
+    #[serde(rename = "failedServiceActionAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_service_action_associations: Option<Vec<FailedServiceActionAssociation>>,
 }
@@ -207,11 +207,11 @@ pub struct BatchAssociateServiceActionWithProvisioningArtifactOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchDisassociateServiceActionFromProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
-    #[serde(rename = "ServiceActionAssociations")]
+    #[serde(rename = "serviceActionAssociations")]
     pub service_action_associations: Vec<ServiceActionAssociation>,
 }
 
@@ -219,7 +219,7 @@ pub struct BatchDisassociateServiceActionFromProvisioningArtifactInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchDisassociateServiceActionFromProvisioningArtifactOutput {
     /// <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
-    #[serde(rename = "FailedServiceActionAssociations")]
+    #[serde(rename = "failedServiceActionAssociations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub failed_service_action_associations: Option<Vec<FailedServiceActionAssociation>>,
 }
@@ -229,7 +229,7 @@ pub struct BatchDisassociateServiceActionFromProvisioningArtifactOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BudgetDetail {
     /// <p>Name of the associated budget.</p>
-    #[serde(rename = "BudgetName")]
+    #[serde(rename = "budgetName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub budget_name: Option<String>,
 }
@@ -239,7 +239,7 @@ pub struct BudgetDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CloudWatchDashboard {
     /// <p>The name of the CloudWatch dashboard.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -249,27 +249,27 @@ pub struct CloudWatchDashboard {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConstraintDetail {
     /// <p>The identifier of the constraint.</p>
-    #[serde(rename = "ConstraintId")]
+    #[serde(rename = "constraintId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_id: Option<String>,
     /// <p>The description of the constraint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The owner of the constraint.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_id: Option<String>,
     /// <p>The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p><p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p>STACKSET</p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -279,11 +279,11 @@ pub struct ConstraintDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConstraintSummary {
     /// <p>The description of the constraint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p><p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p>STACKSET</p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -292,30 +292,30 @@ pub struct ConstraintSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CopyProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source product are copied to the target product.</p>
-    #[serde(rename = "CopyOptions")]
+    #[serde(rename = "copyOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_options: Option<Vec<String>>,
     /// <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request. </p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The Amazon Resource Name (ARN) of the source product.</p>
-    #[serde(rename = "SourceProductArn")]
+    #[serde(rename = "sourceProductArn")]
     pub source_product_arn: String,
     /// <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.</p>
-    #[serde(rename = "SourceProvisioningArtifactIdentifiers")]
+    #[serde(rename = "sourceProvisioningArtifactIdentifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_provisioning_artifact_identifiers:
         Option<Vec<::std::collections::HashMap<String, String>>>,
     /// <p>The identifier of the target product. By default, a new product is created.</p>
-    #[serde(rename = "TargetProductId")]
+    #[serde(rename = "targetProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_product_id: Option<String>,
     /// <p>A name for the target product. The default is the name of the source product.</p>
-    #[serde(rename = "TargetProductName")]
+    #[serde(rename = "targetProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_product_name: Option<String>,
 }
@@ -324,7 +324,7 @@ pub struct CopyProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CopyProductOutput {
     /// <p>The token to use to track the progress of the operation.</p>
-    #[serde(rename = "CopyProductToken")]
+    #[serde(rename = "copyProductToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_product_token: Option<String>,
 }
@@ -333,27 +333,27 @@ pub struct CopyProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateConstraintInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The description of the constraint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p><p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> <dl> <dt>LAUNCH</dt> <dd> <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can&#39;t use both.</p> <p>Specify the <code>RoleArn</code> property as follows:</p> <p> <code>{&quot;RoleArn&quot; : &quot;arn:aws:iam::123456789012:role/LaunchRole&quot;}</code> </p> <p>Specify the <code>LocalRoleName</code> property as follows:</p> <p> <code>{&quot;LocalRoleName&quot;: &quot;SCBasicLaunchRole&quot;}</code> </p> <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note> <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p> </note> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> </dd> <dt>NOTIFICATION</dt> <dd> <p>Specify the <code>NotificationArns</code> property as follows:</p> <p> <code>{&quot;NotificationArns&quot; : [&quot;arn:aws:sns:us-east-1:123456789012:Topic&quot;]}</code> </p> </dd> <dt>RESOURCE<em>UPDATE</dt> <dd> <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> <p> <code>{&quot;Version&quot;:&quot;2.0&quot;,&quot;Properties&quot;:{&quot;TagUpdateOnProvisionedProduct&quot;:&quot;String&quot;}}</code> </p> <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT</em>ALLOWED</code>.</p> </dd> <dt>STACKSET</dt> <dd> <p>Specify the <code>Parameters</code> property as follows:</p> <p> <code>{&quot;Version&quot;: &quot;String&quot;, &quot;Properties&quot;: {&quot;AccountList&quot;: [ &quot;String&quot; ], &quot;RegionList&quot;: [ &quot;String&quot; ], &quot;AdminRole&quot;: &quot;String&quot;, &quot;ExecutionRole&quot;: &quot;String&quot;}}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p> </dd> <dt>TEMPLATE</dt> <dd> <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p> </dd> </dl></p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     pub parameters: String,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p><p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p> <code>RESOURCE_UPDATE</code> </p> </li> <li> <p> <code>STACKSET</code> </p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -361,15 +361,15 @@ pub struct CreateConstraintInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateConstraintOutput {
     /// <p>Information about the constraint.</p>
-    #[serde(rename = "ConstraintDetail")]
+    #[serde(rename = "constraintDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_detail: Option<ConstraintDetail>,
     /// <p>The constraint parameters.</p>
-    #[serde(rename = "ConstraintParameters")]
+    #[serde(rename = "constraintParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_parameters: Option<String>,
     /// <p>The status of the current request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -378,24 +378,24 @@ pub struct CreateConstraintOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The description of the portfolio.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name to use for display purposes.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     pub display_name: String,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The name of the portfolio provider.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     pub provider_name: String,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -404,11 +404,11 @@ pub struct CreatePortfolioInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePortfolioOutput {
     /// <p>Information about the portfolio.</p>
-    #[serde(rename = "PortfolioDetail")]
+    #[serde(rename = "portfolioDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_detail: Option<PortfolioDetail>,
     /// <p>Information about the tags associated with the portfolio.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -417,22 +417,22 @@ pub struct CreatePortfolioOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreatePortfolioShareInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The AWS account ID. For example, <code>123456789012</code>.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The organization node to whom you are going to share. If <code>OrganizationNode</code> is passed in, <code>PortfolioShare</code> will be created for the node an ListOrganizationPortfolioAccessd its children (when applies), and a <code>PortfolioShareToken</code> will be returned in the output in order for the administrator to monitor the status of the <code>PortfolioShare</code> creation process.</p>
-    #[serde(rename = "OrganizationNode")]
+    #[serde(rename = "organizationNode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_node: Option<OrganizationNode>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>
-    #[serde(rename = "ShareTagOptions")]
+    #[serde(rename = "shareTagOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_tag_options: Option<bool>,
 }
@@ -441,7 +441,7 @@ pub struct CreatePortfolioShareInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreatePortfolioShareOutput {
     /// <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
-    #[serde(rename = "PortfolioShareToken")]
+    #[serde(rename = "portfolioShareToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_token: Option<String>,
 }
@@ -450,46 +450,46 @@ pub struct CreatePortfolioShareOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The description of the product.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The distributor of the product.</p>
-    #[serde(rename = "Distributor")]
+    #[serde(rename = "distributor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distributor: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The name of the product.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The owner of the product.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     pub owner: String,
     /// <p>The type of product.</p>
-    #[serde(rename = "ProductType")]
+    #[serde(rename = "productType")]
     pub product_type: String,
     /// <p>The configuration of the provisioning artifact. </p>
-    #[serde(rename = "ProvisioningArtifactParameters")]
+    #[serde(rename = "provisioningArtifactParameters")]
     pub provisioning_artifact_parameters: ProvisioningArtifactProperties,
     /// <p>The support information about the product.</p>
-    #[serde(rename = "SupportDescription")]
+    #[serde(rename = "supportDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_description: Option<String>,
     /// <p>The contact email for product support.</p>
-    #[serde(rename = "SupportEmail")]
+    #[serde(rename = "supportEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_email: Option<String>,
     /// <p>The contact URL for product support.</p> <p> <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>
-    #[serde(rename = "SupportUrl")]
+    #[serde(rename = "supportUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_url: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -498,15 +498,15 @@ pub struct CreateProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProductOutput {
     /// <p>Information about the product view.</p>
-    #[serde(rename = "ProductViewDetail")]
+    #[serde(rename = "productViewDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_detail: Option<ProductViewDetail>,
     /// <p>Information about the provisioning artifact. </p>
-    #[serde(rename = "ProvisioningArtifactDetail")]
+    #[serde(rename = "provisioningArtifactDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_detail: Option<ProvisioningArtifactDetail>,
     /// <p>Information about the tags associated with the product.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -515,41 +515,41 @@ pub struct CreateProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProvisionedProductPlanInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</p>
-    #[serde(rename = "NotificationArns")]
+    #[serde(rename = "notificationArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_arns: Option<Vec<String>>,
     /// <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
-    #[serde(rename = "PathId")]
+    #[serde(rename = "pathId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_id: Option<String>,
     /// <p>The name of the plan.</p>
-    #[serde(rename = "PlanName")]
+    #[serde(rename = "planName")]
     pub plan_name: String,
     /// <p>The plan type.</p>
-    #[serde(rename = "PlanType")]
+    #[serde(rename = "planType")]
     pub plan_type: String,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     pub provisioned_product_name: String,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
     /// <p>Parameters specified by the administrator that are required for provisioning the product.</p>
-    #[serde(rename = "ProvisioningParameters")]
+    #[serde(rename = "provisioningParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_parameters: Option<Vec<UpdateProvisioningParameter>>,
     /// <p>One or more tags.</p> <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -558,23 +558,23 @@ pub struct CreateProvisionedProductPlanInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProvisionedProductPlanOutput {
     /// <p>The plan identifier.</p>
-    #[serde(rename = "PlanId")]
+    #[serde(rename = "planId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_id: Option<String>,
     /// <p>The name of the plan.</p>
-    #[serde(rename = "PlanName")]
+    #[serde(rename = "planName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_name: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProvisionProductId")]
+    #[serde(rename = "provisionProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provision_product_id: Option<String>,
     /// <p>The user-friendly name of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
 }
@@ -583,17 +583,17 @@ pub struct CreateProvisionedProductPlanOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The configuration for the provisioning artifact.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     pub parameters: ProvisioningArtifactProperties,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
 }
 
@@ -601,15 +601,15 @@ pub struct CreateProvisioningArtifactInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateProvisioningArtifactOutput {
     /// <p>Specify the template source with one of the following options, but not both. Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p> <p>The URL of the CloudFormation template in Amazon S3, in JSON format. </p> <p> <code>LoadTemplateFromURL</code> </p> <p>Use the URL of the CloudFormation template in Amazon S3 in JSON format.</p> <p> <code>ImportFromPhysicalId</code> </p> <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>
-    #[serde(rename = "Info")]
+    #[serde(rename = "info")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub info: Option<::std::collections::HashMap<String, String>>,
     /// <p>Information about the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactDetail")]
+    #[serde(rename = "provisioningArtifactDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_detail: Option<ProvisioningArtifactDetail>,
     /// <p>The status of the current request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -618,24 +618,24 @@ pub struct CreateProvisioningArtifactOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateServiceActionInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p><p>The self-service action definition. Can be one of the following:</p> <dl> <dt>Name</dt> <dd> <p>The name of the AWS Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p> <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p> </dd> <dt>Version</dt> <dd> <p>The AWS Systems Manager automation document version. For example, <code>&quot;Version&quot;: &quot;1&quot;</code> </p> </dd> <dt>AssumeRole</dt> <dd> <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>&quot;AssumeRole&quot;: &quot;arn:aws:iam::12345678910:role/ActionRole&quot;</code>.</p> <p>To reuse the provisioned product launch role, set to <code>&quot;AssumeRole&quot;: &quot;LAUNCH<em>ROLE&quot;</code>.</p> </dd> <dt>Parameters</dt> <dd> <p>The list of parameters in JSON format.</p> <p>For example: <code>[{&quot;Name&quot;:&quot;InstanceId&quot;,&quot;Type&quot;:&quot;TARGET&quot;}]</code> or <code>[{&quot;Name&quot;:&quot;InstanceId&quot;,&quot;Type&quot;:&quot;TEXT</em>VALUE&quot;}]</code>.</p> </dd> </dl></p>
-    #[serde(rename = "Definition")]
+    #[serde(rename = "definition")]
     pub definition: ::std::collections::HashMap<String, String>,
     /// <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
-    #[serde(rename = "DefinitionType")]
+    #[serde(rename = "definitionType")]
     pub definition_type: String,
     /// <p>The self-service action description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The self-service action name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
 }
 
@@ -643,7 +643,7 @@ pub struct CreateServiceActionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateServiceActionOutput {
     /// <p>An object containing information about the self-service action.</p>
-    #[serde(rename = "ServiceActionDetail")]
+    #[serde(rename = "serviceActionDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_detail: Option<ServiceActionDetail>,
 }
@@ -652,10 +652,10 @@ pub struct CreateServiceActionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTagOptionInput {
     /// <p>The TagOption key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The TagOption value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -663,7 +663,7 @@ pub struct CreateTagOptionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTagOptionOutput {
     /// <p>Information about the TagOption.</p>
-    #[serde(rename = "TagOptionDetail")]
+    #[serde(rename = "tagOptionDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_option_detail: Option<TagOptionDetail>,
 }
@@ -672,11 +672,11 @@ pub struct CreateTagOptionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteConstraintInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The identifier of the constraint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -688,11 +688,11 @@ pub struct DeleteConstraintOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -704,19 +704,19 @@ pub struct DeletePortfolioOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeletePortfolioShareInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The AWS account ID.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The organization node to whom you are going to stop sharing.</p>
-    #[serde(rename = "OrganizationNode")]
+    #[serde(rename = "organizationNode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_node: Option<OrganizationNode>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
 }
 
@@ -724,7 +724,7 @@ pub struct DeletePortfolioShareInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeletePortfolioShareOutput {
     /// <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
-    #[serde(rename = "PortfolioShareToken")]
+    #[serde(rename = "portfolioShareToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_token: Option<String>,
 }
@@ -733,11 +733,11 @@ pub struct DeletePortfolioShareOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -749,15 +749,15 @@ pub struct DeleteProductOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProvisionedProductPlanInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.</p>
-    #[serde(rename = "IgnoreErrors")]
+    #[serde(rename = "ignoreErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ignore_errors: Option<bool>,
     /// <p>The plan identifier.</p>
-    #[serde(rename = "PlanId")]
+    #[serde(rename = "planId")]
     pub plan_id: String,
 }
 
@@ -769,14 +769,14 @@ pub struct DeleteProvisionedProductPlanOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
 }
 
@@ -788,11 +788,11 @@ pub struct DeleteProvisioningArtifactOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteServiceActionInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -804,7 +804,7 @@ pub struct DeleteServiceActionOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTagOptionInput {
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -816,11 +816,11 @@ pub struct DeleteTagOptionOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeConstraintInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The identifier of the constraint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -828,15 +828,15 @@ pub struct DescribeConstraintInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeConstraintOutput {
     /// <p>Information about the constraint.</p>
-    #[serde(rename = "ConstraintDetail")]
+    #[serde(rename = "constraintDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_detail: Option<ConstraintDetail>,
     /// <p>The constraint parameters.</p>
-    #[serde(rename = "ConstraintParameters")]
+    #[serde(rename = "constraintParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_parameters: Option<String>,
     /// <p>The status of the current request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -845,11 +845,11 @@ pub struct DescribeConstraintOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeCopyProductStatusInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The token for the copy product operation. This token is returned by <a>CopyProduct</a>.</p>
-    #[serde(rename = "CopyProductToken")]
+    #[serde(rename = "copyProductToken")]
     pub copy_product_token: String,
 }
 
@@ -857,15 +857,15 @@ pub struct DescribeCopyProductStatusInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeCopyProductStatusOutput {
     /// <p>The status of the copy product operation.</p>
-    #[serde(rename = "CopyProductStatus")]
+    #[serde(rename = "copyProductStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub copy_product_status: Option<String>,
     /// <p>The status message.</p>
-    #[serde(rename = "StatusDetail")]
+    #[serde(rename = "statusDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_detail: Option<String>,
     /// <p>The identifier of the copied product.</p>
-    #[serde(rename = "TargetProductId")]
+    #[serde(rename = "targetProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target_product_id: Option<String>,
 }
@@ -874,11 +874,11 @@ pub struct DescribeCopyProductStatusOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -886,19 +886,19 @@ pub struct DescribePortfolioInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePortfolioOutput {
     /// <p>Information about the associated budgets.</p>
-    #[serde(rename = "Budgets")]
+    #[serde(rename = "budgets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub budgets: Option<Vec<BudgetDetail>>,
     /// <p>Information about the portfolio.</p>
-    #[serde(rename = "PortfolioDetail")]
+    #[serde(rename = "portfolioDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_detail: Option<PortfolioDetail>,
     /// <p>Information about the TagOptions associated with the portfolio.</p>
-    #[serde(rename = "TagOptions")]
+    #[serde(rename = "tagOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_options: Option<Vec<TagOptionDetail>>,
     /// <p>Information about the tags associated with the portfolio.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -907,7 +907,7 @@ pub struct DescribePortfolioOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePortfolioShareStatusInput {
     /// <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
-    #[serde(rename = "PortfolioShareToken")]
+    #[serde(rename = "portfolioShareToken")]
     pub portfolio_share_token: String,
 }
 
@@ -915,23 +915,23 @@ pub struct DescribePortfolioShareStatusInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePortfolioShareStatusOutput {
     /// <p>Organization node identifier. It can be either account id, organizational unit id or organization id.</p>
-    #[serde(rename = "OrganizationNodeValue")]
+    #[serde(rename = "organizationNodeValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_node_value: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_id: Option<String>,
     /// <p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>
-    #[serde(rename = "PortfolioShareToken")]
+    #[serde(rename = "portfolioShareToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_token: Option<String>,
     /// <p>Information about the portfolio share operation.</p>
-    #[serde(rename = "ShareDetails")]
+    #[serde(rename = "shareDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_details: Option<ShareDetails>,
     /// <p>Status of the portfolio share operation.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -940,18 +940,18 @@ pub struct DescribePortfolioShareStatusOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribePortfolioSharesInput {
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The unique identifier of the portfolio for which shares will be retrieved.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The type of portfolio share to summarize. This field acts as a filter on the type of portfolio share, which can be one of the following:</p> <p>1. <code>ACCOUNT</code> - Represents an external account to account share.</p> <p>2. <code>ORGANIZATION</code> - Represents a share to an organization. This share is available to every account in the organization.</p> <p>3. <code>ORGANIZATIONAL_UNIT</code> - Represents a share to an organizational unit.</p> <p>4. <code>ORGANIZATION_MEMBER_ACCOUNT</code> - Represents a share to an account in the organization.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -959,11 +959,11 @@ pub struct DescribePortfolioSharesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribePortfolioSharesOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Summaries about each of the portfolio shares.</p>
-    #[serde(rename = "PortfolioShareDetails")]
+    #[serde(rename = "portfolioShareDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_details: Option<Vec<PortfolioShareDetail>>,
 }
@@ -972,19 +972,19 @@ pub struct DescribePortfolioSharesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProductAsAdminInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The product name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The unique identifier of the shared portfolio that the specified product is associated with.</p> <p>You can provide this parameter to retrieve the shared TagOptions associated with the product. If this parameter is provided and if TagOptions sharing is enabled in the portfolio share, the API returns both local and shared TagOptions associated with the product. Otherwise only local TagOptions will be returned. </p>
-    #[serde(rename = "SourcePortfolioId")]
+    #[serde(rename = "sourcePortfolioId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_portfolio_id: Option<String>,
 }
@@ -993,23 +993,23 @@ pub struct DescribeProductAsAdminInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProductAsAdminOutput {
     /// <p>Information about the associated budgets.</p>
-    #[serde(rename = "Budgets")]
+    #[serde(rename = "budgets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub budgets: Option<Vec<BudgetDetail>>,
     /// <p>Information about the product view.</p>
-    #[serde(rename = "ProductViewDetail")]
+    #[serde(rename = "productViewDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_detail: Option<ProductViewDetail>,
     /// <p>Information about the provisioning artifacts (also known as versions) for the specified product.</p>
-    #[serde(rename = "ProvisioningArtifactSummaries")]
+    #[serde(rename = "provisioningArtifactSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_summaries: Option<Vec<ProvisioningArtifactSummary>>,
     /// <p>Information about the TagOptions associated with the product.</p>
-    #[serde(rename = "TagOptions")]
+    #[serde(rename = "tagOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_options: Option<Vec<TagOptionDetail>>,
     /// <p>Information about the tags associated with the product.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1018,15 +1018,15 @@ pub struct DescribeProductAsAdminOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The product name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1035,19 +1035,19 @@ pub struct DescribeProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProductOutput {
     /// <p>Information about the associated budgets.</p>
-    #[serde(rename = "Budgets")]
+    #[serde(rename = "budgets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub budgets: Option<Vec<BudgetDetail>>,
     /// <p>Information about the associated launch paths.</p>
-    #[serde(rename = "LaunchPaths")]
+    #[serde(rename = "launchPaths")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_paths: Option<Vec<LaunchPath>>,
     /// <p>Summary information about the product view.</p>
-    #[serde(rename = "ProductViewSummary")]
+    #[serde(rename = "productViewSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_summary: Option<ProductViewSummary>,
     /// <p>Information about the provisioning artifacts for the specified product.</p>
-    #[serde(rename = "ProvisioningArtifacts")]
+    #[serde(rename = "provisioningArtifacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifacts: Option<Vec<ProvisioningArtifact>>,
 }
@@ -1056,11 +1056,11 @@ pub struct DescribeProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProductViewInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product view identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -1068,11 +1068,11 @@ pub struct DescribeProductViewInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProductViewOutput {
     /// <p>Summary information about the product.</p>
-    #[serde(rename = "ProductViewSummary")]
+    #[serde(rename = "productViewSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_summary: Option<ProductViewSummary>,
     /// <p>Information about the provisioning artifacts for the product.</p>
-    #[serde(rename = "ProvisioningArtifacts")]
+    #[serde(rename = "provisioningArtifacts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifacts: Option<Vec<ProvisioningArtifact>>,
 }
@@ -1082,15 +1082,15 @@ pub struct DescribeProductViewOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProvisionedProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The provisioned product identifier. You must provide the name or ID, but not both.</p> <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the provisioned product. You must provide the name or ID, but not both.</p> <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1099,11 +1099,11 @@ pub struct DescribeProvisionedProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProvisionedProductOutput {
     /// <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
-    #[serde(rename = "CloudWatchDashboards")]
+    #[serde(rename = "cloudWatchDashboards")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_dashboards: Option<Vec<CloudWatchDashboard>>,
     /// <p>Information about the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductDetail")]
+    #[serde(rename = "provisionedProductDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_detail: Option<ProvisionedProductDetail>,
 }
@@ -1112,19 +1112,19 @@ pub struct DescribeProvisionedProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProvisionedProductPlanInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The plan identifier.</p>
-    #[serde(rename = "PlanId")]
+    #[serde(rename = "planId")]
     pub plan_id: String,
 }
 
@@ -1132,15 +1132,15 @@ pub struct DescribeProvisionedProductPlanInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProvisionedProductPlanOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the plan.</p>
-    #[serde(rename = "ProvisionedProductPlanDetails")]
+    #[serde(rename = "provisionedProductPlanDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_plan_details: Option<ProvisionedProductPlanDetails>,
     /// <p>Information about the resource changes that will occur when the plan is executed.</p>
-    #[serde(rename = "ResourceChanges")]
+    #[serde(rename = "resourceChanges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_changes: Option<Vec<ResourceChange>>,
 }
@@ -1149,27 +1149,27 @@ pub struct DescribeProvisionedProductPlanOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The product name.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The provisioning artifact name.</p>
-    #[serde(rename = "ProvisioningArtifactName")]
+    #[serde(rename = "provisioningArtifactName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_name: Option<String>,
     /// <p>Indicates whether a verbose level of detail is enabled.</p>
-    #[serde(rename = "Verbose")]
+    #[serde(rename = "verbose")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verbose: Option<bool>,
 }
@@ -1178,15 +1178,15 @@ pub struct DescribeProvisioningArtifactInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProvisioningArtifactOutput {
     /// <p>The URL of the CloudFormation template in Amazon S3.</p>
-    #[serde(rename = "Info")]
+    #[serde(rename = "info")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub info: Option<::std::collections::HashMap<String, String>>,
     /// <p>Information about the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactDetail")]
+    #[serde(rename = "provisioningArtifactDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_detail: Option<ProvisioningArtifactDetail>,
     /// <p>The status of the current request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -1195,31 +1195,31 @@ pub struct DescribeProvisioningArtifactOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeProvisioningParametersInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "PathId")]
+    #[serde(rename = "pathId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_id: Option<String>,
     /// <p>The name of the path. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "PathName")]
+    #[serde(rename = "pathName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_name: Option<String>,
     /// <p>The product identifier. You must provide the product name or ID, but not both.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The name of the product. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProvisioningArtifactName")]
+    #[serde(rename = "provisioningArtifactName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_name: Option<String>,
 }
@@ -1228,27 +1228,27 @@ pub struct DescribeProvisioningParametersInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeProvisioningParametersOutput {
     /// <p>Information about the constraints used to provision the product.</p>
-    #[serde(rename = "ConstraintSummaries")]
+    #[serde(rename = "constraintSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_summaries: Option<Vec<ConstraintSummary>>,
     /// <p>The output of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactOutputs")]
+    #[serde(rename = "provisioningArtifactOutputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_outputs: Option<Vec<ProvisioningArtifactOutput>>,
     /// <p>Information about the parameters used to provision the product.</p>
-    #[serde(rename = "ProvisioningArtifactParameters")]
+    #[serde(rename = "provisioningArtifactParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_parameters: Option<Vec<ProvisioningArtifactParameter>>,
     /// <p>An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactPreferences")]
+    #[serde(rename = "provisioningArtifactPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_preferences: Option<ProvisioningArtifactPreferences>,
     /// <p>Information about the TagOptions associated with the resource.</p>
-    #[serde(rename = "TagOptions")]
+    #[serde(rename = "tagOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_options: Option<Vec<TagOptionSummary>>,
     /// <p>Any additional metadata specifically related to the provisioning of the product. For example, see the <code>Version</code> field of the CloudFormation template.</p>
-    #[serde(rename = "UsageInstructions")]
+    #[serde(rename = "usageInstructions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_instructions: Option<Vec<UsageInstruction>>,
 }
@@ -1257,18 +1257,18 @@ pub struct DescribeProvisioningParametersOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeRecordInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The record identifier of the provisioned product. This identifier is returned by the request operation.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
 }
@@ -1277,15 +1277,15 @@ pub struct DescribeRecordInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeRecordOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the product.</p>
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
     /// <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
-    #[serde(rename = "RecordOutputs")]
+    #[serde(rename = "recordOutputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_outputs: Option<Vec<RecordOutput>>,
 }
@@ -1294,14 +1294,14 @@ pub struct DescribeRecordOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeServiceActionExecutionParametersInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     pub provisioned_product_id: String,
     /// <p>The self-service action identifier.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     pub service_action_id: String,
 }
 
@@ -1309,7 +1309,7 @@ pub struct DescribeServiceActionExecutionParametersInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeServiceActionExecutionParametersOutput {
     /// <p>The parameters of the self-service action.</p>
-    #[serde(rename = "ServiceActionParameters")]
+    #[serde(rename = "serviceActionParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_parameters: Option<Vec<ExecutionParameter>>,
 }
@@ -1318,11 +1318,11 @@ pub struct DescribeServiceActionExecutionParametersOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeServiceActionInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The self-service action identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -1330,7 +1330,7 @@ pub struct DescribeServiceActionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeServiceActionOutput {
     /// <p>Detailed information about the self-service action.</p>
-    #[serde(rename = "ServiceActionDetail")]
+    #[serde(rename = "serviceActionDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_detail: Option<ServiceActionDetail>,
 }
@@ -1339,7 +1339,7 @@ pub struct DescribeServiceActionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTagOptionInput {
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
 }
 
@@ -1347,7 +1347,7 @@ pub struct DescribeTagOptionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTagOptionOutput {
     /// <p>Information about the TagOption.</p>
-    #[serde(rename = "TagOptionDetail")]
+    #[serde(rename = "tagOptionDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_option_detail: Option<TagOptionDetail>,
 }
@@ -1364,10 +1364,10 @@ pub struct DisableAWSOrganizationsAccessOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateBudgetFromResourceInput {
     /// <p>The name of the budget you want to disassociate.</p>
-    #[serde(rename = "BudgetName")]
+    #[serde(rename = "budgetName")]
     pub budget_name: String,
     /// <p>The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1379,14 +1379,14 @@ pub struct DisassociateBudgetFromResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociatePrincipalFromPortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The ARN of the principal (IAM user, role, or group).</p>
-    #[serde(rename = "PrincipalARN")]
+    #[serde(rename = "principalARN")]
     pub principal_arn: String,
 }
 
@@ -1398,14 +1398,14 @@ pub struct DisassociatePrincipalFromPortfolioOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateProductFromPortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
 }
 
@@ -1417,17 +1417,17 @@ pub struct DisassociateProductFromPortfolioOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateServiceActionFromProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     pub service_action_id: String,
 }
 
@@ -1439,10 +1439,10 @@ pub struct DisassociateServiceActionFromProvisioningArtifactOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateTagOptionFromResourceInput {
     /// <p>The resource identifier.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "TagOptionId")]
+    #[serde(rename = "tagOptionId")]
     pub tag_option_id: String,
 }
 
@@ -1462,14 +1462,14 @@ pub struct EnableAWSOrganizationsAccessOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExecuteProvisionedProductPlanInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The plan identifier.</p>
-    #[serde(rename = "PlanId")]
+    #[serde(rename = "planId")]
     pub plan_id: String,
 }
 
@@ -1477,7 +1477,7 @@ pub struct ExecuteProvisionedProductPlanInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExecuteProvisionedProductPlanOutput {
     /// <p>Information about the result of provisioning the product.</p>
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
 }
@@ -1486,21 +1486,21 @@ pub struct ExecuteProvisionedProductPlanOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ExecuteProvisionedProductServiceActionInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>An idempotency token that uniquely identifies the execute request.</p>
-    #[serde(rename = "ExecuteToken")]
+    #[serde(rename = "executeToken")]
     pub execute_token: String,
     /// <p>A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as <code>TARGET</code>, the provided value will override the default value generated by AWS Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for any special parameters such as <code>TARGET</code>.</p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     pub provisioned_product_id: String,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     pub service_action_id: String,
 }
 
@@ -1508,7 +1508,7 @@ pub struct ExecuteProvisionedProductServiceActionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExecuteProvisionedProductServiceActionOutput {
     /// <p>An object containing detailed information about the result of provisioning the product.</p>
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
 }
@@ -1518,15 +1518,15 @@ pub struct ExecuteProvisionedProductServiceActionOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ExecutionParameter {
     /// <p>The default values for the execution parameter.</p>
-    #[serde(rename = "DefaultValues")]
+    #[serde(rename = "defaultValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_values: Option<Vec<String>>,
     /// <p>The name of the execution parameter.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The execution parameter type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1536,23 +1536,23 @@ pub struct ExecutionParameter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FailedServiceActionAssociation {
     /// <p>The error code. Valid values are listed below.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>A text description of the error.</p>
-    #[serde(rename = "ErrorMessage")]
+    #[serde(rename = "errorMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     /// <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_id: Option<String>,
 }
@@ -1565,7 +1565,7 @@ pub struct GetAWSOrganizationsAccessStatusInput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAWSOrganizationsAccessStatusOutput {
     /// <p>The status of the portfolio share feature.</p>
-    #[serde(rename = "AccessStatus")]
+    #[serde(rename = "accessStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_status: Option<String>,
 }
@@ -1574,27 +1574,27 @@ pub struct GetAWSOrganizationsAccessStatusOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetProvisionedProductOutputsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.</p>
-    #[serde(rename = "OutputKeys")]
+    #[serde(rename = "outputKeys")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_keys: Option<Vec<String>>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The identifier of the provisioned product that you want the outputs from.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_id: Option<String>,
     /// <p>The name of the provisioned product that you want the outputs from.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_name: Option<String>,
 }
@@ -1603,11 +1603,11 @@ pub struct GetProvisionedProductOutputsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetProvisionedProductOutputsOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL. </p>
-    #[serde(rename = "Outputs")]
+    #[serde(rename = "outputs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outputs: Option<Vec<RecordOutput>>,
 }
@@ -1616,30 +1616,30 @@ pub struct GetProvisionedProductOutputsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ImportAsProvisionedProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The unique identifier of the resource to be imported. It only currently supports CloudFormation stack IDs.</p>
-    #[serde(rename = "PhysicalId")]
+    #[serde(rename = "physicalId")]
     pub physical_id: String,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The user-friendly name of the provisioned product. The value must be unique for the AWS account. The name cannot be updated after the product is provisioned. </p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     pub provisioned_product_name: String,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ImportAsProvisionedProductOutput {
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
 }
@@ -1649,11 +1649,11 @@ pub struct ImportAsProvisionedProductOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LaunchPath {
     /// <p>The identifier of the launch path.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the launch path.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1663,19 +1663,19 @@ pub struct LaunchPath {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LaunchPathSummary {
     /// <p>The constraints on the portfolio-product relationship.</p>
-    #[serde(rename = "ConstraintSummaries")]
+    #[serde(rename = "constraintSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_summaries: Option<Vec<ConstraintSummary>>,
     /// <p>The identifier of the product path.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the portfolio to which the user was assigned.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The tags associated with this product path.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1684,19 +1684,19 @@ pub struct LaunchPathSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAcceptedPortfolioSharesInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p><p>The type of shared portfolios to list. The default is to list imported portfolios.</p> <ul> <li> <p> <code>AWS<em>ORGANIZATIONS</code> - List portfolios shared by the management account of your organization</p> </li> <li> <p> <code>AWS</em>SERVICECATALOG</code> - List default portfolios</p> </li> <li> <p> <code>IMPORTED</code> - List imported portfolios</p> </li> </ul></p>
-    #[serde(rename = "PortfolioShareType")]
+    #[serde(rename = "portfolioShareType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_type: Option<String>,
 }
@@ -1705,11 +1705,11 @@ pub struct ListAcceptedPortfolioSharesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAcceptedPortfolioSharesOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the portfolios.</p>
-    #[serde(rename = "PortfolioDetails")]
+    #[serde(rename = "portfolioDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_details: Option<Vec<PortfolioDetail>>,
 }
@@ -1718,19 +1718,19 @@ pub struct ListAcceptedPortfolioSharesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListBudgetsForResourceInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The resource identifier.</p>
-    #[serde(rename = "ResourceId")]
+    #[serde(rename = "resourceId")]
     pub resource_id: String,
 }
 
@@ -1738,11 +1738,11 @@ pub struct ListBudgetsForResourceInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListBudgetsForResourceOutput {
     /// <p>Information about the associated budgets.</p>
-    #[serde(rename = "Budgets")]
+    #[serde(rename = "budgets")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub budgets: Option<Vec<BudgetDetail>>,
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
 }
@@ -1751,22 +1751,22 @@ pub struct ListBudgetsForResourceOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListConstraintsForPortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
 }
@@ -1775,11 +1775,11 @@ pub struct ListConstraintsForPortfolioInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListConstraintsForPortfolioOutput {
     /// <p>Information about the constraints.</p>
-    #[serde(rename = "ConstraintDetails")]
+    #[serde(rename = "constraintDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_details: Option<Vec<ConstraintDetail>>,
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
 }
@@ -1788,19 +1788,19 @@ pub struct ListConstraintsForPortfolioOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLaunchPathsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
 }
 
@@ -1808,11 +1808,11 @@ pub struct ListLaunchPathsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLaunchPathsOutput {
     /// <p>Information about the launch path.</p>
-    #[serde(rename = "LaunchPathSummaries")]
+    #[serde(rename = "launchPathSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_path_summaries: Option<Vec<LaunchPathSummary>>,
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
 }
@@ -1821,22 +1821,22 @@ pub struct ListLaunchPathsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListOrganizationPortfolioAccessInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p><p>The organization node type that will be returned in the output.</p> <ul> <li> <p> <code>ORGANIZATION</code> - Organization that has access to the portfolio. </p> </li> <li> <p> <code>ORGANIZATIONAL_UNIT</code> - Organizational unit that has access to the portfolio within your organization.</p> </li> <li> <p> <code>ACCOUNT</code> - Account that has access to the portfolio within your organization.</p> </li> </ul></p>
-    #[serde(rename = "OrganizationNodeType")]
+    #[serde(rename = "organizationNodeType")]
     pub organization_node_type: String,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
 }
 
@@ -1844,11 +1844,11 @@ pub struct ListOrganizationPortfolioAccessInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListOrganizationPortfolioAccessOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Displays information about the organization nodes.</p>
-    #[serde(rename = "OrganizationNodes")]
+    #[serde(rename = "organizationNodes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_nodes: Option<Vec<OrganizationNode>>,
 }
@@ -1857,23 +1857,23 @@ pub struct ListOrganizationPortfolioAccessOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPortfolioAccessInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.</p>
-    #[serde(rename = "OrganizationParentId")]
+    #[serde(rename = "organizationParentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_parent_id: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
 }
 
@@ -1881,11 +1881,11 @@ pub struct ListPortfolioAccessInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPortfolioAccessOutput {
     /// <p>Information about the AWS accounts with access to the portfolio.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_ids: Option<Vec<String>>,
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
 }
@@ -1894,19 +1894,19 @@ pub struct ListPortfolioAccessOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPortfoliosForProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
 }
 
@@ -1914,11 +1914,11 @@ pub struct ListPortfoliosForProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPortfoliosForProductOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the portfolios.</p>
-    #[serde(rename = "PortfolioDetails")]
+    #[serde(rename = "portfolioDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_details: Option<Vec<PortfolioDetail>>,
 }
@@ -1927,15 +1927,15 @@ pub struct ListPortfoliosForProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPortfoliosInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
 }
@@ -1944,11 +1944,11 @@ pub struct ListPortfoliosInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPortfoliosOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the portfolios.</p>
-    #[serde(rename = "PortfolioDetails")]
+    #[serde(rename = "portfolioDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_details: Option<Vec<PortfolioDetail>>,
 }
@@ -1957,19 +1957,19 @@ pub struct ListPortfoliosOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListPrincipalsForPortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
 }
 
@@ -1977,11 +1977,11 @@ pub struct ListPrincipalsForPortfolioInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListPrincipalsForPortfolioOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>The IAM principals (users or roles) associated with the portfolio.</p>
-    #[serde(rename = "Principals")]
+    #[serde(rename = "principals")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principals: Option<Vec<Principal>>,
 }
@@ -1990,23 +1990,23 @@ pub struct ListPrincipalsForPortfolioOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProvisionedProductPlansInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
-    #[serde(rename = "AccessLevelFilter")]
+    #[serde(rename = "accessLevelFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_level_filter: Option<AccessLevelFilter>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProvisionProductId")]
+    #[serde(rename = "provisionProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provision_product_id: Option<String>,
 }
@@ -2015,11 +2015,11 @@ pub struct ListProvisionedProductPlansInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProvisionedProductPlansOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the plans.</p>
-    #[serde(rename = "ProvisionedProductPlans")]
+    #[serde(rename = "provisionedProductPlans")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_plans: Option<Vec<ProvisionedProductPlanSummary>>,
 }
@@ -2028,19 +2028,19 @@ pub struct ListProvisionedProductPlansOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProvisioningArtifactsForServiceActionInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     pub service_action_id: String,
 }
 
@@ -2048,11 +2048,11 @@ pub struct ListProvisioningArtifactsForServiceActionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProvisioningArtifactsForServiceActionOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>An array of objects with information about product views and provisioning artifacts.</p>
-    #[serde(rename = "ProvisioningArtifactViews")]
+    #[serde(rename = "provisioningArtifactViews")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_views: Option<Vec<ProvisioningArtifactView>>,
 }
@@ -2061,11 +2061,11 @@ pub struct ListProvisioningArtifactsForServiceActionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListProvisioningArtifactsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
 }
 
@@ -2073,11 +2073,11 @@ pub struct ListProvisioningArtifactsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListProvisioningArtifactsOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the provisioning artifacts.</p>
-    #[serde(rename = "ProvisioningArtifactDetails")]
+    #[serde(rename = "provisioningArtifactDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_details: Option<Vec<ProvisioningArtifactDetail>>,
 }
@@ -2086,23 +2086,23 @@ pub struct ListProvisioningArtifactsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRecordHistoryInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
-    #[serde(rename = "AccessLevelFilter")]
+    #[serde(rename = "accessLevelFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_level_filter: Option<AccessLevelFilter>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The search filter to scope the results.</p>
-    #[serde(rename = "SearchFilter")]
+    #[serde(rename = "searchFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub search_filter: Option<ListRecordHistorySearchFilter>,
 }
@@ -2111,11 +2111,11 @@ pub struct ListRecordHistoryInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListRecordHistoryOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>The records, in reverse chronological order.</p>
-    #[serde(rename = "RecordDetails")]
+    #[serde(rename = "recordDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_details: Option<Vec<RecordDetail>>,
 }
@@ -2125,11 +2125,11 @@ pub struct ListRecordHistoryOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListRecordHistorySearchFilter {
     /// <p><p>The filter key.</p> <ul> <li> <p> <code>product</code> - Filter results based on the specified product identifier.</p> </li> <li> <p> <code>provisionedproduct</code> - Filter results based on the provisioned product identifier.</p> </li> </ul></p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The filter value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2138,19 +2138,19 @@ pub struct ListRecordHistorySearchFilter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListResourcesForTagOptionInput {
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p><p>The resource type.</p> <ul> <li> <p> <code>Portfolio</code> </p> </li> <li> <p> <code>Product</code> </p> </li> </ul></p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "TagOptionId")]
+    #[serde(rename = "tagOptionId")]
     pub tag_option_id: String,
 }
 
@@ -2158,11 +2158,11 @@ pub struct ListResourcesForTagOptionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListResourcesForTagOptionOutput {
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>Information about the resources.</p>
-    #[serde(rename = "ResourceDetails")]
+    #[serde(rename = "resourceDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_details: Option<Vec<ResourceDetail>>,
 }
@@ -2171,22 +2171,22 @@ pub struct ListResourcesForTagOptionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServiceActionsForProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
 }
 
@@ -2194,11 +2194,11 @@ pub struct ListServiceActionsForProvisioningArtifactInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServiceActionsForProvisioningArtifactOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
-    #[serde(rename = "ServiceActionSummaries")]
+    #[serde(rename = "serviceActionSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_summaries: Option<Vec<ServiceActionSummary>>,
 }
@@ -2207,15 +2207,15 @@ pub struct ListServiceActionsForProvisioningArtifactOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListServiceActionsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
 }
@@ -2224,11 +2224,11 @@ pub struct ListServiceActionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListServiceActionsOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>An object containing information about the service actions associated with the provisioning artifact.</p>
-    #[serde(rename = "ServiceActionSummaries")]
+    #[serde(rename = "serviceActionSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_summaries: Option<Vec<ServiceActionSummary>>,
 }
@@ -2237,19 +2237,19 @@ pub struct ListServiceActionsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListStackInstancesForProvisionedProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     pub provisioned_product_id: String,
 }
 
@@ -2257,11 +2257,11 @@ pub struct ListStackInstancesForProvisionedProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListStackInstancesForProvisionedProductOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>List of stack instances.</p>
-    #[serde(rename = "StackInstances")]
+    #[serde(rename = "stackInstances")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_instances: Option<Vec<StackInstance>>,
 }
@@ -2271,15 +2271,15 @@ pub struct ListStackInstancesForProvisionedProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagOptionsFilters {
     /// <p>The active state.</p>
-    #[serde(rename = "Active")]
+    #[serde(rename = "active")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     /// <p>The TagOption key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The TagOption value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2288,15 +2288,15 @@ pub struct ListTagOptionsFilters {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagOptionsInput {
     /// <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<ListTagOptionsFilters>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
 }
@@ -2305,11 +2305,11 @@ pub struct ListTagOptionsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagOptionsOutput {
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>Information about the TagOptions.</p>
-    #[serde(rename = "TagOptionDetails")]
+    #[serde(rename = "tagOptionDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_option_details: Option<Vec<TagOptionDetail>>,
 }
@@ -2318,11 +2318,11 @@ pub struct ListTagOptionsOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OrganizationNode {
     /// <p>The organization node type.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The identifier of the organization node.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2332,31 +2332,31 @@ pub struct OrganizationNode {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ParameterConstraints {
     /// <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
-    #[serde(rename = "AllowedPattern")]
+    #[serde(rename = "allowedPattern")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_pattern: Option<String>,
     /// <p>The values that the administrator has allowed for the parameter.</p>
-    #[serde(rename = "AllowedValues")]
+    #[serde(rename = "allowedValues")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub allowed_values: Option<Vec<String>>,
     /// <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p> <p> <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code> </p> <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p> <p> <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code> </p>
-    #[serde(rename = "ConstraintDescription")]
+    #[serde(rename = "constraintDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_description: Option<String>,
     /// <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
-    #[serde(rename = "MaxLength")]
+    #[serde(rename = "maxLength")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_length: Option<String>,
     /// <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
-    #[serde(rename = "MaxValue")]
+    #[serde(rename = "maxValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_value: Option<String>,
     /// <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
-    #[serde(rename = "MinLength")]
+    #[serde(rename = "minLength")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_length: Option<String>,
     /// <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
-    #[serde(rename = "MinValue")]
+    #[serde(rename = "minValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub min_value: Option<String>,
 }
@@ -2366,27 +2366,27 @@ pub struct ParameterConstraints {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PortfolioDetail {
     /// <p>The ARN assigned to the portfolio.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the portfolio.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name to use for display purposes.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the portfolio provider.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_name: Option<String>,
 }
@@ -2396,19 +2396,19 @@ pub struct PortfolioDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PortfolioShareDetail {
     /// <p>Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.</p>
-    #[serde(rename = "Accepted")]
+    #[serde(rename = "accepted")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accepted: Option<bool>,
     /// <p>The identifier of the recipient entity that received the portfolio share. The recipient entities can be one of the following: </p> <p>1. An external account.</p> <p>2. An organziation member account.</p> <p>3. An organzational unit (OU).</p> <p>4. The organization itself. (This shares with every account in the organization).</p>
-    #[serde(rename = "PrincipalId")]
+    #[serde(rename = "principalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_id: Option<String>,
     /// <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
-    #[serde(rename = "ShareTagOptions")]
+    #[serde(rename = "shareTagOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_tag_options: Option<bool>,
     /// <p>The type of the portfolio share.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2418,11 +2418,11 @@ pub struct PortfolioShareDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Principal {
     /// <p>The ARN of the principal (IAM user, role, or group).</p>
-    #[serde(rename = "PrincipalARN")]
+    #[serde(rename = "principalARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_arn: Option<String>,
     /// <p>The principal type. The supported value is <code>IAM</code>.</p>
-    #[serde(rename = "PrincipalType")]
+    #[serde(rename = "principalType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub principal_type: Option<String>,
 }
@@ -2432,11 +2432,11 @@ pub struct Principal {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProductViewAggregationValue {
     /// <p>An approximate count of the products that match the value.</p>
-    #[serde(rename = "ApproximateCount")]
+    #[serde(rename = "approximateCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_count: Option<i64>,
     /// <p>The value of the product view aggregation.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -2446,19 +2446,19 @@ pub struct ProductViewAggregationValue {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProductViewDetail {
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ARN of the product.</p>
-    #[serde(rename = "ProductARN")]
+    #[serde(rename = "productARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_arn: Option<String>,
     /// <p>Summary information about the product view.</p>
-    #[serde(rename = "ProductViewSummary")]
+    #[serde(rename = "productViewSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_summary: Option<ProductViewSummary>,
     /// <p><p>The status of the product.</p> <ul> <li> <p> <code>AVAILABLE</code> - The product is ready for use.</p> </li> <li> <p> <code>CREATING</code> - Product creation has started; the product is not ready for use.</p> </li> <li> <p> <code>FAILED</code> - An action failed.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -2468,47 +2468,47 @@ pub struct ProductViewDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProductViewSummary {
     /// <p>The distributor of the product. Contact the product administrator for the significance of this value.</p>
-    #[serde(rename = "Distributor")]
+    #[serde(rename = "distributor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distributor: Option<String>,
     /// <p>Indicates whether the product has a default path. If the product does not have a default path, call <a>ListLaunchPaths</a> to disambiguate between paths. Otherwise, <a>ListLaunchPaths</a> is not required, and the output of <a>ProductViewSummary</a> can be used directly with <a>DescribeProvisioningParameters</a>.</p>
-    #[serde(rename = "HasDefaultPath")]
+    #[serde(rename = "hasDefaultPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub has_default_path: Option<bool>,
     /// <p>The product view identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the product.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The owner of the product. Contact the product administrator for the significance of this value.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>Short description of the product.</p>
-    #[serde(rename = "ShortDescription")]
+    #[serde(rename = "shortDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub short_description: Option<String>,
     /// <p>The description of the support for this Product.</p>
-    #[serde(rename = "SupportDescription")]
+    #[serde(rename = "supportDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_description: Option<String>,
     /// <p>The email contact information to obtain support for this Product.</p>
-    #[serde(rename = "SupportEmail")]
+    #[serde(rename = "supportEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_email: Option<String>,
     /// <p>The URL information to obtain support for this Product.</p>
-    #[serde(rename = "SupportUrl")]
+    #[serde(rename = "supportUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_url: Option<String>,
     /// <p>The product type. Contact the product administrator for the significance of this value. If this value is <code>MARKETPLACE</code>, the product was created by AWS Marketplace.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2517,53 +2517,53 @@ pub struct ProductViewSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProvisionProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</p>
-    #[serde(rename = "NotificationArns")]
+    #[serde(rename = "notificationArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_arns: Option<Vec<String>>,
     /// <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "PathId")]
+    #[serde(rename = "pathId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_id: Option<String>,
     /// <p>The name of the path. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "PathName")]
+    #[serde(rename = "pathName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_name: Option<String>,
     /// <p>The product identifier. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The name of the product. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>An idempotency token that uniquely identifies the provisioning request.</p>
-    #[serde(rename = "ProvisionToken")]
+    #[serde(rename = "provisionToken")]
     pub provision_token: String,
     /// <p>A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     pub provisioned_product_name: String,
     /// <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProvisioningArtifactName")]
+    #[serde(rename = "provisioningArtifactName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_name: Option<String>,
     /// <p>Parameters specified by the administrator that are required for provisioning the product.</p>
-    #[serde(rename = "ProvisioningParameters")]
+    #[serde(rename = "provisioningParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_parameters: Option<Vec<ProvisioningParameter>>,
     /// <p>An object that contains information about the provisioning preferences for a stack set.</p>
-    #[serde(rename = "ProvisioningPreferences")]
+    #[serde(rename = "provisioningPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_preferences: Option<ProvisioningPreferences>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -2572,7 +2572,7 @@ pub struct ProvisionProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionProductOutput {
     /// <p>Information about the result of provisioning the product.</p>
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
 }
@@ -2582,79 +2582,79 @@ pub struct ProvisionProductOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionedProductAttribute {
     /// <p>The ARN of the provisioned product.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idempotency_token: Option<String>,
     /// <p><p>The record identifier of the last request performed on this provisioned product of the following types:</p> <ul> <li> <p> ProvisionedProduct </p> </li> <li> <p> UpdateProvisionedProduct </p> </li> <li> <p> ExecuteProvisionedProductPlan </p> </li> <li> <p> TerminateProvisionedProduct </p> </li> </ul></p>
-    #[serde(rename = "LastProvisioningRecordId")]
+    #[serde(rename = "lastProvisioningRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_provisioning_record_id: Option<String>,
     /// <p>The record identifier of the last request performed on this provisioned product.</p>
-    #[serde(rename = "LastRecordId")]
+    #[serde(rename = "lastRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_record_id: Option<String>,
     /// <p><p>The record identifier of the last successful request performed on this provisioned product of the following types:</p> <ul> <li> <p> ProvisionedProduct </p> </li> <li> <p> UpdateProvisionedProduct </p> </li> <li> <p> ExecuteProvisionedProductPlan </p> </li> <li> <p> TerminateProvisionedProduct </p> </li> </ul></p>
-    #[serde(rename = "LastSuccessfulProvisioningRecordId")]
+    #[serde(rename = "lastSuccessfulProvisioningRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_successful_provisioning_record_id: Option<String>,
     /// <p>The user-friendly name of the provisioned product.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.</p>
-    #[serde(rename = "PhysicalId")]
+    #[serde(rename = "physicalId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub physical_id: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The name of the product.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The name of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactName")]
+    #[serde(rename = "provisioningArtifactName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_name: Option<String>,
     /// <p><p>The current status of the provisioned product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER<em>CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> <li> <p> <code>PLAN</em>IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The current status message of the provisioned product.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the IAM user.</p>
-    #[serde(rename = "UserArn")]
+    #[serde(rename = "userArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn: Option<String>,
     /// <p>The ARN of the IAM user in the session. This ARN might contain a session ID.</p>
-    #[serde(rename = "UserArnSession")]
+    #[serde(rename = "userArnSession")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_arn_session: Option<String>,
 }
@@ -2664,59 +2664,59 @@ pub struct ProvisionedProductAttribute {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionedProductDetail {
     /// <p>The ARN of the provisioned product.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub idempotency_token: Option<String>,
     /// <p><p>The record identifier of the last request performed on this provisioned product of the following types:</p> <ul> <li> <p> ProvisionedProduct </p> </li> <li> <p> UpdateProvisionedProduct </p> </li> <li> <p> ExecuteProvisionedProductPlan </p> </li> <li> <p> TerminateProvisionedProduct </p> </li> </ul></p>
-    #[serde(rename = "LastProvisioningRecordId")]
+    #[serde(rename = "lastProvisioningRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_provisioning_record_id: Option<String>,
     /// <p>The record identifier of the last request performed on this provisioned product.</p>
-    #[serde(rename = "LastRecordId")]
+    #[serde(rename = "lastRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_record_id: Option<String>,
     /// <p><p>The record identifier of the last successful request performed on this provisioned product of the following types:</p> <ul> <li> <p> ProvisionedProduct </p> </li> <li> <p> UpdateProvisionedProduct </p> </li> <li> <p> ExecuteProvisionedProductPlan </p> </li> <li> <p> TerminateProvisionedProduct </p> </li> </ul></p>
-    #[serde(rename = "LastSuccessfulProvisioningRecordId")]
+    #[serde(rename = "lastSuccessfulProvisioningRecordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_successful_provisioning_record_id: Option<String>,
     /// <p>The ARN of the launch role associated with the provisioned product.</p>
-    #[serde(rename = "LaunchRoleArn")]
+    #[serde(rename = "launchRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_role_arn: Option<String>,
     /// <p>The user-friendly name of the provisioned product.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p><p>The current status of the provisioned product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER<em>CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> <li> <p> <code>PLAN</em>IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The current status message of the provisioned product.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2726,63 +2726,63 @@ pub struct ProvisionedProductDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionedProductPlanDetails {
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</p>
-    #[serde(rename = "NotificationArns")]
+    #[serde(rename = "notificationArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_arns: Option<Vec<String>>,
     /// <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
-    #[serde(rename = "PathId")]
+    #[serde(rename = "pathId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_id: Option<String>,
     /// <p>The plan identifier.</p>
-    #[serde(rename = "PlanId")]
+    #[serde(rename = "planId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_id: Option<String>,
     /// <p>The name of the plan.</p>
-    #[serde(rename = "PlanName")]
+    #[serde(rename = "planName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_name: Option<String>,
     /// <p>The plan type.</p>
-    #[serde(rename = "PlanType")]
+    #[serde(rename = "planType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_type: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProvisionProductId")]
+    #[serde(rename = "provisionProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provision_product_id: Option<String>,
     /// <p>The user-friendly name of the provisioned product.</p>
-    #[serde(rename = "ProvisionProductName")]
+    #[serde(rename = "provisionProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provision_product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>Parameters specified by the administrator that are required for provisioning the product.</p>
-    #[serde(rename = "ProvisioningParameters")]
+    #[serde(rename = "provisioningParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_parameters: Option<Vec<UpdateProvisioningParameter>>,
     /// <p>The status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The status message.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The time when the plan was last updated.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<f64>,
 }
@@ -2792,27 +2792,27 @@ pub struct ProvisionedProductPlanDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisionedProductPlanSummary {
     /// <p>The plan identifier.</p>
-    #[serde(rename = "PlanId")]
+    #[serde(rename = "planId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_id: Option<String>,
     /// <p>The name of the plan.</p>
-    #[serde(rename = "PlanName")]
+    #[serde(rename = "planName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_name: Option<String>,
     /// <p>The plan type.</p>
-    #[serde(rename = "PlanType")]
+    #[serde(rename = "planType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_type: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProvisionProductId")]
+    #[serde(rename = "provisionProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provision_product_id: Option<String>,
     /// <p>The user-friendly name of the provisioned product.</p>
-    #[serde(rename = "ProvisionProductName")]
+    #[serde(rename = "provisionProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provision_product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
 }
@@ -2822,23 +2822,23 @@ pub struct ProvisionedProductPlanSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifact {
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the provisioning artifact.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
-    #[serde(rename = "Guidance")]
+    #[serde(rename = "guidance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub guidance: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the provisioning artifact.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -2848,31 +2848,31 @@ pub struct ProvisioningArtifact {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifactDetail {
     /// <p>Indicates whether the product version is active.</p>
-    #[serde(rename = "Active")]
+    #[serde(rename = "active")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the provisioning artifact.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
-    #[serde(rename = "Guidance")]
+    #[serde(rename = "guidance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub guidance: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the provisioning artifact.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p><p>The type of provisioning artifact.</p> <ul> <li> <p> <code>CLOUD<em>FORMATION</em>TEMPLATE</code> - AWS CloudFormation template</p> </li> <li> <p> <code>MARKETPLACE<em>AMI</code> - AWS Marketplace AMI</p> </li> <li> <p> <code>MARKETPLACE</em>CAR</code> - AWS Marketplace Clusters and AWS Resources</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2882,11 +2882,11 @@ pub struct ProvisioningArtifactDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifactOutput {
     /// <p>Description of the provisioning artifact output key.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The provisioning artifact output key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
 }
@@ -2896,27 +2896,27 @@ pub struct ProvisioningArtifactOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifactParameter {
     /// <p>The default value.</p>
-    #[serde(rename = "DefaultValue")]
+    #[serde(rename = "defaultValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub default_value: Option<String>,
     /// <p>The description of the parameter.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.</p>
-    #[serde(rename = "IsNoEcho")]
+    #[serde(rename = "isNoEcho")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_no_echo: Option<bool>,
     /// <p>Constraints that the administrator has put on a parameter.</p>
-    #[serde(rename = "ParameterConstraints")]
+    #[serde(rename = "parameterConstraints")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_constraints: Option<ParameterConstraints>,
     /// <p>The parameter key.</p>
-    #[serde(rename = "ParameterKey")]
+    #[serde(rename = "parameterKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_key: Option<String>,
     /// <p>The parameter type.</p>
-    #[serde(rename = "ParameterType")]
+    #[serde(rename = "parameterType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameter_type: Option<String>,
 }
@@ -2926,11 +2926,11 @@ pub struct ProvisioningArtifactParameter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifactPreferences {
     /// <p>One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-    #[serde(rename = "StackSetAccounts")]
+    #[serde(rename = "stackSetAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_accounts: Option<Vec<String>>,
     /// <p>One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-    #[serde(rename = "StackSetRegions")]
+    #[serde(rename = "stackSetRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_regions: Option<Vec<String>>,
 }
@@ -2940,22 +2940,22 @@ pub struct ProvisioningArtifactPreferences {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProvisioningArtifactProperties {
     /// <p>The description of the provisioning artifact, including how it differs from the previous provisioning artifact.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
-    #[serde(rename = "DisableTemplateValidation")]
+    #[serde(rename = "disableTemplateValidation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_template_validation: Option<bool>,
     /// <p>Specify the template source with one of the following options, but not both. Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p> <p>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:</p> <p> <code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code> </p> <p> <code>ImportFromPhysicalId</code>: The physical id of the resource that contains the template. Currently only supports CloudFormation stack arn. Specify the physical id in JSON format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code> </p>
-    #[serde(rename = "Info")]
+    #[serde(rename = "info")]
     pub info: ::std::collections::HashMap<String, String>,
     /// <p>The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p><p>The type of provisioning artifact.</p> <ul> <li> <p> <code>CLOUD<em>FORMATION</em>TEMPLATE</code> - AWS CloudFormation template</p> </li> <li> <p> <code>MARKETPLACE<em>AMI</code> - AWS Marketplace AMI</p> </li> <li> <p> <code>MARKETPLACE</em>CAR</code> - AWS Marketplace Clusters and AWS Resources</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -2965,23 +2965,23 @@ pub struct ProvisioningArtifactProperties {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifactSummary {
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the provisioning artifact.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the provisioning artifact.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The metadata for the provisioning artifact. This is used with AWS Marketplace products.</p>
-    #[serde(rename = "ProvisioningArtifactMetadata")]
+    #[serde(rename = "provisioningArtifactMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_metadata: Option<::std::collections::HashMap<String, String>>,
 }
@@ -2991,11 +2991,11 @@ pub struct ProvisioningArtifactSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ProvisioningArtifactView {
     /// <p>Summary information about a product view.</p>
-    #[serde(rename = "ProductViewSummary")]
+    #[serde(rename = "productViewSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_summary: Option<ProductViewSummary>,
     /// <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
-    #[serde(rename = "ProvisioningArtifact")]
+    #[serde(rename = "provisioningArtifact")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact: Option<ProvisioningArtifact>,
 }
@@ -3005,11 +3005,11 @@ pub struct ProvisioningArtifactView {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProvisioningParameter {
     /// <p>The parameter key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The parameter value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -3019,27 +3019,27 @@ pub struct ProvisioningParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ProvisioningPreferences {
     /// <p>One or more AWS accounts where the provisioned product will be available.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The specified accounts should be within the list of accounts from the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all acounts from the <code>STACKSET</code> constraint.</p>
-    #[serde(rename = "StackSetAccounts")]
+    #[serde(rename = "stackSetAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_accounts: Option<Vec<String>>,
     /// <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p> <p>The default value is <code>0</code> if no value is specified.</p>
-    #[serde(rename = "StackSetFailureToleranceCount")]
+    #[serde(rename = "stackSetFailureToleranceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_failure_tolerance_count: Option<i64>,
     /// <p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
-    #[serde(rename = "StackSetFailureTolerancePercentage")]
+    #[serde(rename = "stackSetFailureTolerancePercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_failure_tolerance_percentage: Option<i64>,
     /// <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
-    #[serde(rename = "StackSetMaxConcurrencyCount")]
+    #[serde(rename = "stackSetMaxConcurrencyCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_max_concurrency_count: Option<i64>,
     /// <p>The maximum percentage of accounts in which to perform this operation at one time.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
-    #[serde(rename = "StackSetMaxConcurrencyPercentage")]
+    #[serde(rename = "stackSetMaxConcurrencyPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_max_concurrency_percentage: Option<i64>,
     /// <p>One or more AWS Regions where the provisioned product will be available.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
-    #[serde(rename = "StackSetRegions")]
+    #[serde(rename = "stackSetRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_regions: Option<Vec<String>>,
 }
@@ -3049,59 +3049,59 @@ pub struct ProvisioningPreferences {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecordDetail {
     /// <p>The UTC time stamp of the creation time.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The ARN of the launch role associated with the provisioned product.</p>
-    #[serde(rename = "LaunchRoleArn")]
+    #[serde(rename = "launchRoleArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_role_arn: Option<String>,
     /// <p>The path identifier.</p>
-    #[serde(rename = "PathId")]
+    #[serde(rename = "pathId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_id: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_id: Option<String>,
     /// <p>The user-friendly name of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_name: Option<String>,
     /// <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
-    #[serde(rename = "ProvisionedProductType")]
+    #[serde(rename = "provisionedProductType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_type: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The errors that occurred.</p>
-    #[serde(rename = "RecordErrors")]
+    #[serde(rename = "recordErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_errors: Option<Vec<RecordError>>,
     /// <p>The identifier of the record.</p>
-    #[serde(rename = "RecordId")]
+    #[serde(rename = "recordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_id: Option<String>,
     /// <p>One or more tags.</p>
-    #[serde(rename = "RecordTags")]
+    #[serde(rename = "recordTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_tags: Option<Vec<RecordTag>>,
     /// <p><p>The record type.</p> <ul> <li> <p> <code>PROVISION<em>PRODUCT</code> </p> </li> <li> <p> <code>UPDATE</em>PROVISIONED<em>PRODUCT</code> </p> </li> <li> <p> <code>TERMINATE</em>PROVISIONED_PRODUCT</code> </p> </li> </ul></p>
-    #[serde(rename = "RecordType")]
+    #[serde(rename = "recordType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_type: Option<String>,
     /// <p><p>The status of the provisioned product.</p> <ul> <li> <p> <code>CREATED</code> - The request was created but the operation has not started.</p> </li> <li> <p> <code>IN<em>PROGRESS</code> - The requested operation is in progress.</p> </li> <li> <p> <code>IN</em>PROGRESS<em>IN</em>ERROR</code> - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback.</p> </li> <li> <p> <code>SUCCEEDED</code> - The requested operation has successfully completed.</p> </li> <li> <p> <code>FAILED</code> - The requested operation has unsuccessfully completed. Investigate using the error messages returned.</p> </li> </ul></p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The time when the record was last updated.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<f64>,
 }
@@ -3111,11 +3111,11 @@ pub struct RecordDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecordError {
     /// <p>The numeric value of the error.</p>
-    #[serde(rename = "Code")]
+    #[serde(rename = "code")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// <p>The description of the error.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 }
@@ -3125,15 +3125,15 @@ pub struct RecordError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecordOutput {
     /// <p>The description of the output.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The output key.</p>
-    #[serde(rename = "OutputKey")]
+    #[serde(rename = "outputKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_key: Option<String>,
     /// <p>The output value.</p>
-    #[serde(rename = "OutputValue")]
+    #[serde(rename = "outputValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_value: Option<String>,
 }
@@ -3143,11 +3143,11 @@ pub struct RecordOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RecordTag {
     /// <p>The key for this tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The value for this tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -3156,14 +3156,14 @@ pub struct RecordTag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RejectPortfolioShareInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>The type of shared portfolios to reject. The default is to reject imported portfolios.</p> <ul> <li> <p> <code>AWS_ORGANIZATIONS</code> - Reject portfolios shared by the management account of your organization.</p> </li> <li> <p> <code>IMPORTED</code> - Reject imported portfolios.</p> </li> <li> <p> <code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</p> </li> </ul> <p>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code> </p>
-    #[serde(rename = "PortfolioShareType")]
+    #[serde(rename = "portfolioShareType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_type: Option<String>,
 }
@@ -3177,31 +3177,31 @@ pub struct RejectPortfolioShareOutput {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceChange {
     /// <p>The change action.</p>
-    #[serde(rename = "Action")]
+    #[serde(rename = "action")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub action: Option<String>,
     /// <p>Information about the resource changes.</p>
-    #[serde(rename = "Details")]
+    #[serde(rename = "details")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<Vec<ResourceChangeDetail>>,
     /// <p>The ID of the resource, as defined in the CloudFormation template.</p>
-    #[serde(rename = "LogicalResourceId")]
+    #[serde(rename = "logicalResourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logical_resource_id: Option<String>,
     /// <p>The ID of the resource, if it was already created.</p>
-    #[serde(rename = "PhysicalResourceId")]
+    #[serde(rename = "physicalResourceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub physical_resource_id: Option<String>,
     /// <p>If the change type is <code>Modify</code>, indicates whether the existing resource is deleted and replaced with a new one.</p>
-    #[serde(rename = "Replacement")]
+    #[serde(rename = "replacement")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub replacement: Option<String>,
     /// <p>The type of resource.</p>
-    #[serde(rename = "ResourceType")]
+    #[serde(rename = "resourceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_type: Option<String>,
     /// <p>The change scope.</p>
-    #[serde(rename = "Scope")]
+    #[serde(rename = "scope")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scope: Option<Vec<String>>,
 }
@@ -3211,15 +3211,15 @@ pub struct ResourceChange {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceChangeDetail {
     /// <p>The ID of the entity that caused the change.</p>
-    #[serde(rename = "CausingEntity")]
+    #[serde(rename = "causingEntity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub causing_entity: Option<String>,
     /// <p>For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.</p>
-    #[serde(rename = "Evaluation")]
+    #[serde(rename = "evaluation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluation: Option<String>,
     /// <p>Information about the resource attribute to be modified.</p>
-    #[serde(rename = "Target")]
+    #[serde(rename = "target")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub target: Option<ResourceTargetDefinition>,
 }
@@ -3229,23 +3229,23 @@ pub struct ResourceChangeDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceDetail {
     /// <p>The ARN of the resource.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The creation time of the resource.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
     /// <p>The description of the resource.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the resource.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The name of the resource.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3255,15 +3255,15 @@ pub struct ResourceDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceTargetDefinition {
     /// <p>The attribute to be changed.</p>
-    #[serde(rename = "Attribute")]
+    #[serde(rename = "attribute")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attribute: Option<String>,
     /// <p>If the attribute is <code>Properties</code>, the value is the name of the property. Otherwise, the value is null.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>If the attribute is <code>Properties</code>, indicates whether a change to this property causes the resource to be re-created.</p>
-    #[serde(rename = "RequiresRecreation")]
+    #[serde(rename = "requiresRecreation")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub requires_recreation: Option<String>,
 }
@@ -3272,19 +3272,19 @@ pub struct ResourceTargetDefinition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ScanProvisionedProductsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
-    #[serde(rename = "AccessLevelFilter")]
+    #[serde(rename = "accessLevelFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_level_filter: Option<AccessLevelFilter>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
 }
@@ -3293,11 +3293,11 @@ pub struct ScanProvisionedProductsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ScanProvisionedProductsOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the provisioned products.</p>
-    #[serde(rename = "ProvisionedProducts")]
+    #[serde(rename = "provisionedProducts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_products: Option<Vec<ProvisionedProductDetail>>,
 }
@@ -3306,35 +3306,35 @@ pub struct ScanProvisionedProductsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchProductsAsAdminInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The search filters. If no search filters are specified, the output includes all products to which the administrator has access.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_id: Option<String>,
     /// <p>Access level of the source of the product.</p>
-    #[serde(rename = "ProductSource")]
+    #[serde(rename = "productSource")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_source: Option<String>,
     /// <p>The sort field. If no value is specified, the results are not sorted.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
     /// <p>The sort order. If no value is specified, the results are not sorted.</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -3343,11 +3343,11 @@ pub struct SearchProductsAsAdminInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchProductsAsAdminOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the product views.</p>
-    #[serde(rename = "ProductViewDetails")]
+    #[serde(rename = "productViewDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_details: Option<Vec<ProductViewDetail>>,
 }
@@ -3356,27 +3356,27 @@ pub struct SearchProductsAsAdminOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchProductsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The search filters. If no search filters are specified, the output includes all products to which the caller has access.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The sort field. If no value is specified, the results are not sorted.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
     /// <p>The sort order. If no value is specified, the results are not sorted.</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -3385,16 +3385,16 @@ pub struct SearchProductsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchProductsOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>The product view aggregations.</p>
-    #[serde(rename = "ProductViewAggregations")]
+    #[serde(rename = "productViewAggregations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_aggregations:
         Option<::std::collections::HashMap<String, Vec<ProductViewAggregationValue>>>,
     /// <p>Information about the product views.</p>
-    #[serde(rename = "ProductViewSummaries")]
+    #[serde(rename = "productViewSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_summaries: Option<Vec<ProductViewSummary>>,
 }
@@ -3403,31 +3403,31 @@ pub struct SearchProductsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SearchProvisionedProductsInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
-    #[serde(rename = "AccessLevelFilter")]
+    #[serde(rename = "accessLevelFilter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_level_filter: Option<AccessLevelFilter>,
     /// <p>The search filters.</p> <p>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>, <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>, <code>idempotencyToken</code>, <code>name</code>, <code>physicalId</code>, <code>productId</code>, <code>provisioningArtifact</code>, <code>type</code>, <code>status</code>, <code>tags</code>, <code>userArn</code>, <code>userArnSession</code>, <code>lastProvisioningRecordId</code>, <code>lastSuccessfulProvisioningRecordId</code>, <code>productName</code>, and <code>provisioningArtifactName</code>.</p> <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code> </p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The maximum number of items to return with this call.</p>
-    #[serde(rename = "PageSize")]
+    #[serde(rename = "pageSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_size: Option<i64>,
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    #[serde(rename = "PageToken")]
+    #[serde(rename = "pageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page_token: Option<String>,
     /// <p>The sort field. If no value is specified, the results are not sorted. The valid values are <code>arn</code>, <code>id</code>, <code>name</code>, and <code>lastRecordId</code>.</p>
-    #[serde(rename = "SortBy")]
+    #[serde(rename = "sortBy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_by: Option<String>,
     /// <p>The sort order. If no value is specified, the results are not sorted.</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
 }
@@ -3436,15 +3436,15 @@ pub struct SearchProvisionedProductsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SearchProvisionedProductsOutput {
     /// <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
-    #[serde(rename = "NextPageToken")]
+    #[serde(rename = "nextPageToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_page_token: Option<String>,
     /// <p>Information about the provisioned products.</p>
-    #[serde(rename = "ProvisionedProducts")]
+    #[serde(rename = "provisionedProducts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_products: Option<Vec<ProvisionedProductAttribute>>,
     /// <p>The number of provisioned products found.</p>
-    #[serde(rename = "TotalResultsCount")]
+    #[serde(rename = "totalResultsCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_results_count: Option<i64>,
 }
@@ -3454,13 +3454,13 @@ pub struct SearchProvisionedProductsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ServiceActionAssociation {
     /// <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
     /// <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
-    #[serde(rename = "ServiceActionId")]
+    #[serde(rename = "serviceActionId")]
     pub service_action_id: String,
 }
 
@@ -3469,11 +3469,11 @@ pub struct ServiceActionAssociation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceActionDetail {
     /// <p>A map that defines the self-service action.</p>
-    #[serde(rename = "Definition")]
+    #[serde(rename = "definition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub definition: Option<::std::collections::HashMap<String, String>>,
     /// <p>Summary information about the self-service action.</p>
-    #[serde(rename = "ServiceActionSummary")]
+    #[serde(rename = "serviceActionSummary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_summary: Option<ServiceActionSummary>,
 }
@@ -3483,19 +3483,19 @@ pub struct ServiceActionDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceActionSummary {
     /// <p>The self-service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
-    #[serde(rename = "DefinitionType")]
+    #[serde(rename = "definitionType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub definition_type: Option<String>,
     /// <p>The self-service action description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The self-service action identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The self-service action name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -3505,11 +3505,11 @@ pub struct ServiceActionSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ShareDetails {
     /// <p>List of errors.</p>
-    #[serde(rename = "ShareErrors")]
+    #[serde(rename = "shareErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_errors: Option<Vec<ShareError>>,
     /// <p>List of accounts for whom the operation succeeded.</p>
-    #[serde(rename = "SuccessfulShares")]
+    #[serde(rename = "successfulShares")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub successful_shares: Option<Vec<String>>,
 }
@@ -3519,15 +3519,15 @@ pub struct ShareDetails {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ShareError {
     /// <p>List of accounts impacted by the error.</p>
-    #[serde(rename = "Accounts")]
+    #[serde(rename = "accounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accounts: Option<Vec<String>>,
     /// <p>Error type that happened when processing the operation.</p>
-    #[serde(rename = "Error")]
+    #[serde(rename = "error")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<String>,
     /// <p>Information about the error.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -3537,15 +3537,15 @@ pub struct ShareError {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StackInstance {
     /// <p>The name of the AWS account that the stack instance is associated with.</p>
-    #[serde(rename = "Account")]
+    #[serde(rename = "account")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account: Option<String>,
     /// <p>The name of the AWS region that the stack instance is associated with.</p>
-    #[serde(rename = "Region")]
+    #[serde(rename = "region")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// <p><p>The status of the stack instance, in terms of its synchronization with its associated stack set. </p> <ul> <li> <p> <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to true, to delete the stack instance, and then delete the stack manually. </p> </li> <li> <p> <code>OUTDATED</code>: The stack isn&#39;t currently up to date with the stack set because either the associated stack failed during a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation, or the stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation that failed or was stopped before the stack was created or updated.</p> </li> <li> <p> <code>CURRENT</code>: The stack is currently up to date with the stack set.</p> </li> </ul></p>
-    #[serde(rename = "StackInstanceStatus")]
+    #[serde(rename = "stackInstanceStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_instance_status: Option<String>,
 }
@@ -3554,10 +3554,10 @@ pub struct StackInstance {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>The tag key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value for this key.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -3566,23 +3566,23 @@ pub struct Tag {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagOptionDetail {
     /// <p>The TagOption active state.</p>
-    #[serde(rename = "Active")]
+    #[serde(rename = "active")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The TagOption key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The AWS account Id of the owner account that created the TagOption.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The TagOption value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -3592,11 +3592,11 @@ pub struct TagOptionDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TagOptionSummary {
     /// <p>The TagOption key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>The TagOption value.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -3605,27 +3605,27 @@ pub struct TagOptionSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TerminateProvisionedProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.</p>
-    #[serde(rename = "IgnoreErrors")]
+    #[serde(rename = "ignoreErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ignore_errors: Option<bool>,
     /// <p>The identifier of the provisioned product. You cannot specify both <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_id: Option<String>,
     /// <p>The name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_name: Option<String>,
     /// <p>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code> API deletes the Service Catalog provisioned product. However, it does not remove the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is false.</p>
-    #[serde(rename = "RetainPhysicalResources")]
+    #[serde(rename = "retainPhysicalResources")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retain_physical_resources: Option<bool>,
     /// <p>An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return <b>ResourceNotFound</b>.</p>
-    #[serde(rename = "TerminateToken")]
+    #[serde(rename = "terminateToken")]
     pub terminate_token: String,
 }
 
@@ -3633,7 +3633,7 @@ pub struct TerminateProvisionedProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TerminateProvisionedProductOutput {
     /// <p>Information about the result of this request.</p>
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
 }
@@ -3642,18 +3642,18 @@ pub struct TerminateProvisionedProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateConstraintInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The updated description of the constraint.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The identifier of the constraint.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p><p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> <dl> <dt>LAUNCH</dt> <dd> <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can&#39;t use both.</p> <p>Specify the <code>RoleArn</code> property as follows:</p> <p> <code>{&quot;RoleArn&quot; : &quot;arn:aws:iam::123456789012:role/LaunchRole&quot;}</code> </p> <p>Specify the <code>LocalRoleName</code> property as follows:</p> <p> <code>{&quot;LocalRoleName&quot;: &quot;SCBasicLaunchRole&quot;}</code> </p> <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note> <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p> </note> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> </dd> <dt>NOTIFICATION</dt> <dd> <p>Specify the <code>NotificationArns</code> property as follows:</p> <p> <code>{&quot;NotificationArns&quot; : [&quot;arn:aws:sns:us-east-1:123456789012:Topic&quot;]}</code> </p> </dd> <dt>RESOURCE<em>UPDATE</dt> <dd> <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> <p> <code>{&quot;Version&quot;:&quot;2.0&quot;,&quot;Properties&quot;:{&quot;TagUpdateOnProvisionedProduct&quot;:&quot;String&quot;}}</code> </p> <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT</em>ALLOWED</code>.</p> </dd> <dt>STACKSET</dt> <dd> <p>Specify the <code>Parameters</code> property as follows:</p> <p> <code>{&quot;Version&quot;: &quot;String&quot;, &quot;Properties&quot;: {&quot;AccountList&quot;: [ &quot;String&quot; ], &quot;RegionList&quot;: [ &quot;String&quot; ], &quot;AdminRole&quot;: &quot;String&quot;, &quot;ExecutionRole&quot;: &quot;String&quot;}}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p> </dd> <dt>TEMPLATE</dt> <dd> <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p> </dd> </dl></p>
-    #[serde(rename = "Parameters")]
+    #[serde(rename = "parameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<String>,
 }
@@ -3662,15 +3662,15 @@ pub struct UpdateConstraintInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateConstraintOutput {
     /// <p>Information about the constraint.</p>
-    #[serde(rename = "ConstraintDetail")]
+    #[serde(rename = "constraintDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_detail: Option<ConstraintDetail>,
     /// <p>The constraint parameters.</p>
-    #[serde(rename = "ConstraintParameters")]
+    #[serde(rename = "constraintParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub constraint_parameters: Option<String>,
     /// <p>The status of the current request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3679,30 +3679,30 @@ pub struct UpdateConstraintOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePortfolioInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The tags to add.</p>
-    #[serde(rename = "AddTags")]
+    #[serde(rename = "addTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_tags: Option<Vec<Tag>>,
     /// <p>The updated description of the portfolio.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The name to use for display purposes.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The portfolio identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The updated name of the portfolio provider.</p>
-    #[serde(rename = "ProviderName")]
+    #[serde(rename = "providerName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provider_name: Option<String>,
     /// <p>The tags to remove.</p>
-    #[serde(rename = "RemoveTags")]
+    #[serde(rename = "removeTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_tags: Option<Vec<String>>,
 }
@@ -3711,11 +3711,11 @@ pub struct UpdatePortfolioInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdatePortfolioOutput {
     /// <p>Information about the portfolio.</p>
-    #[serde(rename = "PortfolioDetail")]
+    #[serde(rename = "portfolioDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_detail: Option<PortfolioDetail>,
     /// <p>Information about the tags associated with the portfolio.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3724,21 +3724,21 @@ pub struct UpdatePortfolioOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdatePortfolioShareInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The AWS Account Id of the recipient account. This field is required when updating an external account to account type share.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
-    #[serde(rename = "OrganizationNode")]
+    #[serde(rename = "organizationNode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub organization_node: Option<OrganizationNode>,
     /// <p>The unique identifier of the portfolio for which the share will be updated.</p>
-    #[serde(rename = "PortfolioId")]
+    #[serde(rename = "portfolioId")]
     pub portfolio_id: String,
     /// <p>A flag to enable or disable TagOptions sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
-    #[serde(rename = "ShareTagOptions")]
+    #[serde(rename = "shareTagOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub share_tag_options: Option<bool>,
 }
@@ -3747,11 +3747,11 @@ pub struct UpdatePortfolioShareInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdatePortfolioShareOutput {
     /// <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or organizational type sharing.</p>
-    #[serde(rename = "PortfolioShareToken")]
+    #[serde(rename = "portfolioShareToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub portfolio_share_token: Option<String>,
     /// <p>The status of <code>UpdatePortfolioShare</code> operation. You can also obtain the operation status using <code>DescribePortfolioShareStatus</code> API. </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3760,46 +3760,46 @@ pub struct UpdatePortfolioShareOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The tags to add to the product.</p>
-    #[serde(rename = "AddTags")]
+    #[serde(rename = "addTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub add_tags: Option<Vec<Tag>>,
     /// <p>The updated description of the product.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The updated distributor of the product.</p>
-    #[serde(rename = "Distributor")]
+    #[serde(rename = "distributor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub distributor: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The updated product name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The updated owner of the product.</p>
-    #[serde(rename = "Owner")]
+    #[serde(rename = "owner")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub owner: Option<String>,
     /// <p>The tags to remove from the product.</p>
-    #[serde(rename = "RemoveTags")]
+    #[serde(rename = "removeTags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remove_tags: Option<Vec<String>>,
     /// <p>The updated support description for the product.</p>
-    #[serde(rename = "SupportDescription")]
+    #[serde(rename = "supportDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_description: Option<String>,
     /// <p>The updated support email for the product.</p>
-    #[serde(rename = "SupportEmail")]
+    #[serde(rename = "supportEmail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_email: Option<String>,
     /// <p>The updated support URL for the product.</p>
-    #[serde(rename = "SupportUrl")]
+    #[serde(rename = "supportUrl")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub support_url: Option<String>,
 }
@@ -3808,11 +3808,11 @@ pub struct UpdateProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateProductOutput {
     /// <p>Information about the product view.</p>
-    #[serde(rename = "ProductViewDetail")]
+    #[serde(rename = "productViewDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_view_detail: Option<ProductViewDetail>,
     /// <p>Information about the tags associated with the product.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -3821,55 +3821,55 @@ pub struct UpdateProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProvisionedProductInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "PathId")]
+    #[serde(rename = "pathId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_id: Option<String>,
     /// <p>The name of the path. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "PathName")]
+    #[serde(rename = "pathName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub path_name: Option<String>,
     /// <p>The identifier of the product. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
     /// <p>The name of the product. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProductName")]
+    #[serde(rename = "productName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_name: Option<String>,
     /// <p>The identifier of the provisioned product. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_id: Option<String>,
     /// <p>The name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
-    #[serde(rename = "ProvisionedProductName")]
+    #[serde(rename = "provisionedProductName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_name: Option<String>,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_id: Option<String>,
     /// <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
-    #[serde(rename = "ProvisioningArtifactName")]
+    #[serde(rename = "provisioningArtifactName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_name: Option<String>,
     /// <p>The new parameters.</p>
-    #[serde(rename = "ProvisioningParameters")]
+    #[serde(rename = "provisioningParameters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_parameters: Option<Vec<UpdateProvisioningParameter>>,
     /// <p>An object that contains information about the provisioning preferences for a stack set.</p>
-    #[serde(rename = "ProvisioningPreferences")]
+    #[serde(rename = "provisioningPreferences")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_preferences: Option<UpdateProvisioningPreferences>,
     /// <p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
     /// <p>The idempotency token that uniquely identifies the provisioning update request.</p>
-    #[serde(rename = "UpdateToken")]
+    #[serde(rename = "updateToken")]
     pub update_token: String,
 }
 
@@ -3877,7 +3877,7 @@ pub struct UpdateProvisionedProductInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateProvisionedProductOutput {
     /// <p>Information about the result of the request.</p>
-    #[serde(rename = "RecordDetail")]
+    #[serde(rename = "recordDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_detail: Option<RecordDetail>,
 }
@@ -3886,17 +3886,17 @@ pub struct UpdateProvisionedProductOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProvisionedProductPropertiesInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>The idempotency token that uniquely identifies the provisioning product update request.</p>
-    #[serde(rename = "IdempotencyToken")]
+    #[serde(rename = "idempotencyToken")]
     pub idempotency_token: String,
     /// <p>The identifier of the provisioned product.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     pub provisioned_product_id: String,
     /// <p>A map that contains the provisioned product properties to be updated.</p> <p>The <code>LAUNCH_ROLE</code> key accepts role ARNs. This key allows an administrator to call <code>UpdateProvisionedProductProperties</code> to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as <code>UpdateProvisionedProduct</code>, <code>TerminateProvisionedProduct</code>, or <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p> <p>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.</p> <p>The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>, but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p> <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.</p>
-    #[serde(rename = "ProvisionedProductProperties")]
+    #[serde(rename = "provisionedProductProperties")]
     pub provisioned_product_properties: ::std::collections::HashMap<String, String>,
 }
 
@@ -3904,19 +3904,19 @@ pub struct UpdateProvisionedProductPropertiesInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateProvisionedProductPropertiesOutput {
     /// <p>The provisioned product identifier.</p>
-    #[serde(rename = "ProvisionedProductId")]
+    #[serde(rename = "provisionedProductId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_id: Option<String>,
     /// <p>A map that contains the properties updated.</p>
-    #[serde(rename = "ProvisionedProductProperties")]
+    #[serde(rename = "provisionedProductProperties")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioned_product_properties: Option<::std::collections::HashMap<String, String>>,
     /// <p>The identifier of the record.</p>
-    #[serde(rename = "RecordId")]
+    #[serde(rename = "recordId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub record_id: Option<String>,
     /// <p>The status of the request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3925,30 +3925,30 @@ pub struct UpdateProvisionedProductPropertiesOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProvisioningArtifactInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>Indicates whether the product version is active.</p> <p>Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.</p>
-    #[serde(rename = "Active")]
+    #[serde(rename = "active")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     /// <p>The updated description of the provisioning artifact.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value indicates that the product version is active.</p> <p>The administrator can set the guidance to <code>DEPRECATED</code> to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>
-    #[serde(rename = "Guidance")]
+    #[serde(rename = "guidance")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub guidance: Option<String>,
     /// <p>The updated name of the provisioning artifact.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The product identifier.</p>
-    #[serde(rename = "ProductId")]
+    #[serde(rename = "productId")]
     pub product_id: String,
     /// <p>The identifier of the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactId")]
+    #[serde(rename = "provisioningArtifactId")]
     pub provisioning_artifact_id: String,
 }
 
@@ -3956,15 +3956,15 @@ pub struct UpdateProvisioningArtifactInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateProvisioningArtifactOutput {
     /// <p>The URL of the CloudFormation template in Amazon S3.</p>
-    #[serde(rename = "Info")]
+    #[serde(rename = "info")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub info: Option<::std::collections::HashMap<String, String>>,
     /// <p>Information about the provisioning artifact.</p>
-    #[serde(rename = "ProvisioningArtifactDetail")]
+    #[serde(rename = "provisioningArtifactDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub provisioning_artifact_detail: Option<ProvisioningArtifactDetail>,
     /// <p>The status of the current request.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -3973,15 +3973,15 @@ pub struct UpdateProvisioningArtifactOutput {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct UpdateProvisioningParameter {
     /// <p>The parameter key.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     /// <p>If set to true, <code>Value</code> is ignored and the previous parameter value is kept.</p>
-    #[serde(rename = "UsePreviousValue")]
+    #[serde(rename = "usePreviousValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_previous_value: Option<bool>,
     /// <p>The parameter value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -3991,31 +3991,31 @@ pub struct UpdateProvisioningParameter {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateProvisioningPreferences {
     /// <p>One or more AWS accounts that will have access to the provisioned product.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
-    #[serde(rename = "StackSetAccounts")]
+    #[serde(rename = "stackSetAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_accounts: Option<Vec<String>>,
     /// <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p> <p>The default value is <code>0</code> if no value is specified.</p>
-    #[serde(rename = "StackSetFailureToleranceCount")]
+    #[serde(rename = "stackSetFailureToleranceCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_failure_tolerance_count: Option<i64>,
     /// <p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
-    #[serde(rename = "StackSetFailureTolerancePercentage")]
+    #[serde(rename = "stackSetFailureTolerancePercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_failure_tolerance_percentage: Option<i64>,
     /// <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
-    #[serde(rename = "StackSetMaxConcurrencyCount")]
+    #[serde(rename = "stackSetMaxConcurrencyCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_max_concurrency_count: Option<i64>,
     /// <p>The maximum percentage of accounts in which to perform this operation at one time.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
-    #[serde(rename = "StackSetMaxConcurrencyPercentage")]
+    #[serde(rename = "stackSetMaxConcurrencyPercentage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_max_concurrency_percentage: Option<i64>,
     /// <p><p>Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <dl> <dt>CREATE</dt> <dd> <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p> </dd> <dt>UPDATE</dt> <dd> <p>Updates the stack set represented by the provisioned product and also its stack instances.</p> </dd> <dt>DELETE</dt> <dd> <p>Deletes a stack instance in the stack set represented by the provisioned product.</p> </dd> </dl></p>
-    #[serde(rename = "StackSetOperationType")]
+    #[serde(rename = "stackSetOperationType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_operation_type: Option<String>,
     /// <p>One or more AWS Regions where the provisioned product will be available.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
-    #[serde(rename = "StackSetRegions")]
+    #[serde(rename = "stackSetRegions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stack_set_regions: Option<Vec<String>>,
 }
@@ -4024,22 +4024,22 @@ pub struct UpdateProvisioningPreferences {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateServiceActionInput {
     /// <p><p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul></p>
-    #[serde(rename = "AcceptLanguage")]
+    #[serde(rename = "acceptLanguage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub accept_language: Option<String>,
     /// <p>A map that defines the self-service action.</p>
-    #[serde(rename = "Definition")]
+    #[serde(rename = "definition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub definition: Option<::std::collections::HashMap<String, String>>,
     /// <p>The self-service action description.</p>
-    #[serde(rename = "Description")]
+    #[serde(rename = "description")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// <p>The self-service action identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The self-service action name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -4048,7 +4048,7 @@ pub struct UpdateServiceActionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateServiceActionOutput {
     /// <p>Detailed information about the self-service action.</p>
-    #[serde(rename = "ServiceActionDetail")]
+    #[serde(rename = "serviceActionDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_action_detail: Option<ServiceActionDetail>,
 }
@@ -4057,14 +4057,14 @@ pub struct UpdateServiceActionOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTagOptionInput {
     /// <p>The updated active state.</p>
-    #[serde(rename = "Active")]
+    #[serde(rename = "active")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     /// <p>The TagOption identifier.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     pub id: String,
     /// <p>The updated value.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -4073,7 +4073,7 @@ pub struct UpdateTagOptionInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateTagOptionOutput {
     /// <p>Information about the TagOption.</p>
-    #[serde(rename = "TagOptionDetail")]
+    #[serde(rename = "tagOptionDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tag_option_detail: Option<TagOptionDetail>,
 }
@@ -4083,11 +4083,11 @@ pub struct UpdateTagOptionOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UsageInstruction {
     /// <p>The usage instruction type for the value.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
     /// <p>The usage instruction value for this type.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }

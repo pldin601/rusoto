@@ -29,19 +29,19 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AttachmentItem {
     /// <p>A unique identifier for the attachment.</p>
-    #[serde(rename = "AttachmentId")]
+    #[serde(rename = "attachmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attachment_id: Option<String>,
     /// <p>A case-sensitive name of the attachment being uploaded.</p>
-    #[serde(rename = "AttachmentName")]
+    #[serde(rename = "attachmentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attachment_name: Option<String>,
     /// <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>Status of the attachment.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -50,13 +50,13 @@ pub struct AttachmentItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CompleteAttachmentUploadRequest {
     /// <p>A list of unique identifiers for the attachments.</p>
-    #[serde(rename = "AttachmentIds")]
+    #[serde(rename = "attachmentIds")]
     pub attachment_ids: Vec<String>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
 }
 
@@ -69,11 +69,11 @@ pub struct CompleteAttachmentUploadResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ConnectionCredentials {
     /// <p>The connection token.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_token: Option<String>,
     /// <p>The expiration of the token.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "Expiry")]
+    #[serde(rename = "expiry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiry: Option<String>,
 }
@@ -82,10 +82,10 @@ pub struct ConnectionCredentials {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateParticipantConnectionRequest {
     /// <p>This is a header parameter.</p> <p>The Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a> API response.</p>
-    #[serde(rename = "ParticipantToken")]
+    #[serde(rename = "participantToken")]
     pub participant_token: String,
     /// <p>Type of connection information required.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: Vec<String>,
 }
 
@@ -93,11 +93,11 @@ pub struct CreateParticipantConnectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateParticipantConnectionResponse {
     /// <p>Creates the participant's connection credentials. The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionCredentials")]
+    #[serde(rename = "connectionCredentials")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_credentials: Option<ConnectionCredentials>,
     /// <p>Creates the participant's websocket connection.</p>
-    #[serde(rename = "Websocket")]
+    #[serde(rename = "websocket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub websocket: Option<Websocket>,
 }
@@ -106,11 +106,11 @@ pub struct CreateParticipantConnectionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisconnectParticipantRequest {
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
 }
 
@@ -122,10 +122,10 @@ pub struct DisconnectParticipantResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetAttachmentRequest {
     /// <p>A unique identifier for the attachment.</p>
-    #[serde(rename = "AttachmentId")]
+    #[serde(rename = "attachmentId")]
     pub attachment_id: String,
     /// <p>The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
 }
 
@@ -133,11 +133,11 @@ pub struct GetAttachmentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetAttachmentResponse {
     /// <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "UrlExpiry")]
+    #[serde(rename = "urlExpiry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url_expiry: Option<String>,
 }
@@ -146,30 +146,30 @@ pub struct GetAttachmentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTranscriptRequest {
     /// <p>The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
     /// <p>The contactId from the current contact chain for which transcript is needed.</p>
-    #[serde(rename = "ContactId")]
+    #[serde(rename = "contactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<String>,
     /// <p>The maximum number of results to return in the page. Default: 10. </p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>
-    #[serde(rename = "ScanDirection")]
+    #[serde(rename = "scanDirection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub scan_direction: Option<String>,
     /// <p>The sort order for the records. Default: DESCENDING.</p>
-    #[serde(rename = "SortOrder")]
+    #[serde(rename = "sortOrder")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sort_order: Option<String>,
     /// <p>A filtering option for where to start.</p>
-    #[serde(rename = "StartPosition")]
+    #[serde(rename = "startPosition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_position: Option<StartPosition>,
 }
@@ -178,15 +178,15 @@ pub struct GetTranscriptRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTranscriptResponse {
     /// <p>The initial contact ID for the contact. </p>
-    #[serde(rename = "InitialContactId")]
+    #[serde(rename = "initialContactId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub initial_contact_id: Option<String>,
     /// <p>The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The list of messages in the session.</p>
-    #[serde(rename = "Transcript")]
+    #[serde(rename = "transcript")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transcript: Option<Vec<Item>>,
 }
@@ -196,39 +196,39 @@ pub struct GetTranscriptResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Item {
     /// <p>The time when the message or event was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "AbsoluteTime")]
+    #[serde(rename = "absoluteTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub absolute_time: Option<String>,
     /// <p>Provides information about the attachments.</p>
-    #[serde(rename = "Attachments")]
+    #[serde(rename = "attachments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attachments: Option<Vec<AttachmentItem>>,
     /// <p>The content of the message or event.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p>The type of content of the item.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
     /// <p>The chat display name of the sender.</p>
-    #[serde(rename = "DisplayName")]
+    #[serde(rename = "displayName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub display_name: Option<String>,
     /// <p>The ID of the item.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The ID of the sender in the session.</p>
-    #[serde(rename = "ParticipantId")]
+    #[serde(rename = "participantId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub participant_id: Option<String>,
     /// <p>The role of the sender. For example, is it a customer, agent, or system.</p>
-    #[serde(rename = "ParticipantRole")]
+    #[serde(rename = "participantRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub participant_role: Option<String>,
     /// <p>Type of the item: message or event. </p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -237,18 +237,18 @@ pub struct Item {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendEventRequest {
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
     /// <p>The content of the event to be sent (for example, message text). This is not yet supported.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
     /// <p><p>The content type of the request. Supported types are:</p> <ul> <li> <p>application/vnd.amazonaws.connect.event.typing</p> </li> <li> <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p> </li> </ul></p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     pub content_type: String,
 }
 
@@ -256,11 +256,11 @@ pub struct SendEventRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendEventResponse {
     /// <p>The time when the event was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "AbsoluteTime")]
+    #[serde(rename = "absoluteTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub absolute_time: Option<String>,
     /// <p>The ID of the response.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -269,17 +269,17 @@ pub struct SendEventResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SendMessageRequest {
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_token: Option<String>,
     /// <p>The authentication token associated with the connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
     /// <p>The content of the message.</p>
-    #[serde(rename = "Content")]
+    #[serde(rename = "content")]
     pub content: String,
     /// <p>The type of the content. Supported types are text/plain.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     pub content_type: String,
 }
 
@@ -287,11 +287,11 @@ pub struct SendMessageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SendMessageResponse {
     /// <p>The time when the message was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "AbsoluteTime")]
+    #[serde(rename = "absoluteTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub absolute_time: Option<String>,
     /// <p>The ID of the message.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -300,19 +300,19 @@ pub struct SendMessageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartAttachmentUploadRequest {
     /// <p>A case-sensitive name of the attachment being uploaded.</p>
-    #[serde(rename = "AttachmentName")]
+    #[serde(rename = "attachmentName")]
     pub attachment_name: String,
     /// <p>The size of the attachment in bytes.</p>
-    #[serde(rename = "AttachmentSizeInBytes")]
+    #[serde(rename = "attachmentSizeInBytes")]
     pub attachment_size_in_bytes: i64,
     /// <p>A unique case sensitive identifier to support idempotency of request.</p>
-    #[serde(rename = "ClientToken")]
+    #[serde(rename = "clientToken")]
     pub client_token: String,
     /// <p>The authentication token associated with the participant's connection.</p>
-    #[serde(rename = "ConnectionToken")]
+    #[serde(rename = "connectionToken")]
     pub connection_token: String,
     /// <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-    #[serde(rename = "ContentType")]
+    #[serde(rename = "contentType")]
     pub content_type: String,
 }
 
@@ -320,11 +320,11 @@ pub struct StartAttachmentUploadRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartAttachmentUploadResponse {
     /// <p>A unique identifier for the attachment.</p>
-    #[serde(rename = "AttachmentId")]
+    #[serde(rename = "attachmentId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attachment_id: Option<String>,
     /// <p>Fields to be used while uploading the attachment.</p>
-    #[serde(rename = "UploadMetadata")]
+    #[serde(rename = "uploadMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upload_metadata: Option<UploadMetadata>,
 }
@@ -334,15 +334,15 @@ pub struct StartAttachmentUploadResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartPosition {
     /// <p>The time in ISO format where to start.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "AbsoluteTime")]
+    #[serde(rename = "absoluteTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub absolute_time: Option<String>,
     /// <p>The ID of the message or event where to start. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The start position of the most recent message where you want to start. </p>
-    #[serde(rename = "MostRecent")]
+    #[serde(rename = "mostRecent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub most_recent: Option<i64>,
 }
@@ -352,15 +352,15 @@ pub struct StartPosition {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UploadMetadata {
     /// <p>The headers to be provided while uploading the file to the URL.</p>
-    #[serde(rename = "HeadersToInclude")]
+    #[serde(rename = "headersToInclude")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub headers_to_include: Option<::std::collections::HashMap<String, String>>,
     /// <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
     /// <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "UrlExpiry")]
+    #[serde(rename = "urlExpiry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url_expiry: Option<String>,
 }
@@ -370,11 +370,11 @@ pub struct UploadMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Websocket {
     /// <p>The URL expiration timestamp in ISO date format.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
-    #[serde(rename = "ConnectionExpiry")]
+    #[serde(rename = "connectionExpiry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_expiry: Option<String>,
     /// <p>The URL of the websocket.</p>
-    #[serde(rename = "Url")]
+    #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 }

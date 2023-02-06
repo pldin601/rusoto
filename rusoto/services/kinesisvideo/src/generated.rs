@@ -29,31 +29,31 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ChannelInfo {
     /// <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The name of the signaling channel.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
     /// <p>Current status of the signaling channel.</p>
-    #[serde(rename = "ChannelStatus")]
+    #[serde(rename = "channelStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_status: Option<String>,
     /// <p>The type of the signaling channel.</p>
-    #[serde(rename = "ChannelType")]
+    #[serde(rename = "channelType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_type: Option<String>,
     /// <p>The time at which the signaling channel was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.</p>
-    #[serde(rename = "SingleMasterConfiguration")]
+    #[serde(rename = "singleMasterConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub single_master_configuration: Option<SingleMasterConfiguration>,
     /// <p>The current version of the signaling channel.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -63,11 +63,11 @@ pub struct ChannelInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ChannelNameCondition {
     /// <p>A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code> operator, which finds signaling channels whose names begin with a given prefix.</p>
-    #[serde(rename = "ComparisonOperator")]
+    #[serde(rename = "comparisonOperator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparison_operator: Option<String>,
     /// <p>A value to compare.</p>
-    #[serde(rename = "ComparisonValue")]
+    #[serde(rename = "comparisonValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparison_value: Option<String>,
 }
@@ -76,18 +76,18 @@ pub struct ChannelNameCondition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSignalingChannelInput {
     /// <p>A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     pub channel_name: String,
     /// <p>A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. </p>
-    #[serde(rename = "ChannelType")]
+    #[serde(rename = "channelType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_type: Option<String>,
     /// <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel type. </p>
-    #[serde(rename = "SingleMasterConfiguration")]
+    #[serde(rename = "singleMasterConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub single_master_configuration: Option<SingleMasterConfiguration>,
     /// <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -96,7 +96,7 @@ pub struct CreateSignalingChannelInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSignalingChannelOutput {
     /// <p>The Amazon Resource Name (ARN) of the created channel.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
 }
@@ -105,26 +105,26 @@ pub struct CreateSignalingChannelOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateStreamInput {
     /// <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p> <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.</p>
-    #[serde(rename = "DataRetentionInHours")]
+    #[serde(rename = "dataRetentionInHours")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_retention_in_hours: Option<i64>,
     /// <p><p>The name of the device that is writing to the stream. </p> <note> <p>In the current implementation, Kinesis Video Streams does not use this name.</p> </note></p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p> <p>Example valid values include "video/h264" and "video/h264,audio/aac".</p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
-    #[serde(rename = "MediaType")]
+    #[serde(rename = "mediaType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_type: Option<String>,
     /// <p>A name for the stream that you are creating.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     pub stream_name: String,
     /// <p>A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -133,7 +133,7 @@ pub struct CreateStreamInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateStreamOutput {
     /// <p>The Amazon Resource Name (ARN) of the stream.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
 }
@@ -142,10 +142,10 @@ pub struct CreateStreamOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSignalingChannelInput {
     /// <p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     pub channel_arn: String,
     /// <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_version: Option<String>,
 }
@@ -158,11 +158,11 @@ pub struct DeleteSignalingChannelOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteStreamInput {
     /// <p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_version: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     pub stream_arn: String,
 }
 
@@ -174,11 +174,11 @@ pub struct DeleteStreamOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeSignalingChannelInput {
     /// <p>The ARN of the signaling channel that you want to describe.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_arn: Option<String>,
     /// <p>The name of the signaling channel that you want to describe.</p>
-    #[serde(rename = "ChannelName")]
+    #[serde(rename = "channelName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
 }
@@ -187,7 +187,7 @@ pub struct DescribeSignalingChannelInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeSignalingChannelOutput {
     /// <p>A structure that encapsulates the specified signaling channel's metadata and properties.</p>
-    #[serde(rename = "ChannelInfo")]
+    #[serde(rename = "channelInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_info: Option<ChannelInfo>,
 }
@@ -196,11 +196,11 @@ pub struct DescribeSignalingChannelOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeStreamInput {
     /// <p>The Amazon Resource Name (ARN) of the stream.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -209,7 +209,7 @@ pub struct DescribeStreamInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeStreamOutput {
     /// <p>An object that describes the stream.</p>
-    #[serde(rename = "StreamInfo")]
+    #[serde(rename = "streamInfo")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_info: Option<StreamInfo>,
 }
@@ -218,14 +218,14 @@ pub struct DescribeStreamOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDataEndpointInput {
     /// <p>The name of the API action for which to get an endpoint.</p>
-    #[serde(rename = "APIName")]
+    #[serde(rename = "aPIName")]
     pub api_name: String,
     /// <p>The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamName</code> in the request. </p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamARN</code> in the request.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -234,7 +234,7 @@ pub struct GetDataEndpointInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDataEndpointOutput {
     /// <p>The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.</p>
-    #[serde(rename = "DataEndpoint")]
+    #[serde(rename = "dataEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_endpoint: Option<String>,
 }
@@ -243,10 +243,10 @@ pub struct GetDataEndpointOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSignalingChannelEndpointInput {
     /// <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     pub channel_arn: String,
     /// <p>A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code> channel type.</p>
-    #[serde(rename = "SingleMasterChannelEndpointConfiguration")]
+    #[serde(rename = "singleMasterChannelEndpointConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub single_master_channel_endpoint_configuration:
         Option<SingleMasterChannelEndpointConfiguration>,
@@ -256,7 +256,7 @@ pub struct GetSignalingChannelEndpointInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSignalingChannelEndpointOutput {
     /// <p>A list of endpoints for the specified signaling channel.</p>
-    #[serde(rename = "ResourceEndpointList")]
+    #[serde(rename = "resourceEndpointList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_endpoint_list: Option<Vec<ResourceEndpointListItem>>,
 }
@@ -265,15 +265,15 @@ pub struct GetSignalingChannelEndpointOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListSignalingChannelsInput {
     /// <p>Optional: Returns only the channels that satisfy a specific condition.</p>
-    #[serde(rename = "ChannelNameCondition")]
+    #[serde(rename = "channelNameCondition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_name_condition: Option<ChannelNameCondition>,
     /// <p>The maximum number of channels to return in the response. The default is 500.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -282,11 +282,11 @@ pub struct ListSignalingChannelsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListSignalingChannelsOutput {
     /// <p>An array of <code>ChannelInfo</code> objects.</p>
-    #[serde(rename = "ChannelInfoList")]
+    #[serde(rename = "channelInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub channel_info_list: Option<Vec<ChannelInfo>>,
     /// <p>If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -295,15 +295,15 @@ pub struct ListSignalingChannelsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListStreamsInput {
     /// <p>The maximum number of streams to return in the response. The default is 10,000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If you specify this parameter, when the result of a <code>ListStreams</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of streams, provide this token in your next request.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition. </p>
-    #[serde(rename = "StreamNameCondition")]
+    #[serde(rename = "streamNameCondition")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name_condition: Option<StreamNameCondition>,
 }
@@ -312,11 +312,11 @@ pub struct ListStreamsInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListStreamsOutput {
     /// <p>If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>An array of <code>StreamInfo</code> objects.</p>
-    #[serde(rename = "StreamInfoList")]
+    #[serde(rename = "streamInfoList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_info_list: Option<Vec<StreamInfo>>,
 }
@@ -325,11 +325,11 @@ pub struct ListStreamsOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceInput {
     /// <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -337,11 +337,11 @@ pub struct ListTagsForResourceInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceOutput {
     /// <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A map of tag keys and values associated with the specified signaling channel.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -350,15 +350,15 @@ pub struct ListTagsForResourceOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForStreamInput {
     /// <p>If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the stream that you want to list tags for.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream that you want to list tags for.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -367,11 +367,11 @@ pub struct ListTagsForStreamInput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForStreamOutput {
     /// <p>If you specify this parameter and the result of a <code>ListTags</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A map of tag keys and values associated with the specified stream.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -381,11 +381,11 @@ pub struct ListTagsForStreamOutput {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceEndpointListItem {
     /// <p>The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
-    #[serde(rename = "Protocol")]
+    #[serde(rename = "protocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocol: Option<String>,
     /// <p>The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
-    #[serde(rename = "ResourceEndpoint")]
+    #[serde(rename = "resourceEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_endpoint: Option<String>,
 }
@@ -395,11 +395,11 @@ pub struct ResourceEndpointListItem {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SingleMasterChannelEndpointConfiguration {
     /// <p>This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code> endpoint.</p>
-    #[serde(rename = "Protocols")]
+    #[serde(rename = "protocols")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protocols: Option<Vec<String>>,
     /// <p>This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is specified, this API returns an endpoint that a client can use only to send offers to another <code>MASTER</code> client on this signaling channel. </p>
-    #[serde(rename = "Role")]
+    #[serde(rename = "role")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
 }
@@ -408,7 +408,7 @@ pub struct SingleMasterChannelEndpointConfiguration {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SingleMasterConfiguration {
     /// <p>The period of time a signaling channel retains underlivered messages before they are discarded.</p>
-    #[serde(rename = "MessageTtlSeconds")]
+    #[serde(rename = "messageTtlSeconds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message_ttl_seconds: Option<i64>,
 }
@@ -418,39 +418,39 @@ pub struct SingleMasterConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StreamInfo {
     /// <p>A time stamp that indicates when the stream was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>How long the stream retains data, in hours.</p>
-    #[serde(rename = "DataRetentionInHours")]
+    #[serde(rename = "dataRetentionInHours")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_retention_in_hours: Option<i64>,
     /// <p>The name of the device that is associated with the stream.</p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>
-    #[serde(rename = "KmsKeyId")]
+    #[serde(rename = "kmsKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The <code>MediaType</code> of the stream. </p>
-    #[serde(rename = "MediaType")]
+    #[serde(rename = "mediaType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_type: Option<String>,
     /// <p>The status of the stream.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the stream.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
     /// <p>The version of the stream.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -460,11 +460,11 @@ pub struct StreamInfo {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StreamNameCondition {
     /// <p>A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix.</p>
-    #[serde(rename = "ComparisonOperator")]
+    #[serde(rename = "comparisonOperator")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparison_operator: Option<String>,
     /// <p>A value to compare.</p>
-    #[serde(rename = "ComparisonValue")]
+    #[serde(rename = "comparisonValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub comparison_value: Option<String>,
 }
@@ -474,10 +474,10 @@ pub struct StreamNameCondition {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Tag {
     /// <p>The key of the tag that is associated with the specified signaling channel.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value of the tag that is associated with the specified signaling channel.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -485,10 +485,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceInput {
     /// <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -500,15 +500,15 @@ pub struct TagResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagStreamInput {
     /// <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream that you want to add the tag or tags to.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
     /// <p>A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -520,10 +520,10 @@ pub struct TagStreamOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceInput {
     /// <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>A list of the keys of the tags that you want to remove.</p>
-    #[serde(rename = "TagKeyList")]
+    #[serde(rename = "tagKeyList")]
     pub tag_key_list: Vec<String>,
 }
 
@@ -535,15 +535,15 @@ pub struct UntagResourceOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagStreamInput {
     /// <p>The Amazon Resource Name (ARN) of the stream that you want to remove tags from.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream that you want to remove tags from.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
     /// <p>A list of the keys of the tags that you want to remove.</p>
-    #[serde(rename = "TagKeyList")]
+    #[serde(rename = "tagKeyList")]
     pub tag_key_list: Vec<String>,
 }
 
@@ -555,20 +555,20 @@ pub struct UntagStreamOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateDataRetentionInput {
     /// <p>The version of the stream whose retention period you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API.</p>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <p>The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).</p>
-    #[serde(rename = "DataRetentionChangeInHours")]
+    #[serde(rename = "dataRetentionChangeInHours")]
     pub data_retention_change_in_hours: i64,
     /// <p>Indicates whether you want to increase or decrease the retention period.</p>
-    #[serde(rename = "Operation")]
+    #[serde(rename = "operation")]
     pub operation: String,
     /// <p>The Amazon Resource Name (ARN) of the stream whose retention period you want to change.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream whose retention period you want to change.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }
@@ -581,13 +581,13 @@ pub struct UpdateDataRetentionOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSignalingChannelInput {
     /// <p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>
-    #[serde(rename = "ChannelARN")]
+    #[serde(rename = "channelARN")]
     pub channel_arn: String,
     /// <p>The current version of the signaling channel that you want to update.</p>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <p>The structure containing the configuration for the <code>SINGLE_MASTER</code> type of the signaling channel that you want to update. </p>
-    #[serde(rename = "SingleMasterConfiguration")]
+    #[serde(rename = "singleMasterConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub single_master_configuration: Option<SingleMasterConfiguration>,
 }
@@ -600,22 +600,22 @@ pub struct UpdateSignalingChannelOutput {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateStreamInput {
     /// <p>The version of the stream whose metadata you want to update.</p>
-    #[serde(rename = "CurrentVersion")]
+    #[serde(rename = "currentVersion")]
     pub current_version: String,
     /// <p><p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note></p>
-    #[serde(rename = "DeviceName")]
+    #[serde(rename = "deviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub device_name: Option<String>,
     /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>
-    #[serde(rename = "MediaType")]
+    #[serde(rename = "mediaType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub media_type: Option<String>,
     /// <p>The ARN of the stream whose metadata you want to update.</p>
-    #[serde(rename = "StreamARN")]
+    #[serde(rename = "streamARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_arn: Option<String>,
     /// <p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
-    #[serde(rename = "StreamName")]
+    #[serde(rename = "streamName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stream_name: Option<String>,
 }

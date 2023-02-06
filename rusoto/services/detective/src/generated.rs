@@ -29,7 +29,7 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AcceptInvitationRequest {
     /// <p>The ARN of the behavior graph that the member account is accepting the invitation for.</p> <p>The member account status in the behavior graph must be <code>INVITED</code>.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -38,10 +38,10 @@ pub struct AcceptInvitationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Account {
     /// <p>The account identifier of the AWS account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The AWS account root user email address for the AWS account.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     pub email_address: String,
 }
 
@@ -49,7 +49,7 @@ pub struct Account {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGraphRequest {
     /// <p>The tags to assign to the new behavior graph. You can add up to 50 tags. For each tag, you provide the tag key and the tag value. Each tag key can contain up to 128 characters. Each tag value can contain up to 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -58,7 +58,7 @@ pub struct CreateGraphRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGraphResponse {
     /// <p>The ARN of the new behavior graph.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub graph_arn: Option<String>,
 }
@@ -67,17 +67,17 @@ pub struct CreateGraphResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateMembersRequest {
     /// <p>The list of AWS accounts to invite to become member accounts in the behavior graph. You can invite up to 50 accounts at a time. For each invited account, the account list contains the account identifier and the AWS account root user email address.</p>
-    #[serde(rename = "Accounts")]
+    #[serde(rename = "accounts")]
     pub accounts: Vec<Account>,
     /// <p>if set to <code>true</code>, then the member accounts do not receive email notifications. By default, this is set to <code>false</code>, and the member accounts receive email notifications.</p>
-    #[serde(rename = "DisableEmailNotification")]
+    #[serde(rename = "disableEmailNotification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disable_email_notification: Option<bool>,
     /// <p>The ARN of the behavior graph to invite the member accounts to contribute their data to.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
     /// <p>Customized message text to include in the invitation email message to the invited member accounts.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -86,11 +86,11 @@ pub struct CreateMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateMembersResponse {
     /// <p>The set of member account invitation requests that Detective was able to process. This includes accounts that are being verified, that failed verification, and that passed verification and are being sent an invitation.</p>
-    #[serde(rename = "Members")]
+    #[serde(rename = "members")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub members: Option<Vec<MemberDetail>>,
     /// <p>The list of accounts for which Detective was unable to process the invitation request. For each account, the list provides the reason why the request could not be processed. The list includes accounts that are already member accounts in the behavior graph.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_accounts: Option<Vec<UnprocessedAccount>>,
 }
@@ -99,7 +99,7 @@ pub struct CreateMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGraphRequest {
     /// <p>The ARN of the behavior graph to disable.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -107,10 +107,10 @@ pub struct DeleteGraphRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteMembersRequest {
     /// <p>The list of AWS account identifiers for the member accounts to delete from the behavior graph. You can delete up to 50 member accounts at a time.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The ARN of the behavior graph to delete members from.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -118,11 +118,11 @@ pub struct DeleteMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteMembersResponse {
     /// <p>The list of AWS account identifiers for the member accounts that Detective successfully deleted from the behavior graph.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_ids: Option<Vec<String>>,
     /// <p>The list of member accounts that Detective was not able to delete from the behavior graph. For each member account, provides the reason that the deletion could not be processed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_accounts: Option<Vec<UnprocessedAccount>>,
 }
@@ -131,7 +131,7 @@ pub struct DeleteMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DisassociateMembershipRequest {
     /// <p>The ARN of the behavior graph to remove the member account from.</p> <p>The member account's member status in the behavior graph must be <code>ENABLED</code>.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -139,10 +139,10 @@ pub struct DisassociateMembershipRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetMembersRequest {
     /// <p>The list of AWS account identifiers for the member account for which to return member details. You can request details for up to 50 member accounts at a time.</p> <p>You cannot use <code>GetMembers</code> to retrieve information about member accounts that were removed from the behavior graph.</p>
-    #[serde(rename = "AccountIds")]
+    #[serde(rename = "accountIds")]
     pub account_ids: Vec<String>,
     /// <p>The ARN of the behavior graph for which to request the member details.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -150,11 +150,11 @@ pub struct GetMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetMembersResponse {
     /// <p>The member account details that Detective is returning in response to the request.</p>
-    #[serde(rename = "MemberDetails")]
+    #[serde(rename = "memberDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_details: Option<Vec<MemberDetail>>,
     /// <p>The requested member accounts for which Detective was unable to return member details.</p> <p>For each account, provides the reason why the request could not be processed.</p>
-    #[serde(rename = "UnprocessedAccounts")]
+    #[serde(rename = "unprocessedAccounts")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_accounts: Option<Vec<UnprocessedAccount>>,
 }
@@ -164,11 +164,11 @@ pub struct GetMembersResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Graph {
     /// <p>The ARN of the behavior graph.</p>
-    #[serde(rename = "Arn")]
+    #[serde(rename = "arn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
     /// <p>The date and time that the behavior graph was created. The value is in milliseconds since the epoch.</p>
-    #[serde(rename = "CreatedTime")]
+    #[serde(rename = "createdTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_time: Option<f64>,
 }
@@ -177,11 +177,11 @@ pub struct Graph {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListGraphsRequest {
     /// <p>The maximum number of graphs to return at a time. The total must be less than the overall limit on the number of results to return, which is currently 200.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For requests to get the next page of results, the pagination token that was returned with the previous set of results. The initial request does not include a pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -190,11 +190,11 @@ pub struct ListGraphsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListGraphsResponse {
     /// <p>A list of behavior graphs that the account is an administrator account for.</p>
-    #[serde(rename = "GraphList")]
+    #[serde(rename = "graphList")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub graph_list: Option<Vec<Graph>>,
     /// <p>If there are more behavior graphs remaining in the results, then this is the pagination token to use to request the next page of behavior graphs.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -203,11 +203,11 @@ pub struct ListGraphsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListInvitationsRequest {
     /// <p>The maximum number of behavior graph invitations to return in the response. The total must be less than the overall limit on the number of results to return, which is currently 200.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For requests to retrieve the next page of results, the pagination token that was returned with the previous page of results. The initial request does not include a pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -216,11 +216,11 @@ pub struct ListInvitationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListInvitationsResponse {
     /// <p>The list of behavior graphs for which the member account has open or accepted invitations.</p>
-    #[serde(rename = "Invitations")]
+    #[serde(rename = "invitations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invitations: Option<Vec<MemberDetail>>,
     /// <p>If there are more behavior graphs remaining in the results, then this is the pagination token to use to request the next page of behavior graphs.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -229,14 +229,14 @@ pub struct ListInvitationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListMembersRequest {
     /// <p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
     /// <p>The maximum number of member accounts to include in the response. The total must be less than the overall limit on the number of results to return, which is currently 200.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For requests to retrieve the next page of member account results, the pagination token that was returned with the previous page of results. The initial request does not include a pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -245,11 +245,11 @@ pub struct ListMembersRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListMembersResponse {
     /// <p>The list of member accounts in the behavior graph.</p> <p>The results include member accounts that did not pass verification and member accounts that have not yet accepted the invitation to the behavior graph. The results do not include member accounts that were removed from the behavior graph.</p>
-    #[serde(rename = "MemberDetails")]
+    #[serde(rename = "memberDetails")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub member_details: Option<Vec<MemberDetail>>,
     /// <p>If there are more member accounts remaining in the results, then this is the pagination token to use to request the next page of member accounts.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -258,7 +258,7 @@ pub struct ListMembersResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The ARN of the behavior graph for which to retrieve the tag values.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -266,7 +266,7 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>The tag values that are assigned to the behavior graph. The request returns up to 50 tag values.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<::std::collections::HashMap<String, String>>,
 }
@@ -276,43 +276,43 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct MemberDetail {
     /// <p>The AWS account identifier for the member account.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The AWS account identifier of the administrator account for the behavior graph.</p>
-    #[serde(rename = "AdministratorId")]
+    #[serde(rename = "administratorId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub administrator_id: Option<String>,
     /// <p><p>For member accounts with a status of <code>ACCEPTED<em>BUT</em>DISABLED</code>, the reason that the member account is not enabled.</p> <p>The reason can have one of the following values:</p> <ul> <li> <p> <code>VOLUME<em>TOO</em>HIGH</code> - Indicates that adding the member account would cause the data volume for the behavior graph to be too high.</p> </li> <li> <p> <code>VOLUME_UNKNOWN</code> - Indicates that Detective is unable to verify the data volume for the member account. This is usually because the member account is not enrolled in Amazon GuardDuty. </p> </li> </ul></p>
-    #[serde(rename = "DisabledReason")]
+    #[serde(rename = "disabledReason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub disabled_reason: Option<String>,
     /// <p>The AWS account root user email address for the member account.</p>
-    #[serde(rename = "EmailAddress")]
+    #[serde(rename = "emailAddress")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
     /// <p>The ARN of the behavior graph that the member account was invited to.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub graph_arn: Option<String>,
     /// <p>The date and time that Detective sent the invitation to the member account. The value is in milliseconds since the epoch.</p>
-    #[serde(rename = "InvitedTime")]
+    #[serde(rename = "invitedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub invited_time: Option<f64>,
     /// <p>The current membership status of the member account. The status can have one of the following values:</p> <ul> <li> <p> <code>INVITED</code> - Indicates that the member was sent an invitation but has not yet responded.</p> </li> <li> <p> <code>VERIFICATION_IN_PROGRESS</code> - Indicates that Detective is verifying that the account identifier and email address provided for the member account match. If they do match, then Detective sends the invitation. If the email address and account identifier don't match, then the member cannot be added to the behavior graph.</p> </li> <li> <p> <code>VERIFICATION_FAILED</code> - Indicates that the account and email address provided for the member account do not match, and Detective did not send an invitation to the account.</p> </li> <li> <p> <code>ENABLED</code> - Indicates that the member account accepted the invitation to contribute to the behavior graph.</p> </li> <li> <p> <code>ACCEPTED_BUT_DISABLED</code> - Indicates that the member account accepted the invitation but is prevented from contributing data to the behavior graph. <code>DisabledReason</code> provides the reason why the member account is not enabled.</p> </li> </ul> <p>Member accounts that declined an invitation or that were removed from the behavior graph are not included.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The date and time that the member account was last updated. The value is in milliseconds since the epoch.</p>
-    #[serde(rename = "UpdatedTime")]
+    #[serde(rename = "updatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub updated_time: Option<f64>,
     /// <p>The data volume in bytes per day for the member account.</p>
-    #[serde(rename = "VolumeUsageInBytes")]
+    #[serde(rename = "volumeUsageInBytes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_usage_in_bytes: Option<i64>,
     /// <p>The data and time when the member account data volume was last updated.</p>
-    #[serde(rename = "VolumeUsageUpdatedTime")]
+    #[serde(rename = "volumeUsageUpdatedTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub volume_usage_updated_time: Option<f64>,
 }
@@ -321,7 +321,7 @@ pub struct MemberDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct RejectInvitationRequest {
     /// <p>The ARN of the behavior graph to reject the invitation to.</p> <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -329,10 +329,10 @@ pub struct RejectInvitationRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartMonitoringMemberRequest {
     /// <p>The account ID of the member account to try to enable.</p> <p>The account must be an invited member account with a status of <code>ACCEPTED_BUT_DISABLED</code>. </p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     pub account_id: String,
     /// <p>The ARN of the behavior graph.</p>
-    #[serde(rename = "GraphArn")]
+    #[serde(rename = "graphArn")]
     pub graph_arn: String,
 }
 
@@ -340,10 +340,10 @@ pub struct StartMonitoringMemberRequest {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The ARN of the behavior graph to assign the tags to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to assign to the behavior graph. You can add up to 50 tags. For each tag, you provide the tag key and the tag value. Each tag key can contain up to 128 characters. Each tag value can contain up to 256 characters.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: ::std::collections::HashMap<String, String>,
 }
 
@@ -356,11 +356,11 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnprocessedAccount {
     /// <p>The AWS account identifier of the member account that was not processed.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The reason that the member account request could not be processed.</p>
-    #[serde(rename = "Reason")]
+    #[serde(rename = "reason")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reason: Option<String>,
 }
@@ -369,10 +369,10 @@ pub struct UnprocessedAccount {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The ARN of the behavior graph to remove the tags from.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tag keys of the tags to remove from the behavior graph. You can remove up to 50 tags at a time.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 

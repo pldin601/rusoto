@@ -29,15 +29,15 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Alias {
     /// <p>The canonical name of the alias.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of names for the alias, including the canonical name.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The type of the alias.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -47,15 +47,15 @@ pub struct Alias {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AnnotationValue {
     /// <p>Value for a Boolean annotation.</p>
-    #[serde(rename = "BooleanValue")]
+    #[serde(rename = "booleanValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub boolean_value: Option<bool>,
     /// <p>Value for a Number annotation.</p>
-    #[serde(rename = "NumberValue")]
+    #[serde(rename = "numberValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub number_value: Option<f64>,
     /// <p>Value for a String annotation.</p>
-    #[serde(rename = "StringValue")]
+    #[serde(rename = "stringValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_value: Option<String>,
 }
@@ -64,7 +64,7 @@ pub struct AnnotationValue {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AnomalousService {
-    #[serde(rename = "ServiceId")]
+    #[serde(rename = "serviceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_id: Option<ServiceId>,
 }
@@ -74,7 +74,7 @@ pub struct AnomalousService {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AvailabilityZoneDetail {
     /// <p>The name of a corresponding Availability Zone.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -84,27 +84,27 @@ pub struct AvailabilityZoneDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BackendConnectionErrors {
     /// <p><p/></p>
-    #[serde(rename = "ConnectionRefusedCount")]
+    #[serde(rename = "connectionRefusedCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub connection_refused_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "HTTPCode4XXCount")]
+    #[serde(rename = "hTTPCode4XXCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_code_4xx_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "HTTPCode5XXCount")]
+    #[serde(rename = "hTTPCode5XXCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_code_5xx_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "OtherCount")]
+    #[serde(rename = "otherCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub other_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "TimeoutCount")]
+    #[serde(rename = "timeoutCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timeout_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "UnknownHostCount")]
+    #[serde(rename = "unknownHostCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unknown_host_count: Option<i64>,
 }
@@ -113,11 +113,11 @@ pub struct BackendConnectionErrors {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct BatchGetTracesRequest {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Specify the trace IDs of requests for which to retrieve segments.</p>
-    #[serde(rename = "TraceIds")]
+    #[serde(rename = "traceIds")]
     pub trace_ids: Vec<String>,
 }
 
@@ -125,15 +125,15 @@ pub struct BatchGetTracesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BatchGetTracesResult {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Full traces for the specified requests.</p>
-    #[serde(rename = "Traces")]
+    #[serde(rename = "traces")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub traces: Option<Vec<Trace>>,
     /// <p>Trace IDs of requests that haven't been processed.</p>
-    #[serde(rename = "UnprocessedTraceIds")]
+    #[serde(rename = "unprocessedTraceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_trace_ids: Option<Vec<String>>,
 }
@@ -142,18 +142,18 @@ pub struct BatchGetTracesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateGroupRequest {
     /// <p>The filter expression defining criteria by which to group traces.</p>
-    #[serde(rename = "FilterExpression")]
+    #[serde(rename = "filterExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_expression: Option<String>,
     /// <p>The case-sensitive name of the new group. Default is a reserved name and names must be unique.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     pub group_name: String,
     /// <p><p>The structure containing configurations related to insights.</p> <ul> <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the new group or false to disable insights for the new group.</p> </li> <li> <p>The NotifcationsEnabled boolean can be set to true to enable insights notifications for the new group. Notifications may only be enabled on a group with InsightsEnabled set to true.</p> </li> </ul></p>
-    #[serde(rename = "InsightsConfiguration")]
+    #[serde(rename = "insightsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insights_configuration: Option<InsightsConfiguration>,
     /// <p><p>A map that contains one or more tag keys and tag values to attach to an X-Ray group. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in the <i>AWS General Reference</i>.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>Maximum number of user-applied tags per resource: 50</p> </li> <li> <p>Maximum tag key length: 128 Unicode characters</p> </li> <li> <p>Maximum tag value length: 256 Unicode characters</p> </li> <li> <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Don&#39;t use <code>aws:</code> as a prefix for keys; it&#39;s reserved for AWS use.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -162,7 +162,7 @@ pub struct CreateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateGroupResult {
     /// <p>The group that was created. Contains the name of the group that was created, the Amazon Resource Name (ARN) of the group that was generated based on the group name, the filter expression, and the insight configuration that was assigned to the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 }
@@ -171,10 +171,10 @@ pub struct CreateGroupResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateSamplingRuleRequest {
     /// <p>The rule definition.</p>
-    #[serde(rename = "SamplingRule")]
+    #[serde(rename = "samplingRule")]
     pub sampling_rule: SamplingRule,
     /// <p><p>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in the <i>AWS General Reference</i>.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>Maximum number of user-applied tags per resource: 50</p> </li> <li> <p>Maximum tag key length: 128 Unicode characters</p> </li> <li> <p>Maximum tag value length: 256 Unicode characters</p> </li> <li> <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Don&#39;t use <code>aws:</code> as a prefix for keys; it&#39;s reserved for AWS use.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -183,7 +183,7 @@ pub struct CreateSamplingRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateSamplingRuleResult {
     /// <p>The saved rule definition and metadata.</p>
-    #[serde(rename = "SamplingRuleRecord")]
+    #[serde(rename = "samplingRuleRecord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_rule_record: Option<SamplingRuleRecord>,
 }
@@ -192,11 +192,11 @@ pub struct CreateSamplingRuleResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteGroupRequest {
     /// <p>The ARN of the group that was generated on creation.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The case-sensitive name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -209,11 +209,11 @@ pub struct DeleteGroupResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteSamplingRuleRequest {
     /// <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-    #[serde(rename = "RuleARN")]
+    #[serde(rename = "ruleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_arn: Option<String>,
     /// <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_name: Option<String>,
 }
@@ -222,7 +222,7 @@ pub struct DeleteSamplingRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DeleteSamplingRuleResult {
     /// <p>The deleted rule definition and metadata.</p>
-    #[serde(rename = "SamplingRuleRecord")]
+    #[serde(rename = "samplingRuleRecord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_rule_record: Option<SamplingRuleRecord>,
 }
@@ -232,27 +232,27 @@ pub struct DeleteSamplingRuleResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Edge {
     /// <p>Aliases for the edge.</p>
-    #[serde(rename = "Aliases")]
+    #[serde(rename = "aliases")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aliases: Option<Vec<Alias>>,
     /// <p>The end time of the last segment on the edge.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Identifier of the edge. Unique within a service map.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_id: Option<i64>,
     /// <p>A histogram that maps the spread of client response times on an edge.</p>
-    #[serde(rename = "ResponseTimeHistogram")]
+    #[serde(rename = "responseTimeHistogram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_time_histogram: Option<Vec<HistogramEntry>>,
     /// <p>The start time of the first segment on the edge.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>Response statistics for segments on the edge.</p>
-    #[serde(rename = "SummaryStatistics")]
+    #[serde(rename = "summaryStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary_statistics: Option<EdgeStatistics>,
 }
@@ -262,23 +262,23 @@ pub struct Edge {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EdgeStatistics {
     /// <p>Information about requests that failed with a 4xx Client Error status code.</p>
-    #[serde(rename = "ErrorStatistics")]
+    #[serde(rename = "errorStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_statistics: Option<ErrorStatistics>,
     /// <p>Information about requests that failed with a 5xx Server Error status code.</p>
-    #[serde(rename = "FaultStatistics")]
+    #[serde(rename = "faultStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fault_statistics: Option<FaultStatistics>,
     /// <p>The number of requests that completed with a 2xx Success status code.</p>
-    #[serde(rename = "OkCount")]
+    #[serde(rename = "okCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ok_count: Option<i64>,
     /// <p>The total number of completed requests.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
     /// <p>The aggregate response time of completed requests.</p>
-    #[serde(rename = "TotalResponseTime")]
+    #[serde(rename = "totalResponseTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_response_time: Option<f64>,
 }
@@ -288,15 +288,15 @@ pub struct EdgeStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EncryptionConfig {
     /// <p>The ID of the customer master key (CMK) used for encryption, if applicable.</p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_id: Option<String>,
     /// <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The type of encryption. Set to <code>KMS</code> for encryption with CMKs. Set to <code>NONE</code> for default encryption.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -306,11 +306,11 @@ pub struct EncryptionConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorRootCause {
     /// <p>A flag that denotes that the root cause impacts the trace client.</p>
-    #[serde(rename = "ClientImpacting")]
+    #[serde(rename = "clientImpacting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_impacting: Option<bool>,
     /// <p>A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<ErrorRootCauseService>>,
 }
@@ -320,15 +320,15 @@ pub struct ErrorRootCause {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorRootCauseEntity {
     /// <p>The types and messages of the exceptions.</p>
-    #[serde(rename = "Exceptions")]
+    #[serde(rename = "exceptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exceptions: Option<Vec<RootCauseException>>,
     /// <p>The name of the entity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A flag that denotes a remote subsegment.</p>
-    #[serde(rename = "Remote")]
+    #[serde(rename = "remote")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote: Option<bool>,
 }
@@ -338,27 +338,27 @@ pub struct ErrorRootCauseEntity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorRootCauseService {
     /// <p>The account ID associated to the service.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The path of root cause entities found on the service. </p>
-    #[serde(rename = "EntityPath")]
+    #[serde(rename = "entityPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_path: Option<Vec<ErrorRootCauseEntity>>,
     /// <p>A Boolean value indicating if the service is inferred from the trace.</p>
-    #[serde(rename = "Inferred")]
+    #[serde(rename = "inferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inferred: Option<bool>,
     /// <p>The service name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A collection of associated service names.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The type associated to the service.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -368,15 +368,15 @@ pub struct ErrorRootCauseService {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ErrorStatistics {
     /// <p>The number of requests that failed with untracked 4xx Client Error status codes.</p>
-    #[serde(rename = "OtherCount")]
+    #[serde(rename = "otherCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub other_count: Option<i64>,
     /// <p>The number of requests that failed with a 419 throttling status code.</p>
-    #[serde(rename = "ThrottleCount")]
+    #[serde(rename = "throttleCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub throttle_count: Option<i64>,
     /// <p>The total number of requests that failed with a 4xx Client Error status code.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -386,11 +386,11 @@ pub struct ErrorStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaultRootCause {
     /// <p>A flag that denotes that the root cause impacts the trace client.</p>
-    #[serde(rename = "ClientImpacting")]
+    #[serde(rename = "clientImpacting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_impacting: Option<bool>,
     /// <p>A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<FaultRootCauseService>>,
 }
@@ -400,15 +400,15 @@ pub struct FaultRootCause {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaultRootCauseEntity {
     /// <p>The types and messages of the exceptions.</p>
-    #[serde(rename = "Exceptions")]
+    #[serde(rename = "exceptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub exceptions: Option<Vec<RootCauseException>>,
     /// <p>The name of the entity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A flag that denotes a remote subsegment.</p>
-    #[serde(rename = "Remote")]
+    #[serde(rename = "remote")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote: Option<bool>,
 }
@@ -418,27 +418,27 @@ pub struct FaultRootCauseEntity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaultRootCauseService {
     /// <p>The account ID associated to the service.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The path of root cause entities found on the service. </p>
-    #[serde(rename = "EntityPath")]
+    #[serde(rename = "entityPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_path: Option<Vec<FaultRootCauseEntity>>,
     /// <p>A Boolean value indicating if the service is inferred from the trace.</p>
-    #[serde(rename = "Inferred")]
+    #[serde(rename = "inferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inferred: Option<bool>,
     /// <p>The service name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A collection of associated service names.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The type associated to the service.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -448,11 +448,11 @@ pub struct FaultRootCauseService {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct FaultStatistics {
     /// <p>The number of requests that failed with untracked 5xx Server Error status codes.</p>
-    #[serde(rename = "OtherCount")]
+    #[serde(rename = "otherCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub other_count: Option<i64>,
     /// <p>The total number of requests that failed with a 5xx Server Error status code.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -462,11 +462,11 @@ pub struct FaultStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ForecastStatistics {
     /// <p>The upper limit of fault counts for a service.</p>
-    #[serde(rename = "FaultCountHigh")]
+    #[serde(rename = "faultCountHigh")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fault_count_high: Option<i64>,
     /// <p>The lower limit of fault counts for a service.</p>
-    #[serde(rename = "FaultCountLow")]
+    #[serde(rename = "faultCountLow")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fault_count_low: Option<i64>,
 }
@@ -479,7 +479,7 @@ pub struct GetEncryptionConfigRequest {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEncryptionConfigResult {
     /// <p>The encryption configuration document.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
 }
@@ -488,11 +488,11 @@ pub struct GetEncryptionConfigResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGroupRequest {
     /// <p>The ARN of the group that was generated on creation.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The case-sensitive name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
 }
@@ -501,7 +501,7 @@ pub struct GetGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGroupResult {
     /// <p>The group that was requested. Contains the name of the group, the ARN of the group, the filter expression, and the insight configuration assigned to the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 }
@@ -510,7 +510,7 @@ pub struct GetGroupResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetGroupsRequest {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -519,11 +519,11 @@ pub struct GetGroupsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetGroupsResult {
     /// <p>The collection of all active groups.</p>
-    #[serde(rename = "Groups")]
+    #[serde(rename = "groups")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<GroupSummary>>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -532,14 +532,14 @@ pub struct GetGroupsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInsightEventsRequest {
     /// <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
-    #[serde(rename = "InsightId")]
+    #[serde(rename = "insightId")]
     pub insight_id: String,
     /// <p>Used to retrieve at most the specified value of events.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Specify the pagination token returned by a previous request to retrieve the next page of events. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -548,11 +548,11 @@ pub struct GetInsightEventsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInsightEventsResult {
     /// <p>A detailed description of the event. This includes the time of the event, client and root cause impact statistics, and the top anomalous service at the time of the event.</p>
-    #[serde(rename = "InsightEvents")]
+    #[serde(rename = "insightEvents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_events: Option<Vec<InsightEvent>>,
     /// <p>Use this token to retrieve the next page of insight events.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -561,17 +561,17 @@ pub struct GetInsightEventsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInsightImpactGraphRequest {
     /// <p>The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided. The time range between the start time and end time can't be more than six hours. </p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: f64,
     /// <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
-    #[serde(rename = "InsightId")]
+    #[serde(rename = "insightId")]
     pub insight_id: String,
     /// <p>Specify the pagination token returned by a previous request to retrieve the next page of results. </p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: f64,
 }
 
@@ -579,31 +579,31 @@ pub struct GetInsightImpactGraphRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInsightImpactGraphResult {
     /// <p>The provided end time. </p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The insight's unique identifier.</p>
-    #[serde(rename = "InsightId")]
+    #[serde(rename = "insightId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_id: Option<String>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The time, in Unix seconds, at which the service graph ended.</p>
-    #[serde(rename = "ServiceGraphEndTime")]
+    #[serde(rename = "serviceGraphEndTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_graph_end_time: Option<f64>,
     /// <p>The time, in Unix seconds, at which the service graph started.</p>
-    #[serde(rename = "ServiceGraphStartTime")]
+    #[serde(rename = "serviceGraphStartTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_graph_start_time: Option<f64>,
     /// <p>The AWS instrumented services related to the insight.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<InsightImpactGraphService>>,
     /// <p>The provided start time.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -612,7 +612,7 @@ pub struct GetInsightImpactGraphResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInsightRequest {
     /// <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
-    #[serde(rename = "InsightId")]
+    #[serde(rename = "insightId")]
     pub insight_id: String,
 }
 
@@ -620,7 +620,7 @@ pub struct GetInsightRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInsightResult {
     /// <p>The summary information of an insight.</p>
-    #[serde(rename = "Insight")]
+    #[serde(rename = "insight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight: Option<Insight>,
 }
@@ -629,29 +629,29 @@ pub struct GetInsightResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetInsightSummariesRequest {
     /// <p>The end of the time frame in which the insights ended. The end time can't be more than 30 days old.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: f64,
     /// <p>The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The name of the group. Required if the GroupARN isn't provided.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>The maximum number of results to display.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: f64,
     /// <p>The list of insight states. </p>
-    #[serde(rename = "States")]
+    #[serde(rename = "states")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub states: Option<Vec<String>>,
 }
@@ -660,11 +660,11 @@ pub struct GetInsightSummariesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetInsightSummariesResult {
     /// <p>The summary of each insight within the group matching the provided filters. The summary contains the InsightID, start and end time, the root cause service, the root cause and client impact statistics, the top anomalous services, and the status of the insight.</p>
-    #[serde(rename = "InsightSummaries")]
+    #[serde(rename = "insightSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_summaries: Option<Vec<InsightSummary>>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -673,7 +673,7 @@ pub struct GetInsightSummariesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSamplingRulesRequest {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -682,11 +682,11 @@ pub struct GetSamplingRulesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSamplingRulesResult {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Rule definitions and metadata.</p>
-    #[serde(rename = "SamplingRuleRecords")]
+    #[serde(rename = "samplingRuleRecords")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_rule_records: Option<Vec<SamplingRuleRecord>>,
 }
@@ -695,7 +695,7 @@ pub struct GetSamplingRulesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSamplingStatisticSummariesRequest {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -704,11 +704,11 @@ pub struct GetSamplingStatisticSummariesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSamplingStatisticSummariesResult {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Information about the number of requests instrumented for each sampling rule.</p>
-    #[serde(rename = "SamplingStatisticSummaries")]
+    #[serde(rename = "samplingStatisticSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_statistic_summaries: Option<Vec<SamplingStatisticSummary>>,
 }
@@ -717,7 +717,7 @@ pub struct GetSamplingStatisticSummariesResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetSamplingTargetsRequest {
     /// <p>Information about rules that the service is using to sample requests.</p>
-    #[serde(rename = "SamplingStatisticsDocuments")]
+    #[serde(rename = "samplingStatisticsDocuments")]
     pub sampling_statistics_documents: Vec<SamplingStatisticsDocument>,
 }
 
@@ -725,15 +725,15 @@ pub struct GetSamplingTargetsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetSamplingTargetsResult {
     /// <p>The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call <a>GetSamplingRules</a> to get the latest version.</p>
-    #[serde(rename = "LastRuleModification")]
+    #[serde(rename = "lastRuleModification")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_rule_modification: Option<f64>,
     /// <p>Updated rules that the service should use to sample requests.</p>
-    #[serde(rename = "SamplingTargetDocuments")]
+    #[serde(rename = "samplingTargetDocuments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_target_documents: Option<Vec<SamplingTargetDocument>>,
     /// <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not process.</p>
-    #[serde(rename = "UnprocessedStatistics")]
+    #[serde(rename = "unprocessedStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_statistics: Option<Vec<UnprocessedStatistics>>,
 }
@@ -742,22 +742,22 @@ pub struct GetSamplingTargetsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetServiceGraphRequest {
     /// <p>The end of the timeframe for which to generate a graph.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: f64,
     /// <p>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The name of a group based on which you want to generate a graph.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The start of the time frame for which to generate a graph.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: f64,
 }
 
@@ -765,23 +765,23 @@ pub struct GetServiceGraphRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetServiceGraphResult {
     /// <p>A flag indicating whether the group's filter expression has been consistent, or if the returned service graph may show traces from an older version of the group's filter expression.</p>
-    #[serde(rename = "ContainsOldGroupVersions")]
+    #[serde(rename = "containsOldGroupVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contains_old_group_versions: Option<bool>,
     /// <p>The end of the time frame for which the graph was generated.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The services that have processed a traced request during the specified time frame.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<Service>>,
     /// <p>The start of the time frame for which the graph was generated.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
 }
@@ -790,34 +790,34 @@ pub struct GetServiceGraphResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTimeSeriesServiceStatisticsRequest {
     /// <p>The end of the time frame for which to aggregate statistics.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: f64,
     /// <p>A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned. </p>
-    #[serde(rename = "EntitySelectorExpression")]
+    #[serde(rename = "entitySelectorExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_selector_expression: Option<String>,
     /// <p>The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.</p>
-    #[serde(rename = "ForecastStatistics")]
+    #[serde(rename = "forecastStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub forecast_statistics: Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the group for which to pull statistics from.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The case-sensitive name of the group for which to pull statistics from.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Aggregation period in seconds.</p>
-    #[serde(rename = "Period")]
+    #[serde(rename = "period")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub period: Option<i64>,
     /// <p>The start of the time frame for which to aggregate statistics.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: f64,
 }
 
@@ -825,15 +825,15 @@ pub struct GetTimeSeriesServiceStatisticsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTimeSeriesServiceStatisticsResult {
     /// <p>A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.</p>
-    #[serde(rename = "ContainsOldGroupVersions")]
+    #[serde(rename = "containsOldGroupVersions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub contains_old_group_versions: Option<bool>,
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The collection of statistics.</p>
-    #[serde(rename = "TimeSeriesServiceStatistics")]
+    #[serde(rename = "timeSeriesServiceStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_series_service_statistics: Option<Vec<TimeSeriesServiceStatistics>>,
 }
@@ -842,11 +842,11 @@ pub struct GetTimeSeriesServiceStatisticsResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTraceGraphRequest {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Trace IDs of requests for which to generate a service graph.</p>
-    #[serde(rename = "TraceIds")]
+    #[serde(rename = "traceIds")]
     pub trace_ids: Vec<String>,
 }
 
@@ -854,11 +854,11 @@ pub struct GetTraceGraphRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTraceGraphResult {
     /// <p>Pagination token.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The services that have processed one of the specified requests.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<Service>>,
 }
@@ -867,29 +867,29 @@ pub struct GetTraceGraphResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetTraceSummariesRequest {
     /// <p>The end of the time frame for which to retrieve traces.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     pub end_time: f64,
     /// <p>Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.</p>
-    #[serde(rename = "FilterExpression")]
+    #[serde(rename = "filterExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_expression: Option<String>,
     /// <p>Specify the pagination token returned by a previous request to retrieve the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Set to <code>true</code> to get summaries for only a subset of available traces.</p>
-    #[serde(rename = "Sampling")]
+    #[serde(rename = "sampling")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling: Option<bool>,
     /// <p>A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.</p>
-    #[serde(rename = "SamplingStrategy")]
+    #[serde(rename = "samplingStrategy")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_strategy: Option<SamplingStrategy>,
     /// <p>The start of the time frame for which to retrieve traces.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     pub start_time: f64,
     /// <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
-    #[serde(rename = "TimeRangeType")]
+    #[serde(rename = "timeRangeType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub time_range_type: Option<String>,
 }
@@ -898,19 +898,19 @@ pub struct GetTraceSummariesRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetTraceSummariesResult {
     /// <p>The start time of this page of results.</p>
-    #[serde(rename = "ApproximateTime")]
+    #[serde(rename = "approximateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub approximate_time: Option<f64>,
     /// <p>If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most recent results, closest to the end of the time frame.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Trace IDs and annotations for traces that were found in the specified time frame.</p>
-    #[serde(rename = "TraceSummaries")]
+    #[serde(rename = "traceSummaries")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub trace_summaries: Option<Vec<TraceSummary>>,
     /// <p>The total number of traces processed, including traces that did not match the specified filter expression.</p>
-    #[serde(rename = "TracesProcessedCount")]
+    #[serde(rename = "tracesProcessedCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub traces_processed_count: Option<i64>,
 }
@@ -920,19 +920,19 @@ pub struct GetTraceSummariesResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Group {
     /// <p>The filter expression defining the parameters to include traces.</p>
-    #[serde(rename = "FilterExpression")]
+    #[serde(rename = "filterExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_expression: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the group generated based on the GroupName.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The unique case-sensitive name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p><p>The structure containing configurations related to insights.</p> <ul> <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> <li> <p>The NotifcationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.</p> </li> </ul></p>
-    #[serde(rename = "InsightsConfiguration")]
+    #[serde(rename = "insightsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insights_configuration: Option<InsightsConfiguration>,
 }
@@ -942,19 +942,19 @@ pub struct Group {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GroupSummary {
     /// <p>The filter expression defining the parameters to include traces.</p>
-    #[serde(rename = "FilterExpression")]
+    #[serde(rename = "filterExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_expression: Option<String>,
     /// <p>The ARN of the group generated based on the GroupName.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The unique case-sensitive name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p><p>The structure containing configurations related to insights.</p> <ul> <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> </ul></p>
-    #[serde(rename = "InsightsConfiguration")]
+    #[serde(rename = "insightsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insights_configuration: Option<InsightsConfiguration>,
 }
@@ -964,11 +964,11 @@ pub struct GroupSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HistogramEntry {
     /// <p>The prevalence of the entry.</p>
-    #[serde(rename = "Count")]
+    #[serde(rename = "count")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
     /// <p>The value of the entry.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
 }
@@ -978,23 +978,23 @@ pub struct HistogramEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Http {
     /// <p>The IP address of the requestor.</p>
-    #[serde(rename = "ClientIp")]
+    #[serde(rename = "clientIp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_ip: Option<String>,
     /// <p>The request method.</p>
-    #[serde(rename = "HttpMethod")]
+    #[serde(rename = "httpMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>The response status.</p>
-    #[serde(rename = "HttpStatus")]
+    #[serde(rename = "httpStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_status: Option<i64>,
     /// <p>The request URL.</p>
-    #[serde(rename = "HttpURL")]
+    #[serde(rename = "httpURL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_url: Option<String>,
     /// <p>The request's user agent string.</p>
-    #[serde(rename = "UserAgent")]
+    #[serde(rename = "userAgent")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_agent: Option<String>,
 }
@@ -1004,50 +1004,50 @@ pub struct Http {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Insight {
     /// <p>The categories that label and describe the type of insight.</p>
-    #[serde(rename = "Categories")]
+    #[serde(rename = "categories")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub categories: Option<Vec<String>>,
     /// <p>The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.</p>
-    #[serde(rename = "ClientRequestImpactStatistics")]
+    #[serde(rename = "clientRequestImpactStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_impact_statistics: Option<RequestImpactStatistics>,
     /// <p>The time, in Unix seconds, at which the insight ended.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the group that the insight belongs to.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The name of the group that the insight belongs to.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>The insights unique identifier. </p>
-    #[serde(rename = "InsightId")]
+    #[serde(rename = "insightId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_id: Option<String>,
-    #[serde(rename = "RootCauseServiceId")]
+    #[serde(rename = "rootCauseServiceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_cause_service_id: Option<ServiceId>,
     /// <p>The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.</p>
-    #[serde(rename = "RootCauseServiceRequestImpactStatistics")]
+    #[serde(rename = "rootCauseServiceRequestImpactStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_cause_service_request_impact_statistics: Option<RequestImpactStatistics>,
     /// <p>The time, in Unix seconds, at which the insight began.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The current state of the insight.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A brief description of the insight.</p>
-    #[serde(rename = "Summary")]
+    #[serde(rename = "summary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary: Option<String>,
     /// <p>The service within the insight that is most impacted by the incident.</p>
-    #[serde(rename = "TopAnomalousServices")]
+    #[serde(rename = "topAnomalousServices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top_anomalous_services: Option<Vec<AnomalousService>>,
 }
@@ -1057,23 +1057,23 @@ pub struct Insight {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InsightEvent {
     /// <p>The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.</p>
-    #[serde(rename = "ClientRequestImpactStatistics")]
+    #[serde(rename = "clientRequestImpactStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_impact_statistics: Option<RequestImpactStatistics>,
     /// <p>The time, in Unix seconds, at which the event was recorded.</p>
-    #[serde(rename = "EventTime")]
+    #[serde(rename = "eventTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_time: Option<f64>,
     /// <p>The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.</p>
-    #[serde(rename = "RootCauseServiceRequestImpactStatistics")]
+    #[serde(rename = "rootCauseServiceRequestImpactStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_cause_service_request_impact_statistics: Option<RequestImpactStatistics>,
     /// <p>A brief description of the event.</p>
-    #[serde(rename = "Summary")]
+    #[serde(rename = "summary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary: Option<String>,
     /// <p>The service during the event that is most impacted by the incident.</p>
-    #[serde(rename = "TopAnomalousServices")]
+    #[serde(rename = "topAnomalousServices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top_anomalous_services: Option<Vec<AnomalousService>>,
 }
@@ -1083,7 +1083,7 @@ pub struct InsightEvent {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InsightImpactGraphEdge {
     /// <p>Identifier of the edge. Unique within a service map.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_id: Option<i64>,
 }
@@ -1093,27 +1093,27 @@ pub struct InsightImpactGraphEdge {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InsightImpactGraphService {
     /// <p>Identifier of the AWS account in which the service runs.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>Connections to downstream services.</p>
-    #[serde(rename = "Edges")]
+    #[serde(rename = "edges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub edges: Option<Vec<InsightImpactGraphEdge>>,
     /// <p>The canonical name of the service.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of names for the service, including the canonical name.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>Identifier for the service. Unique within the service map.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_id: Option<i64>,
     /// <p><p>Identifier for the service. Unique within the service map.</p> <ul> <li> <p>AWS Resource - The type of an AWS resource. For example, AWS::EC2::Instance for an application running on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table that the application used. </p> </li> <li> <p>AWS Service - The type of an AWS service. For example, AWS::DynamoDB for downstream calls to Amazon DynamoDB that didn&#39;t target a specific table. </p> </li> <li> <p>AWS Service - The type of an AWS service. For example, AWS::DynamoDB for downstream calls to Amazon DynamoDB that didn&#39;t target a specific table. </p> </li> <li> <p>remote - A downstream service of indeterminate type.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1123,54 +1123,54 @@ pub struct InsightImpactGraphService {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InsightSummary {
     /// <p> Categories The categories that label and describe the type of insight.</p>
-    #[serde(rename = "Categories")]
+    #[serde(rename = "categories")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub categories: Option<Vec<String>>,
     /// <p>The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay. </p>
-    #[serde(rename = "ClientRequestImpactStatistics")]
+    #[serde(rename = "clientRequestImpactStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_impact_statistics: Option<RequestImpactStatistics>,
     /// <p>The time, in Unix seconds, at which the insight ended.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the group that the insight belongs to.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The name of the group that the insight belongs to.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p>The insights unique identifier. </p>
-    #[serde(rename = "InsightId")]
+    #[serde(rename = "insightId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insight_id: Option<String>,
     /// <p>The time, in Unix seconds, that the insight was last updated.</p>
-    #[serde(rename = "LastUpdateTime")]
+    #[serde(rename = "lastUpdateTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_update_time: Option<f64>,
-    #[serde(rename = "RootCauseServiceId")]
+    #[serde(rename = "rootCauseServiceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_cause_service_id: Option<ServiceId>,
     /// <p>The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay. </p>
-    #[serde(rename = "RootCauseServiceRequestImpactStatistics")]
+    #[serde(rename = "rootCauseServiceRequestImpactStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root_cause_service_request_impact_statistics: Option<RequestImpactStatistics>,
     /// <p>The time, in Unix seconds, at which the insight began.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The current state of the insight.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>A brief description of the insight.</p>
-    #[serde(rename = "Summary")]
+    #[serde(rename = "summary")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary: Option<String>,
     /// <p>The service within the insight that is most impacted by the incident.</p>
-    #[serde(rename = "TopAnomalousServices")]
+    #[serde(rename = "topAnomalousServices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top_anomalous_services: Option<Vec<AnomalousService>>,
 }
@@ -1179,11 +1179,11 @@ pub struct InsightSummary {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct InsightsConfiguration {
     /// <p>Set the InsightsEnabled value to true to enable insights or false to disable insights.</p>
-    #[serde(rename = "InsightsEnabled")]
+    #[serde(rename = "insightsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insights_enabled: Option<bool>,
     /// <p>Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
-    #[serde(rename = "NotificationsEnabled")]
+    #[serde(rename = "notificationsEnabled")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notifications_enabled: Option<bool>,
 }
@@ -1193,7 +1193,7 @@ pub struct InsightsConfiguration {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct InstanceIdDetail {
     /// <p>The ID of a corresponding EC2 instance.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -1202,11 +1202,11 @@ pub struct InstanceIdDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with the current page of results as the value of this parameter to get the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
 }
 
@@ -1214,11 +1214,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with the current page of results to get the next page of results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<Tag>>,
 }
@@ -1227,11 +1227,11 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutEncryptionConfigRequest {
     /// <p>An AWS KMS customer master key (CMK) in one of the following formats:</p> <ul> <li> <p> <b>Alias</b> - The name of the key. For example, <code>alias/MyKey</code>.</p> </li> <li> <p> <b>Key ID</b> - The KMS key ID of the key. For example, <code>ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. AWS X-Ray does not support asymmetric CMKs.</p> </li> <li> <p> <b>ARN</b> - The full Amazon Resource Name of the key ID or alias. For example, <code>arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. Use this format to specify a key in a different account.</p> </li> </ul> <p>Omit this key if you set <code>Type</code> to <code>NONE</code>.</p>
-    #[serde(rename = "KeyId")]
+    #[serde(rename = "keyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key_id: Option<String>,
     /// <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set to <code>NONE</code> for default encryption.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     pub type_: String,
 }
 
@@ -1239,7 +1239,7 @@ pub struct PutEncryptionConfigRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutEncryptionConfigResult {
     /// <p>The new encryption configuration.</p>
-    #[serde(rename = "EncryptionConfig")]
+    #[serde(rename = "encryptionConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub encryption_config: Option<EncryptionConfig>,
 }
@@ -1248,19 +1248,19 @@ pub struct PutEncryptionConfigResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutTelemetryRecordsRequest {
     /// <p><p/></p>
-    #[serde(rename = "EC2InstanceId")]
+    #[serde(rename = "eC2InstanceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec2_instance_id: Option<String>,
     /// <p><p/></p>
-    #[serde(rename = "Hostname")]
+    #[serde(rename = "hostname")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// <p><p/></p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p><p/></p>
-    #[serde(rename = "TelemetryRecords")]
+    #[serde(rename = "telemetryRecords")]
     pub telemetry_records: Vec<TelemetryRecord>,
 }
 
@@ -1272,7 +1272,7 @@ pub struct PutTelemetryRecordsResult {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct PutTraceSegmentsRequest {
     /// <p>A string containing a JSON document defining one or more segments or subsegments.</p>
-    #[serde(rename = "TraceSegmentDocuments")]
+    #[serde(rename = "traceSegmentDocuments")]
     pub trace_segment_documents: Vec<String>,
 }
 
@@ -1280,7 +1280,7 @@ pub struct PutTraceSegmentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PutTraceSegmentsResult {
     /// <p>Segments that failed processing.</p>
-    #[serde(rename = "UnprocessedTraceSegments")]
+    #[serde(rename = "unprocessedTraceSegments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub unprocessed_trace_segments: Option<Vec<UnprocessedTraceSegment>>,
 }
@@ -1290,15 +1290,15 @@ pub struct PutTraceSegmentsResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RequestImpactStatistics {
     /// <p>The number of requests that have resulted in a fault,</p>
-    #[serde(rename = "FaultCount")]
+    #[serde(rename = "faultCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fault_count: Option<i64>,
     /// <p>The number of successful requests.</p>
-    #[serde(rename = "OkCount")]
+    #[serde(rename = "okCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ok_count: Option<i64>,
     /// <p>The total number of requests to the service.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
 }
@@ -1308,7 +1308,7 @@ pub struct RequestImpactStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResourceARNDetail {
     /// <p>The ARN of a corresponding resource.</p>
-    #[serde(rename = "ARN")]
+    #[serde(rename = "aRN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub arn: Option<String>,
 }
@@ -1318,11 +1318,11 @@ pub struct ResourceARNDetail {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResponseTimeRootCause {
     /// <p>A flag that denotes that the root cause impacts the trace client.</p>
-    #[serde(rename = "ClientImpacting")]
+    #[serde(rename = "clientImpacting")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_impacting: Option<bool>,
     /// <p>A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.</p>
-    #[serde(rename = "Services")]
+    #[serde(rename = "services")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<ResponseTimeRootCauseService>>,
 }
@@ -1332,15 +1332,15 @@ pub struct ResponseTimeRootCause {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResponseTimeRootCauseEntity {
     /// <p>The type and messages of the exceptions.</p>
-    #[serde(rename = "Coverage")]
+    #[serde(rename = "coverage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub coverage: Option<f64>,
     /// <p>The name of the entity.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A flag that denotes a remote subsegment.</p>
-    #[serde(rename = "Remote")]
+    #[serde(rename = "remote")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote: Option<bool>,
 }
@@ -1350,27 +1350,27 @@ pub struct ResponseTimeRootCauseEntity {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ResponseTimeRootCauseService {
     /// <p>The account ID associated to the service.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>The path of root cause entities found on the service. </p>
-    #[serde(rename = "EntityPath")]
+    #[serde(rename = "entityPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_path: Option<Vec<ResponseTimeRootCauseEntity>>,
     /// <p>A Boolean value indicating if the service is inferred from the trace.</p>
-    #[serde(rename = "Inferred")]
+    #[serde(rename = "inferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inferred: Option<bool>,
     /// <p>The service name.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A collection of associated service names.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>The type associated to the service.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1380,11 +1380,11 @@ pub struct ResponseTimeRootCauseService {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct RootCauseException {
     /// <p>The message of the exception.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The name of the exception.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1393,46 +1393,46 @@ pub struct RootCauseException {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SamplingRule {
     /// <p>Matches attributes derived from the request.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>The percentage of matching requests to instrument, after the reservoir is exhausted.</p>
-    #[serde(rename = "FixedRate")]
+    #[serde(rename = "fixedRate")]
     pub fixed_rate: f64,
     /// <p>Matches the HTTP method of a request.</p>
-    #[serde(rename = "HTTPMethod")]
+    #[serde(rename = "hTTPMethod")]
     pub http_method: String,
     /// <p>Matches the hostname from a request URL.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     pub host: String,
     /// <p>The priority of the sampling rule.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     pub priority: i64,
     /// <p>A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
-    #[serde(rename = "ReservoirSize")]
+    #[serde(rename = "reservoirSize")]
     pub reservoir_size: i64,
     /// <p>Matches the ARN of the AWS resource on which the service runs.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-    #[serde(rename = "RuleARN")]
+    #[serde(rename = "ruleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_arn: Option<String>,
     /// <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_name: Option<String>,
     /// <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     pub service_name: String,
     /// <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
-    #[serde(rename = "ServiceType")]
+    #[serde(rename = "serviceType")]
     pub service_type: String,
     /// <p>Matches the path from a request URL.</p>
-    #[serde(rename = "URLPath")]
+    #[serde(rename = "uRLPath")]
     pub url_path: String,
     /// <p>The version of the sampling rule format (<code>1</code>).</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     pub version: i64,
 }
 
@@ -1441,15 +1441,15 @@ pub struct SamplingRule {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SamplingRuleRecord {
     /// <p>When the rule was created.</p>
-    #[serde(rename = "CreatedAt")]
+    #[serde(rename = "createdAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub created_at: Option<f64>,
     /// <p>When the rule was last modified.</p>
-    #[serde(rename = "ModifiedAt")]
+    #[serde(rename = "modifiedAt")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub modified_at: Option<f64>,
     /// <p>The sampling rule.</p>
-    #[serde(rename = "SamplingRule")]
+    #[serde(rename = "samplingRule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_rule: Option<SamplingRule>,
 }
@@ -1459,51 +1459,51 @@ pub struct SamplingRuleRecord {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SamplingRuleUpdate {
     /// <p>Matches attributes derived from the request.</p>
-    #[serde(rename = "Attributes")]
+    #[serde(rename = "attributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attributes: Option<::std::collections::HashMap<String, String>>,
     /// <p>The percentage of matching requests to instrument, after the reservoir is exhausted.</p>
-    #[serde(rename = "FixedRate")]
+    #[serde(rename = "fixedRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fixed_rate: Option<f64>,
     /// <p>Matches the HTTP method of a request.</p>
-    #[serde(rename = "HTTPMethod")]
+    #[serde(rename = "hTTPMethod")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http_method: Option<String>,
     /// <p>Matches the hostname from a request URL.</p>
-    #[serde(rename = "Host")]
+    #[serde(rename = "host")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub host: Option<String>,
     /// <p>The priority of the sampling rule.</p>
-    #[serde(rename = "Priority")]
+    #[serde(rename = "priority")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub priority: Option<i64>,
     /// <p>A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
-    #[serde(rename = "ReservoirSize")]
+    #[serde(rename = "reservoirSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservoir_size: Option<i64>,
     /// <p>Matches the ARN of the AWS resource on which the service runs.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_arn: Option<String>,
     /// <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-    #[serde(rename = "RuleARN")]
+    #[serde(rename = "ruleARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_arn: Option<String>,
     /// <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_name: Option<String>,
     /// <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
-    #[serde(rename = "ServiceName")]
+    #[serde(rename = "serviceName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
     /// <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
-    #[serde(rename = "ServiceType")]
+    #[serde(rename = "serviceType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_type: Option<String>,
     /// <p>Matches the path from a request URL.</p>
-    #[serde(rename = "URLPath")]
+    #[serde(rename = "uRLPath")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub url_path: Option<String>,
 }
@@ -1513,23 +1513,23 @@ pub struct SamplingRuleUpdate {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SamplingStatisticSummary {
     /// <p>The number of requests recorded with borrowed reservoir quota.</p>
-    #[serde(rename = "BorrowCount")]
+    #[serde(rename = "borrowCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub borrow_count: Option<i64>,
     /// <p>The number of requests that matched the rule.</p>
-    #[serde(rename = "RequestCount")]
+    #[serde(rename = "requestCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_count: Option<i64>,
     /// <p>The name of the sampling rule.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_name: Option<String>,
     /// <p>The number of requests recorded.</p>
-    #[serde(rename = "SampledCount")]
+    #[serde(rename = "sampledCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampled_count: Option<i64>,
     /// <p>The start time of the reporting window.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
 }
@@ -1539,23 +1539,23 @@ pub struct SamplingStatisticSummary {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SamplingStatisticsDocument {
     /// <p>The number of requests recorded with borrowed reservoir quota.</p>
-    #[serde(rename = "BorrowCount")]
+    #[serde(rename = "borrowCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub borrow_count: Option<i64>,
     /// <p>A unique identifier for the service in hexadecimal.</p>
-    #[serde(rename = "ClientID")]
+    #[serde(rename = "clientID")]
     pub client_id: String,
     /// <p>The number of requests that matched the rule.</p>
-    #[serde(rename = "RequestCount")]
+    #[serde(rename = "requestCount")]
     pub request_count: i64,
     /// <p>The name of the sampling rule.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     pub rule_name: String,
     /// <p>The number of requests recorded.</p>
-    #[serde(rename = "SampledCount")]
+    #[serde(rename = "sampledCount")]
     pub sampled_count: i64,
     /// <p>The current time.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     pub timestamp: f64,
 }
 
@@ -1564,11 +1564,11 @@ pub struct SamplingStatisticsDocument {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct SamplingStrategy {
     /// <p>The name of a sampling rule.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The value of a sampling rule.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
 }
@@ -1578,23 +1578,23 @@ pub struct SamplingStrategy {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct SamplingTargetDocument {
     /// <p>The percentage of matching requests to instrument, after the reservoir is exhausted.</p>
-    #[serde(rename = "FixedRate")]
+    #[serde(rename = "fixedRate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fixed_rate: Option<f64>,
     /// <p>The number of seconds for the service to wait before getting sampling targets again.</p>
-    #[serde(rename = "Interval")]
+    #[serde(rename = "interval")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interval: Option<i64>,
     /// <p>The number of requests per second that X-Ray allocated for this service.</p>
-    #[serde(rename = "ReservoirQuota")]
+    #[serde(rename = "reservoirQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservoir_quota: Option<i64>,
     /// <p>When the reservoir quota expires.</p>
-    #[serde(rename = "ReservoirQuotaTTL")]
+    #[serde(rename = "reservoirQuotaTTL")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reservoir_quota_ttl: Option<f64>,
     /// <p>The name of the sampling rule.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_name: Option<String>,
 }
@@ -1604,11 +1604,11 @@ pub struct SamplingTargetDocument {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Segment {
     /// <p>The segment document.</p>
-    #[serde(rename = "Document")]
+    #[serde(rename = "document")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document: Option<String>,
     /// <p>The segment's ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -1618,55 +1618,55 @@ pub struct Segment {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Service {
     /// <p>Identifier of the AWS account in which the service runs.</p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p>A histogram that maps the spread of service durations.</p>
-    #[serde(rename = "DurationHistogram")]
+    #[serde(rename = "durationHistogram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration_histogram: Option<Vec<HistogramEntry>>,
     /// <p>Connections to downstream services.</p>
-    #[serde(rename = "Edges")]
+    #[serde(rename = "edges")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub edges: Option<Vec<Edge>>,
     /// <p>The end time of the last segment that the service generated.</p>
-    #[serde(rename = "EndTime")]
+    #[serde(rename = "endTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_time: Option<f64>,
     /// <p>The canonical name of the service.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>A list of names for the service, including the canonical name.</p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p>Identifier for the service. Unique within the service map.</p>
-    #[serde(rename = "ReferenceId")]
+    #[serde(rename = "referenceId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub reference_id: Option<i64>,
     /// <p>A histogram that maps the spread of service response times.</p>
-    #[serde(rename = "ResponseTimeHistogram")]
+    #[serde(rename = "responseTimeHistogram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_time_histogram: Option<Vec<HistogramEntry>>,
     /// <p>Indicates that the service was the first service to process a request.</p>
-    #[serde(rename = "Root")]
+    #[serde(rename = "root")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub root: Option<bool>,
     /// <p>The start time of the first segment that the service generated.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The service's state.</p>
-    #[serde(rename = "State")]
+    #[serde(rename = "state")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// <p>Aggregated statistics for the service.</p>
-    #[serde(rename = "SummaryStatistics")]
+    #[serde(rename = "summaryStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub summary_statistics: Option<ServiceStatistics>,
     /// <p><p>The type of service.</p> <ul> <li> <p>AWS Resource - The type of an AWS resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> <li> <p>AWS Service - The type of an AWS service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn&#39;t target a specific table.</p> </li> <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> </ul></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1676,19 +1676,19 @@ pub struct Service {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceId {
     /// <p><p/></p>
-    #[serde(rename = "AccountId")]
+    #[serde(rename = "accountId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
     /// <p><p/></p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p><p/></p>
-    #[serde(rename = "Names")]
+    #[serde(rename = "names")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub names: Option<Vec<String>>,
     /// <p><p/></p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -1698,23 +1698,23 @@ pub struct ServiceId {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ServiceStatistics {
     /// <p>Information about requests that failed with a 4xx Client Error status code.</p>
-    #[serde(rename = "ErrorStatistics")]
+    #[serde(rename = "errorStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_statistics: Option<ErrorStatistics>,
     /// <p>Information about requests that failed with a 5xx Server Error status code.</p>
-    #[serde(rename = "FaultStatistics")]
+    #[serde(rename = "faultStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fault_statistics: Option<FaultStatistics>,
     /// <p>The number of requests that completed with a 2xx Success status code.</p>
-    #[serde(rename = "OkCount")]
+    #[serde(rename = "okCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ok_count: Option<i64>,
     /// <p>The total number of completed requests.</p>
-    #[serde(rename = "TotalCount")]
+    #[serde(rename = "totalCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count: Option<i64>,
     /// <p>The aggregate response time of completed requests.</p>
-    #[serde(rename = "TotalResponseTime")]
+    #[serde(rename = "totalResponseTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_response_time: Option<f64>,
 }
@@ -1723,10 +1723,10 @@ pub struct ServiceStatistics {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Tag {
     /// <p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 128 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code> </p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>An optional tag value, such as <code>Production</code> or <code>test-only</code>. The value can be a maximum of 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code> </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     pub value: String,
 }
 
@@ -1734,10 +1734,10 @@ pub struct Tag {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p><p>A map that contains one or more tag keys and tag values to attach to an X-Ray group or sampling rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in the <i>AWS General Reference</i>.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>Maximum number of user-applied tags per resource: 50</p> </li> <li> <p>Maximum tag key length: 128 Unicode characters</p> </li> <li> <p>Maximum tag value length: 256 Unicode characters</p> </li> <li> <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Don&#39;t use <code>aws:</code> as a prefix for keys; it&#39;s reserved for AWS use. You cannot edit or delete system tags.</p> </li> </ul></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<Tag>,
 }
 
@@ -1750,27 +1750,27 @@ pub struct TagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TelemetryRecord {
     /// <p><p/></p>
-    #[serde(rename = "BackendConnectionErrors")]
+    #[serde(rename = "backendConnectionErrors")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub backend_connection_errors: Option<BackendConnectionErrors>,
     /// <p><p/></p>
-    #[serde(rename = "SegmentsReceivedCount")]
+    #[serde(rename = "segmentsReceivedCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segments_received_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "SegmentsRejectedCount")]
+    #[serde(rename = "segmentsRejectedCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segments_rejected_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "SegmentsSentCount")]
+    #[serde(rename = "segmentsSentCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segments_sent_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "SegmentsSpilloverCount")]
+    #[serde(rename = "segmentsSpilloverCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segments_spillover_count: Option<i64>,
     /// <p><p/></p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     pub timestamp: f64,
 }
 
@@ -1778,22 +1778,22 @@ pub struct TelemetryRecord {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq)]
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TimeSeriesServiceStatistics {
-    #[serde(rename = "EdgeSummaryStatistics")]
+    #[serde(rename = "edgeSummaryStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub edge_summary_statistics: Option<EdgeStatistics>,
     /// <p>The response time histogram for the selected entities.</p>
-    #[serde(rename = "ResponseTimeHistogram")]
+    #[serde(rename = "responseTimeHistogram")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_time_histogram: Option<Vec<HistogramEntry>>,
     /// <p>The forecasted high and low fault count values.</p>
-    #[serde(rename = "ServiceForecastStatistics")]
+    #[serde(rename = "serviceForecastStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_forecast_statistics: Option<ForecastStatistics>,
-    #[serde(rename = "ServiceSummaryStatistics")]
+    #[serde(rename = "serviceSummaryStatistics")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_summary_statistics: Option<ServiceStatistics>,
     /// <p>Timestamp of the window for which statistics are aggregated.</p>
-    #[serde(rename = "Timestamp")]
+    #[serde(rename = "timestamp")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<f64>,
 }
@@ -1803,19 +1803,19 @@ pub struct TimeSeriesServiceStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Trace {
     /// <p>The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<f64>,
     /// <p>The unique identifier for the request that generated the trace's segments and subsegments.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">AWS X-Ray endpoints and quotas</a>.</p>
-    #[serde(rename = "LimitExceeded")]
+    #[serde(rename = "limitExceeded")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub limit_exceeded: Option<bool>,
     /// <p>Segment documents for the segments and subsegments that comprise the trace.</p>
-    #[serde(rename = "Segments")]
+    #[serde(rename = "segments")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub segments: Option<Vec<Segment>>,
 }
@@ -1825,83 +1825,83 @@ pub struct Trace {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TraceSummary {
     /// <p>Annotations from the trace's segment documents.</p>
-    #[serde(rename = "Annotations")]
+    #[serde(rename = "annotations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotations: Option<::std::collections::HashMap<String, Vec<ValueWithServiceIds>>>,
     /// <p>A list of Availability Zones for any zone corresponding to the trace segments.</p>
-    #[serde(rename = "AvailabilityZones")]
+    #[serde(rename = "availabilityZones")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub availability_zones: Option<Vec<AvailabilityZoneDetail>>,
     /// <p>The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.</p>
-    #[serde(rename = "Duration")]
+    #[serde(rename = "duration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub duration: Option<f64>,
     /// <p>The root of a trace.</p>
-    #[serde(rename = "EntryPoint")]
+    #[serde(rename = "entryPoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entry_point: Option<ServiceId>,
     /// <p>A collection of ErrorRootCause structures corresponding to the trace segments.</p>
-    #[serde(rename = "ErrorRootCauses")]
+    #[serde(rename = "errorRootCauses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_root_causes: Option<Vec<ErrorRootCause>>,
     /// <p>A collection of FaultRootCause structures corresponding to the trace segments.</p>
-    #[serde(rename = "FaultRootCauses")]
+    #[serde(rename = "faultRootCauses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub fault_root_causes: Option<Vec<FaultRootCause>>,
     /// <p>The root segment document has a 400 series error.</p>
-    #[serde(rename = "HasError")]
+    #[serde(rename = "hasError")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub has_error: Option<bool>,
     /// <p>The root segment document has a 500 series error.</p>
-    #[serde(rename = "HasFault")]
+    #[serde(rename = "hasFault")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub has_fault: Option<bool>,
     /// <p>One or more of the segment documents has a 429 throttling error.</p>
-    #[serde(rename = "HasThrottle")]
+    #[serde(rename = "hasThrottle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub has_throttle: Option<bool>,
     /// <p>Information about the HTTP request served by the trace.</p>
-    #[serde(rename = "Http")]
+    #[serde(rename = "http")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub http: Option<Http>,
     /// <p>The unique identifier for the request that generated the trace's segments and subsegments.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>A list of EC2 instance IDs for any instance corresponding to the trace segments.</p>
-    #[serde(rename = "InstanceIds")]
+    #[serde(rename = "instanceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub instance_ids: Option<Vec<InstanceIdDetail>>,
     /// <p>One or more of the segment documents is in progress.</p>
-    #[serde(rename = "IsPartial")]
+    #[serde(rename = "isPartial")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub is_partial: Option<bool>,
     /// <p>The matched time stamp of a defined event.</p>
-    #[serde(rename = "MatchedEventTime")]
+    #[serde(rename = "matchedEventTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub matched_event_time: Option<f64>,
     /// <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
-    #[serde(rename = "ResourceARNs")]
+    #[serde(rename = "resourceARNs")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resource_ar_ns: Option<Vec<ResourceARNDetail>>,
     /// <p>The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.</p>
-    #[serde(rename = "ResponseTime")]
+    #[serde(rename = "responseTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_time: Option<f64>,
     /// <p>A collection of ResponseTimeRootCause structures corresponding to the trace segments.</p>
-    #[serde(rename = "ResponseTimeRootCauses")]
+    #[serde(rename = "responseTimeRootCauses")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub response_time_root_causes: Option<Vec<ResponseTimeRootCause>>,
     /// <p>The revision number of a trace.</p>
-    #[serde(rename = "Revision")]
+    #[serde(rename = "revision")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub revision: Option<i64>,
     /// <p>Service IDs from the trace's segment documents.</p>
-    #[serde(rename = "ServiceIds")]
+    #[serde(rename = "serviceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_ids: Option<Vec<ServiceId>>,
     /// <p>Users from the trace's segment documents.</p>
-    #[serde(rename = "Users")]
+    #[serde(rename = "users")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<TraceUser>>,
 }
@@ -1911,11 +1911,11 @@ pub struct TraceSummary {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TraceUser {
     /// <p>Services that the user's request hit.</p>
-    #[serde(rename = "ServiceIds")]
+    #[serde(rename = "serviceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_ids: Option<Vec<ServiceId>>,
     /// <p>The user's name.</p>
-    #[serde(rename = "UserName")]
+    #[serde(rename = "userName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
 }
@@ -1925,15 +1925,15 @@ pub struct TraceUser {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnprocessedStatistics {
     /// <p>The error code.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
     /// <p>The name of the sampling rule.</p>
-    #[serde(rename = "RuleName")]
+    #[serde(rename = "ruleName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rule_name: Option<String>,
 }
@@ -1943,15 +1943,15 @@ pub struct UnprocessedStatistics {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UnprocessedTraceSegment {
     /// <p>The error that caused processing to fail.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>The segment's ID.</p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The error message.</p>
-    #[serde(rename = "Message")]
+    #[serde(rename = "message")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
@@ -1960,10 +1960,10 @@ pub struct UnprocessedTraceSegment {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
-    #[serde(rename = "ResourceARN")]
+    #[serde(rename = "resourceARN")]
     pub resource_arn: String,
     /// <p>Keys for one or more tags that you want to remove from an X-Ray group or sampling rule.</p>
-    #[serde(rename = "TagKeys")]
+    #[serde(rename = "tagKeys")]
     pub tag_keys: Vec<String>,
 }
 
@@ -1975,19 +1975,19 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateGroupRequest {
     /// <p>The updated filter expression defining criteria by which to group traces.</p>
-    #[serde(rename = "FilterExpression")]
+    #[serde(rename = "filterExpression")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_expression: Option<String>,
     /// <p>The ARN that was generated upon creation.</p>
-    #[serde(rename = "GroupARN")]
+    #[serde(rename = "groupARN")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_arn: Option<String>,
     /// <p>The case-sensitive name of the group.</p>
-    #[serde(rename = "GroupName")]
+    #[serde(rename = "groupName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group_name: Option<String>,
     /// <p><p>The structure containing configurations related to insights.</p> <ul> <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> <li> <p>The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> </ul></p>
-    #[serde(rename = "InsightsConfiguration")]
+    #[serde(rename = "insightsConfiguration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub insights_configuration: Option<InsightsConfiguration>,
 }
@@ -1996,7 +1996,7 @@ pub struct UpdateGroupRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateGroupResult {
     /// <p>The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, the updated filter expression, and the updated insight configuration assigned to the group.</p>
-    #[serde(rename = "Group")]
+    #[serde(rename = "group")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 }
@@ -2005,7 +2005,7 @@ pub struct UpdateGroupResult {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateSamplingRuleRequest {
     /// <p>The rule and fields to change.</p>
-    #[serde(rename = "SamplingRuleUpdate")]
+    #[serde(rename = "samplingRuleUpdate")]
     pub sampling_rule_update: SamplingRuleUpdate,
 }
 
@@ -2013,7 +2013,7 @@ pub struct UpdateSamplingRuleRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct UpdateSamplingRuleResult {
     /// <p>The updated rule definition and metadata.</p>
-    #[serde(rename = "SamplingRuleRecord")]
+    #[serde(rename = "samplingRuleRecord")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sampling_rule_record: Option<SamplingRuleRecord>,
 }
@@ -2023,11 +2023,11 @@ pub struct UpdateSamplingRuleResult {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ValueWithServiceIds {
     /// <p>Values of the annotation.</p>
-    #[serde(rename = "AnnotationValue")]
+    #[serde(rename = "annotationValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub annotation_value: Option<AnnotationValue>,
     /// <p>Services to which the annotation applies.</p>
-    #[serde(rename = "ServiceIds")]
+    #[serde(rename = "serviceIds")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub service_ids: Option<Vec<ServiceId>>,
 }

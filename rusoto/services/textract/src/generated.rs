@@ -54,13 +54,13 @@ use serde_json;
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct AnalyzeDocumentRequest {
     /// <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p> <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
-    #[serde(rename = "Document")]
+    #[serde(rename = "document")]
     pub document: Document,
     /// <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
-    #[serde(rename = "FeatureTypes")]
+    #[serde(rename = "featureTypes")]
     pub feature_types: Vec<String>,
     /// <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
-    #[serde(rename = "HumanLoopConfig")]
+    #[serde(rename = "humanLoopConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_config: Option<HumanLoopConfig>,
 }
@@ -69,19 +69,19 @@ pub struct AnalyzeDocumentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AnalyzeDocumentResponse {
     /// <p>The version of the model used to analyze the document.</p>
-    #[serde(rename = "AnalyzeDocumentModelVersion")]
+    #[serde(rename = "analyzeDocumentModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analyze_document_model_version: Option<String>,
     /// <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
-    #[serde(rename = "Blocks")]
+    #[serde(rename = "blocks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocks: Option<Vec<Block>>,
     /// <p>Metadata about the analyzed document. An example is the number of pages.</p>
-    #[serde(rename = "DocumentMetadata")]
+    #[serde(rename = "documentMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_metadata: Option<DocumentMetadata>,
     /// <p>Shows the results of the human in the loop evaluation.</p>
-    #[serde(rename = "HumanLoopActivationOutput")]
+    #[serde(rename = "humanLoopActivationOutput")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_activation_output: Option<HumanLoopActivationOutput>,
 }
@@ -91,59 +91,59 @@ pub struct AnalyzeDocumentResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Block {
     /// <p><p>The type of text item that&#39;s recognized. In operations for text detection, the following types are returned:</p> <ul> <li> <p> <i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p> </li> <li> <p> <i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren&#39;t separated by spaces.</p> </li> <li> <p> <i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p> </li> </ul> <p>In text analysis operations, the following types are returned:</p> <ul> <li> <p> <i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p> </li> <li> <p> <i>KEY<em>VALUE</em>SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that&#39;s detected on a document page. Use the <code>EntityType</code> field to determine if a KEY<em>VALUE</em>SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p> </li> <li> <p> <i>WORD</i> - A word that&#39;s detected on a document page. A word is one or more ISO basic Latin script characters that aren&#39;t separated by spaces.</p> </li> <li> <p> <i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p> </li> <li> <p> <i>TABLE</i> - A table that&#39;s detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p> </li> <li> <p> <i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p> </li> <li> <p> <i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that&#39;s detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p> </li> </ul></p>
-    #[serde(rename = "BlockType")]
+    #[serde(rename = "blockType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub block_type: Option<String>,
     /// <p>The column in which a table cell appears. The first column position is 1. <code>ColumnIndex</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
-    #[serde(rename = "ColumnIndex")]
+    #[serde(rename = "columnIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_index: Option<i64>,
     /// <p>The number of columns that a table cell spans. Currently this value is always 1, even if the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
-    #[serde(rename = "ColumnSpan")]
+    #[serde(rename = "columnSpan")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub column_span: Option<i64>,
     /// <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and the accuracy of the geometry points around the recognized text.</p>
-    #[serde(rename = "Confidence")]
+    #[serde(rename = "confidence")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub confidence: Option<f32>,
     /// <p>The type of entity. The following can be returned:</p> <ul> <li> <p> <i>KEY</i> - An identifier for a field on the document.</p> </li> <li> <p> <i>VALUE</i> - The field text.</p> </li> </ul> <p> <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
-    #[serde(rename = "EntityTypes")]
+    #[serde(rename = "entityTypes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entity_types: Option<Vec<String>>,
     /// <p>The location of the recognized text on the image. It includes an axis-aligned, coarse bounding box that surrounds the text, and a finer-grain polygon for more accurate spatial information. </p>
-    #[serde(rename = "Geometry")]
+    #[serde(rename = "geometry")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub geometry: Option<Geometry>,
     /// <p>The identifier for the recognized text. The identifier is only unique for a single operation. </p>
-    #[serde(rename = "Id")]
+    #[serde(rename = "id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
-    #[serde(rename = "Page")]
+    #[serde(rename = "page")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub page: Option<i64>,
     /// <p><p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that&#39;s part of the line of text. There aren&#39;t Relationship objects in the list for relationships that don&#39;t exist, such as when the current block has no child blocks. The list size can be the following:</p> <ul> <li> <p>0 - The block has no child blocks.</p> </li> <li> <p>1 - The block has child blocks.</p> </li> </ul></p>
-    #[serde(rename = "Relationships")]
+    #[serde(rename = "relationships")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub relationships: Option<Vec<Relationship>>,
     /// <p>The row in which a table cell is located. The first row position is 1. <code>RowIndex</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
-    #[serde(rename = "RowIndex")]
+    #[serde(rename = "rowIndex")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_index: Option<i64>,
     /// <p>The number of rows that a table cell spans. Currently this value is always 1, even if the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
-    #[serde(rename = "RowSpan")]
+    #[serde(rename = "rowSpan")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub row_span: Option<i64>,
     /// <p>The selection status of a selection element, such as an option button or check box. </p>
-    #[serde(rename = "SelectionStatus")]
+    #[serde(rename = "selectionStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub selection_status: Option<String>,
     /// <p>The word or line of text that's recognized by Amazon Textract. </p>
-    #[serde(rename = "Text")]
+    #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     /// <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and printed text.</p>
-    #[serde(rename = "TextType")]
+    #[serde(rename = "textType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_type: Option<String>,
 }
@@ -153,19 +153,19 @@ pub struct Block {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct BoundingBox {
     /// <p>The height of the bounding box as a ratio of the overall document page height.</p>
-    #[serde(rename = "Height")]
+    #[serde(rename = "height")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub height: Option<f32>,
     /// <p>The left coordinate of the bounding box as a ratio of overall document page width.</p>
-    #[serde(rename = "Left")]
+    #[serde(rename = "left")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub left: Option<f32>,
     /// <p>The top coordinate of the bounding box as a ratio of overall document page height.</p>
-    #[serde(rename = "Top")]
+    #[serde(rename = "top")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub top: Option<f32>,
     /// <p>The width of the bounding box as a ratio of the overall document page width.</p>
-    #[serde(rename = "Width")]
+    #[serde(rename = "width")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub width: Option<f32>,
 }
@@ -174,7 +174,7 @@ pub struct BoundingBox {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DetectDocumentTextRequest {
     /// <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p> <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
-    #[serde(rename = "Document")]
+    #[serde(rename = "document")]
     pub document: Document,
 }
 
@@ -182,15 +182,15 @@ pub struct DetectDocumentTextRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DetectDocumentTextResponse {
     /// <p>An array of <code>Block</code> objects that contain the text that's detected in the document.</p>
-    #[serde(rename = "Blocks")]
+    #[serde(rename = "blocks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocks: Option<Vec<Block>>,
     /// <p><p/></p>
-    #[serde(rename = "DetectDocumentTextModelVersion")]
+    #[serde(rename = "detectDocumentTextModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detect_document_text_model_version: Option<String>,
     /// <p>Metadata about the document. It contains the number of pages that are detected in the document.</p>
-    #[serde(rename = "DocumentMetadata")]
+    #[serde(rename = "documentMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_metadata: Option<DocumentMetadata>,
 }
@@ -200,7 +200,7 @@ pub struct DetectDocumentTextResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct Document {
     /// <p>A blob of base64-encoded document bytes. The maximum size of a document that's provided in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</p> <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. </p>
-    #[serde(rename = "Bytes")]
+    #[serde(rename = "bytes")]
     #[serde(
         deserialize_with = "::rusoto_core::serialization::SerdeBlob::deserialize_blob",
         serialize_with = "::rusoto_core::serialization::SerdeBlob::serialize_blob",
@@ -209,7 +209,7 @@ pub struct Document {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes: Option<bytes::Bytes>,
     /// <p>Identifies an S3 object as the document source. The maximum size of a document that's stored in an S3 bucket is 5 MB.</p>
-    #[serde(rename = "S3Object")]
+    #[serde(rename = "s3Object")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object: Option<S3Object>,
 }
@@ -219,7 +219,7 @@ pub struct Document {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DocumentLocation {
     /// <p>The Amazon S3 bucket that contains the input document.</p>
-    #[serde(rename = "S3Object")]
+    #[serde(rename = "s3Object")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_object: Option<S3Object>,
 }
@@ -229,7 +229,7 @@ pub struct DocumentLocation {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DocumentMetadata {
     /// <p>The number of pages that are detected in the document.</p>
-    #[serde(rename = "Pages")]
+    #[serde(rename = "pages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pages: Option<i64>,
 }
@@ -239,11 +239,11 @@ pub struct DocumentMetadata {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Geometry {
     /// <p>An axis-aligned coarse representation of the location of the recognized item on the document page.</p>
-    #[serde(rename = "BoundingBox")]
+    #[serde(rename = "boundingBox")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bounding_box: Option<BoundingBox>,
     /// <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
-    #[serde(rename = "Polygon")]
+    #[serde(rename = "polygon")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub polygon: Option<Vec<Point>>,
 }
@@ -252,14 +252,14 @@ pub struct Geometry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDocumentAnalysisRequest {
     /// <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The maximum number of results to return per paginated call. The largest value that you can specify is 1,000. If you specify a value greater than 1,000, a maximum of 1,000 results is returned. The default value is 1,000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -268,31 +268,31 @@ pub struct GetDocumentAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDocumentAnalysisResponse {
     /// <p><p/></p>
-    #[serde(rename = "AnalyzeDocumentModelVersion")]
+    #[serde(rename = "analyzeDocumentModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analyze_document_model_version: Option<String>,
     /// <p>The results of the text-analysis operation.</p>
-    #[serde(rename = "Blocks")]
+    #[serde(rename = "blocks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocks: Option<Vec<Block>>,
     /// <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is returned in every page of paginated responses from an Amazon Textract video operation.</p>
-    #[serde(rename = "DocumentMetadata")]
+    #[serde(rename = "documentMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_metadata: Option<DocumentMetadata>,
     /// <p>The current status of the text detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Textract returns this token. You can use this token in the subsequent request to retrieve the next set of text detection results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns if the detection job could not be completed. Contains explanation for what error occured.</p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>A list of warnings that occurred during the document-analysis operation.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<Warning>>,
 }
@@ -301,14 +301,14 @@ pub struct GetDocumentAnalysisResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetDocumentTextDetectionRequest {
     /// <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     pub job_id: String,
     /// <p>The maximum number of results to return per paginated call. The largest value you can specify is 1,000. If you specify a value greater than 1,000, a maximum of 1,000 results is returned. The default value is 1,000.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -317,31 +317,31 @@ pub struct GetDocumentTextDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetDocumentTextDetectionResponse {
     /// <p>The results of the text-detection operation.</p>
-    #[serde(rename = "Blocks")]
+    #[serde(rename = "blocks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub blocks: Option<Vec<Block>>,
     /// <p><p/></p>
-    #[serde(rename = "DetectDocumentTextModelVersion")]
+    #[serde(rename = "detectDocumentTextModelVersion")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub detect_document_text_model_version: Option<String>,
     /// <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is returned in every page of paginated responses from an Amazon Textract video operation.</p>
-    #[serde(rename = "DocumentMetadata")]
+    #[serde(rename = "documentMetadata")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document_metadata: Option<DocumentMetadata>,
     /// <p>The current status of the text detection job.</p>
-    #[serde(rename = "JobStatus")]
+    #[serde(rename = "jobStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_status: Option<String>,
     /// <p>If the response is truncated, Amazon Textract returns this token. You can use this token in the subsequent request to retrieve the next set of text-detection results.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
-    #[serde(rename = "StatusMessage")]
+    #[serde(rename = "statusMessage")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
     /// <p>A list of warnings that occurred during the text-detection operation for the document.</p>
-    #[serde(rename = "Warnings")]
+    #[serde(rename = "warnings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub warnings: Option<Vec<Warning>>,
 }
@@ -351,15 +351,15 @@ pub struct GetDocumentTextDetectionResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct HumanLoopActivationOutput {
     /// <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
-    #[serde(rename = "HumanLoopActivationConditionsEvaluationResults")]
+    #[serde(rename = "humanLoopActivationConditionsEvaluationResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_activation_conditions_evaluation_results: Option<String>,
     /// <p>Shows if and why human review was needed.</p>
-    #[serde(rename = "HumanLoopActivationReasons")]
+    #[serde(rename = "humanLoopActivationReasons")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_activation_reasons: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
-    #[serde(rename = "HumanLoopArn")]
+    #[serde(rename = "humanLoopArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub human_loop_arn: Option<String>,
 }
@@ -369,14 +369,14 @@ pub struct HumanLoopActivationOutput {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HumanLoopConfig {
     /// <p>Sets attributes of the input data.</p>
-    #[serde(rename = "DataAttributes")]
+    #[serde(rename = "dataAttributes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data_attributes: Option<HumanLoopDataAttributes>,
     /// <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-    #[serde(rename = "FlowDefinitionArn")]
+    #[serde(rename = "flowDefinitionArn")]
     pub flow_definition_arn: String,
     /// <p>The name of the human workflow used for this image. This should be kept unique within a region.</p>
-    #[serde(rename = "HumanLoopName")]
+    #[serde(rename = "humanLoopName")]
     pub human_loop_name: String,
 }
 
@@ -385,7 +385,7 @@ pub struct HumanLoopConfig {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct HumanLoopDataAttributes {
     /// <p>Sets whether the input image is free of personally identifiable information or adult content.</p>
-    #[serde(rename = "ContentClassifiers")]
+    #[serde(rename = "contentClassifiers")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub content_classifiers: Option<Vec<String>>,
 }
@@ -395,10 +395,10 @@ pub struct HumanLoopDataAttributes {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct NotificationChannel {
     /// <p>The Amazon Resource Name (ARN) of an IAM role that gives Amazon Textract publishing permissions to the Amazon SNS topic. </p>
-    #[serde(rename = "RoleArn")]
+    #[serde(rename = "roleArn")]
     pub role_arn: String,
     /// <p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>
-    #[serde(rename = "SNSTopicArn")]
+    #[serde(rename = "sNSTopicArn")]
     pub sns_topic_arn: String,
 }
 
@@ -407,10 +407,10 @@ pub struct NotificationChannel {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct OutputConfig {
     /// <p>The name of the bucket your output will go to.</p>
-    #[serde(rename = "S3Bucket")]
+    #[serde(rename = "s3Bucket")]
     pub s3_bucket: String,
     /// <p>The prefix of the object key that the output will be saved to. When not enabled, the prefix will be “textract_output".</p>
-    #[serde(rename = "S3Prefix")]
+    #[serde(rename = "s3Prefix")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_prefix: Option<String>,
 }
@@ -420,11 +420,11 @@ pub struct OutputConfig {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Point {
     /// <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
-    #[serde(rename = "X")]
+    #[serde(rename = "x")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub x: Option<f32>,
     /// <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
-    #[serde(rename = "Y")]
+    #[serde(rename = "y")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub y: Option<f32>,
 }
@@ -434,11 +434,11 @@ pub struct Point {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Relationship {
     /// <p>An array of IDs for related blocks. You can get the type of the relationship from the <code>Type</code> element.</p>
-    #[serde(rename = "Ids")]
+    #[serde(rename = "ids")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ids: Option<Vec<String>>,
     /// <p>The type of relationship that the blocks in the IDs array have with the current block. The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a key-value pair. A relationship of type CHILD is a list of IDs that identify WORD blocks in the case of lines Cell blocks in the case of Tables, and WORD blocks in the case of Selection Elements.</p>
-    #[serde(rename = "Type")]
+    #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<String>,
 }
@@ -448,15 +448,15 @@ pub struct Relationship {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct S3Object {
     /// <p>The name of the S3 bucket.</p>
-    #[serde(rename = "Bucket")]
+    #[serde(rename = "bucket")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bucket: Option<String>,
     /// <p>The file name of the input document. Synchronous operations can use image files that are in JPEG or PNG format. Asynchronous operations also support PDF format files.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>If the bucket has versioning enabled, you can specify the object version. </p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -465,29 +465,29 @@ pub struct S3Object {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDocumentAnalysisRequest {
     /// <p>The idempotent token that you use to identify the start request. If you use the same token with multiple <code>StartDocumentAnalysis</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The location of the document to be processed.</p>
-    #[serde(rename = "DocumentLocation")]
+    #[serde(rename = "documentLocation")]
     pub document_location: DocumentLocation,
     /// <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
-    #[serde(rename = "FeatureTypes")]
+    #[serde(rename = "featureTypes")]
     pub feature_types: Vec<String>,
     /// <p>An identifier that you specify that's included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
-    #[serde(rename = "KMSKeyId")]
+    #[serde(rename = "kMSKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the GetDocumentAnalysis operation.</p>
-    #[serde(rename = "OutputConfig")]
+    #[serde(rename = "outputConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_config: Option<OutputConfig>,
 }
@@ -496,7 +496,7 @@ pub struct StartDocumentAnalysisRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartDocumentAnalysisResponse {
     /// <p>The identifier for the document text detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -505,26 +505,26 @@ pub struct StartDocumentAnalysisResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartDocumentTextDetectionRequest {
     /// <p>The idempotent token that's used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
-    #[serde(rename = "ClientRequestToken")]
+    #[serde(rename = "clientRequestToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub client_request_token: Option<String>,
     /// <p>The location of the document to be processed.</p>
-    #[serde(rename = "DocumentLocation")]
+    #[serde(rename = "documentLocation")]
     pub document_location: DocumentLocation,
     /// <p>An identifier that you specify that's included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
-    #[serde(rename = "JobTag")]
+    #[serde(rename = "jobTag")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_tag: Option<String>,
     /// <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
-    #[serde(rename = "KMSKeyId")]
+    #[serde(rename = "kMSKeyId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub kms_key_id: Option<String>,
     /// <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
-    #[serde(rename = "NotificationChannel")]
+    #[serde(rename = "notificationChannel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub notification_channel: Option<NotificationChannel>,
     /// <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
-    #[serde(rename = "OutputConfig")]
+    #[serde(rename = "outputConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub output_config: Option<OutputConfig>,
 }
@@ -533,7 +533,7 @@ pub struct StartDocumentTextDetectionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartDocumentTextDetectionResponse {
     /// <p>The identifier of the text detection job for the document. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
-    #[serde(rename = "JobId")]
+    #[serde(rename = "jobId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
 }
@@ -543,11 +543,11 @@ pub struct StartDocumentTextDetectionResponse {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Warning {
     /// <p>The error code for the warning.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>A list of the pages that the warning applies to.</p>
-    #[serde(rename = "Pages")]
+    #[serde(rename = "pages")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pages: Option<Vec<i64>>,
 }

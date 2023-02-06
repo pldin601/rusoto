@@ -55,15 +55,15 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct AgentListEntry {
     /// <p>The Amazon Resource Name (ARN) of the agent.</p>
-    #[serde(rename = "AgentArn")]
+    #[serde(rename = "agentArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arn: Option<String>,
     /// <p>The name of the agent.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the agent.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -73,7 +73,7 @@ pub struct AgentListEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CancelTaskExecutionRequest {
     /// <p>The Amazon Resource Name (ARN) of the task execution to cancel.</p>
-    #[serde(rename = "TaskExecutionArn")]
+    #[serde(rename = "taskExecutionArn")]
     pub task_execution_arn: String,
 }
 
@@ -86,26 +86,26 @@ pub struct CancelTaskExecutionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateAgentRequest {
     /// <p>Your agent activation key. You can get the activation key either by sending an HTTP GET request with redirects that enable you to get the agent IP address (port 80). Alternatively, you can get it from the AWS DataSync console.</p> <p>The redirect URL returned in the response provides you the activation key for your agent in the query string parameter <code>activationKey</code>. It might also include other activation-related parameters; however, these are merely defaults. The arguments you pass to this API call determine the actual configuration of your agent.</p> <p>For more information, see Activating an Agent in the <i>AWS DataSync User Guide.</i> </p>
-    #[serde(rename = "ActivationKey")]
+    #[serde(rename = "activationKey")]
     pub activation_key: String,
     /// <p>The name you configured for your agent. This value is a text reference that is used to identify the agent in the console.</p>
-    #[serde(rename = "AgentName")]
+    #[serde(rename = "agentName")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_name: Option<String>,
     /// <p>The ARNs of the security groups used to protect your data transfer task subnets. See <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns">SecurityGroupArns</a>.</p>
-    #[serde(rename = "SecurityGroupArns")]
+    #[serde(rename = "securityGroupArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_arns: Option<Vec<String>>,
     /// <p>The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task. The agent that runs a task must be private. When you start a task that is associated with an agent created in a VPC, or one that has access to an IP address in a VPC, then the task is also private. In this case, DataSync creates four network interfaces for each task in your subnet. For a data transfer to work, the agent must be able to route to all these four network interfaces.</p>
-    #[serde(rename = "SubnetArns")]
+    #[serde(rename = "subnetArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_arns: Option<Vec<String>>,
     /// <p><p>The key-value pair that represents the tag that you want to associate with the agent. The value can be an empty string. This value helps you manage, filter, and search for your agents.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. </p> </note></p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
     /// <p>The ID of the VPC (virtual private cloud) endpoint that the agent has access to. This is the client-side VPC endpoint, also called a PrivateLink. If you don't have a PrivateLink VPC endpoint, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html#create-endpoint-service">Creating a VPC Endpoint Service Configuration</a> in the Amazon VPC User Guide.</p> <p>VPC endpoint ID looks like this: <code>vpce-01234d5aff67890e1</code>.</p>
-    #[serde(rename = "VpcEndpointId")]
+    #[serde(rename = "vpcEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_endpoint_id: Option<String>,
 }
@@ -115,7 +115,7 @@ pub struct CreateAgentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateAgentResponse {
     /// <p>The Amazon Resource Name (ARN) of the agent. Use the <code>ListAgents</code> operation to return a list of agents for your account and AWS Region.</p>
-    #[serde(rename = "AgentArn")]
+    #[serde(rename = "agentArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arn: Option<String>,
 }
@@ -125,17 +125,17 @@ pub struct CreateAgentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLocationEfsRequest {
     /// <p><p>The subnet and security group that the Amazon EFS file system uses. The security group that you provide needs to be able to communicate with the security group on the mount target in the subnet specified.</p> <p>The exact relationship between security group M (of the mount target) and security group S (which you provide for DataSync to use at this stage) is as follows: </p> <ul> <li> <p> Security group M (which you associate with the mount target) must allow inbound access for the Transmission Control Protocol (TCP) on the NFS port (2049) from security group S. You can enable inbound connections either by IP address (CIDR range) or security group. </p> </li> <li> <p>Security group S (provided to DataSync to access EFS) should have a rule that enables outbound connections to the NFS port on one of the file system’s mount targets. You can enable outbound connections either by IP address (CIDR range) or security group.</p> <p>For information about security groups and mount targets, see Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS User Guide.</i> </p> </li> </ul></p>
-    #[serde(rename = "Ec2Config")]
+    #[serde(rename = "ec2Config")]
     pub ec_2_config: Ec2Config,
     /// <p>The Amazon Resource Name (ARN) for the Amazon EFS file system.</p>
-    #[serde(rename = "EfsFilesystemArn")]
+    #[serde(rename = "efsFilesystemArn")]
     pub efs_filesystem_arn: String,
     /// <p><p>A subdirectory in the location’s path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination. By default, AWS DataSync uses the root directory.</p> <note> <p> <code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</p> </note></p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
     /// <p>The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
 }
@@ -145,7 +145,7 @@ pub struct CreateLocationEfsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLocationEfsResponse {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
 }
@@ -154,28 +154,28 @@ pub struct CreateLocationEfsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLocationFsxWindowsRequest {
     /// <p>The name of the Windows domain that the FSx for Windows File Server belongs to.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.</p>
-    #[serde(rename = "FsxFilesystemArn")]
+    #[serde(rename = "fsxFilesystemArn")]
     pub fsx_filesystem_arn: String,
     /// <p>The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p>The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows File Server file system.</p>
-    #[serde(rename = "SecurityGroupArns")]
+    #[serde(rename = "securityGroupArns")]
     pub security_group_arns: Vec<String>,
     /// <p>A subdirectory in the location’s path. This subdirectory in the Amazon FSx for Windows File Server file system is used to read data from the Amazon FSx for Windows File Server source location or write data to the FSx for Windows File Server destination.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
     /// <p>The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
     /// <p>The user who has the permissions to access files and folders in the FSx for Windows File Server file system.</p> <p>For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     pub user: String,
 }
 
@@ -183,7 +183,7 @@ pub struct CreateLocationFsxWindowsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLocationFsxWindowsResponse {
     /// <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server file system location that is created.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
 }
@@ -193,20 +193,20 @@ pub struct CreateLocationFsxWindowsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLocationNfsRequest {
     /// <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
-    #[serde(rename = "MountOptions")]
+    #[serde(rename = "mountOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_options: Option<NfsMountOptions>,
     /// <p>Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to an NFS server. </p> <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
-    #[serde(rename = "OnPremConfig")]
+    #[serde(rename = "onPremConfig")]
     pub on_prem_config: OnPremConfig,
     /// <p><p>The name of the NFS server. This value is the IP address or Domain Name Service (DNS) name of the NFS server. An agent that is installed on-premises uses this host name to mount the NFS server in a network. </p> <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p> <note> <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p> </note></p>
-    #[serde(rename = "ServerHostname")]
+    #[serde(rename = "serverHostname")]
     pub server_hostname: String,
     /// <p>The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination. The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network. </p> <p>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>" from an NFS client that has access to your server. You can specify any directory that appears in the results, and any subdirectory of that directory. Ensure that the NFS export is accessible without Kerberos authentication. </p> <p>To transfer all the data in the folder you specified, DataSync needs to have permissions to read all the data. To ensure this, either configure the NFS export with <code>no_root_squash,</code> or ensure that the permissions for all of the files that you want DataSync allow read access for all users. Doing either enables the agent to read the files. For the agent to access directories, you must additionally enable all execute access.</p> <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p> <p>For information about NFS export configuration, see 18.7. The /etc/exports Configuration File in the Red Hat Enterprise Linux documentation.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     pub subdirectory: String,
     /// <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
 }
@@ -216,7 +216,7 @@ pub struct CreateLocationNfsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLocationNfsResponse {
     /// <p>The Amazon Resource Name (ARN) of the source NFS file system location that is created.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
 }
@@ -226,36 +226,36 @@ pub struct CreateLocationNfsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLocationObjectStorageRequest {
     /// <p>Optional. The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name and password, respectively.</p>
-    #[serde(rename = "AccessKey")]
+    #[serde(rename = "accessKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_key: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     pub agent_arns: Vec<String>,
     /// <p>The bucket on the self-managed object storage server that is used to read data from.</p>
-    #[serde(rename = "BucketName")]
+    #[serde(rename = "bucketName")]
     pub bucket_name: String,
     /// <p>Optional. The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name and password, respectively.</p>
-    #[serde(rename = "SecretKey")]
+    #[serde(rename = "secretKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_key: Option<String>,
     /// <p>The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network. </p>
-    #[serde(rename = "ServerHostname")]
+    #[serde(rename = "serverHostname")]
     pub server_hostname: String,
     /// <p>The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.</p>
-    #[serde(rename = "ServerPort")]
+    #[serde(rename = "serverPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_port: Option<i64>,
     /// <p>The protocol that the object storage server uses to communicate. Valid values are HTTP or HTTPS.</p>
-    #[serde(rename = "ServerProtocol")]
+    #[serde(rename = "serverProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_protocol: Option<String>,
     /// <p>The subdirectory in the self-managed object storage server that is used to read data from.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
     /// <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
 }
@@ -265,7 +265,7 @@ pub struct CreateLocationObjectStorageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLocationObjectStorageResponse {
     /// <p>The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
 }
@@ -275,24 +275,24 @@ pub struct CreateLocationObjectStorageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLocationS3Request {
     /// <p>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs) of the DataSync agents deployed on your Outpost. For more information about launching a DataSync agent on an AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on AWS Outposts</a>.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arns: Option<Vec<String>>,
     /// <p>The ARN of the Amazon S3 bucket. If the bucket is on an AWS Outpost, this must be an access point ARN.</p>
-    #[serde(rename = "S3BucketArn")]
+    #[serde(rename = "s3BucketArn")]
     pub s3_bucket_arn: String,
-    #[serde(rename = "S3Config")]
+    #[serde(rename = "s3Config")]
     pub s3_config: S3Config,
     /// <p>The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. For buckets in AWS Regions, the storage class defaults to Standard. For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</p> <p>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage classes have behaviors that can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with S3 storage classes in DataSync</a>.</p>
-    #[serde(rename = "S3StorageClass")]
+    #[serde(rename = "s3StorageClass")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_storage_class: Option<String>,
     /// <p>A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
     /// <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
 }
@@ -302,7 +302,7 @@ pub struct CreateLocationS3Request {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLocationS3Response {
     /// <p>The Amazon Resource Name (ARN) of the source Amazon S3 bucket location that is created.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
 }
@@ -312,31 +312,31 @@ pub struct CreateLocationS3Response {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateLocationSmbRequest {
     /// <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location. </p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     pub agent_arns: Vec<String>,
     /// <p>The name of the Windows domain that the SMB server belongs to.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The mount options used by DataSync to access the SMB server.</p>
-    #[serde(rename = "MountOptions")]
+    #[serde(rename = "mountOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_options: Option<SmbMountOptions>,
     /// <p>The password of the user who can mount the share, has the permissions to access files and folders in the SMB share.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     pub password: String,
     /// <p><p>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB server in a network.</p> <note> <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p> </note></p>
-    #[serde(rename = "ServerHostname")]
+    #[serde(rename = "serverHostname")]
     pub server_hostname: String,
     /// <p>The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination. The SMB path should be a path that's exported by the SMB server, or a subdirectory of that path. The path should be such that it can be mounted by other SMB clients in your network.</p> <note> <p> <code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</p> </note> <p>To transfer all the data in the folder you specified, DataSync needs to have permissions to mount the SMB share, as well as to access all the data in that share. To ensure this, either ensure that the user/password specified belongs to the user who can mount the share, and who has the appropriate permissions for all of the files and directories that you want DataSync to access, or use credentials of a member of the Backup Operators group to mount the share. Doing either enables the agent to access the data. For the agent to access directories, you must additionally enable all execute access.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     pub subdirectory: String,
     /// <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
     /// <p>The user who can mount the share, has the permissions to access files and folders in the SMB share.</p> <p>For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     pub user: String,
 }
 
@@ -345,7 +345,7 @@ pub struct CreateLocationSmbRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateLocationSmbResponse {
     /// <p>The Amazon Resource Name (ARN) of the source SMB file system location that is created.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
 }
@@ -355,33 +355,33 @@ pub struct CreateLocationSmbResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct CreateTaskRequest {
     /// <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor and log events in the task. </p>
-    #[serde(rename = "CloudWatchLogGroupArn")]
+    #[serde(rename = "cloudWatchLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_log_group_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of an AWS storage resource's location. </p>
-    #[serde(rename = "DestinationLocationArn")]
+    #[serde(rename = "destinationLocationArn")]
     pub destination_location_arn: String,
     /// <p>A list of filter rules that determines which files to exclude from a task. The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>. </p> <p> </p>
-    #[serde(rename = "Excludes")]
+    #[serde(rename = "excludes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excludes: Option<Vec<FilterRule>>,
     /// <p>The name of a task. This value is a text reference that is used to identify the task in the console. </p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The set of configuration options that control the behavior of a single execution of the task that occurs when you call <code>StartTaskExecution</code>. You can configure these options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data integrity verification, and so on.</p> <p>For each individual task execution, you can override these options by specifying the <code>OverrideOptions</code> before starting the task execution. For more information, see the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a> operation. </p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub options: Option<Options>,
     /// <p>Specifies a schedule used to periodically transfer files from a source to a destination location. The schedule should be specified in UTC time. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your task</a>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<TaskSchedule>,
     /// <p>The Amazon Resource Name (ARN) of the source location for the task.</p>
-    #[serde(rename = "SourceLocationArn")]
+    #[serde(rename = "sourceLocationArn")]
     pub source_location_arn: String,
     /// <p>The key-value pair that represents the tag that you want to add to the resource. The value can be an empty string. </p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
 }
@@ -391,7 +391,7 @@ pub struct CreateTaskRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct CreateTaskResponse {
     /// <p>The Amazon Resource Name (ARN) of the task.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_arn: Option<String>,
 }
@@ -401,7 +401,7 @@ pub struct CreateTaskResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteAgentRequest {
     /// <p>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code> operation to return a list of agents for your account and AWS Region.</p>
-    #[serde(rename = "AgentArn")]
+    #[serde(rename = "agentArn")]
     pub agent_arn: String,
 }
 
@@ -414,7 +414,7 @@ pub struct DeleteAgentResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteLocationRequest {
     /// <p>The Amazon Resource Name (ARN) of the location to delete.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -427,7 +427,7 @@ pub struct DeleteLocationResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DeleteTaskRequest {
     /// <p>The Amazon Resource Name (ARN) of the task to delete.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     pub task_arn: String,
 }
 
@@ -440,7 +440,7 @@ pub struct DeleteTaskResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeAgentRequest {
     /// <p>The Amazon Resource Name (ARN) of the agent to describe.</p>
-    #[serde(rename = "AgentArn")]
+    #[serde(rename = "agentArn")]
     pub agent_arn: String,
 }
 
@@ -449,31 +449,31 @@ pub struct DescribeAgentRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeAgentResponse {
     /// <p>The Amazon Resource Name (ARN) of the agent.</p>
-    #[serde(rename = "AgentArn")]
+    #[serde(rename = "agentArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arn: Option<String>,
     /// <p>The time that the agent was activated (that is, created in your account).</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The type of endpoint that your agent is connected to. If the endpoint is a VPC endpoint, the agent is not accessible over the public internet. </p>
-    #[serde(rename = "EndpointType")]
+    #[serde(rename = "endpointType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub endpoint_type: Option<String>,
     /// <p>The time that the agent last connected to DataSync.</p>
-    #[serde(rename = "LastConnectionTime")]
+    #[serde(rename = "lastConnectionTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last_connection_time: Option<f64>,
     /// <p>The name of the agent.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The subnet and the security group that DataSync used to access a VPC endpoint.</p>
-    #[serde(rename = "PrivateLinkConfig")]
+    #[serde(rename = "privateLinkConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_link_config: Option<PrivateLinkConfig>,
     /// <p>The status of the agent. If the status is ONLINE, then the agent is configured properly and is available to use. The Running status is the normal running status for an agent. If the status is OFFLINE, the agent's VM is turned off or the agent is in an unhealthy state. When the issue that caused the unhealthy state is resolved, the agent returns to ONLINE status.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
 }
@@ -483,7 +483,7 @@ pub struct DescribeAgentResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLocationEfsRequest {
     /// <p>The Amazon Resource Name (ARN) of the EFS location to describe.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -492,18 +492,18 @@ pub struct DescribeLocationEfsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLocationEfsResponse {
     /// <p>The time that the EFS location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
-    #[serde(rename = "Ec2Config")]
+    #[serde(rename = "ec2Config")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ec_2_config: Option<Ec2Config>,
     /// <p>The Amazon Resource Name (ARN) of the EFS location that was described.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p>The URL of the EFS location that was described.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
 }
@@ -512,7 +512,7 @@ pub struct DescribeLocationEfsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLocationFsxWindowsRequest {
     /// <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location to describe.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -520,27 +520,27 @@ pub struct DescribeLocationFsxWindowsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLocationFsxWindowsResponse {
     /// <p>The time that the FSx for Windows File Server location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The name of the Windows domain that the FSx for Windows File Server belongs to.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location that was described.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p>The URL of the FSx for Windows File Server location that was described.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the FSx for Windows File Server file system.</p>
-    #[serde(rename = "SecurityGroupArns")]
+    #[serde(rename = "securityGroupArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_arns: Option<Vec<String>>,
     /// <p>The user who has the permissions to access files and folders in the FSx for Windows File Server file system.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<String>,
 }
@@ -550,7 +550,7 @@ pub struct DescribeLocationFsxWindowsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLocationNfsRequest {
     /// <p>The Amazon Resource Name (ARN) of the NFS location to describe.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -559,22 +559,22 @@ pub struct DescribeLocationNfsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLocationNfsResponse {
     /// <p>The time that the NFS location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the NFS location that was described.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p>The URL of the source NFS location that was described.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The NFS mount options that DataSync used to mount your NFS share.</p>
-    #[serde(rename = "MountOptions")]
+    #[serde(rename = "mountOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_options: Option<NfsMountOptions>,
-    #[serde(rename = "OnPremConfig")]
+    #[serde(rename = "onPremConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_prem_config: Option<OnPremConfig>,
 }
@@ -584,7 +584,7 @@ pub struct DescribeLocationNfsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLocationObjectStorageRequest {
     /// <p>The Amazon Resource Name (ARN) of the self-managed object storage server location that was described.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -593,31 +593,31 @@ pub struct DescribeLocationObjectStorageRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLocationObjectStorageResponse {
     /// <p>Optional. The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name and password, respectively.</p>
-    #[serde(rename = "AccessKey")]
+    #[serde(rename = "accessKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_key: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arns: Option<Vec<String>>,
     /// <p>The time that the self-managed object storage server agent was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the self-managed object storage server location to describe.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p>The URL of the source self-managed object storage server location that was described.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS).</p>
-    #[serde(rename = "ServerPort")]
+    #[serde(rename = "serverPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_port: Option<i64>,
     /// <p>The protocol that the object storage server uses to communicate. Valid values are HTTP or HTTPS.</p>
-    #[serde(rename = "ServerProtocol")]
+    #[serde(rename = "serverProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_protocol: Option<String>,
 }
@@ -627,7 +627,7 @@ pub struct DescribeLocationObjectStorageResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLocationS3Request {
     /// <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket location to describe.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -636,26 +636,26 @@ pub struct DescribeLocationS3Request {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLocationS3Response {
     /// <p>If you are using DataSync on an AWS Outpost, the Amazon Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For more information about launching a DataSync agent on an AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on AWS Outposts</a>.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arns: Option<Vec<String>>,
     /// <p>The time that the Amazon S3 bucket location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket or access point.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p>The URL of the Amazon S3 location that was described.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
-    #[serde(rename = "S3Config")]
+    #[serde(rename = "s3Config")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_config: Option<S3Config>,
     /// <p>The Amazon S3 storage class that you chose to store your files in when this location is used as a task destination. For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage classes have behaviors that can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with S3 storage classes in DataSync</a>.</p>
-    #[serde(rename = "S3StorageClass")]
+    #[serde(rename = "s3StorageClass")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub s3_storage_class: Option<String>,
 }
@@ -665,7 +665,7 @@ pub struct DescribeLocationS3Response {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeLocationSmbRequest {
     /// <p>The Amazon Resource Name (ARN) of the SMB location to describe.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
 }
 
@@ -674,31 +674,31 @@ pub struct DescribeLocationSmbRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeLocationSmbResponse {
     /// <p>The Amazon Resource Name (ARN) of the source SMB file system location that is created.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arns: Option<Vec<String>>,
     /// <p>The time that the SMB location was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The name of the Windows domain that the SMB server belongs to.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the SMB location that was described.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p>The URL of the source SMB location that was described.</p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
     /// <p>The mount options that are available for DataSync to use to access an SMB location.</p>
-    #[serde(rename = "MountOptions")]
+    #[serde(rename = "mountOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_options: Option<SmbMountOptions>,
     /// <p>The user who can mount the share, has the permissions to access files and folders in the SMB share.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<String>,
 }
@@ -708,7 +708,7 @@ pub struct DescribeLocationSmbResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTaskExecutionRequest {
     /// <p>The Amazon Resource Name (ARN) of the task that is being executed.</p>
-    #[serde(rename = "TaskExecutionArn")]
+    #[serde(rename = "taskExecutionArn")]
     pub task_execution_arn: String,
 }
 
@@ -717,50 +717,50 @@ pub struct DescribeTaskExecutionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTaskExecutionResponse {
     /// <p>The physical number of bytes transferred over the network.</p>
-    #[serde(rename = "BytesTransferred")]
+    #[serde(rename = "bytesTransferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_transferred: Option<i64>,
     /// <p>The number of logical bytes written to the destination AWS storage resource.</p>
-    #[serde(rename = "BytesWritten")]
+    #[serde(rename = "bytesWritten")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_written: Option<i64>,
     /// <p>The estimated physical number of bytes that is to be transferred over the network.</p>
-    #[serde(rename = "EstimatedBytesToTransfer")]
+    #[serde(rename = "estimatedBytesToTransfer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_bytes_to_transfer: Option<i64>,
     /// <p>The expected number of files that is to be transferred over the network. This value is calculated during the PREPARING phase, before the TRANSFERRING phase. This value is the expected number of files to be transferred. It's calculated based on comparing the content of the source and destination locations and finding the delta that needs to be transferred. </p>
-    #[serde(rename = "EstimatedFilesToTransfer")]
+    #[serde(rename = "estimatedFilesToTransfer")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub estimated_files_to_transfer: Option<i64>,
     /// <p>A list of filter rules that determines which files to exclude from a task. The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code> </p> <p> </p>
-    #[serde(rename = "Excludes")]
+    #[serde(rename = "excludes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excludes: Option<Vec<FilterRule>>,
     /// <p>The actual number of files that was transferred over the network. This value is calculated and updated on an ongoing basis during the TRANSFERRING phase. It's updated periodically when each file is read from the source and sent over the network. </p> <p>If failures occur during a transfer, this value can be less than <code>EstimatedFilesToTransfer</code>. This value can also be greater than <code>EstimatedFilesTransferred</code> in some cases. This element is implementation-specific for some location types, so don't use it as an indicator for a correct file number or to monitor your task execution.</p>
-    #[serde(rename = "FilesTransferred")]
+    #[serde(rename = "filesTransferred")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub files_transferred: Option<i64>,
     /// <p>A list of filter rules that determines which files to include when running a task. The list should contain a single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code> </p> <p> </p>
-    #[serde(rename = "Includes")]
+    #[serde(rename = "includes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub includes: Option<Vec<FilterRule>>,
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub options: Option<Options>,
     /// <p>The result of the task execution.</p>
-    #[serde(rename = "Result")]
+    #[serde(rename = "result")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub result: Option<TaskExecutionResultDetail>,
     /// <p>The time that the task execution was started.</p>
-    #[serde(rename = "StartTime")]
+    #[serde(rename = "startTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub start_time: Option<f64>,
     /// <p>The status of the task execution. </p> <p>For detailed information about task execution statuses, see Understanding Task Statuses in the <i>AWS DataSync User Guide.</i> </p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the task execution that was described. <code>TaskExecutionArn</code> is hierarchical and includes <code>TaskArn</code> for the task that was executed. </p> <p>For example, a <code>TaskExecution</code> value with the ARN <code>arn:aws:datasync:us-east-1:111222333444:task/task-0208075f79cedf4a2/execution/exec-08ef1e88ec491019b</code> executed the task with the ARN <code>arn:aws:datasync:us-east-1:111222333444:task/task-0208075f79cedf4a2</code>. </p>
-    #[serde(rename = "TaskExecutionArn")]
+    #[serde(rename = "taskExecutionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_execution_arn: Option<String>,
 }
@@ -770,7 +770,7 @@ pub struct DescribeTaskExecutionResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct DescribeTaskRequest {
     /// <p>The Amazon Resource Name (ARN) of the task to describe.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     pub task_arn: String,
 }
 
@@ -779,63 +779,63 @@ pub struct DescribeTaskRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct DescribeTaskResponse {
     /// <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that was used to monitor and log events in the task.</p> <p>For more information on these groups, see Working with Log Groups and Log Streams in the <i>Amazon CloudWatch User Guide</i>.</p>
-    #[serde(rename = "CloudWatchLogGroupArn")]
+    #[serde(rename = "cloudWatchLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_log_group_arn: Option<String>,
     /// <p>The time that the task was created.</p>
-    #[serde(rename = "CreationTime")]
+    #[serde(rename = "creationTime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub creation_time: Option<f64>,
     /// <p>The Amazon Resource Name (ARN) of the task execution that is syncing files.</p>
-    #[serde(rename = "CurrentTaskExecutionArn")]
+    #[serde(rename = "currentTaskExecutionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub current_task_execution_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS storage resource's location.</p>
-    #[serde(rename = "DestinationLocationArn")]
+    #[serde(rename = "destinationLocationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_location_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network Interface) that was created for your subnet.</p>
-    #[serde(rename = "DestinationNetworkInterfaceArns")]
+    #[serde(rename = "destinationNetworkInterfaceArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub destination_network_interface_arns: Option<Vec<String>>,
     /// <p>Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>Detailed description of an error that was encountered during the task execution. You can use this information to help troubleshoot issues. </p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<String>,
     /// <p>A list of filter rules that determines which files to exclude from a task. The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code> </p> <p> </p>
-    #[serde(rename = "Excludes")]
+    #[serde(rename = "excludes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excludes: Option<Vec<FilterRule>>,
     /// <p>The name of the task that was described.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The set of configuration options that control the behavior of a single execution of the task that occurs when you call <code>StartTaskExecution</code>. You can configure these options to preserve metadata such as user ID (UID) and group (GID), file permissions, data integrity verification, and so on.</p> <p>For each individual task execution, you can override these options by specifying the overriding <code>OverrideOptions</code> value to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a> operation. </p>
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub options: Option<Options>,
     /// <p>The schedule used to periodically transfer files from a source to a destination location.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<TaskSchedule>,
     /// <p>The Amazon Resource Name (ARN) of the source file system's location.</p>
-    #[serde(rename = "SourceLocationArn")]
+    #[serde(rename = "sourceLocationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_location_arn: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the source ENIs (Elastic Network Interface) that was created for your subnet.</p>
-    #[serde(rename = "SourceNetworkInterfaceArns")]
+    #[serde(rename = "sourceNetworkInterfaceArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub source_network_interface_arns: Option<Vec<String>>,
     /// <p>The status of the task that was described.</p> <p>For detailed information about task execution statuses, see Understanding Task Statuses in the <i>AWS DataSync User Guide</i>.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the task that was described.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_arn: Option<String>,
 }
@@ -844,10 +844,10 @@ pub struct DescribeTaskResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Ec2Config {
     /// <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.</p>
-    #[serde(rename = "SecurityGroupArns")]
+    #[serde(rename = "securityGroupArns")]
     pub security_group_arns: Vec<String>,
     /// <p>The ARN of the subnet and the security group that DataSync uses to access the target EFS file system.</p>
-    #[serde(rename = "SubnetArn")]
+    #[serde(rename = "subnetArn")]
     pub subnet_arn: String,
 }
 
@@ -855,11 +855,11 @@ pub struct Ec2Config {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct FilterRule {
     /// <p>The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.</p>
-    #[serde(rename = "FilterType")]
+    #[serde(rename = "filterType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter_type: Option<String>,
     /// <p>A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: <code>/folder1|/folder2</code> </p> <p> </p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -869,11 +869,11 @@ pub struct FilterRule {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListAgentsRequest {
     /// <p>The maximum number of agents to list.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An opaque string that indicates the position at which to begin the next list of agents.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -883,11 +883,11 @@ pub struct ListAgentsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListAgentsResponse {
     /// <p>A list of agents in your account.</p>
-    #[serde(rename = "Agents")]
+    #[serde(rename = "agents")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agents: Option<Vec<AgentListEntry>>,
     /// <p>An opaque string that indicates the position at which to begin returning the next list of agents.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -897,15 +897,15 @@ pub struct ListAgentsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListLocationsRequest {
     /// <p>You can use API filters to narrow down the list of resources returned by <code>ListLocations</code>. For example, to retrieve all tasks on a specific source location, you can use <code>ListLocations</code> with filter name <code>LocationType S3</code> and <code>Operator Equals</code>.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<LocationFilter>>,
     /// <p>The maximum number of locations to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An opaque string that indicates the position at which to begin the next list of locations.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -915,11 +915,11 @@ pub struct ListLocationsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListLocationsResponse {
     /// <p>An array that contains a list of locations.</p>
-    #[serde(rename = "Locations")]
+    #[serde(rename = "locations")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub locations: Option<Vec<LocationListEntry>>,
     /// <p>An opaque string that indicates the position at which to begin returning the next list of locations.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -929,15 +929,15 @@ pub struct ListLocationsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTagsForResourceRequest {
     /// <p>The maximum number of locations to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An opaque string that indicates the position at which to begin the next list of locations.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the resource whose tags to list.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -946,11 +946,11 @@ pub struct ListTagsForResourceRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTagsForResourceResponse {
     /// <p>An opaque string that indicates the position at which to begin returning the next list of resource tags.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Array of resource tags.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<TagListEntry>>,
 }
@@ -960,15 +960,15 @@ pub struct ListTagsForResourceResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTaskExecutionsRequest {
     /// <p>The maximum number of executed tasks to list.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An opaque string that indicates the position at which to begin the next list of the executed tasks.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_arn: Option<String>,
 }
@@ -978,11 +978,11 @@ pub struct ListTaskExecutionsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTaskExecutionsResponse {
     /// <p>An opaque string that indicates the position at which to begin returning the next list of executed tasks.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of executed tasks.</p>
-    #[serde(rename = "TaskExecutions")]
+    #[serde(rename = "taskExecutions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_executions: Option<Vec<TaskExecutionListEntry>>,
 }
@@ -992,15 +992,15 @@ pub struct ListTaskExecutionsResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct ListTasksRequest {
     /// <p>You can use API filters to narrow down the list of resources returned by <code>ListTasks</code>. For example, to retrieve all tasks on a specific source location, you can use <code>ListTasks</code> with filter name <code>LocationId</code> and <code>Operator Equals</code> with the ARN for the location.</p>
-    #[serde(rename = "Filters")]
+    #[serde(rename = "filters")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<TaskFilter>>,
     /// <p>The maximum number of tasks to return.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>An opaque string that indicates the position at which to begin the next list of tasks.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
@@ -1010,11 +1010,11 @@ pub struct ListTasksRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct ListTasksResponse {
     /// <p>An opaque string that indicates the position at which to begin returning the next list of tasks.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>A list of all the tasks that are returned.</p>
-    #[serde(rename = "Tasks")]
+    #[serde(rename = "tasks")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tasks: Option<Vec<TaskListEntry>>,
 }
@@ -1024,13 +1024,13 @@ pub struct ListTasksResponse {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct LocationFilter {
     /// <p>The name of the filter being used. Each API call supports a list of filters that are available for it (for example, <code>LocationType</code> for <code>ListLocations</code>).</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The operator that is used to compare filter values (for example, <code>Equals</code> or <code>Contains</code>). For more about API filtering operators, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">API filters for ListTasks and ListLocations</a>.</p>
-    #[serde(rename = "Operator")]
+    #[serde(rename = "operator")]
     pub operator: String,
     /// <p>The values that you want to filter for. For example, you might want to display only Amazon S3 locations.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -1039,11 +1039,11 @@ pub struct LocationFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct LocationListEntry {
     /// <p>The Amazon Resource Name (ARN) of the location. For Network File System (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the location is the prefix path that you want to mount and use as the root of the location.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_arn: Option<String>,
     /// <p><p>Represents a list of URLs of a location. <code>LocationUri</code> returns an array that contains a list of locations when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a> operation is called.</p> <p>Format: <code>TYPE://GLOBAL<em>ID/SUBDIR</code>.</p> <p>TYPE designates the type of location. Valid values: NFS | EFS | S3.</p> <p>GLOBAL</em>ID is the globally unique identifier of the resource that backs the location. An example for EFS is <code>us-east-2.fs-abcd1234</code>. An example for Amazon S3 is the bucket name, such as <code>myBucket</code>. An example for NFS is a valid IPv4 address or a host name compliant with Domain Name Service (DNS).</p> <p>SUBDIR is a valid file system path, delimited by forward slashes as is the *nix convention. For NFS and Amazon EFS, it&#39;s the export path to mount the location. For Amazon S3, it&#39;s the prefix path that you mount to and treat as the root of the location.</p> <p/></p>
-    #[serde(rename = "LocationUri")]
+    #[serde(rename = "locationUri")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub location_uri: Option<String>,
 }
@@ -1052,7 +1052,7 @@ pub struct LocationListEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct NfsMountOptions {
     /// <p><p>The specific NFS version that you want DataSync to use to mount your NFS share. If the server refuses to use the version specified, the sync will fail. If you don&#39;t specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync automatically selects a version based on negotiation with the NFS server.</p> <p>You can specify the following NFS versions:</p> <ul> <li> <p> <b> <a href="https://tools.ietf.org/html/rfc1813">NFSv3</a> </b> - stateless protocol version that allows for asynchronous writes on the server.</p> </li> <li> <p> <b> <a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a> </b> - stateful, firewall-friendly protocol version that supports delegations and pseudo filesystems.</p> </li> <li> <p> <b> <a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a> </b> - stateful protocol version that supports sessions, directory delegations, and parallel data processing. Version 4.1 also includes all features available in version 4.0.</p> </li> </ul></p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1061,7 +1061,7 @@ pub struct NfsMountOptions {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct OnPremConfig {
     /// <p>ARNs of the agents to use for an NFS location.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     pub agent_arns: Vec<String>,
 }
 
@@ -1069,59 +1069,59 @@ pub struct OnPremConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Options {
     /// <p><p>A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to). If you set <code>Atime</code> to BEST<em>EFFORT, DataSync attempts to preserve the original <code>Atime</code> attribute on all source files (that is, the version before the PREPARING phase). However, <code>Atime</code>&#39;s behavior is not fully standard across platforms, so AWS DataSync can only do this on a best-effort basis. </p> <p>Default value: BEST</em>EFFORT.</p> <p>BEST<em>EFFORT: Attempt to preserve the per-file <code>Atime</code> value (recommended).</p> <p>NONE: Ignore <code>Atime</code>.</p> <note> <p>If <code>Atime</code> is set to BEST</em>EFFORT, <code>Mtime</code> must be set to PRESERVE. </p> <p>If <code>Atime</code> is set to NONE, <code>Mtime</code> must also be NONE. </p> </note></p>
-    #[serde(rename = "Atime")]
+    #[serde(rename = "atime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub atime: Option<String>,
     /// <p>A value that limits the bandwidth used by AWS DataSync. For example, if you want AWS DataSync to use a maximum of 1 MB, set this value to <code>1048576</code> (<code>=1024*1024</code>).</p>
-    #[serde(rename = "BytesPerSecond")]
+    #[serde(rename = "bytesPerSecond")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bytes_per_second: Option<i64>,
     /// <p>The POSIX group ID (GID) of the file's owners. This option should only be set for NFS, EFS, and S3 locations. For more information about what metadata is copied by DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>. </p> <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p> <p>INT_VALUE: Preserve the integer value of user ID (UID) and GID (recommended).</p> <p>NONE: Ignore UID and GID. </p>
-    #[serde(rename = "Gid")]
+    #[serde(rename = "gid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub gid: Option<String>,
     /// <p>A value that determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. For more information about providing a log group for DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn">CloudWatchLogGroupArn</a>. If set to <code>OFF</code>, no logs are published. <code>BASIC</code> publishes logs on errors for individual files transferred, and <code>TRANSFER</code> publishes logs for every file or object that is transferred and integrity checked.</p>
-    #[serde(rename = "LogLevel")]
+    #[serde(rename = "logLevel")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub log_level: Option<String>,
     /// <p><p>A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase. This option is required for cases when you need to run the same task more than one time. </p> <p>Default value: PRESERVE. </p> <p>PRESERVE: Preserve original <code>Mtime</code> (recommended)</p> <p> NONE: Ignore <code>Mtime</code>. </p> <note> <p>If <code>Mtime</code> is set to PRESERVE, <code>Atime</code> must be set to BEST_EFFORT.</p> <p>If <code>Mtime</code> is set to NONE, <code>Atime</code> must also be set to NONE. </p> </note></p>
-    #[serde(rename = "Mtime")]
+    #[serde(rename = "mtime")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mtime: Option<String>,
     /// <p>A value that determines whether files at the destination should be overwritten or preserved when copying files. If set to <code>NEVER</code> a destination file will not be replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes. </p> <p>Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a> in the <i>AWS DataSync User Guide</i>.</p>
-    #[serde(rename = "OverwriteMode")]
+    #[serde(rename = "overwriteMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub overwrite_mode: Option<String>,
     /// <p><p>A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. This option should only be set for NFS, EFS, and S3 locations. For more information about what metadata is copied by DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>. </p> <p>Default value: PRESERVE.</p> <p>PRESERVE: Preserve POSIX-style permissions (recommended).</p> <p>NONE: Ignore permissions. </p> <note> <p>AWS DataSync can preserve extant permissions of a source location.</p> </note></p>
-    #[serde(rename = "PosixPermissions")]
+    #[serde(rename = "posixPermissions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub posix_permissions: Option<String>,
     /// <p>A value that specifies whether files in the destination that don't exist in the source file system should be preserved. This option can affect your storage cost. If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a> in the <i>AWS DataSync User Guide</i>.</p> <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in the source.</p>
-    #[serde(rename = "PreserveDeletedFiles")]
+    #[serde(rename = "preserveDeletedFiles")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preserve_deleted_files: Option<String>,
     /// <p>A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and re-create the files with that device name and metadata on the destination. DataSync does not copy the contents of such devices, only the name and metadata. </p> <note> <p>AWS DataSync can't sync the actual contents of such devices, because they are nonterminal and don't return an end-of-file (EOF) marker.</p> </note> <p>Default value: NONE.</p> <p>NONE: Ignore special devices (recommended). </p> <p>PRESERVE: Preserve character and block device metadata. This option isn't currently supported for Amazon EFS. </p>
-    #[serde(rename = "PreserveDevices")]
+    #[serde(rename = "preserveDevices")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub preserve_devices: Option<String>,
     /// <p>A value that determines which components of the SMB security descriptor are copied from source to destination objects. </p> <p>This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. For more information about how DataSync handles metadata, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html">How DataSync Handles Metadata and Special Files</a>. </p> <p>Default value: OWNER_DACL.</p> <p> <b>OWNER_DACL</b>: For each copied object, DataSync copies the following metadata:</p> <ul> <li> <p>Object owner.</p> </li> <li> <p>NTFS discretionary access control lists (DACLs), which determine whether to grant access to an object.</p> </li> </ul> <p>When choosing this option, DataSync does NOT copy the NTFS system access control lists (SACLs), which are used by administrators to log attempts to access a secured object.</p> <p> <b>OWNER_DACL_SACL</b>: For each copied object, DataSync copies the following metadata:</p> <ul> <li> <p>Object owner.</p> </li> <li> <p>NTFS discretionary access control lists (DACLs), which determine whether to grant access to an object.</p> </li> <li> <p>NTFS system access control lists (SACLs), which are used by administrators to log attempts to access a secured object.</p> </li> </ul> <p>Copying SACLs requires granting additional permissions to the Windows user that DataSync uses to access your SMB location. For information about choosing a user that ensures sufficient permissions to files, folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p> <p> <b>NONE</b>: None of the SMB security descriptor components are copied. Destination objects are owned by the user that was provided for accessing the destination location. DACLs and SACLs are set based on the destination server’s configuration. </p>
-    #[serde(rename = "SecurityDescriptorCopyFlags")]
+    #[serde(rename = "securityDescriptorCopyFlags")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_descriptor_copy_flags: Option<String>,
     /// <p>A value that determines whether tasks should be queued before executing the tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks, you can enable the tasks to run in series. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution">Queueing task executions</a>.</p>
-    #[serde(rename = "TaskQueueing")]
+    #[serde(rename = "taskQueueing")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_queueing: Option<String>,
     /// <p>A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. </p> <p>CHANGED: DataSync copies only data or metadata that is new or different content from the source location to the destination location.</p> <p>ALL: DataSync copies all source location content to the destination, without comparing to existing content on the destination.</p>
-    #[serde(rename = "TransferMode")]
+    #[serde(rename = "transferMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transfer_mode: Option<String>,
     /// <p>The POSIX user ID (UID) of the file's owner. This option should only be set for NFS, EFS, and S3 locations. To learn more about what metadata is copied by DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>.</p> <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p> <p>INT_VALUE: Preserve the integer value of UID and group ID (GID) (recommended).</p> <p>NONE: Ignore UID and GID. </p>
-    #[serde(rename = "Uid")]
+    #[serde(rename = "uid")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uid: Option<String>,
     /// <p>A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure task settings</a>. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p> <p>ONLY_FILES_TRANSFERRED (recommended): Perform verification only on files that were transferred. </p> <p>POINT_IN_TIME_CONSISTENT: Scan the entire source and entire destination at the end of the transfer to verify that source and destination are fully synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier Deep Archive storage classes.</p> <p>NONE: No additional verification is done at the end of the transfer, but all data transmissions are integrity-checked with checksum verification during the transfer.</p>
-    #[serde(rename = "VerifyMode")]
+    #[serde(rename = "verifyMode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verify_mode: Option<String>,
 }
@@ -1131,19 +1131,19 @@ pub struct Options {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct PrivateLinkConfig {
     /// <p>The private endpoint that is configured for an agent that has access to IP addresses in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">PrivateLink</a>. An agent that is configured with this endpoint will not be accessible over the public internet.</p>
-    #[serde(rename = "PrivateLinkEndpoint")]
+    #[serde(rename = "privateLinkEndpoint")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub private_link_endpoint: Option<String>,
     /// <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the EC2 resource that hosts an agent activated in a VPC or an agent that has access to a VPC endpoint.</p>
-    #[serde(rename = "SecurityGroupArns")]
+    #[serde(rename = "securityGroupArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub security_group_arns: Option<Vec<String>>,
     /// <p>The Amazon Resource Names (ARNs) of the subnets that are configured for an agent activated in a VPC or an agent that has access to a VPC endpoint.</p>
-    #[serde(rename = "SubnetArns")]
+    #[serde(rename = "subnetArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subnet_arns: Option<Vec<String>>,
     /// <p>The ID of the VPC endpoint that is configured for an agent. An agent that is configured with a VPC endpoint will not be accessible over the public internet.</p>
-    #[serde(rename = "VpcEndpointId")]
+    #[serde(rename = "vpcEndpointId")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vpc_endpoint_id: Option<String>,
 }
@@ -1152,7 +1152,7 @@ pub struct PrivateLinkConfig {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct S3Config {
     /// <p>The Amazon S3 bucket to access. This bucket is used as a parameter in the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html">CreateLocationS3</a> operation. </p>
-    #[serde(rename = "BucketAccessRoleArn")]
+    #[serde(rename = "bucketAccessRoleArn")]
     pub bucket_access_role_arn: String,
 }
 
@@ -1160,7 +1160,7 @@ pub struct S3Config {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct SmbMountOptions {
     /// <p>The specific SMB version that you want DataSync to use to mount your SMB share. If you don't specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync automatically selects a version based on negotiation with the SMB server.</p>
-    #[serde(rename = "Version")]
+    #[serde(rename = "version")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 }
@@ -1170,14 +1170,14 @@ pub struct SmbMountOptions {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct StartTaskExecutionRequest {
     /// <p>A list of filter rules that determines which files to include when running a task. The pattern should contain a single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe). For example: <code>"/folder1|/folder2"</code> </p> <p> </p>
-    #[serde(rename = "Includes")]
+    #[serde(rename = "includes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub includes: Option<Vec<FilterRule>>,
-    #[serde(rename = "OverrideOptions")]
+    #[serde(rename = "overrideOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub override_options: Option<Options>,
     /// <p>The Amazon Resource Name (ARN) of the task to start.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     pub task_arn: String,
 }
 
@@ -1186,7 +1186,7 @@ pub struct StartTaskExecutionRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct StartTaskExecutionResponse {
     /// <p>The Amazon Resource Name (ARN) of the specific task execution that was started.</p>
-    #[serde(rename = "TaskExecutionArn")]
+    #[serde(rename = "taskExecutionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_execution_arn: Option<String>,
 }
@@ -1195,10 +1195,10 @@ pub struct StartTaskExecutionResponse {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TagListEntry {
     /// <p>The key for an AWS resource tag.</p>
-    #[serde(rename = "Key")]
+    #[serde(rename = "key")]
     pub key: String,
     /// <p>The value for an AWS resource tag.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
 }
@@ -1208,10 +1208,10 @@ pub struct TagListEntry {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TagResourceRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource to apply the tag to.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
     /// <p>The tags to apply.</p>
-    #[serde(rename = "Tags")]
+    #[serde(rename = "tags")]
     pub tags: Vec<TagListEntry>,
 }
 
@@ -1224,11 +1224,11 @@ pub struct TagResourceResponse {}
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaskExecutionListEntry {
     /// <p>The status of a task execution.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the task that was executed.</p>
-    #[serde(rename = "TaskExecutionArn")]
+    #[serde(rename = "taskExecutionArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_execution_arn: Option<String>,
 }
@@ -1238,39 +1238,39 @@ pub struct TaskExecutionListEntry {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaskExecutionResultDetail {
     /// <p>Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.</p>
-    #[serde(rename = "ErrorCode")]
+    #[serde(rename = "errorCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     /// <p>Detailed description of an error that was encountered during the task execution. You can use this information to help troubleshoot issues. </p>
-    #[serde(rename = "ErrorDetail")]
+    #[serde(rename = "errorDetail")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error_detail: Option<String>,
     /// <p>The total time in milliseconds that AWS DataSync spent in the PREPARING phase. </p>
-    #[serde(rename = "PrepareDuration")]
+    #[serde(rename = "prepareDuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prepare_duration: Option<i64>,
     /// <p>The status of the PREPARING phase.</p>
-    #[serde(rename = "PrepareStatus")]
+    #[serde(rename = "prepareStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub prepare_status: Option<String>,
     /// <p>The total time in milliseconds that AWS DataSync took to transfer the file from the source to the destination location.</p>
-    #[serde(rename = "TotalDuration")]
+    #[serde(rename = "totalDuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_duration: Option<i64>,
     /// <p>The total time in milliseconds that AWS DataSync spent in the TRANSFERRING phase.</p>
-    #[serde(rename = "TransferDuration")]
+    #[serde(rename = "transferDuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transfer_duration: Option<i64>,
     /// <p>The status of the TRANSFERRING phase.</p>
-    #[serde(rename = "TransferStatus")]
+    #[serde(rename = "transferStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub transfer_status: Option<String>,
     /// <p>The total time in milliseconds that AWS DataSync spent in the VERIFYING phase.</p>
-    #[serde(rename = "VerifyDuration")]
+    #[serde(rename = "verifyDuration")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verify_duration: Option<i64>,
     /// <p>The status of the VERIFYING phase.</p>
-    #[serde(rename = "VerifyStatus")]
+    #[serde(rename = "verifyStatus")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verify_status: Option<String>,
 }
@@ -1280,13 +1280,13 @@ pub struct TaskExecutionResultDetail {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct TaskFilter {
     /// <p>The name of the filter being used. Each API call supports a list of filters that are available for it. For example, <code>LocationId</code> for <code>ListTasks</code>.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     pub name: String,
     /// <p>The operator that is used to compare filter values (for example, <code>Equals</code> or <code>Contains</code>). For more about API filtering operators, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">API filters for ListTasks and ListLocations</a>.</p>
-    #[serde(rename = "Operator")]
+    #[serde(rename = "operator")]
     pub operator: String,
     /// <p>The values that you want to filter for. For example, you might want to display only tasks for a specific destination location.</p>
-    #[serde(rename = "Values")]
+    #[serde(rename = "values")]
     pub values: Vec<String>,
 }
 
@@ -1295,15 +1295,15 @@ pub struct TaskFilter {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct TaskListEntry {
     /// <p>The name of the task.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// <p>The status of the task.</p>
-    #[serde(rename = "Status")]
+    #[serde(rename = "status")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the task.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub task_arn: Option<String>,
 }
@@ -1312,7 +1312,7 @@ pub struct TaskListEntry {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct TaskSchedule {
     /// <p>A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location. </p>
-    #[serde(rename = "ScheduleExpression")]
+    #[serde(rename = "scheduleExpression")]
     pub schedule_expression: String,
 }
 
@@ -1321,10 +1321,10 @@ pub struct TaskSchedule {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UntagResourceRequest {
     /// <p>The keys in the key-value pair in the tag to remove.</p>
-    #[serde(rename = "Keys")]
+    #[serde(rename = "keys")]
     pub keys: Vec<String>,
     /// <p>The Amazon Resource Name (ARN) of the resource to remove the tag from.</p>
-    #[serde(rename = "ResourceArn")]
+    #[serde(rename = "resourceArn")]
     pub resource_arn: String,
 }
 
@@ -1337,10 +1337,10 @@ pub struct UntagResourceResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateAgentRequest {
     /// <p>The Amazon Resource Name (ARN) of the agent to update.</p>
-    #[serde(rename = "AgentArn")]
+    #[serde(rename = "agentArn")]
     pub agent_arn: String,
     /// <p>The name that you want to use to configure the agent.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
@@ -1353,16 +1353,16 @@ pub struct UpdateAgentResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLocationNfsRequest {
     /// <p>The Amazon Resource Name (ARN) of the NFS location to update.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
-    #[serde(rename = "MountOptions")]
+    #[serde(rename = "mountOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_options: Option<NfsMountOptions>,
-    #[serde(rename = "OnPremConfig")]
+    #[serde(rename = "onPremConfig")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on_prem_config: Option<OnPremConfig>,
     /// <p>The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination. The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network.</p> <p>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>" from an NFS client that has access to your server. You can specify any directory that appears in the results, and any subdirectory of that directory. Ensure that the NFS export is accessible without Kerberos authentication. </p> <p>To transfer all the data in the folder that you specified, DataSync must have permissions to read all the data. To ensure this, either configure the NFS export with <code>no_root_squash</code>, or ensure that the files you want DataSync to access have permissions that allow read access for all users. Doing either option enables the agent to read the files. For the agent to access directories, you must additionally enable all execute access.</p> <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p> <p>For information about NFS export configuration, see 18.7. The /etc/exports Configuration File in the Red Hat Enterprise Linux documentation.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
 }
@@ -1375,30 +1375,30 @@ pub struct UpdateLocationNfsResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLocationObjectStorageRequest {
     /// <p>Optional. The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name and password, respectively.</p>
-    #[serde(rename = "AccessKey")]
+    #[serde(rename = "accessKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub access_key: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arns: Option<Vec<String>>,
     /// <p>The Amazon Resource Name (ARN) of the self-managed object storage server location to be updated.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
     /// <p>Optional. The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name and password, respectively.</p>
-    #[serde(rename = "SecretKey")]
+    #[serde(rename = "secretKey")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub secret_key: Option<String>,
     /// <p>The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.</p>
-    #[serde(rename = "ServerPort")]
+    #[serde(rename = "serverPort")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_port: Option<i64>,
     /// <p>The protocol that the object storage server uses to communicate. Valid values are <code>HTTP</code> or <code>HTTPS</code>.</p>
-    #[serde(rename = "ServerProtocol")]
+    #[serde(rename = "serverProtocol")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub server_protocol: Option<String>,
     /// <p>The subdirectory in the self-managed object storage server that is used to read data from.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
 }
@@ -1411,29 +1411,29 @@ pub struct UpdateLocationObjectStorageResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateLocationSmbRequest {
     /// <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.</p>
-    #[serde(rename = "AgentArns")]
+    #[serde(rename = "agentArns")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub agent_arns: Option<Vec<String>>,
     /// <p>The name of the Windows domain that the SMB server belongs to.</p>
-    #[serde(rename = "Domain")]
+    #[serde(rename = "domain")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
     /// <p>The Amazon Resource Name (ARN) of the SMB location to update.</p>
-    #[serde(rename = "LocationArn")]
+    #[serde(rename = "locationArn")]
     pub location_arn: String,
-    #[serde(rename = "MountOptions")]
+    #[serde(rename = "mountOptions")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mount_options: Option<SmbMountOptions>,
     /// <p>The password of the user who can mount the share has the permissions to access files and folders in the SMB share.</p>
-    #[serde(rename = "Password")]
+    #[serde(rename = "password")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub password: Option<String>,
     /// <p>The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination. The SMB path should be a path that's exported by the SMB server, or a subdirectory of that path. The path should be such that it can be mounted by other SMB clients in your network.</p> <note> <p> <code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</p> </note> <p>To transfer all the data in the folder that you specified, DataSync must have permissions to mount the SMB share and to access all the data in that share. To ensure this, do either of the following:</p> <ul> <li> <p>Ensure that the user/password specified belongs to the user who can mount the share and who has the appropriate permissions for all of the files and directories that you want DataSync to access.</p> </li> <li> <p>Use credentials of a member of the Backup Operators group to mount the share. </p> </li> </ul> <p>Doing either of these options enables the agent to access the data. For the agent to access directories, you must also enable all execute access.</p>
-    #[serde(rename = "Subdirectory")]
+    #[serde(rename = "subdirectory")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subdirectory: Option<String>,
     /// <p>The user who can mount the share has the permissions to access files and folders in the SMB share.</p>
-    #[serde(rename = "User")]
+    #[serde(rename = "user")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub user: Option<String>,
 }
@@ -1445,10 +1445,10 @@ pub struct UpdateLocationSmbResponse {}
 #[derive(Clone, Debug, Default, PartialEq, Serialize)]
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTaskExecutionRequest {
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     pub options: Options,
     /// <p>The Amazon Resource Name (ARN) of the specific task execution that is being updated. </p>
-    #[serde(rename = "TaskExecutionArn")]
+    #[serde(rename = "taskExecutionArn")]
     pub task_execution_arn: String,
 }
 
@@ -1461,26 +1461,26 @@ pub struct UpdateTaskExecutionResponse {}
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct UpdateTaskRequest {
     /// <p>The Amazon Resource Name (ARN) of the resource name of the CloudWatch LogGroup.</p>
-    #[serde(rename = "CloudWatchLogGroupArn")]
+    #[serde(rename = "cloudWatchLogGroupArn")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cloud_watch_log_group_arn: Option<String>,
     /// <p>A list of filter rules that determines which files to exclude from a task. The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code> </p> <p> </p>
-    #[serde(rename = "Excludes")]
+    #[serde(rename = "excludes")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub excludes: Option<Vec<FilterRule>>,
     /// <p>The name of the task to update.</p>
-    #[serde(rename = "Name")]
+    #[serde(rename = "name")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    #[serde(rename = "Options")]
+    #[serde(rename = "options")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub options: Option<Options>,
     /// <p>Specifies a schedule used to periodically transfer files from a source to a destination location. You can configure your task to execute hourly, daily, weekly or on specific days of the week. You control when in the day or hour you want the task to execute. The time you specify is UTC time. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your task</a>.</p>
-    #[serde(rename = "Schedule")]
+    #[serde(rename = "schedule")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub schedule: Option<TaskSchedule>,
     /// <p>The Amazon Resource Name (ARN) of the resource name of the task to update.</p>
-    #[serde(rename = "TaskArn")]
+    #[serde(rename = "taskArn")]
     pub task_arn: String,
 }
 

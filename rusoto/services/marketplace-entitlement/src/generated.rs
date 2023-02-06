@@ -57,23 +57,23 @@ use serde_json;
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct Entitlement {
     /// <p>The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.</p>
-    #[serde(rename = "CustomerIdentifier")]
+    #[serde(rename = "customerIdentifier")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub customer_identifier: Option<String>,
     /// <p>The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.</p>
-    #[serde(rename = "Dimension")]
+    #[serde(rename = "dimension")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dimension: Option<String>,
     /// <p>The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.</p>
-    #[serde(rename = "ExpirationDate")]
+    #[serde(rename = "expirationDate")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub expiration_date: Option<f64>,
     /// <p>The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.</p>
-    #[serde(rename = "ProductCode")]
+    #[serde(rename = "productCode")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub product_code: Option<String>,
     /// <p>The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.</p>
-    #[serde(rename = "Value")]
+    #[serde(rename = "value")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub value: Option<EntitlementValue>,
 }
@@ -83,19 +83,19 @@ pub struct Entitlement {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct EntitlementValue {
     /// <p>The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.</p>
-    #[serde(rename = "BooleanValue")]
+    #[serde(rename = "booleanValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub boolean_value: Option<bool>,
     /// <p>The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.</p>
-    #[serde(rename = "DoubleValue")]
+    #[serde(rename = "doubleValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub double_value: Option<f64>,
     /// <p>The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.</p>
-    #[serde(rename = "IntegerValue")]
+    #[serde(rename = "integerValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub integer_value: Option<i64>,
     /// <p>The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set.</p>
-    #[serde(rename = "StringValue")]
+    #[serde(rename = "stringValue")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub string_value: Option<String>,
 }
@@ -105,19 +105,19 @@ pub struct EntitlementValue {
 #[cfg_attr(feature = "deserialize_structs", derive(Deserialize))]
 pub struct GetEntitlementsRequest {
     /// <p>Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i> for each value in the value list, and then <i>intersected</i> for each filter key.</p>
-    #[serde(rename = "Filter")]
+    #[serde(rename = "filter")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<::std::collections::HashMap<String, Vec<String>>>,
     /// <p>The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
-    #[serde(rename = "MaxResults")]
+    #[serde(rename = "maxResults")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_results: Option<i64>,
     /// <p>For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
     /// <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.</p>
-    #[serde(rename = "ProductCode")]
+    #[serde(rename = "productCode")]
     pub product_code: String,
 }
 
@@ -126,11 +126,11 @@ pub struct GetEntitlementsRequest {
 #[cfg_attr(any(test, feature = "serialize_structs"), derive(Serialize))]
 pub struct GetEntitlementsResult {
     /// <p>The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used.</p>
-    #[serde(rename = "Entitlements")]
+    #[serde(rename = "entitlements")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub entitlements: Option<Vec<Entitlement>>,
     /// <p>For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used.</p>
-    #[serde(rename = "NextToken")]
+    #[serde(rename = "nextToken")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next_token: Option<String>,
 }
