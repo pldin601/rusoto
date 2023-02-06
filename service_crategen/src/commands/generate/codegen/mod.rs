@@ -706,7 +706,7 @@ fn generate_struct_fields<P: GenerateProtocol>(
         }
 
         if serde_attrs {
-            lines.push(format!("#[serde(rename=\"{}\")]", member_name));
+            lines.push(format!("#[serde(rename=\"{}{}\")]", member_name[0..1].to_lowercase(), &member_name[1..]));
 
             if let Some(member_shape) = service.shape_for_member(member) {
                 if member_shape.shape_type == ShapeType::Blob {
